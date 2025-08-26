@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Inform 6 Reference Addendum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body {
+  font-family: 'Source Serif Pro', Georgia, serif;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+h4, h5 {
+  font-size: 1.0em;
+  margin-bottom: 1.0em;
+}
+.VersionHeader, .AuthorHeader, .DateHeader {
+  font-style: italic;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 2em;
+}
+code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9em;
+}
+pre {
+  padding-left: 2em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  white-space: pre-wrap;
+}
+.DefFun {
+  background: #FEB;
+}
+.CommentPara {
+  margin-left: 2em;
+}
+.Comment {
+  color: #0A0;
+  font-style: italic;
+}
+.Comment em {
+  font-style: normal;
+}
+.CommentCode {
+  white-space: pre-wrap;
+}
+a {
+  color: #00C;
+}
+.Comment a {
+  color: #08B;
+}
+ul {
+  list-style: none;
+  padding-left: 1.8em;
+  text-indent: -0.8em;
+}
+ul li:before {
+  content: "\00B7\00A0\00A0";
+}
+.toc {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", serif;
+  margin-left: 1em;
+}
+.toc ul {
+  padding-left: 1em;
+  text-indent: 0px;
+}
+.toc li:before {
+  content: none;
+}
+
+@font-face {
+  font-family: "Source Serif Pro";
+  font-weight: normal;
+  font-style: normal;
+  src: url("font/SourceSerifPro-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif Pro";
+  font-weight: bold;
+  font-style: normal;
+  src: url("font/SourceSerifPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-style: normal;
+  src: url("font/SourceSansPro-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  font-style: normal;
+  src: url("font/SourceSansPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: normal;
+  font-style: normal;
+  src: url("font/SourceCodePro-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: bold;
+  font-style: normal;
+  src: url("font/SourceCodePro-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: normal;
+  font-style: italic;
+  src: url("font/SourceCodePro-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-weight: bold;
+  font-style: italic;
+  src: url("font/SourceCodePro-BoldItalic.ttf") format("truetype");
+}
+
+</style>
+
+</head>
+<body>
+<h1 class="Title" id="inform-6-reference-addendum">Inform 6 Reference Addendum</h1>
+<p class="VersionHeader">Language and compiler changes: releases 6.30 to 6.43</p>
+<p class="AuthorHeader">Maintained by IFTF: <code>&lt;specs@ifarchive.org&gt;</code></p>
+<p class="DateHeader">(Last update: August 8, 2025)</p>
+<p>Copyright 2020-2025 by the Interactive Fiction Technology Foundation. This document is licenced under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p>Graham Nelson's <a href="https://ifarchive.org/indexes/if-archive/infocom/compilers/inform6/">Inform 6</a> is a system for creating adventure games, and <em><a href="https://www.inform-fiction.org/manual/html/contents.html">The Inform Designer's Manual</a></em> is the book to read about it.</p>
+<p>The fourth edition of that manual, published in 2001, began with that
+ assertion. It's still true -- although these days we have to specify 
+that it's about Inform <em>6</em>. (<a href="http://inform7.com/">Inform 7</a> is a more modern system, quite different, with its own manual called <em><a href="http://inform7.com/book/WI_1_1.html">Writing With Inform</a></em>.) </p>
+<p>Inform 6 has remained broadly unchanged in the twenty years since the
+ DM4 was published. While some authors continue to use I6 directly, its 
+primary use is as an intermediate stage for the Inform 7 compiler. 
+Stability and reliability have therefore been the watchwords of the I6 
+maintainers.</p>
+<p>However, the language has not remained completely static. Most 
+notably, the compiler now supports the Glulx VM as well as the original 
+Z-machine. This required some additions to both the language and the 
+compiler. Other corners of the system have been polished and rearranged,
+ with the aim of making Inform a more flexible tool for both its target 
+platforms.</p>
+<p>As a result, the DM4 is now a bit out of date. This document is meant to fill in the gaps for the Inform 6 user of today.</p>
+<hr>
+<div class="toc">
+<ul>
+<li><a href="#inform-6-reference-addendum">Inform 6 Reference Addendum</a><ul>
+<li><a href="#i6-version-history">I6 version history</a></li>
+<li><a href="#language-versus-library">Language versus library</a></li>
+</ul>
+</li>
+<li><a href="#compiler-options-and-settings">Compiler options and settings</a><ul>
+<li><a href="#supplying-options">Supplying options</a></li>
+<li><a href="#switchopts">Switch options (dash)</a></li>
+<li><a href="#path-options-plus">Path options (plus)</a></li>
+<li><a href="#memsettings">Compiler settings (dollar)</a></li>
+<li><a href="#traceopts">Trace options</a></li>
+</ul>
+</li>
+<li><a href="#language-changes">Language changes</a><ul>
+<li><a href="#directives">Directives</a></li>
+<li><a href="#statements">Statements</a></li>
+<li><a href="#dynamic-strings">Dynamic strings</a></li>
+<li><a href="#dictionary-words">Dictionary words</a></li>
+<li><a href="#constants">Constants</a></li>
+<li><a href="#operators">Operators</a><ul>
+<li><a href="#logical-precedence">Logical precedence</a></li>
+<li><a href="#the-or-operator">The or operator</a></li>
+</ul>
+</li>
+<li><a href="#class-behavior">Class behavior</a><ul>
+<li><a href="#inheritance">Inheritance</a></li>
+<li><a href="#class-copy-and-recreate">Class copy and recreate</a></li>
+</ul>
+</li>
+<li><a href="#glulx-support">Glulx support</a><ul>
+<li><a href="#language-features-supported-only-in-glulx">Language features supported only in Glulx</a></li>
+<li><a href="#language-features-not-supported-in-glulx">Language features not supported in Glulx</a></li>
+</ul>
+</li>
+<li><a href="#z-machine-v34-limitations">Z-machine V3/4 limitations</a></li>
+</ul>
+</li>
+<li><a href="#grammarformat">Grammar table formats</a></li>
+<li><a href="#debugformat">Debug file format</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#the-top-level">The top level</a></li>
+<li><a href="#story-file-prefix">Story file prefix</a></li>
+<li><a href="#story-file-sections">Story file sections</a></li>
+<li><a href="#source-files">Source files</a></li>
+<li><a href="#table-entries-grammar-lines">Table entries; grammar lines</a></li>
+<li><a href="#named-values">Named values</a></li>
+<li><a href="#global-variables">Global variables</a></li>
+<li><a href="#debug_localvars">Local variables</a></li>
+<li><a href="#sequence-points">Sequence points</a></li>
+<li><a href="#source-code-locations">Source code locations</a></li>
+</ul>
+</li>
+<li><a href="#bugs">Bugs</a></li>
+</ul>
+</div>
+<hr>
+<h2 id="i6-version-history">I6 version history</h2>
+<p>This is a high-level view of I6 releases and their most important features. For a complete description of each release, see the <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/ReleaseNotes.html">I6 Release Notes</a> (older notes <a href="https://inform-fiction.org/manual/ReleaseNotes-6.3x.html">here</a>).</p>
+<ul>
+<li><strong>6.21</strong> (Apr 1999): DM4 version.</li>
+<li><strong>6.30</strong> (Feb 2004): Glulx support; <code>!%</code> header comments; capital <code>(A)</code> print token.</li>
+<li><strong>6.31</strong> (Feb 2006): Bug fixes.</li>
+<li><strong>6.32</strong> (Nov 2010): <code>@push</code>, <code>@pull</code> assembly macros; all Glulx opcodes supported; Glulx floating-point constants.</li>
+<li><strong>6.33</strong> (May 2014): UTF-8 source files; <code>$OMIT_UNUSED_ROUTINES</code>; <code>&lt;Take pie, orc&gt;</code>; <code>Undef</code> directive; <code>Dictionary</code> directive for setting word flags.</li>
+<li><strong>6.34</strong> (May 2020): Revitalized v3 support; <code>OrigSource</code> directive; improved <code>Replace</code> directive.</li>
+<li><strong>6.35</strong> (May 2021): Unix-style command-line options; command-line option to define a numeric constant.</li>
+<li><strong>6.36</strong> (Jan 2022): Most memory limits are gone; some compile-time type checking.</li>
+<li><strong>6.40</strong> (Jul 2022): Command-line arguments streamlined; modules and temp-file compilation removed; dead-code stripping.</li>
+<li><strong>6.41</strong> (Jul 2022): Bug fixes.</li>
+<li><strong>6.42</strong> (Feb 2024): Unlimited identifier length; unlimited abbreviation length; inline bytes assembly.</li>
+<li><strong>6.43</strong> (Aug 2025): Singular (<code>//s</code>) dict flag and <code>$DICT_IMPLICIT_SINGULAR</code>; truncation dict flag and <code>$DICT_TRUNCATE_FLAG</code>; <code>$GRAMMAR_META_FLAG</code>; <code>$GRAMMAR_VERSION</code> and grammar version 3; peephole codegen optimizations.</li>
+</ul>
+<h2 id="language-versus-library">Language versus library</h2>
+<p>This addendum covers updates to the Inform 6 language and compiler. A few errata are also included.</p>
+<p>The changes described here are mostly to DM4 chapters 1-7, 36, and 38 and up. (Section references such as "§1" refer to <a href="https://www.inform-fiction.org/manual/html/contents.html">DM4 chapters</a>.) The intermediate chapters (the bulk of the DM4!) concern the Inform 6 library, which is <em>not</em> covered by this document.</p>
+<p>The Inform library described by the DM4 is version <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/library/old/inform_library69.zip">6/9</a>, which was released along with Inform 6.21 in April of 1999. The library was subsequently updated to <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/library/old/inform_library610.zip">6/10</a> (a bug-fix release) and then <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/library/old/inform_library611.zip">6/11</a> (Glulx support and some additional features) before the author shifted his focus to <a href="http://inform7.com/">Inform 7</a> development.</p>
+<p>The Inform library is now a <a href="https://gitlab.com/DavidGriffith/inform6lib">separate project managed by David Griffith</a>. Updates can be found on the <a href="https://gitlab.com/DavidGriffith/inform6lib">project page</a>.</p>
+<p>The Inform 6 compiler can be used with older versions of the Inform library, back through the <a href="https://ifarchive.org/indexes/if-archive/infocom/compilers/inform5/library/">Inform 5 libraries</a>. There also exist a number of alternative Inform libraries, such as <a href="https://github.com/ByteProject/Metrocenter84/tree/master/metro84">metro84</a> and <a href="https://github.com/johanberntsson/PunyInform">PunyInform</a> (supporting very old computers) and <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/library/contributions/platypus.zip">Platypus</a> (a redesigned library). The Inform 6 compiler should be usable with all of them.</p>
+<h1 id="compiler-options-and-settings">Compiler options and settings</h1>
+<p>The Inform compiler has many options which control its compilation 
+behavior. These options come in three styles, and there are three ways 
+to supply them.</p>
+<h2 id="supplying-options">Supplying options</h2>
+<p>All options can be supplied to the compiler in three ways (§39):</p>
+<ul>
+<li>As a command-line argument</li>
+<li>In a separate file, specified with <code>(file.icl)</code> or <code>--config file.icl</code></li>
+<li>At the head of the first source file, in a comment beginning with <code>!%</code></li>
+</ul>
+<p>The third method is new since the DM4. It allows you to store your 
+game's compilation options in the same file as its source code.</p>
+<p>For example, this source file will be compiled in Glulx format, searching the <code>i6lib</code> directory for include files, raising the maximum number of verbs, and displaying compilation statistics:</p>
+<pre><code>!% -G
+!% -s
+!% +include_path=i6lib
+!% $MAX_VERBS=255
+
+Include "Parser";
+Include "VerbLib";
+
+[ Initialise;
+  location = Kitchen;
+];
+
+Object Kitchen "Kitchen"
+  with description "It's the kitchen.",
+  has light;
+
+Include "Grammar";
+</code></pre>
+<p>The options specified with <code>!%</code> must be at the <em>start</em> of the source file, with no blank lines or other comments before or between them.</p>
+<p>Note that this section of the file is parsed before the source 
+encoding is set. (Indeed, this section could specify the source 
+encoding!) Therefore, options in this section must be plain ASCII.</p>
+<p><code>!%</code> options take precedence over command-line options. Command-line options are read in order; later options (including <code>(file.icl)</code> inclusions) take precedence over earlier ones.</p>
+<p class="CommentPara"><span class="Comment">[It would be better if command-line options took precedence over <code>!%</code> options. This would allow one-off changes while recompiling existing source code. This change may be considered in the future.]</span></p>
+<h2 id="switchopts">Switch options (dash)</h2>
+<p>Classic options begin with a dash -- the traditional style of command-line tools. For example, the <code>-h</code> option (help) shows a page of output documenting how to run the compiler. <code>-h2</code> will show a page listing all options that begin with a dash (§Table3).</p>
+<p><em>New since the DM4:</em></p>
+<p><code>-a2</code>: As of 6.40, this displays assembly encoding of functions (like <code>-a</code>) plus byte encoding of the assembly opcodes. (Prior to 6.40, this was the <code>-t</code> option.) See also the <code>$!ASM</code> trace option.</p>
+<p><code>-B</code>: In Z-code versions 6 and 7 (only), use different 
+offset values for the packed addresses of routines and strings. In this 
+mode, strings are distinguished by having odd (packed) addresses, 
+whereas routines are even. This allows the game file to contain more 
+executable code. (The default is <code>-~B</code>, where the routine and string segments use the same offset value, so string and routine values have different ranges.)</p>
+<p><code>-Cu</code>: Treat the source files as being in UTF-8 (Unicode) encoding.</p>
+<p class="CommentPara"><span class="Comment">[Older options <code>-C1</code>, <code>-C2</code>, etc., are documented in the DM4 (§36); they treated the source files as being in one of the Latin-N encodings. <code>-Cu</code> is a new extension.]</span></p>
+<p class="CommentPara"><span class="Comment">[These options also affect the <code>gametext.txt</code> file created by the <code>-r</code> option. This transcript uses the same encoding as the source code.]</span></p>
+<p class="CommentPara"><span class="Comment">[When <code>-Cu</code> is used, the compiler does not add any characters to the Z-machine's "cheap" alphabet table. You can use the <code>Zcharacter</code> directive to add selected Unicode characters; see §36.]</span></p>
+<p><code>-G</code>: Compile to Glulx format rather than Z-machine. The default output file will be given an <code>.ulx</code> extension.</p>
+<p><code>-G -vX.Y.Z</code>: In Glulx, specify the VM version number to note in the generated game file. For example, <code>-G -v3.1.0</code> would generate a game file that specifies VM spec 3.1.0.</p>
+<p class="CommentPara"><span class="Comment">[Normally the compiler 
+works out the earliest version number compatible with the features used 
+by your game. You can use this option to specify a later version.]</span></p>
+<p><code>-H</code>: In Glulx format, use Huffman encoding to compress strings. This is the default; to use uncompressed text, use <code>-~H</code>.</p>
+<p><code>-k</code>: Output debugging information to a file <code>gameinfo.dbg</code>.
+ This switch is documented in the DM4 (§7), but the output format has 
+changed. As of 6.33, it is an extremely verbose XML format; see <a href="#debugformat">below</a>. Also, as of 6.35, the <code>-k</code> switch no longer automatically sets <code>-D</code>.</p>
+<p><code>-g3</code>: Trace calls to all functions. The DM4 documents <code>-g2</code> as doing this, but as of 6.21, <code>-g2</code> does not trace veneer functions. As of 6.35, <code>-g3</code> traces everything. See also the <code>$!RUNTIME</code> trace option.</p>
+<p class="CommentPara"><span class="Comment">[Note that <code>-g2</code> and above will cause runtime errors in Glulx games, due to printing trace information when no output window is available.]</span></p>
+<p><code>-W</code>: Sets the number of words in the Z-code header extension table (Z-spec 1.0). The default is <code>-W3</code>. The <code>$ZCODE_HEADER_EXT_WORDS</code> setting does the same thing.</p>
+<p><code>-V</code>: Display the compiler version and exit with no further action.</p>
+<p><em>Removed since the DM4:</em></p>
+<p>The following switch options existed prior to 6.40, but are now gone.</p>
+<ul>
+<li><code>-F</code>: The ability to use temporary files (rather than memory) for compilation data has been removed.</li>
+<li><code>-M</code>, <code>-U</code>, <code>-y</code>: The ability to create and import linker modules has been removed.</li>
+</ul>
+<p>The following switch options existed prior to 6.40, but have been removed in favor of <a href="#traceopts">trace options</a>.</p>
+<ul>
+<li><code>-b</code>: Has done nothing since Inform 5.</li>
+<li><code>-j</code>: Replaced by the <code>$!OBJECTS</code> option.</li>
+<li><code>-l</code>: Never fully implemented; what functionality existed has been replaced by the <code>$!FILES</code> option.</li>
+<li><code>-m</code>: Replaced by the <code>$!MEM</code> option.</li>
+<li><code>-n</code>: Replaced by the <code>$!PROPS</code> and <code>$!ACTIONS</code> options.</li>
+<li><code>-o</code>: Replaced by the <code>$!MAP</code> option.</li>
+<li><code>-p</code>: Replaced by the <code>$!MAP=2</code> option.</li>
+<li><code>-t</code>: Replaced by the <code>$!ASM=2</code> option or the <code>-a2</code> switch.</li>
+</ul>
+<h2 id="path-options-plus">Path options (plus)</h2>
+<p>Options beginning with a plus set paths used by the compiler (§39). For example, <code>+DIRNAME</code> or <code>+include_path=DIRNAME</code> set the directory which is searched for include files.</p>
+<p>You can also give a comma-separated list of paths: <code>+include_path=DIR1,DIR2,DIR3</code></p>
+<p><em>New since the DM4:</em></p>
+<p>A double plus sign adds a new path or paths to an existing list. For example, <code>++include_path=DIRNAME</code> will add DIRNAME to the paths which are searched for include files. The newly-added paths will be searched first.</p>
+<p>On the command line (but not in ICL files or comments), path options 
+can be also specified in Unix style. (This was added in 6.35.)</p>
+<pre><code>--path PATH=dir
+--addpath PATH=dir
+</code></pre>
+<p><em>Removed since the DM4:</em></p>
+<p>The <code>+module_path</code> and <code>+temporary_path</code> options no longer exist as of 6.40.</p>
+<h2 id="memsettings">Compiler settings (dollar)</h2>
+<p>These were referred to as "memory settings" in the DM4 (§39). However, they now encompass a wide range of compiler behavior.</p>
+<p>The <code>$LIST</code> setting will show a page of output listing all
+ dollar-sign settings for Z-machine games. To see all settings for Glulx
+ games, give the <code>-G</code> argument before <code>$LIST</code>.</p>
+<p class="CommentPara"><span class="Comment"><span>[</span><span>If you 
+supply a dollar-sign setting as a command-line option on MacOS or Unix, 
+remember that the shell treats the dollar sign as a special character. 
+You must escape the dollar sign so that it reaches the compiler:
+</span><br>
+<code class="CommentCode">    inform \$MAX_VERBS=255 source.inf
+</code><span>If you supply such a setting in a source file, using the <code>!%</code> format, you should <em>not</em> use the backslash.</span><span>]</span></span></p>
+<p><em>New since the DM4:</em></p>
+<p>A setting that begins with a hash sign (<code>$#</code>) will define 
+an arbitrary numeric constant in the game code. If no value is supplied,
+ the constant is defined as zero. This is equivalent to (and consistent 
+with) the <code>Constant</code> directive. (Added in 6.35.)</p>
+<pre><code>$#SYMBOL
+$#SYMBOL=number
+</code></pre>
+<p class="CommentPara"><span class="Comment">[Thus, passing the <code>$#DEBUG</code> argument is equivalent to the <code>-D</code> option. Remember that Inform symbols are not case-sensitive; <code>$#debug</code> or <code>$#Debug=0</code> does the same thing.]</span></p>
+<p>A setting that begins with an exclamation mark (<code>$!</code>) is a trace option. (Added in 6.40.) These have a slightly different format; see <a href="#traceopts">Trace options</a>, below.</p>
+<p>On the command line (but not in ICL files or comments), compiler 
+settings can also be specified in Unix style. (Added in 6.35.) This 
+avoids the need to escape dollar signs.</p>
+<pre><code>--list
+--opt SETTING=number
+--define SYMBOL=number
+--trace TRACEOPT=number
+</code></pre>
+<p>As of 6.36, the following internal memory settings are no longer needed and have no effect: <code>$ALLOC_CHUNK_SIZE</code>, <code>$MAX_OBJECTS</code>, <code>$MAX_CLASSES</code>, <code>$MAX_SYMBOLS</code>, <code>MAX_PROP_TABLE_SIZE</code>, <code>$MAX_INDIV_PROP_TABLE_SIZE</code>, <code>$MAX_OBJ_PROP_COUNT</code>, <code>$MAX_OBJ_PROP_TABLE_SIZE</code>, <code>$MAX_ARRAYS</code>, <code>$MAX_STATIC_DATA</code>, <code>$MAX_ADJECTIVES</code>, <code>$MAX_VERBS</code>, <code>$MAX_VERBSPACE</code>, <code>$MAX_LABELS</code>, <code>$MAX_EXPRESSION_NODES</code>, <code>$MAX_SOURCE_FILES</code>, <code>$MAX_INCLUSION_DEPTH</code>, <code>$MAX_ACTIONS</code>, <code>$MAX_LINESPACE</code>, <code>$MAX_ZCODE_SIZE</code>, <code>$MAX_LINK_DATA_SIZE</code>, <code>$MAX_TRANSCRIPT_SIZE</code>, <code>$MAX_DICT_ENTRIES</code>, <code>$MAX_NUM_STATIC_STRINGS</code>, <code>$MAX_UNICODE_CHARS</code>, <code>$MAX_STATIC_STRINGS</code>, <code>$MAX_LOW_STRINGS</code>, <code>$MAX_GLOBAL_VARIABLES</code>, <code>$MAX_LOCAL_VARIABLES</code>, <code>$MAX_QTEXT_SIZE</code>.</p>
+<p>Other settings which are new or updated since the DM4:</p>
+<p><strong>$DICT_CHAR_SIZE</strong></p>
+<p>The byte size of one character in the dictionary. This is only 
+meaningful in Glulx. It can be 1 (dictionary characters are one byte) or
+ 4 (dictionary characters are four-byte words).</p>
+<p><strong>$DICT_WORD_SIZE</strong></p>
+<p>The number of bytes in a dictionary word entry. (In Z-code this 
+cannot be changed. It is always 4 in v3 and 6 in V4+, representing up to
+ 6 or 9 Z-characters.)</p>
+<p><strong>$DICT_IMPLICIT_SINGULAR</strong></p>
+<p>If this is 1, Inform sets the singular (<code>//s</code>) flag for any noun not explicitly marked plural (<code>//p</code>). (Added in 6.43.)</p>
+<p><strong>$DICT_TRUNCATE_FLAG</strong></p>
+<p>If this is 1, Inform sets dict flag 6 for any dict word which is 
+truncated; that is, if the source definition of the word does not fit in
+ <code>$DICT_WORD_SIZE</code>. (Added in 6.43.)</p>
+<p>If this is 0, dict flag 6 is set for all verbs (equivalent to dict 
+flag 1). This is legacy behavior dating back to early versions of 
+Inform, but no current library code depends on it.</p>
+<p><strong>$GRAMMAR_META_FLAG</strong></p>
+<p>If this is 1, you can mark individual actions as being meta (rather than relying on the flags in the verb dict word). See <code>Verb</code> in "<a href="#directives">Directives</a>", below.</p>
+<p>In this mode, action values are sorted so that all meta actions occur before all non-meta actions. The constant <code>#highest_meta_action_number</code> allows you to distinguish them. (If there are no meta actions, this constant is -1.)</p>
+<p><strong>$GRAMMAR_VERSION</strong></p>
+<p>Sets the grammar table format to the given version. This is equivalent to setting the <code>Grammar__Version</code>
+ constant at the beginning of your source. The default is 1 in Z-code, 2
+ in Glulx; but the standard library uses version 2 on both platforms. 
+(Added in 6.43.)</p>
+<p>As of 6.43, Z-code supports a new grammar version 3. (See "<a href="#grammarformat">Grammar table formats</a>", below.) This is a more compact variation of version 2. <a href="https://github.com/johanberntsson/PunyInform">PunyInform 6.0</a> uses GV3.</p>
+<p class="CommentPara"><span class="Comment">[GV1 is a historical relic 
+from early Inform development. GV3 is most useful for saving a few bytes
+ in Z-code v3 games. Glulx postdates the GV1 era, and is not meant for 
+game-file shaving, so it only supports GV2.]</span></p>
+<p><strong>$GLULX_OBJECT_EXT_BYTES</strong></p>
+<p>The number of extra zero bytes to add to each object table entry. 
+This is writable memory which the game can use freely. (This is only 
+meaningful in Glulx, as the Z-code object format is fixed by the spec.)</p>
+<p><strong>$INDIV_PROP_START</strong></p>
+<p>The index number of the first individual property. This also 
+determines the maximum number of common properties. (In Z-code this is 
+64 and cannot be changed.)</p>
+<p><strong>$LONG_DICT_FLAG_BUG</strong></p>
+<p>If this is set to 0, dictionary flag suffixes (see "<a href="#dictionary-words">Dictionary words</a>") are recognized in words of any length.</p>
+<p>If this is 1, suffixes are ignored if they begin after the dictionary
+ word length. (After the ninth character for V4+; the sixth for V3; the 
+ninth or whatever <code>$DICT_WORD_SIZE</code> is set to in Glulx.) The default setting is 1.</p>
+<p class="CommentPara"><span class="Comment">[We retain the buggy behavior as the default to avoid disrupting old Inform 7 games. I7 always adds the words <code>'directions//p'</code>, <code>'supporters//p'</code>, <code>'containers//p'</code>
+ to objects of those types. Due to the bug, the plural flag is not set 
+on these words, which affects the parsing of commands like <code>GET DIRECTION</code> or <code>GET CONTAINER</code>. Future releases of I7 may set <code>$LONG_DICT_FLAG_BUG=0</code>, but it is better to avoid changing the behavior of existing releases.]</span></p>
+<p>(Added in 6.42. In earlier versions, the bug was always present and could not be switched off.)</p>
+<p><strong>$MAX_ABBREVS</strong></p>
+<p>The number of abbreviations which may be used in economy (<code>-e</code>)
+ mode. This setting is available in all versions of Inform, but in 6.35 
+the maximum for Z-code was raised from 64 to 96. However, this trades 
+off against <code>$MAX_DYNAMIC_STRINGS</code>; see below.</p>
+<p>The abbreviations (<code>-u</code>) switch now tries to create <code>$MAX_ABBREVS</code> abbreviations, rather than always creating 64. (As of 6.36.)</p>
+<p>In Glulx, <code>$MAX_ABBREVS</code> is not needed and has no effect, except with the <code>-u</code> switch.</p>
+<p><strong>$MAX_DYNAMIC_STRINGS</strong></p>
+<p>The number of string variables (<code>"@00"</code>, etc) allowed in the game. In Z-code, this may be any value from 0 to 96. Setting this in Z-code automatically sets <code>$MAX_ABBREVS</code> to <code>(96 - $MAX_DYNAMIC_STRINGS)</code>, as the two features draw from the same pool of 96 Z-machine abbreviations. Similarly, setting <code>$MAX_ABBREVS</code> sets <code>$MAX_DYNAMIC_STRINGS</code> to <code>(96 - $MAX_ABBREVS)</code>.</p>
+<p>In Glulx, the two settings are not connected. You may use any number of dynamic strings. If you use more than 100, you must set <code>$MAX_DYNAMIC_STRINGS</code> to a higher value.</p>
+<p>(Added in 6.35. In earlier versions, 32 string variables and 64 
+abbreviations were available in Z-code; 64 string variables were 
+available in Glulx. As of 6.36, <code>$MAX_DYNAMIC_STRINGS</code> defaulted to 100 in Glulx, which was the maximum. As of 6.40, <code>$MAX_DYNAMIC_STRINGS</code> is not limited in Glulx, but still defaults to 100.)</p>
+<p><strong>$MAX_STACK_SIZE</strong></p>
+<p>The amount of memory that the interpreter will reserve for the Glulx stack. (This is only meaningful in Glulx.)</p>
+<p><strong>$MEMORY_MAP_EXTENSION</strong></p>
+<p>The number of extra zero bytes to add to the end of the compiled game
+ file. This is writable memory which the game can use freely. (This is 
+only meaningful in Glulx.)</p>
+<p><strong>$NUM_ATTR_BYTES</strong></p>
+<p>The number of bytes used for attribute flags in each object. The maximum number of attributes is <code>8 * NUM_ATTR_BYTES</code>. (In Glulx, this must be a multiple of 4 plus 3. In Z-code this is always 6 and cannot be changed.)</p>
+<p><strong>$OMIT_SYMBOL_TABLE</strong></p>
+<p>If this is set to 1, the compiler will not compile the names of 
+properties, arrays, and other code elements into the game file. This 
+means that the <code>print (property) p</code> statement will print a property number instead of a name. Runtime errors will also omit symbol names.</p>
+<p>System constants referring to symbol names are not available when <code>$OMIT_SYMBOL_TABLE</code> is set. See "<a href="#constants">Constants</a>".</p>
+<p><strong>$OMIT_UNUSED_ROUTINES</strong></p>
+<p>If this is set to 1, the compiler will omit the compiled code of unused routines from the game file. (See <code>$WARN_UNUSED_ROUTINES</code>.)</p>
+<p><strong>$SERIAL</strong></p>
+<p>Sets the game's serial number to the given six-digit number. (The <code>Serial</code> directive does the same thing; see §38.)</p>
+<p><strong>$STRIP_UNREACHABLE_LABELS</strong></p>
+<p>If set to 1 (the default), unreachable labels will be eliminated as part of branch optimization. Attempting to <code>jump</code> to an unreachable label is a compile-time error.</p>
+<p>If set to 0, any label can be <code>jump</code>ed to, at the cost of less optimized code.</p>
+<p>(Added in 6.40. In earlier versions, any label could be <code>jump</code>ed to. As of 6.41, <em>forward</em> <code>jump</code>s to labels are always permitted. Only backward <code>jump</code>s to unreachable labels can cause errors.)</p>
+<p><strong>$TRANSCRIPT_FORMAT</strong></p>
+<p>If set to 0 (the default), the <code>gametext.txt</code> transcript generated by the <code>-r</code>
+ option uses the classic format, which is designed for human 
+proofreaders. If set to 1, the transcript uses an alternate format which
+ indicates the use of each string. This may be more useful for tools 
+which want to parse the transcript.</p>
+<p><strong>$WARN_UNUSED_ROUTINES</strong></p>
+<p>If this is set to 2, the compiler will display a warning for each 
+routine in the game file which is never called. (This includes routines 
+called only from uncalled routines, etc.) If set to 1, it will warn only
+ about functions in game code, not in library files.</p>
+<p><strong>$ZCODE_FILE_END_PADDING</strong></p>
+<p>If this is set to 1 (the default), the game file will be zero-padded 
+to a length which is a multiple of 512. If not, it will only be padded 
+to a multiple of the packed address scale (2, 4, or 8 depending on 
+version). (Added in 6.43. This is only meaningful in Z-code.)</p>
+<p><strong>$ZCODE_HEADER_EXT_WORDS</strong></p>
+<p>This sets the number of words in the Z-code header extension table. The default is 3. The <code>-W</code> setting does the same thing. (See Z-spec 1.0. This is only meaningful in Z-code.)</p>
+<p><strong>$ZCODE_HEADER_FLAGS_3</strong></p>
+<p>This is the value to store in the Flags 3 word of the header 
+extension table. (See Z-spec 1.1. This is only meaningful in Z-code.)</p>
+<p><strong>$ZCODE_LESS_DICT_DATA</strong></p>
+<p>If this is set to 1, each dictionary entry will have two bytes of 
+data instead of the usual three. (Added in 6.36. This is only meaningful
+ in Z-code.)</p>
+<p>With this switch set, you may not refer to <code>#dict_par3</code>. You also may not use grammar version 1, as that format needs to use the third byte for the preposition number.</p>
+<p><strong>$ZCODE_MAX_INLINE_STRING</strong></p>
+<p>This is the length beyond which string literals cannot be inlined in 
+assembly opcodes. The default value is 32 characters. (Added in 6.42. 
+This is only meaningful in Z-code.)</p>
+<p>If you increase this, Inform will be more aggressive about inlining literal strings in <code>print</code>
+ statements. This will save some space in the compiled game file. 
+However, it may also lead to excessively long functions, which may cause
+ "Branch out of range" compilation errors. Use with care.</p>
+<p class="CommentPara"><span class="Comment">[Note that the limit is measured in <em>source code</em> characters, without regard for escapes or abbreviations. The string literal <code>"abc@{64}e"</code> is measured as 9 characters, even though it's compiled as 5 Z-characters (<code>"abcde"</code>) in 4 bytes. Since the aim is an optimization policy, the imprecision is not worth worrying about.]</span></p>
+<h2 id="traceopts">Trace options</h2>
+<p>These are special compiler settings which display extra information 
+about the compilation process. Most of them are only useful for 
+debugging the compiler itself. The ones most useful to authors have 
+simple switch options, documented <a href="#switchopts">above</a>.</p>
+<p>Trace options all have the form <code>$!TRACEOPT</code> or <code>$!TRACEOPT=number</code>. The option <code>$!</code> by itself will show a list of all supported trace options.</p>
+<p>On the command line (but not in ICL files or comments), trace options can be also specified in Unix style.</p>
+<pre><code>--trace TRACEOPT
+--trace TRACEOPT=number
+--helptrace
+</code></pre>
+<p>All trace options are off (level 0) by default. The simple form <code>$!TRACEOPT</code> or <code>--trace TRACEOPT</code>
+ sets the named option to level 1, which displays information during (or
+ after) compilation. Some trace options support higher levels of 
+verbosity to print more information.</p>
+<p>The trace option system is new as of 6.40. In prior versions, much of
+ this information was available through command-line switches or the <code>Trace</code> directive.</p>
+<p><strong>$!ACTIONS</strong></p>
+<p>Show a table of actions and fake-actions. <code>$!ACTIONS=2</code> will name them as they are defined.</p>
+<p>(Prior to 6.43, the only option was to name them as they were defined
+ -- now level 2. Prior to 6.40, that information was displayed by the <code>-n</code> switch.)</p>
+<p><strong>$!ASM</strong> (same as <code>-a</code>)</p>
+<p>Show assembly-language encoding of functions as they are compiled. <code>$!ASM=2</code> will also show the byte encoding of the assembly opcodes. <code>$!ASM=3</code> will also show branch optimization info. <code>$!ASM=4</code> will show more verbose branch info.</p>
+<p>The <code>$!ASM</code> trace level can be changed at any point in the code with the <code>Trace assembly</code> directive. </p>
+<p>(Prior to 6.40, the <code>-t</code> switch showed assembly plus opcode bytes, as <code>$!ASM=2</code> or <code>-a2</code> does now.)</p>
+<p><strong>$!BPATCH</strong></p>
+<p>Show backpatch markers as they are resolved. <code>$!BPATCH=2</code> will also show backpatch markers being created.</p>
+<p>(Prior to 6.40, this information was shown at higher <code>$!ASM</code> trace levels.)</p>
+<p><strong>$!DICT</strong></p>
+<p>Show the game dictionary when the game is complete. <code>$!DICT=2</code> will also show the byte encoding of each dictionary entry.</p>
+<p>The <code>Trace dictionary</code> directive will show this information at any point in the code.</p>
+<p><strong>$!EXPR</strong></p>
+<p>Show expression trees as they are compiled. <code>$!EXPR=2</code> and <code>$!EXPR=3</code> will show more verbose information.</p>
+<p>The <code>$!EXPR</code> trace level can be changed at any point in the code with the <code>Trace expressions</code> directive. </p>
+<p><strong>$!FILES</strong></p>
+<p>Show source and include files being opened and closed.</p>
+<p>(Prior to 6.40, the <code>-l</code> switch and <code>Trace lines</code> directive showed this information.)</p>
+<p><strong>$!FINDABBREVS</strong></p>
+<p>When computing abbreviations (<code>-u</code>), show selection decisions. <code>$!FINDABBREVS=2</code> will also show three-letter-block scores.</p>
+<p>(Prior to 6.40, the <code>-u</code> switch always showed this information.)</p>
+<p><strong>$!FREQ</strong> (same as <code>-f</code>)</p>
+<p>When using abbreviations (<code>-e</code>), show how efficient each abbreviation was.</p>
+<p><strong>$!MAP</strong> (same as <code>-z</code>)</p>
+<p>Display a memory map of the completed virtual machine. <code>$!MAP=2</code> will also show the percentage of VM memory that each segment occupies.</p>
+<p>(Prior to 6.40, the <code>-p</code> switch showed the segment percentages.)</p>
+<p><strong>$!MEM</strong></p>
+<p>Show memory allocations and deallocations within the compiler.</p>
+<p>(Prior to 6.40, the <code>-m</code> switch showed this information.)</p>
+<p><strong>$!OBJECTS</strong></p>
+<p>Show the object table when the game is complete.</p>
+<p>The <code>Trace objects</code> directive will show this information at any point in the code.</p>
+<p>(Prior to 6.40, the <code>-j</code> switch showed this information.)</p>
+<p><strong>$!PROPS</strong></p>
+<p>Show properties and attributes as they are defined.</p>
+<p>(Prior to 6.40, this information was displayed by the <code>-n</code> switch.)</p>
+<p><strong>$!RUNTIME</strong> (same as <code>-g</code>)</p>
+<p>Compile function tracing into the game. Every game function called will print a trace message. <code>$!RUNTIME=2</code> will also trace library calls; <code>$!RUNTIME=3</code> will also trace veneer calls.</p>
+<p class="CommentPara"><span class="Comment">[This is the only trace option which affects the generated game file.]</span></p>
+<p>In Glulx mode, <code>$!RUNTIME=2</code> and above will cause Glk errors due to rulebooks printing trace messages when no output stream is set.</p>
+<p><strong>$!STATS</strong> (same as <code>-s</code>)</p>
+<p>Print game statistics when compilation is complete.</p>
+<p><strong>$!SYMBOLS</strong></p>
+<p>Show the symbol table when the game is complete. <code>$!SYMBOLS=2</code> will also show compiler-defined symbols.</p>
+<p>The <code>Trace symbols</code> directive will show this information at any point in the code.</p>
+<p><strong>$!SYMDEF</strong></p>
+<p>Show symbols as they are encountered and defined.</p>
+<p><strong>$!TOKENS</strong></p>
+<p>Show tokens as they are lexed. <code>$!TOKENS=2</code> will also show token types; <code>$!TOKENS=3</code> will also show their lexical contexts.</p>
+<p>The <code>$!TOKENS</code> trace level can be changed at any point in the code with the <code>Trace tokens</code> directive. </p>
+<p><strong>$!VERBS</strong></p>
+<p>Show the verb grammar table when the game is complete.</p>
+<p>The <code>Trace verbs</code> directive will show this information at any point in the code.</p>
+<h1 id="language-changes">Language changes</h1>
+<p>A few elements of the Inform language itself have been updated or extended.</p>
+<h2 id="directives">Directives</h2>
+<p>A couple of notes on general directive syntax:</p>
+<p>Directives in Inform 6 are not case-sensitive. These declarations are equivalent:</p>
+<pre><code>Global varname;
+GLOBAL varname;
+global varname;
+</code></pre>
+<p>The DM4 does not state this, but it has been true in every version of
+ the Inform compiler, so we can accept it as a principle of the 
+language.</p>
+<p class="CommentPara"><span class="Comment">[The DM4 mostly shows directives in title case: <code>Global</code>, <code>Zcharacter</code>, <code>Ifdef</code>. This is the manual's code style, not a language requirement.]</span></p>
+<p class="CommentPara"><span class="Comment">[Variable names and symbols are also case-insensitive. Language keywords, such as <code>if</code> and <code>return</code>, are not; they must be given in lower case. Case is also significant for the built-in print tokens <code>(A)</code>, <code>(a)</code>, <code>(The)</code>, and <code>(the)</code>; see §26.]</span></p>
+<p>Directives can also be written with a <code>#</code> sign:</p>
+<pre><code>#Global varname;
+</code></pre>
+<p>For standalone directives, the <code>#</code> sign is optional. 
+However, a few directives can be used within a routine or object 
+definition. This allows conditional compilation of individual lines of 
+code or object properties (§38). These directives are:</p>
+<pre><code>Ifdef, Ifndef, Ifnot, Ifv3, Ifv5, Iftrue, Iffalse, Endif
+</code></pre>
+<p>When one of these directives appears within a routine or object definition, the <code>#</code> sign is required.</p>
+<p class="CommentPara"><span class="Comment">[As of 6.35, the compiler 
+will report errors for non-"if" directives appearing within a 
+definition. In earlier versions, this error was not always checked.]</span></p>
+<p><strong>Abbreviate</strong></p>
+<p>As of 6.40, the <code>Abbreviate</code> directive only creates an abbreviation when in economy (<code>-e</code>) mode. If the <code>-e</code> switch is not used, the directive is skipped and no space is consumed in the game's abbreviations table.</p>
+<p>As of 6.42, abbreviations can be of any length. (In earlier versions, they were limited to 64 source-text characters.)</p>
+<p><strong>Array</strong></p>
+<p>The <code>Array</code> directive (§2.4) supports four ways to specify values:</p>
+<pre><code>Array arrname --&gt; N; 
+Array arrname --&gt; expr1 expr2 ... exprN; 
+Array arrname --&gt; [ expr1 expr2 ... exprN ]; 
+Array arrname --&gt; "string";
+</code></pre>
+<p>The third form, with square brackets, is not documented in the DM4, 
+but it has been supported since 6.0. Expressions between the brackets 
+may be delimited by optional semicolons.</p>
+<p class="CommentPara"><span class="Comment">[The bracket form allows us to define a one-entry array with an initializer: <code>Array arrname --&gt; [ expr ];</code> This would not otherwise be possible. Note that zero-entry arrays are not permitted.]</span></p>
+<p>The <code>Array</code> directive supports a new array type in 6.30:</p>
+<pre><code>Array arrname buffer N; 
+Array arrname buffer expr1 expr2 ... exprN; 
+Array arrname buffer [ expr1 expr2 ... exprN ]; 
+Array arrname buffer "string";
+</code></pre>
+<p>The <code>buffer</code> keyword defines <code>arrname</code> as a hybrid array, in which the first <em>word</em> <code>array--&gt;0</code> contains the length (N), and the following N <em>bytes</em> <code>array-&gt;WORDSIZE</code>, <code>array-&gt;(WORDSIZE+1)</code> ... <code>array-&gt;(WORDSIZE+N-1)</code> contain the specified expression values or string characters.</p>
+<p class="CommentPara"><span class="Comment">[This hybrid form is used by the <code>print_to_array</code> method (§3.12) and various library functions.]</span></p>
+<p>All forms of the <code>Array</code> directive support the <code>static</code> keyword, which was added in 6.34:</p>
+<pre><code>Array arrname static -&gt; 1 2 3 4;
+Array arrname static string "plugh";
+</code></pre>
+<p>The <code>static</code> keyword must appear before the array type (<code>-&gt;</code>, <code>--&gt;</code>, <code>string</code>, <code>table</code>, or <code>buffer</code>). It indicates that the array should be placed in non-writable memory.</p>
+<p class="CommentPara"><span class="Comment">[In Z-code, this places the
+ array at the end of readable memory (after the dictionary and before 
+the beginning of code storage). In Glulx, it places the array at the end
+ of ROM (after string storage). A static array declaration should always
+ provide initial values, since it cannot be updated at runtime. ]</span></p>
+<p><strong>Dictionary</strong></p>
+<p>The DM4 marked the <code>Dictionary</code> directive as obsolete 
+(§Table5), but it has been reinstated as of 6.33. It allows you to add a
+ word to the game dictionary and set its optional dictionary flags.</p>
+<pre><code>Dictionary 'word';
+Dictionary 'word' val1;
+Dictionary 'word' val1 val3;
+</code></pre>
+<p>The first form simply adds the word if it is not already in the dictionary. The second form also sets the <code>dict_par1</code> flag to the given value, or bitwise-or's the value to that flag if the word already exists. The third form also sets the <code>dict_par3</code> flag in the same way. </p>
+<p>The values can be numeric literals or constants. They can be 0-255 for Z-code, or 0-65535 for Glulx.</p>
+<p class="CommentPara"><span class="Comment">[See also the <code>$ZCODE_LESS_DICT_DATA</code> setting above, which drops the <code>dict_par3</code> field from dictionary entries.]</span></p>
+<p class="CommentPara"><span class="Comment">[<code>dict_par2</code> cannot be set by this directive. It is always the verb number, or zero for words that are not verbs.]</span></p>
+<p><strong>Extend</strong></p>
+<p>If <code>$GRAMMAR_META_FLAG=1</code>, the <code>Extend</code> directive supports marking actions as meta at the grammar line level:</p>
+<pre><code>Extend 'load'
+    * noun -&gt; Push
+    * 'game' -&gt; Restore meta;
+</code></pre>
+<p>See <code>Verb</code>, below. (Added in 6.43.)</p>
+<p><strong>Global</strong></p>
+<p>As of 6.40, the <code>=</code> sign is optional when defining a global variable's initial value. These declarations are equivalent:</p>
+<pre><code>Global foo = 12;
+Global foo 12;
+</code></pre>
+<p class="CommentPara"><span class="Comment">[This brings <code>Global</code> into harmony with <code>Constant</code>, for which the <code>=</code> sign has always been optional.]</span></p>
+<p>As of 6.43, it is safe to declare a global variable more than once. 
+Earlier versions accepted this in some cases but were inconsistent about
+ it.</p>
+<p class="CommentPara"><span class="Comment">[Redundant global declarations were accepted in Glulx but not Z-code, with the exception of built-in variables like <code>self</code>, which could always be redeclared.]</span></p>
+<p>If a global is declared more than once, at most one declaration 
+should give an initial value. It is also safe to give each declaration 
+the <em>same</em> initial value, as long as the value is a compile-time constant. <span class="Comment">[However,
+ the definition of compile-time constant is a bit tricky, so it's better
+ to only provide one initial value. Before 6.43, this was not checked 
+carefully; conflicting definitions could be silently ignored or cause 
+internal errors.]</span></p>
+<p>In early versions of Inform, the <code>Global</code> directive could 
+also be used to define arrays. This usage has been deprecated since at 
+least Inform 6.0, but the compiler still recognized declarations like:</p>
+<pre><code>Global array --&gt; 8;
+</code></pre>
+<p>...as well as the even older forms <code>Global data</code>, <code>Global initial</code>, and <code>Global initstr</code>. As of 6.40, all of these obsolete forms have been removed. Use <code>Global</code> for global variables and <code>Array</code> for arrays.</p>
+<p><strong>Ifv3</strong></p>
+<p>This is mentioned in the DM4 as being for compiler maintenance only 
+(§Table5). In fact it is used by the library, so it's worth documenting.
+ This is a conditional compilation directive, like <code>Iftrue</code>, which compiles code when building Z-code V3 (only). It is equivalent to:</p>
+<pre><code>#Ifdef TARGET_ZCODE;
+#Iftrue (#version_number == 3);
+! ...code...
+#Endif;
+#Endif;
+</code></pre>
+<p><strong>Ifv5</strong></p>
+<p>This misnamed directive is also used by the library (§Table5). It conditionally compiles code when building Z-code V4 and later <em>or</em> Glulx. Thus it is the converse of <code>Ifv3</code>. (The misleading name is left over from much earlier versions of Inform.)</p>
+<p><strong>Import</strong></p>
+<p>The <code>Import</code> directive no longer exists as of 6.40. (This, like <code>Link</code>, was used for the obsolete module-linking feature.)</p>
+<p><strong>Link</strong></p>
+<p>The <code>Link</code> directive no longer exists as of 6.40.</p>
+<p><strong>Lowstring</strong></p>
+<p>The <code>Lowstring</code> directive has been supported since (at 
+least) Inform 5, but it is not needed in Inform 6. It is therefore 
+deprecated and undocumented in the DM4. We will describe it here for 
+information's sake.</p>
+<pre><code>Lowstring Text "text";
+</code></pre>
+<p>In Z-code, this places an encoded string within readable memory (the first 64k). <code>Text</code> is defined as a constant whose value is <code>(address/2)</code>. The string can therefore be printed this way:</p>
+<pre><code>print (address) (2*Text);
+</code></pre>
+<p>The constant can also be used with the <code>string</code> statement:</p>
+<pre><code>string 14 Text;
+</code></pre>
+<p>This sets dynamic string 14 to the string <code>"text"</code>. However, it is more usual (and documented in §1.11) to use a string literal rather than <code>Lowstring</code>:</p>
+<pre><code>string 14 "text";
+</code></pre>
+<p>The <code>Lowstring</code> directive is not supported in Glulx.</p>
+<p><strong>Origsource</strong></p>
+<p>The <code>Origsource</code> directive allows you to mark part of a 
+source file as having been generated from another file. (E.g, an Inform 7
+ source file.) This directive was added in 6.34.</p>
+<pre><code>Origsource "Filename";
+Origsource "Filename" 10;
+Origsource "Filename" 10 40;
+Origsource;
+</code></pre>
+<p>This declares that all following lines are derived from the given 
+filename. This will be reported in error messages and debug output. You 
+may optionally provide a line number and a character number within the 
+line (10 and 40, in these examples).</p>
+<p>The declaration holds through the next <code>Origsource</code> directive (but does not apply to included files). The fourth form, with no arguments, clears the declaration. </p>
+<p><strong>Property</strong></p>
+<p>As of 6.36, it is now possible to declare an individual property with the <code>Property</code> directive:</p>
+<pre><code>Property individual propname;
+</code></pre>
+<p>This gives us a total of four forms of the directive:</p>
+<pre><code>Property [additive] name;
+Property [additive] name defaultexpr;
+Property [additive] name alias oldname;
+Property individual name;
+</code></pre>
+<p>Note that an individual property cannot be <code>additive</code>, have a default value, or <code>alias</code> another property.</p>
+<p>The <code>long</code> keyword can be applied to any <code>Property</code> directive, but it has no effect except a deprecation warning. (All properties have been <code>long</code>, which is to say word-sized, since Inform 5.)</p>
+<p>As of 6.36, it is possible to declare a property called <code>long</code>, <code>additive</code>, or <code>individual</code>, even though these are keywords for the <code>Property</code> directive.</p>
+<pre><code>! This declares an additive common property called "long" with default value 12.
+Property additive long 12;
+</code></pre>
+<p>Concerning Z-code limits, the DM4 says:</p>
+<blockquote>
+<p>Only 62 [common properties] are available, of which the compiler uses 3 and the library a further 47.</p>
+</blockquote>
+<p>This is poorly phrased. The Z-machine (V4+) permits 63 common properties (numbered 1 to 63). The compiler defines three: the <code>name</code> property plus two hidden properties which are used internally. So the game and library may declare 60 <em>more</em> common properties between them.</p>
+<p><strong>Replace</strong></p>
+<p>The <code>Replace</code> directive (§25) allows you to redefine a function which has already been defined (such as in a library or in the veneer).</p>
+<p class="CommentPara"><span class="Comment">[The DM4 says that you can only replace functions in files marked with the <code>System_file</code> directive. This limitation has been removed.]</span></p>
+<p>The <code>Replace</code> directive has two forms, of which the second was added in 6.33:</p>
+<pre><code>Replace Func;
+Replace Func OriginalFunc;
+</code></pre>
+<p>Multiple definitions of <code>Func()</code> may follow the <code>Replace</code> directive. <code>Func</code> will refer to the last-defined version, except that definitions in normal files are preferred over definitions in <code>System_file</code> files or the veneer. With the second form, <code>OriginalFunc</code> will refer to the <em>first</em>-defined version of the function.</p>
+<p><strong>Switches</strong></p>
+<p>As of 6.40, the <code>Switches</code> directive is obsolete and generates a deprecation warning. Use <code>!%</code> header comments instead.</p>
+<p>This has always been documented to be used "at the very beginning of 
+your source code" (§39). However, this was only weakly enforced; the 
+compiler only checked that it was used before the first constant was 
+defined. As of 6.40, it may only be used before the first constant or 
+routine is defined.</p>
+<p><strong>Trace</strong></p>
+<p>The <code>Trace</code> directive allows you to adjust various trace 
+settings and display information during compilation. As of 6.40, it is 
+deprecated in favor of <a href="#traceopts">trace options</a>.</p>
+<p>Prior to 6.36, it was limited to a few kinds of trace information and
+ its syntax was rather ad-hoc. As of 6.40, it is still limited, but its 
+syntax is more consistent.</p>
+<p>The <code>Trace</code> directive has two flavors.</p>
+<pre><code>Trace dictionary
+Trace objects
+Trace symbols
+Trace verbs
+</code></pre>
+<p>Each of these prints the named data table <em>as of that point in the compilation</em>. The equivalent trace option (<code>$!DICT</code>, <code>$!OBJECTS</code>, <code>$!SYMBOLS</code>, <code>$!VERBS</code>) print the named table when compilation is complete.</p>
+<p>(For consistency with the trace option system, these four lines can take an optional number. This is only meaningful for <code>Trace symbols 2</code>, which, like <code>$!SYMBOLS=2</code>, prints more symbol info.)</p>
+<pre><code>Trace assembly [val]
+Trace expressions [val]
+Trace tokens [val]
+</code></pre>
+<p>Each of these adjusts the level of the equivalent named trace option (<code>$!ASM</code>, <code>$!EXPR</code>, <code>$!TOKENS</code>). The optional value may be <code>off</code> (0), <code>on</code> (1), or any number. If no value is given, the option is set <code>on</code> (1).</p>
+<pre><code>Trace [val]
+</code></pre>
+<p>Equivalent to <code>Trace assembly [val]</code>.</p>
+<pre><code>Trace lines [val]
+Trace linker [val]
+</code></pre>
+<p><code>Trace lines</code> was intended to support a line-tracing feature which was never implemented. <code>Trace linker</code> supported the module-linking feature, which no longer exists. These options now do nothing.</p>
+<p class="CommentPara"><span class="Comment">[Trace options cannot print
+ tables or change trace levels partway through compilation; that ability
+ is only available through the <code>Trace</code> directive. The 
+directive will therefore be retained. However, this ability is not very 
+useful, so it seems reasonable to consider it deprecated.]</span></p>
+<p><strong>Undef</strong></p>
+<p>The <code>Undef</code> directive allows you to remove a previously-defined constant. This directive was added in 6.33.</p>
+<pre><code>Undef Const;
+</code></pre>
+<p>This leaves the <code>Const</code> symbol undefined. If <code>Const</code> was never defined, this does nothing.</p>
+<p class="CommentPara"><span class="Comment">[When tested with the <code>Ifdef</code> directive, a constant is considered undefined only <em>after</em> the <code>Undef</code> directive, just as it is considered defined only <em>after</em>
+ its original declaration. This is somewhat inconsistent with Inform's 
+handling of constants in expressions (routine code), where they can 
+freely be used before or after being declared.]</span></p>
+<p class="CommentPara"><span class="Comment">[<code>Undef</code>'ing constants which are forward-declared leads to confusing behavior. It is best to consider <code>Undef</code> purely as an adjunct to <code>Ifdef</code>.]</span></p>
+<p><strong>Verb</strong></p>
+<p>As of 6.43, we accept two verb definitions for the same verb:</p>
+<pre><code>Verb 'take'
+    * 'inventory' -&gt; Inv
+    * noun -&gt; Take;
+
+Verb 'take'
+    * 'note' -&gt; WriteNote;
+</code></pre>
+<p>This is equivalent to an <code>Extend last</code> declaration:</p>
+<pre><code>Extend 'take' last
+    * 'note' -&gt; WriteNote;
+</code></pre>
+<p>The <code>Extend</code> form is preferred, so doing this displays a warning.</p>
+<p class="CommentPara"><span class="Comment">[This usage supports the 
+Inform 7 compiler, which generates code like this in some situations. 
+(In particular, when the user defines two verbs which compile to the 
+same dict word.) Consider this form deprecated for everybody except I7, 
+which suppresses warnings.]</span></p>
+<p class="CommentPara"><span class="Comment">[If the second declaration contains <em>multiple</em> verbs, they must all refer to the same original grammar. There is no equivalent to <code>Extend only</code> in this form.]</span></p>
+<p>If <code>$GRAMMAR_META_FLAG=1</code>, the <code>Verb</code> directive supports marking actions as meta at the grammar line level:</p>
+<pre><code>Verb 'load'
+    * noun -&gt; Push
+    * 'game' -&gt; Restore meta;
+</code></pre>
+<p>This allows a single verb to have both meta and non-meta action grammars. To distinguish these, compare the action value to <code>#highest_meta_action_number</code>. (Added in 6.43.)</p>
+<p>(The <code>Extend</code> directive can also mark actions as meta in this way.)</p>
+<p>The old syntax is still supported:</p>
+<pre><code>Verb meta 'score'
+    * -&gt; Score
+    * 'full' -&gt; FullScore;
+</code></pre>
+<p>This implicitly marks all named actions as meta. (It also marks the verb dict word meta, as is traditional.) However, if you <code>Extend</code> this verb, the actions named in the <code>Extend</code> directive do <em>not</em> inherit the meta flag by default.</p>
+<p><strong>Version</strong></p>
+<p>The <code>Version</code> directive is mentioned in the DM4 as being obsolete (§Table5). As of 6.40, it generates a deprecation warning. Use the <code>-v3</code> command-line switch or <code>!% -v3</code> header comment instead.</p>
+<p>As of 6.36, this directive may only be used before the first routine 
+is defined. (This limitation reduces, but does not eliminate, various 
+code generation bugs.)</p>
+<h2 id="statements">Statements</h2>
+<p><strong><code>&lt;</code>Action<code>&gt;</code></strong></p>
+<p>The action statements <code>&lt;Action&gt;</code> and <code>&lt;&lt;Action&gt;&gt;</code> (§6) now support up to four arguments. The <code>Actor</code> forms are new as of 6.33.</p>
+<pre><code>&lt;Action&gt;
+&lt;Action Noun&gt;
+&lt;Action Noun Second&gt;
+&lt;Action, Actor&gt;
+&lt;Action Noun, Actor&gt;
+&lt;Action Noun Second, Actor&gt;
+</code></pre>
+<p>All provided arguments are passed to the <code>R_Process()</code> function. The <code>Actor</code> value (after the comma) will be the fourth argument if provided. Thus, <code>&lt;Action, Actor&gt;</code> will invoke <code>R_Process(Action, 0, 0, Actor)</code>.</p>
+<p class="CommentPara"><span class="Comment">[<code>R_Process()</code> 
+is typically implemented by the Inform library. If there is no library 
+implementation, the veneer fallback simply prints the arguments. Note 
+that support for the four-argument form was introduced in library 6/12; 
+earlier libraries ignore the <code>Actor</code> argument.]</span></p>
+<p class="CommentPara"><span class="Comment">[As in previous versions of Inform, the <code>Action</code> argument can either be a bare action name or a parenthesized expression which produces an action value. Thus, <code>&lt;Take lamp&gt;</code> and <code>&lt;(##Take) lamp&gt;</code> are equivalent.]</span></p>
+<p class="CommentPara"><span class="Comment">[The <code>Actor</code> 
+forms direct the action as a command to an NPC: "ACTOR, ACTION NOUN 
+SECOND". Note that the statement ordering does not match how the player 
+would usually type an NPC command. Inform's lexer is not able to handle 
+that ordering consistently, so the statement has to take <code>Actor</code> last.]</span></p>
+<p><strong><code>@</code>Assembly</strong></p>
+<p>As of 6.40, the Glulx opcodes <code>@hasundo</code> and <code>@discardundo</code> (Glulx spec 3.1.3) are supported.</p>
+<p>As of 6.42, the Z-code opcodes <code>@set_true_colour</code> and <code>@buffer_screen</code> (Z-Spec 1.1) are supported.</p>
+<p>As of 6.42, assembly language (§41) allows you to specify bytes directly:</p>
+<pre class="DefFun"><code>@ -&gt; $8B $04 $D2;
+</code></pre>
+<p>This writes the given bytes into the current location of the function
+ being compiled. Byte values must be numbers or defined numeric 
+constants. It is up to the author to ensure that the bytes form valid 
+instructions.</p>
+<p class="CommentPara"><span class="Comment">[These three bytes form the Z-code opcode for <code>@ret 1234</code>. So this line is equivalent to the statement <code>return 1234</code>. In Glulx, you would need different bytes to achieve the same effect.]</span></p>
+<p>You can also specify values as words:</p>
+<pre class="DefFun"><code>@ --&gt; $00 $FFEE;
+</code></pre>
+<p>In this form, each entry is written as a two-byte (Z) or four-byte (G) sequence. The <code>@ --&gt;</code> statement accepts general constant values such as object, string, or function addresses.</p>
+<p class="CommentPara"><span class="Comment">[This feature is intended 
+for testing new or experimental interpreter features, or exploring the 
+behavior of interpreters in unexpected conditions. Most authors will 
+never need it.]</span></p>
+<p><strong>Print</strong></p>
+<p>The capitalized <code>(A)</code> print token joins <code>(a)</code>, <code>(The)</code>, and <code>(the)</code> as of 6.30; see §26.</p>
+<pre><code>print (A) lamp;
+</code></pre>
+<p>This calls the <code>CInDefArt()</code> veneer function.</p>
+<p>As noted above, the <code>(property)</code> token will print property numbers (rather than names) when the <code>$OMIT_SYMBOL_TABLE</code> option is used.</p>
+<p><strong>Switch</strong></p>
+<p>As of 6.42, switch case values can be parenthesized expressions, as 
+long as the expressions are compile-time constants. In previous 
+versions, they had to be literals or constant symbols, possibly preceded
+ by a minus sign.</p>
+<pre><code>Constant CONST = 5;
+
+! These have always worked.
+switch (x) {
+    0: return 0;
+    1: return 1;
+    -2: return -2;
+    CONST: return 5;
+    -CONST: return -5;
+}
+
+! These also work as of 6.42.
+switch (x) {
+    (0): return 0;
+    (-(1)): return -1;
+    (CONST): return 5;
+    (CONST+1): return 6;
+    (CONST | 3): return 7;
+}
+</code></pre>
+<p>If the case does not begin with an open-paren, it follows the old 
+rules: it must be a literal or a constant symbol with an optional minus 
+sign.</p>
+<p>A case may also have several values or several expressions. Expression parsing applies as long as the <em>first</em> value is wrapped in parens. Wrapping the entire list in parens also works, because of the way Inform parses comma expressions.</p>
+<pre><code>switch (x) {
+    1, 2, 3: return 0;                   ! old style
+    (4), (CONST), (CONST+1): return 1;   ! new style
+    (10), CONST+6, CONST+7: return 2;    ! this also works
+    (20, CONST+16, CONST+17): return 3;  ! as does this
+}
+</code></pre>
+<p>Range cases using <code>to</code> (such as <code>3 to 7</code>) <em>cannot</em> use parenthesized expressions.</p>
+<p>Action cases which are not inside a <code>switch</code> statement cannot use parenthesized expressions. (These are the cases usually found in <code>before</code> and <code>after</code> properties, etc.) These top-level cases must be bare action names, as described in §4.</p>
+<h2 id="dynamic-strings">Dynamic strings</h2>
+<p>The DM4 (§1.11) describes "printing-variables", also called dynamic strings. By embedding a code like <code>@01</code> in a string, you can interpolate another literal string value. You set the interpolated value with a statement like</p>
+<pre><code>string 1 "text";
+print "This is the @01.^";
+</code></pre>
+<p>As of 6.40, dynamic string interpolations may look like <code>@(1)</code>, with any nonnegative number inside the parens. You may also write <code>@(N)</code>, where <code>N</code> is a defined numeric constant.</p>
+<pre><code>Constant TEXTVAL 1;
+</code></pre>
+<p>...and then...</p>
+<pre><code>string TEXTVAL "text";
+print "This is the @(1), or equivalently @(TEXTVAL).^";
+</code></pre>
+<p>The old format <code>@01</code> is still supported, but only supports numbers of exactly two digits.</p>
+<p class="CommentPara"><span class="Comment">[The <code>string</code> statement has always supported numbers and numeric constants, so it has not changed.]</span></p>
+<p>The number of dynamic strings is limited, but the limit may be increased with the <code>$MAX_DYNAMIC_STRINGS</code> setting. See <a href="#memsettings">Compiler settings</a>.</p>
+<h2 id="dictionary-words">Dictionary words</h2>
+<p>As of 6.43, a dictionary word literal may have a suffix indicating flags to set in <code>dict_par1</code>. The suffix consists of <code>//</code> followed by any number of flags:</p>
+<ul>
+<li><code>p</code>: Set the plural flag (bit 2)</li>
+<li><code>s</code>: Set the singular flag (bit 4)</li>
+<li><code>n</code>: Set the noun flag (bit 7)</li>
+<li><code>~p</code>: Do not set the plural flag this time</li>
+<li><code>~s</code>: Do not set the singular flag this time</li>
+<li><code>~n</code>: Do not set the noun flag this time</li>
+</ul>
+<p>6.42 supported the same suffixes with the exception of <code>s</code> and <code>~s</code>, which were added in 6.43.</p>
+<p>In 6.41 and earlier, only the <code>//p</code> suffix (§29) and the flagless <code>//</code> suffix (§1.4) were supported. (The flagless form <code>'x//'</code>
+ just indicates that the constant is a dict word. This is useful to 
+distinguish single-letter dict words from character constants.)</p>
+<p>Inform assumes that all words mentioned in the source are nouns. The only exception is the <code>Verb</code>
+ directive, which contains verbs and prepositions. In effect, all words 
+mentioned in properties, globals, arrays, or functions default to <code>//n</code>. You should explicitly mark words with <code>//~n</code> if you don't mean to give them the noun flag just by mentioning them.</p>
+<p class="CommentPara"><span class="Comment">[For example, if you're writing a LanguageVerb() routine (§37), you might mark verb words as <code>'i//~n'</code>, <code>'inv//~n'</code>, <code>'inventory//~n'</code>.]</span></p>
+<p>Contrariwise, Inform never assumes that words are plural. Therefore, only the <code>//p</code> and <code>//~n</code> flags are useful. <code>//~p</code> and <code>//n</code> are supported only for the sake of consistency.</p>
+<p>Note that if a word is marked both <code>//p</code> and <code>//~p</code> in different places, its plural flag is set. Similarly, if it's marked <code>//n</code> anywhere, <em>even as a default</em>, its noun flag is set. The <code>~</code> forms do not erase a flag; they only prevent it from being set right then.</p>
+<p>The <code>$DICT_IMPLICIT_SINGULAR=1</code> option (added in 6.43) 
+tells Inform to assume that non-plural nouns are singular. That is -- 
+with this option set -- if a word is mentioned in the source (thus being
+ <code>//n</code> by default), and does not have an explicit <code>//p</code>, then its <code>//s</code> flag is set. If a word is marked both <code>//p</code> and <code>//~p</code> in different places, then it will wind up with <em>both</em> the <code>//s</code> and <code>//p</code> flags.</p>
+<p>The <code>$DICT_TRUNCATE_FLAG=1</code> option (added in 6.43) tells Inform to set bit 6 for words which exceed <code>$DICT_WORD_SIZE</code> and therefore get truncated. This includes Z-code words that ends with an incomplete Z-character sequence. There is no <code>//</code> suffix for this bit. As with the other flags, if a word is truncated in one place and not another (say, if both <code>'superhero'</code> and <code>'superheroine'</code> are used), then the flag is set.</p>
+<p class="CommentPara"><span class="Comment">[Note that, by default, suffixes are ignored in truncated dict words. Use the <code>$LONG_DICT_FLAG_BUG=0</code> setting to change this.]</span></p>
+<p class="CommentPara"><span class="Comment">[See also the <code>Dictionary</code> directive, which allows you to set arbitrary bits in <code>dict_par1</code> or <code>dict_par3</code>.]</span></p>
+<h2 id="constants">Constants</h2>
+<p>The compiler defines various constants describing the game file. The game (and library) may use these to examine compiled data.</p>
+<p class="CommentPara"><span class="Comment">[Some constants begin with <code>#</code>;
+ others do not. This is a mostly internal distinction which is not 
+important for authors. The difference is that regular constants must be 
+defined at the start of compilation. <code>#</code> constants, such as <code>#dictionary_table</code>, may not be known until compilation is complete.]</span></p>
+<p class="CommentPara"><span class="Comment">[Only a few of the compiler's <code>#</code> constants are documented here. The majority are intended to support Infix, and are available only in Z-code.]</span></p>
+<p>Constants defined with no given value are typically meant to be checked with <code>#Ifdef</code>. They have the default value 0.</p>
+<p><strong>#version_number</strong></p>
+<p>The Z-code version number. (Z-code only.)</p>
+<p><strong>#readable_memory_offset</strong></p>
+<p>The address of the start of high memory (routine and string 
+segments). This is also found in the header at address 4. (Z-code only.)</p>
+<p><strong>#dictionary_table</strong></p>
+<p>The address of the dictionary. In Z-code, this is also found in the header at address 8. (Glulx-only until 6.40.)</p>
+<p><strong>#grammar_table</strong></p>
+<p>The address of the grammar table. In Z-code, Inform places this at 
+the start of static memory, so it can be found in the header at address 
+14. (Glulx-only until 6.40.)</p>
+<p><strong>#actions_table</strong></p>
+<p>The address of the actions table. This table maps an action number (e.g. <code>##Jump</code>) to its action routine (e.g. <code>JumpSub</code>).</p>
+<p><strong>#dict_par1</strong>, <strong>#dict_par2</strong>, <strong>#dict_par3</strong></p>
+<p>In Z-code, the byte offsets of the three flags within a dictionary word entry.</p>
+<p>In Glulx, these are the byte offsets of the <em>low byte</em> (second byte) of the three flags.</p>
+<p>If <code>$ZCODE_LESS_DICT_DATA</code> is set, <code>#dict_par3</code> is not available.</p>
+<p><strong>#identifiers_table</strong></p>
+<p>The address of a set of tables containing property names, attribute 
+names, and other code elements. These are typically used only by debug 
+commands, runtime error messages, and Infix.</p>
+<p>If <code>$OMIT_SYMBOL_TABLE</code> is set, this constant (and other related constants) are not available. Trying to use them will be reported as a compile error.</p>
+<p><strong>TARGET_ZCODE</strong>, <strong>TARGET_GLULX</strong></p>
+<p>Exactly one of these will be defined, depending on the game file format.</p>
+<p><strong>WORDSIZE</strong></p>
+<p>This is the byte size of a VM word or address: 2 in Z-code, 4 in Glulx.</p>
+<p><strong>STRICT_MODE</strong>, <strong>DEBUG</strong>, <strong>INFIX</strong></p>
+<p>These are defined by the <code>-S</code>, <code>-D</code>, <code>-X</code> switches respectively.</p>
+<p class="CommentPara"><span class="Comment">[Prior to 6.40, <code>MODULE_MODE</code> and <code>USE_MODULES</code> were defined by the <code>-M</code> and <code>-U</code> switches respectively. These no longer exist.]</span></p>
+<p><strong>DICT_WORD_SIZE</strong></p>
+<p>This is the byte size (not Z-character count!) of a dictionary word 
+string. In Z-code, it will be 4 (v3) or 6 (v4+). In Glulx, it is 
+controlled by the <code>$DICT_WORD_SIZE</code> setting.</p>
+<p><strong>DICT_ENTRY_BYTES</strong></p>
+<p>This is the byte size of a complete dictionary entry, including flags. In Z-code, it will be <code>DICT_WORD_SIZE+3</code>, or <code>DICT_WORD_SIZE+2</code> if <code>$ZCODE_LESS_DICT_DATA</code> is set. In Glulx, it is <code>DICT_WORD_SIZE+7</code>, or <code>4*DICT_WORD_SIZE+12</code> if <code>$DICT_CHAR_SIZE</code> is 4.</p>
+<p><strong>DICT_CHAR_SIZE</strong></p>
+<p>The byte size of one character in a dictionary word. This is controlled by the <code>$DICT_CHAR_SIZE</code> setting; it will be either 1 or 4. (Glulx-only.)</p>
+<p><strong>DICT_IS_UNICODE</strong></p>
+<p>This is defined as 1 if <code>$DICT_CHAR_SIZE</code> is 4. (Glulx-only.)</p>
+<p><strong>OMIT_SYMBOL_TABLE</strong></p>
+<p>This is defined if the <code>$OMIT_SYMBOL_TABLE</code> setting is used.</p>
+<p><strong>NUM_ATTR_BYTES</strong></p>
+<p>The number of bytes reserved in each object record for (boolean) 
+attributes. (Each byte stores eight attributes.) In Z-code, this will be
+ 6. In Glulx, it is controlled by the <code>$NUM_ATTR_BYTES</code> setting; it will always be a value of the form <code>4*i+3</code>.</p>
+<p><strong>INDIV_PROP_START</strong></p>
+<p>The property number of the first individual property. This is controlled by the <code>$INDIV_PROP_START</code> setting. (Glulx-only.) (In Z-code, this setting is always 64 so no constant is defined.)</p>
+<p><strong>GOBJFIELD_CHAIN</strong>, <strong>GOBJFIELD_NAME</strong>, <strong>GOBJFIELD_PROPTAB</strong>, <strong>GOBJFIELD_PARENT</strong>, <strong>GOBJFIELD_SIBLING</strong>, <strong>GOBJFIELD_CHILD</strong></p>
+<p>The offset in words (not bytes!) of the six address fields in a Glulx
+ object record. For example, the address of the object's property table 
+can be found at <code>obj--&gt;GOBJFIELD_PROPTAB</code>. (Glulx-only.)</p>
+<p><strong>GOBJ_EXT_START</strong></p>
+<p>The offset of bytes of the extended object data in an object record. The length of this data is controlled by the <code>$GLULX_OBJECT_EXT_BYTES</code> setting. (Glulx-only.)</p>
+<p><strong>GOBJ_TOTAL_LENGTH</strong></p>
+<p>The byte size of a complete object record. This will be <code>1+NUM_ATTR_BYTES+6*WORDSIZE</code>, plus <code>$GLULX_OBJECT_EXT_BYTES</code> if that is set. (Glulx-only.)</p>
+<p><strong>FLOAT_INFINITY</strong>, <strong>FLOAT_NINFINITY</strong>, <strong>FLOAT_NAN</strong></p>
+<p>Positive and negative infinity and NaN for Glulx floating-point operations. (Glulx-only.)</p>
+<p><strong>DOUBLE_HI_INFINITY</strong>, <strong>DOUBLE_LO_INFINITY</strong>, <strong>DOUBLE_HI_NINFINITY</strong>, <strong>DOUBLE_LO_NINFINITY</strong>, <strong>DOUBLE_HI_NAN</strong>, <strong>DOUBLE_LO_NAN</strong></p>
+<p>Positive and negative infinity and NaN for Glulx double-precision operations. (Glulx-only.)</p>
+<h2 id="operators">Operators</h2>
+<h3 id="logical-precedence">Logical precedence</h3>
+<p>The table of condition operators (§Table1B) shows <code>&amp;&amp;</code>, <code>||</code>, and <code>~~</code> as having equal precedence. This is ambiguous about expressions like <code>(~~X &amp;&amp; Y)</code>. In fact, the compiler has always (at least since 6.0) parsed this as applying <code>~~</code> to the conjunction <code>(X &amp;&amp; Y)</code>:</p>
+<pre><code>! These statements are equivalent:
+val = ~~X &amp;&amp; Y;
+val = ~~(X &amp;&amp; Y);
+</code></pre>
+<p>If you want the <code>~~</code> to apply only to <code>X</code>, you must add explicit parentheses:</p>
+<pre><code>! Not equivalent to the above!
+val = (~~X) &amp;&amp; Y;
+</code></pre>
+<p>Similarly, the bitwise expression <code>(~X &amp; Y)</code> is parsed as <code>(~(X &amp; Y))</code>.</p>
+<p>Given this, it makes sense to consider the logical <code>~~</code> operator as having a precedence level of 1.5, and the bitwise <code>~</code> operator as having a precedence level of 5.5.</p>
+<h3 id="the-or-operator">The <code>or</code> operator</h3>
+<p>The <code>or</code> operator is described in §1.8, but without a full explanation.</p>
+<p><code>or</code> may only be used to provide a list of values to the right of a comparison operator:</p>
+<pre><code>if (val == 2 or 4 or 8) ...
+if (obj in trunk or knapsack) ...
+if (obj has container or supporter) ...
+</code></pre>
+<p>The expression is true if the left-hand value matches any of the values on the right.</p>
+<p>For negative-sense operators, the expression is true if the left-hand value matches <em>none</em> of the values on the right:</p>
+<pre><code>if (val ~= 2 or 4 or 8) ...
+if (obj notin trunk or knapsack) ...
+if (obj hasnt container or supporter) ...
+</code></pre>
+<p class="CommentPara"><span class="Comment">[Strict Boolean logic would
+ have us write these negative comparisons with "and" rather than "or". 
+Inform doesn't go that far. All of the expressions above follow the 
+natural English sense of "or".]</span></p>
+<p>This becomes somewhat confusing when we consider ordering comparisons. The manual gives this example:</p>
+<pre><code>if (x &gt; 100 or y) ...
+</code></pre>
+<blockquote>
+<p>[...] to test whether x is bigger than the minimum of 100 and y.</p>
+</blockquote>
+<p>This is consistent with the earlier examples; the expression is true if <code>(x &gt; 100)</code> <em>or</em> <code>(x &gt; y)</code>. However, it takes some squinting to realize this.</p>
+<p>The <code>&gt;=</code> and <code>&lt;=</code> operators are even worse. The compiler treats these as <em>negative-sense</em> operators (because that's how the Z-machine architecture constructed them). Therefore:</p>
+<pre><code>if (x &lt;= 100 or y) ...
+</code></pre>
+<p>This is true if <code>x</code> is less than or equal to <em>both</em> <code>100</code> <em>and</em> <code>y</code>.
+ (That is, it is treated as the exact inverse of the previous example.) 
+This is unintuitive even if you have absorbed the previous examples.</p>
+<p>As of 6.36, if you use <code>or</code> with the <code>&gt;=</code> and <code>&lt;=</code> operators, the compiler will generate a warning.</p>
+<h2 id="class-behavior">Class behavior</h2>
+<h3 id="inheritance">Inheritance</h3>
+<p>The DM4 (§3.8) gives this example of multiple inheritance:</p>
+<pre><code>Object "goose that lays the golden eggs"
+    class Bird Treasure;
+</code></pre>
+<blockquote>
+<p>[This goose] inherits from Object first and then Bird and then 
+Treasure, attribute settings and property values from later-mentioned 
+classes overriding earlier ones, so if these classes should give 
+contradictory instructions then Treasure gets the last word.</p>
+</blockquote>
+<p>In fact this is not true (and never has been). The language behavior is somewhat complex.</p>
+<p>Property values are determined by the <em>first</em> class listed, whether that is given as a directive (<code>Treasure goose</code>) or a <code>class</code> keyword (<code>Object goose class Treasure</code>). Of course, if the object itself gives a property value, that overrides all inherited values.</p>
+<p>If one class inherits from another, the derived class property overrides the superclass property, as one would expect.</p>
+<p><em>Additive</em> properties follow the same logic, but their values 
+accumulate, rather than overriding each other. An additive property 
+gains values from the object's own definition (first), then from each 
+class in (forward) listing order.</p>
+<p class="CommentPara"><span class="Comment">[This supports the I6 library convention that additive properties (<code>before</code>, <code>after</code>, <code>life</code>) contain lists of inline routines. These are tested in forward order; each routine may return <code>true</code> to indicate that the event is handled, or <code>false</code> to pass control to the next routine. The precedence order is thus, again, the object followed by each class in listing order.]</span></p>
+<p>Attributes follow the same rule, except that <em>classes cannot negate attributes set by other classes</em>.</p>
+<pre><code>Class Bird has ~heavy;
+Class Treasure has heavy;
+Object goose class Bird Treasure;
+</code></pre>
+<p>In this example, the goose object gains the <code>heavy</code> attribute because at least one of its classes sets it. This will be true no matter what order the classes are listed in. The <code>has ~heavy</code> declaration in class <code>Bird</code> has no effect.</p>
+<p>Objects can of course use <code>has ~attr</code> to negate attributes
+ inherited from classes. Derived classes can negate attributes inherited
+ from superclasses. The limitation applies only to conflicts between an 
+object's classes.</p>
+<h3 id="class-copy-and-recreate">Class <code>copy</code> and <code>recreate</code></h3>
+<p>The <code>copy</code> and <code>recreate</code> class methods likewise diverge from the manual. §3.11 says:</p>
+<pre><code>Plant.copy(Gilded_Branch, Poison_Ivy);
+Treasure.recreate(Gilded_Branch);
+</code></pre>
+<blockquote>
+<p>It's rather useful that recreate and copy can be sent for any 
+instances, not just instances which have previously been created. For 
+example, [the copy statement above] copies over all the features of a 
+Plant from Poison_Ivy to Gilded_Branch, but leaves any other properties 
+and attributes of the gilded branch alone. Likewise, [the recreate 
+statement] only resets the properties to do with Treasure, leaving the 
+Plant properties alone.</p>
+</blockquote>
+<p>In fact, the question of what classes originated the properties and attributes does not arise. The <code>copy</code> method copies <em>all</em>
+ attributes, positive and negative, from the source to the target. It 
+also copies the value of every property which is declared by both the 
+source and target and has the same length on each.</p>
+<p>The <code>recreate</code> method does a <code>copy</code> from an unmodified instance of the class, followed by a <code>create</code> call. It will therefore reset all attributes, as well as any properties declared by both the object and the class.</p>
+<p class="CommentPara"><span class="Comment">[These behaviors are 
+arguably compiler bugs. However, they have been established behavior 
+since Inform 6.0. We prefer to document them rather than trying to 
+adjust them at this late date.]</span></p>
+<h2 id="glulx-support">Glulx support</h2>
+<p>The ability to compile a Glulx game file (the <code>-G</code> option) was introduced in 6.30. This came with a few additions to the Inform language.</p>
+<p>One of the constants <code>TARGET_ZCODE</code> and <code>TARGET_GLULX</code> is always defined. These can be used with the <code>Ifdef</code> directive to mark code that should only be compiled on one platform.</p>
+<p>The constant <code>WORDSIZE</code> is always defined; it is 2 in Z-code and 4 in Glulx.</p>
+<p>As noted above, code under the <code>Ifv5</code> directive is also compiled for Glulx.</p>
+<h3 id="language-features-supported-only-in-glulx">Language features supported only in Glulx</h3>
+<p>If the first argument to a function is named <code>_vararg_count</code>, arguments will be passed on the VM stack, with <code>_vararg_count</code> set to the number of arguments.</p>
+<p>Literals beginning with <code>$+</code> and <code>$-</code> are compiled as floating-point constants. For example: <code>$+1.0</code>, <code>$-1e3</code>, <code>$+2.5e-3</code>.
+ Double-precision floating-point is also supported; these values require
+ 64 bits, or two Glulx words each, and are thus written <code>$&gt;+1.0</code> (the high word) and <code>$&lt;+1.0</code> (the low word).</p>
+<p>The constants <code>FLOAT_INFINITY</code>, <code>FLOAT_NINFINITY</code>, <code>FLOAT_NAN</code>, <code>DOUBLE_HI_INFINITY</code>, <code>DOUBLE_LO_INFINITY</code>, <code>DOUBLE_HI_NINFINITY</code>, <code>DOUBLE_LO_NINFINITY</code>, <code>DOUBLE_HI_NAN</code>, <code>DOUBLE_LO_NAN</code> are also defined.</p>
+<p class="CommentPara"><span class="Comment">[Note that the standard Inform arithmetic operators (<code>+</code>, <code>-</code>, etc) do not work with floating-point values. You must use Glulx opcodes. (<code>@fadd</code>, <code>@fsub</code>, etc for single-precision; <code>@dadd</code>, <code>@dsub</code>, etc for double-precision.)]</span></p>
+<p class="CommentPara"><span class="Comment">[Double-precision literals 
+are not guaranteed to compile to exactly the same word values on all 
+platforms. The last digit of the low word may vary. This is because the 
+Inform compiler relies on platform floating-point math, which is 
+inherently imprecise.]</span></p>
+<p>The <code>print_to_array()</code> method (§3.12) requires two arguments, rather than one (as in Z-code).</p>
+<h3 id="language-features-not-supported-in-glulx">Language features not supported in Glulx</h3>
+<p>Infix (the <code>-X</code> option, §7) is not available.</p>
+<p>The <code>Zcharacter</code> directive (§36) is not available, since Glulx does not use the ZSCII character set.</p>
+<p>The <code>save</code>, <code>restore</code>, and <code>read</code> 
+statements (§1.15, §2.5) are not available. These features require more 
+complex behavior in Glulx and cannot be encapsulated in a single 
+statement. They must be implemented in library code using the <code>@glk</code> opcode.</p>
+<h2 id="z-machine-v34-limitations">Z-machine V3/4 limitations</h2>
+<p>Early releases of Inform (through Inform 5) were designed to support 
+all versions of the Z-machine from 3 through 6. However, Inform 6 
+extended the language in ways which require more advanced VM support. 
+Therefore, certain language features require Z-machine version 5 or 
+later.</p>
+<ul>
+<li>Debug mode and strict mode (<code>-D</code> and <code>-S</code>, §7) are not available in V3 and V4.</li>
+<li>The method call expression <code>obj.prop()</code> is not available in V3 and V4.</li>
+</ul>
+<p>You can work around the lack of <code>obj.prop()</code> by writing:</p>
+<pre><code>@push self;
+self = obj;
+addr = obj.prop;
+addr();
+@pull self;
+</code></pre>
+<p class="CommentPara"><span class="Comment">[The lines dealing with <code>self</code> may be omitted if the property routine does not rely on <code>self</code>.]</span></p>
+<p>In general, Inform 6 is able to compile older source code to V3 if the source <em>and the library</em> avoids the <code>obj.prop()</code> syntax. This means you cannot use the Inform 6 library. You must use the <a href="https://ifarchive.org/indexes/if-archive/infocom/compilers/inform5/library/">Inform 5 library</a>, or one of the alternative libraries designed for V3, such as <a href="https://github.com/ByteProject/Metrocenter84/tree/master/metro84">metro84</a> or <a href="https://github.com/johanberntsson/PunyInform">PunyInform</a>.</p>
+<p class="CommentPara"><span class="Comment">[It is possible to re-implement a limited version of <code>obj.prop()</code> for V3 by replacing the <code>CA__Pr</code> and <code>Cl__Ms</code> veneer routines. Some alternative libraries do this.]</span></p>
+<h1 id="grammarformat">Grammar table formats</h1>
+<p>The original grammar table formats are documented in the <a href="https://inform-fiction.org/source/tm/">Inform Technical Manual</a>
+ (§8.6), but they have been extended for Glulx and then for grammar 
+version 3 (which is new as of 6.43). It is convenient to compile a 
+summary here.</p>
+<p>The grammar table is a <code>--&gt;</code> array starting at address <code>#grammar_table</code>.
+ In Z-code the array is 0-based, and is the first thing in static 
+memory. In Glulx the array is 1-based; the first entry is the number of 
+verbs. The array contains the addresses of individual grammar tables for
+ each verb.</p>
+<p>An individual grammar table looks like this:</p>
+<pre><code>[Z-code GV1]
+byte: number of lines
+...each grammar line: {
+    byte: param count
+    ...each token in the line: {
+        byte: token
+    }
+    ...null byte padding to bring the token count to six
+    byte: action number
+}
+
+[Z-code GV2]
+byte: number of lines
+...each grammar line: {
+    short: action+flags
+    ...each token in the line: {
+        byte: token type
+        short: token data
+    }
+    byte: ENDIT (15)
+}
+
+[Z-code GV3]
+byte: number of lines
+...each grammar line: {
+    short: count+action+flags
+    ...each token in the line: {
+        byte: token type
+        byte: token data
+    }
+}
+
+[Glulx (always GV2)]
+byte: number of lines
+...each grammar line: {
+    short: action number
+    byte: flags
+    ...each token in the line: {
+        byte: token type
+        long: token data
+    }
+    byte: ENDIT (15)
+}
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>In Z-code GV1, there are exactly 6 tokens per line (so a grammar line is 8 bytes). Unused tokens are zeroes. The <code>param count</code> is the number of <em>non-preposition</em> tokens in the line.</li>
+<li>In Z-code GV2, the <code>action+flags</code> word is encoded with the action number in the bottom 10 bits. Bit 10 is the <code>reverse</code> flag. The top 5 bits are unused.</li>
+<li>In Z-code GV3, the <code>count+action+flags</code> word is encoded with the action number in the bottom 10 bits. Bit 10 is the <code>reverse</code> flag. The top 5 bits are the token count. (ENDIT is thus not needed.)</li>
+<li>In Glulx, the flags and action number are separate fields. The <code>reverse</code> flag is bit 0 of <code>flags</code>.</li>
+</ul>
+<p>For the complete token format, see the <a href="https://inform-fiction.org/source/tm/">ITM</a>.
+ But note that in GV2 (Z/G), scope routine tokens contain routine 
+addresses and preposition tokens contain dict addresses; the token data 
+is therefore word-sized. In GV1/3, these token data values are bytes; 
+the addresses must be looked up in the (misnamed) "preaction" and 
+"adjective" tables respectively.</p>
+<h1 id="debugformat">Debug file format</h1>
+<p>The <code>-k</code> switch generates a <code>gameinfo.dbg</code> file which describes the compiled game. The <a href="https://inform-fiction.org/source/tm/">Inform Technical Manual</a>
+ (§12.5) documents a binary format ("Version 0") for this file. However,
+ that format is no longer used. As of Inform 6.33, a more verbose XML 
+format ("Version 1") is generated; this section describes it.</p>
+<p class="CommentPara"><span class="Comment">[By "verbose", we mean that
+ the debug info for Advent.inf approaches 2 megabytes of XML. The debug 
+info for a one-line Inform 7 game reaches 11 megabytes. The greatest 
+bulk of the data is <code>&lt;source-code-location&gt;</code> and <code>&lt;sequence-point&gt;</code> tags.]</span></p>
+<h2 id="overview">Overview</h2>
+<p>Debugging information files are written in XML and encoded in UTF-8. They therefore begin with the following declaration:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</code></pre>
+<p>Beyond the usual requirements for well-formed XML, the file adheres 
+to the conventions that all numbers are written in decimal, all strings 
+are case-sensitive, and all excerpts from binary files are 
+Base64-encoded.</p>
+<h2 id="the-top-level">The top level</h2>
+<p>The root element is given by the tag <code>&lt;inform-story-file&gt;</code>
+ with three attributes: the version of the debug file format being used,
+ the name of the program that produced the file, and that program's 
+version. For instance,</p>
+<pre><code>&lt;inform-story-file version="1.0" content-creator="Inform"
+           content-creator-version="6.33"&gt;
+  ...
+&lt;/inform-story-file&gt;
+</code></pre>
+<p>Any of the elements described below (except <code>&lt;local-variable&gt;</code>, <code>&lt;sequence-point&gt;</code>, <code>&lt;source-code-location&gt;</code>) may appear in the ellipses.</p>
+<h2 id="story-file-prefix">Story file prefix</h2>
+<p>The story file prefix contains a Base64 encoding of the story file's 
+first bytes so that a debugging tool can easily check whether the story 
+and the debug information file are mismatched. For example, the prefix 
+for a Glulx story might appear as</p>
+<pre><code>&lt;story-file-prefix&gt;
+  R2x1bAADAQEACqEAAAwsAAAMLAAAAQAAAAAAPAAIo2Jc
+  6B2XSW5mbwABAAA2LjMyMC4zOAABMTIxMDE1wQAAMA==
+&lt;/story-file-prefix&gt;
+</code></pre>
+<p>The story file prefix is mandatory, but its length is unspecified. 
+The current version of the Inform compiler records 64 bytes, which seems
+ sufficient.</p>
+<h2 id="story-file-sections">Story file sections</h2>
+<p>Story file sections partition the story file according to how the 
+data will be used. For the Inform 6 compiler, this partitioning is the 
+same as the memory map printed by the <code>-z</code> switch.</p>
+<p>A record for a story file section gives a name for that section, its 
+beginning address (inclusive), and its end address (exclusive):</p>
+<pre><code>&lt;story-file-section&gt;
+  &lt;type&gt;abbreviations table&lt;/type&gt;
+  &lt;address&gt;64&lt;/address&gt;
+  &lt;end-address&gt;128&lt;/end-address&gt;
+&lt;/story-file-section&gt;
+</code></pre>
+<p>The names currently in use include those from the Inform Technical Manual (§12.5):</p>
+<pre><code>abbreviations table
+header extension (Z-code only)
+alphabets table (Z-code only)
+Unicode table (Z-code only)
+property defaults
+object tree
+common properties
+class numbers
+individual properties (Z-code only)
+global variables
+array space
+grammar table
+actions table
+parsing routines (Z-code only)
+adjectives table (Z-code only)
+dictionary
+code area
+strings area
+</code></pre>
+<p>plus one addition for Z-code:</p>
+<pre><code>abbreviations
+</code></pre>
+<p>two additions for Glulx:</p>
+<pre><code>memory layout id
+string decoding table
+</code></pre>
+<p>and three additions for both targets:</p>
+<pre><code>header
+identifier names
+zero padding
+</code></pre>
+<p>Names may repeat; Glulx story files, for example, sometimes have two zero padding sections.</p>
+<p>A compiler that does not wish to subdivide the story file should emit one section for the entirety and give it the name</p>
+<pre><code>story
+</code></pre>
+<h2 id="source-files">Source files</h2>
+<p>Source files are encoded as in the example below. Each file has a 
+unique index, which is used by other elements when referring to source 
+code locations; these indices count from zero. The file's path is 
+recorded in two forms, first as it was given to the compiler via a 
+command-line argument or include directive but without any path 
+abbreviations like <code>&gt;</code> (the form suitable for presentation
+ to a human) and second after resolution to an absolute path (the form 
+suitable for loading the file contents). All paths are written according
+ to the conventions of the host OS. The language is, at present, either 
+"Inform 6" or "Inform 7". More languages may added in the future.</p>
+<pre><code>&lt;source index="0"&gt;
+  &lt;given-path&gt;example.inf&lt;/given-path&gt;
+  &lt;resolved-path&gt;/home/user/directory/example.inf&lt;/resolved-path&gt;
+  &lt;language&gt;Inform 6&lt;/language&gt;
+&lt;/source&gt;
+</code></pre>
+<p>If the source file is known to appear in the story's Blorb, its chunk number will also be recorded:</p>
+<pre><code>&lt;source index="0"&gt;
+  &lt;given-path&gt;example.inf&lt;/given-path&gt;
+  &lt;resolved-path&gt;/home/user/directory/example.inf&lt;/resolved-path&gt;
+  &lt;language&gt;Inform 6&lt;/language&gt;
+  &lt;blorb-chunk-number&gt;18&lt;/blorb-chunk-number&gt;
+&lt;/source&gt;
+</code></pre>
+<h2 id="table-entries-grammar-lines">Table entries; grammar lines</h2>
+<p>Table entries are data defined by particular parts of the source code, but without any corresponding identifiers. The <code>&lt;table-entry&gt;</code>
+ element notes the entry's type, the address where it begins 
+(inclusive), the address where it ends (exclusive), and the defining 
+source code location(s), if any:</p>
+<pre><code>&lt;table-entry&gt;
+  &lt;type&gt;grammar line&lt;/type&gt;
+  &lt;address&gt;1004&lt;/address&gt;
+  &lt;end-address&gt;1030&lt;/end-address&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/table-entry&gt;
+</code></pre>
+<p>The current version of the Inform compiler only emits <code>&lt;table-entry&gt;</code> tags for grammar lines; these data are all located in the grammar table section.</p>
+<h2 id="named-values">Named values</h2>
+<p>Records for named values store their identifier, their value, and the
+ source code location(s) of their definition, if any. For instance,</p>
+<pre><code>&lt;constant&gt;
+  &lt;identifier&gt;MAX_SCORE&lt;/identifier&gt;
+  &lt;value&gt;40&lt;/value&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/constant&gt;
+</code></pre>
+<p>would represent a named constant.</p>
+<p>Attributes, properties, actions, fake actions, objects, arrays, and 
+routines are also names for numbers, and differ only in their use; they 
+are represented in the same format under the tags <code>&lt;attribute&gt;</code>, <code>&lt;property&gt;</code>, <code>&lt;action&gt;</code>, <code>&lt;fake-action&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;array&gt;</code>, and <code>&lt;routine&gt;</code>. (Moreover, unlike in Version 0, fake actions are not recorded as both fake actions and actions.)</p>
+<p>The records for constants include some extra entries for the system 
+constants tabulated in the Inform Technical Manual (§12.2), even though 
+these are not created by Constant directives. Entries for <code>#undef</code>ed constants are also included, but necessarily without values.</p>
+<p>Some records for objects will represent class objects. In that case, they will be given with the tag <code>&lt;class&gt;</code> rather than <code>&lt;object&gt;</code> and include an additional child to indicate their class number:</p>
+<pre><code>&lt;class&gt;
+  &lt;identifier&gt;lamp&lt;/identifier&gt;
+  &lt;class-number&gt;5&lt;/class-number&gt;
+  &lt;value&gt;1560&lt;/value&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/class&gt;
+</code></pre>
+<p>Records for arrays also have extra children, which record their size,
+ their element size, and the intended semantics for their zeroth 
+element:</p>
+<pre><code>&lt;array&gt;
+  &lt;identifier&gt;route&lt;/identifier&gt;
+  &lt;value&gt;1500&lt;/value&gt;
+  &lt;byte-count&gt;20&lt;/byte-count&gt;
+  &lt;bytes-per-element&gt;4&lt;/bytes-per-element&gt;
+  &lt;zeroth-element-holds-length&gt;true&lt;/zeroth-element-holds-length&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/array&gt;
+</code></pre>
+<p>And finally, <code>&lt;routine&gt;</code> records contain an <code>&lt;address&gt;</code> and a <code>&lt;byte-count&gt;</code> element, along with any number of the <code>&lt;local-variable&gt;</code> and <code>&lt;sequence-point&gt;</code> elements, which are described <a href="#debug_localvars">below</a>. The address is provided because the identifier's value may be packed.</p>
+<p>Sometimes what would otherwise be a named value is in fact anonymous;
+ unnamed objects, embedded routines, some replaced routines, veneer 
+properties, and the Infix attribute are all examples. In such a case, 
+the <code>&lt;identifier&gt;</code> subelement will carry the XML attribute</p>
+<pre><code>artificial
+</code></pre>
+<p>to indicate that the compiler is providing a sensible name of its 
+own, which could be presented to a human, but is not actually an 
+identifier. For instance:</p>
+<pre><code>&lt;routine&gt;
+  &lt;identifier artificial="true"&gt;lantern.time_left&lt;/identifier&gt;
+  &lt;value&gt;1820&lt;/value&gt;
+  &lt;byte-count&gt;80&lt;/byte-count&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+  ...
+&lt;/routine&gt;
+</code></pre>
+<p>Artificial identifiers may contain characters, like the full stop in <code>lantern.time_left</code>, that would not be legal in the source language.</p>
+<h2 id="global-variables">Global variables</h2>
+<p>Globals are similar to named values, except that they are not 
+interpreted as a fixed value, but rather have an address where their 
+value can be found. Their records therefore contain an <code>&lt;address&gt;</code> tag in place of the <code>&lt;value&gt;</code> tag, as in:</p>
+<pre><code>&lt;global-variable&gt;
+  &lt;identifier&gt;darkness_witnessed&lt;/identifier&gt;
+  &lt;address&gt;1520&lt;/address&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/global-variable&gt;
+</code></pre>
+<h2 id="debug_localvars">Local variables</h2>
+<p>The format for local variables mimics the format for global 
+variables, except that a source code location is never included, and 
+their memory locations are not given by address. For Z-code, locals are 
+specified by index:</p>
+<pre><code>&lt;local-variable&gt;
+  &lt;identifier&gt;parameter&lt;/identifier&gt;
+  &lt;index&gt;1&lt;/index&gt;
+&lt;/local-variable&gt;
+</code></pre>
+<p>whereas for Glulx they are specified by frame offset:</p>
+<pre><code>&lt;local-variable&gt;
+  &lt;identifier&gt;parameter&lt;/identifier&gt;
+  &lt;frame-offset&gt;4&lt;/frame-offset&gt;
+&lt;/local-variable&gt;
+</code></pre>
+<p>If a local variable identifier is only in scope for part of a 
+routine, its scope will be encoded as a beginning instruction address 
+(inclusive) and an ending instruction address (exclusive):</p>
+<pre><code>&lt;local-variable&gt;
+  &lt;identifier&gt;rulebook&lt;/identifier&gt;
+  &lt;index&gt;0&lt;/index&gt;
+  &lt;scope-address&gt;1628&lt;/scope-address&gt;
+  &lt;end-scope-address&gt;1678&lt;/end-scope-address&gt;
+&lt;/local-variable&gt;
+</code></pre>
+<p>Identifiers with noncontiguous scopes are recorded as one <code>&lt;local-variable&gt;</code>
+ element per contiguous region. It is possible for the same identifier 
+to map to different variables, so long as the corresponding scopes are 
+disjoint.</p>
+<h2 id="sequence-points">Sequence points</h2>
+<p>Sequence points are stored as an instruction address and the corresponding single location in the source code:</p>
+<pre><code>&lt;sequence-point&gt;
+  &lt;address&gt;1628&lt;/address&gt;
+  &lt;source-code-location&gt;...&lt;/source-code-location&gt;
+&lt;/sequence-point&gt;
+</code></pre>
+<p>The source code location will always be exactly one position with overlapping endpoints.</p>
+<p>Sequence points are defined as in the Inform Technical Manual 
+(§12.4), but with the further stipulation that labels do not influence 
+their source code locations, as they did in Version 0. For instance, in 
+code like</p>
+<pre><code>say__p = 1; ParaContent(); .L_Say59; .LSayX59;
+t_0 = 0;
+</code></pre>
+<p>the sequence points are to be placed like this:</p>
+<pre><code>&lt;*&gt; say__p = 1; &lt;*&gt; ParaContent(); .L_Say59; .LSayX59;
+&lt;*&gt; t_0 = 0;
+</code></pre>
+<p>rather than like this:</p>
+<pre><code>&lt;*&gt; say__p = 1; &lt;*&gt; ParaContent(); &lt;*&gt; .L_Say59; .LSayX59;
+t_0 = 0;
+</code></pre>
+<h2 id="source-code-locations">Source code locations</h2>
+<p>Most source code locations take the following format, which describes
+ their file, the line and character number where they begin (inclusive),
+ the line and character number where they end (exclusive), and the file 
+positions (in bytes) corresponding to those endpoints:</p>
+<pre><code>&lt;source-code-location&gt;
+  &lt;file-index&gt;0&lt;/file-index&gt;
+  &lt;line&gt;1024&lt;/line&gt;
+  &lt;character&gt;4&lt;/character&gt;
+  &lt;file-position&gt;44153&lt;/file-position&gt;
+  &lt;end-line&gt;1025&lt;/end-line&gt;
+  &lt;end-character&gt;1&lt;/end-character&gt;
+  &lt;end-file-position&gt;44186&lt;/end-file-position&gt;
+&lt;/source-code-location&gt;
+</code></pre>
+<p>Line numbers and character numbers begin at one, but file positions count from zero.</p>
+<p>In the special case where the endpoints coincide, as happens with sequence points, the end elements may be elided:</p>
+<pre><code>&lt;source-code-location&gt;
+  &lt;file-index&gt;0&lt;/file-index&gt;
+  &lt;line&gt;1024&lt;/line&gt;
+  &lt;character&gt;4&lt;/character&gt;
+  &lt;file-position&gt;44153&lt;/file-position&gt;
+&lt;/source-code-location&gt;
+</code></pre>
+<p>At the other extreme, sometimes definitions span several source files
+ or appear in two different languages. The former case is dealt with by 
+including multiple code location elements and indexing them to indicate 
+order:</p>
+<pre><code>&lt;!-- First Part of Inform 6 Definition --&gt;
+&lt;source-code-location index="0"&gt;
+  &lt;!-- Assuming file 0 was given with the language "Inform 6" --&gt;
+  &lt;file-index&gt;0&lt;/file-index&gt;
+  &lt;line&gt;1024&lt;/line&gt;
+  &lt;character&gt;4&lt;/character&gt;
+  &lt;file-position&gt;44153&lt;/file-position&gt;
+  &lt;end-line&gt;1025&lt;/end-line&gt;
+  &lt;end-character&gt;1&lt;/end-character&gt;
+  &lt;end-file-position&gt;44186&lt;/end-file-position&gt;
+&lt;/source-code-location&gt;
+&lt;!-- Second Part of Inform 6 Definition --&gt;
+&lt;source-code-location index="1"&gt;
+  &lt;!-- Assuming file 1 was given with the language "Inform 6" --&gt;
+  &lt;file-index&gt;1&lt;/file-index&gt;
+  &lt;line&gt;1&lt;/line&gt;
+  &lt;character&gt;0&lt;/character&gt;
+  &lt;file-position&gt;0&lt;/file-position&gt;
+  &lt;end-line&gt;3&lt;/end-line&gt;
+  &lt;end-character&gt;1&lt;/end-character&gt;
+  &lt;end-file-position&gt;59&lt;/end-file-position&gt;
+&lt;/source-code-location&gt;
+</code></pre>
+<p>The latter case is also handled with multiple elements. Note that 
+indexing is only used to indicate order among locations in the same 
+language.</p>
+<pre><code>&lt;!-- Inform 7 Definition --&gt;
+&lt;source-code-location&gt;
+  &lt;!-- Assuming file 2 was given with the language "Inform 7" --&gt;
+  &lt;file-index&gt;2&lt;/file-index&gt;
+  &lt;line&gt;12&lt;/line&gt;
+  &lt;character&gt;0&lt;/character&gt;
+  &lt;file-position&gt;308&lt;/file-position&gt;
+  &lt;end-line&gt;12&lt;/end-line&gt;
+  &lt;end-character&gt;112&lt;/end-character&gt;
+  &lt;end-file-position&gt;420&lt;/end-file-position&gt;
+&lt;/source-code-location&gt;
+&lt;!-- Inform 6 Definition --&gt;
+&lt;source-code-location&gt;
+  &lt;!-- Assuming file 0 was given with the language "Inform 6" --&gt;
+  &lt;file-index&gt;0&lt;/file-index&gt;
+  &lt;line&gt;1024&lt;/line&gt;
+  &lt;character&gt;4&lt;/character&gt;
+  &lt;file-position&gt;44153&lt;/file-position&gt;
+  &lt;end-line&gt;1025&lt;/end-line&gt;
+  &lt;end-character&gt;1&lt;/end-character&gt;
+  &lt;end-file-position&gt;44186&lt;/end-file-position&gt;
+&lt;/source-code-location&gt;
+</code></pre>
+<h1 id="bugs">Bugs</h1>
+<p>A great number of bugs have been fixed since Inform 6.21. The list is not included here. See the <a href="https://ifarchive.org/if-archive/infocom/compilers/inform6/ReleaseNotes.html">Release Notes</a> for details (older notes <a href="https://inform-fiction.org/manual/ReleaseNotes-6.3x.html">here</a>).</p>
+<p>However, it is worth noting that Z-code V3 code generation had been 
+neglected since 6.15 and a number of bugs had crept in. 6.34 and 6.35 
+have addressed these; V3 should once again be usable.</p>
+<p>Particular thanks to Daniel Fremont for the many bug reports uncovered by his input-fuzzing project.</p>
+
+
+</body></html>
