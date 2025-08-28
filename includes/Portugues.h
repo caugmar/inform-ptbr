@@ -1,6 +1,6 @@
 ! vim:ft=inform:
 ! ==============================================================================
-!   Português: Arquivo de definição de linguagem
+!   PortuguÃªs: Arquivo de definiÃ§Ã£o de linguagem
 !
 !   Para uso com Inform 6 -- Release 6/11 -- Serial number 040227
 !
@@ -13,19 +13,19 @@ System_file;
 !   Part I.   Preliminaries
 ! ------------------------------------------------------------------------------
 
-Constant LanguageVersion = "Tradução portuguesa por Guto Marcicano";
+Constant LanguageVersion = "TraduÃ§Ã£o portuguesa por Guto Marcicano";
 
 #ifdef TARGET_ZCODE;
-  Zcharacter 'á';
-  Zcharacter 'é';
-  Zcharacter 'í';
-  Zcharacter 'ó';
-  Zcharacter 'ú';
-  Zcharacter 'ã';
-  Zcharacter 'õ';
-  Zcharacter 'â';
-  Zcharacter 'ê';
-  Zcharacter 'ô';
+  Zcharacter 'Ã¡';
+  Zcharacter 'Ã©';
+  Zcharacter 'Ã­';
+  Zcharacter 'Ã³';
+  Zcharacter 'Ãº';
+  Zcharacter 'Ã£';
+  Zcharacter 'Ãµ';
+  Zcharacter 'Ã¢';
+  Zcharacter 'Ãª';
+  Zcharacter 'Ã´';
 #endif;
 
 Class   CompassDirection
@@ -264,7 +264,7 @@ Array LanguageGNAsToArticles --> 0 1 0 2 3 2 0 1 0 2 3 2;
     switch (n) {
       1:    print "um";
       2:    print "dois";
-      3:    print "três";
+      3:    print "trÃªs";
       4:    print "quatro";
       5:    print "cinco";
       6:    print "seis";
@@ -302,7 +302,7 @@ Array LanguageGNAsToArticles --> 0 1 0 2 3 2 0 1 0 2 3 2;
 [ LanguageVerb i;
     switch (i) {
       'i//','inv','inventario','invent@'ario':
-               print "ver o inventário";
+               print "ver o inventÃ¡rio";
       'x//':   print "examinar";
       'z//':   print "esperar";
       default: rfalse;
@@ -351,7 +351,7 @@ Array LanguageGNAsToArticles --> 0 1 0 2 3 2 0 1 0 2 3 2;
     rfalse;
 ];
 
-Constant NKEY__TX       = "P = próximo     ";
+Constant NKEY__TX       = "P = prÃ³ximo     ";
 Constant PKEY__TX       = "A = anterior";
 Constant QKEY1__TX      = "V = volta ao jogo";
 Constant QKEY2__TX      = "V = menu anterior";
@@ -367,20 +367,20 @@ Constant QKEY2__KY      = 'v';
 Constant SCORE__TX      = "Pontos: ";
 Constant MOVES__TX      = "Turnos: ";
 Constant TIME__TX       = "Tempo: ";
-Constant CANTGO__TX     = "Você não pode seguir nessa direção.";
+Constant CANTGO__TX     = "VocÃª nÃ£o pode seguir nessa direÃ§Ã£o.";
 Constant FORMER__TX     = "seu antigo eu";
-Constant YOURSELF__TX   = "você mesmo";
-Constant YOU__TX        = "Você";
-Constant DARKNESS__TX   = "Escuridão";
+Constant YOURSELF__TX   = "vocÃª mesmo";
+Constant YOU__TX        = "VocÃª";
+Constant DARKNESS__TX   = "EscuridÃ£o";
 
 Constant THOSET__TX     = "essas coisas";
 Constant THAT__TX       = "isso";
 Constant OR__TX         = " ou ";
 Constant NOTHING__TX    = "nada";
-Constant IS__TX         = " é";
-Constant ARE__TX        = " estão";
-Constant IS2__TX        = "é ";
-Constant ARE2__TX       = "estão ";
+Constant IS__TX         = " Ã©";
+Constant ARE__TX        = " estÃ£o";
+Constant IS2__TX        = "Ã© ";
+Constant ARE2__TX       = "estÃ£o ";
 Constant AND__TX        = " e ";
 Constant WHOM__TX       = "quem ";
 Constant WHICH__TX      = "qual ";
@@ -388,7 +388,7 @@ Constant COMMA__TX      = ", ";
 
 
 [ ThatorThose obj;      ! Used in the accusative
-    if (obj == player)            { print " você mesmo"; return; }
+    if (obj == player)            { print " vocÃª mesmo"; return; }
     if (obj has pluralname)       { print " esses"; return; }
     if (obj has animate) {
         if (obj has female)       { print "ela"; return; }
@@ -399,7 +399,7 @@ Constant COMMA__TX      = ", ";
 ];
 
 [ ItorThem obj;
-    if (obj == player)            { print "você mesmo"; return; }
+    if (obj == player)            { print "vocÃª mesmo"; return; }
     if (obj has pluralname)       { print "eles"; return; }
     if (obj has animate) {
         if (obj has female)       { print "ela"; return; }
@@ -410,11 +410,11 @@ Constant COMMA__TX      = ", ";
 ];
 
 [ IsorAre obj;
-    if (obj has pluralname || obj == player) print "são"; else print "é";
+    if (obj has pluralname || obj == player) print "sÃ£o"; else print "Ã©";
 ];
 
 [ CThatorThose obj;     ! Used in the nominative
-    if (obj == player)            { print "Você"; return; }
+    if (obj == player)            { print "VocÃª"; return; }
     if (obj has pluralname)       { print "Essas coisas"; return; }
     if (obj has animate) {
         if (obj has female)       { print "Ela"; return; }
@@ -425,7 +425,7 @@ Constant COMMA__TX      = ", ";
 ];
 
 [ CTheyreorThats obj;
-    if (obj == player)             { print "Você"; return; }
+    if (obj == player)             { print "VocÃª"; return; }
     if (obj has pluralname)        { print "Essas coisas"; return; }
     if (obj has animate) {
         if (obj has female)        { print "Ela"; return; }
@@ -443,7 +443,6 @@ Constant COMMA__TX      = ", ";
     if (obj has female) { print "la"; return; }
     else { print "lo"; return; }
   }
-  print "lo";
 ];
 
 [ o obj;
@@ -455,12 +454,11 @@ Constant COMMA__TX      = ", ";
     if (obj has female) { print "a"; return; }
     else { print "o"; return; }
   }
-  print "o";
 ];
 
 [ esta obj;
-  if (obj has pluralname) { print "estão"; return; }
-  print "está";
+  if (obj has pluralname) { print "estÃ£o"; return; }
+  print "estÃ¡";
 ];
 
 [ pode obj;
@@ -518,80 +516,80 @@ Constant COMMA__TX      = ", ";
 
 [ LanguageLM n x1;
   Answer,Ask:
-            "Não há resposta.";
+            "NÃ£o hÃ¡ resposta.";
 ! Ask:      see Answer
-  Attack:   "Violência não vai resolver neste caso.";
-  Blow:     "Seria inútil soprá-", (lo) x1, ".";
-  Burn:     "Isso seria perigoso. E inútil.";
-  Buy:      "Não há nada à venda.";
-  Climb:    "Isso não vai dar resultado nenhum.";
+  Attack:   "ViolÃªncia nÃ£o vai resolver neste caso.";
+  Blow:     "Seria inÃºtil soprÃ¡-", (lo) x1, ".";
+  Burn:     "Isso seria perigoso. E inÃºtil.";
+  Buy:      "NÃ£o hÃ¡ nada Ã  venda.";
+  Climb:    "Isso nÃ£o vai dar resultado nenhum.";
   Close: switch (n) {
-        1:  print_ret "Você não pode fechá-", (lo) x1, ".";
-        2:  print_ret "Já ", (esta) x1, " fechad", (o) x1, ".";
-        3:  "Você fecha ", (the) x1, ".";
+        1:  print_ret "VocÃª nÃ£o pode fechÃ¡-", (lo) x1, ".";
+        2:  print_ret "JÃ¡ ", (esta) x1, " fechad", (o) x1, ".";
+        3:  "VocÃª fecha ", (the) x1, ".";
     }
   CommandsOff: switch (n) {
-        1: "[Gravação de comandos desligada.]";
+        1: "[GravaÃ§Ã£o de comandos desligada.]";
         #Ifdef TARGET_GLULX;
-        2: "[Gravação de comandos já está desligada.]";
+        2: "[GravaÃ§Ã£o de comandos jÃ¡ estÃ¡ desligada.]";
         #Endif; ! TARGET_
     }
   CommandsOn: switch (n) {
-        1: "[Gravação de comandos ligada.]";
+        1: "[GravaÃ§Ã£o de comandos ligada.]";
         #Ifdef TARGET_GLULX;
-        2: "[Comandos estão sendo repetidos.]";
-        3: "[Gravação de comandos já está ligada.]";
-        4: "[A gravação de comandos falhou.]";
+        2: "[Comandos estÃ£o sendo repetidos.]";
+        3: "[GravaÃ§Ã£o de comandos jÃ¡ estÃ¡ ligada.]";
+        4: "[A gravaÃ§Ã£o de comandos falhou.]";
         #Endif; ! TARGET_
     }
   CommandsRead: switch (n) {
         1: "[Repetindo comandos.]";
         #Ifdef TARGET_GLULX;
-        2: "[Comandos já estão sendo repetidos.]";
-        3: "[Repetição de comandos falhou.  Gravação de comandos está ligada.]";
-        4: "[Repetição de comandos falhou.]";
-        5: "[Repetição de comandos completa.]";
+        2: "[Comandos jÃ¡ estÃ£o sendo repetidos.]";
+        3: "[RepetiÃ§Ã£o de comandos falhou.  GravaÃ§Ã£o de comandos estÃ¡ ligada.]";
+        4: "[RepetiÃ§Ã£o de comandos falhou.]";
+        5: "[RepetiÃ§Ã£o de comandos completa.]";
         #Endif; ! TARGET_
     }
-  Consult:  "Você não descobre nada de interessante n", (the) x1, ".";
-  Cut:      "Cortá-", (lo) x1, " não dará grandes resultados.";
-  Dig:      "Cavar não vai servir para nada aqui.";
+  Consult:  "VocÃª nÃ£o descobre nada de interessante n", (the) x1, ".";
+  Cut:      "CortÃ¡-", (lo) x1, " nÃ£o darÃ¡ grandes resultados.";
+  Dig:      "Cavar nÃ£o vai servir para nada aqui.";
   Disrobe: switch (n) {
-        1:  "Você não está usando ", (the) x1, ".";
-        2:  "Você tira ", (the) x1, ".";
+        1:  "VocÃª nÃ£o estÃ¡ usando ", (the) x1, ".";
+        2:  "VocÃª tira ", (the) x1, ".";
     }
-  Drink:    "Não há nada bom para se beber por aqui.";
+  Drink:    "NÃ£o hÃ¡ nada bom para se beber por aqui.";
   Drop: switch (n) {
-        1:  if (x1 has pluralname) print (The) x1, " já estão "; else print (The) x1, " já está ";
+        1:  if (x1 has pluralname) print (The) x1, " jÃ¡ estÃ£o "; else print (The) x1, " jÃ¡ estÃ¡ ";
             "aqui.";
-        2:  "Você não está com ", (the) x1, ".";
+        2:  "VocÃª nÃ£o estÃ¡ com ", (the) x1, ".";
         3:  "(primeiro tirando ", (the) x1, ")";
         4:  "Ok.";
     }
   Eat: switch (n) {
-        1:  print_ret (The) x1, " é simplesmente intragável.";
-        2:  "Você come ", (the) x1, ". Nada mal.";
+        1:  print_ret (The) x1, " Ã© simplesmente intragÃ¡vel.";
+        2:  "VocÃª come ", (the) x1, ". Nada mal.";
     }
   EmptyT: switch (n) {
-        1:  print_ret (The) x1, " não ", (pode) x1, " conter outras coisas.";
+        1:  print_ret (The) x1, " nÃ£o ", (pode) x1, " conter outras coisas.";
         2:  print_ret (The) x1, " ", (esta) x1, " fechad", (o) x1, ".";
-        3:  print_ret (The) x1, " já ", (esta) x1, " vazi", (o) x1, ".";
-        4:  "Não dá para esvaziar isso...";
+        3:  print_ret (The) x1, " jÃ¡ ", (esta) x1, " vazi", (o) x1, ".";
+        4:  "NÃ£o dÃ¡ para esvaziar isso...";
     }
   Enter: switch (n) {
-        1:  print "Mas você já está ";
+        1:  print "Mas vocÃª jÃ¡ estÃ¡ ";
             if (x1 has supporter) print "sobre "; else print "dentro d";
             print_ret (the) x1, ".";
-        2:  print "Isso não é algo em que você possa ";
+        2:  print "Isso nÃ£o Ã© algo em que vocÃª possa ";
             switch (verb_word) {
-              'stand':  "ficar de pé.";
+              'stand':  "ficar de pÃ©.";
               'sit':    "sentar-se.";
               'lie':    "deitar-se.";
               default:  "entrar.";
             }
-        3:  "Você não pode entrar n", (the) x1, " fechad", (o) x1, ".";
-        4:  "Você só pode entrar em algo independente.";
-        5:  print "Você está ";
+        3:  "VocÃª nÃ£o pode entrar n", (the) x1, " fechad", (o) x1, ".";
+        4:  "VocÃª sÃ³ pode entrar em algo independente.";
+        5:  print "VocÃª estÃ¡ ";
             if (x1 has supporter) print "sobre "; else print "dentro d";
             print_ret (the) x1, ".";
         6:  print "(";
@@ -602,72 +600,72 @@ Constant COMMA__TX      = ", ";
             "(entrando n", (the) x1, ")^";
     }
   Examine: switch (n) {
-        1:  "Escuridão, substantivo.  A ausência da luz com a qual você poderia enxergar.";
-        2:  "Você não vê nada de especial n", (the) x1, ".";
+        1:  "EscuridÃ£o, substantivo.  A ausÃªncia da luz com a qual vocÃª poderia enxergar.";
+        2:  "VocÃª nÃ£o vÃª nada de especial n", (the) x1, ".";
         3:  print (The) x1, " ", (esta) x1, " ";
             if (x1 has on) print "ligad"; else "desligad";
             print_ret (o) x1;
     }
   Exit: switch (n) {
-        1:  "Mas você não está dentro de nada...";
-        2:  "Não dá: ", (the) x1, " ", (esta) x1, " fechad", (o) x1, ".";
-        3:  print "Você ";
+        1:  "Mas vocÃª nÃ£o estÃ¡ dentro de nada...";
+        2:  "NÃ£o dÃ¡: ", (the) x1, " ", (esta) x1, " fechad", (o) x1, ".";
+        3:  print "VocÃª ";
             if (x1 has supporter) print "desce d"; else print "sai d";
             print_ret (the) x1, ".";
-        4:  print "Mas você não está ";
+        4:  print "Mas vocÃª nÃ£o estÃ¡ ";
             if (x1 has supporter) print "sobre "; else print "dentro d";
             print_ret (the) x1, ".";
     }
-  Fill:     "Mas não há água aqui...";
+  Fill:     "Mas nÃ£o hÃ¡ Ã¡gua aqui...";
   FullScore: switch (n) {
-        1:  if (deadflag) print "Sua pontuação era "; else print "Sua pontuação é ";
+        1:  if (deadflag) print "Sua pontuaÃ§Ã£o era "; else print "Sua pontuaÃ§Ã£o Ã© ";
             "a seguinte:^";
         2:  "encontrar diversos itens";
         3:  "visitar diversos lugares";
-        4:  print "até agora (de um total de  ", MAX_SCORE; " possíveis)";
+        4:  print "atÃ© agora (de um total de  ", MAX_SCORE; " possÃ­veis)";
     }
-  GetOff:   "Mas você não está sobre ", (the) x1, " agora...";
+  GetOff:   "Mas vocÃª nÃ£o estÃ¡ sobre ", (the) x1, " agora...";
   Give: switch (n) {
-        1:  "Você não está com ", (the) x1, ".";
-        2:  "Você brinca com ", (the) x1, " por um tempo, mas não consegue muita coisa.";
+        1:  "VocÃª nÃ£o estÃ¡ com ", (the) x1, ".";
+        2:  "VocÃª brinca com ", (the) x1, " por um tempo, mas nÃ£o consegue muita coisa.";
         3:  print (The) x1;
-            if (x1 has pluralname) print " não demonstram"; else print " não demonstra";
+            if (x1 has pluralname) print " nÃ£o demonstram"; else print " nÃ£o demonstra";
             " nenhum interesse.";
     }
   Go: switch (n) {
-        1:  print "Você vai ter que ";
+        1:  print "VocÃª vai ter que ";
             if (x1 has supporter) print "descer d"; else print "sair d";
             print_ret (the) x1, " primeiro.";
         2:  print_ret (string) CANTGO__TX;   ! "You can't go that way."
-        3:  "Você não consegue subir pel", (the) x1, ".";
-        4:  "Você não consegue descer pel", (the) x1, ".";
-        5:  "Não dá, porque ", (the) x1, " ", (esta) x1, " no caminho.";
-        6:  print "Você não pode, porque ", (the) x1;
-            if (x1 has pluralname) " não levam a lugar algum."; else " não leva a lugar algum.";
+        3:  "VocÃª nÃ£o consegue subir pel", (the) x1, ".";
+        4:  "VocÃª nÃ£o consegue descer pel", (the) x1, ".";
+        5:  "NÃ£o dÃ¡, porque ", (the) x1, " ", (esta) x1, " no caminho.";
+        6:  print "VocÃª nÃ£o pode, porque ", (the) x1;
+            if (x1 has pluralname) " nÃ£o levam a lugar algum."; else " nÃ£o leva a lugar algum.";
     }
   Insert: switch (n) {
-        1:  "Você precisa estar segurando ", (the) x1, " antes de colocá-l", (o) x1,
+        1:  "VocÃª precisa estar segurando ", (the) x1, " antes de colocÃ¡-l", (o) x1,
             " em alguma outra coisa.";
-        2:  print_ret (The) x1, " não pode conter outras coisas.";
+        2:  print_ret (The) x1, " nÃ£o pode conter outras coisas.";
         3:  print_ret (The) x1, " ", (esta) x1, " fechad", (o) x1, ".";
-        4:  "Você precisa tirar ", (the) x1, " antes.";
-        5:  "Você não pode colocar uma coisa dentro dela mesma!";
+        4:  "VocÃª precisa tirar ", (the) x1, " antes.";
+        5:  "VocÃª nÃ£o pode colocar uma coisa dentro dela mesma!";
         6:  "(tirando ", (the) x1, " antes)^";
-        7:  "Não há mais espaço n", (the) x1, ".";
+        7:  "NÃ£o hÃ¡ mais espaÃ§o n", (the) x1, ".";
         8:  "Feito.";
-        9:  "Você coloca ", (the) x1, " n", (the) second, ".";
+        9:  "VocÃª coloca ", (the) x1, " n", (the) second, ".";
     }
   Inv: switch (n) {
-        1:  "Você não está carregando nada.";
-        2:  print "Você está carregando";
+        1:  "VocÃª nÃ£o estÃ¡ carregando nada.";
+        2:  print "VocÃª estÃ¡ carregando";
         3:  print ":^";
         4:  print ".^";
     }
-  Jump:     "Você pula algumas vezes no mesmo lugar. Obviamente, sem resultados.";
+  Jump:     "VocÃª pula algumas vezes no mesmo lugar. Obviamente, sem resultados.";
   JumpOver,Tie:
-            "Você não conseguirá nada fazendo isso.";
+            "VocÃª nÃ£o conseguirÃ¡ nada fazendo isso.";
   Kiss:     "Ei, mantenha o foco, ok?";
-  Listen:   "Você não ouve nada fora do comum.";
+  Listen:   "VocÃª nÃ£o ouve nada fora do comum.";
   ListMiscellany: switch (n) {
         1:  print " (provendo luz)";
         2:  print " (que ", (esta) x1, " fechad", (o) x1, ")";
@@ -692,21 +690,22 @@ Constant COMMA__TX      = ", ";
         21: print " (dentro d";
         22: print ", dentro d";
     }
-    ! TODO Continuar daqui
-  LMode1:   " is now in its normal ~brief~ printing mode, which gives long descriptions
-             of places never before visited and short descriptions otherwise.";
-  LMode2:   " is now in its ~verbose~ mode, which always gives long descriptions
-             of locations (even if you've been there before).";
-  LMode3:   " is now in its ~superbrief~ mode, which always gives short descriptions
-             of locations (even if you haven't been there before).";
-  Lock: switch (n) {
-        1:  if (x1 has pluralname) print "They don't "; else print "That doesn't ";
-            "seem to be something you can lock.";
-        2:  print_ret (ctheyreorthats) x1, " locked at the moment.";
-        3:  "First you'll have to close ", (the) x1, ".";
-        4:  if (x1 has pluralname) print "Those don't "; else print "That doesn't ";
-            "seem to fit the lock.";
-        5:  "You lock ", (the) x1, ".";
+    LMode1:   " agora estÃ¡ no seu modo de impressÃ£o ~breve~ normal, que dÃ¡ descriÃ§Ãµes longas
+             de lugares nunca antes visitados e descriÃ§Ãµes curtas em outros casos.";
+    LMode2:   " agora estÃ¡ no seu modo ~detalhado~, que sempre dÃ¡ descriÃ§Ãµes longas
+             de lugares (mesmo se vocÃª jÃ¡ esteve lÃ¡ antes).";
+    LMode3:   " agora estÃ¡ no seu modo ~super-breve~, que sempre dÃ¡ descriÃ§Ãµes curtas
+             de lugares (mesmo se vocÃª nunca esteve lÃ¡ antes).";
+    Lock: switch (n) {
+        1:  if (x1 has pluralname) print "Eles nÃ£o parecem "; 
+            else print "Isso nÃ£o parece ";
+            " ser algo que vocÃª possa trancar.";
+        2:  print_ret (ctheyreorthats) x1, " trancados no momento.";
+        3:  "Primeiro vocÃª terÃ¡ que fechar ", (the) x1, ".";
+        4:  if (x1 has pluralname) print "Eles nÃ£o parecem "; 
+            else print "Ele nÃ£o parece ";
+            "caber na fechadura.";
+        5:  "VocÃª tranca ", (the) x1, ".";
     }
   Look: switch (n) {
         1:  print " (sobre ", (the) x1, ")";
@@ -719,27 +718,28 @@ Constant COMMA__TX      = ", ";
         5,6:
             if (x1 ~= location) {
                 if (x1 has supporter) print "^Sobre "; else print "^Dentro d";
-                print (the) x1, " você";
+                print (the) x1, " vocÃª";
             }
-            else print "^Você";
-            if (n == 5) print "também ";
+            else print "^VocÃª";
+            if (n == 5) print "tambÃ©m ";
             print " pode ";
             print "ver ";
             WriteListFrom(child(x1),
               ENGLISH_BIT+RECURSE_BIT+PARTINV_BIT+TERSE_BIT+CONCEAL_BIT+WORKFLAG_BIT);
             if (x1 ~= location) "."; else " aqui.";
-        7:  "Você não vê nada que não seria de se esperar nessa direção.";
+        7:  "VocÃª nÃ£o vÃª nada que nÃ£o seria de se esperar nessa direÃ§Ã£o.";
     }
   LookUnder: switch (n) {
-        1:  "Mas está escuro.";
-        2:  "Você não encontra nada que possa interessar.";
+        1:  "Mas estÃ¡ escuro.";
+        2:  "VocÃª nÃ£o encontra nada que possa interessar.";
     }
-  Mild:     "Ah, é mesmo.";
+  Mild:     "Ah, Ã© mesmo.";
   Miscellany: switch (n) {
         1:  "(considerando apenas os dezesseis primeiros objetos)^";
         2:  "Nada a fazer!";
-        3:  print " Você morreu ";
-        4:  print " Você venceu ";
+        3:  print " VocÃª morreu ";
+        4:  print " VocÃª venceu ";
+    ! TODO Continuar daqui
         5:  print "^Would you like to RESTART, RESTORE a saved game";
             #Ifdef DEATH_MENTION_UNDO;
             print ", UNDO your last move";
@@ -755,8 +755,8 @@ Constant COMMA__TX      = ", ";
         7:  "[You cannot ~undo~ any further.]";
             #Endif; ! TARGET_
         8:  "Please give one of the answers above.";
-        9:  "^Agora está completamente escuro aqui!";
-        10: "Não entendi. O que você quis dizer mesmo?";
+        9:  "^Agora estÃ¡ completamente escuro aqui!";
+        10: "NÃ£o entendi. O que vocÃª quis dizer mesmo?";
         11: "[You can't ~undo~ what hasn't been done!]";
         12: "[Can't ~undo~ twice in succession. Sorry!]";
         13: "[Previous turn undone.]";
@@ -887,8 +887,8 @@ Constant COMMA__TX      = ", ";
         8:  "You put ", (the) x1, " on ", (the) second, ".";
     }
   Quit: switch (n) {
-        1:  print "Por favor, responda sim ou não.";
-        2:  print "Tem certeza de que quer encerrar esta sessão de jogo? ";
+        1:  print "Por favor, responda sim ou nÃ£o.";
+        2:  print "Tem certeza de que quer encerrar esta sessÃ£o de jogo? ";
     }
   Remove: switch (n) {
         1:  if (x1 has pluralname) print "They are"; else print "It is";
@@ -899,15 +899,15 @@ Constant COMMA__TX      = ", ";
     }
   Restart: switch (n) {
         1:  print "Tem certeza de que quer reiniciar? ";
-        2:  "Não foi possível reiniciar.";
+        2:  "NÃ£o foi possÃ­vel reiniciar.";
     }
   Restore: switch (n) {
-        1:  "A restauração falhou.";
+        1:  "A restauraÃ§Ã£o falhou.";
         2:  "Ok.";
     }
-  Rub:      "Não deu resultado nenhum.";
+  Rub:      "NÃ£o deu resultado nenhum.";
   Save: switch (n) {
-        1:  "Não foi possível salvar o estado atual do jogo.";
+        1:  "NÃ£o foi possÃ­vel salvar o estado atual do jogo.";
         2:  "Ok.";
     }
   Score: switch (n) {
@@ -933,8 +933,8 @@ Constant COMMA__TX      = ", ";
         3:  print "On ", (the) x1;
             WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT+ISARE_BIT);
             ".";
-        4:  "Você não nota nada de importante n", (the) x1, ".";
-        5:  "Você não pode olhar lá dentro, porque ", (the) x1, " ", (esta) x1, " fechad", (o) x1, ".";
+        4:  "VocÃª nÃ£o nota nada de importante n", (the) x1, ".";
+        5:  "VocÃª nÃ£o pode olhar lÃ¡ dentro, porque ", (the) x1, " ", (esta) x1, " fechad", (o) x1, ".";
         6:  print_ret (The) x1, " ", (esta) x1, " vazi", (o) x1, ".";
         7:  print "N", (the) x1;
             WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT+ISARE_BIT);
@@ -943,29 +943,29 @@ Constant COMMA__TX      = ", ";
   Set:      "No, you can't set ", (thatorthose) x1, ".";
   SetTo:    "No, you can't set ", (thatorthose) x1, " to anything.";
   Show: switch (n) {
-        1:  "Você não está com ", (the) x1, ".";
-        2:  print_ret (The) x1, " não ", (esta) x1, " impressionad", (o) x1, ".";
+        1:  "VocÃª nÃ£o estÃ¡ com ", (the) x1, ".";
+        2:  print_ret (The) x1, " nÃ£o ", (esta) x1, " impressionad", (o) x1, ".";
     }
-  Sing:     "Você canta muito mal. Sério.";
-  Sleep:    "Você não está com muito sono.";
-  Smell:    "Você não sente nenhum cheiro incomum.";
-  Sorry:    "Ah, não precisa se desculpar.";
+  Sing:     "VocÃª canta muito mal. SÃ©rio.";
+  Sleep:    "VocÃª nÃ£o estÃ¡ com muito sono.";
+  Smell:    "VocÃª nÃ£o sente nenhum cheiro incomum.";
+  Sorry:    "Ah, nÃ£o precisa se desculpar.";
   Squeeze: switch (n) {
-        1:  "Hmm. Melhor não.";
-        2:  "Você não vai conseguir nada fazendo isso.";
+        1:  "Hmm. Melhor nÃ£o.";
+        2:  "VocÃª nÃ£o vai conseguir nada fazendo isso.";
     }
   Strong:   "Ah, que coisa mais feia!";
-  Swim:     "Não há água suficiente para nadar aqui.";
-  Swing:    "Não há nada aqui que faça sentido balançar.";
+  Swim:     "NÃ£o hÃ¡ Ã¡gua suficiente para nadar aqui.";
+  Swing:    "NÃ£o hÃ¡ nada aqui que faÃ§a sentido balanÃ§ar.";
   SwitchOff: switch (n) {
-        1:  print_ret "Você não pode desligar ", (the) x1, ". Como poderia?";
-        2:  print_ret (The) x1, " já ", (esta) x1, " desligad", (o) x1, ".";
-        3:  "Você desliga ", (the) x1, ".";
+        1:  print_ret "VocÃª nÃ£o pode desligar ", (the) x1, ". Como poderia?";
+        2:  print_ret (The) x1, " jÃ¡ ", (esta) x1, " desligad", (o) x1, ".";
+        3:  "VocÃª desliga ", (the) x1, ".";
     }
   SwitchOn: switch (n) {
-        1:  print_ret "Você não pode ligar ", (the) x1, ". Como poderia?";
-        2:  print_ret (The) x1, " já ", (esta) x1, " ligad", (o) x1, ".";
-        3:  "Você liga ", (the) x1, ".";
+        1:  print_ret "VocÃª nÃ£o pode ligar ", (the) x1, ". Como poderia?";
+        2:  print_ret (The) x1, " jÃ¡ ", (esta) x1, " ligad", (o) x1, ".";
+        3:  "VocÃª liga ", (the) x1, ".";
     }
   Take: switch (n) {
         1:  "Peguei.";
@@ -989,21 +989,21 @@ Constant COMMA__TX      = ", ";
         12: "You're carrying too many things already.";
         13: "(putting ", (the) x1, " into ", (the) SACK_OBJECT, " to make room)";
     }
-  Taste:    "Você não percebe nenhum sabor incomum.";
+  Taste:    "VocÃª nÃ£o percebe nenhum sabor incomum.";
   Tell: switch (n) {
-        1:  "Você fala sozinho por um tempo.";
-        2:  "Você não obtém nenhuma reação.";
+        1:  "VocÃª fala sozinho por um tempo.";
+        2:  "VocÃª nÃ£o obtÃ©m nenhuma reaÃ§Ã£o.";
     }
-  Think:    "Que boa idéia!";
+  Think:    "Que boa idÃ©ia!";
   ThrowAt: switch (n) {
-        1:  "Inútil.";
-        2:  "No último momento, você desiste.";
+        1:  "InÃºtil.";
+        2:  "No Ãºltimo momento, vocÃª desiste.";
     }
 ! Tie:  see JumpOver.
   Touch: switch (n) {
-        1:  "Não, melhor não.";
-        2:  "Você não sente nada incomum.";
-        3:  "Se você acha que isso pode ajudar...";
+        1:  "NÃ£o, melhor nÃ£o.";
+        2:  "VocÃª nÃ£o sente nada incomum.";
+        3:  "Se vocÃª acha que isso pode ajudar...";
     }
 ! Turn: see Pull.
   Unlock:  switch (n) {
@@ -1014,24 +1014,24 @@ Constant COMMA__TX      = ", ";
             "seem to fit the lock.";
         4:  "You unlock ", (the) x1, ".";
     }
-  VagueGo:  "Você precisa dizer em que direção quer ir.";
+  VagueGo:  "VocÃª precisa dizer em que direÃ§Ã£o quer ir.";
   Verify: switch (n) {
-        1:  "O arquivo do jogo foi verificado e está intacto.";
-        2:  "O arquivo do jogo foi verificado, mas não está intacto. De fato, ele pode até mesmo estar corrompido. Lamentável.";
+        1:  "O arquivo do jogo foi verificado e estÃ¡ intacto.";
+        2:  "O arquivo do jogo foi verificado, mas nÃ£o estÃ¡ intacto. De fato, ele pode atÃ© mesmo estar corrompido. LamentÃ¡vel.";
     }
   Wait:     "O tempo passa.";
-  Wake:     "A terrível verdade é que isto não é um sonho.";
-  WakeOther:"Isso não parece necessário.";
+  Wake:     "A terrÃ­vel verdade Ã© que isto nÃ£o Ã© um sonho.";
+  WakeOther:"Isso nÃ£o parece necessÃ¡rio.";
   Wave: switch (n) {
-        1:  "Mas você não está segurando ", (the) x1, ".";
-        2:  "Você parece ridículo acenando com ", (the) x1, ".";
+        1:  "Mas vocÃª nÃ£o estÃ¡ segurando ", (the) x1, ".";
+        2:  "VocÃª parece ridÃ­culo acenando com ", (the) x1, ".";
     }
-  WaveHands:"Você acena, sentindo-se tolo.";
+  WaveHands:"VocÃª acena, sentindo-se tolo.";
   Wear: switch (n) {
-        1:  "Você não pode usar ", (the) x1, "!";
-        2:  "Você não está com ", (the) x1, "!";
-        3:  "Você já está usando ", (the) x1, "!";
-        4:  "Você coloca ", (the) x1, ".";
+        1:  "VocÃª nÃ£o pode usar ", (the) x1, "!";
+        2:  "VocÃª nÃ£o estÃ¡ com ", (the) x1, "!";
+        3:  "VocÃª jÃ¡ estÃ¡ usando ", (the) x1, "!";
+        4:  "VocÃª coloca ", (the) x1, ".";
     }
 ! Yes:  see No.
 ];

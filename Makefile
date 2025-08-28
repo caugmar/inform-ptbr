@@ -1,6 +1,6 @@
 MAINSOURCE=src/ruinas.inf
 INCLUDES=+lib,includes
-COMPILEROPTS=+language_name=Portugues $(INCLUDES)
+COMPILEROPTS=-Cu +language_name=Portugues $(INCLUDES)
 
 all: zcode
 
