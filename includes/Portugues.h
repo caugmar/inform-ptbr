@@ -739,163 +739,151 @@ Constant COMMA__TX      = ", ";
         2:  "Nada a fazer!";
         3:  print " Você morreu ";
         4:  print " Você venceu ";
-    ! TODO Continuar daqui
-        5:  print "^Would you like to RESTART, RESTORE a saved game";
+
+        5:  print "^Você gostaria de REINICIAR, RESTAURAR um jogo salvo";
             #Ifdef DEATH_MENTION_UNDO;
-            print ", UNDO your last move";
+            print ", DESFAZER sua última jogada";
             #Endif;
-            if (TASKS_PROVIDED == 0) print ", give the FULL score for that game";
+            if (TASKS_PROVIDED == 0) print ", ver a pontuação TOTAL do jogo";
             if (deadflag == 2 && AMUSING_PROVIDED == 0)
-                print ", see some suggestions for AMUSING things to do";
-            " or QUIT?";
-        6:  "[Your interpreter does not provide ~undo~.  Sorry!]";
+                print ", ver algumas sugestões de coisas DIVERTIDAS para fazer";
+            " ou SAIR?";
+        6:  "[Seu interpretador não fornece ~desfazer~. Desculpe!]";
             #Ifdef TARGET_ZCODE;
-        7:  "~Undo~ failed.  [Not all interpreters provide it.]";
+        7:  "O ~desfazer~ falhou. [Nem todos os interpretadores o fornecem.]";
             #Ifnot; ! TARGET_GLULX
-        7:  "[You cannot ~undo~ any further.]";
+        7:  "[Você não pode ~desfazer~ mais.]";
             #Endif; ! TARGET_
-        8:  "Please give one of the answers above.";
+        8:  "Por favor, dê uma das respostas acima.";
         9:  "^Agora está completamente escuro aqui!";
         10: "Não entendi. O que você quis dizer mesmo?";
-        11: "[You can't ~undo~ what hasn't been done!]";
-        12: "[Can't ~undo~ twice in succession. Sorry!]";
-        13: "[Previous turn undone.]";
-        14: "Sorry, that can't be corrected.";
-        15: "Think nothing of it.";
-        16: "~Oops~ can only correct a single word.";
-        17: "It is pitch dark, and you can't see a thing.";
-        18: print "yourself";
-        19: "As good-looking as ever.";
-        20: "To repeat a command like ~frog, jump~, just say ~again~, not ~frog, again~.";
-        21: "You can hardly repeat that.";
-        22: "You can't begin with a comma.";
-        23: "You seem to want to talk to someone, but I can't see whom.";
-        24: "You can't talk to ", (the) x1, ".";
-        25: "To talk to someone, try ~someone, hello~ or some such.";
-        26: "(first taking ", (the) not_holding, ")";
-        27: "I didn't understand that sentence.";
-        28: print "I only understood you as far as wanting to ";
-        29: "I didn't understand that number.";
-        30: "You can't see any such thing.";
-        31: "You seem to have said too little!";
-        32: "You aren't holding that!";
-        33: "You can't use multiple objects with that verb.";
-        34: "You can only use multiple objects once on a line.";
-        35: "I'm not sure what ~", (address) pronoun_word, "~ refers to.";
-        36: "You excepted something not included anyway!";
-        37: "You can only do that to something animate.";
-            #Ifdef DIALECT_US;
-        38: "That's not a verb I recognize.";
-            #Ifnot;
-        38: "That's not a verb I recognise.";
-            #Endif;
-        39: "That's not something you need to refer to in the course of this game.";
-        40: "You can't see ~", (address) pronoun_word, "~ (", (the) pronoun_obj,
-            ") at the moment.";
-        41: "I didn't understand the way that finished.";
-        42: if (x1 == 0) print "None"; else print "Only ", (number) x1;
-            print " of those ";
-            if (x1 == 1) print "is"; else print "are";
-            " available.";
-        43: "Nothing to do!";
-        44: "There are none at all available!";
-        45: print "Who do you mean, ";
-        46: print "Which do you mean, ";
-        47: "Sorry, you can only have one item here. Which exactly?";
-        48: print "Whom do you want";
+        11: "[Você não pode ~desfazer~ o que não foi feito!]";
+        12: "[Não é possível ~desfazer~ duas vezes seguidas. Desculpe!]";
+        13: "[Turno anterior desfeito.]";
+        14: "Desculpe, isso não pode ser corrigido.";
+        15: "Não foi nada.";
+        16: "~Oops~ só pode corrigir uma única palavra.";
+        17: "Está muito escuro, e você não consegue ver nada.";
+        18: print "você mesmo";
+        19: "Tão bonito(a) como sempre.";
+        20: "Para repetir um comando como ~sapo, pule~, diga apenas ~novamente~, não ~sapo, novamente~.";
+        21: "Você dificilmente pode repetir isso.";
+        22: "Você não pode começar com uma vírgula.";
+        23: "Você parece querer falar com alguém, mas não consigo ver quem.";
+        24: "Você não pode falar com ", (the) x1, ".";
+        25: "Para falar com alguém, tente ~alguém, olá~ ou algo parecido.";
+        26: "(primeiro pegando ", (the) not_holding, ")";
+        27: "Eu não entendi essa frase.";
+        28: print "Eu só entendi que você queria ";
+        29: "Eu não entendi esse número.";
+        30: "Você não pode ver tal coisa.";
+        31: "Parece que você disse muito pouco!";
+        32: "Você não está segurando isso!";
+        33: "Você não pode usar múltiplos objetos com esse verbo.";
+        34: "Você só pode usar múltiplos objetos uma vez por linha.";
+        35: "Não tenho certeza a que ~", (address) pronoun_word, "~ se refere.";
+        36: "Você excluiu algo que nem estava incluído!";
+        37: "Você só pode fazer isso com algo animado.";
+        38: "Eu não reconheço esse verbo.";
+        39: "Isso não é algo a que você precise se referir durante este jogo.";
+        40: "Você não consegue ver ~", (address) pronoun_word, "~ (", (the) pronoun_obj,
+            ") no momento.";
+        41: "Eu não entendi como isso terminou.";
+        42: if (x1 == 0) print "Nenhum"; else print "Apenas ", (number) x1;
+            print " desses ";
+            if (x1 == 1) print "é"; else print "são";
+            " disponível.";
+        43: "Nada a fazer!";
+        44: "Não há nenhum disponível!";
+        45: print "Quem você quer dizer, ";
+        46: print "Qual você quer dizer, ";
+        47: "Desculpe, você só pode ter um item aqui. Qual exatamente você quer?";
+        48: print "Quem você quer";
             if (actor ~= player) print " ", (the) actor;
-            print " to "; PrintCommand(); print "?^";
-        49: print "What do you want";
+            print " para "; PrintCommand(); print "?^";
+        49: print "O que você quer";
             if (actor ~= player) print " ", (the) actor;
-            print " to "; PrintCommand(); print "?^";
-        50: print "Your score has just gone ";
-            if (x1 > 0) print "up"; else { x1 = -x1; print "down"; }
-            print " by ", (number) x1, " point";
+            print " para "; PrintCommand(); print "?^";
+        50: print "Sua pontuação acabou de ";
+            if (x1 > 0) print "aumentar"; else { x1 = -x1; print "diminuir"; }
+            print " em ", (number) x1, " ponto";
             if (x1 > 1) print "s";
-        51: "(Since something dramatic has happened, your list of commands has been cut short.)";
-        52: "^Type a number from 1 to ", x1, ", 0 to redisplay or press ENTER.";
-        53: "^[Please press SPACE.]";
-        54: "[Comment recorded.]";
-        55: "[Comment NOT recorded.]";
+        51: "(Como algo dramático aconteceu, sua lista de comandos foi encurtada.)";
+        52: "^Digite um número de 1 a ", x1, ", 0 para reexibir ou pressione ENTER.";
+        53: "^[Por favor, pressione ESPAÇO.]";
+        54: "[Comentário gravado.]";
+        55: "[Comentário NÃO gravado.]";
         56: print ".^";
         57: print "?^";
     }
-  No,Yes:   "That was a rhetorical question.";
+  No,Yes:   "Essa foi uma pergunta retórica.";
   NotifyOff:
-            "Score notification off.";
-  NotifyOn: "Score notification on.";
+            "Notificação de pontuação desativada.";
+  NotifyOn: "Notificação de pontuação ativada.";
   Objects: switch (n) {
-        1:  "Objects you have handled:^";
-        2:  "None.";
-        3:  print "   (worn)";
-        4:  print "   (held)";
-        5:  print "   (given away)";
-        6:  print "   (in ", (name) x1, ")";
-        7:  print "   (in ", (the) x1, ")";
-        8:  print "   (inside ", (the) x1, ")";
-        9:  print "   (on ", (the) x1, ")";
-        10: print "   (lost)";
+        1:  "Objetos que você manipulou:^";
+        2:  "Nenhum.";
+        3:  print "   (usado)";
+        4:  print "   (segurando)";
+        5:  print "   (dado)";
+        6:  print "   (em ", (name) x1, ")";
+        7:  print "   (em ", (the) x1, ")";
+        8:  print "   (dentro ", (the) x1, ")";
+        9:  print "   (sobre ", (the) x1, ")";
+        10: print "   (perdido)";
     }
   Open: switch (n) {
-        1:  print_ret (ctheyreorthats) x1, " not something you can open.";
-        2:  if (x1 has pluralname) print "They seem "; else print "It seems ";
-            "to be locked.";
-        3:  print_ret (ctheyreorthats) x1, " already open.";
-        4:  print "You open ", (the) x1, ", revealing ";
-            if (WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT) == 0) "nothing.";
+        1:  print_ret (ctheyreorthats) x1, " não é algo que você pode abrir.";
+        2:  if (x1 has pluralname) print "Eles parecem "; else print "Parece ";
+            "estar trancado.";
+        3:  print_ret (ctheyreorthats) x1, " já está aberto.";
+        4:  print "Você abre ", (the) x1, ", revelando ";
+            if (WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT) == 0) "nada.";
             ".";
-        5:  "You open ", (the) x1, ".";
+        5:  "Você abre ", (the) x1, ".";
     }
-  Order:    print (The) x1;
-            if (x1 has pluralname) print " have"; else print " has";
-            " better things to do.";
+    Order:    print (The) x1;
+            if (x1 has pluralname) print " têm"; else print " tem";
+            " coisas melhores para fazer.";
   Places: switch (n) {
-        1:  print "You have visited: ";
+        1:  print "Você visitou: ";
         2:  print ".^";
     }
-  Pray:     "Nothing practical results from your prayer.";
+  Pray:     "Nada prático resulta da sua oração.";
   Prompt:   print "^>";
   Pronouns: switch (n) {
-        1:  print "At the moment, ";
-        2:  print "means ";
-        3:  print "is unset";
-        4:  "no pronouns are known to the game.";
+        1:  print "No momento, ";
+        2:  print "significa ";
+        3:  print "não está definido";
+        4:  "nenhum pronome é conhecido pelo jogo.";
         5:  ".";
     }
   Pull,Push,Turn: switch (n) {
-        1:  if (x1 has pluralname) print "Those are "; else print "It is ";
-            "fixed in place.";
-        2:  "You are unable to.";
-        3:  "Nothing obvious happens.";
-        4:  "That would be less than courteous.";
+        1:  if (x1 has pluralname) print "Esses são "; else print "É ";
+            "fixo no lugar.";
+        2:  "Você não pode.";
+        3:  "Nada óbvio acontece.";
+        4:  "Isso seria menos do que cortês.";
     }
 ! Push: see Pull
-  PushDir: switch (n) {
-        1:  "Is that the best you can think of?";
-        2:  "That's not a direction.";
-        3:  "Not that way you can't.";
+    PushDir: switch (n) {
+        1:  "Isso é o melhor que você consegue pensar?";
+        2:  "Isso não é uma direção.";
+        3:  "Por esse caminho você não pode.";
     }
   PutOn: switch (n) {
-        1:  "You need to be holding ", (the) x1, " before you can put ",
-                (itorthem) x1, " on top of something else.";
-        2:  "You can't put something on top of itself.";
-        3:  "Putting things on ", (the) x1, " would achieve nothing.";
-        4:  "You lack the dexterity.";
-        5:  "(first taking ", (itorthem) x1, " off)^";
-        6:  "There is no more room on ", (the) x1, ".";
-        7:  "Done.";
-        8:  "You put ", (the) x1, " on ", (the) second, ".";
-    }
-  Quit: switch (n) {
+        1:  "Você precisa estar segurando ", (the) x1, " antes de poder colocar ",
+                (itorthem) x1, " em cima de algo mais.";
+        2:  "Você não pode colocar algo em cima de si mesmo.";
+        3:  "Colocar coisas em ", (the) x1, " não alcançaria nada.";
+        4:  "Você não tem a destreza.";
+        5:  "(primeiro tirando ", (itorthem) x1, ")^";
+        6:  "Não há mais espaço em ", (the) x1, ".";
+        7:  "Feito.";
+        8:  "Você coloca ", (the) x1, " em ", (the) second, ".";
+    }  Quit: switch (n) {
         1:  print "Por favor, responda sim ou não.";
         2:  print "Tem certeza de que quer encerrar esta sessão de jogo? ";
-    }
-  Remove: switch (n) {
-        1:  if (x1 has pluralname) print "They are"; else print "It is";
-            " unfortunately closed.";
-        2:  if (x1 has pluralname) print "But they aren't"; else print "But it isn't";
-            " there now.";
-        3:  "Removed.";
     }
   Restart: switch (n) {
         1:  print "Tem certeza de que quer reiniciar? ";
@@ -910,27 +898,27 @@ Constant COMMA__TX      = ", ";
         1:  "Não foi possível salvar o estado atual do jogo.";
         2:  "Ok.";
     }
-  Score: switch (n) {
-        1:  if (deadflag) print "In that game you scored "; else print "You have so far scored ";
-            print score, " out of a possible ", MAX_SCORE, ", in ", turns, " turn";
+    Score: switch (n) {
+        1:  if (deadflag) print "Nesse jogo você marcou "; else print "Você marcou até agora ";
+            print score, " de um total de ", MAX_SCORE, ", em ", turns, " jogada";
             if (turns ~= 1) print "s";
             return;
-        2:  "There is no score in this story.";
+        2:  "Não há pontuação nesta história.";
     }
-  ScriptOff: switch (n) {
-        1:  "Transcripting is already off.";
-        2:  "^End of transcript.";
-        3:  "Attempt to end transcript failed.";
+ScriptOff: switch (n) {
+        1:  "A transcrição já está desligada.";
+        2:  "^Fim da transcrição.";
+        3:  "A tentativa de terminar a transcrição falhou.";
     }
   ScriptOn: switch (n) {
-        1:  "Transcripting is already on.";
-        2:  "Start of a transcript of";
-        3:  "Attempt to begin transcript failed.";
+        1:  "A transcrição já está ligada.";
+        2:  "Início de uma transcrição de";
+        3:  "A tentativa de iniciar a transcrição falhou.";
     }
   Search: switch (n) {
-        1:  "But it's dark.";
-        2:  "There is nothing on ", (the) x1, ".";
-        3:  print "On ", (the) x1;
+        1:  "Mas está escuro.";
+        2:  "Não há nada em ", (the) x1, ".";
+        3:  print "Em ", (the) x1;
             WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT+ISARE_BIT);
             ".";
         4:  "Você não nota nada de importante n", (the) x1, ".";
@@ -940,8 +928,8 @@ Constant COMMA__TX      = ", ";
             WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT+ISARE_BIT);
             ".";
     }
-  Set:      "No, you can't set ", (thatorthose) x1, ".";
-  SetTo:    "No, you can't set ", (thatorthose) x1, " to anything.";
+    Set:      "Não, você não pode definir ", (thatorthose) x1, ".";
+  SetTo:    "Não, você não pode definir ", (thatorthose) x1, " para nada.";
   Show: switch (n) {
         1:  "Você não está com ", (the) x1, ".";
         2:  print_ret (The) x1, " não ", (esta) x1, " impressionad", (o) x1, ".";
@@ -969,25 +957,25 @@ Constant COMMA__TX      = ", ";
     }
   Take: switch (n) {
         1:  "Peguei.";
-        2:  "You are always self-possessed.";
-        3:  "I don't suppose ", (the) x1, " would care for that.";
-        4:  print "You'd have to get ";
-            if (x1 has supporter) print "off "; else print "out of ";
-            print_ret (the) x1, " first.";
-        5:  "You already have ", (thatorthose) x1, ".";
-        6:  if (noun has pluralname) print "Those seem "; else print "That seems ";
-            "to belong to ", (the) x1, ".";
-        7:  if (noun has pluralname) print "Those seem "; else print "That seems ";
-            "to be a part of ", (the) x1, ".";
+        2:  "Você está sempre em controle de si mesmo.";
+        3:  "Eu não suponho que ", (the) x1, " se importaria com isso.";
+        4:  print "Você teria que sair ";
+            if (x1 has supporter) print "de cima de "; else print "de dentro de ";
+            print_ret (the) x1, " primeiro.";
+        5:  "Você já tem ", (thatorthose) x1, ".";
+        6:  if (noun has pluralname) print "Parecem "; else print "Parece ";
+            "pertencer a ", (the) x1, ".";
+        7:  if (noun has pluralname) print "Parecem "; else print "Parece ";
+            "fazer parte de ", (the) x1, ".";
         8:  print_ret (Cthatorthose) x1, " ", (isorare) x1,
-            "n't available.";
-        9:  print_ret (The) x1, " ", (isorare) x1, "n't open.";
-        10: if (x1 has pluralname) print "They're "; else print "That's ";
-            "hardly portable.";
-        11: if (x1 has pluralname) print "They're "; else print "That's ";
-            "fixed in place.";
-        12: "You're carrying too many things already.";
-        13: "(putting ", (the) x1, " into ", (the) SACK_OBJECT, " to make room)";
+            " não estão disponíveis.";
+        9:  print_ret (The) x1, " não ", (isorare) x1, " abertos.";
+        10: if (x1 has pluralname) print "Eles são "; else print "Isso é ";
+            " dificilmente portátil.";
+        11: if (x1 has pluralname) print "Eles estão "; else print "Isso está ";
+            "fixo no lugar.";
+        12: "Você já está carregando coisas demais.";
+        13: "(colocando ", (the) x1, " em ", (the) SACK_OBJECT, " para abrir espaço)";
     }
   Taste:    "Você não percebe nenhum sabor incomum.";
   Tell: switch (n) {
@@ -1006,13 +994,14 @@ Constant COMMA__TX      = ", ";
         3:  "Se você acha que isso pode ajudar...";
     }
 ! Turn: see Pull.
-  Unlock:  switch (n) {
-        1:  if (x1 has pluralname) print "They don't "; else print "That doesn't ";
-            "seem to be something you can unlock.";
-        2:  print_ret (ctheyreorthats) x1, " unlocked at the moment.";
-        3:  if (x1 has pluralname) print "Those don't "; else print "That doesn't ";
-            "seem to fit the lock.";
-        4:  "You unlock ", (the) x1, ".";
+    ! TODO Continuar daqui
+    Unlock:  switch (n) {
+        1:  if (x1 has pluralname) print "Eles não "; else print "Isso não ";
+            "parece ser algo que você possa destrancar.";
+        2:  print_ret (ctheyreorthats) x1, " destrancados no momento.";
+        3:  if (x1 has pluralname) print "Esses não "; else print "Esse não ";
+            "parecem caber na fechadura.";
+        4:  "Você destranca ", (the) x1, ".";
     }
   VagueGo:  "Você precisa dizer em que direção quer ir.";
   Verify: switch (n) {
