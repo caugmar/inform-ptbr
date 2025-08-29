@@ -7,6 +7,9 @@ ao longo do DM4.
 
 Notas:
 
+Recomendo usar como editor o Kate. É completo para o que precisamos
+aqui, tem um modo VI, e não te atrapalha.
+
 Aqui você encontra bibliotecas que foram contribuídas por usuários do
 sistema, pode ser muito útil: 
 https://www.ifarchive.org/indexes/if-archive/infocom/compilers/inform6/library/contributions/
