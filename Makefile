@@ -10,7 +10,8 @@ zcode:
 	mv *.z5 build
 
 run:
-	fizmo-ncursesw -lm 1 -rm 1 -dh -xt build/ruinas.z5
+	# fizmo-ncursesw -lm 1 -rm 1 -dh -xt build/ruinas.z5
+	gargoyle-free build/ruinas.z5
 
 parchment: zcode
 	cp build/ruinas.z5 parchment-site/
