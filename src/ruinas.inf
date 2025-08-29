@@ -53,6 +53,7 @@ Include "DoMenu";
 Include "AltMenu";
 Include "Hints";
 Include "VerbLib";
+Include "ComoJogar";
 
 ! ---------------------------------------------------------------------------- !
 !       The TREASURE class definition.
@@ -1026,6 +1027,7 @@ Verb 'photograph'
     * noun                              -> Photograph;
 
 Menu menu_de_ajuda "Ajuda e dicas para ~Ruínas~";
+Option -> "Como Jogar" with description [; howtoplay.description(); ];
 Menu -> great_plaza_hints "A Grande Plaza";
 HintTopic -> -> "Como eu faço para entrar na Estrutura 10?";
 Hint -> -> -> "Você reparou no cogumelo?";
