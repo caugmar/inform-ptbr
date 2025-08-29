@@ -1032,12 +1032,10 @@ Hint -> -> -> "Você reparou no cogumelo?";
 Hint -> -> -> "Alguns cogumelos são alucinógenos. Ou venenosos.";
 Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
-
-[ AjudaSub;
-    menu_de_ajuda.select();
-];
-
-Verb 'ajuda' 'dica' 'dicas'
-    *                                   -> Ajuda;
+HintTopic -> -> "E o que eu faço agora?";
+Hint -> -> -> "Passeie por aí e observe.";
+Hint -> -> -> "Tem alguma coisa de diferente nos arredores?";
+Hint -> -> -> "Talvez algumas inscrições?";
+Hint -> -> -> "Procure pelas inscrições no dicionário maia.";
 
 ! ---------------------------------------------------------------------------- !

@@ -266,9 +266,9 @@ Global Menu_Mode=TRADITIONAL;
   LocateCursor(0,0);
   @read_char 1 0 0 i;
   cursor_move=0;
-  if (i=='n' or 'N' or 130) cursor_move=1;
-  else if (i=='p' or 'P' or 129) cursor_move=-1;
-  else if (i=='q' or 'Q' or 27) return -1;
+  if (i=='p' or 'P' or 130) cursor_move=1;
+  else if (i=='a' or 'A' or 129) cursor_move=-1;
+  else if (i=='v' or 'V' or 27) return -1;
   else if (i==10 or 13 or 132)
   {
    menu_item=cl;

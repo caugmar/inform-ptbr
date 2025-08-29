@@ -32,17 +32,17 @@
 ! contain the actual hints, which are displayed in order.
 ! Example hierarchy (This is NOT code, it's more a sort of tree):
 !       Menu hint_menu
-!           Menu "Prologue"
-!               HintTopic "What do I do here?"
-!                       Hint with desc. "Look around."
-!                       Hint w/d "Move around."
-!           Menu "Part 1"
-!               HintTopic "Who am I?"
-!                       Hint w/d "You are Perry Simm"
-!               HintTopic "What Do I do?"
-!                       Hint w/d "Not a lot"
-!                       Hint w/d "Nothing at all"
-!                       Hint w/d "because this ain't a real game"
+!           Menu "Prólogo"
+!               HintTopic "O que eu faço aqui?"
+!                       Hint with desc. "Olhe ao redor."
+!                       Hint w/d "Mova-se."
+!           Menu "Parte 1"
+!               HintTopic "Quem eu sou?"
+!                       Hint w/d "Você é Perry Simm"
+!               HintTopic "O que eu faço?"
+!                       Hint w/d "Não muita coisa"
+!                       Hint w/d "Nada mesmo"
+!                       Hint w/d "porque este não é um jogo de verdade"
 !
 ! The player sees the menu titled whatever you choose to call the hint_menu,
 ! on which an option is Prologue.  Under prologue is the option 
@@ -78,14 +78,14 @@ System_file;
 global hint_menu;
 #endif;
 #IFNDEF LASTH__TX;
-Constant LASTH__TX = "^^^[That's All Folks!]^";
+Constant LASTH__TX = "^^^[É só, pessoal!]^";
 #ENDIF;
 #IFNDEF HINTD__TX;
-Constant HINTD__TX = "HINTS disabled.";
+Constant HINTD__TX = "DICAS desativadas.";
 #ENDIF;
 #IFNDEF WaitForKey;
 [ WaitForKey str i;
-if (str==0) str="(Please Press Any Key)";
+if (str==0) str="(Por favor, pressione qualquer tecla)";
 print (string) str;
 @read_char 1 0 0 i;
 ];
@@ -94,18 +94,20 @@ print (string) str;
 [ HintIdent x i j;
                 switch(x){
                         1: if (HINT_STYLE==2) {
-                                print "[",i, " hint";
+                                print "[",i, " dica";
                                 if (i>1) print "s";
-                                print " left]-> ";
+                                print " restantes]-> ";
                                 return 1;}
                         2: if (HINT_STYLE==1) {
                                 j=children(self)-i;
                                 print " [",j,"/",j+i,"]";
                                 };
                            if (HINT_STYLE==0) {
-                                print " (", i, " hint";
+                                print " (", i, " dica";
                                 if (i>1) print "s";
-                                print " left.)";
+                                print " restante";
+                                if (i>1) print "s";
+                                print ".)";
                                 }
                                 }
 return 0;
@@ -114,15 +116,15 @@ return 0;
 #IFNDEF Helpsub;
 [ HelpSub;
         if (hint_menu hasnt general)
-        {print "[Warning: It is recognized that the temptation for help \
-        may at times be so exceedingly strong that you might fetch hints \
-        prematurely. Therefore, you may at any time during the story type \
-        HINTS OFF, and this will disallow the seeking out of help for the \
-        present session of the story. If you still want a hint now, indicate \
-        HINT.]"; give hint_menu general;
+        {print "[Aviso: É reconhecido que a tentação por ajuda \
+        pode às vezes ser tão forte que você pode buscar dicas \
+        prematuramente. Portanto, a qualquer momento durante a história, você \
+        pode digitar DICAS DESATIVADAS, e isso desativará a busca por ajuda para \
+        a sessão atual da história. Se você ainda quiser uma dica agora, indique \
+        DICA.]"; give hint_menu general;
          rtrue;}
         if (hint_menu has locked)
-                print_ret "Hints have been disabled.";
+                print_ret "As dicas foram desativadas.";
 hint_menu.select();
 ];
 #ENDIF;
@@ -138,13 +140,13 @@ Class HintTopic
         class Option,
         with    printsn [; print (name) self;],
                 number 0,
-                title_bar "InvisiHints",
+                title_bar "DicasInvisíveis",
                 select [ o i j; 
                          if (pretty_flag==0) { 
                                 self.title_bar();
                                 self.printsn();
-                                print "^Press ENTER for another hint, Q to 
-                                        return to the menu.";
+                                print "^Pressione ENTER para outra dica, Q para 
+                                        retornar ao menu.";
                                 jump disph;
                                 }
                          @erase_window -1;
@@ -160,9 +162,9 @@ Class HintTopic
                          CenterU(self.printsn,2);
                 style roman; style reverse;
                 @set_cursor 3 1; spaces(i);
-                @set_cursor 3 2; print "RETURN = read hint"; 
+                @set_cursor 3 2; print "RETURN = ler dica"; 
                 j=i-17; @set_cursor 3 j;
-                print "Q = previous menu";
+                print "V = menu anterior";
                 style roman; font off;
                 @set_window 0;
                 .disph;
@@ -177,9 +179,9 @@ Class HintTopic
                 do {
                 if (HintIdent(1,i,j)==1) {
                 
-                do { @read_char 1 0 0 j; } until (j == 'Q' or 'q' or 27 
+                do { @read_char 1 0 0 j; } until (j == 'V' or 'v' or 27 
                                                  or 10 or 13 or 132);
-                if (j== 'Q' or 'q' or 27) return 2;
+                if (j== 'V' or 'v' or 27) return 2;
                 if (j== 10 or 13 or 132) o.GiveHint();
                 i--;
                 jump loopover;
@@ -188,9 +190,9 @@ Class HintTopic
                 i--;
                 if (i==0) jump loopover;
                 HintIdent(2,i,j);
-                do { @read_char 1 0 0 j; } until (j == 'Q' or 'q' or 27 
+                do { @read_char 1 0 0 j; } until (j == 'V' or 'v' or 27 
                                                  or 10 or 13 or 132);
-                if (j== 'Q' or 'q' or 27) { give o ~general; return 2;}
+                if (j== 'V' or 'v' or 27) { give o ~general; return 2;}
                 .loopover;
                 o=sibling(o);
                 new_line;
@@ -206,7 +208,7 @@ Class Hint
 
 
 #IFNDEF NO_GRAMMAR;
-Verb meta "Help" "Hint" "hints" "clues"  "clue"
+Verb meta "Ajuda" "Dica" "dicas" "pistas"  "pista"
                                 * "off"                         ->HelpOff
-                                *                               ->Help;   
+                                * ->Help;   
 #ENDIF;
