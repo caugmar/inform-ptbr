@@ -84,7 +84,7 @@ Constant UNDO3__WD      = 'volte';
 
 Constant ALL1__WD       = 'todos';
 Constant ALL2__WD       = 'todas';
-Constant ALL3__WD       = 'cada';
+Constant ALL3__WD       = 'tudo';
 Constant ALL4__WD       = 'ambos';
 Constant ALL5__WD       = 'ambas';
 Constant AND1__WD       = 'e//';

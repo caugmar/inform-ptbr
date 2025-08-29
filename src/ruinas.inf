@@ -778,7 +778,7 @@ Object  dictionary "Dicionário Maia de Waldeck"
                 Q1: ~local sagrado~.";
              'crescente': "Crescente: acredita-se que a pronúncia seja ~xibalba~,
                 embora seu significado seja desconhecido.";
-             'flecha':   "Arrow: ~journey; becoming~.";
+             'flecha':   "Flecha: ~jornada; tornar-se~.";
              'caveira':  "Caveira: ~morte, perdição; destino (não necessariamente mau)~.";
              'roda':     "Roda: ~o Sol; também vida, a duração da vida~.";
              'jaguar':   "Jaguar: ~Senhor~.";
@@ -912,47 +912,47 @@ Object  low_mist "névoa baixa"
  has    scenery;
 
 !       Defined in DM4 Exercise 46
-Object  tiny_claws "sound of tiny claws" thedark
- with   name 'tiny' 'claws' 'sound' 'of' 'scuttling' 'scuttle' 'things'
-            'creatures' 'monsters' 'insects',
-        article "the",
-        initial
-            "Somewhere, tiny claws are scuttling.",
-        before [;
-         Listen:
-            "How intelligent they sound, for mere insects.";
-         Touch, Taste:
-            "You wouldn't want to. Really.";
-         Smell:
-            "You can only smell your own fear.";
-         Attack:
-            "They easily evade your flailing about.";
-         default:
-            "The creatures evade you, chittering.";
-        ],
-        each_turn [; StartDaemon(self); ],
-        daemon [;
-            if (location ~= thedark) {
-                self.turns_active = 0;
-                StopDaemon(self);
-                rtrue;
-            }
-            switch (++(self.turns_active)) {
-             1:  "^The scuttling draws a little nearer, and your breathing
-                grows loud and hoarse.";
-             2:  "^The perspiration of terror runs off your brow. The
-                creatures are almost here!";
-             3:  "^You feel a tickling at your extremities and kick outward,
-                shaking something chitinous off. Their sound alone is a
-                menacing rasp.";
-             4:  deadflag = true;
-                "^Suddenly there is a tiny pain, of a hypodermic-sharp fang
-                at your calf. Almost at once your limbs go into spasm, your
-                shoulders and knee-joints lock, your tongue swells...";
-            }
-        ],
-        turns_active 0;
-
+Object tiny_claws "som de pequenas garras" thedark
+with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr' 'coisas'
+      'criaturas' 'monstros' 'insetos',
+    article "o",
+    initial
+      "Em algum lugar, pequenas garras estão correndo.",
+    before [;
+    Listen:
+      "Como eles soam inteligentes, para meros insetos.";
+    Touch, Taste:
+      "Você não gostaria. Sério.";
+    Smell:
+      "Você só consegue sentir o cheiro do seu próprio medo.";
+    Attack:
+      "Eles facilmente se esquivam do seu movimento desordenado.";
+    default:
+      "As criaturas se esquivam de você, chocalhando.";
+    ],
+    each_turn [; StartDaemon(self); ],
+    daemon [;
+      if (location ~= thedark) {
+        self.turns_active = 0;
+        StopDaemon(self);
+        rtrue;
+      }
+      switch (++(self.turns_active)) {
+      1: "^O som de corrida se aproxima um pouco, e sua respiração
+        se torna alta e rouca.";
+      2: "^O suor do terror escorre da sua testa. As
+        criaturas estão quase aqui!";
+      3: "^Você sente um formigamento nas suas extremidades e chuta para fora,
+        se livrando de algo quitinoso. O som deles sozinho é um
+        ruído ameaçador.";
+      4: deadflag = true;
+        "^De repente, há uma pequena dor, de uma presa afiada como
+        uma agulha hipodérmica na sua panturrilha. Quase imediatamente
+                 seus membros entram em espasmo, seus ombros e articulações dos
+                 joelhos travam, sua língua incha...";
+      }
+    ],
+    turns_active 0;
 ! ---------------------------------------------------------------------------- !
 !       Utility routines.
 
@@ -991,17 +991,17 @@ Object  tiny_claws "sound of tiny claws" thedark
 
 !       Defined in DM4 §22
 [ PrintRank;
-    print ", earning you the rank of ";
-    if (score == 30) "Director of the Carnegie Institution.";
-    if (score >= 20) "Archaeologist.";
-    if (score >= 10) "Curiosity-seeker.";
-    if (score >= 5) "Explorer.";
-    "Tourist.";
+    print ", o que lhe rende a patente de ";
+    if (score == 30) "Diretor da Carnegie Institution.";
+    if (score >= 20) "Arqueólogo.";
+    if (score >= 10) "Curioso.";
+    if (score >= 5) "Explorador.";
+    "Turista.";
 ];
 
 !       Defined in DM4 §21
 [ DeathMessage;
-    if (deadflag == 3) print "You have been captured";
+    if (deadflag == 3) print "Você foi capturado";
 ];
 
 ! ---------------------------------------------------------------------------- !
@@ -1010,21 +1010,20 @@ Include "PortuguesG";
 
 !       Defined in DM4 §6
 [ PhotographSub;
-    if (camera notin player) "Not without the use of your camera.";
-    if (noun == player) "Best not. You haven't shaved since Mexico.";
+    if (camera notin player) "Não sem o uso de sua câmera.";
+    if (noun == player) "Melhor não. Você não faz a barba desde o México.";
     if (children(player) > 1)
-        "Photography is a cumbersome business, needing the use of both
-        hands. You'll have to put everything else down.";
-    if (location == Forest) "In this rain-soaked forest, best not.";
-    if (location == thedark) "It is far too dark.";
+        "Fotografia é um negócio complicado, que exige o uso de ambas as
+        mãos. Você terá que largar todo o resto.";
+    if (location == Forest) "Nesta floresta encharcada de chuva, melhor não.";
+    if (location == thedark) "Está muito escuro.";
     if (AfterRoutines()) return;
-    print_ret "You set up the elephantine, large-format, wet-plate camera,
-        adjust the sodium lamp and make a patient exposure of ",
+    print_ret "Você monta a câmera elefantina, de grande formato e placa úmida,
+        ajusta a lâmpada de sódio e faz uma exposição paciente de ",
         (the) noun, ".";
 ];
 
-Verb 'photograph'
-    * noun                              -> Photograph;
+Verb 'fotografe' * noun -> Photograph;
 
 Menu menu_de_ajuda "Ajuda e dicas para ~Ruínas~";
 Option -> "Como Jogar" with description [; howtoplay.description(); ];
