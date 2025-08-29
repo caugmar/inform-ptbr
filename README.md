@@ -4,3 +4,9 @@ ficção interativa em português usando o Inform 6 (que pra mim ainda
 
 Inclui uma versão traduzida do jogo de demonstração "Ruins", que é montado 
 ao longo do DM4.
+
+Notas:
+
+Aqui você encontra bibliotecas que foram contribuídas por usuários do
+sistema, pode ser muito útil: 
+https://www.ifarchive.org/indexes/if-archive/infocom/compilers/inform6/library/contributions/
