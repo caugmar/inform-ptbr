@@ -19,51 +19,51 @@ System_file;
 ! ------------------------------------------------------------------------------
 
 Verb meta 'breve' 'normal'
-    *                                   -> LMode1;
+*                                   -> LMode1;
 Verb meta 'verboso' 'longo'
-    *                                   -> LMode2;
+*                                   -> LMode2;
 Verb meta 'superbreve' 'curto'
-    *                                   -> LMode3;
+*                                   -> LMode3;
 Verb meta 'notifica@cc@~oes' 'notificacoes'
-    *                                   -> NotifyOn
-    * 'ligadas'                         -> NotifyOn
-    * 'desligadas'                      -> NotifyOff;
+*                                   -> NotifyOn
+* 'ligadas'                         -> NotifyOn
+* 'desligadas'                      -> NotifyOff;
 Verb meta 'pronomes' 'nomes'
-    *                                   -> Pronouns;
+*                                   -> Pronouns;
 Verb meta 'encerrar' 'sair' 'fechar'
-    *                                   -> Quit;
+*                                   -> Quit;
 Verb meta 'grava@cc@~ao' 'gravacao'
-    *                                   -> CommandsOn
-    * 'ligada'                          -> CommandsOn
-    * 'desligada'                       -> CommandsOff;
+*                                   -> CommandsOn
+* 'ligada'                          -> CommandsOn
+* 'desligada'                       -> CommandsOff;
 Verb meta 'replay'
-    *                                   -> CommandsRead;
+*                                   -> CommandsRead;
 Verb meta 'reiniciar'
-    *                                   -> Restart;
+*                                   -> Restart;
 Verb meta 'restaurar'
-    *                                   -> Restore;
+*                                   -> Restore;
 Verb meta 'salvar'
-    *                                   -> Save;
+*                                   -> Save;
 Verb meta 'pontos' 'pontua@cc@~ao' 'pontuacao'
-    *                                   -> Score
-    * 'completa'                        -> FullScore
-    * 'completos'                       -> FullScore;
+*                                   -> Score
+* 'completa'                        -> FullScore
+* 'completos'                       -> FullScore;
 Verb meta 'script' 'transcri@cc@~ao' 'transcricao'
-    *                                   -> ScriptOn
-    * 'ligada'                          -> ScriptOn
-    * 'ligado'                          -> ScriptOn
-    * 'desligada'                       -> ScriptOff
-    * 'desligado'                       -> ScriptOff;
+*                                   -> ScriptOn
+* 'ligada'                          -> ScriptOn
+* 'ligado'                          -> ScriptOn
+* 'desligada'                       -> ScriptOff
+* 'desligado'                       -> ScriptOff;
 Verb meta 'verificar'
-    *                                   -> Verify;
+*                                   -> Verify;
 Verb meta 'vers@~ao' 'versao'
-    *                                   -> Version;
+*                                   -> Version;
 
 #Ifndef NO_PLACES;
 Verb meta 'objetos'
-    *                                   -> Objects;
+*                                   -> Objects;
 Verb meta 'lugares'
-    *                                   -> Places;
+*                                   -> Places;
 #Endif; ! NO_PLACES
 
 ! ------------------------------------------------------------------------------
@@ -72,52 +72,52 @@ Verb meta 'lugares'
 
 #Ifdef DEBUG;
 Verb meta 'actions'
-    *                                   -> ActionsOn
-    * 'on'                              -> ActionsOn
-    * 'off'                             -> ActionsOff;
+*                                   -> ActionsOn
+* 'on'                              -> ActionsOn
+* 'off'                             -> ActionsOff;
 Verb meta 'changes'
-    *                                   -> ChangesOn
-    * 'on'                              -> ChangesOn
-    * 'off'                             -> ChangesOff;
+*                                   -> ChangesOn
+* 'on'                              -> ChangesOn
+* 'off'                             -> ChangesOff;
 Verb meta 'gonear'
-    * noun                              -> Gonear;
+* noun                              -> Gonear;
 Verb meta 'goto'
-    * number                            -> Goto;
+* number                            -> Goto;
 Verb meta 'random'
-    *                                   -> Predictable;
+*                                   -> Predictable;
 Verb meta 'routines' 'messages'
-    *                                   -> RoutinesOn
-    * 'on'                              -> RoutinesOn
-    * 'off'                             -> RoutinesOff;
+*                                   -> RoutinesOn
+* 'on'                              -> RoutinesOn
+* 'off'                             -> RoutinesOff;
 Verb meta 'scope'
-    *                                   -> Scope
-    * noun                              -> Scope;
+*                                   -> Scope
+* noun                              -> Scope;
 Verb meta 'showobj'
-    *                                   -> Showobj
-    * number                            -> Showobj
-    * multi                             -> Showobj;
+*                                   -> Showobj
+* number                            -> Showobj
+* multi                             -> Showobj;
 Verb meta 'showverb'
-    * special                           -> Showverb;
+* special                           -> Showverb;
 Verb meta 'timers' 'daemons'
-    *                                   -> TimersOn
-    * 'on'                              -> TimersOn
-    * 'off'                             -> TimersOff;
+*                                   -> TimersOn
+* 'on'                              -> TimersOn
+* 'off'                             -> TimersOff;
 Verb meta 'trace'
-    *                                   -> TraceOn
-    * number                            -> TraceLevel
-    * 'on'                              -> TraceOn
-    * 'off'                             -> TraceOff;
+*                                   -> TraceOn
+* number                            -> TraceLevel
+* 'on'                              -> TraceOn
+* 'off'                             -> TraceOff;
 Verb meta 'abstract'
-    * noun 'to' noun                    -> XAbstract;
+* noun 'to' noun                    -> XAbstract;
 Verb meta 'purloin'
-    * multi                             -> XPurloin;
+* multi                             -> XPurloin;
 Verb meta 'tree'
-    *                                   -> XTree
-    * noun                              -> XTree;
+*                                   -> XTree
+* noun                              -> XTree;
 
 #Ifdef TARGET_GLULX;
 Verb meta 'glklist'
-    *                                   -> Glklist;
+*                                   -> Glklist;
 #Endif; ! TARGET_
 
 #Endif; ! DEBUG
@@ -129,191 +129,191 @@ Verb meta 'glklist'
 [ ADirection; if (noun in compass) rtrue; rfalse; ];
 
 Verb 'responda' 'diga' 'grite' 'fale'
-    * topic 'para' creature             -> Answer;
+* topic 'para' creature             -> Answer;
 Verb 'pergunte' 'pe@cca' 'peca'
-    * creature 'sobre' topic            -> Ask
-    * noun 'para' creature              -> AskFor
-    * creature 'para' topic             -> AskTo
-    * 'desculpas'/'desculpa'            -> Sorry;
+* creature 'sobre' topic            -> Ask
+* noun 'para' creature              -> AskFor
+* creature 'para' topic             -> AskTo
+* 'desculpas'/'desculpa'            -> Sorry;
 Verb 'ataque' 'quebre' 'rache' 'destrua'
-    'lute' 'mate' 'assassine' 'soque'
-    'chute' 'torture'
-    * noun                              -> Attack
-    * 'com' noun                        -> Attack;
+'lute' 'mate' 'assassine' 'soque'
+'chute' 'torture'
+* noun                              -> Attack
+* 'com' noun                        -> Attack;
 Verb 'sopre'
-    * held                              -> Blow;
+* held                              -> Blow;
 Verb 'droga' 'porcaria'
-    *                                   -> Mild
-    * 'de' topic                        -> Mild;
+*                                   -> Mild
+* 'de' topic                        -> Mild;
 Verb 'queime' 'acenda'
-    * noun                              -> Burn
-    * noun 'com' held                   -> Burn;
+* noun                              -> Burn
+* noun 'com' held                   -> Burn;
 Verb 'compre'
-    * noun                              -> Buy;
+* noun                              -> Buy;
 Verb 'suba' 'escale'
-    * noun                              -> Climb
-    * 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
+* noun                              -> Climb
+* 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
 Verb 'feche' 'cubra' 'tampe'
-    * noun                              -> Close;
+* noun                              -> Close;
 Verb 'corte' 'pique' 'pode' 'fatie'
-    * noun                              -> Cut;
+* noun                              -> Cut;
 Verb 'cave'
-    * noun                              -> Dig
-    * noun 'com' held                   -> Dig;
+* noun                              -> Dig
+* noun 'com' held                   -> Dig;
 Verb 'beba' 'engula' 'tome'
-    * noun                              -> Drink;
+* noun                              -> Drink;
 Verb 'solte' 'descarte' 'largue'
-    * multiheld                         -> Drop;
+* multiheld                         -> Drop;
 Verb 'coloque' 'ponha'
-    * multiexcept 'em'/'no'/'na'/'nos'/'nas' noun -> Insert
-    * multiexcept 'sobre' noun          -> PutOn
-    * held                              -> Wear
-    * held 'no' 'chao'/'ch@~ao'         -> Drop
-    * multiheld 'no' 'chao'/'ch@~ao'    -> Drop;
+* multiexcept 'em'/'no'/'na'/'nos'/'nas' noun -> Insert
+* multiexcept 'sobre' noun          -> PutOn
+* held                              -> Wear
+* held 'no' 'chao'/'ch@~ao'         -> Drop
+* multiheld 'no' 'chao'/'ch@~ao'    -> Drop;
 Verb 'jogue' 'arremesse' 'atire'
-    * held 'em'/'no'/'na'/'nos'/'nas' noun -> ThrowAt;
+* held 'em'/'no'/'na'/'nos'/'nas' noun -> ThrowAt;
 Verb 'coma'
-    * held                              -> Eat;
+* held                              -> Eat;
 Verb 'esvazie'
-    * noun                              -> Empty
-    * noun 'no'/'na'/'nos'/'nas' noun   -> EmptyT;
+* noun                              -> Empty
+* noun 'no'/'na'/'nos'/'nas' noun   -> EmptyT;
 Verb 'entre' 'cruze'
-    *                                   -> GoIn
-    * 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
+*                                   -> GoIn
+* 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
 Verb 'examine' 'vasculhe'
-    * noun                              -> Search;
+* noun                              -> Search;
 Verb 'x//' 'cheque' 'descreva' 'observe' 'olhe' 'veja' 'procure'
-    *                                   -> Look
-    * noun                              -> Examine
-    * 'em'/'no'/'na'/'nos'/'nas' noun   -> Search
-    * 'dentro' 'de'/'do'/'da'/'dos'/'das' noun -> Search
-    * 'debaixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
-    * 'em' 'baixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
-    * noun=ADirection                   -> Examine;
+*                                   -> Look
+* noun                              -> Examine
+* 'em'/'no'/'na'/'nos'/'nas' noun   -> Search
+* 'dentro' 'de'/'do'/'da'/'dos'/'das' noun -> Search
+* 'debaixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
+* 'em' 'baixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
+* noun=ADirection                   -> Examine;
 Verb 'pesquise' 'consulte'
-    * topic 'em'/'no'/'na'/'nos'/'nas' noun -> Consult
-    * noun 'sobre' topic                -> Consult
-    * noun 'no' topic                   -> Consult;
+* topic 'em'/'no'/'na'/'nos'/'nas' noun -> Consult
+* noun 'sobre' topic                -> Consult
+* noun 'no' topic                   -> Consult;
 Verb 'saia'
-    *                                   -> Exit
-    * 'de'/'do'/'da'/'dos'/'das' noun   -> Exit;
+*                                   -> Exit
+* 'de'/'do'/'da'/'dos'/'das' noun   -> Exit;
 Verb 'va' 'v@'a' 'corra' 'caminhe'
-    *                                   -> VagueGo
-    * 'para' noun=ADirection            -> Go
-    * 'para' noun                       -> Enter;
+*                                   -> VagueGo
+* 'para' noun=ADirection            -> Go
+* 'para' noun                       -> Enter;
 Verb 'encha' 'preencha'
-    * noun                              -> Fill;
+* noun                              -> Fill;
 Verb 'pegue' 'obtenha' 'tire' 'retire' 'carregue' 'segure'
-    * multi                             -> Take
-    * multiinside 'de'/'do'/'da'/'dos'/'das' noun -> Remove
-    * multiinside 'de dentro' 'de'/'do'/'da'/'dos'/'das' noun -> Remove;
+* multi                             -> Take
+* multiinside 'de'/'do'/'da'/'dos'/'das' noun -> Remove
+* multiinside 'de dentro' 'de'/'do'/'da'/'dos'/'das' noun -> Remove;
 Verb 'levante'
-    *                                   -> Exit
-    * 'de'/'do'/'da'/'dos'/'das' noun   -> GetOff;
+*                                   -> Exit
+* 'de'/'do'/'da'/'dos'/'das' noun   -> GetOff;
 Verb 'de' 'd@^e' 'alimente' 'ofereca' 'ofere@cca' 'pague'
-    * held 'para' creature              -> Give
-    * 'a//'/'ao' creature held          -> Give reverse;
+* held 'para' creature              -> Give
+* 'a//'/'ao' creature held          -> Give reverse;
 Verb 'insira'
-    * multiexcept 'em'/'no'/'na'/'nos'/'nas' noun -> Insert;
+* multiexcept 'em'/'no'/'na'/'nos'/'nas' noun -> Insert;
 Verb 'inventario' 'invent@'ario' 'inv' 'i//'
-    *                                   -> Inv
-    * 'alto'                            -> InvTall
-    * 'largo'                           -> InvWide;
+*                                   -> Inv
+* 'alto'                            -> InvTall
+* 'largo'                           -> InvWide;
 Verb 'pule' 'salte'
-    *                                   -> Jump
-    * 'sobre' noun                      -> JumpOver;
+*                                   -> Jump
+* 'sobre' noun                      -> JumpOver;
 Verb 'beije' 'abrace'
-    * creature                          -> Kiss;
+* creature                          -> Kiss;
 Verb 'ouca' 'ou@cca' 'escute'
-    *                                   -> Listen
-    * noun                              -> Listen;
+*                                   -> Listen
+* noun                              -> Listen;
 Verb 'tranque' 'trave'
-    * noun 'com' held                   -> Lock;
+* noun 'com' held                   -> Lock;
 Verb 'nao' 'n@~ao'
-    *                                   -> No;
+*                                   -> No;
 Verb 'abra' 'descubra' 'desembrulhe'
-    * noun                              -> Open
-    * noun 'com' held                   -> Unlock;
+* noun                              -> Open
+* noun 'com' held                   -> Unlock;
 Verb 'reze' 'ore'
-    *                                   -> Pray;
+*                                   -> Pray;
 Verb 'force'
-    * noun 'com' held                   -> Unlock;
+* noun 'com' held                   -> Unlock;
 Verb 'puxe' 'arraste'
-    * noun                              -> Pull;
+* noun                              -> Pull;
 Verb 'empurre' 'mova' 'desloque'
-    * noun                              -> Push
-    * noun 'para' noun                  -> PushDir;
+* noun                              -> Push
+* noun 'para' noun                  -> PushDir;
 Verb 'leia'
-    * noun                              -> Examine
-    * 'sobre' topic 'em'/'no'/'na'/'nos'/'nas' noun -> Consult;
+* noun                              -> Examine
+* 'sobre' topic 'em'/'no'/'na'/'nos'/'nas' noun -> Consult;
 Verb 'esfregue' 'limpe' 'varra' 
-    * noun                              -> Rub;
+* noun                              -> Rub;
 Verb 'ajuste' 'regule'
-    * noun                              -> Set
-    * noun 'para' special               -> SetTo;
+* noun                              -> Set
+* noun 'para' special               -> SetTo;
 Verb 'dispa'
-    * held                              -> Disrobe;
+* held                              -> Disrobe;
 Verb 'mostre' 'exiba' 'apresente'
-    * held 'para' creature              -> Show reverse
-    * held 'a//'/'ao' creature          -> Show;
+* held 'para' creature              -> Show reverse
+* held 'a//'/'ao' creature          -> Show;
 Verb 'merda' 'porra' 'foda'
-    *                                   -> Strong
-    * 'de' topic                        -> Strong;
+*                                   -> Strong
+* 'de' topic                        -> Strong;
 Verb 'cante'
-    *                                   -> Sing;
+*                                   -> Sing;
 Verb 'sente' 'deite' 'sente-se' 'deite-se'
-    * 'sobre' noun                      -> Enter
-    * 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
+* 'sobre' noun                      -> Enter
+* 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
 Verb 'durma' 'cochile'
-    *                                   -> Sleep;
+*                                   -> Sleep;
 Verb 'cheire' 'fareje'
-    *                                   -> Smell
-    * noun                              -> Smell;
+*                                   -> Smell
+* noun                              -> Smell;
 Verb 'desculpe'
-    *                                   -> Sorry;
+*                                   -> Sorry;
 Verb 'esprema' 'esmague' 'achate'
-    * noun                              -> Squeeze;
+* noun                              -> Squeeze;
 Verb 'nade' 'mergulhe'
-    *                                   -> Swim;
+*                                   -> Swim;
 Verb 'balance'
-    * noun                              -> Swing
-    * 'em'/'no'/'na'/'nos'/'nas' noun   -> Swing;
+* noun                              -> Swing
+* 'em'/'no'/'na'/'nos'/'nas' noun   -> Swing;
 Verb 'remova'
-    * worn                              -> Disrobe;
+* worn                              -> Disrobe;
 Verb 'prove' 'saboreie'
-    * noun                              -> Taste;
+* noun                              -> Taste;
 Verb 'conte'
-    * 'a//'/'ao' creature 'sobre' topic -> Tell;
+* 'a//'/'ao' creature 'sobre' topic -> Tell;
 Verb 'pense'
-    *                                   -> Think;
+*                                   -> Think;
 Verb 'amarre' 'junte' 'prenda' 'fixe'
-    * noun                              -> Tie
-    * noun 'a//'/'ao' noun              -> Tie
-    * noun 'em'/'no'/'na'/'nos'/'nas' noun -> Tie;
+* noun                              -> Tie
+* noun 'a//'/'ao' noun              -> Tie
+* noun 'em'/'no'/'na'/'nos'/'nas' noun -> Tie;
 Verb 'toque' 'sinta'
-    * noun                              -> Touch;
+* noun                              -> Touch;
 Verb 'transfira'
-    * noun 'para' noun                  -> Transfer;
+* noun 'para' noun                  -> Transfer;
 Verb 'gire' 'rode' 'parafuse' 'tor@cca' 'desparafuse'
-    * noun                              -> Turn;
+* noun                              -> Turn;
 Verb 'ligue' 'ative'
-    * noun                              -> Switchon;
+* noun                              -> Switchon;
 Verb 'desligue' 'desative'
-    * noun                              -> Switchoff;
+* noun                              -> Switchoff;
 Verb 'acene'
-    *                                   -> WaveHands
-    * 'com' noun                        -> Wave;
+*                                   -> WaveHands
+* 'com' noun                        -> Wave;
 Verb 'vista' 'use'
-    * held                              -> Wear;
+* held                              -> Wear;
 Verb 'sim'
-    *                                   -> Yes;
+*                                   -> Yes;
 Verb 'destranque'
-    * noun 'com' held                   -> Unlock;
+* noun 'com' held                   -> Unlock;
 Verb 'espere' 'aguarde' 'z//'
-    *                                   -> Wait;
+*                                   -> Wait;
 Verb 'acorde' 'desperte'
-    *                                   -> Wake
-    * creature                          -> WakeOther;
+*                                   -> Wake
+* creature                          -> WakeOther;
 
 ! ------------------------------------------------------------------------------
 !  Final task: provide trivial routines if the user hasn't already:
