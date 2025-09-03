@@ -1,0 +1,1908 @@
+Transcript of the text of "Balances.inf"
+[From Inform 6.42 for Linux (10th February 2024)]
+
+BALANCES
+^An Interactive Short Story ^Copyright (c) 1994, 1995, 1996 by Graham Nelson.^
+240410
+6.12.7
+a
+---
+the
+CompassDirection
+compass
+north
+(n_obj)
+south
+(s_obj)
+east
+(e_obj)
+west
+(w_obj)
+northeast
+(ne_obj)
+northwest
+(nw_obj)
+southeast
+(se_obj)
+southwest
+(sw_obj)
+up above
+(u_obj)
+ground
+(d_obj)
+inside
+(in_obj)
+outside
+(out_obj)
+The 
+the 
+a 
+The 
+the 
+an 
+The 
+the 
+some 
+The 
+the 
+some 
+north
+south
+east
+west
+northeast
+northwest
+southeast
+southwest
+up
+down
+in
+out
+zero
+minus 
+ thousand
+, 
+ hundred
+ and 
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+thirty
+forty
+fifty
+sixty
+seventy
+eighty
+ninety
+-
+ 
+:
+ pm
+ am
+take inventory
+look
+examine
+wait
+north
+south
+east
+west
+northeast
+northwest
+southeast
+southwest
+N = next subject
+P = previous
+  Q = resume game
+Q = previous menu
+RETURN = read subject
+Score: 
+Moves: 
+Time: 
+S: 
+M: 
+T: 
+You can't go that way.
+your former self
+my former self
+yourself
+myself
+You
+Darkness
+those things
+that
+the
+ or 
+nothing
+ is
+ are
+is 
+are 
+ was
+ were
+was 
+were 
+ and 
+whom 
+which 
+, 
+:
+Library error 
+Interpreter 
+Version 
+Standard interpreter 
+Interpreter version 
+Library Serial Number 
+VM 
+Release 
+Serial number 
+Inform v
+ Library v
+me
+you
+those
+her
+him
+that
+myself
+yourself
+them
+her
+him
+it
+I
+You
+Those
+She
+He
+That
+I'm
+I was
+'s
+ was
+You're
+You were
+They're
+They were
+She's
+She was
+He's
+He was
+That's
+That was
+were
+was
+are
+is
+ 
+ 
+ 
+ 
+ 
+I 
+ 
+you 
+You 
+I'm
+I was
+ is
+ was
+you're
+you were
+You're
+You were
+are
+is
+was
+I'm not
+I wasn't
+ isn't
+ wasn't
+you aren't
+you weren't
+You aren't
+You weren't
+aren't
+isn't
+wasn't
+I've
+I had
+ has
+ had
+you've
+you'd
+You've
+You'd
+have
+has
+had
+I'll
+I would
+ will
+ would
+you'll
+you'd
+You'll
+You'd
+will
+will
+would
+can
+can
+could
+can't
+can't
+couldn't
+don't
+doesn't
+didn't
+herself
+himself
+yourself
+himself
+herself
+itself
+M
+m
+y
+'s
+Y
+y
+our
+T
+t
+heir
+H
+h
+er
+H
+h
+is
+I
+i
+ts
+I
+it
+she
+he
+you
+they
+she
+he
+that
+decide
+decides
+decided
+ that
+'s not
+ wasn't
+ such a good idea.
+There 
+is
+was
+ no reply.
+Violence 
+isn't
+wasn't
+ the answer to this one.
+ usefully blow 
+.
+This dangerous act would 
+achieve
+have achieved
+ little.
+Nothing 
+is
+was
+ on sale.
+Climbing 
+ would 
+achieve
+have achieved
+ little.
+ not something 
+ can close
+ could have closed
+.
+ already closed.
+close
+closes
+closed
+ 
+.
+(first closing 
+)
+[Command recording off.]
+[Command recording on.]
+[Replaying commands.]
+discover
+discovers
+discovered
+ nothing of interest in 
+.
+.
+Cutting 
+ up would 
+achieve
+have achieved
+ little.
+Digging would 
+achieve
+have achieved
+ nothing here.
+ wearing 
+.
+take off
+takes off
+took off
+ 
+.
+(first taking 
+ off)
+will need to
+had to
+ remove 
+ first.
+There
+'s
+ was
+ nothing suitable to drink here.
+ already here.
+haven't got
+hasn't got
+didn't have
+ 
+.
+Dropped.
+need to take
+had to take
+ 
+ 
+out
+off
+ of 
+ before dropping 
+.
+ plainly inedible.
+eat
+eats
+ate
+ 
+. Not bad.
+.
+ contain things.
+ closed.
+ empty already.
+That wouldn't 
+empty
+have emptied
+ anything.
+But 
+ already 
+on 
+in 
+.
+ not something 
+ can 
+ could 
+stand on.
+sit down on.
+lie down on.
+enter.
+ get into the closed 
+.
+ only get into something free-standing.
+get
+gets
+got
+ onto
+ into
+ 
+.
+(getting 
+off
+out of
+ 
+)
+(getting onto 
+)
+(getting into 
+)
+(entering 
+)
+Darkness, noun.  An absence of light to see by.
+see
+sees
+saw
+ nothing special about 
+.
+ currently
+ switched 
+on.
+off.
+But 
+ in anything at the moment.
+ get out of the closed 
+.
+get
+gets
+got
+ 
+off
+out of
+ 
+.
+ 
+on
+in
+ 
+.
+(first getting 
+off
+out of
+ 
+)
+stand
+stands
+stood
+ up.
+There 
+isn't
+wasn't
+ anything obvious with which to fill 
+.
+Filling 
+ from 
+ wouldn't 
+make
+have made
+ sense.
+The score was 
+The score is 
+made up as follows:^
+finding sundry items
+visiting various places
+total (out of 
+)
+But 
+ on 
+ at the moment.
+ holding 
+.
+juggle
+juggles
+juggled
+ 
+ for a while, but 
+don't
+don't
+doesn't
+didn't
+ achieve much.
+ seem interested.
+hand over
+hands over
+handed over
+ 
+.
+ have
+ have had
+ to get 
+off
+out of
+ 
+ first.
+ go that way.
+ unable to climb 
+.
+ unable to descend by 
+.
+ since 
+ 
+ in the way.
+ since 
+ 
+lead
+leads
+led
+ nowhere.
+depart
+departs
+departed
+.
+need
+needs
+needed
+ to be holding 
+ before 
+ can
+ could
+ put 
+ into something else.
+ contain things.
+ closed.
+ need
+ have needed
+ to take 
+ off first.
+ put something inside itself.
+(first taking 
+ off)
+There
+ is
+ was
+ no more room in 
+.
+Done.
+put
+puts
+put
+ 
+ into 
+.
+ carrying nothing.
+ carrying
+:
+.
+jump
+jumps
+jumped
+ on the spot, fruitlessly.
+Jumping in 
+ 
+would achieve
+would have achieved
+ nothing here.
+Jumping upon 
+ 
+would achieve
+would have achieved
+ nothing here.
+Jumping over 
+ 
+would achieve
+would have achieved
+ nothing here.
+Keep your mind on the game.
+hear
+hears
+heard
+ nothing unexpected.
+ (providing light)
+ (which 
+ closed)
+ (closed and providing light)
+ (which 
+ empty)
+ (empty and providing light)
+ (which 
+ closed and empty)
+ (closed, empty and providing light)
+ (providing light and being worn
+ (providing light
+ (being worn
+ (which 
+ 
+open
+open but empty
+closed
+closed and locked
+ and empty
+ (which 
+ empty)
+ containing 
+ (on 
+, on top of 
+ (in 
+, inside 
+ is now in its 
+normal 
+~brief~ printing mode, which gives long descriptions of places never before visited and short descriptions otherwise.
+ is now in its 
+normal 
+~verbose~ mode, which always gives long descriptions of locations (even if you've been there before).
+ is now in its 
+normal 
+~superbrief~ mode, which always gives short descriptions of locations (even if you haven't been there before).
+ seem to be something 
+ can
+ could
+ lock.
+ locked at the moment.
+ first have to close 
+.
+ seem to fit the lock.
+lock
+locks
+locked
+ 
+.
+ (on 
+)
+ (in 
+)
+ (as 
+)
+^On 
+.
+^On 
+^In 
+ 
+ 
+can
+could
+ also
+ see 
+.
+ here.
+see
+sees
+saw
+ nothing unexpected in that direction.
+But it
+'s
+ was
+ dark.
+find
+finds
+found
+ nothing of interest.
+Quite.
+(considering the first sixteen objects only)^
+Nothing to do.
+ 
+died
+have died
+has died
+ 
+ 
+won
+have won
+has won
+ 
+^Would you like to RESTART, RESTORE a saved game
+, give the FULL score for that game
+, see some suggestions for AMUSING things to do
+ or QUIT?
+[Your interpreter does not provide ~undo~.  Sorry!]
+~Undo~ failed.  [Not all interpreters provide it.]
+Please give one of the answers above.
+^It 
+is now
+was
+ pitch dark in 
+here
+there
+.
+I beg your pardon?
+[You can't ~undo~ what hasn't been done!]
+[Can't ~undo~ twice in succession. Sorry!]
+[Previous turn undone.]
+Sorry, that can't be corrected.
+Think nothing of it.
+~Oops~ can only correct a single word.
+It 
+is
+was
+ pitch dark, and 
+ can't
+ couldn't
+ see a thing.
+yourself
+As good-looking as ever.
+To repeat a command like ~frog, jump~, just say ~again~, not ~frog, again~.
+ hardly repeat that.
+ begin with a comma.
+seem
+seem
+seems
+seemed
+ to want to talk to someone, but I 
+can't
+couldn't
+ see whom.
+ talk to 
+.
+To talk to someone, try ~someone, hello~ or some such.
+(first taking 
+)
+I didn't understand that sentence.
+I only understood you as far as wanting to 
+I didn't understand that number.
+ see any such thing.
+seem
+seem
+seems
+seemed
+ to have said too little.
+ holding that.
+You can't use multiple objects with that verb.
+You can only use multiple objects once on a line.
+I'm not sure what ~
+~ refers to.
+You excepted something not included anyway.
+ only do that to something animate.
+That's not a verb I recognise.
+That's not something you need to refer to in the course of this game.
+ see ~
+~ (
+) at the moment.
+I didn't understand the way that finished.
+None
+Only 
+ of those 
+is
+are
+ available.
+Nothing to do.
+There 
+is
+was
+ nothing to 
+.
+Who do you mean, 
+Which do you mean, 
+Sorry, you can only have one item here. Which exactly?
+Whom 
+do
+do
+does
+did
+ 
+want
+want
+want
+want
+ 
+ to 
+?
+What 
+do
+do
+does
+did
+ 
+want
+want
+want
+want
+ 
+ to 
+?
+The score has just gone 
+up
+down
+ by 
+ point
+s
+(Since something dramatic has happened, your list of commands has been cut short.)
+^Type a number from 1 to 
+, 0 to redisplay or press ENTER.
+^[Please press SPACE.]
+[Comment recorded.]
+[Comment NOT recorded.]
+.
+?
+(first taking 
+ 
+off
+out of
+ 
+)
+You'll have to be more specific.
+ observes that 
+That was a rhetorical question.
+Score notification off.
+Score notification on.
+have
+have
+has
+ handled
+have
+have
+has
+ handled nothing.
+ (worn)
+ (held)
+ (given away)
+ (in 
+)
+ (in 
+)
+ (inside 
+)
+ (on 
+)
+ (lost)
+ not something 
+ can open
+ could have opened
+.
+seem
+seems
+seemed
+ to be locked.
+ already open.
+open
+opens
+opened
+ 
+, revealing 
+ and revealed 
+nothing.
+.
+open
+opens
+opened
+ 
+.
+(first opening 
+)
+ better things to do.
+have
+have
+has
+ visited
+.
+have
+have
+has
+ visited nothing.
+Nothing practical 
+results
+resulted
+ from 
+ prayer.
+^>
+At the moment, 
+means 
+is unset
+no pronouns are known to the game.
+.
+ 
+isn't
+wasn't
+ likely to help matters by punishing 
+ that way.
+Punishing 
+ that way 
+isn't
+wasn't
+ likely to help matters.
+ fixed in place.
+ unable to.
+Nothing obvious 
+happens
+happened
+.
+That would 
+be
+have been
+ less than courteous.
+That really wouldn't 
+serve
+have served
+ any purpose.
+That's 
+not
+wasn't
+ a direction.
+Not that way 
+ can't
+couldn't
+.
+need
+needs
+needed
+ to be holding 
+ before 
+ can
+ could
+ put 
+ on top of something else.
+ put something on top of itself.
+Putting things on 
+ would
+ achieve
+'ve achieved
+ nothing.
+lack
+lacks
+lacked
+ the dexterity.
+(first taking 
+ off)
+There 
+is
+was
+ no more room on 
+.
+Done.
+put
+puts
+put
+ 
+ on 
+.
+Please answer yes or no.
+Are you sure you want to quit? 
+ unfortunately closed.
+But 
+ there now.
+Removed.
+But 
+ in or on anything.
+Are you sure you want to restart? 
+Failed.
+Restore failed.
+Ok.
+achieve
+achieves
+achieved
+ nothing by this.
+** 
+Preposition not found (this should not occur)
+Property value not routine or string: ~
+~ of ~
+~ (
+)
+Entry in property list not routine or string: ~
+~ list of ~
+~ (
+)
+Too many timers/daemons are active simultaneously. The limit is the library constant MAX_TIMERS (currently 
+) and should be increased
+Object ~
+~ has no ~
+~ property
+The object ~
+~ can only be used as a player object if it has the ~number~ property
+Attempt to take random entry from an empty table array
+ is not a valid direction property number
+The player-object is outside the object tree
+The room ~
+~ has no ~
+~ property
+Tried to set a non-existent pronoun using SetPronoun
+A 'topic' token can only be followed by a preposition
+Overflowed buffer limit of 
+ using '@@64output_stream 3' 
+LoopWithinObject broken because the object 
+ was moved while the loop passed through it.
+Attempt to use illegal narrative_voice of 
+.
+(unexplained)
+ **
+Save failed.
+Ok.
+In that game you scored 
+You have so far scored 
+ out of a possible 
+, in 
+ turn
+s
+There is no score in this story.
+Transcripting is already off.
+^End of transcript.
+Attempt to end transcript failed.
+Transcripting is already on.
+Start of a transcript of
+Attempt to begin transcript failed.
+But it
+'s
+ was
+ dark.
+There 
+is
+was
+ nothing on 
+.
+On 
+.
+find
+finds
+found
+ nothing of interest.
+ see inside, since 
+ 
+ closed.
+
+ 
+ empty.
+In 
+.
+ set 
+.
+ set 
+ to anything.
+ holding 
+.
+ unimpressed.
+ singing 
+is
+was
+ abominable.
+ feeling especially drowsy.
+smell
+smells
+smelled
+ nothing unexpected.
+Oh, don't apologise.
+achieve
+achieves
+achieved
+ nothing by this.
+Real adventurers 
+do
+did
+ not use such language.
+There
+'s not
+ wasn't
+ enough water to swim in.
+There
+'s
+ was
+ nothing sensible to swing here.
+ not something 
+ 
+can
+could
+ switch.
+ already off.
+switch
+switches
+switched
+ 
+ off.
+ not something 
+ 
+can
+could
+ switch.
+ already on.
+switch
+switches
+switched
+ 
+ on.
+Taken.
+ always self-possessed.
+I don't suppose 
+ would 
+care
+have cared
+ for that.
+ have 
+
+had 
+to get 
+off
+out of
+ 
+ first.
+already have
+already has
+already had
+ 
+.
+seem
+seems
+seemed
+ to belong to 
+.
+seem
+seems
+seemed
+ to be a part of 
+.
+ not available.
+ not open.
+ hardly portable.
+ fixed in place.
+ carrying too many things already.
+(putting 
+ into 
+ to make room)
+taste
+tastes
+tasted
+ nothing unexpected.
+talk
+talks
+talked
+ to 
+ for a while.
+This provoke
+s
+d
+ no reaction.
+What a good idea.
+Futile.
+lack
+lacks
+lacked
+ the nerve when it 
+comes
+came
+ to the crucial moment.
+would
+ achieve
+ have achieved
+ nothing by this.
+feel
+feels
+felt
+ nothing unexpected.
+That really wouldn't 
+serve
+have served
+ any purpose.
+ seem to be something 
+ can unlock
+ could have unlocked
+.
+ unlocked at the moment.
+ seem to fit the lock.
+unlock
+unlocks
+unlocked
+ 
+.
+(first unlocking 
+)
+ have 
+
+had 
+to say which compass direction to go in.
+The game file has verified as intact.
+The game file did not verify as intact, and may be corrupt.
+Time passe
+s
+d
+.
+The dreadful truth is, this 
+is
+was
+ not a dream.
+That seem
+s
+ed
+ unnecessary.
+But 
+ holding 
+.
+look
+looks
+looked
+ ridiculous waving 
+ at 
+.
+.
+wave
+waves
+waved
+ at 
+, feeling foolish.
+ wear 
+.
+ not holding 
+.
+ already wearing 
+.
+put on
+puts on
+put on
+ 
+.
+need to take
+had to take
+ 
+ 
+out
+off
+ of 
+ before wearing 
+.
+(darkness object)
+SelfClass
+(self object)
+(Inform Parser)
+(
+)^
+~
+~ 
+~
+~ 
+ 
+(Inform Library)
+^^    
+***
+ 
+ 
+***
+^^
+^[
+.]^
+/
+/
+in PrintToBuffer()
+<routine 
+>
+<string ~
+~>
+<illegal object number 
+>
+ 
+ 
+(Library Extensions)
+(LibraryMessages)
+ / 
+ / 
+ 
+S
+.
+ (
+) / 
+ / 
+** 
+ (
+, 
+) **
+ 
+ (
+)
+ (
+)
+ 
+ 
+ (
+)
+ (
+)
+
+
+)
+)
+--- 
+ ---^^
+> 
+ 
+>
+> 
+ 
+ 
+ 
+ 
+.^
+  
+   
+  
+ 
+ 
+ 
+ 
+ 
+On 
+In 
+.
+ 
+ 
+A perfect white cube, four inches on a side.
+a
+featureless white cube
+~
+~ cube
+s
+the
+It is now called 
+.
+FeaturelessCube
+This is a magical burin, used for inscribing objects with words or runes of magical import. Such a burin also gives you the ability to write spell scrolls.
+Writing on a cube is such a fiddly process that you need to be holding it in your hand first.
+You would need some powerful implement for that.
+If a burin could write in a spell book, you wouldn't need the gnusto spell!
+You cannot write just anything on the magic parchment of a scroll: you can only ~copy~ a spell to it.
+magic burin
+Graffiti is banned.
+You need to be holding the burin to copy a spell.
+If a burin could write in a spell book, you wouldn't need the gnusto spell!
+You can only copy spells to scrolls.
+The scroll is already full of incantation.
+The scroll is not blank, only illegible.
+the
+ spell
+: 
+.
+Spell
+The 
+ and 
+, 
+ spell is
+ spells are
+ yours forever.  Other than that, y
+Y
+ou have 
+the 
+ (twice)
+ (thrice)
+ (four times)
+ (many times)
+ and 
+, 
+no spells
+ memorised.
+You always know that spell.
+Using your best study habits, you commit the 
+ spell to memory
+.
+ once again.
+ a third time.
+ yet another time.
+  You have so much buzzing around in your head, though, that it's likely something may have been forgotten in the shuffle.
+(memory)
+copy a scroll into your spell book
+Unlike scrolls, spell books are magically guarded against the 'theft' of their lore.
+Your spell fizzles vaguely out.
+A gnusto spell would require close scrutiny of the scroll it is to copy: which you do not seem to be holding.
+Your spell fails, as you have no spell book.
+Your spell fails, as 
+ is illegible.
+Your spell book begins to glow softly.  Slowly, ornately, the words of 
+ are inscribed, glowing even more brightly then the book itself. The book's brightness fades, but the spell remains! However, the scroll on which it was written vanishes as the last word is copied.
+(gnusto_spell)
+ is always open to the right place, but it is also always closed. This eliminates tedious leafing and hunting for spells.  Many lives have been saved by this magical innovation.
+When you are done, 
+ remains unmarred.
+SpellBook
+The scroll has faded, and you cannot read it.
+The scroll reads ~
+~.
+ (which is illegible)
+ (of 
+)
+Scroll
+(The magic writing of the spells casts enough light that you can read them.)^
+Nothing happens.
+Nothing happens.
+You haven't got that spell committed to memory.  [Type ~spells~ to see what you do remember.]
+Your training is such that you can only memorise such a spell with the aid of a spell book containing it.
+You have no text of that spell to copy.
+You haven't learned that spell, if indeed it is a spell.
+You haven't access to that spell, if indeed it is a spell.
+cast a spell at
+At the moment, even the simplest questions confuse you.
+Question
+Helistar is your colleague, an Enchanter like you who has been much on your mind lately.  She has been investigating some very dark magic indeed, and seems not to be around any more.  You feel rather vague about the details.
+(34)
+A burin is an engraving and writing tool.
+(35)
+Something you had a lot to do with, but what exactly?  No, it's gone.
+(36)
+A one-eyed giant, usually hostile.  (Don't they teach anything at adventurer school these days?)
+(37)
+The grue is a sinister, lurking presence in the dark places of the earth. Its favorite diet is adventurers, but its insatiable appetite is tempered by its fear of light. No grue has ever been seen by the light of day, and few have survived its fearsome jaws to tell the tale.
+(38)
+According to Chambers English Dictionary, a grimoire is ~a magician's book for calling up spirits~.
+(39)
+Your memory is still dream-hazed, but it's coming back. As a trained Enchanter, you have the ability to cast spells like ~frotz~, provided you have learned them in advance.  Some of these spells can be cast at something; others can be cast alone. ^^Spells are very complicated.  Each time you cast one, you forget it (though you can get around this by learning it several times, so as to have several uses up your sleeve).  The only way to hang on to a spell is to have it written down, on a scroll or in a spell book. Scrolls are not ideal for this, and you can only learn a spell from your spell book.  (But you can add spells to your book.) ^^[Type ~learn frotz~ and then ~frotz coin~ for an example.  You can also type ~spells~ to see what you currently have memorised.]
+(40)
+A round unstamped disc, presumably part of the local currency.
+Coin
+gold coin
+gold coins
+GoldCoin
+silver coin
+silver coins
+SilverCoin
+bronze coin
+bronze coins
+BronzeCoin
+(players_coin)
+You need to be holding the coin first.
+You throw it away into the darkness.
+You toss the coin, and it lands... on its edge, amazingly.
+You toss the coin, and it comes up... blank, since neither side is marked.
+My Spell Book^
+spell book
+cause an object to give off light
+There is a brief, blinding flash of light.
+The spell, not designed for living creatures, goes sour.
+The spell dissipates vaguely.
+There is an almost blinding flash of light as 
+ begins to glow!  It slowly fades to a less painful level, but 
+ is now quite usable as a light source.
+There is a brief moment of deep darkness.
+The spell, not designed for living creatures, goes sour.
+The spell dissipates vaguely.
+ isn't producing light as it is.
+A pool of darkness coagulates around 
+ but slowly fades back to normality.  Still, 
+ is no longer any kind of light source.
+(frotz_spell)
+open even locked or enchanted objects
+The world is open already.
+It might be a boon to surgeons if it worked, but it doesn't.
+It doesn't need opening.
+ opens obediently. Like swatting a fly with a sledge hammer, if you ask me.
+Silently, 
+ swings open. 
+The world is closed already.
+Happily, that is unnecessary.
+It doesn't need locking.
+Silently, 
+ swings shut and locks.
+(rezrov_spell)
+mind probe
+That must be either vegetable or mineral.
+You give yourself a mild headache.
+You look into the rather ordinary thoughts of 
+.
+That must be either vegetable or mineral.
+You give yourself a mild headache.
+ is rather shocked, for some reason.
+(yomin_spell)
+Place
+Until quite recently, someone lived here, you feel sure. Now the furniture is matchwood and the windows are glassless.  Outside, it is a warm, sunny day, and grasslands extend to the low hills on the horizon.
+There's only the one room: better go ~out~.
+Ramshackle Hut
+Searching through the furniture, which is good for nothing but firewood now, you come across an old cedarwood box, which you pick up for a closer look.
+wooden furniture
+The box bears the calligraphed initial H.
+cedarwood box
+This must be the grimoire of dangerous spells kept by your irresponsible friend Helistar.  Many pages are missing, but a few spells remain:^
+Helistar's grimoire
+The grasslands sway over low hills in all directions: it is a peaceful wilderness, broken only by this hut and a faint path to the north.
+You wander around for a while but end up back at the hut.
+Grasslands, near Hut
+A pleasant pocket valley in the grassy hills, through which a trail runs north-to-south.
+The trail runs out to nothing, and you retreat for fear of getting so lost you couldn't find the hut again by nightfall.
+You wander around the pleasant valley, but are afraid to lose sight of the trail.
+Pocket Valley
+You can hardly ride 
+.
+winged horse
+chestnut horse
+There is 
+ here, munching on a pile of oats.
+A pair of handsome brown wings suddenly appears on the horse's powerful shoulders.  The horse turns in a complete circle, a look of puzzlement on his face.
+He is mainly thinking about oats.  Partly who you are and what you're up to, but mainly oats.
+You ride around for a while, exercising the horse, but soon enough he tires of this and pointedly brings you back to the oats.  Obligingly you dismount and he begins grazing again.
+You begin to ride north.  Then, slowly at first but with increasing sureness, the horse begins beating its powerful wings.  You rise majestically through the air, sailing gracefully across a chasm where the hills fall away. The horse lands gently on the far side and deposits you, taking to the skies again.^
+horse
+Sifting through the oats, you find a shiny scroll!  Lucky you got to it before the horse did.  As you turn it over in your hands, it seems undamaged.
+What would you want with all those oats?
+pile of oats
+shiny scroll
+cause an animal to sprout wings
+The spell dies away in vain.
+Your elbows twitch, but there is no other effect.
+For a moment, 
+ looks highly discomforted, but the moment passes.
+The spell dies away in vain.
+What wings?
+The Enchanter giveth, and the Enchanter taketh away. The horse looks disconsolate but returns to the oats.
+ has no wings to lose.
+(bozbar_spell)
+The road ends suddenly at a wide chasm.  The road leads upward to the north, and you can see it continuing on the southern side of the chasm.
+The chasm is too perilous to approach.  The only safe way is up and to the north.
+You jump bravely into the chasm, and plunge... gracefully through the air.  (It gets a bit less noble and airy after that.)
+Edge of Chasm
+Lying in a tight coil at the edge of the chasm is a hissing snake.
+It has some V-markings, some scaly parts, colours from grey to reddish-brown. Is that any help?
+The snake hisses angrily!
+Beside a clump of daffodils is a featureless white cube.
+The snake is replaced by a clump of daffodils.
+A featureless cube rests where the snake took off from.
+The snake is transformed into a huge, winged serpent, a dragon which bellows and leaps out into the chasm, backwinging furiously... and knocking you over the edge quite by accident.
+Horrid reptilian thoughts insinuate their way into you.
+The slipperiness of its skin is only one of many reasons why this is ill-advised.
+hissing snake
+The snake appears to be curled around a featureless white cube.
+The snake won't let you near that cube!
+cube
+The road crosses the top of a ridge here, sloping downwards to the south and the northwest.  A track diverges to east.
+Crest of Hill
+A tortoise ambles along the road, extremely slowly.
+The tortoise (slowly) turns its neck to look at you (stupidly).
+Just how safe do you want your surroundings to be?
+The tortoise seems to be incapable of expressing surprise, but is now soaring away high in the sky. Something rather grubby is left behind.
+For a moment you think there is nothing there, as you chew absentmindedly on a leaf.  But somewhere inside the tortoise is a sense of wonder at the amazing blue canopy of the sky.
+Your parents always warned you not to pick up casual acquaintances met on the road.
+^A tortoise-feather flutters to the ground before you!
+^High in the sky,
+^Far above you,
+^Tiny in the blue sky,
+ a tortoise flaps across the sun.
+tortoise
+torn scroll
+sharpen hearing
+There is a loud bang in your ear, but no other effect.
+There is no further effect.
+Nothing happens, possibly because those butterflies on the other side of the hill keep distracting you.
+ is no doubt grateful for the gift of sharper hearing.
+There is a brief silence, but no other effect.
+Pardon?
+ is no doubt grateful not to have to listen to you.
+^Those wretched butterflies finally shut up.
+(lobal_spell)
+It looks as if the tortoise was eating something - once it might have been a scroll, but now it lies there, chewed up like a lettuce leaf.
+Before your eyes, the scroll begins to repair itself, failing only at the very last tear.  Not quite perfect perhaps, but certainly a readable, if torn scroll.
+~Eating your words~ is notoriously dangerous for a wizard. Rearranged in the stomach, a spell might do anything!
+chewed scroll
+Possibly your rarest, and also least valuable, possession.
+tortoise feather
+This is a cave mouth, at one end of a road which winds southeast over rising ground.  The entrance west to the caves is a dark tunnel, and only a footpath runs further north, into gorse.
+Cave Mouth
+It just looks like an ordinary heavy iron door.
+^The iron door stands open.
+^The iron door is unlocked but shut.
+A heavy iron door bars the cave mouth.
+iron door
+Clotted in the mud beside the door is a perfect sapphire.
+As you gaze into the perfect blue of the sapphire, you feel your mind begin to reel.  Unable to bear the naked sight of perfection, you look away, ashamed. As you do so, the sapphire cracks and wastes away to thin hot dust.  But something remains, something in your mind...
+perfect sapphire
+cause perfection
+Trying to make everything perfect was a little too ambitious.
+Oh, don't be too hard on yourself.
+Your spell is not powerful enough to restore the lost pages.
+ looks pretty perfect as is.
+(caskly_spell)
+A wide but shallow cave not far inside the hill.  There is no obvious exit, except for the way you came in.
+Something bars your way, and you hear the scales jangling militantly.  You were trying to steal its coins!
+Something bars your way, and you hear the scales jangle slightly with energy.
+The only way is back ~out~ through the iron door.
+Taken from 
+.
+Inside Cave
+Balanced on a rock formation is a featureless white cube.
+cube
+^A fair-sized pair of scales hangs from a bracket in the cave wall.  
+The scales are balanced.
+The left-hand side is higher.
+The right-hand side is higher.
+There are left and right hand pans, which you should refer to individually.
+pair of scales
+The pans gleam with what almost seems greed, and somehow they contrive to nudge your hand past them with your worthless and boring item.
+The scales come into balance.
+The left pan 
+The right pan 
+very slowly rises up.
+rises up.
+ScalePan
+right pan
+(79)
+(80)
+(81)
+left pan
+(bronze_coin)
+(84)
+(85)
+crumpled scroll
+turn a dangerous object into a harmless one
+The spell fizzles away.
+It's a matter of opinion, isn't it?
+ turns into a featureless white cube just as the cyclops was about to hit you with it.  Mightily embarrassed by this, he drops the cube and runs off!
+ turns into a moth and flutters away.^
+Nothing obvious happens.  Perhaps 
+ isn't so very dangerous after all.
+The spell fizzles away.
+It's a matter of opinion, isn't it?
+Your spell is too weak for something quite as monumentally harmless as 
+.
+Nothing obvious happens.
+Suddenly, a tarantula races up your arm to your throat! Perhaps it was unwise to gizbru something you were actually holding.
+Nothing happens.  Perhaps that's just as well, after the last time.
+ is replaced by a buck-toothed cyclops wielding a mace!
+(urbzig_spell)
+A huge buck-toothed cyclops menaces you, armed with a heavy mace!
+Does the term ~death wish~ mean anything to you?
+The cyclops bellows with glee as your spell has no effect.  (After all, he wouldn't be ~dangerous~ if an urbzig spell worked on him, would he?)
+He roars incoherently, swinging the mace!
+Feeling that he's given you quite long enough to explain why you made such a mess of his life, he swings the great mace maniacally down on you!
+^The cyclops leaps and bellows!
+^Whirling the mace, the cyclops jabbers at you incoherently.
+^The cyclops is losing patience (the appropriate cyclops word is untranslatable into English, but approximately means ~forbearance in not smashing all nearby skulls~).
+^The cyclops jabs you with the mace, almost breaking your rib.
+buck-toothed cyclops
+It looks much too heavy for you to even lift.
+mace
+A featureless white cube lies where the cyclops dropped it.
+cube
+The footpath from the cave mouth runs into dense, impenetrable gorse bushes.  Perhaps it wasn't so much a footpath as a rill in the earth where roots wouldn't take; anyway, there's no way but back south.
+Gorse Bushes
+Slung over one of the gorse bushes is a beautiful red carpet.
+This is a carpet of unusual design. It is red, beautifully woven and bears a pattern of cubes.
+Not until the carpet's on the ground, you can't.
+Not until the carpet's on the ground, you can't.
+Mysteriously, the carpet rucks and pulls until you're thrown off.  It settles back on the white floor with a contented sigh.
+The carpet rises suddenly, crashing into the roof of the cave and throwing you back off again.  Painfully.
+The carpet rises suddenly into the fluffy white clouds, and after a headlong journey deposits you...^
+Not while you're on it!
+(Dislodging 
+)^
+beautiful red carpet
+It is labelled ~First Prize~!
+It is labelled ~Nineteenth Prize~.
+~You lose,~ says the ticket, with a smily face.  ~Try again!~
+lottery ticket 
+It would be cheating to see what's written on the curled up tickets still in the board.
+~Get outta here, bub!~, the barker says, disgusted.
+Ticket
+Ticket_1
+Ticket_2
+Ticket_3
+Ticket_4
+Ticket_5
+Ticket_6
+Ticket_7
+This is a crowded, noisy bazaar.  Directly in front of you is a lottery!  But the contemptuous-looking barker is doing a very poor trade: hardly anyone wants his first prize, the big cuddly toy elephant, or even his nineteenth prize, a featureless white cube.
+^~Roll up!  Roll up!  One silver piece for three goes!~
+^~Come on, then!  Just a silver coin gets you three!~
+^~Think what you could win, all for one silver coin!~
+^~This could be your lucky day!~
+~None of that!~ snaps the barker angrily, putting you off your study habits.  He mutters about ~Enchanter cheats~, but under the circumstances you decide to let the insult pass.
+Everywhere, the crowds of jabbering natives block your way to all the good stalls.  In fact, the only one you can get at is this dismal lottery.
+Crowded Bazaar
+There are a hundred holes each way, making, um, let's see, yes, ten thousand tickets in all. Still, there are nineteen prizes, so your odds must be, oh, well, not too awful anyway.
+The barker stabs you in the chest with his finger.  ~That's a silver coin to you, bub!~
+That ticket's already taken.
+The barker looks metaphysically embarrassed. ~Um, Inform's object creation system seems not to have worked.~
+Randomly picking from the 
+ numbered holes with tickets in, you 
+You 
+take 
+ out of the board.
+~No changes of mind, that's your ticket now!  Give it to me if you want to play it.~
+The barker is burly, and won't let you tamper with the board.
+Behind the barker is a huge drilled board, and inside each little numbered hole is a rolled-up lottery ticket.
+lottery board
+a
+rolled-up ticket from the board
+A boxer gone to seed who failed as a magician all down the coast, that'd be your guess.
+No way.  He must weigh twice what you do.
+~Just one silver coin and a prize could be yours!~
+He blows the dust off it.  ~Genuine antique, that.~
+~Good quality merchandise,~ he says, in a way that suggests he can only spell one of those three words.
+~Three tickets for one silver coin!~
+~Just play the game, bub.~
+The barker glowers at you.
+This is a crowded, noisy bazaar.  Directly in front of you is the lottery!
+With very bad grace, the barker shoves the cuddly toy elephant into your arms.
+This is a crowded, noisy bazaar.  Directly in front of you is the lottery!
+With concealed relief, the barker shoves the featureless white cube into your hands.
+~Bad luck!  You lose!~
+~You've had enough goes already!~ he growls.  No wonder trade is bad.
+~What do you call that? One silver coin to play!~
+~Bronze!  Not a chance, sunshine.~
+Gleefully the barker snatches the gold coin. ~Sorry bub, no change. Business is slack today!~
+Grudgingly the barker takes the silver coin and stands back to let you at the board, arms folded.
+He's not that much of an animal.
+His problem is listening, not hearing.
+For a moment his hair seems to comb itself. Irritated, he ruffles it again, and the spell dies an ignominious death.
+The barker's mind is a heap of grumbles about lost prizes and scrawny Enchanters.
+~Hope that scrawny Enchanter doesn't pick 2306!~ thinks the barker (slowly).
+~If that mark does win, hope it's only worthless old 5802,~ ponders the barker.
+barker
+~Hands off those prizes!~
+prizes
+Pink, cuddly, toy, elephant.  Says it all, really.
+~Hands off those prizes!~
+prize elephant
+Wouldn't you like to win it?
+~Hands off those prizes!~
+prize cube
+Pink, cuddly, toy, elephant.  Says it all, really.
+Let me get this straight.  You, the enchanter who defeated Krill, the head of the Borphee Guild himself...  are attempting to grow wings on a pink cuddly elephant?
+Woolly.
+cuddly toy elephant
+cube
+reverse effect of memorised spell
+The spell backfires, painfully.
+You know that spell too well for your mind to be able to accept the change.
+Your mind wrenches as the two lleps spells cancel each other out, leaving only a sensation quite like a hangover.
+Your mind wrenches as 
+ reverses itself.
+(lleps_spell)
+cause immediate death of caster
+You really can't fault Helistar on this one.  Death is absolutely immediate, like a sudden blackout curtain...
+Nothing quite happens... and yet you feel enormously more confident as you go about this dangerous world.
+(mortin_spell)
+^^Your foresight in preparing a resurrection was wasted.  The tangled magic of the Balance Room coiled around your puny enchantment like a constricting serpent.
+^^With great foresight you prepared yourself for resurrection... Your mind feels a little weaker, but at least you're alive.^
+This is a room of bones.  Shoulder blades make up the floor, skulls the walls and leg-bones the door frames. The west exit leads into darkness, but the doorway to the north opens onto a seemingly normal scene.
+Some magical force blocks your way, as though that doorway led into adventures from your past which you cannot rejoin now.
+You can make out nothing to the west.
+Boneyard
+You are almost treading on a worthless scroll.
+worthless scroll
+produce gratuitous fireworks
+A brief shower of gratuitous fireworks spells out: ^^The masterly Enchanter trilogy was written by Marc Blank, Dave Lebling and Steve Meretzky.
+A lengthy shower of artistically justified fireworks spells out: ^^The masterly Enchanter trilogy was written by Jane Austen, Emily Bronte and Edgar Allen Poe.
+(filfre_spell)
+This is the end of a long track winding through desolate hills, which runs back west up to the ridge.
+The chanting is too quiet to make out.
+The endlessly repeating threnody of the monks tells of the legend of one who will some day enlighten their order, and so be taken up to a higher plane.  He (or she, presumably) is known as The Four-Cubed One.
+Track, outside Temple
+The Temple is featureless and unbroken.  Perhaps the top is open, because the sound must come from somewhere... but you wouldn't bet on it.
+The huge temple remains impassive at your relatively puny enchantment.
+The temple shakes, but then is still again.
+The temple shakes!  White light plays over your hands and possessions, but then all is still again.
+The temple shakes and white light bathes you. Smoothly it unfolds itself in a four-dimensional way your senses can barely comprehend.  All you know is that when it is over, you find yourself in...^
+^You stand outside an enormous temple in the shape of a perfect, featureless white cube, four hundred feet on a side.  From somewhere within you hear the 
+bellowing noise
+tiny sound
+ of the monks chanting.
+It's much like every other gigantic temple in the shape of a featureless white cube you've ever seen.  No obvious way in.
+cubical Temple
+This seems to be the inside of a featureless white cube, forty feet on a side.  The air is stale and there is no exit.
+Balance Room
+the
+The image of a pair of scales hangs high in the air.  One pan is much lower than the other.
+It's only an image.
+image of the scales
+Far below the scales, in the centre of the ~floor~, is a predictably-shaped podium, but it is so dusty and cobwebbed that you can't see what it once was.
+Nice try, but it is protected from enchantment.
+However dusty it is, the podium is still protected from casual enchantment.
+No substitute for old-fashioned hard work, sometimes, and after much patient (sneezy) scrubbing, the podium appears in its true white glory.  Set into it are four sockets, arranged in a two by two square.
+dusty podium
+As predicted, it is cubical.
+Far below the scales, in the centre of the ~floor~, is a predictably-shaped podium.  Set into it are four sockets, arranged in a two by two square.
+podium
+You'll have to say which socket you mean. (Let's call them ~top left~, ~bottom right~ and so on.)
+ is empty.^
+ contains 
+.^
+two by two square
+the
+The sockets are proof against magic.
+, cubical and slightly more than four inches on a side, is decorated with 
+.
+, and contains 
+.
+The socket rejects that.
+There is already a cube in that socket.
+With much struggle, you manage to pull the cube away.
+As you place the final cube into the sockets, you feel imbued with celestial wisdom (more so than usually). You find yourself growing to the height of the cube, so that you pull the balances back level by hand, and then you grow still further, out of the temple until it is but a cube in your hand, and you are a giant towering over the land. ^^Then, of course, you wake up, glumly realising it's time to go to your job at the new Borphee Laboratories and all those Wheatstone bridge experiments.  But at least you can dream about the old days.
+The sockets are all full now, but that doesn't mean anything's happened.
+The cube is a predictably perfect fit in the socket.
+Socket
+a serpent
+bottom left socket
+a scene in a bazaar
+top left socket
+an engraving of a rocky cave
+bottom right socket
+an eye
+top right socket
+It is pitch black.  You are likely to be eaten by a grue.
+^^^^^[Welcome to a short story called ~Balances~, one of the example games for the Inform design system. Some people may recognise the setting, but others might like to type ~how do spells work~ - the game responds to a few such questions.] ^^You feel a little confused as to how you got here.  Something to do with Helistar!  That's right, and how the world is so far off balance nowadays, after the Great Change.^^
+, earning you the rank of 
+Scientist.
+Spellbreaker.
+Sorcerer.
+Enchanter.
+novice Enchanter.
+lost dreamer.
+You feel fine, and your memory is unimpaired.
+You feel shaky after your brush with death, but your mental faculties seem sound.
+For someone who has died twice, you're in reasonable shape.
+How many times have you died now?  Your memory isn't what it was.
+
+[Dictionary contains 474 entries:]
+.            ,            ,a           ,b           ,c           
+,d           ,e           a            about        above        
+adjust       again        against      all          amusing      
+an           and          another      answer       apart        
+ask          at           attach       attack       awake        
+awaken       axe          barker       bazaar       beautiful    
+below        blades       blank        blow         board        
+bones        book         both         bother       bottom       
+box          bozbar       break        brief        broken       
+bronze       buck         buck-too     burin        burly        
+burn         but          buy          by           c,cast       
+carpet       carry        caskly       cast         cave         
+cedar        cedarwood    ceiling      change       chasm        
+check        chestnut     chewed       chop         clean        
+clear        climb        close        clump        cobwebbed    
+cobwebs      coin         coins        colleague    comma,       
+connect      consult      copy         cover        crack        
+cross        crumpled     cube         cubes        cubical      
+cuddly       curses       cut          cyclops      d            
+daffodils    damn         darn         describe     destroy      
+diagnose     die          dig          discard      display      
+disrobe      dive         do           doff         don          
+door         down         drag         drat         drink        
+drop         dust         dusty        e            each         
+east         eat          eight        eighteen     elephant     
+eleven       embrace      empty        enormous     enter        
+every        everythin    examine      except       exit         
+eye          fasten       feather      featurele    feed         
+feel         fifteen      fight        filfre       fill         
+five         fix          flip         floor        fondle       
+footpath     for          force        former       four         
+fourteen     friend       from         frotz        fuck         
+full         fullscore    furniture    g            gem          
+gemstone     get          give         gnusto       go           
+gold         gorse        grass        grassland    great        
+grimoire     grope        ground       grue         health       
+hear         heavy        helistar     helistars    her          
+hills        him          his          hissing      hit          
+hold         holes        hop          horse        how          
+hug          hut          i            illegible    image        
+in           insert       inside       into         inv          
+inventory    iron         is           it           its          
+jemmy        jump         kill         kiss         l            
+learn        leave        left         lever        lie          
+light        lighted      listen       lit          lleps        
+lobal        lock         long         look         lottery      
+mace         magic        magical      man          me           
+memorise     memorize     memory       mortin       mount        
+mouth        move         murder       my           myself       
+n            nap          ne           nine         nineteen     
+no           normal       north        northeast    northwest    
+noscript     notify       nouns        nw           o            
+oats         objects      of           off          offer        
+on           one          onto         oops         open         
+other        out          outside      over         pair         
+pan          pans         path         pay          pedestal     
+peel         pen          perfect      pick         pile         
+places       platform     podium       polish       pray         
+present      press        prise        prize        prizes       
+pronouns     prune        pry          pull         punch        
+purchase     push         put          q            quit         
+read         recording    red          remove       replay       
+restart      restore      rezrov       ride         right        
+road         rotate       rub          run          s            
+sapphire     save         say          scale        scales       
+score        screw        scribe       script       scroll       
+scrolls      scrub        se           search       self         
+serpent      set          seven        seventeen    shed         
+shift        shine        shiny        shit         short        
+shoulder     shout        show         shut         side         
+silver       sing         sip          sit          six          
+sixteen      skip         skulls       sky          sleep        
+slice        smash        smell        snake        sniff        
+socket       sod          some         sorry        south        
+southeast    southwest    speak        spell        spellbook    
+spells       square       squash       squeeze      stand        
+straddle     superbrie    sw           swallow      sweep        
+swim         swing        switch       take         tall         
+taste        tell         temple       ten          that         
+the          their        them         then         these        
+think        thirteen     this         those        three        
+through      throw        thump        ticket       tickets      
+tie          to           toothed      top          torn         
+tortoise     torture      toss         touch        toy          
+trail        transcrip    transfer     tray         turn         
+turtle       twelve       twenty       twist        two          
+u            uncover      under        undo         unlit        
+unlock       unscrew      unscript     unwrap       up           
+upon         urbzig       valley       verbose      verify       
+version      w            wait         wake         walk         
+was          watch        wave         wear         west         
+what         white        who          wide         windows      
+winged       wipe         with         wood         wooden       
+work         worthless    wreck        write        x            
+y            yes          yomin        z            
+
+[Compiled Z-machine version 8]
+[End of transcript: release 5, serial 961216]
+

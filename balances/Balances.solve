@@ -1,0 +1,289 @@
+------------------------------------------------------------------------
+			  BALANCES WALKTHROUGH
+------------------------------------------------------------------------
+
+"Balances" is a very short game, written by Graham Nelson to demonstrate
+the capabilities of the "Inform" parser and to show that anything that
+Infocom could do, he can do too.  However, sufficient people seem
+interested in playing "Balances" seriously for it to be worth writing a
+solution (after all, "Balances" is considerably longer than some of the
+games to be found at the IF Archive!).
+
+The magic system is much the same as that in the Infocom trilogy
+"Enchanted", "Sorcerer" and "Spellbreaker".
+
+"Spellbreaker" had a number of featureless white cubes that could be
+written on; it also had a boneyard, a bazaar and a magic carpet (though
+the carpet was more difficult to operate than the one in "Balances"!).
+
+The "filfre" spell to "produce gratuitous fireworks" is a reference to
+the scroll in Infocom's "Beyond Zork" that displayed the names of the
+authors of that game.
+
+As "Balances" is a demonstration game, the source is available from the
+IF Archive at ftp.gmd.de in the directory 
+
+    /if-archive/programming/inform/examples/
+
+and should be readable even to people who have never programmed in
+Inform.
+
+Gareth Rees <Gareth.Rees@cl.cam.ac.uk>, 12/94
+
+------------------------------------------------------------------------
+
+We should get get started with some information about the background to
+the game:
+
+    inventory
+    examine book
+    who is helistar
+    what is the great change
+    what is a magic burin
+
+Then we should do what every seasoned adventurer does, and search
+everything in sight:
+
+    search furniture
+
+thus uncovering a cedarwood box, which is locked.  But a magic spell
+comes to our aid:
+
+    learn rezrov
+    rezrov box
+    examine box
+    look in box
+    get grimoire from box
+    examine grimoire
+    what is a grimoire
+
+"grimoire" is another word for "spell book", no doubt to prevent the
+game having to ask you which spell book you mean every time you read
+one.  Helistar's grimoire contains a "lleps" spell that may be cast upon
+spells you have memorised, and turns them into spells that have the
+opposite effect.  For example, you could learn the "mortin" spell (that
+causes the immediate death of the caster), "lleps mortin" and then
+"mortin", in which case you will have ensured your resurrection in the
+event of sudden death.
+
+This is a walkthrough, and we're not intending to die, so there's no
+need for that (but if you're curious, see the end of the walkthrough).
+
+Now it's time to set off on the quest.
+
+    out
+    north
+    north
+
+Our explorations have come to a sudden stop.  But we know what to do!
+
+    search oats
+    examine shiny scroll
+    gnusto it
+
+Now we have a spell to make animals grow wings, so following the example
+of Bellerophon, we grow ourselves a Pegasus and fly away on it:
+
+    learn bozbar
+    bozbar horse
+    mount horse
+
+We've discovered a featureless white cube, but we can't take it yet.
+Instead, we can explore in search of some help:
+
+    north
+    learn yomin
+    yomin tortoise
+
+"Somewhere inside the tortoise is a sense of wonder at the amazing blue
+canopy of the sky".  It would be hard to have been given a clearer hint!
+
+    learn bozbar
+    bozbar tortoise
+    get chewed scroll
+
+We're not quite finished with the tortoise, yet.  If you hang around for
+a few turns, you'll see a tortoise feather fall to the ground.
+
+    take tortoise feather
+    northwest
+    take sapphire
+    examine it
+    spells
+    examine book
+
+I'm not sure I really understand the reasoning behind the sapphire
+puzzle (perhaps it was a late night when Graham was writing it), but
+staring into the sapphire has implanted into your mind the "caskly"
+spell (for causing perfection).  In connection with the chewed scroll,
+it is obvious what to do:
+
+    caskly chewed scroll
+    examine torn scroll
+    gnusto lobal
+
+So now we have a spell for sharpening hearing, which will come in handy
+later.  In the meantime, we could pick up another useful object:
+
+    north
+    take carpet
+    south
+
+and then enter the cave (but not before we have provided a light
+source):
+
+    learn rezrov
+    rezrov door
+    learn frotz
+    frotz burin
+    west
+
+We have acquired out first cube!  There will be others (such as the one
+we saw back at the snake), so we need to write a label on it to identify
+it.
+
+    take cube
+    write balance on cube
+
+Then we need to get the scroll.  However, the cave won't let us leave
+unless the scales are restored to balance, and the scroll happens to
+weigh just as much as the different in weight between a bronze and a
+gold (or silver) coin.
+
+There are two solutions.  We could take the scroll and the bronze coin,
+and leave the silver coin in place of the bronze.  But we'll need the
+silver coin later, so that's a bad idea.  Luckily, it turns out that the
+tortoise feather weighs exactly the same as the scroll:
+
+    take crumpled scroll
+    put feather on left pan
+    examine crumpled scroll
+    gnusto urbzig
+
+The "urbzig" spell, to "turn a dangerous object into a harmless one", is
+just what we need to deal with the snake:
+
+    out
+    southeast
+    south
+    learn urbzig
+    urbzig snake
+    get cube
+    write snake on it
+
+Now we need to take a ride on the magic carpet, but since it'll take us
+to a place where the brandishing of spell books is forbidden, we had
+better learn the spells we need in advance:
+
+    learn yomin
+    again
+    drop carpet
+    get on carpet
+
+A third cube is one of the prizes in the lottery, and since we haven't
+much money to waste, we'd better cheat by reading the mind of the poor
+barker:
+
+    give silver coin to barker
+    yomin barker
+    again
+    get ticket 2306
+    give it to barker
+    get ticket 5802
+    give it to barker
+    write lottery on featureless cube
+    get on carpet
+
+There doesn't seem to be very much to do now, but we haven't used the
+"lleps" spell yet!  It might be worth stopping to consider how the
+"lleps" spell might affect the spells you know about, and experimenting.
+The opposite of "frotz" causes darkness; the opposite of "yomin" allows
+other creatures to read your mind; the opposite of "rezrov" closes and
+locks doors; the opposite of "bozbar" removes wings from an object if it
+has any; the opposite of "lobal" causes deafness; and the opposite of
+"urbzig" turns a harmless object into a dangerous one.
+
+This last spell sounds the most promising.  Let's try it (but not on an
+object we're carrying, which is lethal):
+
+    get off carpet
+    drop elephant
+    learn urbzig
+    learn lleps
+    lleps urbzig
+    urbzig elephant
+
+Oops!  The cuddly toy elephant is replaced by a dangerous cyclops with a
+mace.  Or is it a cyclops with a dangerous mace?  Let's find out which:
+
+    learn urbzig
+    urbzig cyclops
+    learn urbzig
+    urbzig mace
+
+Obviously the latter!  Now we have a fourth cube.
+
+    get cube
+    write cyclops on it
+    what is a cyclops
+
+Now it is time for the endgame, which involves getting into the giant
+cubical temple.  Let's spy on the monks:
+
+    east
+    examine temple
+    listen
+
+The chanting is too faint to make out?  We know what to do about that:
+
+    learn lobal
+    lobal me
+    listen
+
+The monks tell of "one who will some day enlighten their order".  Could
+this be a terrible, terrible pun?
+
+    learn frotz
+    frotz temple
+
+I think so.  Lots of disgruntled players complained on
+rec.games.int-fiction about this puzzle!  Anyway, there's not much left
+to do:
+
+    examine podium
+    clean podium
+    examine top left socket
+
+Obviously the puzzle is to put the cubes in the correct sockets.  It was
+a good thing we labelled them, because otherwise we wouldn't know what
+to put where.
+
+    put lottery cube in top left socket
+    examine top right socket
+    put cyclops cube in top right socket
+    examine bottom right socket
+    put balance cube in bottom right socket
+    examine bottom left socket
+    put snake cube in bottom left socket
+
+And we have won!
+
+Perceptive players will have noticed that by following the above script
+we have scored 50 out of 51 points.  The traditional "last lousy point"
+may be scored by finding the "filfre" spell and casting it; to do so we
+could try the following commands near the start of the game:
+
+    learn mortin
+    learn lleps
+    lleps mortin
+    mortin
+    learn mortin
+    mortin
+    get worthless scroll
+    examine it
+    gnusto filfre
+    learn filfre
+    filfre
+    north
+
+------------------------------------------------------------------------
