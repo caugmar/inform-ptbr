@@ -1,0 +1,1741 @@
+!--------------------------------------------------------------------------
+! 2 SECOND COURT
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!-------------------------------------------------------------------------
+! 5.1 SECOND COURT
+!-------------------------------------------------------------------------
+
+Object  SecondCourtArchwayObject "low archway" FirstCourt
+ has    door scenery open
+ with   name "low" "arch" "archway" "second" "court" "another",
+        description "A low archway leading east to second court.",
+        door_to SecondCourtArchway,
+        door_dir e_to;
+
+Object  SecondCourtArchway "Archway between the Courts"
+ has    light cat_allowed
+ with   name "first" "second" "court" "staples" "staple" "stone" "memorial"
+            "slate" "tablet" "tablets",
+        description "A long, low stone archway with First Court to the \
+            west, and a door to Second Court to the east. On the north \
+            wall is a war memorial, a series of simple slate tablets \
+            listing the names of the members of Biblioll College, \
+            undergraduate and graduate, who died in the First World War \
+            of 1914-1918. You bow your head for a moment in memory of \
+            these young men and what they might have become.",
+        w_to FirstCourt,
+        e_to DoorArchway,
+        cant_go "You can go west to First Court or east to Second Court.",
+        edward_dirs e_obj w_obj;
+
+Nearby  ArchwayNotice "announcement"
+ has    static
+ with   name "notice" "announcement",
+        initial "An announcement is stapled to the south wall.",
+        description "It is an announcement of a dinner in honour of some \
+            long-deceased benefactor of the College, to be held this \
+            evening at seven o'clock in the Great Hall. Fellows wishing \
+            to attend should apply to the Master for an invitation.",
+        before [;
+         Take: "You'd break your nails trying to get those staples out of \
+            the wood. Better leave it in place.";
+        ];
+
+Object  DoorArchway "old wooden door"
+ has    door static openable
+ with   name "old" "wooden" "door" "arch" "archway",
+        article "an",
+        found_in SecondCourtArchway SecondCourt,
+        add_to_scope BlackIronBands Planks,
+        describe [;
+            if (self in SecondCourtArchway && self hasnt open) 
+                "^The wooden door blocks your way to the east.";
+            rtrue;
+        ],
+        description [;
+            print "The door is very old, a heavy wooden affair, made of \
+                thick planks held together by black iron bands";
+            if (self hasnt open)
+                print ". It fits tightly into the end of the archway so \
+                    that you can only see a few chinks of light from \
+                    Second Court";
+            ".";
+        ],
+        door_dir [;
+            if (self in SecondCourt) return w_to; else return e_to;
+        ],
+        door_to [;
+            if (self in SecondCourt) return SecondCourtArchway;
+            else return SecondCourt;
+        ],
+        before [;
+         Search,LookUnder:
+            if (self hasnt open)
+                "You can make out glimpses of another courtyard, much \
+                like the one you have just left.";
+         Open, Close, Push, Pull:
+            print "You grab hold of the handle and heave on the door with \
+                all your strength, but you are unable to budge it an \
+                inch.^";
+            if (Edward in SecondCourtArchway)
+                print "^Edward says, ~No, I can never move that door \
+                    either.~^";
+            rtrue;
+         Lock, Unlock:
+            "The door does not appear to have a keyhole.";
+        ];
+
+Object  BlackIronBands "black iron bands"
+ has    static concealed
+ with   name "black" "iron" "band" "bands" "rust" "rusty",
+        article "some",
+        description "The black iron bands hold the planks of the door \
+            together. They are very rusty.",
+        before [;
+         Rub: "The hundreds of years of rust are immune to your attempts \
+             to remove them.";
+        ];
+
+Object  Planks "planks"
+ has    static concealed
+ with   name "plank" "planks" "wood" "thick",
+        description "Thick planks, varnished and heavily weathered. They \
+            are held together by black iron bands.";
+
+Object  SecondCourt "Second Court"
+ has    light cat_allowed
+ with   name "second" "court" "archway" "college" "buttresses" "buttress"
+            "chapel" "antechapel" "great" "hall" "staircase",
+        initial [;
+            self.initial = -1;
+            AdvanceTime(self);
+            if (ClockTower.number < 13) {
+                move Crowd to self;
+                StartDaemon(Crowd);
+            }
+            else
+                self.nw_to = ChapelObject;
+        ],
+        description [;
+            if (ClockTower.number < 20) 
+                print "Second Court is a wide rectangular expanse of \
+                    cobbles, surrounded on all four sides by tall \
+                    buildings. ";
+            else
+                print "Moonlight glints on the cobbles of Second Court, \
+                    and gloomy buildings lurk in the shadows on all four \
+                    sides.";
+            "There are many exits: to the west, a low wooden door opens \
+            onto an archway; to the north, the sweeping buttresses of the \
+            chapel block your way, but you can enter an antechapel to the \
+            northwest; you can see greenery through the bars of a wrought \
+            iron gate to the northeast; to the east a grand building \
+            houses ~C~ staircase; and to the southwest you can enter the \
+            Great Hall.";
+        ],
+        ne_to GardenGate,
+        e_to CStairGround,
+        w_to DoorArchway,
+        sw_to GreatHall,
+        nw_to "You're unable to force your way through the crowd.",
+        cant_go "West to First Court, northwest to the antechapel, \
+            northeast to the gardens, east to ~C~ staircase, southwest to \
+            the Great Hall.",
+        edward_dirs ne_obj w_obj e_obj sw_obj;
+
+Object  Crowd "crowd of people"
+ has    animate
+ with   name "crowd" "of" "people" "student" "students" "congregation",
+        initial "A crowd of people is streaming out of the chapel.",
+        description "The crowd consists of students, bright young things, \
+            animatedly talking to each other.",
+        life [;
+            <<Speak self>>;
+        ],
+        before [;
+         Speak: "The people are too much of a hurry to pay any attention \
+            to you.";
+         Follow: "There are so many people that you can't figure out whom \
+             to follow.";
+        ],
+        state 4,
+        daemon [;
+            self.state = self.state - 1;
+            if (self.state > 0) {
+                if (player in SecondCourt && self.state < 3)
+                    "^The congregation continue to stream out of the \
+                    chapel.";
+                rtrue;
+            }
+            remove self;
+            StopDaemon(self);
+            SecondCourt.nw_to = ChapelObject;
+            if (player in SecondCourt)
+                "^The last of the congregation emerges out of the chapel \
+                and the crowd quickly disperses to its various \
+                businesses.";
+        ];
+
+Nearby  SecondCourtCobbles "cobbles"
+ has    scenery
+ with   name "cobbles" "cobblestones" "cobble" "cobblestone" "stone" 
+            "stones",
+        article "the",
+        description "Unlike the cobbles in Chapel Street, these cobbles \
+            are in perfect repair.";
+
+Nearby  ChapelObject "chapel"
+ has    scenery door open
+ with   name "chapel" "church" "antechapel",
+        door_to Antechapel,
+        door_dir nw_to,
+        description "A magnificent example of Renaissance architecture.";
+
+Object  ClockTower "clock tower"
+ has    static
+        ! general on the half-hour
+ with   name "clock" "tower" "spire" "tall" "elegant",
+        found_in FirstCourt SecondCourt Gardens EastBank RoofA,
+        describe [;
+            print "^The elegant clock tower above the college chapel \
+                dominates the skyline to the ";
+            if (location == FirstCourt) "northeast.";
+            if (location == SecondCourt) "northwest.";
+            if (location == RoofA) "north.";
+            "west.";
+        ],
+        number 10,
+        state 1, ! number of time advances which are pending
+        description [;
+            print_ret "The clock tower is a tall and elegant spire above \
+                the college chapel. The clock only has an hour hand, so \
+                you cannot be completely certain of the time, but it \
+                appears to be a little after ", (PrintTime) 1, ".";
+        ],
+        before [;
+         Examine: rfalse;
+         default: "The clock tower is too far away.";
+        ],
+        time_left 0,
+        daemon [;
+            if (self.time_left > 0) {
+                self.time_left = self.time_left - 1;
+                rtrue;
+            }
+            if (self.state == 0) {
+                StopDaemon(self);
+                rtrue;
+            }
+            self.time_left = TimeIncrement + random(TimeIncrement+1);
+            self.state = self.state - 1;
+            if (location == AnteChapel or Chapel)
+                print "^Directly above you, the";
+            else {
+                if (self in location) print "^The";
+                else print "^Somewhere in the distance, the";
+            }
+            print " clock of Biblioll College ";
+            if (self has general) {
+                give self ~general;
+                self.number = self.number + 1;
+                print "strikes ", (PrintTime) 0, ".^";
+                if (Edward in location && Edward.state <= 20)
+                    print "^~Oh my,~ says Edward. ~How late it is! If I \
+                        don't recover my parrot soon, I shan't have time \
+                        to finish my essay.~^";
+                if (self.number == 17 && TelephoneDaemon hasnt general)
+                    print "^You vaguely recall that Bungay had said that \
+                        he would telephone Jarboe after five o'clock. If \
+                        only you had some way of listening to their \
+                        conversation!^";
+                if (self.number == 18) {
+                    give Chapel general ~visited;
+                    move Choir to Chapel;
+                    move Congregation to Chapel;
+                    move Chaplain to Chapel;
+                    if (location == Chapel or AnteChapel or SecondCourt)
+                        print "^No sooner has the sound of the clock died \
+                            away than a crowd of undergraduates, \
+                            choristers and choir-boys stream in from ";
+                    switch (location) {
+                     Chapel:
+                        "the west and take their seats for Evensong.";
+                     AnteChapel: 
+                        "the southeast and enter the Chapel to the east.";
+                     SecondCourt:
+                        "all directions and enter the Chapel to the \
+                        northwest.";
+                    }
+                }
+                rtrue;
+            }
+            give self general;
+            print "chimes the half-hour.^";
+            if (self.number == 18) {
+                StartDaemon(GreatHall);
+                AdvanceTime(GreatHall);
+                if (Wilderspin notin AlchemistsRoom)
+                    print "^** Error: Wilderspin isn't in the Secret Room \
+                        **^";
+                remove Wilderspin;
+                if (location == AlchemistsRoom) {
+                    print "^Wilderspin looks up at the sound of the \
+                        clock. ~It's half past six,~ he says, ~and I have \
+                        to get to the Master's dinner by seven. Better \
+                        leave this for another day.~ ";
+                    if (Hole notin AlchemistsRoom) {
+                        move Hole to AlchemistsRoom;
+                        print "He crawls under the bench and pulls the \
+                            lever. With a ~thunk~, a section of the wall \
+                            underneath the bench moves aside, revealing a \
+                            small hole leading downwards. ";
+                    }
+                    print " Wilderspin climbs down through the hole, \
+                        calling to you, ~I hope I shall see you at \
+                        dinner. Seven o'clock in the Great Hall, \
+                        remember!~ And then he is gone.";
+                }
+            }
+        ];
+
+
+!--------------------------------------------------------------------------
+! 5.2 TURMERIC THE CAT
+!--------------------------------------------------------------------------
+
+Array CatMove table "slips" "darts" "stalks" "walks" "slinks";
+
+Object  Turmeric "cat" SecondCourt
+ class  FollowClass
+ has    animate
+        ! proper if you know his name
+        ! general if petted by Edward
+ with   name "cat" "kitten" "kitty" "moggy" "turmeric" "ginger" "tom"
+            "old" "fat" "contented" "feline",
+        describe [;
+            if (self hasnt proper) print "^An old moggy ";
+            else print "^Turmeric ";
+            if (self in InsideShed) "is sitting on a bee-keeper's veil.";
+            "sits here.";
+        ],
+        description [;
+            print "This is a fat and contented ginger tom. A portion of \
+                his left ear is missing and he has a scar on his nose";
+            if (self in InsideShed)
+                print ". He is sitting on a bee-keeper's veil";
+            ".";
+        ],
+        orders [;
+            print_ret "It's probably safe to say that ", (the) self,
+                " does not intend to obey you.";
+        ],
+        life [ i j;
+         Attack,Kiss:
+            self.state = 1;
+            print_ret (The) self, " hisses at you, and you decide that \
+                inaction is the best course of action.";
+         Give: 
+            self.state = 1;
+            if (noun has is_vessel && noun has open && 
+              children(noun) > 0 && child(noun) has is_liquid) {
+                i = child(noun);
+                remove i;
+                if (self in SecondCourt) j = Gardens;
+                else j = SecondCourt;
+                MoveNPC(self,j,0);
+                print_ret "You hurl ", (the) i, " at ", (the) self, ", \
+                    who howls in horror and flees like lightning.";
+            }
+            print_ret (The) self, " sniffs at ", (the) noun, ", then \
+                turns up his nose at your offering.";
+        ],
+        before [;
+         Take: self.state = 1; 
+            print_ret (The) self, " refuses to let you pick him up.";
+         Touch,Pull,Push,PushDir,Rub,Tickle:
+            self.state = 1;
+            print_ret (The) self, " swipes at you angrily with his \
+                claw. This is clearly not a cat who takes kindly to being \
+                fussed over.";
+        ],
+        short_name [;
+            if (self has proper) print "Turmeric";
+            else print "cat";
+            rtrue;
+        ],
+        state 0,  ! 0 if each_turn can run, 1 if it can't
+        daemon [ p dest dir gate;
+            if (self in InsideShed || random(6) ~= 1) rfalse;
+            self.state = 1;
+            p = parent(self);
+            switch(p) {
+             GreatHall:
+                dest = SecondCourt; dir = ne_obj;
+             AnteChapel:
+                dest = SecondCourt; dir = se_obj;
+             SecondCourt:
+                switch(random(4)) {
+                 1: dest = GreatHall; dir = sw_obj;
+                 2: dest = CStairGround; dir = e_obj;
+                 3: dest = AnteChapel; dir = nw_obj;
+                 4: dest = Gardens; dir = ne_obj; gate = 1;
+                }
+             CStairGround:
+                dest = SecondCourt; dir = w_obj;
+             Gardens:
+                switch(random(3)) {
+                 1,2: dest = SecondCourt; dir = sw_obj; gate = 1;
+                 3: dest = Arboretum; dir = ne_obj;
+                }
+             Arboretum:
+                dest = Gardens; dir = sw_obj;
+             default:
+                "** Error: cat not where it should be **";
+            }
+            MoveNPC(self, dest, dir);
+            if (location ~= p or dest) rfalse;
+            print "^", (The) self, " ", (Message) CatMove, " ";
+            if (gate == 1 && GardenGate hasnt open)
+                print "through the gate";
+            else {
+                if (p == location) print "away";
+                else print "in";
+            }
+            if (p == location) {
+                print " to the ";
+                PrintDirection(dir);
+            } else {
+                print " from the ";
+                PrintDirection(Opposite(dir));
+            }
+            ".";
+        ],
+        each_turn [;
+            StartDaemon(self);
+            if (self.state == 1) {
+                self.state = 0;
+                rtrue;
+            }
+            if (LineOfSight(Parrot,self) == 1)
+                print_ret "^", (The) self, " hisses at the parrot, which \
+                    squawks loudly in return, knowing that it is safe on \
+                    its perch.";
+            if (random(3) ~= 1) rtrue;
+            print "^", (The) self;
+            switch (random(7)) {
+             1: " meows.";
+             2: " stretches lazily.";
+             3: " washes himself.";
+             4: " purrs loudly.";
+             5: " rubs his head against your legs.";
+             6: " scratches his ears.";
+             7: " rolls around in the dust.";
+            }
+        ];
+
+
+!--------------------------------------------------------------------------
+! 5.3 THE CHAPEL
+!--------------------------------------------------------------------------
+
+Object  Antechapel "Antechapel"
+ has    light cat_allowed
+ with   name "chapel" "antechapel",
+        description [;
+            print "An octagonal room with marble flagstones \
+                underfoot. You can go southeast to second court or east \
+                into the chapel proper";
+            if (Chapel has general)
+                print ". You can hear the sound of Evensong to the east";
+            ".";
+        ],
+        se_to SecondCourt,
+        e_to [;
+            if (EM == 0 && Chapel has general && Hat hasnt worn)
+                "You can't go into chapel with your head uncovered!";
+            return Chapel;
+        ],
+        out_to SecondCourt,
+        u_to "The clock tower isn't accessible from here.",
+        cant_go "You can go southeast to second court or east into the \
+            chapel proper.",
+        before [;
+         Listen:
+            if (Chapel has general)
+                "You can hear the sound of Evensong to the east.";
+        ],
+        edward_dirs se_obj;
+
+Nearby  MarbleFlagstones "marble flagstones"
+ has    scenery
+ with   name "marble" "flagstones" "flag" "flags" "stones",
+        description "Each flagstone is a memorial to some old member of \
+            the college. The passage of students and fellows to their \
+            devotions is wearing a path into the marble, slowly erasing \
+            this record of the past.";
+
+Object  Chapel "Chapel"
+ has    light
+        ! general if Evensong in progress
+ with   name "chapel" "chain" "altar",
+        description [;
+            print "The chapel is a marvellous piece of seventeenth \
+                century architecture, its gracious lines giving it an \
+                elegance that's more effective (in your opinion, at \
+                least) than the Gothic complications of later, larger \
+                chapels in other colleges. There's a magnificent \
+                stained-glass window at the east end";
+            if (self has general)
+                print ". A large congregation is listening to the chapel \
+                    choir singing Evensong";
+            ".";
+        ],
+        w_to Antechapel,
+        out_to Antechapel,
+        u_to "The clock tower doesn't appear to be accessible from here.",
+        cant_go "The antechapel is to the west.",
+        before [;
+         Smell: "You smell the heavy odour of incense.";
+         Pray: "You kneel and pray. If your prayer is answered, there is \
+            no sign.";
+	 Mild,Strong: "Ladies do not use such language, and especially \
+	    not in church.";
+         Sing,Speak,Scream:
+            if (self has general)
+                "Shh! You don't want to disturb the singing.";
+         Disrobe:
+            if (self has general && noun == Hat && Hat has worn)
+                "You mustn't remove your hat in chapel.";
+         Listen:
+            if (noun == 0 && Choir in self) <<Listen Choir>>;
+        ],
+        edward_dirs w_obj;
+
+Nearby  StainedGlassWindow "stained glass window"
+ has    scenery
+ with   name "stained" "glass" "window" "figures" "saints" "work"
+            "glasswork" "scene" "scenes" "miracle" "madieval" "mediaeval"
+            "stained-glass",
+        description [;
+            print "The window is a miracle of mediaeval glasswork. There \
+                are many scenes depicted, some from the bible, others of \
+                saints";
+            if (ClockTower.number < 13)
+                print ". The morning sun streams in through the window, \
+                    making the colours radiant with light";
+            ".";
+        ],
+        before [;
+         Consult: "The scenes in the stained-glass window are so rich \
+            with detail that you'd need to spend hours going over them \
+            with a guidebook. Best to leave that for another day.";
+        ];
+
+Nearby  Lectern "lectern"
+ has    supporter static
+ with   name "dusty" "lectern",
+        initial "A dusty lectern stands in one corner.",
+        description "On closer examination, the lectern is a beautiful \
+            work of art, sadly neglected. It is made of solid brass, and \
+            is in the form of an eagle: wings spread and talons poised as \
+            if to strike.",
+        capacity 1,
+        before [;
+         Take,Remove: "The lectern is made of solid brass, and is much \
+            too heavy to move.";
+         Rub: "The dust and corrosion would take more time and effort to \
+            remove than you are probably willing to devote to the task.";
+        ];
+
+Object  LatinBible "Latin Bible" Lectern
+ class  BibleClass
+        ! general if Edward's commented
+ with   name "latin" "vulgate" "heretical",
+        description "The Bible is a beautiful illuminated manuscript, \
+            probably mediaeval. The text is in Latin.",
+        before [;
+         Take,Remove: "The Bible has been fixed to the lectern with a \
+            short chain, just in case anyone should try to steal it.";
+         Invoke:
+            if (self.state == 1 && self.number == 'john')
+                "John 11:43 reads, ~Et haec cum dixisset, posuit vinum \
+		myrrheum labiis Lazari, et voce magna clamavit, \
+		Lazare, ite foras.~ Isn't Latin a beautiful language, \
+		even if you don't understand a word of it? But what \
+		could Malcolm possibly have meant by referring you to \
+		this verse?";
+            quote = 14;
+            "It's all Latin to you.";
+        ],
+        after [;
+         Examine:
+            if (self hasnt general && Edward in location) {
+                give self general;
+                print "^Edward says, ~That Bible is French, fourteenth \
+                    century apparently. I'm afraid that I can't read a \
+                    word of Latin, unless it's `veni, vidi, vici'.~^";
+            }
+        ];
+
+Object  Congregation "congregation"
+ has    animate concealed
+ with   name "congregation" "worshipper" "worshiper" "crowd",
+        description "A sombre crowd of worshippers, mostly undergraduates \
+            dressed in dinner suits and gowns.",
+        life [; "You don't want to disturb the service."; ],
+        before [; 
+         Examine: ; 
+         default:"You don't want to disturb the service.";
+        ];
+
+Object  Chaplain "chaplain"
+ has    animate concealed
+ with   name "chaplain" "nudd" "reverend" "priest" "vicar",
+        description "An old man, whose last trace of hair vanished some \
+            decades ago, wearing half-moon spectacles and a cross on a \
+            chain.", 
+        life [; "You don't want to disturb the service."; ],
+        before [; 
+         Examine: ; 
+         default:"You don't want to disturb the service."; 
+        ];
+
+Array TableChoir table [;
+    "The choir sings a plainsong chant.";
+    "The choirs sings an introit.";
+    "The choir sings some responses.";
+    "The choir sings a psalm.";
+    "The choir sings a hymn.";
+    "The chaplain reads from the Old Testament.";
+    "The chaplain reads from the New Testament.";
+    "The choir sings the Nunc Dimittis.";
+    "The choir sings an anthem.";
+    "The choir sings the magnificat.";
+];
+
+Object  Choir "choir"
+ has    animate concealed
+ with   name "choir" "chorus" "singer" "choirboy" "choirboys" "choir-boy"
+            "singers",
+        description "The male-voice choir is a picturesque sight in the \
+            evening gloom of the chapel: young choir-boys dressed in white \
+            gowns and their older colleagues from the College singing the \
+            lower parts.",
+        life [;
+            "You don't want to disturb the singing.";
+        ],
+        before [;
+         Listen: print_ret (Message) TableChoir;
+         Examine: ;
+         default: "You don't want to disturb the singing.";
+        ],
+        each_turn [;
+            Achieved("attending Evensong in Chapel");
+            print_ret (Message) TableChoir;
+        ];
+
+
+!--------------------------------------------------------------------------
+! 5.4 THE TELEPHONE SWITCHBOARD
+!--------------------------------------------------------------------------
+
+Object  BStairBasement "~B~ Staircase, Basement"
+ has    light
+        ! general if two wires have been plugged into one socket, or if
+        ! Edward has commented on same.
+ with   name "basement" "stair" "stairs",
+        description "The bottom of the staircase is unlit, but enough \
+            light filters down from above to see by. It's a grimy place, \
+            smelling of cigarette smoke and drains. Stairs go up to the \
+            ground floor.",
+        u_to BStairGround,
+        out_to BStairGround,
+        cant_go "The only way out is up.",
+        before [;
+         Smell: "The odour of cigarette smoke is strong. You imagine that \
+            the dusties congregate here to smoke and chat.";
+        ],
+        edward_dirs u_obj;
+
+Object  Switchboard "cabinet" BStairBasement
+ has    container openable static
+        ! general if Edward's commented on it
+ with   name "cabinet" "cupboard",
+        capacity 8,
+        description "The cabinet looks quite new compared with the dingy \
+            surroundings. It's mounted on the wall close to the floor.",
+        before [ i j;
+         Examine,Search:
+            if (self hasnt open) rfalse;
+            print (The) self, " contains three pairs of coloured wires \
+                and three corresponding pairs of coloured sockets. ";
+            for (i = GreenWire: i ~= 0: i = i.other_obj) {
+                switch (i) {
+                 GreenWire: print "The ";
+                 RedWire: print ", the ";
+                 BlueWire: print ", and the ";
+                }
+                print (address) (i.&name)-->0, " wires ";
+                if (i.number == 0) print "hang free";
+                else print "are plugged into the ", (address)
+                    ((i.number).&name)-->0, " sockets";
+            }
+            objectloop (i in self) {
+                if (i ~= RedWire or GreenWire or BlueWire &&
+                    i ~= RedSocket or GreenSocket or BlueSocket) {
+                    give i workflag; j++;
+                }
+                else
+                    give i ~workflag;
+            }
+            if (j > 0) {
+                print ". In addition, ", (the) self, " contains ";
+                WriteListFrom(child(self), ENGLISH_BIT + TERSE_BIT + 
+                    WORKFLAG_BIT);
+            }
+            ".";
+        ],
+        after [;
+         Open:
+            if (self hasnt general && Edward in location) {
+                give self general;
+                print "~Are you sure that you should be fiddling about \
+                    with that?~ asks Edward. ~You might give yourself a \
+                    nasty electric shock, and then what would I do?~^^";
+            }
+            print "You open ", (the) self, ". ";
+            <<Search self>>;
+        ];
+
+Class   SwitchWireClass
+ class  ListTogetherClass
+ has    is_wire static
+ with   name "insulation" "bare" "wire" "pair" "of" "wires",
+        list_together "pairs of wires",
+        description [;
+            print (The) self, " emerges from the wall and ";
+            if (self.number == 0)
+                print "hangs loose";
+            else
+                print "plugs into ", (the) self.number;
+            print ". The pair is covered in ", (address) (self.&name)-->0,
+                " insulation, but a section at the end is bare";
+            if (self == Voltmeter.number)
+                print ". A voltmeter is attached to them";
+            if (self == PowerPack.number)
+                print ". A power pack is attached to them";
+            ".";
+        ],
+        before [;
+         Untie,Remove,Take,Pull,Push:
+            if (self.number == 0) {
+                print_ret (The) self, " is already hanging loose.";
+            }
+            self.number = 0;
+            print "You unplug ", (the) self;
+            if (sw__var == ##Take) ", but you are unable to dislodge the \
+                wires from the cabinet.";
+            ".";
+         Insert:
+            if (second == GreenSocket or RedSocket or BlueSocket) {
+                if (self.number ~= 0)
+                    print "(unplugging ", (the) self, " from ", (the)
+                        self.number, " first)^";
+                self.number = 0;
+                if (second == GreenWire.number || second == RedWire.number ||
+                    second == BlueWire.number)
+                    give BStairBasement general;
+                self.number = second;
+                print "You plug ", (the) self, " into ", (the) second, 
+                    ".^";
+                if (BStairBasement hasnt general && Edward in BStairBasement
+                    && random(3) == 1)
+                    print "^Edward says, ~I wonder what happens if you \
+                        try plugging two pairs of wires into the same \
+                        socket?~^";
+                rtrue;
+            }
+        ];
+
+Class   SwitchSocketClass
+ class  ListTogetherClass
+ has    static
+ with   name "socket" "pair" "of" "sockets",
+        list_together "pairs of sockets",
+        description [ i j;
+            objectloop (i in SwitchBoard) {
+                if (i.number == self) { give i workflag; j++; }
+                else give i ~workflag;
+            }
+            if (j == 0)
+                print_ret (The) self, " is empty.";
+            print "You observe that ";
+            WriteListFrom(child(SwitchBoard), WORKFLAG_BIT + ENGLISH_BIT);
+            if (j > 1) print " are plugged into ";
+            else print " is plugged into ";
+            print_ret (the) self, ".";
+        ],
+        before [;
+         Push,Pull,Turn: "They are fixed in place.";
+        ];
+
+Nearby  GreenWire "pair of green wires"
+ class  SwitchWireClass
+ with   name "green",
+        number GreenSocket,
+        other_obj RedWire;
+Nearby  GreenSocket "pair of green sockets"
+ class  SwitchSocketClass
+ with   name "green",
+        number PhoneWireMaster;
+
+Nearby  RedWire "pair of red wires"
+ class  SwitchWireClass
+ with   name "red",
+        number RedSocket,
+        other_obj BlueWire;
+Nearby  RedSocket "pair of red sockets"
+ class  SwitchSocketClass
+ with   name "red",
+        number PhoneWireJarboe;
+
+Nearby  BlueWire "pair of blue wires"
+ class  SwitchWireClass
+ with   name "blue",
+        number BlueSocket,
+        other_obj 0;
+Nearby  BlueSocket "pair of blue sockets"
+ class  SwitchSocketClass
+ with   name "blue",
+        number PhoneWireBungay;
+
+Class   ClipClass
+ with   name "crocodile" "clip" "clips",
+        number 0,
+        describe [;
+            if (self.number ~= 0) {
+                print "^", (The) self, " is attached to ", (the)
+                    self.number;
+                if (self == Voltmeter) {
+                    print " and is reading ";
+                    VoltmeterReading();
+                }
+                ".";
+            }
+        ],
+        before [;
+         Drop:
+            if (self in Handbag) {
+                print "(Taking ", (the) self, " out of the handbag \
+                    first)^";
+                keep_silent = 1; <Take self>; keep_silent = 0;
+            }
+         Take:
+            if (self.number ~= 0) {
+                print "(Detaching the crocodile clips from ", 
+                    (the) self.number, " first.)^";
+                self.number = 0;
+            }
+         Insert,PutOn:
+            if (second has is_wire || second == self.other_obj)
+                <<Tie self second>>;
+         Tie:
+            if (self.number == second)
+                print_ret (The) self, " is already attached to ",
+                    (the) self.number, ".";
+            if (second hasnt is_wire && second ~= self.other_obj)
+                "You're unable to attach the crocodile clips to that.";
+            if (self.number ~= 0) {
+                print "(Detaching ", (the) self, " from ", (the)
+                    self.number, " first.)^";
+                self.number = 0;
+            }
+            if (second == self.other_obj) {
+                print "You briefly touch ", (the) self, " to ", (the) 
+                    self.other_obj;
+                if (location == thedark) ". Nothing happens.";
+                print " and the ";
+                if (self == PowerPack) print "latter"; 
+                else print "former";
+                " reads 5.0 volts, as you would expect.";
+            }
+            if (self notin location) {
+                print "(Putting ", (the) self, " on the floor first.)^";
+                move self to location;
+            }
+            self.number = second;
+            print "You attach the crocodile clips to ", (the) second;
+            if (self == Voltmeter && location ~= thedark) {
+                print ", and the dial reads ";
+                VoltmeterReading();
+            }
+            ".";
+         Disrobe,Untie:
+            if (self.number == 0)
+                print_ret (The) self, " isn't attached to anything.";
+            self.number = 0;
+            "You detach the crocodile clips.";
+        ];
+
+Object  PowerPack "power pack" SwitchBoard
+ class  ClipClass
+ with   name "power" "pack" "powerpack" "battery" "cell" "cells"
+            "batteries",
+        other_obj Voltmeter,
+        description [;
+            print "You're not much of an electrician, but this pack is \
+                labelled ~5.0V~. It certainly seems heavy enough to \
+                contain several electric cells. It sports a pair of \
+                crocodile clips";
+            if (self.number ~= 0)
+                print ", attached to ", (the) self.number;
+            ".";
+        ];
+
+Object  Voltmeter "voltmeter" SwitchBoard
+ class  ClipClass
+ with   name "volt" "voltmeter" "meter" "device" "dial" "scale",
+        other_obj PowerPack,
+        description [;
+            print "The voltmeter is a small device sporting a pair of \
+                crocodile clips, a dial and a scale that runs from 0.0V \
+                to 10.0V. The ";
+            if (self.number ~= 0)
+                print "clips are attached to ", (the) self.number,
+                    " and the ";
+            print "dial reads ";
+            VoltmeterReading();
+            ".";
+        ];
+
+[ VoltmeterReading v p;
+    ! Read 5.0 volts if (a) both connected to same wire (b) connected to
+    ! two wires in the switchboard that are plugged into same socket (c)
+    ! one connected to wire plugged into socket thats connected to the wire
+    ! the other is attached to.
+    
+    v = Voltmeter.number;
+    p = PowerPack.number;
+    if (0 == v or p) jump VoltZero;
+    if (v == p) jump VoltFive;
+    if (v.number == 0) jump VoltZero;
+    if (v.number == 1 && p.number == 1) jump VoltZero;
+    if (v.number == 1 && (p.number).number == v) jump VoltFive;
+    if (p.number == v.number) jump VoltFive;
+    if (p.number == 1 && (v.number).number == p) jump VoltFive;
+    
+    .VoltZero; print "0.0 volts"; rtrue;
+    .VoltFive; print "5.0 volts"; rtrue;
+];
+
+Class   PhoneBoxClass
+ has    static container openable
+ with   name "box" "white",
+        describe [;
+            print_ret "^A small white box is attached to the wall near to ",
+                (the) self.near_to, ".";
+        ],
+        capacity 3,
+        description "The box is about four inches square and two inches \
+            deep.";
+
+Class   PhoneWireClass
+ has    static is_wire
+ with   name "bare" "wire" "wires" "pair" "of",
+        number 1,
+        description [;
+            print "The pair of wires emerges from the wall and disappears \
+                into some part of the white box that isn't accessible to \
+                you. They are bare of insulation";
+            if (self == Voltmeter.number)
+                print ". A voltmeter is attached to them";
+            if (self == PowerPack.number)
+                print ". A power pack is attached to them";
+            ".";
+        ],
+        before [;
+         Push,Pull,Turn: "They are fixed in place.";
+        ];
+
+Object  PhoneBoxJarboe "white box" BStairFirst,
+ class  PhoneBoxClass
+ with   near_to DoorB4;
+Nearby  PhoneWireJarboe "pair of wires"
+ class  PhoneWireClass;
+
+Object  PhoneBoxBungay "white box" CStairFirst,
+ class  PhoneBoxClass
+ with   near_to DoorC3;
+Nearby  PhoneWireBungay "pair of wires"
+ class  PhoneWireClass;
+
+Object  PhoneBoxMaster "white box" MastersLodge
+ class  PhoneBoxClass
+ with   near_to Mantelpiece,
+        before [;
+         Open:
+            if (HouseKeeper in location)
+                "You decide not to go poking about in the box with the \
+                housekeeper watching you.";
+        ];
+Nearby  PhoneWireMaster "pair of wires"
+ class  PhoneWireClass;
+
+
+!--------------------------------------------------------------------------
+! 5.5 TELEPHONES
+!--------------------------------------------------------------------------
+! The telephone numbers are: 212 Master, 213 Jarboe, 214 Bungay.  However,
+! you don't need to know this because by moving the wires around you can
+! arrange that `212' dials whoever you like.
+! 
+! The states of the telephone are as follows:
+! handset down:   0 = not ringing
+!                 1 = ringing
+! 
+! handset up:     2 = dial tone
+!                 3 = ringing
+!                 4 = connected to somewhere
+!                 5 = engaged
+!                 6 = dead
+! 
+! Maintaining the consistency of the telephone set is helped by the fact
+! that you can't mess with the switchboard while the handset is off the
+! hook!
+!--------------------------------------------------------------------------
+
+Array TableTelephone table [;
+    "The telephone is not ringing.";
+    "The telephone is ringing.";
+    "You hear a dialling tone.";
+    "You can hear ringing.";
+    "Ok.";
+    "You can hear an engaged tone.";
+    "The handset is silent.";
+];
+
+Object  Telephone "telephone" Mantelpiece
+ class  TalkableClass
+ has    is_telephone
+        ! general if ringing last turn
+ with   name "telephone" "phone",
+        description "It's an ordinary black telephone with a handset. A \
+            label reads, ~Number: 212. Dial 1 for an outside line.~",
+        state 0,
+        number 0,
+        before [ i;
+            if (HouseKeeper in location)
+                "~Like the telephone, do you?~ asks the housekeeper. \
+                ~It's brand new, they just put them in this week.~";
+         Give,Show,Kiss,Attack: Futile();
+         Speak:
+            if (self.state ~= 4)
+                "There is no one on the other end of the telephone line \
+                to talk to.";
+            <<Speak TelephoneDaemon>>;
+         Take,Remove: <<Take TelephoneHandset>>;
+         Drop: <<Drop TelephoneHandset>>;
+         PutOn: <<PutOn TelephoneHandset second>>;
+         Listen:
+            self.number = 1;
+            Message(TableTelephone, self.state + 1);
+            new_line; rtrue;
+         Dial:
+            if (self.state ~= 2) "Nothing happens.";
+            switch (second) {
+                212: i = GreenSocket;
+                213: i = RedSocket;
+                214: i = BlueSocket;
+                default: i = -1;
+            }
+            if (i ~= GreenWire.number && i ~= RedWire.number && i ~= 
+                BlueWire.number) {
+                self.state = 6;
+                "The telephone goes dead.";
+            }
+            if (GreenWire.number == i) {
+                self.state = 5;
+                <<Listen self>>;
+            }
+            self.state = 3;
+            TelephoneDaemon.number = 0;
+            if (i == RedWire.number)
+                TelephoneDaemon.number = TelephoneDaemon.number + 2;
+            if (i == BlueWire.number)
+                TelephoneDaemon.number = TelephoneDaemon.number + 1;
+            StartDaemon(TelephoneDaemon);
+            <<Listen self>>;
+        ],
+        each_turn [;
+            if (self.number == 1) {
+                self.number = 0;
+                return;
+            }
+            if (self.state == 0 && self has general) {
+                give self ~general;
+                "^The telephone has stopped ringing.";
+            }
+            if (self.state == 1) give self general;
+            if (self.state == 1 or 3 or 5) {
+                new_line;
+                <Listen self>;
+                self.number = 0;
+            }
+        ];
+
+Object  TelephoneHandset "handset"
+ class  TalkableClass
+ has    concealed
+ with   name "handset" "receiver" "bungay" "jarboe" "dr" "doctor" "prof"
+            "professor",
+        number 0,
+        before [;
+         Insert,Untie: "You can't do that; the handset is attached to the \
+             telephone.";
+         PutOn:
+            if (second == Telephone) <<Drop self>>;
+            <<Insert self 0>>;
+         Speak,Listen: <<(action) Telephone>>;
+        ],
+        after [;
+         Take,Remove:
+            print "You lift the telephone handset. ";
+            if (Telephone.state == 1) {
+                give Telephone ~general;
+                Telephone.state = 4;
+                print "The telephone stops ringing. ";
+            }
+            else Telephone.state = 2;
+            <Listen Telephone>;
+            rtrue;
+         Drop:
+            Telephone.state = 0;
+            "You put the handset back on the telephone.";
+        ];
+
+Object  TelephoneDaemon "telephone daemon"
+        ! general if Jarboe & Bungay have passed on their message
+ with   state 0,
+        number 0,   ! 0 = not connected anywhere
+                    ! 1 = connected to Bungay
+                    ! 2 = connected to Jarboe
+                    ! 3 = connected to both
+        before [ i;
+         Speak:
+            i = self.number;
+            self.number = 0;
+            self.state = 0;
+            Telephone.state = 6;
+            switch (i) {
+             1: "~I can't talk to you at the moment,~ Bungay says. ~I'm \
+                very busy.~ He puts the phone down.";
+             2: "~Ah, it's you,~ Jarboe says. ~Well, whatever you have to \
+                say, I'm not interested. You might as well go home now.~ \
+                He puts the phone down.";
+             3: "~Did you hear that?~ says Jarboe. ~We must have a \
+                crossed line again.~^^~We can't have anyone listening in \
+                on us,~ says Bungay. ~I'll ring you back later.~ They \
+                both put the phone down.";
+             default:
+                "** Error: telephone daemon should have number 1-3 **";
+            }
+        ],
+        daemon [;
+            if ((self.number & 2) == 2 && Bungay notin BungaysSanctum)
+                self.number = self.number & 1;
+            if ((self.number & 1) == 1 && Jarboe notin JarboesSanctum)
+                    self.number = self.number & 2;
+            if (Telephone.state ~= 3 or 4) self.number = 0;
+            if (self.number > 0) self.state = self.state + 1;
+            switch (self.number) {
+
+             1: switch (self.state) {
+                 1,2: return; ! leave it to ring twice
+                 3: Telephone.state = 4;
+                    "^Someone picks up the phone at the other end, and a \
+                    voice says, ~Bungay here.~";
+                 4: "The voice on the phone says, ~Is that you, Jarboe?~";
+                 5: self.number = 0;
+                    Telephone.state = 6;
+                    print "^The voice on the phone says, ~Goodbye,~ and \
+                        puts the phone down.^";
+                }
+
+             2: switch (self.state) {
+                 1: return; ! leave it to ring for a turn
+                 2: Telephone.state = 4;
+                    "^Someone picks up the phone at the other end, and a \
+                    voice says, ~Hello, Jarboe speaking, how can I help \
+                    you?~";
+                 3: "The voice on the phone says, ~Hello, who is that \
+                    please?~";
+                 4: self.number = 0;
+                    Telephone.state = 6;
+                    print "^The voice on the phone mutters, ~Must be a \
+                        crossed line. Bloody phones, why can't they get \
+                        them working?~ and puts the phone down.^";
+                }
+
+             3: switch (self.state) {
+                 1: return; ! leave it to ring for a turn
+                 2: Telephone.state = 4;
+                    "^Someone picks up the phone at the other end, and a \
+                    voice says, ~Hello, Jarboe speaking.~";
+                 3: "^There is a tinkle, and a second voice says, ~Bungay \
+                    here.~";
+                 4: if (self has general) {
+                        self.number = 0;
+                        Telephone.state = 6;
+                        print "^~Bloody hell,~ says Jarboe. ~Not \
+                            again. Why can't they get the damn telephones \
+                            working?~^^They both put the phone down.^";
+                    }
+                    else "^~You were going to ring me about the details \
+                        for this evening, yes?~ says Jarboe.";
+                 5: "^~I didn't ring you, you rang me,~ says Bungay.";
+                 6: "^~I say,~ says Jarboe. ~These damn-fool phones are \
+                    playing up again. Still, now that we're here, what \
+                    was it you were going to say?~";
+                 7: self.number = 0;
+                    Telephone.state = 6;
+                    give self general;
+                    Achieved("eavesdropping on a telephone conversation");
+                    AdvanceTime(self);
+                    DoneHint(WhatNextPuzzle,22);
+                    print "^~Very well,~ says Bungay. ~After the Master's \
+                        dinner tonight we'll meet in ", (PrintOMN) 0, "'s \
+                        crypt at half past ten.~^^~But do you really \
+                        think he knows the secret?~ asks Jarboe.^^~Of \
+                        course he does,~ says Bungay sharply. ~Why else \
+                        would he have gone to so much trouble to hide his \
+                        researches? But we'll get it from him \
+                        tonight.~^^Then they both put the phone down.^";
+                }
+            }
+            if (self.number == 0) {
+                self.state = 0;
+                StopDaemon(self);
+            }
+        ];
+
+
+!--------------------------------------------------------------------------
+! 5.6 GREAT HALL AND CELLARS
+!--------------------------------------------------------------------------
+
+Object  CloakRoom "Cloak Room (no entry)";
+
+Object  GreatHall "Great Hall"
+ has    light cat_allowed
+ with   name "window" "windows" "great" "hall" "portrait" "portraits"
+            "stair" "stairs" "vaulted" "ceiling" "latticed" "doleful"
+            "masters" "door" "senior" "common" "room",
+        state 0,
+        description [;
+            print "A grand echoey room with a vaulted ceiling far above \
+                your head, intended to seat and feed more than a hundred \
+                hungry fellows and scholars. Small latticed windows \
+                around the top of the hall allow narrow shafts of ";
+            if (ClockTower.number < 20) print "sun";
+            else print "moon";
+            print "light to illuminate doleful portraits of past Masters \
+                of the college.^^Second Court lies to the northeast, the \
+                kitchens to the south, and stairs lead up to the senior \
+                common room.^";
+            if (ClockTower.number == 19)
+                print "^The room echoes with the loud conversation of \
+                    fellows sitting around the high table and students on \
+                    the low table.^";
+            rtrue;
+        ],
+        ne_to SecondCourt,
+        out_to SecondCourt,
+        u_to SeniorCommonRoom,
+        s_to KitchenLobby,
+        before [;
+         Go,Enter:
+            if (noun == d_obj && parent(player) == Tables or HighTable)
+                <<Exit>>;
+        ],
+        time_left 1,
+        daemon [ i;
+            if (self.state == 0) {
+                self.state = 1;
+                move ServingStaff to self;
+                self.s_to = "The serving staff won't let you pass.";
+            }
+            if (ClockTower.number >= 19 && self.state == 1) {
+                self.state = 2;
+                remove Jarboe;
+                remove Bungay;
+                remove Choir;
+                remove Congregation;
+                remove Choir;
+                remove Turmeric;
+                StopDaemon(Turmeric);
+                give Chapel ~general;
+                give DoorMaster ~open locked;
+                switch (location) {
+                 GreatHall:
+                    print "^The serving staff finish laying the tables, \
+                        and not a minute too soon, because hardly has the \
+                        echo of the last bell died away when the doors \
+                        fly open, and crowds of fellows and \
+                        undergraduates pour in, talking animatedly among \
+                        themselves as they go to their places.^";
+                 Chapel:
+                    print "^Evensong comes to an end, and the \
+                        congregation and choir stream out to the west, \
+                        talking excitedly.^";
+                 AnteChapel:
+                    print "^A stream of undergraduates, fellows, \
+                        choir-boys and choristers pours out of the chapel \
+                        and heads southeast to Second Court.^";
+                 SecondCourt:
+                    print "^A stream of undergraduates, fellows and \
+                        choristers pours out of the chapel and heads \
+                        southwest into Hall.^";
+                }
+
+                if (TelephoneDaemon hasnt general) i = 1;
+                if (DoorB5 has locked) i = 2;
+                if (Edward notin EdwardsRoom) i = 3;
+                if (Edward.state ~= 31) i = 4;
+                if (ParrotC notin Edward) i = 5;
+                if (DoorC3 hasnt general) i = 6;
+                if (BeeLoudGlade hasnt general) i = 7;
+                if (Cellars hasnt general) i = 8;
+                if (DoorArchway hasnt open) i = 9;
+                if (BookLab hasnt moved) i = 10;
+                if (BookArkwright hasnt moved) i = 11;
+                if (AlchemistsRoom hasnt visited) i = 12;
+                if (DinnerTicket hasnt moved) i = 13;
+                if (BottleB hasnt open) i = 14;
+                if (i ~= 0)
+                    print "^** Error: entering the endgame having \
+                        failed consistency check #", i, " **^";
+            }
+            if (self.state == 2 && location == self) {
+                if (Inside(DinnerTicket,player) == 0) {
+                    print "^One of the serving staff comes up to you and \
+                        asks to see your invitation. When he discovers \
+                        that you don't possess one, he politely but \
+                        firmly ushers you out of the Hall.^";
+                    PlayerTo(SecondCourt,1);
+                    LookSub(1);
+                    rtrue;
+                }
+                DumpCarried(CloakRoom,1);
+                self.state = 3;
+                StopDaemon(self);
+                remove ServingStaff;
+                print "^You quickly leave your possessions in the \
+                    cloakroom and find your seat. You are surprised to \
+                    discover that you have been placed on the high table \
+                    with the Master and Fellows of the college...^";
+                PlayerTo(DiningHall);
+                rtrue;
+            }
+            if (self.state == 2) {
+                if (self.time_left == 0) {
+                    self.time_left = 6;
+                    "^Tonight's dinner in Great Hall started at seven \
+                    o'clock, and if you don't hurry to get there, you're \
+                    going to be even later than you already are!";
+                }
+                self.time_left = self.time_left - 1;
+            }
+        ],
+        edward_dirs ne_obj;
+
+Nearby  HighTable "high table"
+ has    static supporter enterable
+        ! general if found corkscrew
+ with   name "high" "table",
+        initial "One end of the hall is occupied by the high table.",
+        article "the",
+        before [;
+         Search, LookUnder:
+            if (self hasnt general) {
+                move Corkscrew to GreatHall;
+                give self general;
+                "There's a corkscrew under the high table. The revellers \
+                must have dropped it at the last meal.";
+            }
+        ];
+
+Nearby  Tables "low table"
+ has    static supporter enterable
+ with   name "long" "low" "table",
+        article "the",
+        initial "A long table extends across the remainder of the room.";
+
+Object  ServingStaff "serving staff"
+ has    animate
+ with   name "serving" "staff" "waiter" "waiters" "waitress" "waitresses",
+        article "the",
+        initial "Serving staff bustle here and there, arranging furniture \
+            and laying tables.",
+        life [;
+            "They are far too busy to pay any attention to you.";
+        ];
+
+Object  KitchenLobby "Outside the Kitchens"
+ has    light
+        ! general if cook routine in progress
+ with   name "kitchen" "kitchens" "great" "hall",
+        description "A small area between the bustling kitchens (to the \
+            south) and the Great Hall (to the north), used for collecting \
+            dishes while a feast is proceeding in the hall.",
+        n_to GreatHall,
+        out_to GreatHall,
+        s_to "You walk into the bustling kitchens, but the angry stare \
+            and brandished cleaver of one of the cooks tells you that you \
+            are not welcome here, and you quickly make your exit.",
+        d_to [;
+            if (EM == 1) return Hatch;
+            if (Hatch hasnt door || Hatch hasnt open)
+                "The hatch is closed.";
+            quote = 4;
+            AdvanceTime(Cellars);
+            print "You climb quietly down the ladder, anxious not to \
+                reveal your presence to the cook.^";
+            return Hatch;
+        ],
+        time_left 0,
+        time_out [;
+            give LightSwitch on;
+            give Cellars light;
+            move Cook to self;
+            MoveNPC(Cook,Cellars,d_obj);
+            StartTimer(Cook,5);
+            if (self == location) {
+                print "^A cook emerges from the kitchen, ";
+                if (player in Hatch) {
+                    PlayerTo(self,1);
+                    print " and approaches you. ~Get off that hatch!~ he \
+                        orders angrily, and you obey. He ";
+                }
+                print "unlocks the hatch, opens it and descends into the \
+                    cellars.^";
+            }
+            <Invoke Hatch 1>;
+        ],
+        each_turn [;
+            if (self hasnt general && ClockTower.number < 19) {
+                give self general;
+                StartTimer(self,Cook.state);
+                Cook.state = 5;
+            }
+        ],
+        edward_dirs n_obj;
+
+Object  Hatch "hatch"
+ has    openable locked static lockable enterable supporter
+ with   name "hatch" "trap" "trapdoor" "ladder",
+        found_in Cellars KitchenLobby,
+	description [;
+	    if (self has locked)
+		"The hatch is a sturdy wooden structure; it looks very \
+		much as though no blows that you are capable of \
+		inflicting on it could shift it an inch.";
+	],
+        describe [;
+            print "^There is ";
+            if (self has open) print "an open";
+            else print "a closed";
+            print " hatch in the ";
+            if (self in KitchenLobby) "middle of the floor.";
+            else "ceiling, accessible by a ladder.";
+        ],
+        door_to [;
+            if (self in Cellars) return KitchenLobby; else return Cellars;
+        ],
+        door_dir [;
+            if (self in Cellars) return u_to; else return d_to;
+        ],
+        before [;
+         Knock,Attack:
+            if (self in Cellars) {
+                if (Cook in Cellars) {
+                    RunLife(Cook,0);
+                    rtrue;
+                }
+                StartTimer(self,3);
+            }
+         Receive:
+            if (self has open && self in KitchenLobby)
+                "That would fall through into the cellars.";
+         Open:
+            if (player in self)
+                "Not while you're standing on it!";
+         Invoke:
+            switch (second) {
+             0: give self locked ~open enterable supporter ~door;
+             1: give self ~locked open ~enterable ~supporter door;
+             2: give self locked ~open ~enterable ~supporter door;
+            }
+            if (second > 0) {
+                while (child(self) ~= 0)
+                    move child(self) to KitchenLobby;
+            }
+            rtrue;
+        ],
+        after [;
+         Open: <Invoke self 1>;
+         Close: <Invoke self 0>;
+        ],
+        time_left 0,
+        time_out [;
+            <Invoke self 0>;
+            give KitchenLobby ~general;
+            give Cellars ~light;
+            give LightSwitch ~on;
+            print "^The hatch opens, and a woman peers in. ~Come out, you \
+                silly girl! How stupid of you to get trapped down there, \
+                you should be more careful with your wandering around, I \
+                don't know, and me with work to do...~ You emerge rather \
+                shamefully from the cellars, and she closes and locks the \
+                hatch, before going back into the kitchens.^";
+            PlayerTo(KitchenLobby,1);
+            Achieved("hiding from the cook");
+            LookSub(1);
+            if (Edward in KitchenLobby) {
+                print "^Edward says, ~Lucky for you that I was here to \
+                    run and get someone, or else you might have been \
+                    stuck down there for days.~^";
+                ! This time_out might run after Edward's daemon
+                RunRoutines(Edward,daemon);
+            }
+        ];
+
+Array TableWine table [;
+    "a nice sauvignon blanc";
+    "the Moet grand cru";
+    "the 1931 Haut Medoc";
+    "the 1936 Cotes de Brouillard de Plessy-Frais";
+    "I want the Orvieto Classico Secco";
+    "a ruby port. No, vintage. No, ruby";
+    "a Veuve Cliquot champagne";
+    "a subtle Loire white";
+    "the dryest Gewurztrauminer I can find";
+    "the 1940 is ready to drink";
+    "an occasion such as this merits the Chateau Nimes St Jacques 1914";
+];
+
+Object  Cook "cook"
+ class  FollowClass CarryingClass TalkableClass
+        ! general if you stood on the hatch
+ with   name "cook",
+        article "the",
+        initial "The cook stands before the bins, considering which \
+            bottle he should take.",
+        description "He looks rather sinister down here in the gloom.",
+        before [;
+         Examine: rfalse;
+         default:
+            print "~What are you doing here?~ shouts the cook. ~Get out! \
+                get out of my cellar! How dare you!~ He comes out, \
+                ushering you before him, and quickly closes and locks the \
+                hatch, before going south into the kitchen.^";
+            PlayerTo(KitchenLobby,1);
+            <Invoke Hatch 0>;
+            LookSub(1);
+            if (Edward in KitchenLobby) {
+                print "^~I wouldn't cross the cook if I were you,~ says \
+                    Edward. ~He has a vicious temper and he's prone to \
+                    waving his cleaver around without concern for life or \
+                    limb when he gets angry.~^";
+                RunRoutines(Edward,daemon);
+            }
+            move self to KitchenLobby;
+            MoveNPC(self,0,s_obj);
+            StopTimer(self);
+            give KitchenLobby ~general;
+            give Cellars ~light;
+            give LightSwitch ~on;
+            rtrue;
+        ],
+        state 2,
+        time_left 0,
+        time_out [;
+            if (player in Hatch) {
+                give self general;
+                print "^There is a furious banging on the underside of \
+                    the hatch. ~Let me out, you stupid fool!~ shouts the \
+                    cook.^";
+                if (Edward in KitchenLobby)
+                    print "^~I really think you should let him out,~ says \
+                        Edward urgently.^";
+                StartTimer(self,0);
+                rtrue;
+            }
+            give Cellars ~light;
+            give LightSwitch ~on;
+            give KitchenLobby ~general;
+            if (location == Cellars) {
+                print "^The cook finally makes his decision, muttering to \
+                    himself. ~Perhaps ", (Message) TableWine,
+                    "...~ He selects a bottle from the shelves, and \
+                    walks back to the ladder, looking around himself \
+                    suspiciously.^";
+                if (player notin Alcove) {
+                    print "^Suddenly he catches sight of you. ";
+                    <<Invoke self>>;
+                }
+                <Invoke Hatch 2>;
+                MoveNPC(self,0,u_obj);
+                DoneHint(WhatNextPuzzle,11);
+                "^You shrink back into the shadows, and he doesn't notice \
+                you. He turns out the light, climbs the ladder, and you \
+                can hear him closing and locking the hatch. Instead of \
+                breathing a sigh of relief, you suddenly feel very \
+                scared. What if he doesn't come back? What if you're \
+                trapped in here?";
+            }
+            if (location == KitchenLobby) {
+                if (Hatch hasnt open)
+                    print "^The hatch opens and the cook emerges";
+                else print "^The cook emerges from the cellars";
+                print " carrying a dusty bottle. He quickly closes and \
+                    locks the hatch before going south into the kitchen";
+                if (self has general) {
+                    give self ~general;
+                    print ", all the while glaring at you and cursing \
+                        under his breath";
+                }
+                print ".^";
+            }
+            MoveNPC(self,0,s_obj);
+            <Invoke Hatch 0>;
+        ];
+
+Object  Cellars "Cellars"
+ has    light no_edward
+        ! general if climbed down ladder
+ with   name "cellar" "cellars" "spider" "spiders" "cobweb" "web" "webs"
+            "cobwebs",
+        description "The cellar is a cool refuge from the heat of the \
+            summer day outside. There are seven storage bins placed \
+            against the walls of the cellar, the shelves of each stacked \
+            from floor to ceiling with dusty bottles, and a gathering of \
+            dark shadows in one corner signifies an alcove.",
+        u_to [;
+            if (Hatch hasnt open) "The hatch is closed.";
+            return Hatch;
+        ],
+        cant_go "The only way out is back up.",
+        before [;
+         Smell: "The cellars give off a musty odour, not unpleasant, \
+             compounded of sour wine and old cork.";
+         Listen: "There is an occasional rustle, as of mice.";
+         Exit:
+            if (player in Alcove) {
+                keep_silent = 1; ExitSub(); keep_silent = 0;
+                "You emerge from the alcove.";
+            }
+        ];
+
+Nearby  Alcove "alcove"
+ has    scenery enterable container open
+ with   name "alcove" "shadowy" "shadow" "shadows",
+        article "an",
+        description "The shadows are deep and dark. Perhaps spiders lurk \
+            in the corners.";
+
+Nearby  FakeBottles "bottles"
+ has    scenery
+        ! general if you found the matching bottle
+ with   name "wine" "dusty" "bottle" "bottles",
+        article "the",
+        description "There are many hundreds, if not thousands of bottles \
+            in the storage bins, imported from all over Europe and laid \
+            down among the dust and cobwebs to work their magic.",
+        before [;
+         Examine: rfalse;
+         default: "There are so many bottles here, you don't know which \
+            to choose. Perhaps if you're looking for a specific bottle \
+            you should search the bin in which you think you'll find it.";
+        ];
+
+Nearby  LightSwitch "light switch"
+ has    switchable scenery
+ with   name "light" "switch",
+        before [;
+            if (action ~= ##Examine && Cook in Cellars)
+                "The cook would surely notice if you tried that!";
+        ],
+        after [;
+         SwitchOn: give Cellars light;
+         SwitchOff: give Cellars ~light;
+        ];
+
+Nearby  FakeBins "bins"
+ has    scenery
+ with   name "bins",
+        before [;
+            "You should say precisely which of the seven bins you mean.";
+        ];
+
+Class   BinClass
+ has    scenery
+ with   description [;
+            print_ret "Its shelves are stacked from floor to ceiling with \
+                dusty bottles. A plaque above the bin is engraved with \
+                the name ~", (string) self.cellarer, "~.";
+        ],
+        parse_name [ w n ok i;
+            do {
+                ok = 0;
+                i = TryNumber(wn);
+                w = NextWord();
+                if (w == 'bin' or 'storage' or 'plaque' ||
+                    w == (self.&name)-->0 || i == self.number) {
+                    ok = 1; n++;
+                }
+            } until (ok == 0);
+            return n;
+        ],
+        before [;
+            if (action ~= ##Examine && Cook in Cellars)
+                "The cook would surely notice if you tried that!";
+         Consult,Search:
+            if (MakersStamp has general && self == BinC &&
+                Cellars hasnt general) {
+                give Cellars general;
+                move BottleB to player;
+                ResetVagueWords(BottleB);
+                Achieved("finding the old bottle in the wine cellar");
+                AdvanceTime(BinC);
+                "Looking at the bottles, all lined up in their rows, and \
+                comparing them to the bottle you found in the secret \
+                room, you notice one that has a mark on its cork that \
+                resembles the maker's stamp. You pick up the bottle, and \
+                sure enough, it is there too, a raised stamp on the \
+                base.";
+            }
+            "You search among the bottles, but there are hundreds, \
+            perhaps thousands of them, all very much alike (though all \
+            exquisitely different, no doubt, once on the table). You stop \
+            searching, dispirited. Maybe if you knew what you were \
+            supposed to be looking for you would have more success.";
+        ];
+
+Nearby BinA "first bin" class BinClass
+ with name "first", number 1, cellarer "William Canynges";
+Nearby BinB "second bin" class BinClass
+ with name "second", number 2, cellarer "Thomas Heydon";
+Nearby BinC "third bin" class BinClass
+ with name "third", number 3, cellarer "Elias Tymme";
+Nearby BinD "fourth bin" class BinClass
+ with name "fourth", number 4, cellarer "Edward Farber";
+Nearby BinE "fifth bin" class BinClass
+ with name "fifth", number 5, cellarer "Bernard Starkey";
+Nearby BinF "sixth bin" class BinClass
+ with name "sixth", number 6, cellarer "Robert Mayow";
+Nearby BinG "seventh bin" class BinClass
+ with name "seventh", number 7, cellarer "Francis Tausend";

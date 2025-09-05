@@ -1,0 +1,1022 @@
+!--------------------------------------------------------------------------
+! 10 HELP
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!--------------------------------------------------------------------------
+! 10.1 QUOTES
+!--------------------------------------------------------------------------
+
+Array quotes_used -> 22;
+
+[ DisplayQuote q;
+    if (quotes_used->q == 1) rfalse;
+    quotes_used->q = 1;
+    switch(q) {
+     1: box "And the veil of the temple was rent in twain from"
+            "the top to the bottom." " "
+            "  -- Mark 15:38";
+
+     2: box "Hush, beating heart of Christabel!" " "
+            "  -- Samuel Taylor Coleridge, ~Christabel~";
+
+     3: box "They crossed the moat and Christabel"
+            "Took the key that fitted well;"
+            "A little door she opened straight,"
+            "All in the middle of the gate" " "
+            "  -- Samuel Taylor Coleridge, ~Christabel~";
+
+     4: box "Sweet Christabel her feet doth bare,"
+            "And jealous of the listening air"
+            "They steal their way from stair to stair" " "
+            "  -- Samuel Taylor Coleridge, ~Christabel~";
+
+     5: box "A sight to dream of, not to tell!"
+            "O shield her! shield sweet Christabel!" " "
+            "  -- Samuel Taylor Coleridge, ~Christabel~";
+
+     6: box "All alchemical books abound with obscure enigmas"
+            "or sophisticated operations." " "
+            "  -- ~The Shut Palace Opened~";
+
+     7: box "The first key is that which opens the dark"
+            "prisons, in which the sulphur is shut up." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+     8: box "The second key dissolves the compound, or the"
+            "stone, and begins the separation of the elements"
+            "in a philosophical manner." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+     9: box "The third key comprehends of itself alone a longer"
+            "train of operations, than all the rest together." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+    10: box "The fourth key of the art, is the entrance of the"
+            "second work; it is that which reduces our water"
+            "into earth." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+    11: box "The fifth key of our work is the fermentation of"
+            "the stone with the perfect body, to make thereof"
+            "the medicine of the third order." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+    12: box "The sixth key teaches the multiplication of the"
+            "stone, by the reiteration of the same operation,"
+            "which consists but in opening and shutting,"
+            "imbibing and drying; whereby the virtues of the"
+            "stone are infinitely multiplied." " "
+            "  -- ~Six Principal Keys of the Secret Philosophy~";
+
+    13: box "Now they are giving me a fashionable white straw hat"
+            "And a black veil that molds to my face,"
+            "  they are making me one of them."
+            "They are leading me to the shorn grove,"
+            "  the circle of hives." " "
+            "  -- Sylvia Plath, ~The Bee Meeting~";
+
+    14: box "dixitque Deus fiat lux et facta est lux"
+            "et vidit Deus lucem quod essem bona"
+            "et divisit lucem ac tenebras." " "
+            "  -- liber Genesis 1:3-4";
+
+    15: box "If this furious serpent, after it has been"
+            "dissolved by the universal menstruum, does not"
+            "turn into our virgin milk, invisibly devouring"
+            "away every thing that comes near it, it is"
+            "plainly to be seen that you err in the notion of"
+            "the universal menstruum." " "
+            "  -- Urbigens, ~100 Aphorisms~";
+
+    16: box "Take of aqua vitae, and put into this vegetable"
+            "humidity a third part of a honey-comb, ferment or"
+            "digest it in a gentle heat, and repeat the"
+            "distillation nine times, renewing the comb every"
+            "second distillation." " "
+            "  -- Raymond Lully, ~The Hermetic Mercuries~";
+
+    17: box "I have gathered my myrrh with my spice; I have"
+            "eaten my honeycomb with my honey; I have drunk my"
+            "wine with my milk." " "
+            "  -- Song of Songs 5:1";
+
+    18: box "Now this our second and living water is called"
+            "azoth: it is also called the soul of the"
+            "dissolved bodies, which souls we have even now"
+            "tied together for the use of the wise philosopher." " "
+            "  -- ~The Secret Book of Artephius~";
+
+    19: box "The position [of Master] still had glamour,"
+            "repute, a good deal of personal power. It carried"
+            "a certain amount of patronage. But its duties had"
+            "faded away. Anyone who filled it had to create"
+            "for himself the work to do." " "
+            "  -- C P Snow, ~The Masters~";
+
+    20: box "Few human institutions had a history so"
+            "continuous, so personal, so day-to-day." " "
+            "  -- C P Snow, ~The Masters~";
+
+    21: box "The job of the writer is to describe the rose;"
+            "that of the poet to sing its virtues; that of the"
+            "artist to convey its beauty; that of the lawyer"
+            "to convince us that it's not a rose at all." " "
+            "  -- Barnabas Kubiak";
+
+     default: print "** Error: no such quote, ", q, " **";
+    }
+];
+
+
+!--------------------------------------------------------------------------
+! 10.2 HINT SYSTEM
+!--------------------------------------------------------------------------
+
+Property puzzle_width alias n_to;
+Property puzzle_hints alias s_to;
+Property puzzle_done alias e_to;
+Property puzzle_state alias w_to;
+Property puzzle_name alias nw_to;
+
+[ PuzzleSeen p; if (p.puzzle_state == 0) p.puzzle_state = 1; ];
+[ PuzzleSolved p; p.puzzle_state = 2; ];
+
+[ DoneHint p h1 h2 h3;
+    if (h1 ~= 0) (p.&puzzle_done)->(h1-1) = 1;
+    if (h2 ~= 0) (p.&puzzle_done)->(h2-1) = 1;
+    if (h3 ~= 0) (p.&puzzle_done)->(h3-1) = 1;
+];
+
+Object  Puzzles "all the puzzles";
+
+Nearby  EnterCollegePuzzle "entering the college"
+ with   puzzle_width 14,
+        puzzle_state 1,
+        puzzle_name "How do I enter the college?",
+        puzzle_hints
+            "The cobbles in Chapel Street are in poor repair. Perhaps you \
+            should examine them more closely?"
+            "The window in Biblioll Street is a tempting target. Have you \
+            tried to throw the cobble at it?"
+            "The busker asks for an object from the audience. Perhaps you \
+            should oblige him."
+            "Have you tried giving your handbag to the busker?"
+            "Have you examined the police constable carefully while he's \
+            standing in Bridge Street? Is there anything different about \
+            him in that location?"
+            "Have you tried giving something to the police constable?"
+            "The police constable seems to want to take part in the magic \
+            trick, but he needs a bit of encouragement. Have you tried \
+            instructing him in what to do?"
+            "Have you tried breaking the window in Biblioll Street while \
+            the police constable is distracted?"
+            "Have you tried tickling the sleeping don with the feather?"
+            "You need to find a place to hide the key where no-one would \
+            think of looking. What about getting the busker to use it as \
+            part of his trick?",
+        puzzle_done 0 0 0 0 0;
+
+Nearby  MalcolmsRoomPuzzle "entering Malcolm's room"
+ with   puzzle_width 17,
+        puzzle_state 0,
+        puzzle_name "How do I enter Malcolm's room?",
+        puzzle_hints 
+            "Most colleges in Christminster have a gate list; try finding \
+            your brother's room on that."
+            "Have you tried visiting Malcolm's room yet?"
+            "Have you examined the porter closely?"
+            "Have you spoken to the porter yet?"
+            "The porter is deaf. Is there any way you might signal that \
+            you want one of his keys?"
+            "The porter doesn't want to give you a key until he know who \
+            you are. Is there any way you could convince him of your \
+            identity (remember that he's deaf, so you can't speak to \
+            him)?",
+        puzzle_done 0 0 0;
+
+Nearby  WhatNextPuzzle "what now?"
+ with   puzzle_width 17,
+        puzzle_state 1,
+        puzzle_name "Help! I'm stuck! What do I do now?",
+        puzzle_hints
+            "Try to enter the college." !1
+            "Try visiting Malcolm." !2
+            "Malcolm's room has clearly been ransacked for something \
+            important. Perhaps you can succeed where the burglars \
+            failed." !3
+            "Try getting into the library and reading some of the books \
+            there." !4
+            "Try visiting the Master in his lodgings." !5
+            "When you've decoded the lab book, you'll realise that you \
+            need to look things up. Try borrowing the relevant texts." !6?
+            "Try asking the Master about the things you now know about." !7?
+            "Pay a visit to Wilderspin." !8
+            "Try investigating Wilderspin's fireplace more closely." !9
+            "Try to escape from the secret passage. You'll need \
+            Wilderspin's help, of course." !10
+            "Pay a visit to the cellars and see what you can find there." !11
+            "Have you met Edward Forbes yet?" !12
+            "Can you persuade Edward to go to his supervision with \
+            Bungay?" !13
+            "Try getting into the college gardens?" !14
+            "The gardeners must have a key to the garden gate. Perhaps \
+            you can find where they have left it." !15
+            "Try crossing the river on the punt." !16?
+            "You may need to convince Edward to help you cross the river, \
+            since he can punt and you can't." !17
+            "Now you should be close to reuniting Edward and his parrot." !18
+            "Have you visited Edward in his room?" !19
+            "You should now be at a point where you can put to use all \
+            the knowledge you've gathered and all the things you've \
+            found." !20
+            "Are you sure you can't get back into the Master's Lodgings?" !21
+            "Is there any way you can eavesdrop on Jarboe and Bungay's \
+            telephone conversation?" !22
+            "Try to persuade the Master to invite you to tonight's \
+            commemoration dinner." !23
+            "Attend tonight's commemoration dinner." !24
+            "Eat up your food!" !25
+            "Don't keep good things to yourself." !26
+            "Now's the time to put the knowledge you gained from the \
+            telephone conversation to use." !27
+            "Try to get through the crumbling door." !28
+            "Now all you have to do is save Malcolm and escape.", !29
+        puzzle_done 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+
+
+!--------------------------------------------------------------------------
+! 10.3 HELP
+!--------------------------------------------------------------------------
+
+Global help_word;
+
+[ HelpThingSub i;
+    switch (help_word) {
+     'instructions': i = 1;
+     'command','commands','summary': i = 2;
+     'abbrev','abbreviation': i = 3;
+     'credits','credit','thanks': i = 4;
+     'copyright','licence','license','warranty', 'copy', 'copying': i = 5;
+     'pay', 'payment': i = 6;
+     'advert','adverts','archive','inform','if-archive': i = 7;
+     'adventure','game','games','introduction','intro': i = 11;
+     'rooms','room','moving','travel','go','enter': i = 12;
+     'object','objects','thing','take','drop': i = 13;
+     'talking','speech','characters','people','conversation': i = 14;
+     'book','books','reference','bible','consult','consulting': i = 15;
+     'save','restore','restart','quit', 'miscellaneous','script',
+     'oops','score': i = 16;
+     default:
+        "I'm sorry, I don't know anything about that. Type ~help~ on its \
+        own for a menu of subjects I can help you with.";
+    }
+    if (i > 10) { menu_item = i - 10; InstructionsInfo(); rtrue; }
+    menu_item = i;
+    HelpInfo();
+];
+
+! Number of puzzles which might be seen & unsolved at the same time
+Constant NumberPuzzles 2;
+
+! Number of puzzles that are unsolved at the moment
+Global NumberUnsolved = 0;
+
+! Array of puzzles for which hints are available
+Array PuzzleArray --> NumberPuzzles;
+
+! Flag is 1 if hints are put on the menu
+Global ShowHints = 0;
+
+[ HelpSub i;
+    NumberUnsolved = 0;
+    if (ShowHints == 1)
+        objectloop(i in Puzzles)
+            if (i.puzzle_state == 1)
+                PuzzleArray-->(NumberUnsolved++) = i;
+    DoMenu(HelpPrint, HelpMenu, HelpInfo);
+];
+
+[ HelpPleaseSub;
+    ShowHints = 1;
+    <Help>;
+    ShowHints = 0;
+];
+
+[ PrintChoices choices i;
+    for (i = 0: i < choices-->0: i++) {
+        if (pretty_flag == 1)
+            print "^      ";
+        else { 
+            print "^   ";
+            if (i < 9) print " ";
+            print (i + 1), " ";
+        }
+        print (string) choices-->(i+1);
+    }
+];
+
+Array TopMenuChoices table [;
+    "Instructions for playing adventure games";
+    "Summary of commands";
+    "Abbreviations for common commands";
+    "Game credits and thanks to all the people who helped";
+    "Copyright and other legal necessities";
+    "How to pay for ~Christminster~";
+    "Adverts for the IF-Archive and Inform";
+    "What to do if you're stuck";
+];
+
+[ HelpPrint i;
+    print "There is information on the following:^";
+    PrintChoices(TopMenuChoices);
+    for (i = 0: i < NumberUnsolved: i++) {
+        if (pretty_flag == 1)
+            print "^      ";
+        else {
+            print "^   ";
+            if (i + TopMenuChoices-->0 < 9) print " ";
+            print (i + 1 + TopMenuChoices-->0), " ";
+        }
+        print (string) (PuzzleArray-->i).puzzle_name;
+    }
+    new_line;
+];
+
+[ HelpMenu;
+    switch (menu_item) {
+     0: item_width=10; item_name="About Christminster"; 
+        return 8 + NumberUnsolved;
+     1: item_width= 6; item_name="Instructions";
+     2: item_width= 8; item_name="Command summary";
+     3: item_width= 7; item_name="Abbreviations";
+     4: item_width= 4; item_name="Credits";
+     5: item_width=16; item_name="Copyright, licence and warranty";
+     6: item_width=15; item_name="How to pay for ~Christminster~";
+     7: item_width= 4; item_name="Adverts";
+     8: item_width= 9; item_name="When you're stuck";
+     default:
+        item_width = (PuzzleArray-->(menu_item-9)).puzzle_width;
+        item_name = (PuzzleArray-->(menu_item-9)).puzzle_name;
+    }
+];
+
+[ InstructionsMenu;
+    switch (menu_item) {
+     0: item_width= 6; item_name="Instructions"; return 6;
+     1: item_width= 8; item_name="Adventure games";
+     2: item_width= 7; item_name="Moving around";
+     3: item_width=10; item_name="Manipulating things";
+     4: item_width= 9; item_name="Talking to people";
+     5: item_width= 9; item_name="Looking things up";
+     6: item_width=11; item_name="Miscellaneous commands";
+    }
+];
+
+Array InstructionsChoices table [;
+    "An introduction to adventure games";
+    "Moving around";
+    "Manipulating things";
+    "Talking to people";
+    "Looking things up in books";
+    "Miscellaneous commands";
+];
+
+[ InstructionsPrint;
+    print_ret "There are instructions on the following subjects:^",
+        (PrintChoices) InstructionsChoices;
+];
+
+[ HelpInfo i j;
+    switch (menu_item) {
+     1:
+        DoMenu(InstructionsPrint, InstructionsMenu,
+            InstructionsInfo);
+        return 2;
+     2:
+        print "These commands typically do nothing in the world of the \
+            game, but control how it is presented to you:^";
+
+        font off;
+        print "\
+            ^brief            use long and short room descriptions\
+            ^die              quit the game\
+            ^fullscore        show how your score was achieved\
+            ^inventory        list your possessions\
+            ^inventory wide   paragraphed inventory lists\
+            ^inventory tall   one item per line inventory lists\
+            ^long             always use long room descriptions\
+            ^normal           use long and short room descriptions\
+            ^noscript         turn transcripting off\
+            ^notify on/off    turn score notification on and off\
+            ^nouns            show current settings of ~it~, ~him~, ~her~\
+            ^objects          list the objects you have held\
+            ^oops <word>      correct mistake in previous input\
+            ^places           list the places you have been\
+            ^pronouns         show current settings of ~it~, ~him~, ~her~\
+            ^quit             quit the game\
+            ^quotes on/off    turn the display of quotations on and off\
+            ^restart          start the game again from the beginning\
+            ^restore          restore a saved game from a file\
+            ^save             save the game to a file\
+            ^score            show your current score\
+            ^script on/off    start and stop transcription to a file\
+            ^short            always use short room descriptions\
+            ^superbrief       always use short room descriptions\
+            ^undo             undo last command, if possible\
+            ^unscript         turn transcripting off\
+            ^verbose          always use long room descriptions\
+            ^verify           check that the story file is undamaged\
+            ^version          give version and release numbers^";
+
+        font on;
+        print "^These are useful commands that affect the world of the \
+            game:^";
+
+        font off;
+        print "\
+            ^again            repeat the last command\
+            ^close <thing>    shut a container or a door\
+            ^drop <thing>     let go of an object\
+            ^enter <thing>    enter an object\
+            ^examine <thing>  inspect something closely\
+            ^get <thing>      pick up an object\
+            ^give x to y      offer a gift to someone\
+            ^go <direction>   travel in a compass direction\
+            ^in               go in (if this is unambiguous)\
+            ^look             describe your surroundings\
+	    ^look up x in y   look up something in a book\
+            ^open <thing>     open a container or a door\
+            ^out              go out (if this is unambiguous)\
+            ^put x in y       put an object in a container\
+            ^take <thing>     pick up an object\
+            ^unlock x with y  unlock something with a key\
+            ^wait             do nothing for a turn^";
+
+        font on;
+        print "^There are, of course, many more.^";
+     3:
+        print "The game knows several useful abbreviations:^\
+            ^    g for again\
+            ^    i for inventory\
+            ^    l for look\
+            ^    n for north (and so on)\
+            ^    o for oops\
+            ^    q for quit\
+            ^    x for examine\
+            ^    z for wait (short for ~zzz~).^";
+     4:
+        style bold; print "CHRISTMINSTER"; style roman;
+
+        print "^release 4 (November 1996)^by Gareth Rees^";
+
+        style bold; print "^Credits^"; style roman;
+
+        print "^This story could never have been written without the \
+	    assistance of Graham Nelson, who wrote ~Inform~, the \
+	    adventure game compiler, whose game ~Curses~ rekindled my \
+	    enthusiasm for interactive fiction, who sent me 163 bugs \
+	    and suggestions during play-testing, and who patiently \
+	    answered each of my many queries.^";
+
+        print "^Special thanks to: Tavia Chalcraft, Robert Dickau and \
+	    Michael Kinyon.^";
+
+        print "^Many, many bugs found by: Jouni Alkio, Torbj|rn \
+	    Anderson, Douglas Atkinson, Richard Barnett, Andrew \
+	    Benham, Simon Brind, Richard Brooksby, Erskin Cherry, \
+	    Andrew Clover, Robert A DeLisle, Jason Dyer, Kenneth Fair, \
+	    Joe Frank, Michael Gehm, Chris Goedde, Sam Gorton, Stephen \
+	    Granade, Laurel Halbany, Kai Hesse, Brent Hayhoe, Bernard \
+	    Hsiung, William Hurwood, Randy Hutson, Walter Isaac, \
+	    Darius Katz, Bob Manson, Mathias Maul, Jeffry Miller, \
+	    Eileen Mullin, Jeff Nassiff, Carrie O'Grady, Mike \
+	    Phillips, Andrew Plotkin, Maurizio Paoluzi, Morten \
+	    Pedersen, Giuliano Procida, Neil Querengesser, Rob Rachel, \
+	    Robert Rendell, Matthias Ruhl, Nicola Salmoria, Steve \
+	    Salter, Marshall Sanderford, Mike Scott, P D S Shrimpton, \
+	    Dylan Thurston, Richard Tucker, Mikko Vuorinen, Mark \
+	    Wainwright, Jacob Solomon Weinstein, Kies Wiebering, \
+	    Brendon Wyber and Jeff Zahn.^";
+
+        print "^At the time of writing (November 1996), the author may \
+	    be contacted by electronic mail at the address \
+	    ~gdr11@@64cl.cam.ac.uk~.^";
+
+        style bold; print "^Release notes^"; style roman;
+
+        print "^Release 1 (1st August 1995) was a very buggy first \
+	    release.^Release 2 (4th August 1995) corrects about thirty \
+	    bugs, including some serious ones in Edward's movement \
+	    code.^Release 3 (8th November 1995) corrects another \
+	    eighty bugs and adds some hints for some early and \
+	    difficult puzzles.^Release 4 (17th November 1996) tidies \
+	    up a further thirty problems, some introduced during \
+	    earlier attempt to ~improve~ the source code.^";
+     5:
+        style bold; print "Copyright^"; style roman;
+
+        print "^This story file (referred to herein as ~Christminster~) \
+            is copyright (c) Gareth Rees, August 1995 - November 1996.^";
+
+        style bold; print "^Licence^"; style roman;
+
+        print "^Terms and conditions for copying and distribution.^";
+
+        print "^1. The terms and conditions in this licence applying to \
+            ~Christminster~ apply equally to any output produced by \
+            ~Christminster~. Each licensee is addressed as ~you~.^";
+
+        print "^2. You may copy and distribute verbatim copies of \
+            ~Christminster~ in any medium.^";
+
+        print "^3. You may charge a fee for the act of transferring a \
+            copy.^";
+
+        print "^4. You may not copy, modify, or distribute \
+            ~Christminster~ except as expressly provided under this \
+            licence.^";
+
+        print "^5. You are not required to accept this licence. However, \
+            nothing else grants you permission to distribute \
+            ~Christminster~. This action is prohibited by law if you do \
+            not accept this Licence. Therefore, by distributing \
+            ~Christminster~ you indicate your acceptance of this licence \
+            and all its terms and conditions.^";
+
+        print "^6. NO WARRANTY. Because ~Christminster~ is made available \
+            free of charge, there is no warranty for ~Christminster~.^";
+
+     6:
+        print "~Christminster~ is free of charge! Use it, copy it and \
+            distribute it, and don't pay me a penny (but do read the \
+            licence first).^";
+
+        print "^If you've written an adventure game which is shareware or \
+            commercial, and if you enjoyed ~Christminster~ sufficiently \
+            that you think you would have paid for it if it weren't free \
+            of charge, then why not express your appreciation by sending \
+            me a registered copy of your own game?^";
+     7:
+        print "There is an archive of interactive fiction and adventure \
+            games at the German National Research Centre for Computer \
+            Science, maintained by Volker Blasius. You can get files from \
+            the archive using anonymous FTP from the address \
+            ~ftp.gmd.de~, in the directory ~/if-archive~.^";
+
+        print "^The archive contains many free and shareware adventure \
+            games, a number of adventure game compilers, and lots of \
+            miscellaneous material relating to the genre.^";
+
+        print "^~Christminster~ was compiled using ~Inform~, Graham \
+            Nelson's compiler for adventure games. ~Inform~ takes a \
+            C-like source (the source for ~Christminster~, excepting the \
+            libraries that come with the compiler, is about 13,000 lines, \
+            or 440k) and outputs a ~story file~ that can be played on any \
+            of the public domain Infocom interpreters.^";
+
+        print "^~Inform~ can be fetched by anonymous FTP from the \
+            interactive fiction archive, in the directory \
+            ~/if-archive/infocom/compilers/inform~^";
+     8:
+        print "^If you're completely stuck and can make no more progress, \
+            then type ~help please~, which gives access to the hints \
+            system. There are explicit hints for the first two puzzles in \
+            the game, to get you started, and vague but helpful nudges in \
+            the right direction for the remainder of the game.^";
+
+        print "^If you're still getting nowhere, try asking for help on \
+            the Usenet newsgroup rec.games.int-fiction.^";
+     default:
+        new_line;
+        i = (PuzzleArray-->(menu_item-9));
+        for (j = 0: j < (i.#puzzle_hints / 2): j++)
+            if ((i.&puzzle_done)->j == 0)
+                print_ret (string) ((i.&puzzle_hints)-->j);
+        print "No more hints.^";
+    }
+];
+
+[ InstructionsInfo;
+    switch (menu_item) {
+     1:
+        print "Adventure games (sometimes dignified with the name \
+            ~interactive fiction~) are a combination of second-person \
+            story and puzzle-solving game. An adventure game presents you \
+            with text that puts you in the position of protagonist, and \
+            invites you to type in commands.^";
+
+        print "^For example, a game might start like this:^";
+
+        print "^    You are standing in the street outside a college.\
+            ^    The gate is closed.\
+            ^    >^";
+
+        print "^The prompt invites you to type something. You respond \
+            with an imperative sentence and the game tries to understand \
+            your command and to carry it out. For example, you might \
+            type^";
+
+        print "^    > open the gate^";
+
+        print "^and the game might respond^";
+
+        print "^    Unfortunately, the gate is locked.\
+            ^    >^";
+
+        print "^Not to be defeated, you try something else:^";
+
+        print "^    > knock at gate\
+            ^    ~Come in!~ shouts a voice from inside.\
+            ^    The gate opens.\
+            ^    > go in\
+            ^    You enter the college ...^";
+
+        print "^and the game continues. Not all puzzles will be so easy, \
+            though!^";
+
+        print "^No game can hope to understand every possible input. If \
+            you try something and the game doesn't understand, then you \
+            should try rephrasing your command or substituting synonyms \
+            for some of the words. If you've made several obvious \
+            attempts and none of them have worked, then the likelihood is \
+            that you can't do what you wanted to, and you'll have to \
+            solve your problem in a different way.^";
+     2:
+        print "The landscape of an adventure game is notionally divided \
+            into ~rooms~; often these really are rooms, but they can be \
+            larger places (such as streets or fields or woods) or smaller \
+            places (such as the northwest corner of the hall).^";
+
+        print "^The name of the room you are in appears at the left of \
+            the ~status line~ at the top of the screen, and you can get a \
+            description of what you can see by typing ~look~.^";
+
+        print "^To move from one room to another, you generally enter \
+            commands like^";
+
+        print "^    go north^";
+
+        print "^or just ~north~ on its own (you are assumed to be blessed \
+            with an excellent sense of direction). Any of the eight \
+            compass points may be substituted for ~north~, and in some \
+            contexts the game also understands the directions ~in~, \
+            ~out~, ~up~ and ~down~.^";
+
+        print "^When there is a particular landmark to head for, you may \
+            be able to avoid specifying a compass direction, and instead \
+            try one of these:^";
+
+        print "^    go through the big door\
+            ^    enter phone box\
+            ^    climb tree\
+            ^    cross bridge^";
+
+        print "^Sometimes movement won't take you to a new room, but will \
+            let you enter and leave objects in the current room, for \
+            example:^";
+
+        print "^    enter car\
+            ^    sit in chair\
+            ^    stand on lawn^";
+
+        print "^To leave these objects, you might type ~get out~ or \
+            ~stand up~ or ~exit~.^";
+
+        print "^If you can get into the car and figure out how to turn \
+            the ignition on, then you may be able to drive it around; to \
+            do this, just use ~north~, ~south~, and so on. On the other \
+            hand, if you can't find the ignition keys, you might be \
+            reduced to trying^";
+
+        print "^    push car west^";
+     3:
+        print "You can try to pick something up with ~take thing~ and try \
+            to put it down with ~drop thing~. The command ~take \
+            inventory~ (or ~inventory~, or ~i~ for short) gives you a \
+            list of objects that you are carrying.^";
+
+        print "^To look at an object more closely, ~examine~ it (~x~ for \
+            short).^";
+
+        print "^Objects may be manipulated in many ways: put into (or on \
+            top of) other objects, pulled, pushed, turned, eaten, and so \
+            on. Here are some examples:^";
+
+        print "^    take the white rabbit\
+            ^    put rabbit in the hat\
+            ^    take rabbit out of the hat\
+            ^    look in the hat\
+            ^    unlock brass door with copper key\
+            ^    open door\
+            ^    offer shopkeeper the silver coin\
+            ^    give gold coin to merchant\
+            ^    turn the dial\
+            ^    turn on the lamp\
+            ^    light candle with match\
+            ^    empty sack into chest\
+            ^    put picture on mantelpiece\
+            ^    look under the wooden desk^";
+
+        print "^Some commands can act upon more than one object. ~take \
+            all~ will attempt to pick up all the loose items in the room; \
+            ~drop all~ will drop everything you're carrying (except for \
+            any clothing you're wearing). If you found a packing case \
+            with a number of things in it, you could type commands like:^";
+
+        print "^    get teddy bear, rabbit and piglet\
+            ^    remove everything but the brass key from the packing case\
+            ^    get all the coins except gold, silver and bronze^";
+
+        print "^If you are not explicit enough, the game will try to \
+            deduce what you meant, and if it succeeds it will tell you \
+            what it deduced. For example, in reply to ~get teddy bear, \
+            rabbit and piglet~, the game might say^";
+
+        print "^    (from the packing case)^";
+
+        print "^so that you know what has been assumed on your behalf. If \
+            there had been two rabbits you might have meant, it would \
+            reply with^";
+
+        print "^    Which do you mean, the white rabbit or the Welsh \
+            rabbit?^";
+
+        print "^You may tell it which (or reply ~either~ or ~both~ or \
+            ~all~), or else give up and do something else instead. The \
+            game can gradually accumulate information about a command, \
+            for example:^";
+
+        print "^    > unlock door\
+            ^    Which door do you mean, the big door or the small door?\
+            ^    > big\
+            ^    What do you want to unlock the big door with?\
+            ^    > the brass key\
+            ^    Which brass key do you mean, the brass doorkey or the \
+            Brass City key?\
+            ^    > either\
+            ^    (the brass doorkey)\
+            ^    That doesn't seem to fit the lock.^";
+
+        print "^If you don't mind which object you use, you can always \
+            say something like^";
+
+        print "^    put a coin in the slot^";
+
+        print "^and the game will make a sensible choice and tell you \
+            what it was.^";
+
+        print "^Sometimes the game deduces that you wish to do something \
+            that you didn't explicitly say you wanted to. In such \
+            circumstances, it will tell you what it assumed on your \
+            behalf. For example:^";
+
+        print "^    > give banana to gorilla\
+            ^    (first taking the banana)\
+            ^    The gorilla devours the banana, but it still won't let \
+            you pass.^";
+
+        print "^The object ~it~ refers to the last thing manipulated, and \
+            ~him~ or ~her~ to the last person of the appropriate sex to \
+            be mentioned.^";
+
+        print "^Sometimes an object will be mentioned in the description \
+            of a room purely for atmospheric value and will play no \
+            other part in the game. If you try to refer to such an \
+            object, the game is liable to respond^";
+
+        print "^    You don't need to refer to that.^";
+
+        print "^Your best course of action is to leave these non-existent \
+            objects alone.^";
+     4:
+        print "To say a single word, or a few words, to someone, you can \
+            use commands like^";
+
+        print "^    answer yes\
+            ^    say boo to goose\
+            ^    ask chemist about nitrogen\
+            ^    ask Einstein about the theory of relativity\
+            ^    ask the police constable the time^";
+
+        print "^and the characters in ~Christminster~ tend to be quite \
+            talkative when you approach them like this.^^To order someone \
+            about, you can use commands like^";
+
+        print "^    police constable, give me your helmet\
+            ^    jailor, unlock the cell door\
+            ^    young man, go west\
+            ^    Sherlock, follow me^";
+
+        print "^though, of course, they are not guaranteed to obey you!^";
+     5:
+        print "The command ~read book~ will provide a quick summary of \
+            the contents of a book, but to get more information from \
+            certain texts you may have to look things up.^^To look up a \
+            single-word subject, you can type^";
+
+        print "^    look up Julius^";
+
+        print "^(where there is only one book you could have meant), or^";
+
+        print "^    look up Claudius in the Twelve Caesars\
+            ^    consult Suetonius about Augustus^";
+
+        print "^Where you have a more precise reference to hand, you can \
+            try commands like^";
+
+        print "^    read page 256 of the Decline and Fall\
+            ^    look up page 7 in Pliny\
+            ^    look up Genesis 14 in Bible^";
+     6:
+        print "To save the current state of your game into a file, type \
+            ~save~; to go back to a saved game, type ~restore~. These \
+            commands will ask you for the name of the file, so there is \
+            no reason why you shouldn't have as many saved games as you \
+            have room for on your computer.^";
+
+        print "^To start ~Christminster~ again from the beginning, type \
+            ~restart~, and to stop playing, type ~quit~.^";
+
+        print "^If you want to save a transcript of your game for later \
+            perusal, use the command ~script on~ to start transcription \
+            (the game will prompt you for a file name) and ~script off~ \
+            to stop.^";
+
+        print "^The command ~score~ will give you your score, and \
+            ~fullscore~ or ~full~ will give a more detailed description \
+            of how you scored those points. When your score changes, you \
+            are notified of the fact by messages like^";
+
+        print "^    [Your score has just gone up by one point]^";
+
+        print "^The command ~notify off~ turns these messages off, and \
+            ~notify on~ turns them back on again.^";
+
+        print "^Usually the game will give you a long description of a \
+            location when you first visit it and short descriptions \
+            thereafter (unless you explicitly request a long one with \
+            ~look~). If you get bored of the long descriptions, you can \
+            turn them off with ~short~ or ~superbrief~. If you're \
+            forgetful and always want long descriptions, type ~long~ or \
+            ~verbose~. To restore the usual state of affairs, type \
+            ~normal~ or ~brief~.^";
+
+        print "^~Christminster~ displays quotations in boxes from time to \
+            time; if you don't like this feature, you can turn it off \
+            using ~quotes off~ and back on again with ~quotes on~.^";
+
+        print "^If you regret your last command, then you can type ~undo~ \
+            to go back to the state before you typed it (you can even \
+            type ~undo~ at the ~Would you like to RESTART, RESTORE or \
+            QUIT?~ prompt after you have died). However, the ~undo~ \
+            command doesn't work on all interpreters, and you can only \
+            undo one command.^";
+
+        print "^The commands described above don't cause things to happen \
+            in the game and don't take up any game time; nor do any \
+            commands you type which the game fails to understand.^";
+
+        print "^Some simple typing mistakes can be correct with ~oops~ \
+            followed by the word you had intended to type, for example:^";
+
+        print "^    take the swrod from the stone\
+            ^    oops sword^";
+
+        print "^You can repeat the last command you typed with ~again~, \
+            you can do nothing for a game turn by typing ~wait~, and you \
+            can string several commands into a single input by separating \
+            them with ~then~ (or commas, or full stops), for example:^";
+
+        print "^    take coin. south. again. wait. put coin in box\
+            ^    unwrap chocolate then eat it^";
+    }
+];
+
+Array AmusingChoices table [;
+    "How many wrong ways are there to hide the brass key?";
+    "What is the police constable's hobby?";
+    "How many ways are there to acquire the tears?";
+    "In how many ways can the game come to an end?";
+    "Which puzzles are optional?";
+    "What names may be looked up in ~Men of Biblioll~?";
+    "What are the secret debugging commands?";
+    "How much of the background is real?";
+];
+
+[ AmusingPrint;
+    print_ret "Can you answer these questions?^", (PrintChoices)
+        AmusingChoices, "^^ If you can, then you have probably played \
+        ~Christminster~^ rather more than you ought.";
+];
+
+[ HelpAmusing;
+    DoMenu(AmusingPrint, AmusingMenu, AmusingInfo);
+];
+
+[ AmusingMenu;
+    if (menu_item==0) { 
+        item_width=13;
+        item_name="Christminster trivia quiz";
+        return 8;
+    }
+    item_width = 3;
+    item_name = "Answer";
+];
+
+[ AmusingInfo;
+    switch (menu_item) {
+     1:
+        "Five. Christabel can carry the brass key, leave it on the \
+        ground, hide it in her handbag (and possibly drop the handbag), \
+        or give it to the police constable.";
+     2:
+        "The police constable is clearly an ornithologist. The busker is \
+        able to distract him at a crucial moment by pointing at an \
+        imaginary bird. Try also ~show the feather to the constable~ and \
+        ~constable, arrest the busker~.";
+     3:
+        "Three. Christabel cries if she is hit by Jarboe (try ~attack \
+        Jarboe~); Edward cries if he thinks his parrot may be dead (try \
+        ~show feather to Edward~); or Christabel can attack herself with \
+        the pin.";
+     4:
+        "Eight. Christabel can be arrested by the police constable (for \
+        attacking him or the sleeping don, or for being caught in \
+        possession of the stolen key); she can be knocked unconscious by \
+        Professor Bungay (either in his study or in his hallway); she can \
+        be invalided by drinking the elixir; she can be caught spying on \
+        the cultists in the crypt; she can be murdered by Jarboe; she can \
+        burn to death in the fire; she can rescue her brother but fail to \
+        resuscitate him; or she can win!";
+     5:
+        "Finding the chapbook in Bungay's study; acquiring the Bible \
+	and the books by Raymond Lully, Eugenius Philalethes and \
+	Dmitri Zinovic; hiding Malcolm's lab book from Doctor Jarboe; \
+	attending Evensong; climbing the Wistaria; and finding both \
+	hidden exits from the library.";
+     6:
+        print_ret "Professor Sir Joseph Arkwright, John de Biblioll, \
+            William Canynges, Edward Farber, Jude Fawley, Henry Garton, \
+            Sir William Hawksmoor, Thomas Heydon, Edmund Lilly, Robert \
+            Mayow, Tobias Meldrew, Simon Noble, Eugenius Philalethes, \
+            Bernard Starkey, Francis Tausend, Elias Tymme, Thomas Vaughan \
+            and ", (PrintOMN) 0, ".";
+     7:
+        "Secret debugging commands? What secret debugging commands?";
+     8:
+        print "~Christminster~ is the counterpart to Oxford in Thomas \
+	    Hardy's ~Wessex~ novels, and Biblioll College is the \
+	    college to which Jude Fawley fails to gain acceptance in \
+	    ~Jude the Obscure~ (though he later became a stonemason \
+	    and in the game you can see his initials on the gargoyle). \
+	    The name ~Biblioll~ puns on the real Oxford college \
+	    Balliol and on the scholars' love of books and of \
+	    alcohol.^";
+
+        print "^Some of the story ideas were originally inspired by the \
+            short story ~The Ragthorn~ by Garry Kilworth and Robert \
+            Holdstock, and other elements are influenced by ~Foucault's \
+            Pendulum~ by Umberto Eco.^";
+
+        print "^The plan of the college is based on parts of Christ's \
+	    College, Cambridge, where I studied for my bachelor's \
+	    degree, and the history is mostly based on that of Balliol \
+	    College, Oxford, the story of the founder being that of \
+	    John de Balliol. The game is set at some unidentifiable \
+	    point in the postwar era, after the introduction of \
+	    telephones, but long before Biblioll College admitted \
+	    women (in Cambridge, colleges started the transition to \
+	    co-education in about 1980, and the last men-only college \
+	    surrendered, under pressure to increase its academic \
+	    standards, ten years later).^";
+
+        print "^The Egyptian history is rather romanticised, but \
+            Akhenaten was a real pharaoh, and the Osiris ritual is real \
+            too (apart from the spurious mentions of honey). The alchemy \
+            has foundations in truth; Raymond Lully, Thomas Vaughan and \
+            Eugenius Philalethes were real alchemists, who did write some \
+            of the things I attributed to them. The names of ingredients \
+            are genuine, though the things they code for are invented, as \
+            are the recipe and the nature of the elixir.^";
+
+        print "^If you're interested in following up this part of the \
+            story, I recommend ~The Alchemists~ by Ronald Pearsall; and \
+            to demonstrate that believers in alchemy still exist, try \
+            ~Alchemists and Gold~ by Jacques Sadoul.^^Oh, and the food \
+            served at commemoration feasts is usually better than \
+            depicted here.^";
+    }
+];
+
+[ HelpWord;
+    help_word = NextWordStopped();
+    return 1;
+];
+
+Verb meta "help"
+    *                                   -> Help
+    * "please"                          -> HelpPlease
+    * HelpWord                          -> HelpThing;

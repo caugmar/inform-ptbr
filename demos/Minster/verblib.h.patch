@@ -1,0 +1,38 @@
+*** verblib.h
+< [ GoSub i j k df movewith thedir;
+---
+> [ GoSub i j k df movewith thedir ks;
+1066a1067,1073
+> #IFDEF USE_AUTOOPEN;
+>       if (j hasnt open && j has openable && j hasnt locked && j has autoopen)
+>       {   L__M(##Go,7,j);
+>           ks=keep_silent; keep_silent=1; <Open j>; keep_silent=ks;
+>           if (j hasnt open) rtrue;
+>       }
+> #ENDIF;
+1068c1075,1076
+<       {   if (noun==u_obj) return L__M(##Go,3,j);
+---
+>       {   if (j has locked) return L__M(##Go,8,j);
+>           if (noun==u_obj) return L__M(##Go,3,j);
+1568,1569c1576,1577
+<            if (n==6) "[Your interpreter does not provide ~undo~.  Sorry!]";
+<            if (n==7) "~Undo~ failed.  [Not all interpreters provide it.]";
+---
+>            if (n==6) "[Your interpreter does not provide ~undo~. Sorry!]";
+>            if (n==7) "~Undo~ failed. [Not all interpreters provide it.]";
+1697c1705,1708
+<            print "You can't, since "; DefArt(x1); " leads nowhere.";
+---
+>            if (n==6) { print "You can't, since "; DefArt(x1); 
+>                        " leads nowhere."; }
+>            if (n==7) print_ret "(Opening ", (the) x1, " first)";
+>            if (n==8) print_ret (The) x1, " is locked.";
+1726c1737
+<   Examine: if (n==1) "Darkness, noun.  An absence of light to see by.";
+---
+>   Examine: if (n==1) "Darkness, noun. An absence of light to see by.";
+1783c1794
+<            print "You eat "; DefArt(x1); ".  Not bad.";
+---
+>            print "You eat "; DefArt(x1); ". Not bad.";

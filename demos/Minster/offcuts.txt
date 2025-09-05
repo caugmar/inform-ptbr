@@ -1,0 +1,673 @@
+Nearby  BrickWork "bricks"
+ has    scenery
+ with   name "bricks" "brickwork" "crumbling" "sagging",
+        article "the",
+        before [;
+         Examine,Search:
+            if (LooseBrick has general) {
+                move LooseBrick to location;
+                "You explore the crumbling masonry. One of the bricks in \
+                the east wall seems a little loose.";
+            }
+         Go:
+            if (Hole in location) <<Enter Hole>>;
+            <<Push self>>;
+         Take,Attack,Pull,Push:
+            "The brickwork may be crumbling, but it's not so decrepit \
+            that it can't easily resist your attempts to knock it down.";
+        ];
+
+Object  LooseBrick "loose brick"
+ has    concealed general ! if it's in the hole
+ with   name "loose" "brick",
+        before [;
+         Take, Pull:
+            if (self has general) {
+                move Hole to location;
+                move Latch to location;
+                give self ~general ~concealed;
+                "You manage to get your fingers into a crack, and with a \
+                shower of mortar dust the brick comes free and falls to \
+                the ground, leaving a hole behind.";
+            }
+        ];
+
+Object  Hole "hole"
+ has    static
+        ! general if it's told you about expecting the key
+ with   name "hole",
+        initial "There is a hole in the brickwork in the east wall.",
+        description [;
+            if (BlockedDoor has open)
+                "Through the hole you can see a small, dimly lit room.";
+            if (self hasnt general && Notice has general && 
+                KeyLibrary hasnt moved) {
+                give self general;
+                print "You expect to find the key to the library hidden \
+                    in the hole, but alas, it is not there.^^";
+            }
+            "The hole is about four inches deep (the width of the \
+            bricks), and at the other end you can see wood and a rusted \
+            metal latch, as though the brickwork had been built to block \
+            up a door.";
+        ],
+        before [;
+         Search: <<Examine self>>;
+         Receive:
+            if (noun == LooseBrick) {
+                move LooseBrick to location;
+                give LooseBrick general concealed;
+                remove Latch;
+                "You put the brick back into the hole.";
+            }
+            if (BlockedDoor hasnt open)
+                "The only useful way to fill up the hole would be to put \
+                the loose brick back into it.";
+            if (noun.size > 1) {
+                CDefArt(noun);
+                " is too large to fit through the hole.";
+            }
+            move noun to AlchemistsRoom;
+            print "You put "; DefArt(noun);
+            " into the hole and it drops to the floor inside the room.";
+         Go,Enter: "The hole is much too small for you.";
+        ];
+
+Object  Latch "rusted latch"
+ has    static concealed
+ with   name "rusted" "metal" "latch",
+        description "It looks like an ordinary latch to a door, though \
+            very old.",
+        before [;
+         Take,Pull,Push:
+            if (WoodenBarA notin AlchemistsRoom) {
+                remove self;
+                give BlockedDoor open;
+                move BrickedUpDoorway to AlchemistsRoom;
+                Achieved(11);
+                "You lift up the latch and push slightly, and it swings \
+                inwards, revealing a small, dimly-lit room. Alas, there's \
+                no way to get to it, as the hole is much too small for \
+                you.";
+            }
+            "You lift up the latch and push, but the door (if it is a \
+            door) does not move. Perhaps it's blocked on the other side.";
+        ];
+
+
+
+Nearby  BlockedDoor "door"
+ has    door static openable
+        ! general if Wilderspin's complimented you on opening it
+ with   name "door",
+        when_closed "There is a closed door in the west wall.",
+        when_open "A door to the west stands open but the doorway beyond \
+            it has been bricked up.",
+        door_dir w_to,
+        door_to "The doorway has been bricked up; there's no exit there.",
+        description [;
+            print "It's an ordinary wooden door";
+            if (RustyLatch in location)
+                print ". There is a small metal latch at the left";
+            if (WoodenBarA in location)
+                print ". The door is held shut by a large wooden bar that \
+                    rests in sockets to the left and right of the door";
+            ".";
+        ],
+        before [;
+         Open:
+            if (self hasnt open) {
+                if (WoodenBarA in location)
+                    "You struggle with the wooden bar, but it is too \
+                    heavy for you.";
+                if (RustyLatch in location)
+                    <<Take RustyLatch>>;
+                "It is not obvious how to open the door, now that you \
+                have broken the latch.";
+            }
+        ],
+        after [;
+         Close: remove BrickedUpDoorway;
+        ];
+
+Nearby  WoodenBarA "wooden bar"
+ has    concealed
+ with   name "wooden" "bar",
+        description "The wooden bar rests in sockets on both sides of the \
+            door and hold the door closed.",
+        before [;
+         Take,Push,Pull: <<Open BlockedDoor>>;
+        ];
+
+Nearby  RustyLatch "latch"
+ has    static concealed
+ with   name "rusty" "metal" "latch",
+        description "It's very rusty.",
+        before [;
+         Take,Push,Pull: 
+            remove self;
+            move BrokenLatch to location;
+            "You try lifting the latch, but it must have become fatigued \
+            by rust over the years, because it breaks off the door and \
+            falls to the floor. How on earth are you going to open the \
+            door now?";
+        ];
+
+Object  BrokenLatch "useless metal object"
+ with   name "useless" "metal" "object" "latch",
+        description "It's the old latch that broke off the door.";
+
+Object  WoodenBarB "wooden bar"
+ with   name "wooden" "bar",
+        description "It's the wooden bar that used to hold the door \
+            closed.",
+        before [;
+         Take,Push,Pull:
+            "You heave at the bar, and manage to get one end off the \
+            ground, but it's too heavy for you to carry.";
+        ];
+
+Object  BrickedUpDoorway "bricked up doorway"
+ has    static concealed
+        ! general if parchment revealed
+ with   name "brick" "bricks" "bricked" "up" "doorway" "wall" "hole"
+            "library" "archway" "arch",
+        description [;
+            print "The doorway has been completely bricked up. From the \
+                state of the bricks, the work was done a long time ago";
+            if (LooseBrick hasnt general)
+                print ". One of the bricks has been removed, and you can \
+                    see through the hole into the library archway \
+                    beyond";
+            ".";
+        ],
+        after [;
+         Examine,Search:
+            if (self hasnt general) {
+                give self general;
+                move Parchment to location;
+                print "^Lying at the bottom of the bricked-up doorway is \
+                    a piece of yellowing parchment. Perhaps it was \
+                    attached to the door before the door was bricked \
+                    up. If so, it must be very old.^";
+            }
+        ];
+
+
+
+
+!--------------------------------------------------------------------------
+! 5.1 THE LION OF BOAZ-JACHIN AND JACHIN-BOAZ
+!--------------------------------------------------------------------------
+
+Object  GardenGate "gate" SecondCourt
+ has    scenery locked door
+ with   name "gate" "garden" "gardens" "wrought" "iron" "spikes",
+        description "The gate to the gardens is tall, made of bars of \
+            wrought iron. In the centre of the gate a bas-relief of a \
+            lion's head is supported.",
+        door_dir ne_to,
+        before [;
+         Search: "Through the gate you can make out the greenery of the \
+            college gardens.";
+         Climb: "You are deterred by the spikes atop the gate.";
+        ];
+
+Object  LionsHead "lion's head" SecondCourt
+ has    static concealed
+ with   name "lion" "lion's" "head",
+        description "Were it alive, it would be a frightening thing, its \
+            mouth open in a toothy grin.",
+        state 0,
+        before [;
+         Examine:
+            if (PaleLiquid has general) {
+                print "As you look at the lion's head, you feel groggy \
+                    and unwell. The metal seems to flow, and the lion's \
+                    jaws reach out and engulf your head in blackness. You \
+                    find yourself...^";
+                give PaleLiquid ~general;
+                ChangePlayer(LionPlayer);
+                LibraryMessages.before = #r$LionMessages;
+                <<Look>>;
+                rtrue;
+            }
+        ],
+        each_turn [;
+            if (PaleLiquid hasnt general) return;
+            self.state = self.state + 1;
+            if (self.state == 1) 
+                "^You feel rather queasy.";
+            if (self.state == 2)
+                "^A hot, dry wind seems to blow across the court.";
+            if (self.state == 3) 
+                "^For the briefest of moments, you seem to see a \
+                heat-shimmering savannah in front of you.";
+            if (self.state == 4)
+                "^You are feeling very dizzy.";
+            self.state = 0;
+            "^The faint roar of a lion seems to sound in your ears, as if \
+            from a long distance.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 5.3 CLOCK TOWER
+!--------------------------------------------------------------------------
+! A classic rope puzzle (included here more for the kudos of having
+! programmed it - a notoriously difficult feat - rather than any merit as a
+! puzzle!), made easier to code by the fact that Christabel can't take the
+! rope away and use it in other places.
+! 
+! The rope implementation works by having five different rope objects for
+! various possible states Christabel might get the rope into, and two
+! objects representing the "end of the rope" if she happens to be carrying
+! it.
+!
+! RopeA   coil of rope on ground (no hook - although the end of the rope
+!         might be attached to the hook in hand).
+! RopeB   coil of rope on groun, attached to hook
+! RopeC   rope through pulley, attached to hook
+! RopeD   rope through pulley, not attached to hook
+! RopeE   rope through pulley, attached to hook, attached to harness
+!
+! RopeEndA   end of rope in hand, unattached
+! RopeEndB   end of rope in hand, attached to hook
+!--------------------------------------------------------------------------
+
+Object  ClockTowerGround "Bottom of Clock Tower"
+ has    light
+ with   name "clock" "tower" "bottom",
+        description "You are standing on the ground level of the chapel's \
+            clock tower, which is a square room with the antechapel to \
+            the south. Some repair work is being done, because the tower \
+            is full of scaffolding supporting a wooden platform.",
+        s_to Antechapel,
+        out_to Antechapel,
+        u_to "The scaffolding is too difficult an ascent for you.",
+        cant_go "The antechapel is to the south.",
+        before [;
+         Tie:
+            if (second == RopeA or RopeB or RopeC ||
+                second == RopeD or RopeE or RopeEndA ||
+                second == RopeEndB)
+                <<Tie second noun>>;
+         Hook:
+            if (RopeE in location)
+                "The hook is already attached to your harness.";
+            if (RopeC notin location)
+                "You have no effective means of doing so at the moment.";
+            if (noun ~= FakeToolbox or Toolbox) {
+                print "You have trouble getting hold of ";
+                DefArt(noun);
+                " with the hook.";
+            }
+         Go:
+            if (noun == s_obj or out_obj) {
+                if (RopeEndA in player) {
+                    remove RopeEndA;
+                    print "You drop the end of the rope.^";
+                }
+                if (RopeEndB in player) {
+                    remove RopeEndB;
+                    remove RopeA;
+                    move RopeB to location;
+                    print "You drop the end of the rope.^";
+                }
+                if (RopeE in location) {
+                    "Not while your harness is attached to the hook!";
+                }
+            }
+        ];
+
+Nearby  Scaffolding "scaffolding"
+ has    scenery
+ with   name "rod" "rods" "scaffolding",
+        article "the",
+        description "The scaffolding is a large collection of metal rods \
+            supporting a wooden platform about twenty feet above you.",
+        before [;
+         Attack: "It looks stable, but you don't want to risk the whole \
+             structure collapsing on you, so you decide not to.";
+         Climb: "The workmen who built the scaffolding might be able to \
+             scale it like monkeys, but it's too difficult an ascent for \
+             you.";
+        ];
+
+Nearby  RopeA "coil of rope"
+ with   name "coil" "of" "rope",
+        description "The rope is very thick and strong.",
+        invent [;
+            if (inventory_stage == 2 && (RopeEndA in player || RopeEndB in
+                player)) print " (which you are holding the end of)";
+        ],
+        before [;
+         Take:
+            if (RopeEndA in player || RopeEndB in player)
+                "You're already holding the end of the rope.";
+            move RopeEndA to player;
+            "You pick up one end of the rope.";
+         Climb: "An indian fakir you're not.";
+         Tie:
+            if (RopeEndA in player)
+                <<Tie RopeEndA second>>;
+            if (RopeEndB in player)
+                <<Tie RopeEndB second>>;
+            if (second ~= Hook)
+                "The rope is very thick, and you were never any good at \
+                knots, so you have trouble tying it to something it's not \
+                designed to be tied to.";
+            remove Hook;
+            remove self;
+            move RopeB to location;
+            "Not without some difficulty (you were never any good at \
+            knots), you tie the rope to the hook.";
+         Untie:
+            if (RopeEndA in player)
+                <<Untie RopeEndA>>;
+            if (RopeEndB in player)
+                <<Untie RopeEndB>>;
+        ];
+
+Nearby  FakeToolbox "toolbox"
+ with   name "toolbox" "tool" "box" "handle",
+        initial "A toolbox rests on the platform.",
+        description "A metal toolbox with a big handle.",
+        before [;
+            if (action ~= ##Examine or ##Hook)
+                "The toolbox is too high up for you to reach.";
+         Hook:
+            if (RopeC in location) {
+                remove self;
+                move Toolbox to location;
+                "By waving the rope around, you are able to engage the \
+                hook with the handle of the toolbox. You lift the toolbox \
+                from the platform, and lower it rather precipitously (for \
+                it is very heavy) to the ground, narrowly avoiding \
+                injuring your feet.";
+            }
+        ];
+
+Nearby  FakePlatform "platform"
+ has    scenery
+ with   name "wooden" "wood" "platform",
+        before [;
+            if (action ~= ##Examine)
+                "The wooden platform is too high for you to reach.";
+        ];
+
+Nearby  Hook "hook"
+ with   name "hook" "loop",
+        description "It's a big piece of metal with a hook at one end and \
+            a loop at the other.";
+
+Object  Pulley "pulley"
+ with   name "pulley",
+        found_in ClockTowerGround ClockTowerPlatform,
+        describe [;
+            print "^A pulley hangs from the ceiling";
+            if (RopeC in location||RopeD in location||RopeE in location)
+                print ". A rope runs through the pulley";
+            ".";
+        ],
+        before [;
+            if (action ~= ##Examine)
+                "The pulley is too high for you to reach.";
+        ];
+
+Object  RopeEndA "end of the rope"
+ with   name "end" "of" "rope",
+        article "the",
+        description "The rope is very thick and strong.",
+        before [;
+         Drop:
+            remove self;
+            "Dropped.";
+         ThrowAt:
+            remove self;
+            "You throw the rope upwards, but it flops inelegantly back to \
+            the ground without getting anywhere near its target.";
+         Tie:
+            if (second ~= Hook)
+                "The rope is very thick, and you were never any good at \
+                knots, so you have trouble tying it to something it's not \
+                designed to be tied to.";
+            remove Hook;
+            remove self;
+            move RopeEndB to player;
+            "Not without some difficulty (you were never any good at \
+            knots), you tie the end of the rope to the hook.";
+         Insert:
+            "The rope is too large to fit.";
+         Climb: "An indian fakir you're not.";
+        ];
+
+Object  RopeB "coil of rope (tied to the hook)"
+ with   name "coil" "of" "rope" "hook",
+        description "The rope is very thick and strong. It is tied as \
+            securely as you could manage to the hook.",
+        before [;
+         Take:
+            if (RopeEndB in player)
+                "You're already holding the end of the rope.";
+            remove self;
+            move RopeA to location;
+            move RopeEndB to player;
+            "You pick up the end of the rope that's tied to the hook.";
+         Climb: "An indian fakir you're not.";
+         Tie: 
+            if (second == Harness)
+                "That won't do you any good, as the rope is in a heap on \
+                the ground.";
+            "The rope is already tied to the hook. You'll have to untie \
+            it first.";
+         Untie:
+            remove self;
+            move RopeA to location;
+            move Hook to location;
+            "You untie the rope from the hook.";
+        ],
+        each_turn [;
+            if (self has worn && location ~= ClockTowerGround
+                or ClockTowerPlatform) {
+                print "^You realise suddenly that you look very silly \
+                    wearing the harness, so you remove it.^";
+                keep_silent=1; <Disrobe Harness>; keep_silent=0;
+            }
+        ];
+
+Object  RopeEndB "end of the rope (tied to the hook)"
+        ! general if got the vocab hint
+ with   name "end" "of" "rope" "hook",
+        article "the",
+        description "The rope is tied as securely as you could manage to \
+            the hook.",
+        before [;
+         Drop:
+            remove self;
+            remove RopeA;
+            move RopeB to location;
+            "Dropped.";
+         ThrowAt:
+            if (second ~= Pulley) {
+                remove self;
+                remove RopeA;
+                move RopeB to location;
+                "You throw the hook, and flies satisfactorily through the \
+                air. You don't achieve much, through.";
+            }
+            remove self;
+            remove RopeA;
+            move RopeC to location;
+            print "To your surprise, you manage to get the hook over the \
+                pulley first time";
+            if (self hasnt general) {
+                give self general;
+                ". [To try to pick up something with the hook, try \
+                ~hook thing~]";
+            }
+            ".";
+         Tie: 
+            if (second == Harness)
+                "That won't do you any good, as the rope is in a heap on \
+                the ground.";
+            "The rope is already tied to the hook. You'll have to untie \
+            it first.";
+         Untie,Disrobe:
+            remove self;
+            move RopeEndA to player;
+            move Hook to player;
+            "You untie the rope from the hook.";
+         Insert: "The rope is too large to fit.";
+         Climb: "An indian fakir you're not.";
+        ];
+
+Object  RopeC "rope"
+ has    concealed
+ with   name "rope" "hook",
+        description "The rope runs through the pulley, and is attached to \
+            a hook at one end.",
+        before [;
+         Take,Climb:
+            remove self;
+            move RopeB to location;
+            "You succeed in pulling the rope out of the pulley, and it \
+            falls to the ground in a heap.";
+         Pull:
+            print "You pull the rope, and it travels smoothly through the \
+                pulley, which seems to be well-oiled";
+            if (FakeToolbox in location)
+                print ". With a bit of luck, you might be able to hook \
+                    the toolbox";
+            ".";
+         Tie:
+            if (second == Harness) {
+                if (Harness hasnt worn)
+                    "That wouldn't do you any good, as you're not wearing \
+                    the harness.";
+                remove self;
+                move RopeE to location;
+                "You attach the hook to the harness.";
+            }
+            "The rope is already tied to the hook. You'll have to untie \
+            it first.";
+         Untie,Remove:
+            remove self;
+            move RopeD to location;
+            move Hook to location;
+            "You untie the rope from the hook.";
+        ];
+
+Object  RopeD "rope"
+ has    concealed
+ with   name "rope",
+        description "The rope runs through the pulley.",
+        before [;
+         Take,Climb:
+            remove self;
+            move RopeA to location;
+            "You succeed in pulling the rope out of the pulley, and it \
+            falls to the ground in a heap.";
+         Pull:
+            "You pull the rope, and it travels smoothly through the \
+            pulley, which seems to be well-oiled.";
+         Tie:
+            if (second ~= Hook)
+                "The rope is very thick, and you were never any good at \
+                knots, so you have trouble tying it to something it's not \
+                designed to be tied to.";
+            remove Hook;
+            remove self;
+            move RopeC to location;
+            "Not without some difficulty (you were never any good at \
+            knots), you tie the end of the rope to the hook.";
+        ];
+
+Object  RopeE "rope"
+ has    concealed
+ with   name "rope" "hook",
+        description "The rope runs through the pulley, and is attached to \
+            a hook at one end. The hook is attached to your harness.",
+        before [;
+         Take: "Not while your harness is attached to the hook!";
+         Tie: "The rope is already tied to the hook, and the hook is \
+             attached to your harness.";
+         Remove,Untie:
+            if (self in ClockTowerPlatform)
+                "That seems like a dangerous thing to do, given how \
+                precarious it is up here on the platform.";
+            remove self;
+            move RopeC to location;
+            "You detach the hook from your harness. You are free to move \
+            again.";
+         Climb,Pull:
+            if (self in ClockTowerPlatform) {
+                print "You gingerly lower yourself back down to the \
+                    ground.^";
+                move self to ClockTowerGround;
+                PlayerTo(ClockTowerGround,1);
+                LookSub(1);
+                rtrue;
+            }
+            print "With a great deal of effort, you slowly lift yourself \
+                up to the platform.^";
+            move self to ClockTowerPlatform;
+            PlayerTo(ClockTowerPlatform,1);
+            LookSub(1);
+            rtrue;
+        ];
+
+Object  Toolbox "toolbox"
+ has    container openable
+ with   capacity 15,
+        name "tool" "box" "toolbox",
+        description "A metal toolbox with a big handle.",
+        before [;
+         Take:
+            "It's too heavy for you to lift. You wonder how you ever \
+            managed to lower it from the platform without injuring \
+            yourself.";
+         Hook:
+            if (RopeC in location) <<Take self>>;
+        ];
+
+Nearby  Harness "harness"
+ has    clothing
+ with   name "leather" "safety" "harness",
+        description "It's a safety harness of the sort that climbers, \
+            abseilers, window-washers and other lunatics who dangle from \
+            high places strap themselves into and attach ropes to in \
+            order to save themselves from injury. It's made of leather.",
+        before [;
+         Disrobe:
+            if (self has worn && RopeE in location)
+                "Not while it's attached to the hook!";
+        ];
+
+Object  ClockTowerPlatform "Clock Tower Platform"
+ has    light scored
+ with   name "clock" "tower" "platform" "wooden" "board" "scaffolding",
+        description "You're standing rather precariously on a wooden \
+            board on top of a ricketty piece of scaffolding. You're glad \
+            that you're wearing a safety harness!",
+        cant_go "The only way to go is back down.",
+        before [;
+         Go:
+            if (noun == d_obj) <<Pull RopeE>>;
+        ];
+
+
+Object  RedRose "red rose"
+ with   name "rose" "red",
+        description "A rose is a rose is a rose.",
+        before [;
+         Eat: "Your mouth waters at the thought of quails with rose petal \
+            sauce... but now is not the time for such daydreaming.";
+         Smell: "By any other name, it would smell as sweet.";
+        ];
+
+"The job of the writer is to describe the rose; that of the
+poet to sing its virtues; that of the artist to convey its
+beauty; that of the lawyer to convince us that it's not a rose
+at all." 
+                               -- Barnabas Kubiak

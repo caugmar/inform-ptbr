@@ -1,0 +1,31 @@
+COPYRIGHT FOR THE CHRISTMINSTER SOURCES
+---------------------------------------
+
+The sources to "Christminster", namely the files
+
+        COPYRIGHT
+        RELEASE
+        alchemy.inf
+        edward.inf
+        endgame.inf
+        first.inf
+        gardens.inf
+        grammar.h.patch
+        help.inf
+        library.inf
+        minster.inf
+        minster.rec
+        notes.txt
+        offcuts.txt
+        parser.h.patch
+        prologue.inf
+        second.inf
+        verblib.h.patch
+
+are all copyright (c) 1995-1997 by Gareth Rees.  Verbatim copies may be
+freely copied and distributed provided that they are distributed
+together and not piecemeal; modified versions of these files may not be
+distributed.
+
+The game produced by compiling these sources has different copyright
+terms.  Type "help copyright" when playing the game for details.

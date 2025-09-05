@@ -1,0 +1,1558 @@
+BUGS AND SUGGESTIONS
+--------------------
+
+Copyright (c) 1995-1996 by Gareth Rees.
+This file may be copied and distributed under certain conditions.
+See the file COPYRIGHT for details.
+
+
+Informers
+---------
+
+    JA   Jouni Alkio
+    TA   Torbj|rn Anderson
+    DA   Douglas Atkinson
+    RB   Richard Barnett
+    SB   Simon Brind
+    WB   Wainwright & Brooksby, Experts
+    EKC  Tavia Chalcraft
+    EC   Erskin Cherry
+    AC   Andrew Clover
+    RD   Robert A. DeLisle
+    RD   Robert Dickau
+    JD   Jason Dyer
+    KF   Kenneth Fair
+    JF   Joe Frank
+    MG   Michael Gehm
+    CG   Chris Goedde
+    SG2  Sam Gorton
+    SG   Stephen Granade
+    LH   Laurel Halbany
+    KH   Kai Hesse
+    BH   Bernard Hsuing
+    WH   William Hurwood
+    RH   Randy Hutson
+    WI   Walter Isaac
+    CK   Darius Katz
+    MK   Michael Kinyon
+    BM   Bob Manson
+    MM   Mathias Maul
+    JM   Jeffry Miller
+    JN   Jeff Nassiff
+    GN   Graham Nelson
+    CO   Carrie O'Grady
+    MP   Morten Pedersen
+    AP   Andrew Plotkin
+    MP   Maurizio Paoluzi
+    MP   Mike Phillips
+    NQ   Neil Querengesser
+    RR2  Rob Rachel
+    RR   Robert Rendell
+    MR   Matthias Ruhl 
+    NS   Nicola Salmoria
+    SS   Steve Salter
+    MS   Marshall Sanderford
+    MS   Mike Scott
+    PS   P.D.S. Shrimpton
+    DT   Dylan Thurston
+    MV   Mikko Vuorinen
+    JW   Jacob Solomon Weinstein
+    KW   Kies Wiebering
+    BW   Brendon Wyber
+    JZ   Jeff Zahn
+
+
+Bugs/Suggestions
+----------------
+
+The square brackets contain the category of the bug and the date on
+which the bug was fixed.  The categories are from "The Errors of TeX" by
+Donald Knuth, printed in "Literate Programming":
+
+    B blunder - typed X when I meant to type Y
+    F forgotten function - I hadn't written an essential piece of code!
+    G generalisation - a major extension to the program
+    M mismatch - hadn't used the correct interface to the library
+    P portability - a change to make it run on more systems
+    A an algorithm was fundamentally incorrect
+    S surprise - two parts of the program interacted in an unexpected way
+    D data structure was not kept consistent
+    T typographical error - mispelling, poor grammar or punctuation
+    Q quality control - an input produced an incorrect response, or
+      some feature of the background was inconsistent
+    I interactive improvement - a new or improved response to some input
+
+A bug that has not been fixed is prefixed with an asterisk (this tends
+to be the case when the bug is in a tricky part of the library parsing
+routines).
+
+   1 (MK) DefaultTalk shouldn't select the parrot at the window.
+     [S 27/5/95]
+
+   2 (MK) The Busker shouldn't show you the cup if you've just looked
+     under it.  [Q 27/5/95]
+
+   3 (MK) Busker does trick with last trick object (e.g. the telegram)
+     rather than with the marble, if you just wait for him.  [D 27/5/95]
+
+   4 (MK) Looking under cup at earliest moment means that busker's next
+     comment is not very meaningful.  [Q 27/5/95]
+
+   5 (MK) The map isn't recognised properly in the prologue.  [D 27/5/95]
+
+   6 (MK) `ask constable for helmet' gives no reply.  [I 27/5/95]
+
+   7 (MK) The constable's "Morning, ma'am," says the constable, "Lovely
+     day!"  seems to prompt the reply "yes" which then gets a lame
+     response.  [Q 27/5/95]
+
+   8 (MK) `get all from y' doesn't work (probably my hack in Parser.h
+     failed).  [A seems to work with real libraries 27/5]
+
+   9 (MK) `show cobble to constable' gets inappropriate message
+     [Q 27/5/95]
+
+  10 (MK) >give key to porter Who do you mean, the ring of keys or the
+     brass key?  [Z parser bug, kludged 27/5 - asked Graham to look at
+     it]
+
+  11 (MK) Cabinet is takeable [F 27/5/95]
+
+  12 (MK) If Edward is asked about things about which he does not know
+     after he has seen the feather, some response other than "He's
+     obviously very distressed..." would be appropriate.  Even if it is
+     just "I don't know about that" or something.  [no - this is a
+     misunderstanding on MK's part - maybe solved by giving E more
+     responses?]
+
+  13 (MK) >ask master about malcolm "That's all very well," says the
+     Master, "but anyone could tell me that. Can't you show me some
+     proof?" [Q 27/5/95]
+
+  14 (MK) If Edward is led into Biblioll Street, perhaps he should react
+     to the broken window.  [I 27/5/95]
+
+  15 (RD) When playing with the busker, sometimes the telegram doesn't
+     quite move around.  [Q 27/5/95]
+
+  16 (RD) It isn't clear to me how I can see the key that the don is
+     lying on, but not slip it out from underneath.  [Q 27/5/95]
+
+  17 (RD) For the stick of candy, after given to the constable, "(given
+     away)" might be more appropriate.  [I 27/5/95]
+
+  18 (RD) Some way of differentiating notes would be appreciated.
+     [I 27/5/95]
+
+  19 (RD) In "B" staircase, second floor, "ladder" would be an
+     appropriate scenery word.  [I 27/5/95]
+
+  20 (RD) "hear" may not be the right word in "Edward doesn't seem to
+     hear you." [Q 27/5/95]
+
+  21 (RD) In Malcolm's bedroom, "look out window" might be a good touch.
+     [I 27/5/95]
+
+  22 (RD) I can knock on Wilderspin's door (b2), ask him about
+     Arkwright, then leave to the First Court; and while I'm there I'm
+     still told, "Professor Wilderspin says..." [D 27/5/95]
+
+  23 (RD) TelephoneDaemon is confused as to which of states 1,2 is
+     Jarboe and which is Bungay.  [D 27/5/95]
+
+  24 (RD) Perhaps Forbes should react when I knock on his door (b5) when
+     he's nearby, and when I look in his pigeonhole.  [Q 29/5/95]
+
+  25 (RD) I should be able to close the door to Malcolm's study from the
+     inside.  [Q 29/5/95]
+
+  26 (RD) It isn't obvious from the descriptions when the door to the
+     Second Court is open.  [I 29/5/95]
+
+  27 (RD) In the darkness of the Cellars, attaching the power pack to
+     the meter gives me the 5.0V message, when the dark should prevent
+     that.  [Q 29/5/95]
+
+  28 (RD) The hatch is broken - sometimes its open and you can't go
+     through it, sometimes you can go through it while the cellars are
+     dark, sometimes Edward follows you (into darkness) [D 29/5/95]
+
+  29 (RD) ">put tears on altar" yields "An interesting idea. The altar
+     is closed." [D 29/5/95]
+
+  30 (RD) "go east" doesn't work in punt.  [M 29/5/95]
+
+  31 (GN) The verb "time" (standard in many games for "what is the
+     time") ought to be recognised, if only to be more eloquently
+     refused.  [I 29/5/95]
+
+  33 (GN) The table being described twice at Bridge St is a bit naff.
+     Probably my fault (i.e. a library change since you wrote the
+     introduction), still.  [Q 29/5/95]
+
+  34 (GN) Um, "candy" is a bit of an Americanism.  If this is a toffee,
+     why not say so? [Q 29/5/95]
+
+  35 (GN) I'm slightly narked that, having got the policeman to take
+     part in the candy trick, I then let the trick finish because it was
+     fun to watch, and now he's eaten the candy and is following me
+     again - if I didn't know this puzzle from the sampler version, I'd
+     be really stuck.  Perhaps the policeman could give the busker a
+     whistle (say) in order to see the trick again, having been hooked
+     on it once.  [I 29/5/95]
+
+  36 (GN) "give map to policeman": Perhaps he might look at the map, and
+     annoyingly tell you how to get to the front gate of the college
+     (which you already know).  [I 29/5/95]
+
+  37 (GN) There really should be a "tickle someone" form of "tickle", to
+     give a better reply when you type "tickle man".  [no - because the
+     "what do you want to tickle that with?" is a valuable clue to the
+     syntax]
+
+  38 (GN) "copper" is not recognised for "policeman".  Peeler?  Bobby?
+     [I 29/5/95]
+
+  39 (GN) When the don shouts "You there!" etc., the constable's arrival
+     message may precede him, so that "he shouts at you" is ambiguous -
+     change it to "the don shouts at you".  [Q 29/5/95]
+
+  40 (MK) It's unclear that you have to give the bag to the busker (he
+     says he wants objects like coins, watches etc).  [29/5/95]
+
+  41 (MK) thought that Edward wouldn't speak at all until you'd given
+     him the feather.  [no - see #12]
+
+  42 (RD) Make it clearer that the eyes pop back out.  [Q 29/5/95]
+
+  43 (RD) In Wilderspin's study, "x griffins" should perhaps be allowed.
+     [I 29/5/95]
+
+  44 (RD) "put book in fireplace" (also in river) [I 29/5/95]
+
+  45 (RD) Edward comments on Bible even when not there.  [D 29/5/95]
+
+  46 (RD) When escaping from Bungay's study through the window, perhaps
+     a message of relief would be appropriate ("You've escaped -- and
+     just barely!"); and to be able to refer to the window after leaving
+     from it seems fair.  [I 29/5/95]
+
+  47 (RD) Edward doesn't seem to move about properly after his meeting
+     with Bungay: he seems to remain in Bungay's hallway even though the
+     description suggests he has gone.  [D 3/6/95]
+
+  48 (RD) Why is "feel gum" so silly? ("No chance." "Don't be silly!"
+     ...) [Q 29/5/95]
+
+  49 (RD) In the darkness of the secret room, this message is printed
+     twice: "I wish you'd figure out what you want me to do," Wilderspin
+     grumbles, "I don't think I can carry you for ever." [Q 29/5/95]
+
+  50 (RD) In the Secret room, with the skeleton and bench, get the
+     "Wilderspin doing sth bizarre" error.  [D 29/5/95]
+
+  51 (MK) "get key" seems a bit rude as a way of getting the tin key.
+     If you would like to throw in a verb, how about "point to".  As in
+     "point to ring".  Of course, you then have the problem of players
+     wanting to point to everything...  [I 29/5/95]
+
+  52 (MK) wants to jump to his death [no]
+
+  53 (GN) Why don't I know my own surname? [Q 15/10/95]
+
+  54 (GN) "porter, where is malcolm" or "porter, where is he" produced
+     "no reply". (The Master is just as annoying.) [I 29/5/95]
+
+  55 (GN) In "A" staircase, ground floor, north ought to equal up.
+     [I 29/5/95]
+
+  56 (GN) Call me a traditionalist (go on), but for some reason I prefer
+     capitalised location short-names (e.g. "Master's Lodge" rather than
+     "Master's lodge"), as uncapitalised ones look too much like
+     incomplete sentences.  [I 29/5/95]
+
+  57 (GN) Incidentally, you might call this the Master's Lodgings rather
+     than Lodge (which the porters inhabit) - such is the practice at
+     Magdalen, anyway.  [I 29/5/95]
+
+  58 (GN) When the Master's maid opened the door to the lodge, I tried
+     "in" but without success.  Perhaps you might trap this one case
+     (since in this one case "in" is unambiguous).  [I 29/5/95]
+
+  59 (GN) "kiss master" might have been a plausible thing for a young
+     lady to do to a nice helpful respectable old chap in the 50s.  (And
+     indeed in his 50s.) [I 29/5/95]
+
+  60 (GN) Might I ask for just slightly more description on the
+     staircase rooms?  The carbolic scent of cleaning, the view out over
+     the roofs from a small window, the feeling that you don't quite
+     belong here, etc., must be the very essence of Cambridge, sorry,
+     Christminster.  [I 29/5/95]
+
+  61 (GN) "look under door" (the library door) might say something?
+     [I 31/5/95]
+
+  62 (GN) Recognise "bricks" as well as "brickwork" there [I 31/5/95]
+
+  63 (GN) It just occurs to me - can you work the phrase "sporting one's
+     oak" into the game somewhere?  This is to do with when one's outer
+     and inner doors are open or shut, and has certain connotations, as
+     you doubtless recall.  [I 2/6/95]
+
+  64 (GN) I may misunderstand this, but why does the voltmeter have only
+     one terminal, the clip?  Surely it measures potential difference?
+     [Q 10/6/95]
+
+  65 (GN) "put voltmeter clip on power pack" seems reasonable to me,
+     too.  [I 31/5/95]
+
+  66 (GN) I tried to shake hands with Edward.  [I 31/5/95]
+
+  67 (GN) "edward, go to second court", "edward, second court", "edward,
+     bridge street"...  When he said "who could have done such a
+     terrible thing", I tried to confess, "edward, me", "edward, it was
+     me".  [I 31/5/95]
+
+  68 (GN) Can I call Edward "ed"? [I 31/5/95]
+
+  69 (GN) solve the smell/smell thing problem once & for all; then
+     "smell" in First Court calls <<Smell Wistaria>> (and so on)!
+     [M 31/5/95]
+
+  70 (GN) "edward, pull bell" doesn't work.  [I 31/5/95]
+
+  71 (GN) The porter is unimpressed by being shown a map of the College.
+     Now one thing porters do react to is people who are lost.  [I
+     2/6/95]
+
+  72 (GN) This being the 1950s, Edward would have been strictly
+     forbidden from having a female visitor in his rooms - perhaps this
+     might make an amusing rejoinder to "edward, east" at the top of the
+     second floor of B.  [I 31/5/95]
+
+  73 (GN) Perhaps you might change the library message of "You hear
+     nothing unexpected" to, oh, "Christminster is so restfully still on
+     a Sunday"? [I 31/5/95]
+
+  74 (GN) The analogous archway at Magdalen is a war memorial, a rather
+     moving long tablet of names and regiments along both walls.
+     [I 31/5/95]
+
+  75 (EKC) Evensong in chapel (need to be wearing a hat to get in).
+     [3/6/95]
+
+  76 (EKC) Flag and coat of arms.  [I 2/6/95]
+
+  77 (EKC) College plate at high table? [I 2/6/95]
+
+  78 (GDR) Master doesn't talk to you when you enter his study.  [D
+     2/6/95]
+
+  79 (GDR) "ask master for arkwright", "ask master for books" [I 2/6/95]
+
+  80 (GDR) History of the Meldrews (vol. III).  [I 2/6/95]
+
+  81 (GDR) Hiccups (cured by drinking water).  [I 2/6/95]
+
+  82 (MK) J & B ask me to leave and then won't let me leave.  [Q 2/6/95]
+
+  83 (MK) It is possible to get a bit ahead of Bungay.  [S 2/6/95]
+
+  84 (MK) "You leave the pole behind in the punt for the next person who
+     comes this way." is odd if you're not in the punt.  [D 2/6/95]
+
+  85 (MK) "look up 143 in arkwright", "read page 143 in arkwright".
+     [I 2/6/95]
+
+  86 (MK) Response to "ask M about W" does not really make sense if you
+     have not already asked the Master for Arkwright (which I had not
+     done, so I did not know what book was meant).  [Q 2/6/95]
+
+  87 (MK) What if you knock at the door before B arrives? [Q 2/6/95]
+
+  88 (MK) "give/show lab book to bungay" should be more disastrous than
+     it is.  [no - indicates he's not so observant]
+
+  89 (MK) Is it deliberate that the initial description of Bungay's
+     study does not mention the window? [Q 3/6/95]
+
+  90 (MK) The sequence of their conversation should continue even if I
+     just stand in the hallway and wait.  It only seems to proceed if I
+     keep typing "l".  [I 3/6/95]
+
+  91 (MK) What if you knock on Bungay's door while Edward in there?
+     [Q 3/6/95]
+
+  92 (RD) It's not clear how I escaped the dark room arrived at by
+     pulling the lever: "go down" doesn't do anything, but "sit on
+     floor" does? [M 3/6/95]
+
+  93 (RD) The Master should perhaps say something other than "You've
+     convinced me..." when shown different books.  [Q 5/6/95]
+
+  94 (GDR) Trap "go north" in Bungay's Study.  [M 3/6/95]
+
+  95 (RD) After escaping the hidden rooms, Wilderspin's fireplace still
+     indicates the west exit is there, when it's not.  [D 3/6/95]
+
+  96 (GDR) Can walk on lawn now.  [I 3/6/95]
+
+  97 (EKC) Flag.  [I 3/6/95]
+
+  98 (GDR) Remove connection between Gardens & West Bank [D 5/6/95]
+
+  99 (MK) Some of the spiel that Edward gives in the first few turns
+     after he is discovered is not relevant after his supervision.
+     [Q 4/5/95]
+
+ 100 (RD) You observe that two wires (one green, one red and one blue)
+     are plugged into the blue socket.  [A library bug - "fixed"
+     17/10/95]
+
+ 101 (RD) "get parrot" -- when it's on Edward's shoulder [I]
+
+ 102 (RD) "fill retort with water" results in "** Error: object out of
+     place: water store **" etc.  [A 5/6/95]
+
+ 103 (RD) Missing new-line in "x retort" -> "... It contains some cloudy
+     water." [T 5/6/95]
+
+ 104 (RD) "fill bottle with water" -> But the brown glass bottle already
+     contains a nothing.  [A 5/6/95]
+
+ 105 (RD) "put water in retort" -> "You don't want to go losing things
+     in the river, do you?" [A 5/6/95]
+
+ 106 (GN) I can't look up Master in Men of Biblioll.  [I 5/6/95]
+
+ 107 (GN) I tried to thank the master for the invite, but couldn't.
+     [I 5/6/95]
+
+ 108 (GN) Could the M. say "always good to see you" rather than "Nice to
+     have met you" on subsequent departures? [I 5/6/95]
+
+ 109 (GN) The porter is unimpressed by being shown the ticket.  (I had
+     hoped he might unlock the 2nd Court door.) [no - tough luck]
+
+ 110 (GN) And I would mention that I didn't put an email or snailmail
+     address into my game, since these files will lurk on bulletin
+     boards _forever_.  There are still copies of Curses Release 7 out
+     there that I occasionally hear of.) [no]
+
+ 111 (GN) "The cleaning ladies" - as referred to when smelling in B
+     basement.  Um, it just occurred to me it would be witty to invent a
+     name for these, along the lines of "bedder" or "scout".  Perhaps
+     "dusties" has the right precious, somewhat patronising ring to it?
+     [I 6/6/95]
+
+ 112 (GN) In the 50s, of course, everyone smoked.  Perhaps the Master
+     might offer you a cigarette?  (Which, being a delicate young thing,
+     etc., etc.) [no - worries about fire &c]
+
+ 113 (GN) I'm not sure "take all from cabinet" ought to unplug the plugs
+     from the sockets - surely that's not what I intended.  And you can
+     fix this by exempting the wires from "take all" using
+     ChooseObjects()...  [I 5/6/95]
+
+ 114 (GN) The "you can see a cabinet, in which are..." etc. message is a
+     bit less than helpful when trying to discover which wire is in
+     which socket.  Particularly since "examine wires" doesn't tell one
+     this either.  [I 5/6/95]
+
+ 115 (GN) It is slightly annoying that after attaching the voltmeter to
+     something, one has to examine it as a separate action.  After all,
+     you're looking at the wretched thing already, so it would be hard
+     not to take a reading.  [I 5/6/95]
+
+ 116 (GN) "hang up phone" is unrecognised.  [I 5/6/95]
+
+ 117 (GN) "put phone on ..." [I 5/6/95]
+
+ 118 (GN) The College was founded in 1275; but you say it is 700 years
+     old.  [Q 5/6/95]
+
+ 119 (GN) "look through door" might do something interesting at the 2nd
+     court door, through which chinks of light can be seen.  [I 5/6/95]
+
+ 120 (GN) I was hopeful of finding something under the name of Spencer
+     (or perhaps of Baskeyfield) in the library card-index - in most
+     colleges, fellows are morally obliged to give copies of all their
+     books to the library.  [no]
+
+ 121 (GN) Does the Master not have a lodge pigeonhole? [no - after all,
+     he doesn't at Christ's]
+
+ 121 (GN) "You must help me to find my parrot," pleads Edward, "Just
+     tell...." is wrongly punctuated; the second comma should be a full
+     stop.  This slight grammatical misdemeanour recurs in Edward's
+     dialogue.  [T - this appears at least 173 times, but all done
+     5/6/95]
+
+ 122 (GN) Wouldn't a history student be at all impressed by seeing Men
+     of Biblioll? [I 6/6/95]
+
+ 123 (GN) I have found Wilderspin, but find him unresponsive.  "ask
+     wilderspin about edward" might be nice? [no - misunderstanding]
+
+ 124 (GN) I am slightly annoyed that Men of Biblioll has been not even
+     entertaining yet, since apart from Biblioll himself absolutely no
+     proper nouns have been revealed yet - despite being all over first
+     court.  Couldn't there be a discreet statue somewhere, or something
+     like that?  A "Bloggs Room"? [no]
+
+ 125 (RD) "open cabinet" -> "You open the cabinet, revealing three pair
+     of sockets[...]" [Q 5/6/95]
+
+ 126 (RD) "look at wires" -> "Which do you mean, the pair of green
+     wires, the pair of red wires or the pair of blue wire?" [Q 5/6/95]
+
+ 127 (RD) Would "hang up" be an acceptable synonym for "replace
+     telephone"? [I 5/6/95]
+
+ 128 (RD) In Wilderspin's study, you might want to remove the griffins
+     and eyes from the scope of "get all". Maybe.  [Q 5/6/95]
+
+ 129 (RD) When I arrive in the library from the secret room, perhaps
+     Edward should respond with one of these messages, but not both.
+     [Q 5/6/95]
+
+ 130 (RD) This message appears just after the parrot has landed on
+     Edward's shoulder: "Edward stares up at his parrot forlornly. "Come
+     here, Polly," he calls, though not with any conviction that he is
+     going to be obeyed." [D 5/6/95]
+
+ 131 (RD) In "Archway Between the Courts", perhaps "Between" shouldn't
+     be capitalized.  [T 5/6/95]
+
+ 132 (RD) I can still hear voices or engaged tones on the telephone
+     after I've dropped it by leaving the Master's Lodgings.  [D 5/6/95]
+
+ 133 (RD) "look at red socket" -> "The pair of red socketsis empty."
+     [T 5/6/95]
+
+ 134 (MK) "look up lilly in men" [I 6/6/95]
+
+ 135 (MK) "look up canynges in men" has two "to this day"s - awkward.
+     [T 6/6/95]
+
+ 136 (MK) "There's nothing within reach to the up." [Q 6/6/95]
+
+ 137 (MK) After "wilderspin, drop me", he doesn't go back to his script.
+     [D 6/6/95]
+
+ 138 (MK) "jump" while standing on Wilderspin.  [I 6/6/95]
+
+ 139 (GN) "red cup" and "red brick wall" clash.  [Q 6/6/95]
+
+ 140 (GN) "But I don't have your key" => "But I haven't got your key"
+     [T 6/6/95]
+
+ 141 (GN) "ask master about baskeyfield/library/second court" [I 7/6/95]
+
+ 142 (GN) "look in index for maclane?" [I 6/6/95]
+
+ 143 (GN) Why can't I call "Men of Biblioll" "maclane" after it's found?
+     [I 6/6/95]
+
+ 144 (GN) Bungay and Jarboe would not call each other Dr and Professor,
+     certainly not in the 50s (when, to be strictly chronological, the
+     term Dr wasn't widely used around Oxbridge).  It would just be
+     Bungay and Jarboe.  [I 6/6/95; 11/7/95]
+
+ 145 (GN) "hide under bed" doesn't work ("bed" object doesn't exist).
+     [I 6/6/95]
+
+ 146 (GN) "floozie" is a bit modern, isn't it?  Can I supply "Always
+     knew he had garlands in his hair"? [T changed to 'floosie' 6/6/95]
+
+ 147 (GN) "slap" = "attack" [I 5/6/95]
+
+ 148 (GN) You might sneakily mention last night's rain at the Lady
+     Margaret Green location.  [I 6/6/95]
+
+ 149 (GN) "x chapel/hall/cobbles" [I 6/6/95]
+
+ 150 (GN) I feel a little less happy about the 2nd court description
+     than the 1C one; the menu-look is a bit less pleasing, and the rest
+     is slightly too plain. The Hall and Chapel must be splendid, so
+     tell us about them! [I 6/6/95]
+
+ 151 (GN) cant_go in second court [I 6/6/95]
+
+ 152 (GN) Antechapel suggestion: the flagstones in antechapels tend to
+     be engraved tombstones or memorials. Might be a good place to hide
+     a (possibly spurious) Man of Biblioll.  [I 11/7/95]
+
+ 153 (GN) The altar is too plain.  [I removed it 6/6/95]
+
+ 154 (GN) Couldn't we at least have the first few words of the Latin
+     Bible, fiat lux and all that, when read? [I 6/6/95]
+
+ 155 (GN) The lectern is also a bit plain; "get lectern" [I 6/6/95]
+
+ 156 (GN) "look up john in window" for individual stories of saints [no]
+
+ 157 (GN) "pray" [I 7/6/95]
+
+ 158 (GN) "smell" in chapel, antechapel.  [I 7/6/95]
+
+ 159 (GN) up in AC/C say sth about the inaccessibility of the Tower?
+     [I 6/6/95]
+
+ 160 (GDR) make the antechapel NW of the SC.  [I 6/6/95]
+
+ 161 (GN) improve GC description, plus add portraits.  [I but no
+     portraits 7/6/95]
+
+ 162 (GN) Door to the SCR? [I 7/6/95]
+
+ 163 (GN) Feelings of terror at being trapped in the cellar are somewhat
+     assuaged by gaining a point in the process (a consolation which is
+     seldom apparent in real life).  [I moved score to end of cellars
+     6/6/95]
+
+ 164 (GN) "bang on door/hatch/etc" should do the same as "knock on ...".
+     [I 6/6/95]
+
+ 165 (GN) "bin one" and "bin 1" for "first bin", please.  [I 6/6/95]
+
+ 166 (GN) "the practice that" bit of Canynges's entry could be better
+     expressed.  [T 6/6/95]
+
+ 167 (GN) Could Tausend be MP for Christminster University, not for the
+     town?  (An arrangement that was only abolished post-war, I
+     believe.) [I 6/6/95]
+
+ 168 (GN) Replaced version of FullScore that lists your achievements in
+     chronological order.  [I 7/6/95]
+
+ 169 (GN) I was hoping for a cameo appearance by Baskeyfield after
+     knocking on his door.  If only "Library hours are such and such, as
+     you well know".  [I 11/7/95]
+
+ 170 (GN) Fatuous point: the Ahketaten stelae weren't really excavated,
+     as they were carved into cliff-sides and still visible.  [Q 6/6/95]
+
+ 171 (GN) Wilderspin ignores asking about jarboe or bungay.  (He might
+     "prefer not to comment on his colleagues"?)  He doesn't respond to
+     "honey" either, which is a pity.  [I 7/6/95]
+
+ 172 (GN) When you get a book from the card index, you might set "itobj"
+     to the book fetched.  [Q 6/6/95]
+
+ 173 (GN) I was just wondering if Simon Noble (if he's a real poet, I'm
+     embarrassed, as I've not heard of him) would be in Men of
+     Biblioll... but no. (make up a visit?) [I 7/6/95]
+
+ 174 (GN) I don't believe archaeologists have ever been admitted to the
+     Royal Society. How about OM instead of FRS? [Q 6/6/95]
+
+ 175 (GN) "ask wilderspin about vastang/ceiling" [I but no ceiling
+     7/6/95]
+
+ 176 (GN) "in" should do for "enter hole" [I 6/6/95]
+
+ 177 (GN) "wilderspin, lift me/raise me" [I 6/6/95]
+
+ 178 (GN) I can't get Wilderspin to get on me in similar fashion.
+     [I 6/6/95]
+
+ 179 (GN) The way W. disappears on the ledge is deeply disconcerting, as
+     I then can't go anywhere and don't even get an interesting cant_go
+     message.  [Q 6/6/95]
+
+ 180 (GN) "listen" ought to give something interesting in the dark
+     places.  [I 7/6/95]
+
+ 181 (GN) How does W. know that my name is Christabel? [I 6/6/95]
+
+ 182 (GN) "search bench" [I 6/6/95]
+
+ 183 (GN) "bottles" is unrecognised, although W. guesses something from
+     them.  [I 6/6/95]
+
+ 184 (GN) "fellow" ought to be recognised as a name for numerous
+     characters.  [I 6/6/95]
+
+ 185 (GN) C Staircase is a little plain.  [I 7/6/95]
+
+ 186 (GN) Yes, I really think your parrot could have got through a
+     locked wrought iron gate, Edward.  [I 6/6/95]
+
+ 187 (GN) When the power pack is plugged into the box, this isn't
+     revealed in LOOK descriptions.  (Same for the voltmeter.) [Q 6/6/95]
+
+ 188 (GN) It is still not entirely clear that when one gets the wires
+     from the cabinet, they are unplugged but not taken.  [Q 6/6/95]
+
+ 189 (GN) "look inside mouth" (of the wrought iron lion) might provoke a
+     reply, perhaps along the lines of "Anyone can tame an iron lion."?
+     [no]
+
+ 190 (GDR) check for "it" throughout [Q 7/6/95]
+
+ 191 (MK) "touch south wall" in secret passage.  [I 7/6/95]
+
+ 192 (MK) one should not be able to turn on the light switch in the
+     Cellars while standing in the alcove.  [no]
+
+ 193 (MK) In the Well, "w" doesn't produce the "crawl" message.
+     [D 6/6/95]
+
+ 194 (MK) ... didn't like the peanuts implementation.  [Q 7/6/95]
+
+ 195 (RD) "put widget in/on/under/over lobster" [I 7/6/95]
+
+ 196 (RD) At night, climbing the wistaria after dinner, the message gets
+     printed twice.  [Q 7/6/95]
+
+ 197 (RD) get a candle -> You can't see any such thing.  but get candles
+     -> You pick up one of the candles.  [Q 7/6/95]
+
+ 198 (RD) get malcolm -> I don't suppose Malcolm's body would care for
+     that.  [Q 7/6/95]
+
+ 199 (RD) pull malcolm w -> Is that the best you can think of? [I 7/6/95]
+
+ 200 (GN) the voltmeter logic is incorrect - what if power pack
+     connected to one box wire and volt to another? [Q 9/6/95]
+
+ 201 (MK) problem with "say x" near phone (disambiguation fails).
+     [Q 11/7/95]
+
+ 202 (MK) obscure bug where "ask master about xxxx" fails miserably [no]
+
+ 203 (RD) Teasing about the Knights Templars in the proto-blurb and the
+     ending seemed a bit overblown.  [I 17/10/95]
+
+ 205 (RD) It would have been nice for Edward to respond to being shown
+     some of the history books, even if it was "that's not my field".
+     [I 11/7/95]
+
+ 206 (RD) Be more consistent about which objects open the shed and scare
+     the bird.  [no]
+
+ 207 (GN) If I try to put something in the hatch from below, the game
+     says "that would fall through".  [Q 9/6/95]
+
+ 208 (GN) At the Well: "climb south wall" != "climb brick wall" [Q
+     9/6/95]
+
+ 209 (GN) The well itself, being the thing for which the location is
+     named, ought at least to have an examine message? [Q 9/6/95]
+
+ 210 (GN) "descend wistaria" isn't in fact recognised, despite the "Roof
+     of Master's Lodge" description [I 9/6/95]
+
+ 211 (GN) Could the game be suitably scathing in reply to "tickle
+     gargoyle with feather"? [I 9/6/95]
+
+ 212 (GN) "gate" is unrecognised here.  [I 9/6/95]
+
+ 213 (GN) By my reckoning, east of the Well is not the Great Hall but
+     the Kitchens, since I'm standing more or less at the south wall of
+     the College.  Also, surely the most visible thing from the roof of
+     the Master's Lodge ought to be the Chapel tower, which isn't
+     mentioned? [I 9/6/95]
+
+ 214 (GN) If Hawksmoor's chapel includes the stained glass from the old
+     chapel, why is it described as Renaissance glasswork?  It must
+     surely be earlier? [I 9/6/95]
+
+ 215 (GN) "ask master about chapel" [I 11/7/95]
+
+ 216 (GN) Too many locked doors.  [no]
+
+ 217 (GN) Game gets gradually less populated.  In the Second Court area,
+     for instance, there's really only the Cook to interact with.  A
+     Chaplain (or a Dean of Divinity) might liven things up there.  Or,
+     I don't know, perhaps some undergrads rehearsing for a play, or
+     something like that.  [I - added cat 11/7/95]
+
+ 218 (GDR) improve movement-checking, using x_to and initial routines.
+     [P 11/7/95]
+
+ 219 (RD) is getting the Skery book optional? perhaps a funnier joke
+     [I 16/6/95; 11/7/95]
+
+ 220 (MK) hit B4 should = knock at b4 [I 16/6/95]
+
+ 221 (MK) capitalise "Evensong"? [I 16/6/95]
+
+ 222 (MK) "which I am must date" (endgame.inf) [T 16/6/95]
+
+ 223 (MK) About giving the elixir to malcolm: perhaps "pour elixir into
+     malcolm's body" would be reasonable.  [I 16/6/95]
+
+ 224 (GN) Bungay's Hallway description (pedantic point about): "stand
+     around nervously in" would be slightly better grammar.  [T 16/6/95]
+
+ 225 (GN) Oh, from C staircase ground floor, S actually goes U, which
+     I'm sure you don't intend.  [Q 16/6/95]
+
+ 226 (GN) When you jump from Bungay's window, Why not close the handbag
+     en route? [I 16/6/95]
+
+ 227 (GN) The crack (in the garden shed door) is too narrow for the
+     corkscrew, is it? [no]
+
+ 228 (GN) "push elm", "shake elm" [I 16/6/95]
+
+ 229 (GN) The word "fish" isn't recognised here (as verb or noun).
+     [I - noun only - 11/7/95]
+
+ 230 (GN) "You get into the punt" is a somewhat plain description of an
+     invariably traumatic process for anyone wearing a dress.  [I
+     16/6/95]
+
+ 231 (GN) 2nd attempt at punting "east": three sentences in a row start
+     with "You", which is a little heavy.  [T 16/6/95]
+
+ 232 (GN) Why shouldn't I try to punt "north" or "south"? [I 16/6/95]
+
+ 233 (GN) Come to that, how about recognising "punt east"? [I 16/6/95]
+
+ 234 (GN) Edward "beings" the punt to rest (presumably "brings").
+     [T 16/6/95]
+
+ 235 (GN) Small topographic point: how does the river flow out of
+     College?  Through a culvert in the wall?  This is not mentioned on
+     either side.  [I 11/7/95]
+
+ 236 (GN) Plath - sequence of four bee-keeping poems (The Bee Meeting,
+     etc.) about a young unprotected girl overcoming her morbid horror
+     to collect honey? [I 12/7/95]
+
+ 237 (GN) "Hey!" says Edward, seeing you enter... he continues, "Well,
+     you... -- is I think fractionally doubtful grammar; the comma after
+     "continues" should be omitted, or replaced with a colon.  [T
+     16/6/95]
+
+ 238 (GN) I'd like to be able to read a snatch of his essay, over his
+     shoulder. Though he's the type to have awful handwriting.
+     [I 11/7/95]
+
+ 239 (GN) "Damn," says Jarboe.  "The stupid phones are playing up
+     again." -- This is just a tad weak for 50s don dialect.  "How
+     singular," says Jarboe.  "These damn-fool phones are playing up."
+     [I 16/6/95]
+
+ 240 (GN) "uncork" is unrecognised [I 16/6/95]
+
+ 241 (GN) Shouldn't the pale liquid at least bubble to indicate being
+     heated? [Q 16/6/95]
+
+ 242 (GN) Oh, tiny point - Edward's door is labelled Mr Forbes, which
+     he'd only rate if he were an MA.  How about "Forbes, E. St C." or
+     some such? [I 11/7/95]
+
+ 243 (GN) Tearing the veil somewhat reminds me of the veil of the temple
+     being rent in twain, which is John something:something.) [I 12/7/95]
+
+ 244 (GN) Anyway, from Bungay's study, OUT or D should leave via the
+     open window; and the window ought to be callable "windows" (as in
+     "open windows").  [I 16/6/95]
+
+ 245 (GN) "get all" in the gardens includes the clock tower, which is a
+     little surreal.  [Q 16/6/95]
+
+ 246 (GN) If I: (i) light the ring, (ii) put the retort of pale liquid
+     on it, (iii) add honey from the tamarisk tree's hive, (resulting in
+     a bubbling liquid) (iv) pour Edward's tears into the retort, then I
+     get an ** Error: impossible mixture of liquids occurred! **. The
+     same occurs if I add the bubbling mixture to the tears.  [A
+     11/7/95]
+
+ 247 (GN) If I take the retort off the ring, to get a sticky gum,
+     pouring the tears in results in an abruptly ending sentence.
+     [A 11/7/95]
+
+ 248 (GN) "listen" clearly ought to say something unusual.  "listen to
+     choir" is understood but "listen to chant" isn't.  [I 16/6/95]
+
+ 249 (GN) I still can't "pray", nor can I "kneel" or even "sit", "join"
+     or "enter" the congregation.  [I - pray - 16/6/95]
+
+ 250 (GN) At least I'm back in the game.  You might make Edward remark,
+     when the perfume arrives, that at least his window will be open all
+     night.  (One more pang of guilt.) [I 11/7/95]
+
+ 251 (GN) "put widget on lobster", "put lobster in widget".  [I 16/6/95]
+
+ 252 (GN) When Halfhide (nice touch, btw) and the Master speculate about
+     candidates, perhaps you might have a Provost or President rather
+     than a Master, just for variety? [I 16/6/95]
+
+ 253 (GN) "perfectly adequate proof against" sounds wrong to me;
+     "perfectly adequately proof against" perhaps (proof against is
+     irregularly an adjective, not a noun, here, so the rest should be
+     an adverb), but it's not really a happy phrase.  [T 16/6/95]
+
+ 264 (GN) The gold plate contains "many other trasures".  [T 16/6/95]
+
+ 265 (GN) At this point I tried to "knock wine" (Don't be silly!) and
+     "spill" it (unrecognised) - anything for a distraction.  [I
+     11/7/95]
+
+ 266 (GN) My first attempt to "turn snail upside down" failed.  How
+     about "turn snail over"? [I 16/6/95]
+
+ 267 (GN) "pour glass of port" or "pour a glass of port" should work (a
+     pain to implement, I know) [no]
+
+ 268 (GN) The verb "pass" is not even recognised! [I 16/6/95]
+
+ 269 (GN) "fellows" is unrecognised.  So is "wax".  [I 16/6/95]
+
+ 270 (GN) It was never made clear where or how I got my possessions back
+     (unless I missed it).  [I 16/6/95]
+
+ 271 (GN) Does the Master not stay for dessert?  And is the housekeeper
+     still on duty at this point? [D 16/6/95]
+
+ 272 (GN) By the River, on the West Bank: at night, there's a space
+     missing between "north" and "glittering".  [T 16/6/95]
+
+ 273 (GN) I tried listening in the Tunnel; "Christminster is restful and
+     quiet on a Sunday night" would seem preferable at this hour.
+     [I 16/6/95]
+
+ 274 (GN) Why would nothing be gained by pouring the elixir on the
+     gargoyle?  I was hoping to reanimate it, so that it could push
+     through the door.  [I 11/7/95]
+
+ 275 (GN) You might recognise "arras" as a synonym for "tapestries".
+     [I 16/6/95]
+
+ 276 (GN) As Gothic as this is, why can't I set fire to the tapestries
+     myself?  That was my first inclination to get them off Malcolm.
+     [I 13/7/95]
+
+ 277 (GN) I don't quite understand the point of pushing Bungay's desk!
+     But perhaps you could rig it so that if you do, the lacquer box
+     falls off (to draw attention to it slightly).  [no]
+
+ 278 (GN) Hanging very Hardy-esque.  [no - I agree]
+
+ 279 (GN) First, Jarboe dies in a slightly over-vague way at the moment
+     Somehow I expected a further confrontation with him, and for this
+     reason I the end felt a little premature.  [G 11/7/95]
+
+ 280 (GN) Secondly, Edward ought to come back into things, or even
+     Wilderspin [I 11/7/95]
+
+ 281 (GN) Finally, I'm not totally sure how the fire brigade found their
+     way into the secret courtyard.  Did they look up Hawksmoor in the
+     library, or climb the wistaria?  Why are they concerned with this
+     obscure annexe at the back of college, when the Great Hall is
+     ablaze?  After all, nobody knows you're there.  [I 11/7/95]
+
+ 282 (GN) Could you add a few Templar motifs to Bungay's rooms, perhaps?
+     Perhaps to round out his hallway.  The whole Templar business comes
+     in only for one line near the end.  [I 17/10/95]
+
+ 283 (GN) It seems reasonable to try and reanimate Thomas Vaughan with
+     the elixir, too.  At one point I thought that was the plan.
+     [I 11/7/95]
+
+ 284 (GN) It would be nice if the Chapel, or the Chapel tower, were to
+     come into the game a little more than they do.  [no]
+
+ 285 (SB) "constable, give me the key" goes wrong if constable doesn't
+     have the key.  [D 14/7/95]
+
+ 286 (SB) "turn don over" [I 14/7/95]
+
+ 287 (SB) asking the busker about magic, trick, and tricks [I 14/7/95]
+
+ 288 (CG) "volunteer" as a verb; distinguish "take cup" from "look under
+     cup" (i.e. say sth about putting it down) [I but no volunteer
+     14/6/95]
+
+ 289 (CG) "sit on man" in LMGreen [I 14/7/95]
+
+ 290 (CG) message for constable arriving at Bibioll street missing?
+     [Q 17/7/95]
+
+ 291 (CG) ask {constable,busker} about {constable,busker,don} [I
+     18/7/95]
+
+ 292 (RD) From the Great Hall, Turmeric stalks off to the north, when
+     the actual exit seems to be northeast.  [Q 17/7/95]
+
+ 293 (CG) better error message for "look up thing" [I 17/7/95]
+
+ 294 (CG) A "pull wires" results in the standard message "It's fixed in
+     place."  Should be plural.  [Q 17/7/95]
+
+ 295 (CG) The porter lets me rummage through everybody's mailbox even
+     before he knows who I am.  [I 17/7/95]
+
+ 296 (CG) Edward seems a rather weak character to me.  Why doesn't he
+     wander around on his own? [G 18/7/95]
+
+ 297 (BW) call the constable a 'cop' [I 17/7/95]
+
+ 298 (BW) Ask Busker about cups doesn't work [I 14/7/95]
+
+ 299 (BW) Wanted to say "yes" to busker, also "volunteer"; suppose this
+     means I should rewrite the busker's spiel [I 18/7/95]
+
+ 300 (BW) "little" is a bad adjective for the wicket gate.  [T 17/7/95]
+
+ 301 (BW) "turn over x" for "turn x over" [I 17/7/95]
+
+ 302 (BW) "lift up cup" [I 17/7/95]
+
+ 303 (BH) "examine me" [no]
+
+ 304 (BH) After giving the constable the toffee, "constable, give toffee
+     to me" works but "ask constable for toffee" doesn't.  He could give
+     the same response to "constable, knock gate" [I 18/7/95]
+
+ 305 (BH) "take helmet from constable" works; so does "take cape from
+     busker".  [D 18/7/95]
+
+ 306 (GDR) put Robert Skery clue into phone call.  [I 18/7/95]
+
+ 307 (SB) can't get another toffee after constable ate it [D 20/7/95]
+
+ 308 (SB) directions wrong in Antechapel description.  [T 20/7/95]
+
+ 309 (CG) In the cellar, "take all" followed by "third" is responded to
+     with "But it isn't there now." [S - Inform library parser problem,
+     corrected in 5/11]
+
+ 310 (CG) Should shed door give the "It seems to be locked." message
+     since there's no keyhole? [I 26/7/95]
+
+ 311 (CG) "slide door" -> (into the door)(first taking the door)
+     [S 26/7/95]
+
+ 312 (CG) "remove hinge" -> (first taking the door) [I 26/7/95]
+
+ 313 (CG) The parrot gets startled if I "throw feather at parrot."
+     [I 26/7/95]
+
+ 314 (CG) Maybe "I'm coming" when knock at Bungay's door.  [I 26/7/95]
+
+ 315 (CG) I can only go n/s in the punt? [Q 26/7/95]
+
+ 316 (SS) In PC's descripiton, "stocky" usually implies short [T
+     26/7/95]
+
+ 317 (SS) You can't examine the cobblestone when you're at Chapel Street
+     [I 26/7/95]
+
+ 318 (SS) "Second Court is a wide rectangular expanse of cobbles,
+     surrounded on all four sides by tall buildings.There are many
+     exits: to the west, a low wooden door" [T 26/7/95]
+
+ 319 (SS) "It is made of solid brass, and is in the form of an eagle,
+     wings spread and" (change comma to colon).  [T 26/7/95]
+
+ 320 (CG) dropping peanut in punt gives "It rolls away on the ground out
+     of sight." (paraphrased) [I 26/7/95]
+
+ 321 (CG) If you ask master about dinner after you have the ticket,
+     there is a word missing from his reply.  [T 26/7/95]
+
+ 322 (CG) In some of the garden, the directions are very sparse.  In
+     particular, the arboretum description doesn't say which way you can
+     go at all, and by the river on the west, you can go west but this
+     isn't mentioned in the description.  [no]
+
+ 323 (CG) Could you implement "dip retort into river"? [I 26/7/95]
+
+ 324 (CG) It would be nice if "x sockets" would examine all the sockets
+     in the basement and not give the "which socket, the red..."
+     prompt.  [no]
+
+ 325 (CG) Is there some way to break the connection on the phone without
+     hanging it up and picking it up again?  This made experimenting
+     quite tedious.  [no]
+
+ 326 (CG) I think it would be good if there were more evidence of
+     Malcolm along the way.  [no]
+
+ 327 (CG) "ask edward about ring" [I 26/7/95]
+
+ 328 (CG) I think "attach corkscrew to door" should work in the tunnel.
+     [I 26/7/95]
+
+-- Release 2 corrections: --
+
+ 329 (RD) Turmeric purrs while hissing at me (when he sits on the veil).
+     [Q 2/8/95]
+
+ 330 (RD) One can fill the bottle with water when it's still in the bag.
+     [no]
+
+ 331 (RD) One can still get the wine bottle when the cook is in the
+     cellar.  In particular, this makes it easy to cheat by getting the
+     bottle and scarpering.  [D 2/8/95]
+
+ 332 (RD) "put veil on me" should equal "wear veil".  [I 2/8/95]
+
+ 333 (RD) In the Great Hall, Bungay says "...anyway everyone present had
+     probably read it anyway." Are the two "anyway"s intentional?
+     [T 2/8/95]
+
+ 334 (RD) After "climb wistaria" there are two blank lines.  [T 2/8/95]
+
+ 335 (AP) "Throw book out window" doesn't work [I 2/8/95]
+
+ 336 (AP) "professor, lift me" and "professor, lift me up" don't work.
+     [S - problem with library scope in darkness - hacked 3/8/95]
+
+ 337 (AP) >say "malcolm" produces an error, as does "shout at index".
+     [S 2/8/95]
+
+ 338 (AP) dates for Simon Noble are inconsistent in maclane and index.
+     [Q 2/8/95]
+
+ 339 (TA) "forbes, down" -> "Edward Forbes goes downstairs. You follow
+     him. The hatch is closed. You can't go that way." [S 2/8/95]
+
+ 340 (TA) "ask forbes about porter" (in Lodge) produces error.  [S
+     2/8/95]
+
+ 341 (RD) Two full stops after "fill bottle with water" [T 2/8/95]
+
+ 342 (RD) "The elegant clock tower above the college chapel dominates
+     the skyline to the north" (missing full stop).  [T 2/8/95]
+
+ 343 (RD) Pouring water on the fire in the end game might deserve a
+     silly response. [I 3/8/95]
+
+ 344 (AP) I've seen a great deal of the "Edward is in a place he can't
+     move" error. Once it just happened: I had just gotten into and out
+     of the garden, passed Ed in the second court, but didn't say
+     anything to him. A few turns later the error started appearing
+     every turn or so. I don't know where he was stuck. It also happened
+     once when I was searching Bungay's room (again, the error appeared
+     every turn or so.) [S 2/8/95]
+
+ 345 (MS) want "say red cup to busker" to guess a cup.  [I 3/8/95]
+
+ 346 (GDR) Added font commands to some of the tables in help.inf.
+     [P 3/8/95]
+
+ 347 (GDR) Set vague words when see loose cobble. [I 3/8/95]
+
+ 348 (RD) The candle stays lit inside the closed handbag, and using this
+     trick I can get to "** Error: you shouldn't see this **/** Room
+     undescribed! **". [S 3/8/95]
+
+ 349 (RD) Some punctuation mistakes in the help. [T 3/8/95]
+
+ 350 (AP) If you put the retort on the ring without lighting it, the
+     pale liquid starts bubbling. If you then get Ed to light the ring,
+     your alchemy moves fail (it's not recognizing the heat.)  [D
+     3/8/95]
+
+ 351 (AP) Telling Ed to "stay", "stay here", or "wait" should do the
+     same as "stop".  [I 3/8/95]
+
+ 351 (AP) "push/pull snail" = "turn snail"  [I 3/8/95]
+
+ 352 (AP) "chase snail" produces a wrong response.  [Q 3/8/95]
+
+ 353 (MP) "drop x" (where x is not carried) gives constable message.
+     [A 4/8/95]
+
+-- Release 3 corrections: --
+
+ 354 (TA) When I try to use the verb "smell" in the Master's study, the
+     game crashes with the rather unhelpful message "Fatal error:
+     Illegal operation (PC = c983)"  [A 7/8/95]
+
+ 355 (WB) "take all" gives away too much.  [A corrected with 5/12
+     library? -- seems to work, 15/10/95]
+
+ 356 (WB) "enter a5" -> You can't, since the door to A6 is in the way.
+     [D 7/8/95]
+
+ 357 (WB) "switch on light" -> You switch the light switch on. You climb
+     quietly down the ladder, anxious not to reveal your presence to the
+     cook.  [S 8/8/95]
+
+ 358 (WB) "tickle cat" -> What do you want to tickle Turmeric with?
+     [I 23/8/95]
+
+ 359 (WB) open and close doors automatically [I 7/8/95]
+
+ 360 (WB) Porter goes round closing doors you left open?  [no]
+
+ 361 (WB) What about "unplug all wires"?  [I 7/8/95]
+
+ 362 (WB) Why doesn't "edward, it was me" work?  [S 17/10/95]
+
+ 363 (WB) Edward, stay here doesn't?  (Perhaps he could pause for a few
+     turns)?  [I 29/9/95]
+
+ 364 (WB) Stand on Edward? [no]
+
+ 365 (WB) punt north, south, east, west  [I 7/8/95]
+
+ 366 (WB) How does the cat get into the shed?  [no]
+
+ 367 (WB) Kicking the constable doesn't work properly.  [A 7/8/95]
+
+ 368 (WB) Following Edward into punt doesn't work.  [A 8/8/95]
+
+ 369 (WB) As Edward takes the punt pole, he `prepares to disembark'.
+     [T 8/8/95]
+
+ 370 (WB) Maybe if you had your bathing-costume with you, and a towel,
+     and fewer important things to do, then maybe (too many maybes).
+     [T 8/8/95]
+
+ 371 (WB) Make the telephones more convincing?  [no - Richard's
+     recommendations are exactly what I implemented!]
+
+ 372 (JZ) Knock at B2 when Wilderspin in secret passage.  [D 8/8/95]
+
+ 373 (JZ) Inventory list can contain "nothing" at some points?  [S
+     library bug, fixed in 5/12]
+
+ 374 (RT) different things when Edward first sees feather?  [I 15/10/95]
+
+ 375 (RT) take pole while holding it.  [D 15/10/95]
+
+ 376 (RT) "detach net from hat"?  [no]
+
+ 377 (RT) "throw water at cat"?  [I error message improved -- 15/10/95]
+
+ 378 (RT) choir service better?  [I 15/10/95]
+
+ 379 (RT) "fellows" in SCR?  [I 15/10/95]
+
+ 380 (RT) new-fangled electric candles  [no]
+
+ 381 (RT) look under helmet?  [I 15/10/95]
+
+ 382 (AC) If you light the ring then pour the 'wine' into the retort, it
+     doesn't tell you it's bubbling.  [Q 15/10/95]
+
+ 383 (AC) Give peanuts to Edward doesn't work; it says you can only do
+     this to something animate!  [no]
+
+ 384 (JZ) Rose-bushes not mentioned.  [I 15/10/95]
+
+ 385 (JZ) Beginning much too hard - need some clues.  [I 20/10/95]
+
+ 386 (MS) If in a room with the voltmeter, with it set up and reading a
+     voltage, in verbose mode, one goes into the help menus, on
+     returning to the game the description of the voltmeter ends
+     something like 'is reading.' - the voltage is omitted.  [S
+     15/10/95]
+
+ 387 (RH) If Ed gets to West Bank before seen the parrot, he complains.
+     [S 17/10/95]
+
+ 388 (RH) "edward," -> "What do you want to c nstablels?" [S a library
+     bug - solved 17/10/95]
+
+ 389 (RH) "put feather in river" -> The feather is too flimsy to make a
+     good missile." (etc) [Q 15/10/95]
+
+ 390 (RH) "climb ladder" -> "I don't think much is to be achieved by
+     that."  [I 15/10/95]
+
+ 391 (RH) "get off table" -> "Which do you mean, the high table or the
+     low table?"; "down" doesn't work either.  [I 17/10/95]
+
+ 392 (RH) "search skeleton" -> "You find nothing of interest."; also
+     most people and the cat.  [I 15/10/95]
+
+ 393 (GDR) Can stand on tables during dinner!  [no]
+
+ 394 (RR) You can get sort of stuck if you try to look up entries in
+     something that isn't there, e.g. "look up x in maclane" followed by
+     "s".  [S 17/10/95]
+
+ 395 (RR) "pour decanter into glass. pour glass into decanter" -> You
+     pour the port into the decanter, resulting in some sticky gunk.
+     [A 15/10/95]
+
+ 396 (JF) There are a couple of windows in the game, in the "B"
+     stairwell, and the "C" stairwell that I felt I should be able to
+     fool around with.  Maybe say "that window was painted shut years
+     ago, and even the porter can't open it."  [I 17/10/95]
+
+ 397 (JF) I got stuck and tried to put the elixir on the skeleton.
+     Anyway, the game responded " the skeleton isn't interested in
+     that". [I - give now for any noun - 15/10/95]
+
+ 398 (JF) I put the burning candle in the bag. I walked around with it
+     like that for a while then took it out, still burning.  [Q
+     15/10/95]
+
+ 399 (MM) trying to get the notice concerning the entertainment of
+     ladies the game replies with "Taken." but the notice stays on the
+     wall and the other notice moves around in the inventory [I -
+     changed to 'placard' - 15/10/95]
+
+ 400 (KH) When I got into Malcolm's room and closed and locked the door
+     behind me, found his lab book and was stupid enough to loose it to
+     Bungay, I followed Bungay and Jarboe. I got out of Malcolm's room
+     and wanted to close and lock it - but it allready was locked.  [no]
+
+ 401 (PS) If Christabel knocks on Wilderpin's door even while he's in
+     the alchemist's lab, he answers "Come in," or something of that
+     nature.  [D 8/8/95]
+
+ 402 (NQ) The description of the river in the moonlight is still the
+     same as it was during the daytime.  [T 15/10/95]
+
+ 403 (NQ) John Field confusable with JF on statue  [I 15/10/95]
+
+ 404 (NQ) When I type the command *follow Jarboe* (down the stairs in
+     the endgame) I end up in some weird spaces: *undefined rooms*
+     [M 15/10/95]
+
+ 405 (BM) I also got off track because it seemed like the first time I
+     pressed the left eye it did something different, so I spent many
+     turns running about trying to figure out what the eyes had actually
+     done.  [I added click to text - 15/10/95]
+
+ 406 (BM) Most cats I know (even scarred-up ones with missing ear bits
+     :-) tend to move real quick when they're kicked, especially if you
+     kick it 3-4 times.  [I 15/10/95]
+
+ 407 (RD) I should mention, should the author read this, I got a funny
+     response several times.  It started out with something like 'Bad
+     optional num' and then gave the correct response.  This was with
+     'look up (name)'. [P - ITF bug, not mine]
+
+ 408 (MR) The cook doesn't notice if you turn the lights off while he is
+     looking for a wine.  [S fix of other bugs fixed this - 15/10/95]
+
+ 409 (MR) You can read the King James Bible even if it is in the bag.
+     [Q 15/10/95]
+
+ 410 (MR) While you cannot touch the skeleton in the Secret Room, you
+     can search it.  [Q 15/10/95]
+
+ 411 (MR) In Biblioll Street you cannot 'throw stone at parrot'.
+     [Q 15/10/95]
+
+ 412 (MR) "wall" should default to the brick wall.  [I 15/10/95 - at
+     last!]
+
+ 413 (MR) "smell wilderspin" -> "There's a faint unpleasant smell of
+     decay."  [A 15/10/95]
+
+ 414 (WI) It doesn't seem realistic for the policeman to ignore the key
+     being given to the busker.  [I 15/10/95]
+
+ 415 (GDR) "pull on corkscrew" = "pull corkscrew"  [I 15/10/95]
+
+ 416 (EM) Do something about not knowning the name "Spencer" [I
+     15/10/95]
+
+ 417 (GDR) Make auto-opening of doors work properly.  [I 17/10/95]
+
+ 418 (GDR) Credit all the informers, update all the dates and copyright
+     stuff, and so on (last bug fix for release 2 was c. 353). [I]
+
+ 419 (GDR) Edward comments on the wires: "what happens if you put two
+     wires in the same socket?"  [I 17/10/95]
+
+ 420 (DA) why is Arkwright (who was born in 1892) in MacLane, which only
+     goes up to 1900?  [Q 18/10/95]
+
+ 421 (DA) Another point: I assume that one must use Edward to get past
+     the stuck door in the archway (at least, Christabel can't open it
+     by herself, but Edward can go through it) but there's no mention of
+     Edward opening the door when C. follows him east.  [no]
+
+ 422 (GDR) Tamarisk tree mentioned by name in Bee-Loud Glade description
+     [B 18/10/95]
+
+ 423 (JD) Busker should be more helpful if you try to give an object at
+     the wrong time.  [I 18/10/95]
+
+ 424 (GDR) Make the help screens work if screen isn't wide enough?
+     (i.e., just have a pretty/plain feature that selects the v3 help
+     menus or the v5 help menus)  [P 22/10/95]
+
+ 425 (JN) In several cases in which Walthamstowe's name appears, the
+     error message "Bad Optional Num" was prepended.  [P 24/10/95]
+
+ 426 (JN) When I attempted to "stand on manhole" in the Small Courtyard
+     without having unlocked the manhole, the game responded that I
+     couldn't because the manhole was in the way.  [Q 23/10/95]
+
+ 427 (JN) In Malcolm's room, Jarboe and Bungay take turns telling
+     Christabel to leave.  If you try to leave when they tell you to,
+     they say, "Don't walk away on me."  Can't quite seem to make up
+     their minds.  [I 23/10/95]
+
+ 428 (JN) I tried hiding in the gap between Bungay's desk and the wall
+     to no avail.  [I 23/10/95]
+
+ 429 (JN) When I came back out of the gap, the game said, "You're on
+     your own two feet again."  Had I ever left my feet?  [I - fixed by
+     library 5/12]
+
+ 430 (JN) Lying on the desk is the same as hiding in the gap.
+     [I 23/10/95]
+
+ 431 (JN) In the Secret Room, if you ask Wilderspin to examine the
+     skeleton, the game responds that he has better things to do, when
+     in fact all he's doing is looking at the skeleton.  [Q 23/10/95]
+
+ 432 (JN) In the Tunnel, if you don't have light, you can't go east
+     because the door is in the way.  However, you can't actually see
+     the door or manipulate it in any way.  It would be more effective
+     if, before the player has actually seen the door, the game said
+     only that you run into a barrier of some sort.  [Q 23/10/95]
+
+ 433 (JN) I visited the Master before going up to Malcolm's room.  As
+     the Master had said that Malcolm was in Edinburgh, it was perhaps
+     strange to find upon entering his room that I expected to catch
+     Malcolm hard at work.  [Q 23/10/95]
+
+*434 (JN) When I tried to "show telegram to man" in the porter's lodge,
+     the game responded, "You can only do that to something animate."
+     [S - library bug - "man" added to porter 23/10/95]
+
+ 435 (CO) One of the cellarers' first names -- the second cellarer, I
+     think -- is John in the wine cellar and Thomas in the history book.
+     [T 23/10/95]
+
+ 436 (MP) When you leave the passage and reenter the library you are
+     told that you now close the passage. Well, if I instead go up the
+     roof and climb down the wall and go back into the library the
+     normal way the passage should then still be open and it should be
+     possible to command Edward to go east into it.  [Q - description
+     improved - 23/10/95]
+
+ 437 (GDR) Make sure that people know they're climbing down from the
+     roof to get to the courtyard.  [Q 23/10/95]
+
+*438 (GDR) Give it to <thing not understood> produces the error "You
+     can't see "it" at the moment".  [S - library bug]
+
+ 439 (NQ) When one is visiting the Master, asking for the newspaper
+     sometimes get the same response as asking for a book: "Yes I know
+     but which one?"  [Q 24/10/95]
+
+ 440 (NQ) (on the roof) Typing *n* generates the response "It is
+     impossible to get any closer to the clock tower" but typing *enter
+     clock tower* generates the response "the clock tower is too far
+     away."  [I 24/10/95]
+
+ 441 (JA) "throw pole at parrot" shouldn't work!  [Q 24/10/95]
+
+ 442 (GDR) Update the licence to allow commercial distribution.
+     [I 24/10/95]
+
+ 443 (MR) The message you get trying to give the elixir to the skeleton
+     is a bit strange.  [I 25/10/95]
+
+ 444 (GDR) Completely rewrote the speech code.  [G 1/11/95]
+
+ 445 (JM) "screw corkscrew in door"  [I 7/11/95]
+
+-- Relase 4 corrections: --
+
+ 446 (GDR) Remove dependancy on `@read_char 1 0 0 x;' form of opcode,
+     which isn't portable to some Infocom interpreters. [P 17/11/96]
+
+ 447 (SG) "search X for Y" and "find Y in/on X" = "look up Y in X".
+     [I 17/11/96]
+
+ 448 (MG) Also "check X for Y", "lookup Y on/in X", "find Y on/in X"
+     should do the same.  [I 17/11/96]
+
+ 449 (DA) If MacLane is in the handbag and you try looking someone up,
+     it says "you can only read the title" but gives you the entry
+     anyway. [M 17/10/96]
+
+ 450 (KW) "search malcolm" -> Malcolm's body probably wouldn't
+     appreciate that.  (Before Malcolm is resurrected.)  [Q 17/11/96]
+
+ 451 (GDR) Cellar no longer works properly if you hide in the alcove;
+     the cook comes back. [D 17/11/96]
+
+ 452 (LH) I tried to stick Jarboe with the pin (at the endgame) and got
+     a bug: my hands were full, so the dagger was automatically put in
+     my bag, and then *Error: dagger not found in player* was
+     printed. [S 17/11/96]
+
+ 453 (GDR) If Edward is forced (via "forbes, <direction>") into the Senior
+     Common Room, the player will get periodic messages: ** Error:
+     Edward in location where he can't move **  [F 17/11/96]
+
+ 454 (KW) "search malcolm" -> The Malcolm probably wouldn't appreciate
+     that.  (Forgot proper attribute.)  [Q 17/11/96]
+
+ 455 (DK) Books can be consulted in darkness.  [Q 17/11/96]
+
+ 456 (NS) `Open bottle' when the corkscrew is in the handbag replies
+     that you don't have the corkscrew.  [I 17/11/96]
+
+ 457 (NS) Same thing when you DROP something which is in the handbag.
+     [no]
+
+ 458 (NS) Some suggested syntax for the cellar: search third bin for
+     stamp, compare brown bottle with third bin, look for stamp in third
+     bin.  [I 17/11/96]
+
+ 459 (NS) AMUSING reports a point for "moving Bungay's desk", but you
+     actually acquire it for getting his chapbook.  [Q 17/11/96]
+
+ 460 (RB) The bible can be opened but not closed.  [I 17/11/96]]
+
+ 461 (RB) It should be explained why only one verse from the Latin bible
+     is printed (because of the code).  [Q 17/11/96]
+
+ 462 (JW) Edward, put retort on ring yields inappropriate response.
+     [Q 17/11/96]
+
+ 463 (JW) "rip veil" should work.  [I 17/11/96]
+
+ 464 (JW) Swearing in the chapel (and everywhere else too).  Perhaps
+     `unladylike' or something.  [Q 17/11/96]
+
+ 465 (JW) put china plate on floor -> Already on the floor.
+     [Q 17/11/96]
+
+ 466 (JW) get essay -> That's hardly portable.  [Q 17/11/96]
+
+ 467 (JW) "But there are merest fraction ..."  (these).  [T 17/11/96]
+
+ 468 (KW) Make the hatch more attractive to knock at?  Or try shouting?
+     [Q 17/11/96]
+
+*469 (KF) Phones don't work: It has to go phone-box-wires-sockets-phone
+     company for the solution to make any sense.  Therefore, the meter
+     has to register on the wires, not the sockets.  In fact, there is
+     another bug.  The solution will work even if the green wires are
+     completely unplugged.  This cannot work for a p-b-w-s-pc solution
+     as above.  Otherwise, when you lift the master's phone, you should
+     hear nothing.  [I agree with this, but it's too late to make the
+     phones technologically convincing.  Think of it as black magic.  I
+     know I do.]
+
+ 470 (DT) look up spencer -> I only understood you as far as wanting to
+     look.  [no]
+
+ 471 (EC) climb wilderspin. d -> You get out of Professor Wilderspin.
+     [Q 17/11/96]
+
+ 472 (GDR) "turn to page 100 in/of book", "turn book to page 100".
+     [I 17/11/96]
+
+ 473 (SG2) Add looking up commands to example command list.
+     [I 17/11/96]
+
+ 474 (PH) Wilderspin's room is lit by its window even at night. 
+     [Q 17/11/96]
+
+ 475 (KW) The Edward/punting daemon goes wrong if you shake the tree
+     before he gets back.  [D 17/11/96]
+

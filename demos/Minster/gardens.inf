@@ -1,0 +1,814 @@
+!--------------------------------------------------------------------------
+! 9 THE GARDENS
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!------------------------------------------------------------------------------
+! 9.1 THE GARDENS
+!------------------------------------------------------------------------------
+
+Object  Gardens "College Gardens"
+ has    light is_garden cat_allowed
+ with   name "sward" "emerald" "emerald-green" "green" "grass" "lawn"
+            "river" "line" "tall" "trees" "honeysuckle" "bee" "bees"
+            "tree" "path" "window",
+        description [;
+            if (ClockTower.number < 20) 
+                "A long sward of emerald-green grass stretches away from \
+                you to the northeast for perhaps a hundred and fifty \
+                yards before meeting a line of tall trees. A gate leads \
+                southwest into Second Court, with a stand of bushes \
+                nearby.^^You take a deep breath and inhale the smells of \
+                honeysuckle and freshly mown grass.";
+            "In the moonlight, the gardens are dark and mysterious, full \
+            of sounds and smells rather than shapes. You can hear the \
+            gentle burbling of a river a little way to the east. A path \
+            wanders towards the northeast, and a gate leads southwest \
+            into Second Court.";
+        ],
+        sw_to GardenGate,
+        e_to "Your way is blocked by a bed of roses.",
+        ne_to Arboretum,
+        nw_to Bushes,
+        before [;
+         Listen: "In the distance you can hear the contended drone of \
+            bees.";
+         Smell: "You take a deep breath and inhale the smells of \
+            honeysuckle and freshly-mown grass.";
+        ],
+        edward_dirs sw_obj ne_obj;
+
+Nearby  BedOfRoses "bed of roses"
+ has    scenery
+ with   name "bed" "of" "rose" "roses" "rose-bush" "rose-bushes",
+        description "The blooms are splendid, but the sharp thorns and \
+            interlocking stems of the rose-bushes form an effective \
+            barrier to the east.",
+        before [;
+         SmellThing: 
+            quote = 21;
+            "A rose by any other name would smell as sweet.";
+        ];
+
+Nearby  Bushes "bushes"
+ has    scenery door open
+ with   name "bush" "bushes" "hedge" "stand" "dwarf" "conifer" "conifers",
+        description "This line of dwarf conifers forms a hedge to the \
+            northwest.",
+        door_to OutsideShed,
+        door_dir nw_to;
+
+Object  GardenGate "wrought iron gate"
+ has    door scenery locked lockable openable autoopen
+ with   name "gate" "garden" "gardens" "wrought" "iron" "spikes",
+        description "The gate to the gardens is tall, made of bars of \
+            wrought iron. In the centre of the gate a bas-relief of a \
+            lion's head is supported.",
+        found_in Gardens SecondCourt,
+        add_to_scope LionsHead,
+        door_dir [;
+            if (self in Gardens) return sw_to;
+            return ne_to;
+        ],
+        door_to [;
+            if (self in Gardens) return SecondCourt;
+            return Gardens;
+        ],
+        with_key GardenGateKey,     
+        before [;
+         Search: 
+            if (self in SecondCourt)
+                "Through the gate you can make out the greenery of the \
+                college gardens.";
+            "Through the gate you can make out the cobbles of Second \
+            Court.";
+         Climb: "You are deterred by the spikes atop the gate.";
+        ],
+        after [;
+         Lock:
+            give self ~locked;
+            "The lock is very stiff, and no matter how much force you put \
+            on the key, you are unable to make it turn.";
+         Unlock: "The lock is very stiff, and you suspect that it is \
+            going rusty, but with considerable effort you manage to \
+            wrench the key around and unlock the gate.";
+        ];
+
+Object  LionsHead "lion's head"
+ has    static concealed
+ with   name "lion" "lion^s" "head" "bas" "relief" "bas-relief" "grin"
+            "toothy" "mouth",
+        description "Were it alive, it would be a frightening thing, its \
+            mouth open in a toothy grin.";
+
+Object  OutsideShed "Outside the Garden Shed"
+ has    light is_garden cat_allowed
+ with   name "path" "bush" "bushes" "latch",
+        description "This is a narrow path to the south of a small garden \
+            shed. It is concealed by a line of bushes from the rest of \
+            the gardens, but you could squeeze back through them to the \
+            southeast.",
+        se_to Gardens,
+        n_to ShedDoor,
+        in_to ShedDoor,
+        out_to Gardens,
+        cant_go "You could squeeze back through the bushes to the \
+            southeast, or try to enter the shed to the north.",
+        edward_dirs se_obj;
+
+Nearby  Shed "garden shed"
+ has    static concealed
+ with   name "garden" "shed",
+        before [;
+         Enter: <<Enter ShedDoor>>;
+        ];
+
+Nearby  ShedDoor "door"
+ has    scenery door locked lockable openable autoopen
+ with   name "door" "hinge",
+        description [;
+            if (self hasnt open)
+                "The door to the garden shed is shut tight, apart from a \
+                very narrow crack on the side opposite the hinge.";
+        ],
+        door_to InsideShed,
+        door_dir n_to,
+        before [;
+         Lock,Unlock: "There's no keyhole!";
+         Open:
+            if (self hasnt open)
+                "It seems to be held shut by some lock or catch, but \
+                there's no keyhole.";
+        ],
+        after [;
+         Close: 
+            give self locked;
+            move Crack to OutsideShed;
+            "^With a clock, the latch catches.";
+        ];
+
+Nearby  Crack "crack"
+ has    static concealed
+ with   name "narrow" "crack",
+        before [;
+         Search: "You peer through the crack, but it's dark inside the \
+            shed.";
+         Receive:
+            if (noun.size > 0)
+                "Alas, the crack is too narrow.";
+            give ShedDoor open ~locked;
+            remove self;
+            Achieved("opening the garden shed");
+            print_ret "You push ", (the) noun, " into the crack and \
+                gently slide it upwards. The latch gives way, and you \
+                open the door, proud of your skill at burglary.";
+        ];
+
+Object  InsideShed "Garden Shed"
+ has    light is_garden cat_allowed
+ with   name "shed" "wood" "garden" "door" "peg",
+        description "This wooden shed is where the college gardeners have \
+            their tea-breaks and shelter from the rain. It's deserted \
+            now. A door leads out to the south.",
+        initial [;
+            DoneHint(WhatNextPuzzle,15);
+        ],
+        s_to OutsideShed,
+        out_to OutsideShed,
+        cant_go "The only exit is to the south.",
+        before [;
+         Smell: "The odour of stale tobacco is strong.";
+        ],
+        edward_dirs s_obj;
+
+Nearby  GardenGateKey "steel key"
+ class  KeyClass
+ with   name "steel",
+        initial "A steel key hangs here on a peg.";
+
+Nearby  Veil "bee-keeper's veil"
+ class  FlimsyClass
+ has    clothing
+ with   name "bee-keeper" "beekeeper" "veil" "net" "hat",
+        description "The veil consists of a broad-brimmed canvas hat from \
+            which hangs a close-woven net that gathers around the \
+            wearer's neck.",
+        describe [;
+            if (self notin InsideShed) rfalse;
+            if (Turmeric in InsideShed) rtrue;
+            "^A bee-keeper has left his veil on the floor.";
+        ],
+        before [;
+         Take,Remove:
+            if (Turmeric in InsideShed) <<Attack Turmeric>>;
+         Attack,Cut:
+            if (self notin player)
+                "You need to be carrying the veil before you can try \
+                tearing it to pieces.";
+            move Hat to parent(self);
+            remove self;
+            quote = 1;
+            "You tear the net from the bee-keeper's veil, resulting in an \
+            inelegant but practical hat.";
+        ],
+        after [;
+         Wear: quote = 13;
+        ],
+        each_turn [;
+            if (self has worn && location hasnt is_garden) {
+                print "^You suddenly realise that you look very silly \
+                    wearing the bee-keeper's veil, and you remove it.^";
+                keep_silent = 1; <Disrobe self>; keep_silent = 0;
+            }
+        ];
+
+Object  Hat "hat"
+ class  FlimsyClass
+ has    clothing
+ with   name "hat" "canvas",
+        description "A floppy, broad-brimmed canvas hat. It's not \
+            elegant, but it will shade you from the sun.";
+
+Object  WestBank "By the River, on the West Bank"
+ has    light is_garden is_water cat_allowed
+ with   name "tree" "trees" "grass" "path" "lawn" "fish",
+        description [;
+            print "Here, the lawn descends to the edge of the river, \
+                which flows torpidly from south to north";
+            if (ClockTower.number < 20)
+                " as though made indolent by the summer heat. A path \
+                leads north to a line of trees.";
+            ", glittering in the moonlight. A path wanders away into the \
+            night to the north.";
+        ],
+        n_to Arboretum,
+        e_to "If you intend to swim, say so!",
+        se_to "If you intend to swim, say so!",
+        ne_to "If you intend to swim, say so!",
+        cant_go "You could approach the trees to the north, or try to \
+            cross the river to the east.",
+        before [;
+         Listen: "You can hear the buzzing of bees coming from the east.";
+         Swim: <<Enter River>>;
+         Enter:
+            if (noun in compass)
+                <<Go noun>>;
+        ],
+        edward_dirs n_obj;
+
+Nearby  Punt "punt"
+ has    static enterable transparent container open
+ with   name "punt" "boat",
+        initial "A punt floats next to the bank.",
+        description "A punt is a flat-bottomed wooden boat, about five \
+            yards long and one across. It is propelled on shallow and \
+            slow-flowing rivers with the aid of a long pole.",
+        before [;
+         Go:
+            if ((self in WestBank && noun == sw_obj or w_obj or nw_obj)
+                || (self in EastBank && noun == se_obj or e_obj or ne_obj))
+                rfalse;
+            if (PuntPole notin player)
+                print "But you have no pole with which to punt yourself.^";
+            else {
+                DoneHint(WhatNextPuzzle,16);
+                print "You gingerly push off from the bank, and ";
+                switch(random(3)) {
+                 1: print "the punt swings around as the current catches \
+                    it. You flounder with the pole in the water, trying \
+                    to turn the craft back onto the right heading, but \
+                    you oversteer, and before you know it, you're back at \
+                    the bank again, where you started out. How annoying \
+                    these punts are!^";
+                 2: print "then lean all your weight on the pole. The \
+                    punt jerks forward, and your feet slip on the wet \
+                    wood, and you lose your balance, almost falling \
+                    in. Flailing your arms, you recover your composure, \
+                    but by that time the current has swung you around and \
+                    you have returned to the bank again, where you \
+                    started out. What a dangerous creature this punt \
+                    is!^";
+                 3: print "plant your pole firmly on the bottom of the \
+                    river. You give a big push, but the pole stays stuck \
+                    in the mud, and your arms are almost wrenched out of \
+                    their sockets as the punt comes to a halt. With some \
+                    effort, you manage to extract the pole from the \
+                    clutches of the river bottom, but you have made no \
+                    clear progress.^";
+                }
+            }
+            stop_library = 1;
+            ! return false.
+         Push:
+            if (player notin self)
+                "You push the punt away from the bank, but the current \
+                takes hold of it, and slowly brings it back again.";
+            "[To attempt to propel the punt, just type ~go east~ (or \
+            whichever direction you prefer)]";
+        ],
+        after [;
+         Enter: "The punt rocks alarmingly, and it is only by sheer good \
+            fortune that you do not tread on the hem of your skirt and \
+            tumble into the river.";
+        ];          
+
+Object  PuntPole "pole" Punt
+ with   name "pole",
+        description "The pole is immensely long - perhaps four yards - \
+            and very heavy. You always find it amazing that anyone should \
+            choose such a bizarre object as a method of propulsion.",
+        size 4,
+        before [;
+         ThrowAt: "It's much too heavy.";
+         Take,Remove:
+            if (self in player) rfalse;
+            if (NCarried(player) > 0)
+                "It takes two hands to lift the pole, and you're carrying \
+                too much.";
+            if (player notin Punt)
+                "There's no point in carrying the punt pole around unless \
+                you're in the punt.";
+        ],
+        each_turn [;
+            if (self in player) {
+                if (NCarried(player) > 1) {
+                    move self to Punt;
+                    "^You're having trouble holding on to everything \
+                    you're carrying, so you put down the pole.";
+                }
+                if (player notin Punt) {
+                    move self to Punt;
+                    "^You leave the pole behind in the punt for the next \
+                    person who comes this way.";
+                }
+            }
+            else if (parent(self) ~= Punt or Edward) 
+                "^** Error: the punt pole is in the wrong place **";
+        ];
+
+Object  River "river"
+ has    scenery
+ with   name "river" "water",
+        description [;
+            print "The river is perhaps twenty-five yards from bank to \
+                bank, and flows very gently from south to north. You \
+                trail your hand in the cool clear water and watch the ";
+            if (ClockTower.number < 20)
+                "sunlight scatter from the ripples. The barely-visible \
+                orange shapes lurking beneath the surface might be fish, \
+                or maybe just tricks of the light.";
+            "moonlight scatter from the ripples.";
+        ],
+        found_in WestBank EastBank,
+        before [;
+         Enter: "If you had your bathing-costume with you, and a towel, \
+            and fewer important things to do, then you'd be able to go \
+            swimming. But not now.";
+         Receive:
+            if (noun hasnt is_vessel) 
+                "You don't want to go losing things in the river, do you?";
+            <<FillWith noun self>>;
+         ThrownAt:
+            "You don't want to go losing things in the river, do you?";
+         EmptyT: <<FillWith second self>>;
+         Drink:
+            if (WaterStore has general)
+                "You're not feeling thirsty at the moment.";
+            give WaterStore general;
+            "You scoop up water in your hands and lap at it, greedily.";
+        ];
+
+Object  Arboretum "Arboretum"
+ has    light is_garden cat_allowed
+ with   name "arboretum" "arbor" "blossom" "petal" "petals" "path",
+        description [;
+            if (ClockTower.number < 20) 
+                print "This line of trees provides relief from the glare \
+                    of the sun. They are coming to the end of their \
+                    flowering, and shedding their blossom onto the \
+                    ground.^^";
+            else
+                print "Shafts of moonlight dapple the ground beneath this \
+                    row of trees. ";
+            "At one end of the line stands the tallest tree of all, a \
+            proud and ancient elm.";
+        ],
+        other_obj EastBank,
+        sw_to Gardens,
+        s_to WestBank,
+        u_to "The trees are much too tall to climb and you'd only go and \
+            tear your dress anyway.",
+        cant_go "You could walk southwest onto a wide lawn, or take a \
+            path south towards the river.",
+        edward_dirs sw_obj;
+
+Class   TreeClass
+ has    scenery
+ with   name "tree" "branch" "branches" "trunk" "leaf" "leaves",
+        before [;
+         Enter,Climb:
+            print_ret (string) self.cant_go;
+         Push:
+            if (ParrotB in parent(self)) <<Invoke ParrotB>>;
+        ];
+
+Nearby  ElmTree "elm tree"
+ class  TreeClass
+ with   name "elm",
+        cant_go "The lowest branches are far higher than you can reach.";
+
+Nearby  ParrotB "parrot"
+ class  TalkableClass
+ has    animate
+ with   name "grey" "parrot" "bird" "polly",
+        description "A grey bird, looking down at you from its perch in \
+            the tree. Every once in a while it hops a pace or so to the \
+            left or right.",
+        describe [;
+            if (self in Arboretum)
+                "^A parrot perches on a branch high up in the elm tree.";
+            "^A parrot sits half-hidden among the branches of the \
+            laburnum tree.";
+        ],
+        life [;
+         Kiss,Attack,Give,Show:
+            <<Take self>>;
+         ThrowAt:
+            move noun to parent(self);
+            if (self.state > 0) "Your throw goes wild, and you barely \
+                brush the lower branches of the tree.";
+            <<Invoke self>>;
+        ],
+        state 0,
+        before [ i j;
+         Speak: "The parrot takes no notice of you.";
+         Examine,ThrownAt: rfalse;
+         Follow: "You'll be telling me next that you can fly!";
+         Invoke:
+            i = parent(self);
+            j = i.other_obj;
+	    if (self.state ~= 0)
+		"The parrot is startled by your attack, and with a \
+		loud squawk it jumps from its perch and circles the \
+		tree before settling back onto the branch again.";
+            MoveNPC(self,j,u_obj);
+            if (Edward in i) {
+                if (i == Arboretum) self.state = 1;
+                else self.state = 9;
+            }
+            else self.state = 20;
+            StartDaemon(self);
+            print "The parrot is startled by your attack, and with a loud \
+                squawk it jumps from its perch and flies rapidly away to \
+                the ";
+            if (i == Arboretum) "southeast.";
+            "northwest.";
+         default: "The parrot is thirty feet above your head. Otherwise, \
+            a good attempt.";
+        ],
+        daemon [ i;
+            self.state = self.state + 1;
+            switch (self.state) {
+             2,10:
+                if (Edward in location)
+                    print "^Edward watches the parrot as it disappears \
+                        with an expression of dismay. ~Come back, Polly,~ \
+                        he calls.^";
+                if (Edward in Arboretum)
+                    MovePrintNPC(Edward,WestBank,s_obj);
+             3,11:
+                if (parent(Punt) ~= parent(Edward)) 
+                    print "^** Error: punt in the wrong place **^";
+                MoveNPC(Edward, Punt, Punt);
+                if (Punt in location)
+                    "^Edward climbs into the punt.";
+             4,12:
+                i = parent(PuntPole);
+                move PuntPole to Edward;
+                if (Punt in location) {
+                    if (i == Punt)
+                        "^Edward picks up the punt pole.";
+                    if (i ~= player)
+                        print "^** Error: pole in wrong place **^";
+                    "^~Give me the punt pole,~ commands Edward, and to \
+                    your surprise, you obey.";
+                }
+             5,13:
+                if (Punt in location)
+                    "^Edward plants the punt pole into the river bed and \
+                    prepares to set out.";
+             6,14:
+                if (Punt in location) {
+                    print "^With seemingly effortless ease, Edward pushes \
+                        off from the bank, poles the punt out into the \
+                        river and heads ";
+                    if (location == EastBank) print "downstream";
+                    else print "upstream";
+                    if (player in Punt) {
+                        print " for a minute or so. With a final graceful \
+                            manoeuvre, he brings the punt to rest against \
+                            the ";
+                        if (location == EastBank) print "west";
+                        else print "east";
+                        print " bank.^";
+                        Achieved("crossing the river");
+                        AdvanceTime(self);
+                        DoneHint(WhatNextPuzzle,16,17);
+                    }
+                    else
+                        print ", until he is lost to sight around a bend.^";
+                }
+                if (Punt in EastBank) move Punt to WestBank;
+                else move Punt to EastBank;
+                if (player in Punt)
+                    PlayerTo(Punt);
+                else if (Punt in location)
+                    "^A punt comes round a bend on the river, punted by \
+                    Edward. He steers the vessel directly towards you, \
+                    and with a final graceful manoeuvre, he brings the \
+                    punt to rest against the bank.";
+             7,15:
+                move PuntPole to Punt;
+                MoveNPC(Edward,parent(Punt),out_obj);
+                if (Edward in location)
+                    "^Edward puts down the punt pole and gets out of the \
+                    punt.";
+             16:
+                MovePrintNPC(Edward,Arboretum,n_obj);
+             8,17:
+                if (Edward in location)
+                    print "^Edward stares up at his parrot \
+                        forlornly. ~Come here, Polly,~ he calls, though \
+                        not with any conviction that he is going to be \
+                        obeyed.^";
+                if (location == EastBank or BeeLoudGlade or EarthenPath)
+                    i = EastBank;
+                else i = Arboretum;
+                if (Edward in i) {
+                    self.state = 0;
+                    StopDaemon(self);
+                }
+             9,18,24:
+                if (self in location)
+                    print "^Something seems to have disturbed the parrot, \
+                        because it suddenly gives a loud squawk and takes \
+                        to the air, quickly flying out of sight.^";
+                MoveNPC(self,(parent(self)).other_obj,u_obj);
+                if (self in location) {
+                    print "^You hear a squawk above you, and looking up \
+                        you see a grey parrot alighting on ";
+                    if (location == Arboretum) DefArt(ElmTree);
+                    else DefArt(Laburnum);
+                    print ".^";
+                }
+                if (self.state == 18) self.state = 1;
+                if (self.state == 24) {
+                    self.state = 0;
+                    StopDaemon(self);
+                }
+            }
+        ],
+        each_turn [;
+            switch (random(10)) {
+             1: "^The parrot squawks loudly.";
+             2: "^The parrot screeches loudly.";
+            }
+        ];
+
+Object  Trees "trees"
+ has    static concealed
+ with   name "trees",
+        found_in Arboretum BeeLoudGlade EarthenPath,
+        before [;
+         Climb: "They are much too tall to climb and you'd only go and \
+            tear your dress anyway.";
+        ];
+
+Object  EastBank "By the River, on the East Bank"
+ has    light is_garden is_water
+ with   name "trees" "grass" "grassy" "meadow" "hive" "beehive" "bee-hive"
+            "fish",
+        description "A grassy meadow runs down to the bank of the river \
+            to the west, which flows torpidly from south to north as \
+            though made indolent by the summer heat.^^A tall laburnum \
+            tree stands by the river, drooping its yellow flowers into \
+            the water, and a path ascends towards some trees to the \
+            southeast.",
+        other_obj Arboretum,
+        w_to "If you intend to swim, say so!",
+        se_to BeeLoudGlade,
+        before [;
+         Listen: "You can hear the buzzing of the bees.";
+         Swim: <<Enter River>>;
+         Enter:
+            if (noun in compass)
+                <<Go noun>>;
+        ];
+
+Nearby  Laburnum "laburnum tree"
+ class  TreeClass
+ with   name "laburnum",
+        cant_go "The profusion of branches makes it impossible to climb \
+            the laburnum tree without tearing your clothing to shreds.";
+
+Object  Bees "bees"
+ has    scenery
+ with   name "bee" "bees" "honeybee" "honeybees" "honey-bee" "swarm" "of",
+        found_in EastBank BeeLoudGlade EarthenPath,
+        before [;
+         Take,Remove,Touch: "That's a bit too dangerous for you to \
+             contemplate!";
+        ];
+
+Object  BeeLoudGlade "Bee-loud Glade"
+ has    light is_garden no_edward
+        ! general if a hive has been opened
+ with   name "glade" "earth" "earthen" "path" "river" "label",
+        description "A sunny glade sheltered by trees. The air here seems \
+            to be full of bees, and their buzzing is loud in your \
+            ears. You could walk out of the glade towards the river to \
+            the northwest, or follow an earthen path through the wood to \
+            the south.^^There are three bee-hives in the glade, the first \
+            in the northeastern corner beside a tall tree, the second in \
+            the southeastern corner in the shade of a pink-flowering \
+            tree, and the third on the west side near a white-flowering \
+            shrub.",
+        nw_to EastBank,
+        out_to EastBank,
+        s_to EarthenPath,
+        before [;
+         Listen: "The buzzing is loud in your ears.";
+        ],
+        each_turn [;
+            if (Veil hasnt worn) {
+                print "^You were never very brave when it came to \
+                    stinging insects, and the sight of so many of the \
+                    nasty creatures flying around in front of your nose \
+                    is too much for you. You decide that discretion is \
+                    the better part of valour, and you retreat.^";
+                PlayerTo(EastBank,1);
+                LookSub(1);
+            }
+        ];
+
+Nearby  PersimmonTree "tall tree"
+ class  TreeClass
+ with   name "persimmon" "tall" "diospyros" "virginiana",
+        description "A tall tree, maybe fifty feet tall and two feet in \
+            diameter, with deep green heart-shaped leaves. A label \
+            attached to the trunk reads ~Diospyros virginiana~.",
+        cant_go "The lowest branches are out of your reach.";
+
+Nearby  TamariskTree "white-flowering shrub"
+ class  TreeClass
+ with   name "thorny" "shrub" "tamarix" "africana" "tamarisk" "white"
+            "flowering" "flower" "white-flowering" "flowers" "label",
+        description "Perhaps fifteen feet tall, the leaves of this shrub \
+            are small and narrow, and the tiny white flowers are \
+            clustered on long stalks. A label attached to a branch reads \
+            ~Tamarix africana~.",
+        cant_go "The leaves are much too spiky to contemplate the climb.";
+
+Nearby  QuinceTree "pink-flowering tree"
+ class  TreeClass
+ with   name "pink" "flowering" "flower" "flowers" "pink-flowering"
+            "cydonia" "oblonga" "quince",
+        description "A short tree, perhaps fifteen feet tall, with a \
+            crowded mass of branches bearing small pink flowers. A label \
+            attached to the trunk reads ~Cydonia oblonga~.",
+        cant_go "The branches are much to crowded to climb.";
+
+Nearby  FakeHives "bee-hives"
+ has    scenery
+ with   name "hives" "beehives" "bee-hives",
+        before [;
+            "You should say which of the three bee-hives you mean.";
+        ];
+
+Class   HiveClass
+ has    static container openable concealed
+ with   name "hive" "ziggurat" "beehive" "bee-hive",
+        description [;
+            print_ret "The bee-hive is a little taller than waist-high \
+                and it is shaped like a Babylonian ziggurat. It is on the \
+                ", (PrintDirection) self.door_to, " side of the glade, \
+                near to ", (the) self.other_obj, ".";
+        ],
+        before [;
+         Open:
+            if (self has open) rfalse;
+            if (BeeLoudGlade has general)
+                "You don't think that you can bring yourself to do that \
+                again.";
+            print "You might be able to open one hive, but you doubt that \
+                you'll have the courage to do it more than once. Are you \
+                sure that you want to proceed? -> ";
+            if (YesOrNo() == 0) rtrue;
+            give BeeLoudGlade general;
+            move HoneyComb to self;
+            new_line;
+         Receive,Attack,Cut:
+            "It's probably unwise to annoy the bees.";
+        ];
+
+Nearby  FirstHive "first bee-hive"
+ class  HiveClass
+ with   name "first",
+        door_to ne_obj,
+        other_obj PersimmonTree;
+
+Nearby  SecondHive "second bee-hive"
+ class  HiveClass
+ with   name "second",
+        door_to se_obj,
+        other_obj QuinceTree;
+
+Nearby  ThirdHive "third bee-hive"
+ class  HiveClass
+ with   name "third",
+        door_to w_obj,
+        other_obj TamariskTree;
+
+Object  HoneyComb "honeycomb"
+ with   name "honey" "comb" "honeycomb" "honey-comb",
+        description "Oozing with honey, but crawling with dozens of \
+            bees. You can hardly bear to look at it, let alone \
+            contemplate touching it.",
+        before [ i j;
+         Take,Remove:
+            j = FindOpenEmptyVessel();
+            if (j == 0)
+                "It doesn't look like a good idea; how would you carry \
+                the honey around with you? Now if only you were carrying \
+                an empty bottle with you, or another suitable \
+                container...";
+            move Honey to j;
+            i = parent(self);
+            give i ~open;
+            if (i == ThirdHive) give Honey general;
+            remove self;
+            print_ret "Ever so slowly, you reach into the hive and pick \
+                up the honey-comb (how you wish you had some bee-keeper's \
+                gloves to go with your bee-keeper's veil!). By suspending \
+                the honey-comb over ", (the) j, ", you are able to catch \
+                a couple of drops of honey before you can stand it no \
+                longer and drop the honey-comb back into the hive and \
+                shut the hive again. You spend a few minutes frantically \
+                brushing angry bees off your hand, but luckily you seem \
+                to have escaped without being stung. However, you don't \
+                think you're going to try that again.";
+        ];
+
+Object  EarthenPath "Earthen Path"
+ has    light is_garden no_edward
+ with   name "path" "earth" "earthen",
+        description "The remotest part of the gardens, a narrow earthen \
+            path winding between trees and coming to end by an imposing \
+            red-brick wall.",
+        before [;
+         Listen: "You can hear the buzzing of the bees, loudest from the \
+            north.";
+        ],
+        n_to BeeLoudGlade;
+
+Nearby  BirdTable "bird table"
+ has    supporter static
+ with   name "bird" "table",
+        initial "A bird table stands near the wall.",
+        description "Despite the season of spring being well advanced, \
+            someone appears still to be feeding the birds.";
+
+Class   PeanutClass
+ class  PluralClass
+ has    edible
+ with   name "nut" "peanut",
+        plural_name 'nuts' 'peanuts',
+        plural "peanuts",
+        size 1,
+        description "The sort that get put out in bowls at dull \
+            dinner-parties, and which always end up getting lost in the \
+            carpet or under the chairs rather than being eaten.",
+        before [;
+         ThrowAt:
+            if (second == ParrotB) {
+                remove self;
+                "The parrot plucks the peanut out of the air and eats \
+                it.";
+            }
+        ],
+        after [;
+         Eat:
+            give WaterStore ~general;
+            "Not the most pleasant of meals, given that the peanut has \
+            probably lain on the bird table for a day or two, and been \
+            rained on. And now you're feeling thirsty.";
+        ];
+
+Object  Peanut1 "peanut" BirdTable class PeanutClass;
+Object  Peanut2 "peanut" BirdTable class PeanutClass;
+Object  Peanut3 "peanut" BirdTable class PeanutClass;
+Object  Peanut4 "peanut" BirdTable class PeanutClass;
+Object  Peanut5 "peanut" BirdTable class PeanutClass;
+Object  Peanut6 "peanut" BirdTable class PeanutClass;

@@ -1,0 +1,1619 @@
+!--------------------------------------------------------------------------
+! 4 WILDERSPIN AND THE LIBRARY
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!--------------------------------------------------------------------------
+! 4.1 THE LIBRARY
+!--------------------------------------------------------------------------
+
+Object  LibraryArchwayObject "library archway" FirstCourt
+ has    door scenery open
+ with   name "library" "arch" "archway",
+        description "An archway leading south to the library.",
+        door_to LibraryArchway,
+        door_dir s_to;
+
+Object  LibraryArchway "Library Archway"
+ has    light
+ with   name "archway" "first" "court" "mortar" "bricks" "dust" "wood"
+            "brick" "brickwork" "crumbling" "sagging",
+        description "A poorly lit archway just south of First Court. This \
+            must be one of the oldest parts of the college; the brickwork \
+            is crumbling and sagging, and perhaps in a hundred years' \
+            time it will have to be knocked down and rebuilt. The door to \
+            the library is to the south.",
+        n_to FirstCourt,
+        out_to FirstCourt,
+        s_to DoorLibrary,
+        in_to DoorLibrary,
+        cant_go "First Court is to the north, and the library is to the \
+            south.",
+        edward_dirs n_obj;
+
+Nearby  DoorLibrary "door to the library"
+ has    door openable lockable locked scenery autoopen
+ with   name "door" "library" "wooden",
+        description [;
+            print "An ordinary wooden door";
+            if (location == LibraryArchway && Notice hasnt moved)
+                print ". Someone has pinned a notice to it";
+            ".";
+        ],
+        article "the",
+        found_in LibraryArchway Library,
+        with_key KeyLibrary,
+        door_to [;
+            if (self in LibraryArchway) return Library;
+            else return LibraryArchway;
+        ],
+        door_dir [;
+            if (self in LibraryArchway) return s_to;
+            else return n_to;
+        ],
+        before [;
+         LookUnder: "The gap is too narrow for you to see anything.";
+        ];
+
+Nearby  Notice "notice"
+ class  FlimsyClass
+ with   name "notice",
+        initial "A notice is pinned to the door.",
+        description "The notice is from the librarian, Mr Baskeyfield, \
+            and contains boring details like the opening times: closed on \
+            Sundays, of course. There is a handwritten addendum: ~If \
+            anyone needs access outside these times, see me during office \
+            hours and I will tell you where I hide the spare key.~",
+        before [;
+         Take,Remove:   
+            if (self hasnt moved)
+                "You'll have to remove the pin first.";
+        ];
+
+Nearby  Pin "pin"
+ has    concealed
+        ! general if just moved
+ with   name "pin",
+        size 0,
+        before [;
+         Take,Remove:
+            if (self hasnt moved) {
+                give self moved ~concealed general;
+                give Notice moved;
+            }
+        ],
+        after [;
+         Take,Remove:
+            if (self has general) {
+                give self ~general;
+                "Taken. The notice falls to the ground.";
+            }
+        ];
+
+Object  Library "Library"
+ has    light
+ with   name "row" "rows",
+        description "A vast room, filled with bookshelves from floor to \
+            ceiling: rows and rows of narrow dark stacks stretching away \
+            into the distance. There is a card index next to the door, \
+            which leads out to the north.",
+        n_to DoorLibrary,
+        out_to DoorLibrary,
+        cant_go "The only exit is the door to the north.",
+        each_turn [;
+            Achieved("visiting the library");
+            DoneHint(WhatNextPuzzle,4);
+        ],
+        edward_dirs n_obj;
+
+Nearby  LibraryBooks "books"
+ has    scenery
+ with   name "books" "bookshelves" "shelves" "shelf" "stack" "stacks"
+            "bookstack" "book-stack",
+        description "There must be a hundred thousand books in the \
+            library, and the cataloguing system predates Dewey decimal by \
+            some hundreds of years. You would do best to look for what \
+            you want in the card index.",
+        before [;
+         Take: <<Examine self>>;
+        ];
+
+Object  CardIndex "card index" Library
+ has    static concealed
+ with   name "card" "index" "catalogue" "stack" "of" "drawers" "cards",
+        description "The card index is a stack of drawers lined with \
+            3-by-5 index cards. The older cards are yellow with age, and \
+            lettered in neat copperplate; the newer ones are \
+            typewritten. Annoyingly, you can only look up authors' \
+            surnames in the index.",
+        before [ w i;
+         Consult:
+            if (consult_words ~= 1)
+                "Try looking up a surname in the card index.";
+            wn = consult_from;
+            w = NextWord();
+            switch (w) {
+             'garton':
+                if (Hole in AlchemistsRoom) {
+                    print "You make your way to the relevant stack, and \
+                        although the library's copy of the ~The \
+                        Principles of Form~ appears to have been \
+                        borrowed, you do discover the hole in the wall \
+                        that leads to the alchemist's room. With the help \
+                        of a nearby ladder, you climb up to it and \
+                        re-enter the secret laboratory.^";
+                    PlayerTo(AlchemistsRoom);
+                    rtrue;
+                }
+                "You make your way to the relevant stack, but the \
+                library's copy of the ~The Principles of Form~ appears to \
+                have been borrowed.";
+             'hawksmoor':
+                print "You find the relevant place in the library: hidden \
+                    deep in the farthest recesses of the book-stacks, \
+                    over against the east side, on the lowest shelf. You \
+                    tug on William Hawksmoor's ~Physiponomachia~ and it \
+                    pulls forward like a lever. With an ugly grinding \
+                    sound a section of the wall swings aside, revealing a \
+                    hole leading out of the library to the east. Without \
+                    hesitating, you crawl through the hole, arriving \
+                    in...^";
+                move HoleB to Well;
+                PlayerTo(Well);
+                Achieved("finding a secret way into the hidden courtyard");
+                rtrue;
+             'arkwright':
+                "You find a card for Arkwright's ~The Reign of \
+                Akhenaten~, but it appears to have been borrowed some \
+                years ago by the Master of the college.";
+             'noble':
+                "You find a card for the ~Complete Poems~ of Simon Noble \
+                (1631-1676), but it has been borrowed.";
+             'bible':
+                "Alas, the index is by author, not title. You wonder how \
+                (or if) the Bible has been catalogued, given that it was \
+                written by many authors, the identity of most being \
+                unknown or doubtful.";
+             'rees':
+                "There's no mention in the card index of anyone called \
+                ~Rees~. Probably not much of a loss.";
+             'god':         i = BookBible;
+             'zinovic':     i = BookCode;
+             'maclane':     i = BookCollege;
+             'philalethes': i = BookPhilalethes;
+             'lully':       i = BookLully;
+             'meldrew':     i = BookMeldrew;
+            }
+            if (w == OMN()) i = BookKey;
+            if (i == 0)
+                "You can't find what you want in the card index. The \
+                college librarians seem to have exercised a peculiar \
+                choice in building up the library over the centuries.";
+            if (i notin self)
+                print_ret "You've already borrowed the library's copy of ",
+                    (the) i, ".";
+            if (i == BookBible)
+                print "Aha! Some wag has catalogued the Bible under the \
+                    author ~God~! ";
+            move i to player;
+            ResetVagueWords(i);
+            print_ret "You find the shelf and fetch down the copy of ",
+                (the) i, ".";
+        ];
+
+Nearby  BookBible "Holy Bible"
+ class  BibleClass
+ with   name "king" "james" "version" "holy" "cloth" "gilt" "edges",
+        description "It's an old, old copy of the King James version of \
+            the Holy Bible, bound in cloth with gilt edges to the pages.",
+        before [;
+         Invoke:
+            if (self.state == 1) {
+                switch (self.number) {
+                 'john':
+                    "John 11 is the chapter describing how Jesus \
+                    raised Lazarus from the dead. Verse 43 reads, \
+                    ~And when he thus had spoken, he cried with a \
+                    loud voice, Lazarus, come forth.~ Nothing unusual \
+                    about the words. You wonder why Malcolm's lab \
+                    book referred to that passage in particular.";
+                 'ruth','joel','jude','ezra','amos':
+                    "That book doesn't have a chapter 11.";
+                 'acts':
+                    "Acts 11 doesn't have a verse 43.";
+                 'mark':
+                    "Mark 11 doesn't have a verse 43.";
+                 'luke':
+                    "Luke 11 is the chapter in which Jesus teaches \
+                    the Lord's Prayer to his disciples and afterwards \
+                    preaches to them. Verse 43 reads, ~Woe unto you, \
+                    Pharisees! for ye love the uppermost seats in the \
+                    synagogues, and greetings in the markets.~ \
+                    Nothing unusual about the words. You wonder why \
+                    Malcolm's lab book referred to that passage in \
+                    particular.";
+                }
+            }
+            "You look through the copy of the Bible, but you can find \
+            nothing unusual or unfamiliar in it. It's all just as you \
+            remember from Sunday School.";
+        ];
+
+Nearby  BookCode "~Letter Substitution Ciphers~"
+ class  BookClass
+ has    proper
+ with   name "dmitri" "zinovic" "code" "letter" "substitution" "ciphers" 
+            "pamphlet",
+        description "~Letter Substitution Ciphers~ is a slim book, hardly \
+            larger than a pamphlet, by Dmitri Zinovic. A warning on the \
+            back cover says, ~Possession of this book may be illegal in \
+            some countries~. The content appears to describe three types \
+            of letter substitution cipher: Cyclic, Keyword and Random.",
+        before [;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            wn = consult_from;
+            switch (NextWord()) {
+             'cyclic','caesar':
+                print "A cyclic letter substitution cipher is obtained by \
+                    choosing a shift, n, between 1 and 25 and replacing \
+                    each letter in the plaintext with the letter n places \
+                    further on in the alphabet, wrapping round from Z to \
+                    A. Thus the cipher for n=5 is this:^^";
+                font off;
+                print " Plaintext: ABCDEFGHIJKLMNOPQRSTUVWXYZ^Ciphertext: \
+                    FGHIJKLMNOPQRSTUVWXYZABCDE^";
+                font on;
+                "^To decode a cyclic cipher with shift n, simply encode \
+                with shift (26-n); it is an easy task to try all the \
+                possibilities.^^A cyclic cipher is sometimes called a \
+                ~Caesar cipher~, because Julius Caesar used a cyclic code \
+                (with n=3) during his conquest of Gaul.";
+             'keyword':
+                print "A keyword substitution cipher is obtained by \
+                    choosing a fairly lengthy word or name with no \
+                    repeated letters, for example ~Gwyneth~, and using G \
+                    to code for A, W for B and so on. When the letters of \
+                    the name are used up, use the remaining letters in \
+                    alphabetical order. The cipher obtained by using \
+                    ~Gwyneth~ is this:^^";
+                font off;
+                print " Plaintext: ABCDEFGHIJKLMNOPQRSTUVWXYZ^Ciphertext: \
+                    GWYNETHABCDFIJKLMOPQRSUVXZ^";
+                font on;
+                "^To decode a keyword cipher, you will need to guess the \
+                word the coder has chosen, or else use the methods for \
+                decrypting random ciphers.";
+             'random':
+                "To obtain a random letter substitution cipher, choose \
+                any random permutation of the alphabet for your \
+                substitutions. A random cipher is hardest to break, but \
+                its disadvantage is that the code is difficult to \
+                remember, and so must be written down. To decode a random \
+                cipher, your best strategy is to discover where the code \
+                has been hidden. There are also more sophisticated \
+                methods based on letter and word frequency \
+                analysis...^^The book proceeds to go into some \
+                complicated mathematics that you are unable to follow.";
+             default:
+                <<Examine self>>;
+            }
+        ];
+
+Nearby  BookCollege "~Men of Biblioll~"
+ class  BookClass
+ has    proper
+ with   name "men" "of" "biblioll" "encyclopaedia" "encyclopedia" "maclane",
+        description "Written by William MacLane, ~Men of Biblioll: \
+            1240-1939~ is an encyclopaedia of famous men in the history \
+            of Biblioll College. There are so many of them that you'll \
+            have to look them up by surname.",
+        state 0,
+        before [ w i flag;
+         Examine: quote = 20;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            if (consult_words > 1)
+                "Try looking up his surname only.";
+            wn = consult_from;
+            w = NextWord();
+            for (i=player+1: flag==0 && i<=top_object: i++) {
+                if (i has is_door && w == ((i.&name)-->1))
+                    print_ret (RoomOccupant) i, " is too recent to be \
+                        included.";
+            }
+            switch (w) {
+             'arkwright':
+                "Professor Sir Joseph Arkwright, O.M. (b. 1882) became \
+                one of the world's authorities on ancient Egypt's \
+                Fourteenth Dynasty after leading the successful 1931-33 \
+                expedition to Akhetaten and the Valley of the \
+                Kings. Taught archaeology at Christminster until 1937, \
+                when he left to be head of the new Egyptology department \
+                at Chicago University.";
+             'biblioll':
+                "John de Biblioll (1240-1279) was the Lord of Branham \
+                Castle, and a minor figure in the politicking over the \
+                accession of Edward III. He quarrelled with the Bishop of \
+                Durham, and under threat of excommunication he was forced \
+                to make a public apology. As a penance he agreed to \
+                provide for the support of a number of poor scholars in \
+                perpetuity. Thus he founded Biblioll College in 1275.";
+             'canynges':
+                "William Canynges (1435-1481) was cellarer of the college \
+                from 1472. He built the wine cellars underneath the Great \
+                Hall, and he inaugurated the custom of inscribing the \
+                cellarer's name over any new bins added during his period \
+                of office, a practice which continues to this day.";
+             'farber':
+                "Edward Farber (1646-1695), bursar from 1682, was a good \
+                manager of money and a poor architect. He was able to \
+                raise more than five thousand pounds for the rebuilding \
+                of the chapel, and he had the good sense to hire the \
+                architect Sir William Hawksmoor to undertake the task, \
+                but it is understood that he was responsible for the ugly \
+                minaret at the top of the chapel tower.";
+             'fawley':
+                "Jude Fawley (d. 1898), a talented stonemason, was one of \
+                the team responsible for the gargoyles in First Court.";
+             'garton':
+                "Henry Garton (1567-1641) was the architect responsible \
+                for building much of the modern First Court, including \
+                ~B~ staircase (which initially contained the junior \
+                common room and only in the 18th century was converted \
+                into rooms for fellows) and the old library. Legend \
+                suggests that the buildings contained secret passages \
+                allowing him to spy on activities in the rooms, but this \
+                seems most unlikely.";
+             'hawksmoor':
+                "Sir William Hawksmoor (1654-1702) was one of the most \
+                influential architects of the late seventeenth century \
+                and was probably responsible in some way for almost all \
+                of the college buildings built in Christminster during \
+                that period. He was commissioned to design the new chapel \
+                for Biblioll College, his outstanding design \
+                incorporating the stained glass from the old chapel.";
+             'heydon':
+                "Thomas Heydon (d. 1512) helped to put Biblioll College \
+                on a sound footing after the poor management of the \
+                fifteenth century. He was able to increase the number of \
+                fellows to fourteen through the lease of small-holdings \
+                on college land granted by the Earl of Essex. He was the \
+                first to combine the offices of bursar and cellar, which \
+                he undertook from 1502, a joint office which survived for \
+                three centuries.";
+             'lilly':
+                "Edmund Lilly (fl. c. 1300) was one of Biblioll College's \
+                earliest chaplains. He left his illuminated Bible to the \
+                College on his death.";
+             'maclane':
+                "Modestly, the author left himself out.";
+             'master':
+                "There have been many Masters of the College since its \
+                foundation in 1275. You should look each one up by his \
+                surname.";
+             'mayow':
+                "Robert Mayow (1715-1770), bursar from 1752, managed to \
+                lose the college two thousand pounds, at a time when it \
+                badly needed additional finance, in a series of bungled \
+                land deals in Suffolk. In his favour, the glories of the \
+                gardens are mainly due to him.";
+             'meldrew':
+                "Tobias Meldrew (1801-1870) was Professor of Theology \
+                from 1850 until 1866. He set himself the task of proving \
+                the existence of God from first principles, a task which \
+                he announced in 1860 that he had accomplished with the \
+                aid of ten thousand intermediate lemmas. The derision \
+                which greeted his attempts to publish the mammoth work \
+                eventually drove him insane, and he spent the last four \
+                years of his life in the madhouse.";
+             'noble':
+                "Simon Noble (1631-1676), a minor metaphysical poet, was \
+                an undergraduate at Biblioll College and later a fellow \
+                of Lady Margaret Hall. Although respected during his \
+                lifetime, his work was justly forgotten after his death, \
+                and he remains most famous for his lengthy and vicious \
+                feud with Andrew Marvell.";
+             'philalethes':
+                "~Eugenius Philalethes~ was the pseudonym of Thomas \
+                Vaughan (q.v.), used for his writings on alchemy.";
+             'rees':
+                "No, no-one of that name.";
+             'starkey':
+                "Bernard Starkey (1681-1757), bursar from 1737-1752 and \
+                Master from 1752 until his death, did much to restore the \
+                failing academic reputation of Biblioll College by \
+                instituting a fellowship based upon merit, to be decided \
+                by open competition between the candidates.";
+             'tausend':
+                "Francis Tausend (1722-1801), bursar from 1770 to \
+                1782. Responsible for the enlargement of the Great Hall \
+                and the Senior Common Room. Joined the Whigs and served \
+                four years as member of Parliament for Christminster \
+                University before famously perishing in the House of \
+                Commons in the middle of a debate on foreign policy.";
+             'tymme':
+                "Elias Tymme (1598-1670), bursar from 1640, guided the \
+                college through the difficult period of the Civil War, in \
+                which it ~lent~ one thousand pounds of silver to the King \
+                to support the war, and was taxed one hundred pounds a \
+                month to support the troops garrisoned there while \
+                Christminster was the King's headquarters.";
+             'vaughan':
+                "Thomas Vaughan (1622-66) fought for the Royalists in the \
+                Civil War and returned to Biblioll College to study \
+                alchemy. He wrote books under the name ~Eugenius \
+                Philalethes~, and translated other alchemical and \
+                qabbalistic texts into English, including the Rosicrucian \
+                manifesto ~Fama Fraternitatis~.";
+             'vauhan':
+                "Thomas Vauhan: another spelling of Thomas Vaughan (q.v.)";
+            }
+            if (w == OMN()) print_ret (PrintOMN) 0, " (1625-1701), the \
+                cousin of the Earl of Lancaster, was an influential \
+                Puritan theologian and a prolific author of tracts \
+                arguing for reforms in the Church of England. He \
+                supported Parliament in the Civil War and was briefly a \
+                minister in Cromwell's government, but this did not \
+                prevent his preferment after the Restoration. He was \
+                Master of Biblioll College from 1686 until his death, but \
+                he was not liked by the Fellows and there was a \
+                persistent slander that he used witchcraft to keep one \
+                step ahead of his rivals.";
+            "You can't find anyone with that surname in the book.";
+        ];
+
+Nearby  BookKey "~De Gloriae Coelestis~"
+ class  BookClass
+ has    proper
+        ! general if found key in it
+ with   name "master" "de" "gloriae" "coelestis",
+        description [;
+            print_ret "~De Gloriae Coelestis~, by ", (PrintOMN) 0,
+                " looks like a boring theological tract, written in \
+                Latin. You can't understand a word, and you suspect that \
+                this is a good state of affairs.";
+        ],
+        number 0,
+        before [;
+         Receive:
+            if (noun == RustyKey) {
+                remove RustyKey;
+                give self ~general;
+                "You restore the rusty key to its former hiding place.";
+            }
+        ],
+        after [;
+         Examine:
+            if (self hasnt general) {
+                move RustyKey to player;
+                ResetVagueWords(RustyKey);
+                give self general;
+                Achieved("finding the rusty key");
+                "^As you flip through the pages, you discover that a \
+                portion of some of the pages have been cut out, leaving a \
+                small hollow in which a rusty key has been hidden.";
+            }
+        ];
+
+Array TableMastersName table
+    'skery' 'field' 'hoskins' 'pocock' 'walthamstowe' 'plumb'
+    'shepherd' 'winkler' 'arnott' 'quinn';
+
+Array TableMastersFullName table [;
+    "Robert Skery";
+    "Peter Field";
+    "Nicholas Hoskins";
+    "Daniel Pocock";
+    "Charles Walthamstowe";
+    "Michael Plumb";
+    "George Shepherd";
+    "Frederic Winkler";
+    "Benjamin Arnott";
+    "Graham Quinn";
+];
+
+[ OMN i;
+    if (i == 0) i = BookKey.number;
+    return TableMastersName-->i;
+];
+
+[ PrintOMN x; x = 0; Message(TableMastersFullName,BookKey.number); ];
+
+Nearby  BookPhilalethes "~Introitus Apertus~"
+ class  BookClass
+ has    proper
+ with   name "introitus" "apertus" "philalethes",
+        description "The book, by Eugenius Philalethes and dated 1662, is \
+            a long treatise on alchemy (the art of turning base metals \
+            into gold and silver by the action of a mysterious substance \
+            called the ~Philosopher's Stone~) and how the author intends \
+            to produce vast quantities of gold and destroy the evil \
+            system of money, so that ~this prop and stay of the \
+            anti-Christ may come to naught~.^^The bulk of the text is a \
+            long series of recipes, in which strange allegorical names \
+            like ~Philosophic Mercury~, ~the Dew of Hermes~ and so on \
+            substitute for real chemicals.^^Near the end of the book you \
+            discover the following passage:^^~At the close of three years \
+            labour, performed with diligence, patience and good will, you \
+            will have a small quantity of a reddish powder, of a splendid \
+            vermillion, a deeper and fuller hue than cinnabar. Glorify \
+            God and be thankful!^^~To form the Virgin's Milk, which is \
+            the cause of prophetic dreams and mystic visions, dissolve \
+            the powder in a bottle of good wine, which you may give to \
+            your cellarer to put away so that it may mature in darkness \
+            over a space of at least five years.^^~Afterwards, uncork the \
+            bottle carefully, and treat the Milk by the recipe described \
+            elsewhere, to possess the Elixir of Life. It is possible to \
+            further transform the Elixir into the Powder of Projection, \
+            but I will say no more herein.~^^What a load of nonsense!";
+
+Nearby  BookLully "~The Clavicula~"
+ class  BookClass
+ has    proper
+ with   name "clavicula" "lully",
+        description "Raymond Lully (1235-1315) was a mediaeval alchemist \
+            who set out to convert the Muslims and died in the \
+            attempt. The ~Clavicula~ (Little Key) is a description of the \
+            Art of Alchemy. In it, he writes, ~This book embodies the \
+            whole of the Art, but the words I use cannot be understood by \
+            the unlearned, for the treatises are split into sections and \
+            obscure as to language.~ He's right; you cannot make head or \
+            tail of anything in the book, which appears to be utter \
+            nonsense from cover to cover.",
+        before [ w n;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            if (consult_words <= 2) {
+                n = TryNumber(consult_from);
+                wn = consult_from;
+                w = NextWord();
+                if (w == 'page') {
+                    n = TryNumber(wn);
+                    if (n == -1000) "I was expecting a page number.";
+                }
+                if (n > 0) {
+                    if (n > 422) "The book doesn't have that many pages.";
+                    if (n == 364)
+                        "On page 364, you find a description of how to \
+                        make the ~Elixir of Life~ (assuming that one \
+                        starts out with a quantity of the ~Spittle of \
+                        Lune~, whatever that might be). It reads:^^~Be of \
+                        good heart, and pray to God for guidance in the \
+                        Work. Take thou the Spittle, and in a glass \
+                        retort heat it continually. First, make it sweet \
+                        with the Sap of the Wood of Hermes, that is named \
+                        also the Honey of the Egyptians. Second, make it \
+                        bitter with the Bath of the King. Third, make it \
+                        salt with the Water of the Sages, for thou \
+                        desirest the spiritual elements to rise and the \
+                        terrestrial elements to sink.~^^You wonder if \
+                        this nonsense was what Malcolm's lab book was \
+                        referring to.";
+                    quote = 6;
+                    "You are unable to make head or tail of the material \
+                    on that page, or, it seems, any other. The book \
+                    appears to be utter nonsense from cover to cover.";
+                }
+            }
+            "Alas, the book has no index, and you can't find what you \
+            want.";
+        ];
+
+Nearby  BookMeldrew "~The History of the Meldrews (vol. I)~"
+ class  BookClass
+ has    proper ~scored
+ with   name "meldrew" "meldrews" "history" "of",
+        description "The Meldrews are a family of minor nobility, and \
+            this three-volume work by the Honourable Peter Meldrew is \
+            their definitive history. The book is a hastily-bound \
+            manuscript copy and the pencilled dedication from the author \
+            implies that it was never published.^^Browsing through the \
+            pages, you discover an entry on Abner Meldrew (1612-1670), \
+            who dissipated a large fortune in an insane belief in the \
+            power of alchemy to transmute lead into gold, by which power \
+            he insisted he would regain the money he had spent. He \
+            consulted many alchemists, including the famous Thomas \
+            Vaughan, and paid them much money, but they never did him any \
+            good.",
+        before [;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            "You are unable to discover anything more of interest about \
+            the Meldrews.";
+        ];
+
+Object  BookArkwright "~The Reign of Akhenaten~"
+ class  BookClass
+ has    proper
+ with   name "arkwright" "reign" "of" "akhenaten",
+        description "A weighty work of Egyptology, Arkwright's book \
+            covers the Amarna period in ancient Egyptian history, in \
+            which the pharaoh Akhenaten, who ruled Egypt from 1358 to \
+            1340BC, attempted to reform the priesthood of Amon-Ra and \
+            replace it with a monotheistic religion worshipping Aten, the \
+            sun-disk. Needless to say, he failed, and was deposed by the \
+            priesthood he attempted to dismantle.^^You notice that the \
+            book has been borrowed from the college library and is \
+            several years overdue.",
+        before [ w n;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            if (consult_words <= 2) {
+                n = TryNumber(consult_from);
+                wn = consult_from;
+                w = NextWord();
+                if (w == 'page') {
+                    n = TryNumber(wn);
+                    if (n == -1000) "I was expecting a page number.";
+                }
+                if (n > 0) {
+                    if (n > 389) "The book doesn't have that many pages.";
+                    if (n == 143)
+                        "Page 143 contains a description of how Akhenaten \
+                        discontinued the Osiris ritual, a yearly \
+                        religious observance in which the god Osiris \
+                        (sometimes identified with Sethos, who \
+                        represented the dead and deified ancestors of the \
+                        Pharaoh) was purified, anointed and offered honey \
+                        by the king.^^You wonder if this was what \
+                        Malcolm's lab book was referring to.";
+                    "You discover some things you never knew about the \
+                    Amarna period, but it's all very tedious and \
+                    scholarly, and doesn't remain in your head for a \
+                    second.";
+                }
+            }
+            "Alas, the book has no index, and you can't find what you \
+            want.";
+         Take,Remove:
+            if (self in Wilderspin) {
+                move self to player;
+                "Wilderspin relinquishes the book, somewhat reluctantly.";
+            }
+        ];
+
+Object  BookBarker "~Flower Fairies~"
+ class  BookClass
+ has    proper ~scored
+ with   name "slim" "volume" "flower" "fairies",
+        description "The book is by Cicely Barker, and contains a set of \
+            nauseously sweet poems about fairies who live in flowers. \
+            The Master must have been very contemptuous of your \
+            intelligence to have given you this.";
+
+
+!------------------------------------------------------------------------------
+! 4.2 "B" STAIRCASE
+!------------------------------------------------------------------------------
+
+Object  BStairGround "~B~ Staircase, Ground Floor"
+ has    light
+ with   description "You feel incongruous and out of place among these \
+            ancient rooms and dark narrow wooden staircases. To the east \
+            is the door to B1; to the west is the door to B2; stairs lead \
+            up and down; and a door leads northwest onto First Court.",
+        u_to BStairFirst,
+        d_to BStairBasement,
+        nw_to FirstCourt,
+        out_to FirstCourt,
+        e_to DoorB1,
+        w_to [;
+            if (EM == 0 && Wilderspin in self)
+                "Wilderspin blocks your way.";
+            return DoorB2;
+        ],
+        edward_dirs nw_obj;
+
+Nearby  DoorB1 "x" class DoorClass
+ with   name "B1" "Halfhide" "Halfhide^s", honorific doctor,
+        room "B1", occupant "Halfhide", door_dir e_to;
+
+Object  BStairFirst "~B~ Staircase, First Floor"
+ has    light
+ with   name "rickety" "ladder",
+        description "The narrow stairs are uneven and slippery from the \
+            passing of centuries of inhabitants - famous men in their \
+            time no doubt, now forgotten, their books gathering dust in \
+            library stacks. To the east is the door to B3; to the west is \
+            the door to B4; a rickety ladder leads up to the second floor \
+            and stairs lead down to the ground floor.",
+        u_to BStairSecond,
+        d_to BStairGround,
+        e_to DoorB3,
+        w_to DoorB4,
+        edward_dirs d_obj;
+
+Nearby  DoorB3 "x" class DoorClass
+ with   name "B3" "Moody" "Moody^s", honorific doctor,
+        room "B3", occupant "Moody", door_dir e_to;
+
+Nearby  DoorB4 "x" class DoorClass
+ with   name "B4" "Jarboe" "Jarboe^s", honorific doctor,
+        room "B4", occupant "Jarboe", door_dir w_to,
+        before [;
+         Knock,Attack:
+            if (ClockTower.number > 18 || Jarboe notin JarboesSanctum) 
+                rfalse;
+            if (random(2) == 1)
+                "~Go away!~ shouts Jarboe from inside.";
+            print "Jarboe opens the door and peers out at you. ~Oh, it's \
+                you,~ he says";
+            if (BookLab in Jarboe)
+                ". ~Were you looking for this?~ and he holds up your \
+                brother's laboratory book. Laughing cruelly, he slams the \
+                door in your face.";
+            ". ~Get lost, I don't want to see you.~ He slams the door in \
+            your face.";
+        ];
+
+Object  BStairSecond "~B~ Staircase, Second Floor"
+ has    light
+ with   name "landing" "ladder" "turrets" "turret" "roof" "roofs"
+            "gargoyle" "gargoyles" "walkway" "walkways",
+        description "This tiny landing has a single door, leading east to \
+            B5. A ladder leads down to the first floor, and a little \
+            window overlooks a complex vista of roofs, turrets, walkways \
+            and gargoyles.",
+        d_to BStairFirst,
+        e_to DoorB5,
+        edward_dirs d_obj;
+
+Nearby  BStairSecondWindow "window"
+ has    scenery
+ with   name "window",
+        description "Peering through the grimy window, you can see a \
+            complex vista of roofs, turrets, walkways and gargoyles.",
+        before [;
+         Open: "There appears to be no way to open the window (probably \
+            to stop the undergraduates climbing out and wandering around \
+            on the roof).";
+         Search: <<Examine self>>;
+        ];
+
+
+!-------------------------------------------------------------------------
+! 4.2 PROFESSOR WILDERSPIN
+!-------------------------------------------------------------------------
+
+Object  DoorB2 "x" BStairGround
+ class  DoorClass
+ with   name "B2" "Wilderspin" "Wilderspin^s", 
+        honorific professor,
+        room "B2", 
+        occupant "Wilderspin",
+        door_dir w_to,
+        door_to WilderspinsRoom,
+        before [;
+         Close:
+            if (Wilderspin in location)
+                "You are unable to, because Wilderspin is in the way.";
+         Knock,Attack:
+            if (Wilderspin in location)
+                "That would be pointless, since Wilderspin is already \
+                here.";
+            if (Wilderspin notin WilderspinsRoom) rfalse;
+            if (Wilderspin.state > 0) {
+                give self ~locked;
+                "~Come in!~ calls Wilderspin from inside.";
+            }
+            give self ~locked open;
+            MoveNPC(Wilderspin, BStairGround, e_obj);
+            Wilderspin.state = 1;
+            StartDaemon(Wilderspin);
+            "The door opens, and a tall bewhiskered man appears, whom you \
+            presume must be Wilderspin. ~I'm a bit busy at the moment,~ \
+            he says. ~What do you want?~";
+        ];
+
+Object  WilderspinsRoom "Professor Wilderspin's Study"
+ has    light no_edward proper
+ with   name "study",
+        initial [;
+            Achieved("visiting Professor Wilderspin");
+            DoneHint(WhatNextPuzzle,7,8);
+        ],
+        description [;
+            if (ClockTower.number < 20) 
+	    	"This study is a comfortable room, brightly lit by a \
+		window looking onto First Court to the north. \
+		Wilderspin's desk is positioned under the window for \
+		best use of the light. There is a large unlit \
+		fireplace in the west wall, and there is an exit to \
+		the east.";
+	    "This study is a comfortable room, with a window looking \
+	    onto First Court to the north. Wilderspin's desk is by the \
+	    window and there is a large unlit fireplace in the west \
+	    wall. You can go out to the east.";
+	],
+        e_to BStairGround,
+        out_to BStairGround,
+        w_to [;
+            if (Fireplace hasnt open)
+                "You explore the fireplace, but find nothing unusual.";
+            DumpCarried(WilderspinsRoom);
+            Wilderspin.state = 10;
+            give Fireplace ~open;
+            print "You climb gingerly through the hole at the back of the \
+                fireplace. As you step over the lintel, your foot \
+                catches and you trip, dropping everything that you're \
+                carrying, and then falling forward onto a hard wooden \
+                floor. You must have disturbed some mechanism, because \
+                the back of the fireplace swings back into place with an \
+                unsettlingly final thud. You are plunged into...^";
+            PlayerTo(SecretPassage);
+            AdvanceTime(Fireplace);
+            DoneHint(WhatNextPuzzle,9);
+            rtrue;
+        ],
+        cant_go "The exit is to the east.";
+
+Nearby  WilderspinsWindow "window"
+ has    static concealed openable
+ with   name "window",
+        before [;
+         Open: 
+            if (Wilderspin in location) 
+                "You are unable to open the window. ~It's been stuck for \
+                years,~ says Wilderspin.";
+            "You are unable to open the window.";
+         Search: "You look out onto First Court, but see nothing \
+             unexpected.";
+        ];
+
+Nearby  WilderspinsDesk "desk"
+ has    static concealed openable
+ with   name "desk",
+        before [;
+         Open,Search: "It would be unpardonably rude to go looking \
+             through Wilderspin's desk.";
+        ];
+
+Nearby  ExaminationScripts "examination scripts"
+ has    concealed
+ with   name "examination" "pile" "of" "script" "exam" "scripts",
+        article "a pile of",
+        before [;
+         Examine, Take: "Leave the exam scripts in peace to be marked.";
+        ];
+
+Nearby  Fireplace "fireplace"
+ has    scenery door
+        ! general if you've examined the griffins
+ with   name "fireplace" "fire" "place" "grate" "hole",
+        description [;
+            print "Since it's summer, there's no fire in the fireplace, \
+                and the grate has been mostly cleaned of ash. The \
+                fireplace is flanked by two brass griffins";
+            if (self has open)
+                print ". There's a large hole at the back of the \
+                    fireplace leading to a dark room to the west";
+            ".";
+        ],
+        describe [;
+            if (self has open)
+                "^A large hole at the back of the fireplace leads to a \
+                dark room to the west.";
+        ],
+        door_to SecretPassage,
+        door_dir w_to,
+        before [;
+         Receive,ThrownAt:
+            if (self has open)
+                "Why not just carry that through yourself?";
+            "You'd just get that all dirty with ash and dust.";
+        ];
+
+Class   GriffinClass
+ has    static concealed
+ with   name "brass" "griffin",
+        article "the",
+        description "A griffin is a mythological creature with a lion's \
+            body, and an eagle's head and wings. This griffin is made of \
+            brass, is about two feet high, and has only one eye.",
+        after [;
+         Examine,Search:
+            if (Fireplace hasnt general && Wilderspin in location) {
+                give Fireplace general;
+                print "^Wilderspin says, ~Interested in the griffins? \
+                    Apparently they're early seventeenth century, put \
+                    there by Henry Garton.~^";
+            }
+        ];
+
+Nearby  Griffins "griffins"
+ has    scenery
+ with   name "griffins",
+        description "The griffins stand by the fireplace, one to the \
+            left, the other to the right. They are made of brass, are \
+            about two feet high, and have only one eye each.",
+        before [;
+         Examine: ;
+         default: "You'll have to say which griffin you mean, the left or \
+            the right.";
+        ];
+
+Nearby  LeftGriffin "left griffin"
+ class  GriffinClass
+        ! general if Wilderspin's seen you push an eye
+ with   name "left";
+
+Nearby  RightGriffin "right griffin"
+ class  GriffinClass
+ with   name "right";
+
+Nearby  Eyes "griffins' eyes"
+ has    scenery
+ with   name "eyes",
+        before [;
+         Push: "The eyes are too far apart to push them both.";
+         default: "You'll have to say which griffin's eye you mean, the \
+            left or the right.";
+        ];
+
+Class   GriffinEyeClass
+ has    static concealed
+ with   name "griffin^s" "eye",
+        article "the",
+        description "The griffin's single eye stares back at you.",
+        before [;
+         Push:
+            if (Wilderspin.eye_pushed == self)
+                print_ret "Wilderspin is already pushing ", (the) self, ".";
+            if (self.other_obj ~= Wilderspin.eye_pushed) {
+                print "You push the eye, and it depresses by perhaps half \
+                    an inch, making a clicking sound. Nothing else \
+                    happens. You release it, and it springs back into \
+                    place.";
+                if (Wilderspin in location && LeftGriffin hasnt general) {
+                    give LeftGriffin general;
+                    print " Wilderspin hears the click and turns to see \
+                        what you're doing. ~Good grief,~ he says. ~I \
+                        never knew they did that.~";
+                }
+                new_line;
+                rtrue;
+            }
+            give Fireplace open;
+            Wilderspin.state = 8;
+            Wilderspin.eye_pushed = 0;
+            MoveNPC(Wilderspin, SecretPassage, w_obj);
+            Achieved("opening the secret passage");
+            "You push the eye, and you hear a click from the \
+            fireplace. The back wall of the fireplace has swung open, \
+            revealing a large hole into a dark room to the \
+            west.^^~Amazing!~ says Wilderspin. ~I've been here eleven \
+            years and never thought to try that! Come, let's see what \
+            we've found.~^^He clambers through the hole.";
+        ];
+
+Nearby  LeftGriffinEye "left griffin's eye"
+ class  GriffinEyeClass
+ with   name "left",
+        other_obj RightGriffinEye;
+
+Nearby  RightGriffinEye "right griffin's eye"
+ class  GriffinEyeClass
+ with   name "right",
+        other_obj LeftGriffinEye;
+
+Object  Wilderspin "Professor Wilderspin" WilderspinsRoom
+ class  FollowClass CarryingClass TalkableClass
+ has    proper
+        ! general if told you about Osiris
+ with   name "professor" "wilderspin" "prof" "fellow",
+        description [;
+            print "Wilderspin is tall and bewhiskered, and you might \
+                guess his age to be about fifty. He is wearing a long \
+                black gown, and ";
+            if (self in BStairGround) {
+                print "looking at you impatiently."; rtrue; 
+            }
+            if (self in WilderspinsRoom && self.state == 5 or 6 or 7) {
+                print "holding down ", (the) self.eye_pushed, ".";
+                rtrue;
+            }
+            if (self in WilderspinsRoom && self.state == 4) {
+                print "sitting at his desk, marking exam papers.";
+                rtrue;
+            }
+            if (self in AlchemistsRoom) {
+                print "studying the skeleton with great interest.";
+                rtrue;
+            }
+            print "** Error: Wilderspin doing something bizarre **";
+        ],
+        life [;
+         Show,Give:
+            if (noun == BookArkwright && DoorB1 hasnt general) {
+                give DoorB1 general;
+                move BookArkwright to self;
+                MoveNPC(self, WilderspinsRoom, w_obj);
+                self.state = 4;
+                "~I say,~ says Wilderspin, taking the book from your \
+                hands. ~Arkwright on the Amarna period, and a first \
+                edition too. I thought I'd never see one of \
+                these. Reminds me of the 1932 expedition, looking for \
+                stelae at Akhetaten, and listening to Arkwright's \
+                theories about Osiris. You must get me to tell you about \
+                them some time. I'm Wilderspin, by the way, pleased to \
+                meet you.~^^~Christabel Spencer,~ you reply, shaking his \
+                hand.^^~Do come in,~ he says, and he goes back into his \
+                study and proceeds to leaf through the pages of the \
+                book.";
+            }
+            if (noun == BookArkwright) {
+                move BookArkwright to self;
+                "Wilderspin accepts your gift.";
+            }
+        ],
+        orders [;
+         Push:
+            if (noun == LeftGriffinEye or RightGriffinEye) {
+                if (self.state == 5 or 6 or 7)
+                    "~I'm already pushing as hard as I can!~ he says.";
+                if (LeftGriffin hasnt general)
+                    "~I'm not sure I understand what you mean,~ he \
+                    says. ~Perhaps you could demonstrate?~";
+                self.state = 5;
+                self.eye_pushed = noun;
+                print_ret "~I'll have a go, if you like,~ says the \
+                    Professor. He walks over to the fireplace and \
+                    depresses ", (the) noun, ", holding it down. ~Well?~ \
+                    he asks you, ~what happens next?~";
+            }
+         Give:
+            if (noun == BookArkwright && second == player)
+                <<Take BookArkwright>>;
+         Go,Enter,Climb:
+            if (noun == player && self in SecretPassage)
+                "~I don't think you'd be able to carry my weight,~ says \
+                Wilderspin.";
+            if (self in SecretPassage) {
+                if (player notin self)
+                    "~I wish I could,~ he says.";
+                if (noun ~= n_obj or ne_obj or e_obj &&
+                    noun ~= se_obj or s_obj or sw_obj &&
+                    noun ~= w_obj or nw_obj)
+                    "~I don't quite understand how to do that,~ he says.";
+                if (noun == self.next_to)
+                    "~I can't go any further,~ he says.";
+                self.next_to = noun;
+                "Wilderspin takes a couple of steps in that \
+                direction. You wobble a little, but manage to regain your \
+                balance. ~That's it, I can't go any further,~ he says.";
+            }
+         Take:
+            if (noun == player && self in SecretPassage) <<Climb self>>;
+         Drop:
+            if (noun == player && player in self) <<Exit>>;
+         default:
+            if (noun == Skeleton) <<Question self QSkeleton>>;
+        ],
+        before [;
+         Question:
+            if (self in BStairGround)
+                "~I'm too busy to help you with that,~ says Wilderspin.";
+            switch(second) {
+             QGarton:
+                "~Henry Garton was one of the college architects in the \
+                seventeenth century,~ says the Professor, ~but I don't \
+                know any more than that.~";
+             QGriffins:
+                "~Like the griffins, do you?~ says Wilderspin, ~The \
+                one-eyed sort are very unusual. These are attributed to \
+                Henry Garton.~";
+             QEdward:
+                "~Edward Forbes?~ says Wilderspin. ~He has the makings of \
+                a good student, but he doesn't have the willpower to put \
+                in the work required. I suspect that he'll drift through \
+                his three years and then go off and join the Civil \
+                Service just like everyone else.~";
+             QOsiris,QHoney:
+                if (self hasnt general) {
+                    give self general;
+                    print "~Arkwright had some odd ideas about the Osiris \
+                        ritual,~ says Wilderspin, ~based on his \
+                        interpretation of the temple paintings at Karnak \
+                        and Abydos. He thought that the ancient Egyptians \
+                        really believed that their offerings would bring \
+                        Osiris back to life, and that they worshipped the \
+                        tamarisk tree. I think he may have \
+                        over-interpreted some correspondences between the \
+                        cults of Osiris and of Hermes.^";
+                    print "^~According to Egyptian myth, Osiris was \
+                        trapped by the evil god Set and imprisoned in a \
+                        chest, which floated down the Nile to the papyrus \
+                        swamps, where a tamarisk tree grew up around \
+                        it. Later the tree was chopped down by a local \
+                        king and the trunk, still containing the chest, \
+                        was used as the central pillar in the king's \
+                        palace.^";
+                    print "^~Osiris' wife, the goddess Isis, searched for \
+                        him for many years. When she did find him, Set \
+                        tore him into many pieces and scattered the parts \
+                        across Egypt. But Isis' love was such that she \
+                        visited every part and built a temple there, and \
+                        Osiris was brought back to life, and reigned over \
+                        the gods once more.~^";
+                    print "^You feel quite moved by Wilderspin's telling \
+                        of the story.^";
+                    "^Wilderspin adds, ~Osiris was later identified with \
+                    the demigod Hermes Trismegistus, the thrice-mighty, \
+                    and the tamarisk was known to mediaeval occultists as \
+                    the wood of Hermes.~";
+                }
+                "Wilderspin has already told you the myth of Isis and \
+                Osiris.";
+             QArkwright:
+                "~Arkwright's one of the great Egyptologists,~ says \
+                Wilderspin. ~I was with him on the 1931 expedition to the \
+                Valley of the Kings, and he was indefatigable! Blazing \
+                sun, restless natives, the competing French team of \
+                Pierre Vastang - nothing could slow him down! Of course, \
+                it was scandalous that Christminster never made him head \
+                of the department and it was no surprise to me when he \
+                left for Chicago.~";
+             QVastang:
+                "~Vastang was a menace, and no mistake,~ says \
+                Wilderspin. ~We had no end of trouble with him bribing \
+                our hired labourers to report on us and disrupt our \
+                excavations. He even dressed himself in a turban, \
+                pretending to be a Mohammedan bandit, and tried to scare \
+                us away from the Valley of the Kings by shooting at our \
+                camp. What a character!~";
+             QArchaeology,QEgypt:
+                "~That's right,~ says Wilderspin. ~Before I was appointed \
+                here, I was involved in fieldwork in Egypt. Those were \
+                the days! Blistering heat, scorpions in our boots, tons \
+                of sand and earth to move, and tombs everywhere. A \
+                paradise for the Egyptologist.~";
+             QJarboe:
+                "~I don't know Jarboe very well,~ says Wilderspin. ~He's \
+                a mathematician, and all mathematicians are a bit mad.~";
+             QBungay:
+                "~Bungay's an expert on mediaeval and Renaissance \
+                Europe,~ says Wilderspin, ~which is a bit after my \
+                period, really. Don't tell anyone I said this, but I \
+                don't think anyone - least of all his students - would be \
+                unhappy if he gave up teaching in favour of research.~";
+             QSkeleton:
+                if (self in AlchemistsRoom)
+                    "~I'm not sure,~ says Wilderspin, ~but he - \
+                    definitely he - looks to be about three hundred years \
+                    old. I would guess from the bottles and so on that he \
+                    was an alchemist, and that he feared that his \
+                    researches would be discovered. Even in conservative \
+                    Christminster he would have risked burning as a \
+                    warlock. I wonder how he died?~";
+            }
+            if (self.state == 5 or 6 or 7)
+                "~Well, what happens next?~ Wilderspin asks you.";
+            if (self.state == 4)
+                "Wilderspin ignores you and gets on with his marking.";
+            if (self.state >= 10 && self.state <= 25)
+                "Wilderspin fumbles for your hand and squeezes it \
+                reassuringly. ~The best thing we can do is keep calm and \
+                think carefully about what to do.~";
+            if (self.state == 26)
+                "~I wish you'd figure out what you want me to do,~ \
+                Wilderspin grumbles. ~I don't think I can carry you for \
+                ever.~";
+            if (self.state == 28 or 29 or 30)
+                "~What next?~ asks Wilderspin. ~I suppose we should \
+                explore this ledge and see where it goes.~";
+            if (self.state == 31)
+                "Wilderspin is too busy examining the room to pay much \
+                attention to you.";
+            "** Error: Wilderspin is in an illegal place or state **";
+         Climb,Enter:
+            if (self in SecretPassage) {
+                if (player in self)
+                    "You're already standing on Wilderspin's shoulders.";
+                move player to self;
+                self.state = 26;
+                self.next_to = 0;
+                "~Let me stand on your shoulders,~ you say. ~All right,~ \
+                he replies. ~We can give it a go... OK, I'm kneeling.~ \
+                You scramble onto his shoulder and he takes hold of your \
+                legs and shakily rises to his feet.";
+            }
+            "~I don't think there's any call for that,~ says Wilderspin.";
+        ],
+        next_to 0,
+        eye_pushed 0,
+        state 0,
+        daemon [;
+            ! 0 in room and unfriendly
+            ! 1-3 waiting outside door
+            ! 4 in room and friendly
+            ! 5-7 pushing Griffin's eye
+            ! 8-9 waiting inside secret passage
+            ! 10-25 trying to get out of secret passage
+            ! 26 carrying Christabel
+            ! 27 pulled up to ledge
+            ! 28-30 in ledge
+            ! 31 in Alchemists Room
+            switch (self.state) {
+             0,4: rtrue;
+             3:
+                MoveNPC(self, WilderspinsRoom, w_obj);
+                give DoorB2 locked ~open;
+                self.state = 0;
+                if (player notin BStairGround) rtrue;
+                "^Wilderspin says, ~I'm sorry, but I'm very busy and I \
+                can't see you today. Goodbye.~ He goes back into his \
+                room, closing and locking his door.";
+             7:
+                self.state = 4;
+                self.eye_pushed = 0;
+                if (player notin WilderspinsRoom) rtrue;
+                "^~Nothing seems to have happened,~ says Wilderspin. ~I \
+                thought you were going to push the other eye.~ He goes \
+                back to his marking.";
+             9:
+                if (player in WilderspinsRoom && random(2) == 1)
+                    "^You can hear Wilderspin calling you from beyond the \
+                    fireplace: ~Come here and look at this! What a \
+                    strange place you've found!~";
+                rtrue;
+             10:
+                print "^~Don't panic!~ says Wilderspin. You try very hard \
+                    to resist the temptation to scream.^";
+             12:
+                print "^~I've been in worse situations than this,~ says \
+                    Wilderspin. ~Like the time when the ceiling collapsed \
+                    in the antechamber of the tomb of Amenhotep II.~^";
+             13:
+                print "^Wilderspin says, ~Luckily for me, I was wedged \
+                    under a ceiling slab, and that protected me from the \
+                    rest of the rubble.~^";
+             14:
+                print "^Wilderspin says, ~It took them five hours to dig \
+                    me out.~^";
+             16:
+                print "^~Let's think about this carefully,~ says \
+                    Wilderspin. ~I got a brief look at the room before \
+                    you shut the entrance on us, but I couldn't see a way \
+                    out.~^";
+             18,20:
+                if (self has general)
+                    print "^You can hear Wilderspin scratching at one of \
+                        the walls. ~There must be some way to open the \
+                        door again,~ he mutters to himself.^";
+                else {
+                    print "^Wilderspin says, ~I think we both need a bit \
+                        of cheering up, so let me tell you Arkwright's \
+                        ideas about Osiris, as I promised you I \
+                        would.~^^";
+                    <Question self QOsiris>;
+                }
+             21:
+                print "^~Let's think about this carefully,~ says \
+                    Wilderspin. ~The room is about three feet wide and \
+                    about ten feet long. It's lined with stone.~^";
+             22:
+                print "^Wilderspin continues, ~The floor is made of wood, \
+                    distressingly solid, alas.~^";
+             23:
+                print "^~Come on, man,~ Wilderspin says to himself. \
+                    ~Think!~^";
+             25: self.state = 10;
+             26:
+                if (random(3) == 1)
+                    "^~Well, what next?~ asks Wilderspin.";
+                rtrue;
+             27:
+                move Wilderspin to Ledge;
+                print "^~Well done!~ calls Wilderspin. ~Can you pull me \
+                    up?~ You reach down, and after some fumbling and a \
+                    lot of effort, manage to do so. The two of you sit on \
+                    the floor in the dark until you get your breath \
+                    back.^";
+             28,29,30:
+                if (player notin Ledge) {
+                    MovePrintNPC(self, AlchemistsRoom, e_obj);
+                    self.state = 30;
+                }
+                if (self.state == 30 && player in Ledge) {
+                    print "^~Come on, Miss Spencer,~ says Wilderspin. \
+                        ~Let's explore!~ You hear him moving to the \
+                        south.^";
+                    MovePrintNPC(self, AlchemistsRoom, s_obj);
+                }
+             31:
+                StopDaemon(self);
+                rtrue;
+            }
+            if (self.state > 31)
+                "^** Error: Wilderspin not in state 0-31 **";
+            self.state = self.state + 1;
+            if (parser_trace >= 1)
+                print "[Wilderspin.state = ", self.state, "]^";
+        ];
+
+Nearby  WilderspinsGown "gown"
+ has    clothing worn concealed
+ with   name "long" "black" "gown" "sleeves",
+        description "You're not versed in these matters, but if you were \
+            then you would be able to recognise that the wearer of this \
+            gown is a fellow of Biblioll College by examining the length \
+            and the cut of the sleeves.";
+
+Nearby  WilderspinsMoustache "moustache"
+ has    concealed
+ with   name "whisker" "whiskers" "moustache",
+        description "A beautiful handlebar moustache. In London, it would \
+            only be twenty years out of fashion. Here in Christminster, \
+            Wilderspin is probably ahead of his time.";
+
+
+!------------------------------------------------------------------------------
+! 4.4 THE SECRET PASSAGE
+!------------------------------------------------------------------------------
+
+Object  SecretPassage "** Error: you shouldn't see this **"
+ has    no_edward
+ with   before [;
+            if (noun == d_obj && player notin Wilderspin)
+                "You scratch at the wooden floorboards, but they're \
+                implacably firm.";
+            if (noun == u_obj)
+                "The ceiling is beyond your reach.";
+         Jump:
+            if (player in Wilderspin)
+                "Your position is far too precarious for that kind of \
+                acrobatics.";
+         Climb:
+            if (noun in compass)
+                "Trying to climb the stone walls results only in a broken \
+                fingernail.";
+         Go,Enter,Touch:
+            if (noun == d_obj && player in Wilderspin) <<Exit>>;
+            if (noun in compass && player notin Wilderspin) {
+                if (random(3) ~= 1)
+                    "You fumble your way in that direction, but almost \
+                    immediately you bump into a very solid stone \
+                    wall. You run your hands over the damp and cold \
+                    stones, but as high as you can reach there's no gap \
+                    in the stonework.";
+                "You fumble your way in that direction, and almost \
+                immediately bump into something soft. You start to \
+                scream, but then you realise it's Wilderspin. ~Pardon \
+                me,~ he says.";
+            }
+            if (CompassPoint(noun) == 1 && player in Wilderspin) {
+                if (Wilderspin.next_to ~= noun)
+                    print_ret "There's nothing within reach to the ",
+                        (address) (noun.&name)-->1, ".";
+                if (noun ~= s_obj)
+                    print_ret "You reach out and run your hands over the \
+                        damp and cold stones of ", (the) noun,
+                        ". There's no way out here.";
+                print "You reach out and run your hands over the damp and \
+                    cold stones of the south wall. Suddenly your hand \
+                    slips forward, and you almost fall. There's a hole \
+                    here, high up in the wall! ~Let go of me,~ you say, \
+                    and pull yourself up onto a ledge.^";
+                Wilderspin.state = 27;
+                PlayerTo(Ledge);
+                Achieved("escaping from the secret passage");
+                DoneHint(WhatNextPuzzle,10);
+                rtrue;
+            }
+         Scream:
+            quote = 2;
+            "Wilderspin fumbles for your hand and squeezes it \
+            reassuringly. ~Be calm,~ he says. ~Keep your head and we'll \
+            be out of here in no time.~";
+         Listen: "The sound of your beating heart is loud in your ears.";
+        ],
+        after [;
+         Exit:
+            if (Wilderspin.state == 26) {
+		Wilderspin.state = 10;
+		"You climb down from Wilderspin's shoulders and are on \
+		your own feet again.";
+	    }
+        ];
+
+Object  Ledge "** Error: you shouldn't see this **"
+ has    no_edward
+ with   n_to "You don't fancy climbing back down in the dark.",
+        d_to "You don't fancy climbing back down in the dark.",
+        s_to AlchemistsRoom,
+        cant_go "Since you don't want to climb back down, you had better \
+            follow the ledge south.",
+        before [;
+         Go:
+            if (noun == s_obj) {
+                print "You grope your way south, half-stooping and \
+                    half-crawling. The passage turns to the left, and \
+                    your eyes, accustomed now to the dark, begin to make \
+                    out some shapes...^";
+            }
+        ];
+
+Object  AlchemistsRoom "Secret Room"
+ has    light no_edward
+ with   name "cupboard" "socket" "sockets" "crack" "shaft" "light",
+        description "A shaft of light from a crack high up in the south \
+            wall illuminates a tiny room, perhaps five feet by seven, \
+            barely larger than a cupboard, with a tiny passage leading \
+            west into darkness.^^In the dim light, you can see a \
+            laboratory bench along one wall, and a human skeleton curled \
+            up in a corner. A shiver runs up your spine at the sight.",
+        w_to [;
+            print "You grope your way back along the passage, which turns \
+                to the right.^";
+            return Ledge;
+        ],
+        before [;
+         Go:
+            if (noun == d_obj or in_obj && Hole in self) <<Enter Hole>>;
+         Smell: "There's a faint unpleasant smell of decay.";
+        ],
+        each_turn [;
+            if (Candle has light && LineOfSight(player,Candle) == 1 && Hole
+              in self) {
+                give Candle ~light;
+                "^A draft from the hole blows out your candle.";
+            }
+        ];
+                
+Nearby  Skeleton "skeleton"
+ has    scenery
+        ! general if Wilderspin's enthused about it
+ with   name "skeleton" "corpse" "body" "robes" "rotten" "crumbling",
+        description "You can hardly bear to go near the thing. It's the \
+            body of an adult human, reduced by the ravages of time to a \
+            white skeleton, clothed with rotten and crumbling robes.",
+        life [ i;
+         Give:
+            if (noun has is_vessel && noun has open && 
+              children(noun) > 0 && child(noun) has is_liquid) {
+                i = child(noun);
+                remove i;
+                print "Feeling somewhat foolish, you pour ", (the) i, " \
+                    into the skeleton's grinning mouth";
+                if (i ~= ElixirC) ".";
+                print ". A sudden draft of chilly air rattles the bones, \
+                    and the skeleton jerks to its feet. ";
+                if (Wilderspin in AlchemistsRoom) print "Wilderspin falls \
+                    backward in astonishment, strikes his head on the \
+                    wall, and slumps to the ground. ";
+                print "Petrified with fear, you can only watch as the \
+                    skeleton advances toward you, pointing its bony \
+                    finger at your throat.^^~Who art thou?~ it moans, \
+                    ~Art thou the Devil? Thou hast no power over me. By \
+                    mine Art I have overcome thee, Beelzebub! I conjure \
+                    thee in the names of Azraphel, Arioch, Apollyon, \
+                    Anauel, Adonai, Adramelech, Anaphaxeton and \
+                    Astaroth!~ Then, as quickly as it came to life, it \
+                    falters, and falls to the ground, just a jumble of \
+                    white bones again";
+                if (Wilderspin in AlchemistsRoom) print ".^^Wilderspin \
+                    moans and sits up. ~What happened?~ he says. ~I must \
+                    have hit my head. Oh, it hurts!~ You approach him \
+                    solicitously, but he shrugs you off. ~I've suffered \
+                    worse knocks in my time,~ he says. ~Don't worry about \
+                    me, I shall be fine.~ He goes back to examining the \
+                    skeleton as though nothing had happened";
+                ".";
+            }
+        ],
+        before [;
+         Take,Pull,Push,Turn,Touch,Search:
+            "Ugh! You're certainly not going near enough to the skeleton \
+            to touch it.";
+         SmellThing:
+            "It still gives off a faint unpleasant smell of decay.";
+        ],
+        after [;
+            quote = 5;
+            if (Wilderspin in AlchemistsRoom && self hasnt general) {
+                give self general;
+                print "^~Isn't it exciting?~ says Wilderspin, ~Reminds me \
+                    of when we opened up the tomb of Neferneferuaten, and \
+                    found the skeletons of eight of his slaves who had \
+                    been murdered in order to accompany him into the \
+                    afterworld.~^";
+            }
+        ];
+
+Nearby  Lever "lever"
+ has    static concealed
+        ! general if Wilderspin's commented
+ with   name "lever" "handle",
+        before [;
+         Pull:
+            if (Hole in AlchemistsRoom) 
+                "The lever will move no further in that direction.";
+            move Hole to AlchemistsRoom;
+            print "You pull on the lever, and with a satisfying ~thunk~, \
+                a section of the wall underneath the bench moves aside, \
+                revealing a small hole leading downwards.^";
+            if (self hasnt general) {
+                give self general;
+                "^~Well done!~ says Wilderspin. ~You'll make an \
+                archaeologist yet! You go down, and I'll follow in a \
+                while, when I'm done here.~";
+            }
+            rtrue;
+         Push:
+            if (Hole in AlchemistsRoom) {
+                remove Hole;
+                "You push the lever back to its original position, and \
+                the hole disappears.";
+            }
+            "The lever will move no further in that direction.";
+        ];
+
+Object  Hole "hole"
+ has    scenery
+ with   name "hole" "passage" "secret",
+        before [;
+         Receive: "Be careful, you might damage it!";
+         Enter:
+            print "You climb down through the hole, and to your amazement \
+                you find yourself emerging onto a high shelf in the \
+                college library (architectural authors beginning with \
+                `G', as it happens)! You scramble down and make your way \
+                out through the stacks to the library's entrance.^";
+            PlayerTo(Library);
+            Achieved("finding a secret way into the library");
+            AdvanceTime(self);
+            if (Edward in Library) {
+                if (Edward.number > 1) Edward.number = 1;
+                "^Edward jumps with surprise on seeing you. ~I didn't see \
+                you come in,~ he says.";
+            }
+            rtrue;
+        ];
+
+Object  Bench "bench" AlchemistsRoom
+ has    scenery supporter
+ with   name "laboratory" "bench",
+        description "The bench is covered with crucibles, flasks and \
+            other chemical paraphernalia.",
+        before [ i;
+         Search: <<Examine self>>;
+         LookUnder:
+            print "Under the bench you find ";
+            objectloop(i in AlchemistsRoom) give i ~workflag;
+            give Hole workflag;
+            give Lever workflag;
+            WriteListFrom(child(AlchemistsRoom), ENGLISH_BIT + WORKFLAG_BIT);
+            ".";
+        ];
+
+Nearby  Paraphernalia "chemical paraphernalia"
+ has    concealed
+        ! general if bottle removed
+ with   name "chemical" "paraphernalia" "flask" "flasks" "crucible"
+            "crucibles" "crystalline" "residue" "residues" "bottles",
+        description "The chemical equipment looks to be of an antique \
+            design. Most of it is broken; some of the crucibles still \
+            have crystalline residues of whatever chemical the \
+            experimenter was preparing.",
+        article "some",
+        before [;
+         SmellThing: "The chemicals still give off a faint acrid smell.";
+         Taste,Eat,Drink: "That probably wouldn't be wise.";
+         Take,Remove: 
+            if (self hasnt general)
+                <<Examine self>>;
+            "You've already taken everything that isn't broken.";
+        ],
+        after [;
+         Examine,Search:
+            if (self hasnt general) {
+                give self general;
+                move BottleA to Bench;
+                move Retort to Bench;
+                print "^You do find a couple of unbroken items of \
+                    equipment: a bottle and a retort.^";
+            }
+        ];

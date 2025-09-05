@@ -1,0 +1,5 @@
+*** parser.h
+44a45,47
+> #IFDEF USE_AUTOOPEN;
+> Attribute autoopen;
+> #ENDIF;

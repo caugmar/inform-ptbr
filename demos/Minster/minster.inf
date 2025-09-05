@@ -1,0 +1,1743 @@
+!--------------------------------------------------------------------------
+! CHRISTMINSTER
+! 
+! Copyright (c) 1995-1996 by Gareth Rees
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+! 
+! Begun May 1994
+! Release 1: August 1st 1995
+! Release 2: August 4th 1995
+! Release 3: November 8th 1995
+! Release 4: November 17th 1996
+!--------------------------------------------------------------------------
+! In this file
+! ------------
+! 1.1 GENERAL SETTINGS
+! 1.2 ENTRY POINTS
+! 1.3 SECRET DEBUGGING COMMANDS
+! 1.4 GENERAL UTILITIES
+! 1.5 ATTRIBUTES AND PROPERTIES
+! 1.6 GLOBAL CLASSES
+! 1.7 ASKING QUESTIONS
+! 1.8 MISCELLANEOUS VERB HANDLERS
+! 1.9 THE SACK OBJECT AND POSSESSIONS
+! 1.10 GRAMMAR
+! 1.11 INCLUDE THE REST OF THE GAME
+! 
+! In prologue.inf
+! ---------------
+! 2.1 CHAPEL STREET
+! 2.2 BRIDGE STREET
+! 2.3 LADY MARGARET GREEN
+! 2.4 BIBLIOLL STREET
+! 2.5 THE POLICE CONSTABLE
+! 
+! In first.inf
+! ------------
+! 3.1 FIRST COURT AND THE PORTER
+! 3.2 "A" STAIRCASEE
+! 3.3 MALCOLM'S ROOMS
+! 3.4 DOCTOR JARBOE AND PROFESSOR BUNGAY
+! 3.5 THE MASTER'S LODGE
+! 
+! In library.inf
+! --------------
+! 4.1 THE LIBRARY
+! 4.2 "B" STAIRCASE
+! 4.3 PROFESSOR WILDERSPIN
+! 4.4 THE SECRET PASSAGE
+! 
+! In second.inf
+! -------------
+! 5.1 SECOND COURT
+! 5.2 TURMERIC THE CAT
+! 5.3 THE CHAPEL
+! 5.4 THE TELEPHONE SWITCHBOARD
+! 5.5 TELEPHONES
+! 5.6 GREAT HALL AND CELLARS
+! 
+! In edward.inf
+! -------------
+! 6.1 EDWARD FORBES
+! 6.2 "C" STAIRCASE
+! 6.3 PROFESSOR BUNGAY'S ROOMS
+! 
+! In alchemy.inf
+! --------------
+! 7.1 LIQUIDS
+! 7.2 TEARS
+! 7.3 ALCHEMY
+! 
+! In endgame.inf
+! --------------
+! 8.1 DINNER
+! 8.2 AFTER THE DINNER
+! 8.3 ENTERING THE ENDGAME
+! 8.4 THE CRYPT
+! 8.5 THE LAST BATTLE
+!
+! In gardens.inf
+! --------------
+! 9.1 THE GARDENS
+!
+! In help.inf
+! -----------
+! 10.1 QUOTES
+! 10.2 HINT SYSTEM
+! 10.3 HELP
+!--------------------------------------------------------------------------
+
+
+!--------------------------------------------------------------------------
+! 1.1 GENERAL SETTINGS
+!--------------------------------------------------------------------------
+
+!Constant DEBUG;
+!Constant TEST_VERSION;
+Abbreviate ". " ", " " the " "Wilderspin" "Bungay"
+    "You" "________________" ",~ says" "The" "Edward" "Jarboe"
+    "and" "Master" "** Error:" "~ he says" "Christminster"
+    "Biblioll College" " you" "ther" " tha" "ing" " to" " of" "nstable"
+    " ar" " re" " through" " lo" " his" " hea" "Malcolm" " this" " from"
+    " la" " se" " wh" " cl" " so" " have" " think" " wo" " po" " tr" " bo"
+    " com" " is" " al" " br" " says" " bu" " for" " here" " pa" " dow"
+    " we" " le" " as" "der" " be" " sta" " gr" " su" " fl"
+    "                  ";
+Release 4;
+Constant Story "CHRISTMINSTER";
+Constant Headline "^An Interactive Conspiracy by Gareth Rees.^^Please \
+    type ~help licence~ for details about the absence of warranty and \
+    about how you may distribute ~Christminster~. Type ~help~ for \
+    instructions.^";
+Statusline score;
+Constant MAX_CARRIED 5;
+Constant MAX_SCORE 50;
+Constant OBJECT_SCORE 1;
+Constant ROOM_SCORE 1;
+Constant AMUSING_PROVIDED;
+Constant TASKS_PROVIDED;
+Constant USE_AUTOOPEN;
+Global TimeIncrement = 10;   ! how long to wait between half-hours
+Global Intoxicated = 0;      ! number of times C has drunk wine
+Global EM = 0;               ! set to 1 when Edward moving
+Replace DrawStatusLine;
+Include "Parser";
+#IFDEF USE_AUTOOPEN;
+Attribute autoopen;
+#ENDIF;
+
+!--------------------------------------------------------------------------
+! 1.2 ENTRY POINTS
+!--------------------------------------------------------------------------
+
+Array TitlePage table [;
+    "                                                        ";
+    "  Upon this Oath that I shall heere you give,           ";
+    "  For ne Gold ne Silver as long as you live,            ";
+    "  Neither for love you beare towards your Kinne,        ";
+    "  Nor yet to no great Man preferment to wynne:          ";
+    "  That you disclose the secret that I shall you teach,  ";
+    "  Neither by writing nor by no swift speech;            ";
+    "  But only to him which you be sure                     ";
+    "  Hath ever searched after the secrets of Nature.       ";
+    "  To him you may reveal the secrets of this Art,        ";
+    "  Under the covering of Philosophie before this world   ";
+    "                                           you depart.  ";
+    "    -- ~Theatrum Chemicum Britannicum~ (1652)           ";
+    "                                                        ";
+    " ";
+    " ";
+    "C H R I S T M I N S T E R";
+    "An interactive conspiracy";
+    " Gareth Rees, August 1995";
+    " ";
+    "  [press a key to begin]";
+];
+
+[ Initialise width height start lm tm i;
+    location = ChapelStreet;
+    #IFDEF DEBUG;
+    BookKey.number = 1;
+    #IFNOT;
+    BookKey.number = random(10);
+    #ENDIF;
+    StartDaemon(Constable);
+    StartDaemon(Busker);
+    StartDaemon(ClockTower);
+    player.each_turn = PlayerEachTurn;
+    give player female;
+    move PaleLiquid to BottleB;
+    move Myrrh to LacquerBox;
+    give thedark no_edward;
+
+    width = 0->33;
+    height = 0->32;
+    if (width < 60 || height < 20)
+        pretty_flag = 0;
+    else
+        pretty_flag = 1;
+    start = 17;
+    if (height >= 22 && width >= 60) start = 1;
+    if (width >= 25 && height >= 6) {
+        if (width >= 60) lm = (width - 56)/2;
+        else lm = (width - 25)/2;
+        tm = (height - 22 + start)/2;
+        font off;
+        for (i = 0: i < tm: i++) new_line;
+        for (i = start: i <= 21: i++) {
+            if (i > start) new_line;
+            spaces lm;
+            if (i >= 17 && width >= 60) spaces 15;
+            if (i <= 14) style reverse;
+            if (i == 17) style bold;
+            print (string) TitlePage-->i;
+            style roman;
+        }
+        @read_char 1 i;
+        @erase_window $ffff;
+        font on;
+    }
+
+    "^^^You haven't seen your brother Malcolm since he received his \
+    fellowship at Biblioll College - pressure of work was his excuse not \
+    to come down to London. So when you received that telegram from him \
+    you leapt at the excuse to come up to the university town of \
+    Christminster for the day and visit him.^";
+];
+
+[ PrintRank;
+    ".";
+];
+
+Constant NTASKS 41;
+Array Tasks --> NTASKS;
+Global CompletedTasks = 0;
+
+Replace FullScoreSub;
+Replace Achieved;
+
+[ Achieved m i;
+    for (i = 0: i < CompletedTasks: i++)
+        if (Tasks-->i == m) rfalse;
+    if (CompletedTasks >= NTASKS) "** Error: too many tasks **";
+    Tasks-->CompletedTasks = m;
+    CompletedTasks ++;
+    score = score + 1;
+];
+
+[ FullScoreSub i;
+    ScoreSub();
+    if (score == 0) rfalse;
+    new_line;
+    L__M(##FullScore,1);
+    if (CompletedTasks > 0) {
+        PANum(CompletedTasks);
+        for (i = 0: i < CompletedTasks: i++) {
+            if (i ~= 0) print "       ";
+            print (string) Tasks-->i, "^";
+        }
+    }
+    if (things_score > 0) {
+        PANum(things_score);
+        print "finding various books^";
+    }
+];
+
+[ DeathMessage;
+    if (deadflag == 3) print "You failed to save your brother.";
+];
+
+[ ParserError e;
+    if (e == SCENERY_PE) "You don't need to refer to that.";
+    rfalse;
+];
+
+! We need this scope routine for the light source puzzles.
+
+[ InScope person;
+    if (parent(person) == Cellars or Alcove && person == player)
+        PlaceInScope(LightSwitch);
+    if (parent(person) == SecretPassage or Ledge or Wilderspin &&
+        person == player or Wilderspin && Wilderspin in real_location) {
+        PlaceInScope(Wilderspin);
+        PlaceInScope(player);
+    }
+    rfalse;
+];
+
+[ GamePreRoutine;
+    if (action == ##AttackWith && noun == player && second == Pin) {
+        move TearsA to player;
+        StartTimer(TearsA,3);
+        "You screw up your courage, and shove the pin deep into your \
+        thumb. The pain is excruciating, and you immediately burst into \
+        floods of tears.";
+    }
+    if (Intoxicated > 5 && action == ##Climb)
+        "You're too drunk to think about attempting that.";
+    if (action == ##Burn && FlameAvailable() == 1 && 
+        noun ~= Candle or GasRing or Tapestries)
+        "Didn't your mother ever tell you not to play with fire?";
+    rfalse;
+];
+
+[ ChooseObjects o c;
+    if (parser_trace >= 1)
+        print "[ ChooseObjects called with o = ", (the) o, ", c = ", c, "]^";
+    if (c < 2) {
+        if (o has scenery || o has concealed)
+            return 2;
+        return 0;
+    }
+    if (action_to_be == ##GetOff && player in o) return 3;
+    if (o in Compass) return 1;
+    return 2;
+];
+
+[ Amusing; HelpAmusing(); ];
+
+[ DrawStatusLine width posa posb;
+    @split_window 1; @set_window 1; @set_cursor 1 1; style reverse;
+    width = 0->33;
+    posa = width - 26;
+    posb = width - 13;
+    spaces (width-1);
+    @set_cursor 1 2;  PrintShortName(location);
+    ! longest location name is 30 characters
+    if (width > 61) {
+        @set_cursor 1 posa; print "Score: ", sline1;
+        @set_cursor 1 posb; print "Moves: ", sline2;
+    }
+    if (width > 48 && width <= 61) {
+        @set_cursor 1 posb; print "Score: ", sline1;
+    }
+    @set_cursor 1 1; style roman; @set_window 0;
+];
+
+Global  stop_library = 0;
+Global  quote = 0;
+Global  quotes_on = 1;
+
+Object  LibraryMessages "lm"
+ with   before [;
+            if (parser_trace >= 1) print "[", sw__var, ",", lm_n, "] ";
+         Prompt:
+            print "^>";
+            if (quotes_on == 1 && quote > 0) DisplayQuote(quote);
+            quote = 0;
+            rtrue;
+         Fill: Futile(); rtrue;
+         Go:
+            if (lm_n == 1 && player in Punt && stop_library == 1) {
+                stop_library = 0;
+                rtrue;
+            }
+         Listen: 
+            print "Christminster is restful and quiet on a Sunday";
+            if (ClockTower.number > 19)
+                print " night";
+            ".";
+         Pray: "Prayer doesn't seem very appropriate here.";
+	 Mild,Strong: "Ladies do not use such language.";
+         Search:
+            if (lm_n == 4 && noun has animate)
+                print_ret (The) noun, " probably wouldn't appreciate \
+                    that.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 1.3 SECRET DEBUGGING COMMANDS
+!--------------------------------------------------------------------------
+
+IFDEF DEBUG;
+[ XgoSub;
+    if (turns > 1)
+        "** Error: you must use ~xgo~ on the first turn of the game **";
+    print "You experience a brief sickening lurch as the world spins \
+        around you...^";
+    if (noun >= 1) {
+        turns ++;
+        move Toffee to player;
+        move BrassKey to player;
+        move Feather to player;
+        StopDaemon(Constable);
+        MoveNPC(Constable,0,0);
+        MoveNPC(SleepingDon,0,0);
+        MoveNPC(Parrot,0,0);
+        give Cobblestone general;
+        remove Cobblestone;
+        remove Window;
+        move BrokenWindow to BibliollStreet;
+        give GreatGate open ~locked;
+        AdvanceTime(Window);
+        Busker.state = 300;
+        Busker.time_left = 2;
+        give handbag open;
+    }
+    if (noun == 1) { PlayerTo(FirstCourt); rtrue; }
+    if (noun >= 2) {
+        AdvanceTime(FirstCourt);
+        move KeyToA5 to player;
+        give KeyToA5 general;
+        give Porter general;
+        give DoorA5 ~locked open;
+    }
+    if (noun == 2) { PlayerTo(AStairSecond); rtrue; }
+    if (noun >= 3) {
+        AdvanceTime(Ivy);
+        move BookLab to player;
+        Jarboe.state = 27;
+        move Bungay to BungaysSanctum;
+        move Jarboe to JarboesSanctum;
+        give Ivy general;
+        give DoorArchway open;
+    }
+    if (noun == 3) { PlayerTo(FirstCourt); rtrue; }
+    if (noun >= 4) {
+        AdvanceTime(MastersStudy);
+        AdvanceTime(BungaysHallway);
+        AdvanceTime(WindowC3);
+        AdvanceTime(SecondCourt);
+        DoorB5.each_turn = $ffff;
+        MoveNPC(Edward,SecondCourt,0);
+        Edward.number = 4;
+        Edward.state = 6;
+        StartDaemon(Edward);
+        give DoorC3 general;
+        give GardenGate open ~locked;
+        move BookTemplar to Handbag;
+        move LacquerBox to Handbag;
+        move Veil to Handbag;
+    }
+    if (noun == 4) { PlayerTo(SecondCourt); rtrue; }
+    if (noun >= 5) {
+        AdvanceTime(Edward);
+        AdvanceTime(EdwardsRoom);
+        AdvanceTime(ParrotB);
+        AdvanceTime(Cellars);
+        AdvanceTime(BinC);
+        AdvanceTime(Fireplace);
+        AdvanceTime(Hole);
+        MoveNPC(Edward,EdwardsRoom,0);
+        Edward.state = 31;
+        StopDaemon(Edward);
+        remove ParrotB;
+        move ParrotC to Edward;
+        give DoorB5 open ~locked;
+        move BottleA to Handbag;
+        move BottleB to Handbag;
+        move Retort to Handbag;
+        move Honey to BottleA;
+        give Honey general;
+        move Pin to Handbag;
+        move Corkscrew to Handbag;
+    }
+    if (noun == 5) { PlayerTo(EdwardsRoom); rtrue; }
+    if (noun >= 6) {
+        AdvanceTime(ElixirC);
+        AdvanceTime(TelephoneDaemon);
+        ClockTower.number = 18;
+        give ClockTower ~general;
+        ClockTower.state = 1;
+        TimeIncrement = 0;
+        move DinnerTicket to player;
+    }
+    if (noun == 6) { PlayerTo(SecondCourt); rtrue; }
+    if (noun >= 7) {
+        DiningHall.state = 26;
+        remove PortDecanter;
+        RunRoutines(DiningHall,each_turn);
+    }
+    if (noun == 7) rtrue;
+    if (noun >= 8) {
+        move Candle to player;
+        move RustyKey to player;
+    }
+    if (noun == 8) { PlayerTo(Library); rtrue; }
+    "1 (get into college)^\
+    2 (key to Malcolm's room)^\
+    3 (Jarboe and Bungay)^\
+    4 (enter the gardens)^\
+    5 (ready for alchemy)^\
+    6 (dinner time)^\
+    7 (end of dinner)^\
+    8 (endgame)";
+];
+ENDIF;
+
+
+!--------------------------------------------------------------------------
+! 1.4 GENERAL UTILITIES
+!--------------------------------------------------------------------------
+
+[ DoOrder the_actor the_action the_noun the_second
+          old_actor old_action old_noun old_second;
+    if (the_actor == player) <<(the_action) the_noun the_second>>;
+    old_actor=actor; old_action=action; old_noun=noun; old_second=second;
+    actor=the_actor; action=the_action; noun=the_noun; second=the_second;
+    RunRoutines(actor,orders);
+    actor=old_actor; action=old_action; noun=old_noun; second=old_second;
+];
+
+! This is so that output from the "objects" command works!
+Object GivenAway "(given away)" has animate;
+
+[ Message array i;
+    if (parser_trace >= 1)
+        print "^[array-->0 = ", array-->0, "]^";
+    if (i == 0)
+        i = random(array-->0);
+    if (i < 1 || i > array-->0)
+        print "** Error: no such message: ", i, " **^";
+    print (string) array-->i;
+];
+
+[ PronounAcc i;
+    if (i hasnt animate) print "it";
+    else { if (i has female) print "her"; else print "him"; } ];
+
+[ CPronounAcc i;
+    if (i hasnt animate) print "It";
+    else { if (i has female) print "Her"; else print "Him"; } ];
+
+[ PronounNom i;
+    if (i hasnt animate) print "it";
+    else { if (i has female) print "she"; else print "he"; } ];
+
+[ CPronounNom i;
+    if (i hasnt animate) print "It";
+    else { if (i has female) print "She"; else print "He"; } ];
+
+[ PrintDirection d;
+    switch(d) {
+        u_obj: print "upstairs";
+        d_obj: print "downstairs";
+        default: print (address) (d.&name)-->1;
+    }
+    if (d notin compass)
+        print "** Error: not a direction: ", (the) d, " **";
+];
+
+[ Opposite d;
+    switch(d) {
+        u_obj: return d_obj;
+        d_obj: return u_obj;
+        in_obj: return out_obj;
+        out_obj: return in_obj;
+        n_obj: return s_obj;
+        ne_obj: return sw_obj;
+        e_obj: return w_obj;
+        se_obj: return nw_obj;
+        s_obj: return n_obj;
+        sw_obj: return ne_obj;
+        w_obj: return e_obj;
+        nw_obj: return se_obj;
+        default: print_ret "** Error: not a direction: ", (the) d, " **";
+    }
+];
+
+[ CompassPoint d;
+    if (d ~= n_obj or ne_obj or e_obj &&
+        d ~= se_obj or s_obj or sw_obj &&
+        d ~= w_obj or nw_obj) rfalse;
+];
+
+[ Inside o p;
+    while (o ~= p or 0) {
+        o = parent(o);
+    }
+    if (o ~= p) rfalse;
+];
+
+[ MaxBox o;
+    do {
+        o = parent(o);
+    } until (o == 0 || parent(o) == 0 || (o ~= player &&
+        o hasnt transparent && o hasnt supporter && o hasnt open));
+    return o;
+];
+
+[ MaxContainer o;
+    do {
+        o = parent(o);
+    } until (o == 0 || parent(o) == 0 || (o ~= player &&
+        o hasnt supporter && o hasnt open));
+    return o;
+];
+
+[ LineOfSight x y;
+    if (Maxbox(x) == Maxbox(y)) rtrue; else rfalse;
+];
+
+[ NCarried i j k;
+    objectloop(j in i) if (j hasnt worn) k++;
+    return k;
+];
+
+[ DumpCarried dest flag i j;
+    ! Move everything Christabel is holding into dest
+    do {
+        j = 0;
+        objectloop(i in player)
+            if (i hasnt worn || flag == 1)
+                j = i;
+        if (j ~= 0) move j to dest;
+    } until (j == 0);
+];
+
+[ AdvanceTime o;
+    if (o has timed) rtrue;
+    give o timed;
+    ClockTower.state = ClockTower.state + 1;
+    StartDaemon(ClockTower);
+];
+
+[ PrintTime i j;
+    j = ClockTower.number;
+    if (ClockTower hasnt general && j == 12 && i == 1) {
+        print "mid-day"; rtrue;
+    }
+    if (ClockTower has general) print "half past ";
+    EnglishNumber((j - 1) % 12 + 1);
+    if (ClockTower hasnt general) print " o'clock";
+    if (i == 1) {
+        if (j < 12) print " in the morning";
+        if (j >= 12 && j < 18) print " in the afternoon";
+        if (j >= 18 && j < 21) print " in the evening";
+        if (j >= 21) print " at night";
+    }
+];
+
+[ FlameAvailable;
+    if (location == SeniorCommonRoom || 
+        (location == EdwardsRoom && GasRing has on) ||
+        (Candle has light && LineOfSight(player,Candle) == 1) ||
+        Fire in location) rtrue;
+    rfalse;
+];
+
+Array TableFutile table [;
+    "Don't be silly!";
+    "Futile.";
+    "What a concept!";
+    "A valiant attempt.";
+    "You can't be serious.";
+    "Not likely.";
+    "An interesting idea.";
+    "No chance.";
+];
+
+[ Futile w; Message(TableFutile,w); new_line; ];
+
+Replace AllowPushDir; ! so that Christabel can pull Malcolm upstairs, etc
+
+Global pushed_object = 0;
+
+[ AllowPushDir;
+    if (parent(second)~=compass) return L__M(##PushDir,2);
+    AfterRoutines();
+    pushed_object=noun;
+    <Go second>;
+    move pushed_object to parent(player);
+    pushed_object = 0;
+];
+
+
+!--------------------------------------------------------------------------
+! 1.5 ATTRIBUTES AND PROPERTIES
+!--------------------------------------------------------------------------
+
+! The attributes typically identify a particular type of object, typically
+! in association with some Class. The attributes are used when objects must
+! be distinguished from ones with the special property (in the case of the
+! liquids code and is_wire), or if they must be pulled out of global loops
+! (in the case of is_door, is_followable). The is_telephone attribute is
+! used for the "dial" line of grammar.
+
+Attribute is_door;          ! Door to a numbered room
+Attribute is_wire;          ! Wire that you can attach crocodile clips to
+Attribute is_followable;    ! Things you can follow if not in same room
+Attribute is_telephone;     ! Telephones
+Attribute is_garden;        ! Location in the garden
+Attribute no_edward;        ! Not visitable by Edward Potter.
+Attribute timed;            ! Advanced time by 1
+Attribute is_liquid;        ! identifies a liquid
+Attribute is_vessel;        ! identifies something that can hold a liquid
+Attribute is_water;         ! Special type of liquid (freely available);
+                            ! also identifies rooms with supply of water
+Attribute is_liquid_store;  ! stores liquid objects for re-use
+Attribute cat_allowed;      ! rooms into which Turmeric is allowed
+Attribute is_moving alias no_edward;  ! Edward is moving this turn
+
+! In order to minimise property usage I assign a number of properties and
+! allocate them names using the "alias" feature.
+
+Property mypropa 0;
+Property mypropb 0;
+Property mypropc 0;
+Property mypropd 0;
+Property myprope 0;
+Property mypropf 0;
+
+Property edward_dirs;               ! Directions Edward can go in
+Property size 2;                    ! Gross measure of size of object
+Property state;                     ! State of finite state machine
+Property additive plural_name;      ! Plural word for multiple objects
+Property next_cup alias mypropa;    ! Next cup in order (for trick)
+Property cellarer alias mypropa;    ! Names on wine storage bins
+Property occupant alias mypropa;    ! Name of person on is_door
+Property just_visited alias mypropa;! Last place visited by is_followable
+Property other_obj alias mypropa;   ! Other object in pair (eg griffins)
+Property near_to alias mypropa;     ! Phone wire box is near to this
+Property connected_to alias mypropa;! Socket that the phone has dialled
+Property room alias mypropb;        ! Name of room on is_door
+Property follow_dir alias mypropb;  ! Which way is_followable went
+Property trickobject alias mypropc; ! Object involved in busker's trick
+Property honorific alias mypropc;   ! Honorific on is_door
+Property eye_pushed alias mypropc;  ! Which eye Wilderspin is pushing
+Property next_to alias mypropd;     ! Which wall Wilderspin is next to
+Property trickcup alias mypropd;    ! Which cup was first used in trick
+Property trickcount alias myprope;  ! No of different cups looked under
+
+! These constants identify the particular honorifics bestowed upon the
+! people living in the rooms behind the is_door object bearing the
+! honorific property.
+
+Constant reverend 3;
+Constant professor 2;
+Constant doctor 1;
+Constant mister 0;
+
+! The Invoke action is used to embed various commonly-used routines within
+! objects. For example, <Invoke Constable> will bring the Constable to the
+! player's location, if possible, and <Invoke Jarboe> will make Doctor
+! Jarboe look for Malcolm's lab book.
+! 
+! To attempt to mix liquid A into liquid B, call <Mix A B>.
+
+Fake_Action Invoke;
+Fake_Action Mix;
+
+!--------------------------------------------------------------------------
+! 1.6 GLOBAL CLASSES
+!--------------------------------------------------------------------------
+
+! CREATURES THAT CAN BE TALKED TO
+
+Class TalkableClass with orders [; TalkTo(self); rtrue; ];
+
+
+! MULTIPLE OBJECTS
+! 
+! PluralClass is for implementing classes of objects with the same name,
+! such as the cups, the griffins, the bottles and so on. It follows the
+! instructions on page 57 of the manual, except that it looks at all the
+! values in the properties name and plural_name.
+
+Class   PluralClass
+ with   parse_name [ w n ok i len;
+            if (parser_action == ##TheSame) {
+                if (self.plural ~= 0) return -1;
+                return -2;
+            }
+            do {
+                ok = 0;
+                w = NextWord();
+                len = (self.#plural_name)/2;
+                for (i = 0: ok == 0 && i < len: i++)
+                    if ((self.&plural_name)-->i == w) {
+                        ok = 1;
+                        parser_action=##PluralFound;
+                    }
+                len = (self.#name)/2;
+                for (i = 0: ok == 0 && i < len: i++)
+                    if ((self.&name)-->i == w)
+                        ok = 1;
+                if (ok == 1) n++;
+            } until (ok == 0);
+            return n;
+        ];
+
+! ListTogetherClass handles the most commmon case for objects that are
+! listed together, which is to use the address of the `list_together'
+! string as the basis for comparison, and to print the first word from that
+! object's `name' property.
+
+Class   ListTogetherClass
+ with   short_name [;
+            if (listing_together.list_together == self.list_together) {
+                print (address) (self.&name)-->0;
+                rtrue;
+            }
+        ],
+        article [;
+            if (listing_together.list_together == self.list_together)
+                print "one";
+            else print "a";
+        ];
+
+
+! PEOPLE WHO CARRY/WEAR OBJECTS
+! 
+! People who are members of CarryingClass can wear clothing and carry
+! objects, and (unless concealed) they will be listed (in two lists, one
+! for clothing, one for everything else) when the person is examined.
+
+Class   CarryingClass
+ has    animate transparent
+ with   before [ i j k;
+         Examine:
+            if (location == thedark) return L__M(##Examine,1);
+            PrintOrRun(self,description,1);
+            objectloop (k in self) {
+                if (k hasnt worn && k hasnt concealed) {
+                    give k workflag;
+                    i++;
+                }
+                else give k ~workflag;
+            }
+            if (i > 0) {
+                print " ", (CPronounNom) self, " is carrying ";
+                WriteListFrom(child(self), FULLINV_BIT + ENGLISH_BIT +
+                    WORKFLAG_BIT + CONCEAL_BIT);
+            }
+            objectloop (k in self) {
+                if (k has worn && k hasnt concealed) {
+                    give k workflag;
+                    j++;
+                }
+                else give k ~workflag;
+            }
+            if (j > 0) {
+                if (i == 0) {
+                    print " ", (CPronounNom) self, " is";
+                }
+                else print ", and";
+                print " wearing ";
+                WriteListFrom(child(self), ENGLISH_BIT + WORKFLAG_BIT);
+            }
+            if (i > 0 || j > 0) print ".";
+            new_line;
+            rtrue;
+        ];
+
+! THINGS THAT CAN BE FOLLOWED
+! 
+! Members of FollowClass can be followed when they travel from the player's
+! current room into another room. The code maintains the room that the
+! object just left (in just_visited) and the direction that it went (in
+! follow_dir). When the player types "follow thing", FollowScope adds to
+! scope all objects that are is_followable, and which have just_visited
+! equal to the location. If a match is made, the player is moved in the
+! follow_dir direction. This copes with, e.g. the object going through a
+! door and locking it.
+! 
+! The various properties are maintained by MoveNPC() and MovePrintNPC() -
+! the latter describing the movement of the object, though it has to assume
+! that map connections never twist and turn in order to print the direction
+! of arrival.
+! 
+! The entry point NewRoom() is used to clear the just_visited property,
+! otherwise you could follow objects you never even saw move.
+
+Class   FollowClass
+ has    is_followable
+ with   just_visited 0,
+        follow_dir 0;
+
+[ NewRoom i;
+    for (i = selfobj + 1: i <= top_object: i++)
+        if (i has is_followable)
+            i.just_visited = 0;
+];
+
+[ FollowScope i;
+    if (scope_stage == 1) rfalse;
+    if (scope_stage == 2) {
+        for (i = selfobj + 1: i <= top_object: i++) {
+            if (i has is_followable && i.just_visited == location)
+                PlaceInScope(i);
+        }
+        rfalse;
+    }
+    "You've no idea where that is.";
+];
+
+[ FollowSub;
+    if (noun == player) "You can't follow yourself.";
+    if (noun in location) "No need!";
+    if (noun.follow_dir == 0)
+        print_ret "You start after ", (the) noun, " but you can't find ",
+            (PronounAcc) noun, ". As far as you're concerned, ",
+            (PronounNom) noun, " has vanished into thin air.";
+    <Enter noun.follow_dir>;
+];
+
+[ NoFollowSub;
+    if (noun == player) "You can't follow yourself.";
+    print_ret (The) noun, " is right here.";    
+];
+
+[ MoveNPC n dest dir;
+    if (n has is_followable) {
+        n.just_visited = MaxBox(n);
+        n.follow_dir = dir;
+    }
+    if (dest == 0) remove n;
+    else move n to dest;
+];
+
+Global no_new_line_flag = 0;
+
+[ MovePrintNPC n dest dir;
+    if (n in location) {
+        if (no_new_line_flag == 0) new_line;
+        print (The) n, " goes ";
+        if (dir ~= u_obj or d_obj) print "to the ";
+        PrintDirection(dir);
+        print ".";
+        if (no_new_line_flag == 0) new_line;
+    }
+    MoveNPC(n, dest, dir);
+    if (n in location) {
+        if (no_new_line_flag == 0) new_line;
+        print (The) n;
+        if (dir == 0) print " arrives";
+        if (dir == u_obj or d_obj) {
+            print " comes "; 
+            PrintDirection(dir); 
+        }
+        if (dir ~= 0 or u_obj or d_obj) {
+            print " enters from the ";
+            PrintDirection(Opposite(dir));
+        }
+        print ".";
+        if (no_new_line_flag == 0) new_line;
+    }
+];
+
+! DOORS TO ROOMS IN THE COLLEGE
+! 
+! These are the names on the doors (all chosen so that appending 's will
+! work):
+! 
+!   A1 Nudd         B1 Halfhide   * C1 Baskeyfield
+!   A2 Pidduck    * B2 Wilderspin   C2 Middlemann
+!   A3 Kisbee       B3 Moody        C3 Yeglitt
+!   A4 Trembath   * B4 Jarboe     * C4 Bungay
+! * A5 Spencer      B5 Forbes
+!   A6 Guzewich
+! 
+! The doors store the room number in the 0th word of the name property, the
+! occupant's surname in the 1st, and the surname plus "'s" in the
+! 2nd. There are also room and occupant properties which duplicate this
+! information (we need it once in the dictionary for matching against
+! input, and another time for printing with capital letters - dictionary
+! entries are monocase)
+! 
+! These numbers and names are used by the pigeonhole code (which uses the
+! doors to store objects that are 'really' in the pigeonholes), by the gate
+! list code, and (perhaps eventually) by the telephone exchange code.
+
+Class   DoorClass
+ has    door static lockable locked is_door openable autoopen
+ with   description [;
+            print_ret "The door is sturdy and thick to keep out the chill \
+                Christminster winters. Above the door someone has painted \
+                ~", (string) self.room, ". ", (RoomOccupant) self, "~.";
+        ],
+        describe [;
+            if (self has open)
+                print_ret "^", (The) self, " stands open.";
+            rtrue;
+        ],
+        short_name [;
+            print "door to ", (string) self.room;
+            rtrue;
+        ],
+        parse_name [ s n w j k ok;
+            do {
+                ok = 0; n = 0;
+                w = NextWord();
+                if (s == 0 && w == 'door' or (self.&name)-->0) ok = 1;
+                if (s == 0 && w == 'doors') {
+                    ok = 1; n = 2; parser_action = ##PluralFound;
+                }
+                if (s == 0 && w == 'to') { k = j; n = 1; ok = 1; }
+                if (s == 1) {
+                    if (w == (self.&name)-->0) { n = 2; ok = 1; }
+                    else j = k;
+                }
+                if (ok == 1) { j++; s = n; }
+            } until (ok == 0 || s == 2);
+            return j;
+        ],
+        article "the",
+        door_to nothing,
+        before [;
+         LookUnder: "The gap is too narrow for you to see anything.";
+         Knock,Attack: "You knock loudly, but you hear no-one stir inside \
+            the room.";
+        ];
+
+[ RoomOccupant r;
+    switch (r.honorific) {
+        reverend: print "Reverend ";
+        professor: print "Professor ";
+        doctor: print "Doctor ";
+    }
+    print (string) r.occupant;
+];
+
+! KEYS
+! 
+! This class just lists keys together in inventories.
+
+Global  key_quote = 7;
+
+Class   KeyClass
+ class  PluralClass ListTogetherClass
+ with   name "key",
+        size 1,
+        plural_name 'keys',
+        list_together "keys",
+        each_turn [;
+            if (self in player) {
+                self.each_turn = -1;
+                quote = key_quote;
+                key_quote ++;
+            }
+        ];
+
+
+! BOOKS
+! 
+! This class takes care of "open book", turning it into "read book",
+! and makes sure that you can't read books that are in containers.
+
+Class   BookClass
+ class  PluralClass
+ has    scored
+ with   name "book",
+        plural_name 'books',
+        list_together "books",
+        before [;
+         Open: <<Examine self>>;
+	 Close: "Ok.";
+         Examine:
+            return (CheckUnReadable(self));
+        ];
+
+[ CheckUnReadable o i;
+    if (location == thedark)
+	"Darkness, noun. An absence of light to read by.";
+    i = parent(o);
+    if (player in i || i hasnt container) rfalse;
+    print "Since ";
+    if (self has proper) print "the book";
+    else print (the) self;
+    print " is in ", (the) i, ", you are unable to ";
+    if (self has proper) "make out more than the title.";
+    "read it.";
+];
+
+! BIBLES
+! 
+! There are two Bibles in the game (a King James version and a heretical
+! Vulgate). The consult routine parses "book chapter:verse" references; if
+! the magic numbers are found (11:43) then it stores the book in
+! self.number and sets self.state to 1 (otherwise 0). The Invoke routine
+! is called to print the text.
+
+Class   BibleClass
+ class  BookClass
+ with   name "bible",
+        plural_name 'bibles',
+        state 0,
+        number 0,
+        before [ w n m i buff len p;
+         Consult:
+            if (CheckUnReadable(self) == 1) rtrue;
+            self.state = 0;
+            self.number = 0;
+            if (consult_words == 2) {
+                wn = consult_from;
+                w = NextWord();
+
+                ! find the position and length of the second word in the
+                ! input buffer
+                i = (wn * 4) + 1;
+                buff = buffer + parse->i;
+                len = parse->(i-1);
+                if (len == 0) jump BibleFail;
+
+                ! Read the first number
+                while (p < len && buff->p >= '0' && buff->p <= '9') {
+                    m = m * 10;
+                    m = m + (buff->p - '0');
+                    p ++;
+                }
+                if (p == len) jump BibleSuccess;
+
+                ! If there's a colon, look for another number
+                if (buff->p ~= ':') jump BibleFail;
+                p ++;
+                while (p < len && buff->p >= '0' && buff->p <= '9') {
+                    n = n * 10;
+                    n = n + (buff->p - '0');
+                    p ++;
+                }
+                if (p ~= len) jump BibleFail;
+
+                .BibleSuccess;
+                if (m == 11 && n == 43) {
+                    self.state = 1;
+                    self.number = w;
+                }
+            }
+            .BibleFail;
+            <<Invoke self>>;
+        ];
+
+! MISCELLANEOUS CLASSES
+
+Class   DelicateClass
+ with   before [;
+         ThrowAt:
+            print_ret "Be careful! ", (the) self, " might break.";
+        ];
+
+Class   FlimsyClass
+ with   before [;
+         ThrowAt:
+            print_ret (The) self, " is too flimsy to make a good \
+                missile.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 1.7 ASKING QUESTIONS
+!--------------------------------------------------------------------------
+
+! Talking is set up so that objects can respond in uniform ways.  The idea
+! is that talking to someone either generates an order or a Speak action.
+! If the former, then the object gets a chance to deal with the order, but
+! if it doesn't, then it gets translated into a Speak action anyway.  If a
+! Speak action isn't intercepted by its recipient then a Question action is
+! generated with the correct Topic object; if that doesn't work, then "No
+! reply" is printed.  The `TalkTo' routine sets up `consult_from' and
+! `consult_words' to refer to the whole of the player's input, where
+! necessary, then executes a Speak action.  In summary:
+! 
+! Orders:          orders -> TalkTo -> Speak -> Question -> "No reply"
+! Ask,Answer,Tell: Speak -> Question -> "No reply"
+! Hello,Yes,No:    DefaultTalk -> TalkTo -> Speak -> Question -> "No reply"
+
+Object Topics "questions";
+Nearby QHello "q" with name "hello" "hi" "good" "morning" "afternoon";
+Nearby QConstable "q" with name "constable" "cop" "police" "policeman" "pc"
+    "bobby";
+Nearby QBusker "q" with name "busker" "busking" "magician" "wizard";
+Nearby QDon "q" with name "sleeping" "don" "man";
+Nearby QZork "q" with name "zork" "xyzzy" "plugh" "plover";
+Nearby QTime "q" with name "time" "hour" "watch";
+Nearby QCollege "q" with name "biblioll" "college";
+Nearby QMalcolm "q" with name "malcolm" "brother" "spencer";
+Nearby QDinner "q" with name "dinner" "ticket" "invitation" "tonight"
+    "banquet" "feast" "commemoration" "benefactor";
+Nearby QBooks "q" with name "book" "books";
+Nearby QArkwright "q" with name "arkwright";
+Nearby QAkhenaten "q" with name "reign" "akhenaten" "akhnaten" "ikhnaton";
+Nearby QEgypt "q" with name "amarna" "egypt" "akhetaten" "egyptology";
+Nearby QHistory "q" with name "john" "branham" "castle" "bishop" "durham";
+Nearby QWilderspin "q" with name "wilderspin";
+Nearby QJarboe "q" with name "Jarboe";
+Nearby QBungay "q" with name "Bungay";
+Nearby QEssay "q" with name "essay" "essays" "culture" "crusade" "crusades"
+    "cultural";
+Nearby QParrot "q" with name "parrot" "polly" "bird" "grey";
+Nearby QEdward "q" with name "edward" "forbes";
+Nearby QMaths "q" with name "riemann" "riemannian" "manifold" "manifolds" 
+    "maths" "math" "mathematics";
+Nearby QFrance "q" with name "philip" "france" "history" "french";
+Nearby QGarton "q" with name "henry" "garton";
+Nearby QGriffins "q" with name "brass" "griffin" "griffins" "fireplace";
+Nearby QOsiris "q" with name "osiris" "sethos" "ritual" "isis" "set";
+Nearby QSkeleton "q" with name "skeleton" "body" "corpse" "bones" "alchemist";
+Nearby QYes "q" with name "yes" "y" "certainly";
+Nearby QNo "q" with name "no" "n" "never";
+Nearby QStrawberries "q" with name "strawberries" "cream";
+Nearby QPunting "q" with name "punting" "punt" "river";
+Nearby QArchaeology "q" with name "archaeology" "neferneferuaten" "stelae" 
+    "slave" "slaves";
+Nearby QMaster "q" with name "master";
+Nearby QMe "q" with name "Christabel" "I" "me";
+Nearby QSupervision "q" with name "supervision" "tutorial" "class";
+Nearby QThanks "q" with name "thank" "thanks" "thankyou";
+Nearby QBaskeyfield "q" with name "baskeyfield" "library" "librarian";
+Nearby QVastang "q" with name "pierre" "vastang";
+Nearby QHoney "q" with name "honey";
+Nearby QChapel "q" with name "chapel" "church";
+Nearby QMagic "q" with name "magic" "trick" "toffee";
+Nearby QCups "q" with name "red" "green" "blue" "cup" "cups";
+Nearby QGasRing "q" with name "gas" "ring";
+Nearby QDefault "default topic";
+
+[ DecodeTopic
+    o    ! variable to loop over topic objects
+    best ! the best-scoring topic so far
+    max  ! the best score so far
+    s;   ! score
+
+    best = QDefault;
+    objectloop(o in Topics) {
+        s = 0; wn = consult_from;
+        while (wn < consult_from + consult_words) 
+            if (Refers(o,NextWord()) == 1) s++;
+        if (s > max) { max = s; best = o; }
+    }
+    return best;
+];
+
+[ TalkTo o;
+    consult_from = verb_wordnum;
+    wn = verb_wordnum;
+    consult_words = 0;
+    while (NextWordStopped() ~= -1) consult_words ++;
+    <Speak o>;
+];
+
+
+!--------------------------------------------------------------------------
+! 1.8 MISCELLANEOUS VERB HANDLERS
+!--------------------------------------------------------------------------
+
+Global gFlagArrest = 0;
+
+[ ArrestSub;
+    if (noun has animate)
+        "You don't have the relevant powers of arrest.";
+    if (gFlagArrest == 1) { Futile(); rtrue; }
+    gFlagArrest = 1;
+    print_ret "Imagine the scene in court: ~M'lud, the prosecution will \
+        show that ", (the) noun, ", a vile, recidivist and maladjusted \
+        example of its kind, did lewdly and wilfully exist in a most \
+        provocative manner. I demand no less than a death sentence!~^^So \
+        maybe better not.";
+];
+
+[ AttackWithSub; <Attack noun>; ];
+
+[ CrySub; "You're not the kind of woman who can produce tears on demand \
+    like that.";
+];
+
+[ DefaultTalkSub i a;
+    objectloop (i in location)
+        if (i has animate && i ~= player or Parrot) a = i;
+    if (a == 0) {
+        if (verb_word == 'hello' or 'hi') "Hello to you too.";
+        "That was a rhetorical question.";
+    }
+    print "(to ", (the) a, ")^";
+    TalkTo(a);
+];
+
+[ DialSub; <Dial second noun>; ];
+
+[ InvokeSub; "** Error: Invoke subroutine should never be run **"; ];
+
+[ KnockSub;
+    if (noun has animate) "Keep your hands to yourself!";
+    "You knock, but no-one answers you.";
+];
+
+[ PointSub; "Nothing happens."; ];
+
+[ QuestionSub; "No reply."; ];
+
+[ QuotesOnSub;
+    quotes_on = 1;
+    "[Quotations are now on.]";
+];
+
+[ QuotesOffSub;
+    quotes_on = 0;
+    "[Quotations are now off.]";
+];
+
+[ ResuscitateSub;
+    if (noun hasnt animate)
+        "You can't resuscitate an inanimate object.";
+    "You can't resuscitate someone who's alive.";
+];
+
+[ RingSub; Futile(); ];
+
+[ SaySub; "Nothing happens."; ];
+
+[ ScreamSub;
+    "Pull yourself together! Now is no time for behaving like a silly \
+    girl!";
+];
+
+[ ShakeHandsSub;
+    if (RunLife(noun,##ShakeHands)~=0) rfalse;
+    print_ret (The) noun, " doesn't seem to want to shake hands with \
+        you.";
+];
+
+[ SmellThingSub; "You smell nothing unusual."; ];
+
+[ StopSub; "OK."; ];
+
+[ SpeakSub t; t = DecodeTopic(); <Question noun t>; ];
+
+[ TaviaSub;
+    if (noun ~= 96) "I didn't understand that sentence.";
+    "A sweet black-and-white kitten scampers into sight, looks at you \
+    quizzically for a second, then scampers off again.";
+];
+
+Replace ThinkSub;
+
+[ ThinkSub t;
+    if (noun ~= 0) { L__M(##Think); rtrue; }
+    t = DecodeTopic(); <Think t>;
+];
+
+[ TickleSub;
+    if (noun == player && second == Feather) {
+        print "The feather is very ticklish. You barely brush your nose \
+            with it, and you burst out sneezing";
+        if (Constable in location)
+            print ". ~Bless you,~ says the constable";
+        ".";
+    }
+    if (noun has animate) "Keep your hands to yourself!";
+    Futile();
+];
+
+[ TimeSub;
+    if (ClockTower in location) <<Examine ClockTower>>;
+    if (Constable in location) <<Question Constable QTime>>;
+    "You have no means of telling the time.";
+];
+
+[ UnscrewSub; <Turn noun>; ];
+
+[ UntieSub; "That isn't tied to anything."; ];
+
+[ ZorkMagicSub; "Nothing happens."; ];
+
+IFDEF TEST_VERSION;
+[ BugSub; "** Bug! **"; ];
+ENDIF;
+
+
+!--------------------------------------------------------------------------
+! 1.9 THE SACK OBJECT AND POSSESSIONS
+!--------------------------------------------------------------------------
+
+Object  Handbag "handbag" selfobj
+ has    container openable
+ with   name "handbag" "purse" "bag" "crocodile" "crocodile-skin",
+        description "A gift from your grandmother, who seems to have \
+            thought that no respectable young woman should be seen about \
+            town without her crocodile-skin handbag.",
+        capacity 100,
+        size 3,
+        article "your",
+        before [;
+         Receive:
+            if (noun.size > 2)
+                print_ret (The) noun, " is too large to fit in the \
+                    handbag.";
+        ];
+
+Nearby  Telegram "telegram"
+ class  FlimsyClass
+        ! general if it's been used for a magic trick
+ with   name "telegram",
+        size 0,
+        description "The telegram reads, ~Dearest Christabel. Work goes \
+            well. Amazing discovery in prospect. Come at once. Will tell \
+            all when you arrive on Sunday. Your dearest brother, \
+            Malcolm Spencer.~";
+
+Nearby  Map "map of Biblioll College"
+ class  FlimsyClass
+        ! general if it's been used for a magic trick
+ with   name "map" "of" "Biblioll" "College",
+        description [;
+            if ((0->33) < 63)
+                "[Your screen is too narrow for the map to come out \
+                correctly. Try finding one which can print at least 63 \
+                characters on a line.]";
+            font off;
+            print
+"                         Bridge Street^\
+@@32 ._________________________________________________________. L^\
+@@32 |                                    |           /@@126@@126/     | a^\
+C |      A Staircase  Chapel    Chapel |          /@@126@@126/  N   | d^\
+h |       ._________.  Tower ._________|         |@@126@@126|   |   | y^\
+a |Porters|         |        |         . Gardens |@@126@@126| W-+-E |  ^\
+p | Lodge |         |        |         .         |@@126@@126|   |   | M^\
+e |       |         |Master's|         .         |@@126@@126|   S   | a^\
+l |_______|  First  |Lodgings| Second  .________. @@92@@126@@126@@92      | r^\
+@@32 |          Court  |________|  Court  |        |  @@92@@126@@126@@92     | g^\
+S | Great                    .         |   C    |  Biblioll | a^\
+t |  Gate            Archway .         | Stair- |    Drain  | r^\
+r |_______.    ._______________________|  Case  |     @@92@@126@@126@@92  | e^\
+e |       |Arch|                                |     |@@126@@126|  | t^\
+e |       |_way|               Great     Senior |     /@@126@@126/  |  ^\
+t |              B Staircase    Hall     Common |    /@@126@@126/   | G^\
+@@32 |   Library                & Kitchens   Room  |   |@@126@@126|    | r^\
+@@32 |_____________________________________________|___|@@126@@126|____| e^\
+@@32                                                             e^\
+@@32                       Biblioll Street                       n^"; 
+            font on;
+            rtrue;
+        ];
+
+Constant SACK_OBJECT Handbag;
+Include "VerbLib";
+
+! This each_turn routine checks to see if Christabel is carrying more than
+! she is allowed to, and tries to remove an object, if so. Allows code just
+! to move things to her instead of checking that she has the capacity.
+! Likely to be defeated by sticky things!
+
+[ PlayerEachTurn j k;
+    if (NCarried(self) > self.capacity) {
+        objectloop (j in self)
+            if (j ~= SACK_OBJECT && j hasnt worn && j hasnt light)
+                k = j;
+        if (k ~= 0) {
+            print "^You're having trouble hanging onto all your \
+                possessions. ";
+            if (SACK_OBJECT in self && SACK_OBJECT has open) {
+                print "You put ", (the) k, " into ", (the) SACK_OBJECT, ".^";
+                keep_silent=1; <Insert k SACK_OBJECT>; keep_silent=0;
+            } else {
+                print "You let go of ", (the) k, ".^";
+                keep_silent=1; <Drop k>; keep_silent=0;
+            }
+        }
+    }
+];
+
+
+!--------------------------------------------------------------------------
+! 1.10 GRAMMAR
+!--------------------------------------------------------------------------
+! It's important to include Grammar after DeathMessage, NewRoom, etc
+! because these are Stubbed in the grammar file.
+!--------------------------------------------------------------------------
+
+[ Anything w; do { w = NextWordStopped(); } until (w == -1); return 0; ];
+
+[ ConTopicPrep prep w; consult_from = wn;
+  do w=NextWordStopped(); until (w==prep or -1); if (w==-1) return -1;
+  wn--; consult_words = wn-consult_from;
+  if (consult_words==0) return -1; return 0; ];
+[ ConTopicTo; return ConTopicPrep('to'); ];
+[ ConTopicAt; return ConTopicPrep('at'); ];
+[ ConTopicOn; return ConTopicPrep('on'); ];
+[ ConTopicOf; return ConTopicPrep('of'); ];
+
+Include "Grammar";
+
+Verb "dummy," *                         -> Question;
+
+IFDEF TEST_VERSION;
+Verb meta "bug"
+    *                                   -> Bug
+    * Anything                          -> Bug;
+ENDIF;
+
+IFDEF DEBUG;
+Verb meta "xgo"
+    * number special                    -> Xgo
+    * Anything                          -> Xgo;
+ENDIF;
+
+Verb "arrest"
+    * noun                              -> Arrest;
+
+Verb "ascend" "descend"
+    * noun                              -> Climb;
+
+Extend "ask" replace
+    * creature "about" ConTopic         -> Speak
+    * creature "for" noun               -> AskFor
+    * creature "for" ConTopic           -> Speak
+    * creature ConTopic                 -> Speak;
+
+Extend "attack"
+    * noun "with" held                  -> AttackWith;
+
+Extend "check"
+    * noun "for" ConTopic		-> Consult;
+
+Extend "climb"
+    * "on" noun                         -> Climb
+    * "through" noun                    -> Enter;
+
+Extend "cut"
+    * noun "with" held                  -> AttackWith;
+
+Verb "cry" "weep" *                     -> Cry;
+
+Verb "dial"
+    * number "on" is_telephone          -> Dial;
+
+Extend "eat" replace
+    * noun                              -> Eat;
+
+Verb "extinguish"
+    * noun                              -> SwitchOff;
+
+Extend "get"
+    * "into" noun                       -> Enter;
+
+Verb "find"
+    * multi "in" noun		-> Consult
+    * multi "on" noun		-> Consult;
+
+Extend "give" replace
+    * is_liquid "to" creature           -> Give
+    * held "to" creature                -> Give
+    * "over" held "to" creature         -> Give
+    * creature is_liquid                -> GiveR
+    * creature held                     -> GiveR;
+
+Verb "follow" "chase" "pursue" "trail"
+    * scope=FollowScope                 -> Follow
+    * "after" scope=FollowScope         -> Follow
+    * noun                              -> NoFollow
+    * "after" noun                      -> NoFollow;
+
+Verb "hang"
+    * "up" is_telephone                 -> Drop;
+
+Verb "hide"
+    * "in" noun                         -> Enter
+    * "under" noun                      -> Enter
+    * "behind" noun                     -> Enter;
+
+Verb "hello" "hi" *                     -> DefaultTalk;
+
+Verb "kick" "strike" "slap"
+    * noun                              -> Attack
+    * noun "with" held                  -> AttackWith;
+
+Verb "knock" "bang"
+    * "at" noun                         -> Knock
+    * noun                              -> Knock
+    * "on" noun                         -> Knock
+    * noun "over"                       -> Attack
+    * "over" noun                       -> Attack
+    * "down" noun                       -> Attack
+    * noun "down"                       -> Attack;
+
+Verb "lift"
+    * noun                              -> Take
+    * "up" noun                         -> Take
+    * noun "up"                         -> Take;
+
+Extend "listen"
+    * "at" noun                         -> Listen;
+
+Extend "look"
+    * "out" "of" noun                   -> Search
+    * "out" noun                        -> Search
+    * "up" multi "on" noun         -> Consult
+    * "in" noun "for" multi          -> Consult;
+
+Verb "lookup"
+    * multi "on" noun		-> Consult
+    * multi "in" noun		-> Consult;
+
+Extend "no" replace *                   -> DefaultTalk;
+
+Verb "pass"
+    * held "to" animate                 -> Give
+    * animate held                      -> GiveR;
+
+Verb "plug"
+    * multiexcept "into" noun           -> Insert
+    * multiexcept "in" noun             -> Insert;
+
+Verb "point"
+    * "at" noun                         -> Point
+    * "to" noun                         -> Point
+    * "out" noun                        -> Point
+    * noun                              -> Point;
+
+Extend "pull"
+    * "on" noun                         -> Pull
+    * noun noun                         -> PushDir;
+
+Verb "punt"
+    *                                   -> VagueGo
+    * noun                              -> Enter;
+
+Verb "prick"
+    * noun                              -> Attack
+    * noun "with" held                  -> AttackWith;
+
+Extend "push"
+    * "on" noun                         -> Push
+    * "at" noun                         -> Push
+    * held "under" noun                 -> Insert
+    * held "into" noun                  -> Insert
+    * held "through" noun               -> Insert;
+
+Extend "put"
+    * held "under" noun                 -> Insert
+    * held "on"                         -> Wear;
+
+Extend "read"
+    * "about" multi "in" noun       -> Consult
+    * multi "in" noun               -> Consult
+    * multi "of" noun              -> Consult;
+
+Verb meta "quotes"
+    * "on"                              -> QuotesOn
+    * "off"                             -> QuotesOff;
+
+Extend "remove" replace
+    * worn                              -> Disrobe
+    * multi                             -> Take
+    * multiinside "from" noun           -> Remove;
+
+Verb "replace"
+    * noun                              -> Drop;
+
+Verb "resuscitate" "revive"
+    * noun                              -> Resuscitate;
+
+Verb "ring"
+    * noun                              -> Ring;
+
+Verb "rip"
+    * noun				-> Cut;
+
+Extend "say" replace
+    * ConTopicTo "to" creature          -> Speak
+    * ConTopicTo "to" is_telephone      -> Speak
+    * ConTopicAt "at" creature          -> Speak
+    * ConTopic                          -> Say;
+
+Verb "scream"
+    *                                   -> Scream;
+
+Extend "screw"
+    * held "into" noun                  -> Insert
+    * held "in" noun                    -> Insert;
+
+Extend "search"
+    * noun "for" ConTopic		-> Consult;
+
+Extend "set"
+    * "fire" "to" noun                  -> Burn;
+
+Verb "shake"
+    * "hands" "with" noun               -> ShakeHands
+    * noun                              -> Push;
+
+Verb "slide"
+    * noun                              -> Push
+    * held "into" noun                  -> Insert
+    * held "through" noun               -> Insert;
+
+Extend "smell" replace
+    *                                   -> Smell
+    * noun                              -> SmellThing;
+
+Extend "stand"
+    * "in" noun                         -> Enter;
+
+Verb "stroke" "pet"
+    * noun                              -> Touch;
+
+Verb "stop" "don^t" "stay"
+    * Anything                          -> Stop;
+
+Verb "tavia"
+    * number                            -> Tavia;
+
+Verb "tear"
+    * noun                              -> Cut;
+
+Extend "tell" replace
+    * creature "about" ConTopic         -> Speak
+    * creature ConTopic                 -> Speak;
+
+Extend "think" replace
+    * "of" ConTopic                     -> Think
+    * "about" ConTopic                  -> Think
+    * ConTopic                          -> Think;
+
+Extend "throw"
+    * held "through" noun               -> ThrowAt
+    * held "over" noun                  -> ThrowAt
+    * held "out" noun                   -> ThrowAt
+    * held "out" "of" noun              -> ThrowAt;
+
+Verb "tickle" "brush"
+    * noun "with" held                  -> Tickle;
+
+Extend "tie" replace
+    * noun "to" noun                    -> Tie;
+
+Verb "time" *                           -> Time;
+
+Extend "turn"
+    * noun "over"                       -> Turn
+    * noun "upside" "down"              -> Turn
+    * "over" noun                       -> Turn
+    * "to" multi "in" noun		-> Consult
+    * "to" multi "of" noun		-> Consult
+    * noun "to" "page" ConTopic		-> Consult;
+
+Verb "uncork"
+    * noun                              -> Open;
+
+Verb "untie" "detach" "unplug"
+    * multi                             -> Untie;
+
+Extend "touch"
+    * noun "with" held                  -> Tickle;
+
+Extend "turn"
+    * noun "with" held                  -> Unscrew;
+
+Extend "walk"
+    * "on" noun                         -> Enter;
+
+Verb "xyzzy" "plugh" "plover" *         -> ZorkMagic;
+
+Extend "yes" replace *                  -> DefaultTalk;
+
+
+
+!--------------------------------------------------------------------------
+! 1.11 INCLUDE THE REST OF THE GAME
+!--------------------------------------------------------------------------
+
+Include ">help";
+Include ">alchemy";
+Include ">prologue";
+Include ">first";
+Include ">library";
+Include ">edward";
+Include ">second";
+Include ">gardens";
+Include ">endgame";
+!Include "showobj";
+
+end;

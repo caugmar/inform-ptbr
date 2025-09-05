@@ -1,0 +1,1286 @@
+!--------------------------------------------------------------------------
+! 6 EDWARD AND HIS SUPERVISOR
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!------------------------------------------------------------------------------
+! 6.1 EDWARD FORBES
+!------------------------------------------------------------------------------
+
+Object  DoorB5 "x"
+ class  DoorClass
+ with   name "B5" "Forbes" "Forbes^s",
+        room "B5",
+        occupant "Forbes",
+        found_in BStairSecond EdwardsRoom,
+        door_dir [;
+            if (self in BStairSecond) return e_to;
+            return w_to;
+        ],
+        door_to [;
+            if (self in BStairSecond) return EdwardsRoom;
+            return BStairSecond;
+        ],
+        before [;
+         Knock:
+            if (Edward in BStairSecond)
+                "~I don't think that will do you much good,~ says \
+                Edward. ~That's my room, and I'm out here.~";
+            if (Edward in EdwardsRoom) {
+                if (location == BStairSecond)
+                    "~Come in,~ says Edward from inside.";
+                "~Come in,~ says Edward, not looking up.";
+            }
+         Close:
+            if (self has open && Edward in EdwardsRoom)
+                "~Don't close the door,~ calls Edward. ~It's bad form for \
+                me not to be sporting the oak, even if I do have two \
+                essays to finish by tomorrow morning.~^^You're not quite \
+                sure you get his meaning, but you leave the door open \
+                anyway.";
+        ],
+        each_turn [;
+            move Edward to BStairSecond;
+            self.each_turn = $ffff;
+            StartDaemon(Edward);
+            DoneHint(WhatNextPuzzle,12);
+            "^The door to B5 opens, and a young man emerges in some \
+            consternation (he must be the Mr Forbes who inhabits that \
+            room). ~Have you seen my parrot?~ he asks. ~I just came back, \
+            and the window was broken and Polly was gone. Tell me where I \
+            should go to find it.~ He shuts the door and then pauses, \
+            then seems to notice you for the first time. ~I'm Edward,~ he \
+            says, as if by way of explanation.";
+        ];
+
+Object  EdwardsRoom "Edward Forbes's Room"
+ has    light
+        ! general if Edward's commented on entertaining women
+ with   name "table" "bed" "unstable" "unmade" "window" "broken" "tiny" 
+            "desk" "vapour" "vapours",
+        description "A poky and unbeautiful attic room, not improved by \
+            the broken glass all over the floor from the broken \
+            window. There is an unmade bed jammed up against a tiny desk, \
+            and a door leads out to the west.",
+        w_to DoorB5,
+        out_to DoorB5,
+        each_turn [;
+            self.each_turn = -1;
+            Achieved("visiting Edward Forbes");
+            AdvanceTime(self);
+            DoneHint(WhatNextPuzzle,19);
+        ];
+
+Nearby  GasRing "gas ring"
+ has    static switchable supporter
+ with   name "gas" "ring" "burner" "flame" "tap",
+        when_on "The gas ring is lit, and produces an erratic blue \
+            flame.",
+        when_off "An unstable table supports a gas ring that must be a \
+            terrible fire hazard.",
+        capacity 1,
+        before [;
+         Burn: <<Switchon self>>;
+         Switchon:
+            if (self hasnt on && FlameAvailable() == 0)
+                "You turn on the gas, but realise that you have no means \
+                of lighting it, so you turn it off again.";
+         Receive:
+            if (self has on) {
+                if (noun hasnt is_vessel)
+                    "If you want to set fire to that, then say so.";
+                if (noun ~= Retort)
+                    print_ret (The) noun, " doesn't have an appropriate \
+                        base for standing on the gas ring while it's \
+                        lit.";
+            }
+        ],
+        each_turn [;
+            if (Retort in self && PaleLiquid in retort && self has on) {
+                self.each_turn = NULL;
+                quote = 15;
+            }
+        ];
+
+Nearby  Essay "essay"
+ has    scenery
+ with   name "essay",
+        description "Edward's handwriting is too atrocious to make out \
+            any more than the subject, which appears to be the cultural \
+            impact of the Fourth Crusade, and the opening \
+            paragraph:^^~The destruction of Constantinople by the \
+            soldiers of the Fourth Crusade (1200-1204) was instrumental \
+            in the bringing of Byzantine art to the houses of Western \
+            Europe, a legacy that surely inspired the greatest artists of \
+            the Renaissance. Who has not marvelled at the magnificent \
+            bronze horses in Saint Mark's square in Venice, or the great \
+            marble columns of the Venetian ducal palace? But these are \
+            the merest fraction of the treasure brought from \
+            Constantinople.~",
+	before [;
+	 Take,Remove: "I don't think Edward would appreciate that.";
+	];
+
+Object  Edward "Edward Forbes"
+ class  FollowClass CarryingClass TalkableClass
+ has    proper
+        ! general if doesn't talk rubbish this turn
+ with   name "edward" "forbes" "tall" "slender" "young" "man" "mr"
+            "mister" "student" "undergraduate" "ed" "ned",
+        description "Edward Forbes is a tall and slender young man, \
+            carrying with him an air of otherworldly introspection, as if \
+            he sees the concrete world through a veil of deep thought on \
+            some complex matter.",
+        describe [;
+            if (self.state >= 31)
+                "^Edward Forbes sits at his desk, furiously writing.";
+            if (self in Punt)
+                "^Edward stands here in the punt.";
+            print "^Edward Forbes stands here";
+            if (self.state >= 20) ".";
+            if (TearsA in Edward) " crying.";
+            switch (random(3)) {
+             1: " dejectedly.";
+             2: " forlornly.";
+             3: " unhappily.";
+            }
+        ],
+        time_left 0,
+        state 0,
+        number 0, ! 0 not following you (time_left gives turns before he moves)
+                  ! 1 hot on your heels
+                  ! >2 lost you (records where you disappeared to), but
+                  ! 2 he ran away from Prof Wilderspin
+                  ! 3 he's waiting outside C3 after you knocked.
+                  ! 4 he went in for his supervision
+        life [;
+            give self general;
+         ShakeHands:
+            if (self.state >= 31)
+                "He's hard at work on his essay, and doesn't notice you.";
+            "~Hello,~ says Edward. ~Pleased to meet you.~";
+         Kiss: "I wouldn't, if I were you. The shock might be too much \
+            for him.";
+         Give,Show:
+            if (noun == BookCollege)
+                "~I wonder if my father's in there,~ says Edward, looking \
+                through the pages. ~No, no mention of him. Perhaps it \
+                should be called `Rich and Well-connected Men of \
+                Biblioll'.~";
+            if (noun == DinnerTicket) <<Question self QDinner>>;
+            if (noun == Feather) {
+                move Feather to self;
+                if (self.state < 20) {
+                    move TearsA to self;
+                    StartTimer(TearsA,4);
+                    "Edward takes the feather from you, and looks at it \
+                    with horror. ~Oh, my poor Polly, what have they done \
+                    to you?~ he says, and he starts to cry, big tears \
+                    rolling down from his eyes.";
+                }
+                if (self.state == 20) 
+                    "Edward takes the feather from you. ~This is one of \
+                    Polly's tail feathers. I do hope she isn't badly \
+                    hurt,~ he says.";
+                "Edward takes the feather from you. ~Yes, this is one of \
+                Polly's tail feathers. But I don't think she's been badly \
+                hurt. More scared than injured.~";
+            }
+            if ((noun.&plural_name)-->0 == 'books' or 'bibles')
+                "~Very interesting, I'm sure,~ says Edward, ~but if it \
+                doesn't have anything to do with the cultural impact of \
+                the Fourth Crusade or the Moorish conquest of Spain I \
+                don't think I should read it. My mind only has room for \
+                so many facts, and if I learn a new one I forget an old \
+                one.~";
+            if (noun.plural == Peanut1.plural) {
+                if (self.state > 20) {
+                    remove noun;
+                    "~Thanks,~ says Edward, taking the peanut and passing \
+                    it on to the parrot, who snaps it up greedily.";
+                }
+                if (ParrotB notin location)
+                    "~That's an excellent idea,~ says Edward. ~Peanuts \
+                    are Polly's favourite food! But wait until we find \
+                    her again, and then give it to me.~";
+                if (Edward in Punt)
+                    "~Hold on,~ says Edward. ~Let me get out of the punt \
+                    first.~";
+                if (location == EastBank) {
+                    ParrotB.state = 9;
+                    StartDaemon(ParrotB);
+                    move ParrotB to Arboretum;
+                    "~That's an excellent idea,~ says Edward, reaching \
+                    for the peanut. But just at that moment, something \
+                    seems to disturb the parrot, and it takes wing, \
+                    flying away to the northwest.";
+                }
+                remove noun;
+                remove ParrotB;
+                StopDaemon(ParrotB);
+                move ParrotC to Edward;
+                self.state = 21;
+                StartDaemon(self);
+                Achieved("recapturing the parrot");
+                AdvanceTime(self);
+                DoneHint(WhatNextPuzzle,18);
+                "Edward takes the peanut from your hand and waves it at \
+                the parrot, which peers down at the morsel suspiciously. \
+                ~Come here, Polly,~ he calls, and the parrot hops up and \
+                down a little on its perch, as though the choice between \
+                freedom and food is a tricky one. Then it spreads its \
+                wings and glides down to land on Edward's shoulder, where \
+                it greedily pecks at the peanut.^^Edward beams \
+                triumphantly.";
+            }
+        ],
+        orders [;
+         SwitchOn,Burn:
+            if (noun == GasRing) {
+                if (GasRing has on)
+                    "~I've already done that for you,~ says Edward. He \
+                    doesn't stir from his essay.";
+                give GasRing on;
+                Achieved("lighting the gas ring");
+                print "~I don't know about that,~ says Edward \
+		    absent-mindedly, ~but I can certainly light the \
+		    gas ring for you. However, I'm afraid I have no \
+		    tea left, not even floor-sweepings.~ He ";
+                if (child(GasRing) ~= 0) {
+                    print "moves ", (the) child(GasRing), " to the floor, \
+                        and then ";
+                    move child(GasRing) to EdwardsRoom;
+                }
+                "extracts a match from his back pocket and lights the gas \
+                ring. ~There you go,~ he says, and returns to his essay.";
+            }
+         Stop,Wait:
+            if (self.number~=0 && self.state<20) {
+                self.number = 0;
+                self.time_left = 4;
+                "~OK, I'll stop following you,~ says Edward, ~but I can't \
+                see my parrot anywhere around here.~";
+            }
+         Knock,Attack:
+            switch(noun) {
+             DoorA5:
+                "~No, you do it,~ says Edward. ~He's your brother.~";
+             DoorC3:
+                "Edward goes pale. ~I'm not sure about that,~ he says in \
+                a very small voice. ~Bungay's always beastly to me.~";
+             DoorB2:
+                "~No thanks,~ says Edward. ~If he sees me he'll want \
+                to know how my essay is going.~";
+             DoorB5:
+                if (self in BStairSecond)
+                    "~That's my door you're asking me to knock at,~ says \
+                    Edward. ~Have you gone stark raving bonkers?~";
+             DoorMaster:
+                "~No-one will hear if I knock on the door,~ says Edward. \
+                ~That's what the bell-pull is for.~";
+            }
+            if (noun has animate)
+                "~I will do no such thing,~ says Edward. ~I am a man of \
+                peace.~";
+            if (noun.describe == DoorA1.describe)
+                "~I don't think that's a good idea,~ says Edward. ~The \
+                fellows don't like to be disturbed on a Sunday.~";
+         Follow:
+            if (noun == player && self.state <= 20) {
+                if (self.state == 20)
+                    "~Shh!~ says Edward. ~I've nearly caught Polly, \
+                    don't distract me now!~";
+                if (self.number ~= 0)
+                    "~I'm following as fast as I can,~ says Edward.";
+                self.number = 1;
+                "~I'll do that,~ says Edward. ~Just take me to Polly, \
+                that's all I ask.~";
+            }
+         Pull:
+            if (noun == BellPull)
+                "~I don't want to bother the Master,~ says Edward. ~Not \
+                even about something as important as my parrot.~";
+         Go,Enter:
+            if (self.state <= 20) {
+                if (self.state == 20) 
+                    "~Shh!~ says Edward. ~I've nearly caught Polly, \
+                    don't distract me now!~";
+                if (noun notin compass)
+                    "~I'm not at all sure I understand you,~ says Edward. \
+                    ~Maybe you can point me in a compass direction?~";
+                <<Invoke self noun>>;
+            }
+        ],
+        before [ d i p z n o po;
+         Question:
+            if (self.state == 20) 
+                "~Shh!~ says Edward. ~I've nearly caught Polly, don't \
+                distract me now!~";
+            switch (second) {
+             QHello:
+                "~Hello,~ says Edward.";
+             QTime:
+                "~Whatever time it is,~ says Edward, ~it's probably too \
+                late for me to finish my essay.~";
+             QMalcolm:
+                "~I can't say I know Doctor Spencer,~ says Edward. ~Since \
+                he teaches chemistry and I'm studying history.~";
+             QDinner:
+                "~Tonight's dinner?~ says Edward bitterly. ~Oh, you mean \
+                the commemoration of benefactors. I haven't been \
+                invited. Only scholars get invited, the Master and \
+                Fellows don't want hoi-polloi like me sitting in on their \
+                revels.~";
+             QWilderspin:
+                "~I have to write him an essay for him on the Islamic \
+                conquest of Spain for tomorrow,~ says Edward, ~and I \
+                haven't started it yet. It's so boring, I just can't \
+                bring myself to open my textbooks.~";
+             QMaster:
+                "~I can't say I know the Master,~ says Edward. ~He holds \
+                himself very aloof, never talks to undergraduates, only \
+                to Fellows.~";
+             QBungay:
+                "~Don't mention that name,~ says Edward in horror. ~He's \
+                the bane of the life of every history student at this \
+                college and I'm in trouble with him again.~";
+             QEssay:
+                if (DoorC3 hasnt general)
+                    "~Don't talk to me about my essays,~ says Edward \
+                    miserably. ~I have to see Professor Bungay this \
+                    afternoon for a supervision, and I haven't written my \
+                    essay yet. He's going to kill me, I know it.~";
+                "~Don't ask, don't ask,~ says Edward.";
+             QFrance:
+                "~I wouldn't ask me about that,~ says Edward. ~Professor \
+                Bungay gave me a gamma minus on my last essay on the \
+                subject.~";
+             QAkhenaten,QEgypt:
+                "~I can't help you,~ says Edward. ~If only I'd listened \
+                harder in lectures.~";
+             QParrot:
+                if (ParrotC in self)
+                    "~A gorgeous creature, isn't it,~ says Edward, \
+                    ruffling the bird's feathers.";
+                "~I must find my parrot, I must,~ says Edward, ~and you \
+                will help me find it.~";
+             QPunting:
+                if (self.state < 20)
+                    "~I adore punting,~ says Edward, ~but I don't suppose \
+                    I shall have any chance to do any today.~";
+             QMe:
+                if (self.state == 1)
+                    "~Ha ha!~ says Edward, amused at your joke. ~Of \
+                    course it wasn't you, my window is at least forty \
+                    feet from the ground, and you couldn't possible have \
+                    thrown anything as high as that.~";
+             QSupervision:
+                if (DoorC3 has general)
+                    "~Don't ask,~ says Edward. ~It was horrible. Worse \
+                    than you can possibly imagine.~ He shudders.";
+                "~I'm dreading it,~ says Edward, ~Professor Bungay is \
+                always more unpleasant than can possibly be imagined.~";
+             QGasRing:
+                if (self in EdwardsRoom) {
+                    if (GasRing hasnt on) {
+                        DoOrder(self,##Burn,GasRing);
+                        rtrue;
+                    }
+                    "~I know it looks unsafe,~ says Edward, ~but it's \
+                    fine, really. There's no need to worry, I haven't set \
+                    the room on fire yet.~ He doesn't sound very \
+                    convincing.";
+                }
+             default:
+                if (self.state < 20)
+                    "Edward doesn't seem to notice you. He's obviously \
+                    very distressed at the loss of his parrot.";
+                if (self.state < 31)
+                    "Edward doesn't seem to hear you. He's obviously \
+                    overcome by the recovery of his parrot.";
+                "Edward is so deeply buried in the writing of his essay \
+                that he doesn't hear you.";
+            }
+
+        ! This code is so complicated because it can be called in two
+        ! circumstances: either when the player types "edward, go west", or
+        ! else when Edward decides to go on his own.
+         Invoke:
+            d = second.door_dir;
+            p = parent(self);
+            i = p.d;
+            z = ZRegion(i);
+            if (z == 2) {
+                EM = 1; i = indirect(i); EM = 0;
+                z = ZRegion(i);
+            }
+            if (z ~= 1 || i == 0 or 1) {
+                if (self has is_moving) rtrue;
+                "~I don't think there's much likelihood of finding my \
+                parrot there,~ says Edward.";
+            }
+            if (i == Wistaria)
+                "~You might be right,~ says Edward mournfully. ~My \
+                parrot might have flown up there. But climbing the \
+                wistaria is against the rules.~";
+            if (i == Punt)
+                "~I don't think I had better do that,~ says Edward, \
+                ~Professor Bungay might see me from his window, and then \
+                I'd be in terrible trouble because I said I'd do my essay \
+                this afternoon.~";
+            if (i == DoorB5)
+                "~I've just looked there,~ says Edward sadly, ~and \
+                Polly is not to be found. And in any case, I'm not \
+                allowed to entertain women in my room.~";
+            if (i has door || i == Hatch) {
+                switch(i) {
+                 DoorMaster:
+                    "~If it's all right with you, I don't think I had \
+                    better enter the Master's Lodge,~ says Edward. ~I \
+                    always find him a bit scary. In any case, I doubt \
+                    he's got my parrot.~";
+                 DoorA5:
+                    "~I don't think Doctor Spencer would approve of my \
+                    entering his private room,~ says Edward. ~But perhaps \
+                    you could go in and look for me.~";
+                 DoorB2:
+                    "~If Professor Wilderspin had my parrot, I'm sure \
+                    he'd let me know about it,~ says Edward, ~and anyway, \
+                    he's sure to ask me when I'm going to hand in my \
+                    Ancient History essay.~";
+                 DoorC3:
+                    "Edward goes pale. ~I'm not sure about that,~ he says \
+                    in a very small voice. ~Bungay's always beastly to \
+                    me.~";
+                 Hatch:
+                    "~I think my Polly would have had more sense than to \
+                    go down there,~ says Edward.";
+                }
+                if (i has locked || (i == DoorArchway && i hasnt open)) {
+                    if (self notin location) rtrue;
+                    if (self has is_moving) { n = 1; new_line; }
+                    print "Edward tries to open ", (the) i;
+                    if (i == DoorArchway)
+                        ", but he is utterly unable to move the door \
+                        an inch, and gives up. ~The door's stuck \
+                        again,~ he says. ~I suppose we'll just have \
+                        to wait for someone to open it for us.~";
+                    if (i == GardenGate)
+                        ", but it is locked. ~The gate is always locked \
+                        on Sundays,~ he says.";
+                    if (self has is_moving)
+                        ", but it is locked.";
+                    else
+                        ", but it is locked. ~Do you really think that my \
+                        parrot could have got through a locked door?~ \
+                        Edward asks you.";
+                }
+                if (i hasnt open) {
+                    if (self in location) {
+                        if (self has is_moving) { n = 1; new_line; }
+                        print "Edward opens ", (the) i, ". ";
+                    }
+                    give i open;
+                }
+                if (ZRegion(i.door_to) == 2) {
+                    o = i;
+                    po = parent(o);
+                    move o to parent(self);
+                    i = RunRoutines(i,door_to);
+                    move o to po;
+                }
+                else i = i.door_to;
+                if (i == 0)
+                    "~I don't think there's much likelihood of \
+                    finding my parrot there,~ says Edward.";
+            }
+            if (self hasnt is_moving || n == 1)
+                no_new_line_flag = 1;
+            MovePrintNPC(self, i, second);
+            no_new_line_flag = 0;
+            if (self has is_moving) {
+                if (n == 1) new_line;
+                rtrue;
+            }
+            print " You follow him.^";
+            <<Enter second>>;
+        ],
+        ! this is getting too complex!
+        daemon [ i j;
+            if (self.state >= 21) {
+                self.state = self.state + 1;
+                switch (self.state) {
+                 22: ! he waits for a turn
+                 23:
+                    if (location == Arboretum)
+                        print "^~My goodness, the time,~ says Edward \
+                            agitatedly. ~I must, I must, get back and \
+                            write my essay, otherwise my life will not be \
+                            worth a farthing.~ He sets off as fast as he \
+                            can walk, the parrot wobbling on his \
+                            shoulder.^";
+                    MovePrintNPC(self,Gardens,sw_obj);
+                 24:
+                    if (GardenGate hasnt open) {
+                        give GardenGate open;
+                        if (location == Gardens)
+                            print "^Edward opens the garden gate.^";
+                    }
+                    MovePrintNPC(self,SecondCourt,sw_obj);
+                 25: MovePrintNPC(self,SecondCourtArchway,w_obj);
+                 26: MovePrintNPC(self,FirstCourt,w_obj);
+                 27: MovePrintNPC(self,BStairGround,se_obj);
+                 28: MovePrintNPC(self,BStairFirst,u_obj);
+                 29: MovePrintNPC(self,BStairSecond,u_obj);
+                 30:
+                    give DoorB5 ~locked open;
+                    if (location == BStairSecond)
+                        print "^Edward unlocks and opens the door to \
+                            B5.^";
+                    MovePrintNPC(self,EdwardsRoom,e_obj);
+                 default:
+                    StopDaemon(self);
+                    if (location == EdwardsRoom)
+                        print "^Edward sits down at his desk and starts \
+                            work on his essay.^";
+                }
+                rtrue;
+            }
+            if (parent(self) == BungaysSanctum or BungaysHallway)
+                rtrue;
+            if (parent(self) has no_edward)
+                "** Error: Edward is in a place where he's not allowed to \
+                be **";
+            if (self.number == 3) rtrue;
+            if (self.state >= 20) {
+                StopDaemon(self);
+                rtrue;
+            }
+            if (self.number == 0) {
+                ! Don't move if the timer is running.
+                if (self.time_left > 0) {
+                    self.time_left = self.time_left - 1;
+                    rtrue;
+                }
+                ! Only move 1/3 of turns anyway.
+                if (random(3) > 1) rtrue;
+                i = ((parent(self)).#edward_dirs)/2;
+                if (i == 0)
+                    "** Error: Edward in location where he can't move **";
+                j = ((parent(self)).&edward_dirs)-->(random(i) - 1);
+                give self is_moving;
+                <Invoke self j>;
+                give self ~is_moving;
+                rtrue;
+            }
+            if (self in location) {
+                if (self.number <= 1) rtrue;
+                i = self.number;
+                self.number = 1;
+                give self general;
+                if (i == Cellars or thedark) rtrue;
+                print "^~Ah, there you are,~ says Edward, catching sight \
+                    of you. ~I've been waiting here for you since ";
+                if (i == 2)
+                    "you met Professor Wilderspin.~";
+                if (i == 4)
+                    "I came out of my supervision. What a nightmare that \
+                    was.~";
+                if (i == Well or AlchemistsRoom)
+                    "you vanished into the library book-stacks.~";
+                print_ret "you went into ", (the) i, ".~";
+            }
+            if (self.number > 1) rtrue;
+            if (location has no_edward) {
+                self.number = location;
+                rtrue;
+            }
+            MovePrintNPC(self,location,0);
+        ],
+        each_turn [;
+            if (self.state == 31 && ClockTower.number > 19) {
+                self.state = 32;
+                "^~Did you have a nice dinner, then?~ says Edward without \
+                looking up. ~I still haven't finished my essay and I \
+                shall probably be at it all night.~ He sighs deeply and \
+                goes back to his writing.";
+            }
+            if (LineOfSight(ParrotB,self) == 1 && self.state < 20) {
+                self.state = 20;
+                Achieved("leading Edward Forbes to his parrot");
+                "^Edward catches sight of the parrot in the tree. ~Polly, \
+                my Polly,~ he calls. ~How can I express my gratitude at \
+                seeing you again?~ He seems overjoyed at the reunion, but \
+                the parrot is distinctly unmoved, and sits motionless in \
+                the tree.";
+            }
+            if (LineOfSight(Wilderspin,self) == 1) {
+                print "^~Hello, Forbes,~ says Wilderspin, noticing Edward \
+                    loitering nearby. ~How nice to see you! How's your \
+                    essay on the Moors' conquest of Spain coming along? I \
+                    expect it will be in my pigeonhole tomorrow morning, \
+                    yes?~^^Edward mumbles something non-committal and \
+                    says that he can't stop now, he has to get on.^";
+                if (self.state < 20) {
+                    if (self.number == 1) self.number = 2;
+                    MovePrintNPC(self, FirstCourt, nw_obj);
+                }
+                rtrue;
+            }
+            if (LineOfSight(Bungay,self) == 1 && Bungay hasnt general) {
+                give Bungay general;
+                "^~Well, what a surprise,~ says Bungay. ~If it isn't \
+                Edward Forbes! A man with an essay on the cultural impact \
+                of the Fourth Crusade to write by last Friday, if my \
+                memory does not fail me.~ His voice turns sour as he \
+                says, ~If you recall, we agreed that you would see me \
+                this afternoon in my room and we will have a little chat \
+                about it.~^^~Yes, sir,~ says Edward, who has suddenly \
+                turned very white.";
+            }
+            if (LineOfSight(Turmeric,self) == 1 && Turmeric hasnt general) {
+                give Turmeric general proper;
+                "^Edward bends down to pet the cat, which obligingly \
+                rolls onto its back and purrs. ~Hallo Turmeric,~ he \
+                says.";
+            }
+            if (LineOfSight(BrokenWindow,self) == 1 && BrokenWindow hasnt
+              general) {
+                give BrokenWindow general;
+                "^~Look at that!~ says Edward angrily, pointing up at the \
+                broken window. ~Look what some cretin did to my window! \
+                Broken glass all over the floor, and my parrot gone. I \
+                don't suppose you saw the miscreant who did it, did you? \
+                No, I guess you wouldn't have done, or you would have \
+                said.~";
+            }
+            if (self in EdwardsRoom && EdwardsRoom hasnt general) {
+                give EdwardsRoom general;
+                "^~Hey!~ says Edward, seeing you enter. ~You can't come \
+                in here, I'm not supposed to have women in here at all.~ \
+                When he sees that you're not about to move, he goes on: \
+                ~Well, you can come in then, but be quiet and don't tell \
+                anyone or else I shall be in terrible trouble.~";
+            }
+            if (self in EdwardsRoom && LineOfSight(self,ElixirC) == 1 &&
+              parent(ElixirC) has open && ElixirC.state < 2) {
+                ElixirC.state = ElixirC.state + 1;
+                print "^~Please take that perfume away,~ begs Edward.";
+                switch (ElixirC.state) {
+                 1: print " ~My dusty, she has the nose of a bloodhound, \
+                        I tell you, she can smell alcohol or perfume from \
+                        a mile off.~";
+                 2: print "^^~I wouldn't worry,~ you reply, ~At least \
+                        your window will be open all night.~";
+                }
+                new_line; rtrue;
+            }
+            if (self.state >= 20) rtrue;
+            if (self has general) { give self ~general; rtrue; }
+            if (random(3) == 1) {
+                self.state = self.state + 1;
+                switch (self.state) {
+                 1: "^~It was terrible,~ says Edward. ~I came back from \
+                    breakfast and there was glass all over the floor and \
+                    my parrot had vanished. I can't imagine who could \
+                    have done such a terrible thing.~";
+                 2: "^~You must help me to find my parrot,~ pleads \
+                    Edward. ~Just tell me which way I should go.~";
+                 3: "^~This is the worst thing that could have happened,~ \
+                    says Edward, ~because I have to do an essay for \
+                    Professor Wilderspin for tomorrow and another essay \
+                    for Professor Bungay that's overdue and I haven't \
+                    started either one.~";
+                 4: "^Edward says, ~Professor Bungay said that I have to \
+                    go and see him this afternoon, and he terrifies me.~";
+                 5: "^Edward says, ~Professor Bungay is always beastly to \
+                    me. He never ever gives me an alpha on any of my \
+                    essays, and he always gives me bad reports so that I \
+                    get into trouble with my tutor.~";
+                 6: "^Edward says, ~I was going to do my essay this \
+                    afternoon and then I was going to go punting on the \
+                    river, but now I have to find my parrot.~";
+                 7: if (random(3) == 1)
+                    "^Edward looks all around him for signs of his \
+                    parrot, but to no avail.";
+                 default: self.state = 6;
+                }
+            }
+        ];
+
+Object  ParrotC "parrot"
+ has    animate
+ with   name "grey" "parrot" "bird" "polly",
+        description "A grey bird, sitting contentedly on Edward Forbes' \
+            shoulder.",
+        initial "A grey parrot perches on Edward Forbes' shoulder.",
+        life [;
+         Give,ThrowAt:
+            if (noun.plural == Peanut1.plural) {
+                remove noun;
+                "The parrot gobbles down the peanut.";
+            }
+        ],
+        before [;
+         Question: "The parrot takes no notice of you.";
+         Take,Remove: "The parrot pecks viciously at your hand, and you \
+            desist quickly.";
+        ],
+        each_turn [;
+            switch (random(10)) {
+             1: "^~Awk!~ squawks the parrot.";
+             2: "^~Ark!~ screeches the parrot.";
+            }
+        ];
+
+
+!------------------------------------------------------------------------------
+! 6.2 "C" STAIRCASE
+!------------------------------------------------------------------------------
+
+Object  CStairGround "~C~ Staircase, Ground Floor"
+ has    light cat_allowed
+ with   name "stairs" "stair" "second" "court",
+        description "~C~ staircase is grander than the staircases in \
+            First Court, with larger rooms and higher ceilings; you \
+            imagine that the most senior and eminent fellows battle over \
+            who gets to occupy these rooms. To the north is the door to \
+            C1; to the south is the door to C2; a wide flight of wooden \
+            stairs leads up; and a door leads west onto Second Court.",
+        u_to CStairFirst,
+        e_to CStairFirst,
+        w_to SecondCourt,
+        out_to SecondCourt,
+        n_to DoorC1,
+        s_to DoorC2,
+        edward_dirs u_obj w_obj;
+
+Nearby  DoorC1 "x" class DoorClass
+ with   name "C1" "Baskeyfield" "Baskeyfield's",
+        room "C1", occupant "Baskeyfield", door_dir n_to,
+        state 0,
+        before [;
+         Knock:
+            if (ClockTower.number < 19) {
+                self.state = self.state + 1;
+                switch (self.state) {
+                 1: "The door opens a crack and a grey-haired gentleman \
+                    contrives to glower at you while adjusting his \
+                    spectacles. ~Don't you know when office hours are?~ \
+                    Baskeyfield says, evidently mistaking you for an \
+                    undergraduate. ~See me on Monday morning at half-past \
+                    eight.~ He shuts the door.";
+                 2: "Baskeyfield opens the door again. ~I will not make \
+                    an exception for you, no matter how often you knock,~ \
+                    he says. ~If I were to let myself be persuaded into \
+                    consulting with an undergraduate on a Sunday just \
+                    once, then before I knew it everyone would be round \
+                    here, and I'd get no peace. Good-bye.~ He slams the \
+                    door.";
+                 3: "Baskeyfield flings open the door and looks daggers \
+                     at you. ~How dare you persist in disturbing my \
+                     rest?~ he thunders. ~The library key's in my \
+                     pigeonhole. Now go away and risk not my wrath \
+                     again!~";
+                 default: 
+                    self.state = 3;
+                    "You decide not to risk Baskeyfield's wrath again.";
+                }
+            }
+        ];
+
+Nearby  DoorC2 "x" class DoorClass
+ with   name "C2" "Middlemann" "Middlemann's", honorific doctor,
+        room "C2", occupant "Middlemann", door_dir s_to;
+
+Object  KeyLibrary "copper key" DoorC1
+ class  KeyClass
+ with   name "copper";
+
+Object  CStairFirst "~C~ Staircase, First Floor"
+ has    light cat_allowed
+        ! general if a knock is in progress
+ with   name "stair" "stairs" "river" "trees" "grass" "tree",
+        description "To the north is the door to C3; to the south is the \
+            door to C4 and a wide flight of wooden stairs leads down to \
+            the ground floor. A window to the east overlooks a river \
+            running past the base of the building, with trees and grass \
+            beyond.",
+        d_to CStairGround,
+        out_to CStairGround,
+        n_to DoorC3,
+        s_to DoorC4,
+        edward_dirs d_obj;
+
+Nearby  CStairFirstWindow "window"
+ has    scenery
+ with   name "window",
+        description "The window overlooks a river running past the base \
+            of the building, with trees and grass beyond.",
+        before [;
+         Search: <<Examine self>>;
+         Open: "There appears to be no way to open the window.";
+        ];
+
+Nearby  DoorC4 "x" class DoorClass
+ with   name "C4" "Yeglitt" "Yeglitt^s", honorific professor,
+        room "C4", occupant "Yeglitt", door_dir n_to;
+
+Object  DoorC3 "x"
+ class  DoorClass
+        ! general if Bungay no longer answers the door
+ with   name "C3" "Bungay" "Bungay^s",
+        honorific professor,
+        room "C3",
+        occupant "Bungay",
+        door_dir [;
+            if (self in BungaysHallway) return s_to;
+            return n_to;
+        ],
+        door_to [;
+            if (self in BungaysHallway) return CStairFirst;
+            return BungaysHallway;
+        ],
+        with_key SilverKey,
+        found_in BungaysHallway CStairFirst,
+        time_left 0,
+        before [;
+         Knock:
+            if (ClockTower.number > 18) rfalse;
+            if (Edward in BungaysSanctum || self has open)
+                "~Go away, I'm supervising!~ comes an angry shout from \
+                inside.";
+            if (self has general)
+                "~Go away!~ comes an angry shout from inside.";
+            if (CStairFirst has general)
+                "You knock again. You can hear footsteps approaching the \
+                door from inside.";
+            give CStairFirst general;
+            StartTimer(self, 1);
+            print "You rap sharply at the door, and hear a distant grumpy \
+                ~I'm coming!~^";
+            if (LineOfSight(Edward,self) == 1) {
+                if (Edward.number == 1) Edward.number = 3;
+                print "^~Oh dear, oh dear,~ murmurs Edward.^";
+            }
+            rtrue;
+        ],
+        time_out [;
+            give CStairFirst ~general;
+            if (location == CStairFirst) {
+                print "^The door to C3 opens a crack and Bungay peers \
+                    out. ";
+                if (LineOfSight(Edward,self) == 1) {
+                    if (Edward.number == 3) Edward.number = 1;
+                    "He looks at Edward and then catches sight of \
+                    you. ~Edward Forbes, associating with a woman! Who'd \
+                    have thought it? Anyway, I don't have time to talk to \
+                    you love-birds.~ He slams the door shut.^^~Now look \
+                    what you've done,~ says Edward.";
+                }
+                "~You again!~ he snarls. ~Haven't I told you to keep your \
+                nose out of business that doesn't concern you?~ He slams \
+                the door in your face.";
+            }
+            if (LineOfSight(Edward,self) == 1) {
+                give self ~locked;
+                give Bungay general;
+                move Edward to BungaysSanctum;
+                DoneHint(WhatNextPuzzle,13);
+                if (Edward.number == 3) Edward.number = 4;
+                else Edward.number = 0;
+                if (player in CStairGround)
+                    "^From above you can hear Edward mumbling something, \
+                    and Bungay's loud reply, ~Yes, I suppose I can spare \
+                    a minute or two of my valuable time to talk to you \
+                    about your essay.~^^Then you hear footsteps and a \
+                    door closing.";
+            }
+        ];
+
+
+!------------------------------------------------------------------------------
+! 6.3 PROFESSOR BUNGAY'S ROOMS
+!------------------------------------------------------------------------------
+
+Object  BungaysHallway "Professor Bungay's Hallway"
+ has    light
+ with   name "study" "gown" "gowns" "hall" "hallway" "stairs" "study"
+            "doorway",
+        description "A narrow hallway for Bungay's visitors to hang up \
+            their gowns and for his students to stand around nervously in \
+            as they await their supervisions. The door to C3 leads out to \
+            the stairs to the south, there's a white-painted door to the \
+            east, and an open doorway leads north into a study. A coat of \
+            arms hangs on the wall.",
+        e_to WhiteDoor,
+        s_to DoorC3,
+        n_to BungaysStudy,
+        before [;
+         Speak,Sing,Scream,Mild,Strong:
+            "Shh! Bungay would surely notice!";
+        ],
+        state 0,
+        each_turn [;
+            Achieved("sneaking into Professor Bungay's rooms");
+            AdvanceTime(self);
+            if (Bungay in self) {
+                deadflag = 3;
+                "^You try to creep through the hallway as quietly as you \
+                can, but Bungay is looking your way and you have no \
+                chance of avoiding him.^^~My God!~ he bellows, ~You \
+                little sneak!~^^You dart for the door, and he lunges \
+                after you with surprising speed, and as you get out onto \
+                the landing he catches you about the head with a swing of \
+                his fist, sending you tumbling down the stairs.^^You hear \
+                as if from far away a cracking sound that you realise \
+                only belatedly to be your head hitting the polished \
+                wooden floor at the bottom, and then everything goes \
+                black.^^You wake to find yourself in hospital with your \
+                head bandaged and Edward sitting solicitously by your \
+                bedside.^^Later, when you learn of your brother Malcolm's \
+                disappearance from Biblioll college never to be seen \
+                again, you wish that you hadn't been so unceremoniously \
+                precipitated from the scene, but by then it is too late.";
+            }
+            print "^From behind the white-painted door you can hear ";
+            self.state = self.state + 1;
+            if (self.state == 20) self.state = 0;
+            switch (self.state) {
+             0,19: "Edward sobbing quietly.";
+             4,17: "Edward mumbling contritely.";
+             6,14: "nervous shuffling sounds.";
+             8,10,12: "Edward mumbling something indistinct.";
+            }
+            print "Bungay saying, ~";
+            switch (self.state) {
+             1: "Failing to hand in an essay once may be considered \
+                carelessness.~";
+             2: "Failing to hand in an essay twice may perhaps be \
+                excused.~";
+             3: "You have failed to hand in this essay for the third time \
+                and I must consider your recidivism to be evidence of \
+                laziness and failure.~";
+             5: "I'm sorry, I didn't quite hear that.~";
+             7: "Exactly which of the references that I asked you to \
+                consult have you read?~";
+             9: "How many was that?~";
+             11: "And what exactly have you learned about the Fourth \
+                Crusade? Perhaps you could enlighten me.~";
+             13: "I'm sorry, I didn't quite hear that.~";
+             15: "An extension, did I hear you say?~";
+             16: "And why exactly should I do that, pray?~";
+             18: "Have you considered changing to Land Economy?~";
+            }
+        ];
+
+Nearby  WhiteDoor "white-painted door"
+ has    door lockable openable scenery autoopen
+ with   name "door" "doors" "white" "painted" "white-painted",
+        door_dir e_to,
+        door_to BungaysSanctum,
+        before [;
+         Open,Knock,Attack: 
+            "Bungay would surely notice, and he wouldn't be at all happy \
+            to find you in here. It might be safest to leave him \
+            undisturbed for the moment.";
+        ];
+
+Nearby  TemplarArms "coat of arms"
+ has    scenery
+ with   name "coat" "of" "arms",
+        description "A red Maltese cross on a white shield, with some \
+            kind of building - a church, perhaps - above it.";
+
+Object  BungaysStudy "Professor Bungay's Study"
+ has    light no_edward
+        ! general once entering it becomes a trap!
+ with   name "furnishing" "garden" "gardens" "college" "decoration"
+            "alcove" "ostentation" "globe" "trapdoor",
+        description [;
+            print "What an ostentatious room this is! Rich furnishings \
+                from every corner of the globe: a silk rug from Persia, a \
+                mahogany desk from Siam, ";
+            if (LacquerBox hasnt moved)
+                print "on which sits a lacquer box from China, ";
+            "and so on. But you probably have little time to attend to \
+            these decorations before Bungay finishes dealing with Edward \
+            and you have to make a quick getaway. There is an exit to the \
+            south, and a window looks out over some gardens to the \
+            north.";
+        ],
+        out_to [;
+            if (WindowC3 has open) <<Go n_obj>>;
+        ],
+        d_to [;
+            if (WindowC3 has open) <<Go n_obj>>;
+        ],
+        n_to [;
+            if (WindowC3 hasnt open) return WindowC3;
+            if (Bungay in BungaysHallway)
+                print "You clamber as quietly as you can up onto the \
+                    windowsill, and for a few seconds you consider the \
+                    dreadful prospect. But you must jump, and there is no \
+                    time left to delay.";
+            else
+                print "As you clamber up onto the windowsill, you hear \
+                    voices and realise that Bungay and Edward are \
+                    emerging from their conference, and that you are \
+                    taking your leave only just in time!";
+            StopDaemon(BungaysStudy);
+            move Edward to SecondCourt;
+            move Turmeric to InsideShed;
+            if (Edward.state < 6) Edward.state = 6;
+            move Bungay to BungaysSanctum;
+            give DoorC3 ~open locked general;
+            print "^^Gingerly you let yourself down, until you are \
+                hanging from the window ledge by your fingertips. \
+                Stifling a scream, you let go. The lawn rushes up at you, \
+                and with a sudden bone-jarring thud you find yourself, \
+                bruised but (thank God!) not broken, in the...^";
+            Achieved("escaping from Professor Bungay");
+            AdvanceTime(self);
+            DoneHint(WhatNextPuzzle,14);
+            return Gardens;
+        ],
+        s_to BungaysHallway,
+        state 0,
+        cant_go "The only exit is south, back to the entrance hallway.",
+        before [;
+         Speak,Sing,Scream,Mild,Strong:
+            "Shh! Bungay would surely notice!";
+        ],
+        each_turn [;
+            if (self has general) {
+                give self ~general;
+                move Bungay to BungaysHallway;
+                move Edward to BungaysHallway;
+                StartDaemon(self);
+                "^You hear voices from the south and the opening and \
+                closing of a door, and you realise that you have lingered \
+                here too long, and that Bungay has finished dealing with \
+                Edward. You are now trapped in here!";
+            }
+        ],
+        daemon [;
+            self.state = self.state + 1;
+            if (location ~= BungaysStudy) rtrue;
+            if (self.state < 7)
+                print "^You can hear ";
+            if (self.state == 1 or 3 or 4 || self.state == 6)
+                print "Bungay to the south, saying ~";
+            switch (self.state) {
+             1: "I hope I make myself clear?~";
+             2: "Edward mumbling his agreement.";
+             3: "I shall expect to see the essay in my pigeonhole at nine \
+                on Monday morning.~^^How long will the ghastly man keep \
+                talking? You must get out of here!";
+             4: "Not a minute later, or else I shall have no choice but \
+                to institute rustication proceedings.~^^He is obviously \
+                coming to the end of his admonishment, and you cannot \
+                hope to evade detection for much longer.";
+             5: "Edward gasp with shock.^^You are getting desperate! You \
+                must escape!";
+             6: "Some would say that I'm being exceptionally lenient in \
+                this matter, so you should be grateful. Now begone with \
+                you, get out of my sight!~^^Any moment now, he will find \
+                you!";
+            }
+            deadflag = 3;
+            print "^Bungay comes to the doorway of his study, and ";
+            if (player in NarrowGap)
+                print "looks around suspiciously, his eyes lighting on \
+                    the displaced desk. Trembling with fear, you crouch \
+                    as low as you can as his heavy footsteps approach the \
+                    desk and he peers over it. ~Caught in the act!~ he \
+                    cries. ~You little sneak!~ H";
+            else
+                print "his eyes light on you. ~Caught in the act!~ he \
+                    cries. ~You little sneak!~ h";
+            "e lunges at you with surprising speed and catches you a \
+            heavy blow to the head with his great fist.^^You hear as if \
+            from far away a cracking sound that you realise only \
+            belatedly to be your head hitting the wall, and then \
+            everything goes black.^^You wake to find yourself in hospital \
+            with your head bandaged and Edward sitting solicitously by \
+            your bedside.^^Later, when you learn of your brother \
+            Malcolm's disappearance from Biblioll college never to be \
+            seen again, you wish that you hadn't be so unceremoniously \
+            precipitated from the scene, but by then it is too late.";
+        ];
+
+Nearby  WindowC3 "window"
+ has    openable scenery door
+ with   name "window" "windows",
+        description "Through the window you can see a delightful view of \
+            the college gardens.",
+        when_closed "A window to the north looks out over the college \
+            gardens.",
+        when_open "An open window to the north looks out over the college \
+            gardens.",
+        door_dir n_to,
+        door_to Gardens,
+        before [;
+         Search,Examine:
+            PrintOrRun(self,description,1);
+            if (self has open) " It is a long way down.";
+            new_line; rtrue;
+         ThrownAt,Receive:
+            if (self hasnt open) "You've broken enough windows for one \
+                day.";
+            move noun to Gardens;
+            print_ret (The) noun, " flies through the open window.";
+        ];
+
+Nearby  SilkRug "silk rug"
+ has    concealed static enterable supporter
+ with   name "persian" "silk" "silken" "rug" "carpet" "thread" "threads"
+            "threadbare",
+        description "Once a beautiful work of art, but now an unkind \
+            person might describe it as a little threadbare.",
+        before [;
+         Pull,Push,LookUnder: "There's nothing underneath the rug. For \
+            some unaccountable reason, you had half expected to find a \
+            trapdoor there.";
+        ];
+
+Nearby  DeskDrawer "drawer"
+ has    lockable container static concealed locked openable
+ with   name "drawer",
+        capacity 5,
+        description [;
+            if (self hasnt open)
+                "The desk drawer is closed.";
+            "From this side, you notice that the desk drawer isn't a snug \
+            fit into the desk, and there is enough space at the top to \
+            get at the contents.";
+        ],
+        each_turn [;
+            if (player in NarrowGap) give self open;
+            else give self ~open;
+        ];
+
+Nearby  MahoganyDesk "mahogany desk"
+ has    concealed static supporter
+        ! general if pulled away from the wall
+ with   name "mahogany" "desk" "siamese" "antique" "queen" "anne" "solid"
+            "asian",
+        description [;
+            print "You're no expert on antique furniture, but you would \
+                guess that it is a Queen Anne, in excellent condition, \
+                made from solid mahogany imported by ship from the \
+                south-east of Asia. There is a single drawer. ";
+            if (self has general)
+                "The desk has been pulled a foot or so out of its alcove \
+                into the room, leaving a narrow gap between it and the \
+                back wall of the alcove.";
+            "The desk fits snugly into an alcove in one side of the \
+            room.";
+        ],
+        capacity 5,
+        before [;
+         LookUnder: "There's nothing hidden under the desk.";
+         Climb,Enter:
+            if (self has general) {
+                print "You climb over the desk and jump down into the \
+                    narrow gap behind it.^";
+                 <<Enter NarrowGap>>;
+            }
+         Pull,Push:
+            if (self hasnt general) {
+                give self general;
+                move NarrowGap to BungaysStudy;
+                "You hardly dare to move the desk, for fear that it would \
+                squeak on the polished floor and alert Bungay to your \
+                presence, but it's lighter than it looks, and you manage \
+                to move it by about a foot before your nerve gives \
+                out. Still, you've created a narrow gap between the desk \
+                and the back wall of the alcove.";
+            }
+            if (player in NarrowGap)
+                "You can't move the desk back to where it was, because \
+                you're in the way.";
+            give self ~general;
+            remove NarrowGap;
+            "Anxious not to leave any traces of your search, you slowly \
+            and carefully return the desk to its original position.";
+        ];
+
+Object  NarrowGap "narrow gap"
+ has    scenery enterable container open
+ with   name "narrow" "gap" "space" "alcove",
+        description "You've made about a foot of room behind the desk, \
+            just about enough to stand in.";
+
+Object  LacquerBox "lacquer box" MahoganyDesk
+ class  VesselClass DelicateClass
+ has    openable
+        ! general once it's started the timer
+ with   name "lacquer" "box" "chinese" "black",
+        describe [;
+            if (self hasnt moved) rtrue;
+        ],
+        description "A beautiful work of craftsmanship, this Chinese \
+            lacquer box is about two inches cubed, and decorated with \
+            pictures of Chinese men and women walking in ornamental \
+            gardens.",
+        before [;
+         SmellThing: "The box gives off an oily, bitter aroma.";
+         Take,Remove:
+            if (self hasnt general) {
+                give self general;
+                StartTimer(self,random(3));
+            }
+        ],
+        time_left 0,
+        time_out [;
+            give BungaysStudy general;
+        ];
+
+Object  BookTemplar "chapbook" DeskDrawer
+ class  BookClass
+ with   name "chapbook",
+        description [;
+            print "The chapbook records the meetings of some society or \
+                perhaps religious order. The entries are cryptic and \
+                meaningless to you, but near the beginning there is this \
+                piece of translation:^";
+            print "^~We five of the Order set forth from Paris on the \
+                sixteenth of November of the year of our Lord 1307. We \
+                were disguised as Dominicans, and Jacques kept his hood \
+                pulled over his face, although the rain was gentle, lest \
+                anyone should recognise him. We went with great fear of \
+                pursuit, for at that time seemingly the whole of the \
+                country was raised against us. But horsemen we saw none, \
+                and we came without danger to Calais, where we took ship \
+                to England, the Work safe in our hands. Friends took us \
+                in at Christminster, and there we sheltered while our \
+                brothers confessed under torture to fantastic heresies \
+                and languished in French prisons, and our fastnesses were \
+                laid open, and our treasures thieved from us.^";
+            print "^~For ten years we have waited for a word, a sign, but \
+                nothing has come to us out of France. Surely one Adept \
+                has escaped the hand of King Philip? But we have waited \
+                in vain, and finally we have faced the truth. The Work we \
+                brought from France is all we have, for though we study \
+                it night and day unceasing, none now can master the \
+                Qabbala and thus become Adept.^";
+            print "^~Henri quarrelled with Jacques and was expelled from \
+                the Order. Four may last a little longer than five, but \
+                now I can see in each of our faces, the thought that \
+                three - or two - or just one - could last longer \
+                still. There is a wariness about our meetings now, and I \
+                fear that I may not be long for this world. In readiness \
+                for the end, if God so wills it, I have written my last \
+                will and testament. My Bible I will give to Edmund Lilly \
+                of the scholars of de Biblioll, who has treated us with \
+                such kindness.^";
+            "^~(Here the fragment breaks off. Translated from the French \
+            by PDT, June 1864.)~";
+        ],
+        after [;
+         Take,Remove:
+            Achieved("stealing Professor Bungay's chapbook");
+        ];

@@ -1,0 +1,1360 @@
+!--------------------------------------------------------------------------
+! 2 THE PROLOGUE
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!--------------------------------------------------------------------------
+! 2.1 CHAPEL STREET
+!--------------------------------------------------------------------------
+! Christabel starts here to present her with obvious first objective - to
+! get into the College. Knocking on the gate proves fruitless, but one of
+! the cobbles in the street is loose.
+!--------------------------------------------------------------------------
+
+Class   KeepBritainTidyClass
+ with   before [;
+         Drop:
+            if (Constable notin location || noun notin player) rfalse;
+            Constable.state = Constable.state + 1;
+            print_ret "The constable picks up ", (the) noun, " and \
+                returns it to your hand. ~You seem to have dropped this, \
+                ma'am,~ he says.";
+        ];
+
+Object  ChapelStreet "Chapel Street"
+ class  KeepBritainTidyClass
+ has    light
+        ! general if you've tripped on the cobbles.
+ with   name "biblioll" "college" "early" "morning" "sun" "sunlight" "arch"
+            "archway",
+        description [;
+            if (ClockTower.number < 20) {
+                print "It is a hot summer's day in Christminster, the \
+                    kind of day that makes you think of strawberries and \
+                    cream and punting on the river. The ";
+                if (ClockTower.number < 13) print "morning";
+                else print "afternoon";
+                print " sunlight";
+            }
+            else
+                print "It is a cool summer's night in Christminster. The \
+                    moonlight";
+            " beams down on the cobbles and on the great wooden gate of \
+            Biblioll College to the east.";
+        ],
+        e_to GreatGate,
+        in_to GreatGate,
+        n_to [;
+            if (EM == 0) print "You turn right into Bridge Street.^";
+            return BridgeStreet;
+        ],
+        s_to [;
+            if (EM == 0) print "You turn left into Biblioll Street.^";
+            return BibliollStreet;
+        ],
+        before [;
+         Think:
+            switch(noun) {
+             QStrawberries: "Your mouth waters at the delicious thought.";
+             QPunting: "Yes, you'd love to spend the afternoon drifting \
+                languidly down the river on a punt.";
+            }
+        ],
+        after [;
+         Go:
+            if (self hasnt general || random(4) == 1) {
+                give self general;
+                print "^You stumble, but manage to catch yourself before \
+                    falling over. It's tricky keeping your footing on the \
+                    cobbles, which are uneven and in poor repair.^";
+            }
+        ],
+        cant_go "You could head north to Bridge Street, south to Biblioll \
+            Street, or try to enter the college to the east.",
+        edward_dirs e_obj n_obj;
+
+Object  GreatGate "gate"
+ has    door static openable lockable locked autoopen
+        ! general if you've tried knocking at the gate
+ with   name "great" "wooden" "gate" "wicket" "oak" "timbers",
+        found_in ChapelStreet FirstCourt,
+        description "The gate is vast and sturdy. Built of solid oak \
+            timbers and weathered by the centuries, it has witnessed the \
+            comings and goings of many generations of scholars. Above the \
+            gate is displayed Biblioll College's coat of arms, and a \
+            wicket gate is set into the bottom of the gate.",
+        when_closed "The gate is closed.",
+        when_open "The gate is closed, but a little wicket gate stands \
+            open.",
+        add_to_scope CoatOfArms,
+        door_to [;
+            if (self in FirstCourt) return ChapelStreet;
+            else return FirstCourt;
+        ],
+        door_dir [;
+            if (self in FirstCourt) return w_to;
+            else return e_to;
+        ],
+        with_key BrassKey,
+        before [;
+         LookUnder: "The gap is too narrow for you to see anything.";
+         Knock,Attack:
+            if (location == FirstCourt) rfalse;
+            print "The gate is so large that you're not sure if your \
+                knocking can be heard inside, but after a short wait ";
+            if (self has open)
+                print "an old man appears at the wicket gate and ";
+            else
+                print "the wicket gate opens a crack and an old man ";
+            print "peers out at you. ";
+            if (Porter has general) {
+                give self open ~locked;
+                "~Ah, come in, come in,~ he says. He leaves the gate open \
+                and walks away.";
+            }
+            if (self has general)
+                print "~Not you again!~ he says, and slams the gate in \
+                    your face";
+            else
+                print "~Sorry, love,~ he says, ~but we're closed on \
+                    Sundays.~ He shuts the gate";
+            give self ~open locked general;
+            ".";
+         Climb:
+            "The gate fits snugly into the archway. Even if you were able \
+            to climb it, you still wouldn't be able to get past it.";
+        ],
+        after [;
+         Unlock: quote = 3;
+        ];
+
+Object  CoatOfArms "coat of arms"
+ has    scenery
+ with   name "coat" "of" "arms",
+        description "Three gold lions rampant on a white field, a red \
+            virgule and a silver cup on a green field.";
+
+Object  Cobbles "cobbles" ChapelStreet
+ has    static concealed
+ with   name "cobbles" "street" "cobblestones" "stones",
+        article "the",
+        before [;
+         Examine, Search:
+            if (Cobblestone hasnt general) {
+                move Cobblestone to ChapelStreet;
+                give Cobblestone general;
+                ResetVagueWords(Cobblestone);
+                DoneHint(EnterCollegePuzzle,1);
+                "On close inspection, one of the stones is loose.";
+            }
+            "Try as you might, you can't dislodge any more of the \
+             cobblestones.";
+        ];
+
+Object  Cobblestone "stone"
+        ! general if it's out in the world;
+        ! ~general if you can find it in the street
+ with   name "cobble" "stone" "cobblestone",
+        description "The cobblestone is about an inch across. Its upper \
+            surface is highly polished and the lower surface is rough.";
+
+
+!--------------------------------------------------------------------------
+! 2.2 BRIDGE STREET
+!--------------------------------------------------------------------------
+! The busker just cycles through his script line by line. Interaction with
+! the cups and so on is controlled by the current line in the script. At
+! one point, he asks for an object with which to perform a trick; he'll do
+! a trick with almost any object from the Prologue; different tricks take
+! him into different sub-scripts.
+! 
+! Busker.state: the current line in the script
+! 
+! Busker.time_left: if this is non-zero, then he waits that many turns
+! before continuing with his script; this allows interaction with him to
+! cause him to pause for a turn or two.
+! 
+! Busker.trickobject: the object with which the busker is doing his trick.
+! 
+! Busker.trickcup: the cup under which the busker put the trick object.
+! 
+! Busker.trickcount: a count of the number of different cups Christabel has
+! looked under (the object is always under the third one she looks under).
+!--------------------------------------------------------------------------
+
+Object  BridgeStreet "Bridge Street"
+ class  KeepBritainTidyClass
+ has    light
+ with   name "square" "street" "bridge",
+        initial [;
+            ! You left in the middle of the trick; Busker is sarcastic.
+            if (Busker.state == 13 or 14 or 15) Busker.state = 17;
+        ],
+        description "Bridge Street runs east to west and is bounded to \
+            the south by the brick wall of Biblioll College. The street \
+            broadens into a square here.",
+        s_to [;
+            if (EM == 0) rfalse;
+            <<Climb BrickWall>>;
+        ],
+        w_to [;
+            if (EM == 0) print "You turn left into Chapel Street.^";
+            return ChapelStreet;
+        ],
+        e_to [;
+            if (EM == 0) 
+                print "You cross a bridge over a gentle north-flowing \
+                    river, and then turn right onto Lady Margaret \
+                    Green.^";
+            return MargaretGreen;
+        ],
+        before [;
+         Go,Enter:
+            if (Busker.state == 13 or 14 or 15 && noun == w_obj or e_obj)
+                print "The busker calls after you as you leave, ~Hey! \
+                    Don't you want to see the rest of the trick?~ ";
+        ],
+        cant_go "You could head west to Chapel Street or east to Lady \
+            Margaret Green.",
+        edward_dirs e_obj;
+
+Object  TrestleTable "table" BridgeStreet
+ has    static supporter concealed
+ with   name "trestle" "table",
+        capacity 3,
+        before [;
+         Receive: <<Give noun Busker>>;
+        ];
+
+Class   CupClass
+ class  PluralClass ListTogetherClass
+        ! general if you've looked under it during trick
+ with   name "cup",
+        plural_name 'cups',
+        list_together "cups",
+        describe [; rtrue;],
+        before [;
+         Receive: "~Leave the trick to me,~ says the busker.";
+         Take, Remove:
+            switch (busker.state) {
+             0,1,2,3,4,5,6,7,100,101,102,103,104,105,14,15:
+                Busker.time_left = Busker.time_left + 1;
+                "~I don't mind if you look under the cups,~ says the \
+                busker, ~but I'd be grateful if you didn't walk away with \
+                them.~";
+             default: <<Search self>>;
+            }
+         LookUnder, Search:
+            switch (busker.state) {
+             0 to 7:
+                give self general;
+                "There's nothing under the cup.";
+             100 to 105:
+                if (self == Busker.trickcup) {
+                    move Busker.trickobject to player;
+                    ResetVagueWords(Busker.trickobject);
+                    Busker.state = 105;
+                    print_ret "Under ", (the) self, " is a piece of \
+                        folded paper. You take it and unfold it. It's \
+                        your ", (name) Busker.trickobject, "!";
+                }
+                Busker.time_left = Busker.time_left + 1;
+                print_ret "There's nothing under ", (the) noun, ". ~No,~ \
+                    says the busker. ~Look under ", (the) Busker.trickcup,
+                    "!~";
+             14,15:
+                if (self has general)
+                    "It's empty. ~You've already looked under that one,~ \
+                    says the busker.";
+                give self general;
+                Busker.trickcount = Busker.trickcount + 1;
+                print "You lift ", (the) noun;
+                if (Busker.trickcount == 3) {
+                    Busker.state = 16;
+                    print " and discover ", (the) Busker.trickobject;
+                    if (Busker.trickobject  == Marble)
+                        print ", which the busker retrieves. ";
+                    else {
+                        move Busker.trickobject to player;
+                        ResetVagueWords(Busker.trickobject);
+                        print ", which you take. ";
+                    }
+                    if (self == Busker.trickcup) {
+                        print "~See! It was under ", (the) noun, " all \
+                            along,~ says the busker.";
+                    }
+                    else print "~At last!~ says the busker. ~I thought \
+                        you'd never find it.~";
+                    if (Busker.trickobject  == BrassKey) {
+                        print " He winks at you. ~Take care, now.~";
+                        Achieved("successfully hiding the key from the \
+                            don");
+                        Busker.state = 300;
+                        Busker.time_left = 2;
+                    }
+                    new_line; rtrue;
+                }
+                " but it's empty. ~No, it's not there,~ says the \
+                busker. ~Perhaps you could try looking under another \
+                cup.~";
+             22,23,24:
+                "~Let me do it,~ says the constable.";
+             default:
+                Busker.time_left = Busker.time_left + 1;
+                "As you reach for the cup, the busker taps the back of \
+                your hand. ~Tut tut,~ he says. ~You'll spoil the trick.~";
+            }
+        ];
+
+Nearby  RedCup "red cup"
+ class  CupClass
+ with   name "red", next_cup GreenCup;
+
+Nearby  GreenCup "green cup"
+ class  CupClass
+ with   name "green", next_cup BlueCup;
+
+Nearby  BlueCup "blue cup"
+ class  CupClass
+ with   name "blue", next_cup RedCup;
+
+Object  Busker "busker" BridgeStreet
+ class  FollowClass CarryingClass TalkableClass
+        ! general if he's been arrested
+ with   name "busker" "magician" "wizard" "man" "purple" "finger" 
+            "fingers",
+        description "He's a tall gangling man, with long and nimble \
+            fingers.",
+        initial "A busking magician stands behind a folding trestle \
+            table, exhorting passers-by to come and watch his tricks. On \
+            the table are three inverted cups (one red, one green and one \
+            blue).",
+        state 0,
+        time_left 0,
+        trickobject 0,
+        trickcount 0,
+        trickcup 0,
+        before [;
+         Question:
+            self.time_left = self.time_left + 1;
+            switch(second) {
+             QZork:
+                if (BlackRod hasnt general) {
+                    give BlackRod general;
+                    "The busker looks at you in surprise, but then quickly \
+                    recovers himself and rearranges his features into a \
+                    smile.";
+                }
+             QHello: 
+                "~Hello,~ says the busker. ~How pleasant it is to have a \
+                lady as beautiful as you in my audience.~";
+             QMalcolm:
+                "~I've never met him,~ says the busker, ~but I'm told he \
+                has a very beautiful sister.~";
+             QCollege:
+                "~You want to know how to get into Biblioll College on a \
+                Sunday? I suppose you'll have to beg, borrow, or steal a \
+                key from someone.~";
+             QConstable:
+                "~Whenever he attempts to move me on,~ the busker \
+                confides in you, ~I show him a trick and he leaves me \
+                alone.~";
+             QNo:
+                "~Go on,~ says the busker. ~Be a devil!~";
+             QMagic:
+                "~A magician never reveals his secrets,~ says the \
+                busker mysteriously.";
+             QCups:
+                switch (self.state) {
+                 0 to 7, 100 to 105, 14, 15:
+                    "~Try looking under it,~ says the busker.";
+                 default: "~A magician never reveals his secrets,~ says \
+                    the busker.";
+                }
+            }
+            "The busker doesn't quite understand what you want.";
+        ],
+        life [;
+         Give:
+            if (self.state < 8 || self.state > 12)
+                "~Steady on,~ says the busker, ~Wait until I ask you!~";
+            DoneHint(EnterCollegePuzzle,3);
+            if (noun == Telegram or Map) {
+                if (noun has general)
+                    "~I've already done a trick with that!~ says the \
+                    busker.";
+                give noun general;
+                self.state = 100;
+                self.time_left = 1;
+                self.trickobject = noun;
+                remove noun;
+                switch (random(3)) {
+                 1: self.trickcup = RedCup;
+                 2: self.trickcup = GreenCup;
+                 3: self.trickcup = BlueCup;
+                }
+                print_ret "The busker accepts ", (the) noun,
+                    ". ~Hmm,~ he says, ~this isn't really appropriate \
+                    for this trick, but perhaps...~ He methodically \
+                    tears your ", (name) noun,
+                    " into small strips, then eats the strips one by \
+                    one. Noticing your discomfiture, he taps ",
+                    (the) self.trickcup, " and says, ~Take a look \
+                    here.~";
+            }
+            if (noun == Handbag) {
+                DoneHint(EnterCollegePuzzle,4);
+                self.time_left = 1;
+                if (parent(Toffee) == nothing or Handbag or GivenAway) {
+                    self.state = 200;
+                    move Toffee to Busker;
+                    give Handbag open;
+                    "The busker examines your handbag. ~Hmm,~ he \
+                    says, ~this is much too big for this trick, but \
+                    perhaps...~ He reaches into your handbag and pulls \
+                    out a toffee, which he offers to \
+                    you. ~With my compliments,~ he says, bowing \
+                    slightly.";
+                }
+                "The busker peers into your handbag. ~I'm sorry,~ he \
+                says, ~but I can't find any more confectionery in \
+                here.~";
+            }
+            self.trickobject = noun;
+            move noun to GivenAway;
+            self.state = 12;
+            switch (noun) {
+             Cobblestone:
+                "The busker takes the cobblestone and brushes some \
+                grit off it. ~It's not pretty, but it'll do,~ he \
+                says.";
+             Toffee:
+                "~Why,~ says the busker, ~what a scrumptious-looking \
+                piece of toffee! This is a perfect choice.~ He accepts \
+                the sweet.";
+             BrassKey:
+                DoneHint(EnterCollegePuzzle,10);
+                if (Constable notin BridgeStreet)
+                    "~Aha!~ says the busker, taking it. ~An excellent \
+                    choice.~";
+                "You are about to offer the key to the busker when he \
+                suddenly gesticulates wildly and shouts, ~Look, a \
+                bald-headed sparrowhawk!~^^The police constable stares up \
+                at the sky. ~Where, where?~ he cries excitedly. In the \
+                confusion, the busker surreptitiously takes the brass key \
+                from your hand.";
+             Feather:
+                "~Hmm, a strange choice,~ says the busker. He takes \
+                the feather and quickly tickles you under the chin \
+                with it.";
+             default:
+                print_ret "** Error: no trick for ", (the) noun, " **";
+            }
+        ],
+        daemon [ j;
+            if (self.time_left > 0) {
+                self.time_left = self.time_left - 1;
+                rfalse;
+            }
+            if (location ~= BridgeStreet && (ClockTower.number < 13 ||
+                self.state ~= 300)) rtrue;
+            self.state = self.state + 1;
+
+            switch(self.state) {
+             1: "^~Roll up! Roll up!~ calls the busker.";
+             2: "^~Who'll come and see my magic?~ calls the busker.";
+             3: "^~Three perfectly ordinary coloured cups,~ says \
+                the busker. He lifts each in turn to show that it is \
+                empty. ~Nothing under any of them,~ he says.";
+             4: self.trickcup = RedCup;
+                "^~There are no tricks, no hidden pockets, no false \
+                bottoms,~ says the busker. ~Please, examine the cups, \
+                look under them and assure yourself that they are \
+                perfectly ordinary.~";
+             5,6,7:
+                j = self.trickcup;
+                self.trickcup = j.next_cup;
+                if (j hasnt general)
+                    print_ret "^~Nothing under ", (the) j, ",~ says the \
+                        busker, lifting it up to show you.";
+                rtrue;
+             8: "^~Now,~ says the busker, ~to demonstrate that I'm not \
+                using any prepared equipment, I'd like to do this trick \
+                with an object from the audience.~";
+             9: "^~A small object would be best, but I will consider \
+                anything,~ says the busker.";
+             10: "^~I see that you're worried,~ says the busker. ~This \
+                isn't one of those tricks where I smash your watch with a \
+                hammer!~";
+             11: "^~How about you, young lady?~ asks the busker.";
+             12:
+                print "^~No volunteers?~ asks the busker";
+                if (Constable in BridgeStreet) {
+                    print ". ~What about you?~ he asks the constable";
+                    if (children(Constable) == 1)
+                        print ", but the constable only shrugs his \
+                            shoulders to indicate that he has nothing \
+                            suitable";
+                    else
+                        print ", who makes as if to approach him, but \
+                            then hesitates";
+                }
+                ".";
+             13,20:
+                if (self.trickobject == 0) {
+                    self.trickobject = Marble;
+                    print "^The busker sighs. ~Well, if no-one wants to \
+                        give me anything, I'll use this marble.~ He holds \
+                        it up and it sparkles in the sunlight. ~You'll \
+                        just have to trust that it's genuine.~^";
+                }
+                switch (random(3)) {
+                 1: self.trickcup = RedCup;
+                 2: self.trickcup = GreenCup;
+                 default: self.trickcup = BlueCup;
+                }
+                give RedCup ~general;
+                give BlueCup ~general;
+                give GreenCup ~general;
+                print_ret "^The busker lifts up ", (the) self.trickcup,
+                    " and places ", (the) self.trickobject, " under \
+                    it. ~Now you see it, now you don't,~ he says.";
+             14,21: print_ret "^The busker taps the three cups in turn \
+                with the black rod. ~As I tap the cups,~ he says, ~", (the)
+                self.trickobject, " moves from cup to cup. Which one will \
+                it end up underneath?~";
+             15,22: 
+                if (self.state == 15 && (RedCup has general || GreenCup has
+                  general || BlueCup has general))
+                    rtrue;
+                print_ret "^~Go on,~ says the busker. ~Guess which \
+                    one of the cups ", (the) self.trickobject, " is \
+                    underneath.~";
+
+            ! Now wait until Christabel discovers the trick object
+             16: self.state = 15; rtrue;
+
+            ! The trick is over; take a short break and reset
+             17: self.state = 0;
+                self.trickobject = 0;
+                self.trickcount = 0;
+                self.time_left = 1;
+                give RedCup ~general;
+                give BlueCup ~general;
+                give GreenCup ~general;
+                rtrue;
+
+            ! When Christabel returns after leaving Bridge Street during
+            ! the trick
+             18: self.state = 14;
+                "^~Welcome back,~ says the busker. ~Perhaps you would be \
+                so gracious as to help me finish the trick?~";
+
+            ! The policeman helps with the trick
+             23: print_ret "^The police constable approaches the \
+                table. ~I think it's under ", (the) self.trickcup, " \
+                where you put it,~ he says. ~You're not fooling me with \
+                your patter.~ He looks under the cup. There's nothing \
+                there. ~Oh!~ he says.";
+             24: j = (self.trickcup).next_cup;
+                print_ret "^The constable surveys the remaining two cups. \
+                    ~Perhaps it's under ", (the) j, " then.~ But ", (the) j,
+                    " is empty too.";
+             25: j = ((self.trickcup).next_cup).next_cup;
+                self.state = 16;
+                if (self.trickobject == Cobblestone)
+                    give Cobblestone ~general; ! another one can be found
+                give Constable ~general;
+                print_ret "^The constable says, ~You're a sly one. ", (The)
+                    self.trickobject, " must be under ", (the) j, "!~ He \
+                    looks under ", (the) j, " and extracts a toffee \
+                    wrapped in shiny paper, which he expertly unwraps and \
+                    sticks into his mouth.";
+
+            ! The trick with the telegram or the map
+             101: print_ret "^~Go on, look under ", (the) self.trickcup, 
+                ",~ says the busker.";
+             102: return;
+             103: "^~Go on, it won't bite you,~ says the busker.";
+             104: return;
+             105: move self.trickobject to player;
+                ResetVagueWords(self.trickobject);
+                print_ret "^~You don't want to look under the cup?~ says \
+                    the busker. ~Well, see here.~ He lifts ", (the)
+                    self.trickcup, " to reveal a piece of folded paper, \
+                    which he unfolds. It's your ", (name) self.trickobject,
+                    "! The busker presses it into your hand.";
+             106: self.state = 9;
+                self.trickcup = 0;
+                self.trickobject = 0;
+                "^~Now,~ says the busker, ~I need a small object from the \
+                audience for my next trick.~";
+
+            ! The trick with the handbag
+             201: "^~Go on, take the toffee,~ says the busker.";
+             202: return;
+             203: remove Toffee;
+                self.state = 105;
+                "^~All right, you don't want it, no skin off my nose,~ \
+                says the busker. He tosses it up into the air and it \
+                vanishes.";
+
+            ! The busker packs up and leaves
+             301: StopDaemon(self);
+                remove TrestleTable;
+                MoveNPC(self, 0, e_obj);
+                if (location == BridgeStreet)
+                    print "^The busker clears away his cups, folds up the \
+                        trestle table and walks off, disappearing round \
+                        the corner to the east.^";
+                rtrue;
+            }
+            print_ret "^** Error: bad line in busker script: ", 
+                self.state, " **";
+        ];
+
+Nearby  BlackRod "black rod"
+        ! general if busker's been asked the zork magic words
+ with   name "black" "rod" "star" "silver",
+        description "It has a silver star on the tip. You've never seen \
+            it before, but it has a strange air of deja vu about it.",
+        before [;
+         Take, Remove:
+            "The busker whisks the black rod out of your reach.";
+        ];
+
+Nearby  PurpleCape "purple cape"
+ has    clothing worn
+ with   name "purple" "cape";
+
+Object  Marble "marble"
+ with   name "marble";
+
+Object  Toffee "toffee"
+ with   name "candy" "sweet" "toffee" "sticky",
+        description "It's very sticky.",
+        before [;
+         Remove, Take:
+            if (self in Busker) {
+                Busker.state = 105;
+                move self to location;
+            }
+         Eat: "You have to watch your figure, so better not. Besides, it \
+            might come in useful for something, you never know.";
+         SmellThing: "It smells slightly minty.";
+        ];
+
+Object  BrickWall "brick wall"
+ has    static concealed
+        ! general if you've tried climbing it
+ with   name "wall" "brick" "brickwork" "bricks" "biblioll" "college",
+        description "The brick wall is about twelve feet tall, but \
+            unevenness in the brickwork makes it look climbable.",
+        found_in BridgeStreet MargaretGreen EarthenPath Well,
+        before [;
+         Climb, Enter:
+            if (self has general)
+                "You remember the broken glass at the top of the wall, \
+                and decide not to try climbing it again.";
+            give self general;
+            "You clamber ungracefully but successfully up the wall, but \
+            you discover that the top of the wall is studded with broken \
+            glass. You climb down hurriedly.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 2.3 LADY MARGARET GREEN
+!--------------------------------------------------------------------------
+
+Object  MargaretGreen "Lady Margaret Green"
+ class  KeepBritainTidyClass
+ has    light
+ with   name "meadow" "hairline" "moustache" "nose" "handlebar" "grass"
+            "breeze" "street" "streets" "grassy" "receding" "waist"
+            "cord",
+        description "This damp grassy meadow slopes gently down towards \
+            the wall of Biblioll College to the west. To the north and \
+            south you could re-enter the streets of Christminster.",
+        w_to [;
+            if (EM == 0) rfalse;
+            <<Climb BrickWall>>;
+        ],
+        n_to [;
+            if (EM == 0) 
+                print "You turn left into Bridge Street, and cross a \
+                    bridge over a gentle north-flowing river.^";
+            return BridgeStreet;
+        ],
+        s_to [;
+            if (EM == 0) 
+                print "You turn right into Biblioll Street, and cross a \
+                    humpbacked bridge.^";
+            return BibliollStreet;
+        ],
+        before [;
+         Listen:
+            if (SleepingDon in self)
+                "You can hear a gentle snoring sound.";
+            "The meadow is quiet but for a gentle breeze ruffling the \
+            grass.";
+        ],
+        cant_go "You can head north to Bridge Street or south to Biblioll \
+            Street.",
+        edward_dirs s_obj;
+
+Nearby  SleepingDon "don"
+ class  FollowClass
+ has    animate transparent
+        ! general if tickled with feather
+ with   name "don" "sleeping" "man" "chap" "donnish" "doctor" "halfhide",
+        description [;
+            print "He's a donnish sort of chap, with a receding hairline \
+                and a handlebar moustache. He's snoring loudly, and every \
+                so often his nose twitches as if he's about to sneeze";
+            if (child(self) == BrassKey) {
+                if (self has general)
+                    print ". There is a brass key dangling from his \
+                        waist";
+                else print ". He appears to be lying on a brass key";
+            }
+            ".";
+        ],
+        initial "There is a man lying on the grass here, fast asleep.",
+        life [;
+         Attack:
+            if (Constable in location) <<Attack Constable>>;
+            "You give the sleeping man as hefty a blow to the stomach as \
+            you can, but he just grunts and continues to snore.";
+         Kiss: "This isn't ~Sleeping Beauty~.";
+        ],
+        before [;
+         Speak, Show, Give:
+            "He's fast asleep and takes no notice of you.";
+         Tickle:
+            if (second == Feather) {
+                give self general;
+                DoneHint(EnterCollegePuzzle,9);
+                "The don's nose twitches rather vigorously, and he \
+                sneezes! His sleep is uninterrupted, but he grunts and \
+                rolls over.";
+            }
+            "Your tickling has no effect.";
+         Enter: Futile(); rtrue;
+         Push,Pull,Turn,PushDir:
+            "The don is a heavy man, and try as you might, you can't move \
+            him.";
+         WakeOther:
+            print "You shake the sleeping man, but your efforts fail to \
+                wake him";
+            if (constable in location)
+                print ". ~Leave the poor man to sleep,~ says the \
+                    constable";
+            ".";
+         Listen:
+            "His snoring has the deep and sonorous quality of a \
+            neighbour who delights in practising his sousaphone in \
+            the early morning.";
+        ],
+        time_left 0,
+        time_out [ i j k l;
+            ! i is the location containing the key (or else nothing)
+            ! j is 1 iff the player has the key
+            ! k is 1 iff the key is in the handbag
+            ! l is 1 iff the constable has the key
+            StopDaemon(BrassKey);
+            for (j=0,k=0,l=0,i=BrassKey: parent(i) ~= nothing: i = parent(i))
+                if (i == player) { j = 1; }
+                switch(i) {
+                 Handbag: k = 1;
+                 Constable: l = 1;
+                }
+            if (i == GivenAway) i = BrassKey;
+
+            ! If you're in Margaret Green, you see the don wake up.
+            if (location == MargaretGreen) {
+                print "^The don twitches in his sleep, clearly disturbed. \
+                    All of a sudden he sits bolt upright. ~Who's taken my \
+                    key?~ he bellows.^";
+                if (i ~= BrassKey or MargaretGreen)
+                    print "^The don stomps off in search of his key.^";
+            }
+
+            ! If the key is missing or it's somewhere in the same location
+            ! as you, then in either case you get to see what happens.
+            if (i == BrassKey or location) {
+                if (location ~= MargaretGreen)
+                    print "^The don stomps angrily around the corner. \
+                        ~Who's taken my key?~ he bellows, peering around \
+                        suspiciously.^";
+                if (l == 1)
+                    print "^~Is this your key, sir?~ asks the constable, \
+                        holding up the object in question.^^The don \
+                        snatches it. ~Thank you, officer,~ he says.";
+                if (j == 0 && k == 1)
+                    print "^The don picks up the handbag and peers into \
+                        it. ~Aha!~ he cries, extracting his key from the \
+                        bag's murky depths. He tosses the handbag aside.";
+                if (j == 0 && k == 0 && l == 0 && i ~= BrassKey)
+                    print "^The don catches sight of the key. ~Aha!~ he \
+                        cries, picking it up.";
+                if (i ~= BrassKey && j == 0 && location ~= MargaretGreen)
+                    print " He glares pointedly in your direction and \
+                        walks away.^";
+            }
+
+            ! Otherwise you have to hear what's happening.
+            else
+                print "^Somewhere in the distance, you hear a voice say \
+                    loudly, ~Aha! My key!~^";
+
+            ! In these cases, the don can walk away with the key without
+            ! having to make a fuss and go back to sleep again. Make sure
+            ! we reset all the flags associated with the puzzle.
+            if (k == 1) give Handbag open;
+            if (j == 0 && i ~= BrassKey) {
+                move BrassKey to SleepingDon;
+                BrassKey.state = 0;
+                give BrassKey ~general;
+                give SleepingDon ~general;
+                if (location == MargaretGreen) {
+                    if (i ~= MargaretGreen)
+                        print "^The don stomps back round the corner \
+                            again, clutching his key.";
+                    print " He lies down on the grass again and in a \
+                        couple of seconds he is peacefully snoring \
+                        again.^";
+                }
+                return;
+            }
+
+            ! Now, the don can't find the key, so he accuses you of
+            ! stealing it. We'd better bring the constable to the scene.
+            ! It's safe to cancel the constable's general flag, because if
+            ! he was involved in the trick then you can't have solved the
+            ! puzzle with the key and so the game will be ending soon...
+
+            if (Constable notin location) {
+                give Constable ~general;
+                <Invoke Constable>;
+            }
+            print "^~You there!~ the don shouts at you. ~You stole my \
+                key! Constable, arrest this woman!~^^The constable \
+                strolls over towards ";
+            if (j == 1) {
+                print "you. ~What have we here, then?~ he says, \
+                    extracting the key from your ";
+                if (k == 1) print "handbag"; else print "trembling hands";
+                print ". ~A right little thieving minx.~ He grabs your \
+                    arm and frog-marches you to the police station.^^";
+                ArrestString();
+                rtrue;
+            }
+            MoveNPC(Constable,0,0);
+            MoveNPC(SleepingDon,0,0);
+            StopDaemon(Constable);
+            print "the don. ~Excuse me, sir, but are you bothering this \
+                young woman?~ he says.^^~Tell this thieving woman to give \
+                me back my key,~ shouts the don.^^~I haven't got your \
+                key,~ you say, ";
+            if (Handbag in player) {
+                give Handbag open;
+                print "opening your handbag";
+            }
+            else print "showing him your hands";
+            " to demonstrate the truth of your statement.^^~A false \
+            accusation is a very serious matter,~ says the constable to \
+            the don. ~I think you had better come with me to the station \
+            and have a little talk about this.~ He leads the protesting \
+            don away.";
+        ];
+
+[ ArrestString;
+    deadflag = 3;
+    "Luckily, a telegram to your father, and a telegram from him to his \
+    solicitors (Grousetwistle, Bentham and Portnoy) and a telegram from \
+    them to the Christminster police station, are enough to persuade your \
+    captor to release you, but by then you are sick of the whole \
+    enterprise, and in a huff you take the next train back to \
+    London.^^When you eventually learn of your brother Malcolm's \
+    disappearance from his rooms in college, never to be seen again, you \
+    regret your hasty flight from the scene, but by then it is too late.";
+];
+
+Object  BrassKey "brass key" SleepingDon
+ class  KeyClass
+        ! general if you've worried about stealing it
+ with   name "brass",
+        before [;
+         Take, Remove:
+            if (self in SleepingDon) {
+                if (Constable in location)
+                    "You daren't try to steal the key with the police \
+                    constable watching you.";
+                if (SleepingDon hasnt general)
+                    "The key seems to be attached to the don by some sort \
+                    of cord, which you are unable to undo, because the \
+                    don - a very heavy man - is lying on it.";
+                StartDaemon(self);
+                StartTimer(SleepingDon, 3);
+                move self to player;
+                Achieved("stealing a key from the sleeping don");
+                "Taken.";
+            }
+        ],
+        state 0,
+        daemon [;
+            self.state = self.state + 1;
+            if (location == MargaretGreen) {
+                if (self.state == 1 or 2 or 3)
+                    print "^The don twitches in his sleep";
+                if (self.state == 2 or 3)
+                    print ", clearly disturbed";
+                if (self.state == 3)
+                    print ". He looks as if he is about to wake up";
+                if (self.state == 1 or 2 or 3)
+                    ".";
+                return;
+            }
+            if (Inside(self,player) == 1 && self hasnt general) {
+                give self general;
+                "^You're feeling a bit nervous carrying the stolen key \
+                around with you. What if the don were to wake up? What \
+                if the constable were to notice?";
+            }
+        ];
+
+
+!--------------------------------------------------------------------------
+! 2.4 BIBLIOLL STREET
+!--------------------------------------------------------------------------
+
+Object  BibliollStreet "Biblioll Street"
+ class  KeepBritainTidyClass
+ has    light
+ with   name "street" "looming" "bulk" "biblioll" "college" "sill"
+            "windowsill",
+        description [;
+            print "During the week this must be a busy thoroughfare but \
+                now it's empty of motor-cars and crowds. The street is \
+                bordered to the north by the looming bulk of Biblioll \
+                College, ";
+            if (ClockTower.number > 19)
+                print "dark and ominous in the moonlight, ";
+            "and there's a single window high above you.";
+        ],
+        w_to [;
+            if (EM == 0) print "You turn right into Chapel Street.^";
+            return ChapelStreet;
+        ],
+        e_to [;
+            if (EM == 0) 
+                print "You cross a low humpbacked bridge and turn left \
+                    onto Lady Margaret Green.^";
+            return MargaretGreen;
+        ],
+        after [;
+         Go: <Invoke Constable>;
+        ],
+        cant_go "You can go east to Lady Margaret Green or west to Chapel \
+            Street.",
+        edward_dirs w_obj;
+
+Class   WindowClass
+ has    static concealed
+ with   state 0,
+        before [;
+         Examine: rfalse;
+         default:
+            self.state = self.state + 1;
+            switch (self.state) {
+             2: "It's a good thirty feet above you.";
+             3: "Even if you stood on tip-toes, it would still be \
+                twenty-nine feet and eleven inches above your head.";
+             4: "Persisting in this stupidity won't help you.";
+             default: 
+                self.state = 4;
+                "It is much too high up.";
+            }
+        ];
+
+Nearby  Window "window"
+ class  WindowClass
+ with   name "window" "pane",
+        description "It's an ordinary window, very high up. You can see \
+            a grey parrot sitting on the windowsill.",
+        before [;
+         ThrownAt,Receive:
+            if (Constable in location) {
+                DoneHint(EnterCollegePuzzle,2);
+                "You lack the nerve, especially with the constable \
+                watching you.";
+            }
+            if (noun ~= Cobblestone) {
+                move noun to BibliollStreet;
+                print "You throw ", (the) noun;
+                if (random(2)==1)
+                    " at the window, but miss by a good ten feet or so.";
+                " straight at the window, but it bounces and lands at \
+                your feet.";
+            }
+            remove self;
+            remove Cobblestone;
+            move BrokenWindow to BibliollStreet;
+            MoveNPC(Parrot,0,0);
+            StartTimer(BrokenWindow, 1);
+            AdvanceTime(self);
+            Achieved("breaking a window");
+            DoneHint(EnterCollegePuzzle,8);
+            "All that cricket practice at Westminster Ladies' College \
+            finally pays off. The cobblestone is right on target and the \
+            window shatters inwards in a lovely shower of broken lead and \
+            glass. A loud squawking accompanies the sound of glass \
+            falling to the floor.";
+        ];
+
+Nearby  Parrot "parrot"
+ class  WindowClass FollowClass
+ has    animate
+ with   name "grey" "parrot" "polly" "bird",
+        description "A grey bird, sitting on the windowsill and looking \
+            down at you. Every once in a while it hops a pace or so to \
+            the left or right.",
+        before [;
+         Follow: "You'll be telling me next that you can fly!";
+         ThrownAt: <<ThrowAt noun Window>>;
+        ],
+        life [;
+            "The parrot is thirty feet above your head and behind a pane \
+            of glass. Otherwise, a good attempt.";
+        ];
+
+Object  Feather "feather"
+ class  FlimsyClass
+ with   name "grey" "feather",
+        size 1,
+        description "A long grey feather. It's very ticklish.";
+
+Object  BrokenWindow "broken window"
+ class  WindowClass
+        ! general if Edward's commented on it
+ with   name "broken" "window" "pane",
+        description "It's a good thirty feet above your head and the pane \
+            has been smashed.",
+        before [;
+         Receive,ThrownAt:
+            "If you threw that through the broken window, you might never \
+            be able to get it back.";
+        ],
+        time_left 0,
+        time_out [;
+            move Feather to BibliollStreet;
+            if (location == BibliollStreet)
+                "^A grey parrot appears at the broken window. It looks \
+                about itself cautiously, spreads its wings, then flies \
+                away to the north. It must have been injured by the \
+                broken glass, because one of its tail feathers has \
+                drifted down to land at your feet.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 2.5 THE POLICE CONSTABLE
+!--------------------------------------------------------------------------
+! He's basically friendly, and is here to provide a bit of atmosphere and
+! randomness to the opening sections. He arrives after turn 3 and
+! thereafter wakes up every 6-10 turns and strolls up to Christabel (if not
+! already present). A count is kept of how many times Christabel interacts
+! with him and he's removed after 2 interactions so as not to get too
+! monotonous. He stops Christabel dropping litter and throwing things at
+! the window. We make sure he's always at Biblioll Street when Christabel
+! is (unless he gets engrossed in the magic trick and can't come).
+! 
+! Constable.state: a count of the number of times Christabel has
+! interacted with the constable.
+! 
+! Constable.time_left: a count of the number of times the Constable has
+! arrested Christabel.
+!--------------------------------------------------------------------------
+
+Object  Constable "police constable"
+ class  FollowClass CarryingClass TalkableClass
+        ! general if he's engrossed in the magic trick
+ with   name "police" "constable" "policeman" "pc" "bobby" "officer"
+            "copper" "peeler" "cop",
+        description [;
+            print "A tall and broad-shouldered man, the police constable \
+                has pushed his helmet down to shade his eyes, and is \
+                enjoying the morning sunshine. His lot seems to be an \
+                happy one.";
+            if (self in BridgeStreet) {
+                DoneHint(EnterCollegePuzzle,5);
+                print " He is watching the busker";
+                if (self has general)
+                    print " very intently";
+                print ".";
+            }
+        ],
+        describe [;
+            print "^A police constable stands here";
+            if (self in BridgeStreet) {
+                print ", watching the busker";
+                if (self has general)
+                    print " very intently";
+            }
+            ".";
+        ],
+        state 0,
+        number 0,
+        life [;
+            self.state = self.state + 1;
+         Attack:
+            self.time_left = self.time_left + 1;
+            self.number = self.number + 1;
+            print "The constable grabs your arm and pins it behind your \
+                back until you stop struggling. ";
+            if (self.number < 3)
+                "~Less of that, young lady,~ he says, releasing you.";
+            print "~All right, my young lady, you asked for it,~ he says, \
+                and frog-marches you to the police station.^^";
+            ArrestString();
+            rtrue;
+         Kiss:
+            "The constable blushes. ~Less of that, young lady,~ he says \
+            sternly, but you can tell he doesn't mean it.";
+         Show:
+            if (noun == Feather or Map) <<Give noun Constable>>;
+         Give:
+            if (noun == Feather)
+                "~Looks like the tail feather of a Psittacus,~ says the \
+                constable.";
+            if (noun == Telegram or Handbag)
+                "~I couldn't possibly accept that,~ says the constable.";
+            if (noun == Map) {
+                print "~You want directions to Biblioll College?~ says \
+                    the constable. ~You need to go ";
+                switch (location) {
+                 ChapelStreet:
+                    "through that gate, to the east.~";
+                 BridgeStreet,BibliollStreet:
+                    print "west to Chapel Street";
+                 MargaretGreen:
+                    print "south to Biblioll Street, then west to Chapel \
+                        Street";
+                 default:
+                    "** Error: Constable escaped from Prologue somehow **";
+                }
+                ", then through the gate that you'll see to your east.~";
+            }
+            DoneHint(EnterCollegePuzzle,5,6);
+            move noun to self;
+            print "The constable accepts ", (the) noun;
+            switch(noun) {
+             Cobblestone, Toffee:
+                ". ~And what do you expect me to do with this, young \
+                lady?~ he asks you.";
+             BrassKey:
+                ", and looks at it closely. ~Ah, a college key,~ he says. \
+                ~I'll give it back next time I'm passing.~";
+             default: 
+                print_ret "** Error: object out of place: ", (the) noun, 
+                    " **";
+            }
+        ],
+        orders [;
+            self.state = self.state + 1;
+         Eat:
+            if (noun==Toffee && Toffee in self) {
+                move Toffee to GivenAway;
+                "The constable pops it into his mouth, which breaks out \
+                into a big grin. ~Why thank you, ma'am,~ he says.";
+            }
+         Give:
+            if (noun notin Constable)
+                print_ret (The) self," isn't carrying ",(the) noun,".";
+            if (noun == Helmet) "~Keep your hands off my helmet!~";
+            if (noun == BrassKey)
+                "~No, I'll keep the key and return it myself, if it's \
+                 all the same to you,~ says the constable.";
+            if (second == player) {
+                move noun to player;
+                "The constable hands it to you.";
+            }
+            if (second == Busker) {
+                if (Busker.state >=8 && Busker.state <=12) {
+                    Busker.trickobject= noun;
+                    move noun to GivenAway;
+                    give self general;
+                    Busker.state = 19;
+                    Achieved("getting the police constable involved \
+                        in a magic trick");
+                    DoneHint(EnterCollegePuzzle,7);
+                    print "The constable says, ~Yes, that's a good \
+                        idea!~ and hands ", (the) noun, " to the \
+                        busker. ";
+                    switch(noun) {
+                     Cobblestone:
+                        "~It's not pretty, but it'll do,~ says the \
+                        busker.";
+                     Toffee:
+                        "~Why,~ says the busker, ~what a lovely piece \
+                        of toffee! This is a perfect choice.~";
+                     default:
+                        print_ret "** Error: Constable's gift to \
+                            busker not recognised: ", (the) noun, " **";
+                    }
+                }
+                "~Not now,~ whispers the constable. ~We don't want to \
+                disturb him while he's doing his trick.~";
+            }
+         LookUnder, Take, Search:
+            if (noun == RedCup or GreenCup or BlueCup)
+                switch (Busker.state) {
+                 4,5,6,7:
+                    "~If you insist,~ says the constable. He picks up the \
+                    cup and examines it carefully. There's nothing \
+                    inside. He puts it back.";
+                 15:
+                    "~No,~ says the constable. ~It's you who's supposed \
+                    to be helping with this trick.~";
+                 22,23,24:
+                    "~Give me a chance,~ says the constable. ~I'm getting \
+                    there.~";
+                 default:
+                    "~Not now,~ whispers the constable. ~We don't want to \
+                    disturb him while he's doing his trick.~";
+                }
+         Go: "~I'm quite happy where I am, thank you very much,~ says the \
+            constable.";
+         Arrest:
+            if (noun == Busker && Busker hasnt general) {
+                give Busker general;
+                "The constable considers your request. ~Hmm, blocking \
+                a public highway and busking without a licence,~ he \
+                mutters to himself. He reaches a decision and \
+                approaches the busker. ~Excuse me,~ he says, ~but \
+                would you mind moving on?~^^~Watch out!~ says the \
+                busker suddenly. ~Your helmet! Stand right there and \
+                don't move, I'll see to it!~ The constable stands \
+                rooted on the spot as the busker reaches under his \
+                helmet and extracts a pigeon, which he releases and \
+                it flies away.^^~Good grief!~ says the constable. ~A \
+                Columba livia! Thank you, much obliged.~^^~Don't \
+                mention it,~ says the busker.";
+            }
+            if (noun == player)
+                "~I don't think there's any need for that,~ says the \
+                constable.";
+         WakeOther:
+            if (noun == SleepingDon)
+                "~Best leave him to sleep, I think,~ says the constable.";
+         Open,Knock,Enter:
+            if (noun == GreatGate)
+                "The constable shakes his head. ~My powers stop here,~ he \
+                says. ~If they won't let you in, I can't help you.~";
+        ],
+        before [;
+         Question:
+            self.state = self.state + 1;
+            switch(second) {
+             QTime:
+                print_ret "The constable takes a pocket watch from his \
+                    uniform and peers at it. ~It's a little after ",
+                    (PrintTime) 0, ", ma'am,~ he says, returning the \
+                    watch to his pocket.";
+             QHello:
+                "~Morning, ma'am,~ says the constable. ~Lovely day!~";
+             QCollege:
+                "~Oh, that's one of the oldest colleges, that is,~ says \
+                the constable. ~Founded by John de Biblioll, if I \
+                remember rightly.~";
+             QMalcolm:
+                "The constable scratches his head for a moment. ~Oh, you \
+                mean Doctor Spencer! Nice chap, quiet, but friendly, \
+                yes.~";
+             QBusker,QMagic,QCups:
+                "~I do love a bit of stage magic,~ says the constable.";
+             QDon:
+                "~He's a fellow of Biblioll College,~ says the constable, \
+                ~A certain Halfhide, I believe.~";
+             QMe:
+                if (self.number > 0)
+                    "~I'm keeping my eye on you,~ says the constable. ~No \
+                    more trouble from you, or else.~";
+                "~Pleased to have made your acquaintance,~ says the \
+                constable.";
+             QYes: "The constable nods his head in agreement.";
+             QNo: "The constable shakes his head in agreement.";
+             default:
+                switch (random(3)) {
+                 1: "The constable doesn't quite understand what you \
+                    want.";
+                 2: "~I'm sure that I don't know anything about that,~ \
+                    says the constable.";
+                 3: "The constable nods sagely.";
+                }
+            }
+         Invoke:
+            if (parser_trace >= 1) print "[ Called PC Invoke ]^";
+            if (self in location || self has general || SleepingDon in nothing)
+                rtrue;
+            self.state = 0;
+            MoveNPC(self,location,0);
+            print "^A police constable strolls ";
+            if (location == MargaretGreen) print "across the meadow";
+            else print "up the street";
+            print " towards you";
+            if (location == ChapelStreet)
+                print ", his heavy boots clattering noisily on the \
+                    cobbles";
+            ".";
+         default:
+            if (ClockTower.number >= 12)
+                "** Error: the constable should have vanished by now **";
+        ],
+        time_left 0,
+        daemon [ i d;
+            if (ClockTower.number >= 12)
+                "** Error: the constable should have vanished by now **";
+            if (self notin location) {
+                self.state = 0;
+                self.time_left = self.time_left + 1;
+                if (self.time_left >= 5) {
+                    if (parser_trace >= 1) print "[ Calling PC Invoke ]^";
+                    <<Invoke self>>;
+                }
+            }
+            else self.time_left = 0;
+            if (self.state >= 4 && location ~= BibliollStreet && self
+                hasnt general) {
+                new_line;
+                if (location == BridgeStreet) {
+                    if (random(2) == 1) { 
+                        i = ChapelStreet; d = w_obj; 
+                    } else {
+                        i = MargaretGreen; d = e_obj;
+                    }
+                }
+                else {
+                    if (random(2) == 1) { 
+                        i = BibliollStreet; d = s_obj; 
+                    } else {
+                        i = BridgeStreet; d = n_obj;
+                    }
+                }
+                MoveNPC(self, i, d);
+                self.state = 0;
+                print_ret (The) self, " strolls away to the ",
+                    (PrintDirection) d, ".";
+            }
+        ];
+
+Object  Helmet "helmet" Constable
+ has    concealed clothing worn
+ with   name "helmet" "hat",
+        before [; 
+         LookUnder: "~Keep your hands off my helmet,~ says the \
+            constable.";
+        ];

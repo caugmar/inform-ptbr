@@ -1,0 +1,1375 @@
+!--------------------------------------------------------------------------
+! 3 FIRST COURT
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!--------------------------------------------------------------------------
+! 3.1 FIRST COURT AND THE PORTER
+!--------------------------------------------------------------------------
+
+Object  FirstCourt "First Court"
+ has    light
+ with   name "tall" "building" "buildings" "gargoyle" "gargoyles"
+            "quadrangle" "first" "court" "gloomy" "gingham" "pinafore"
+            "apron" "centuries-old" "stonework" "centuries" "old" "chapel"
+            "street",
+        description [;
+            print "An immaculate lawn graces the centre of a gloomy \
+                quadrangle surrounded on all four sides by tall \
+                buildings. ";
+            if (ClockTower.number > 19)
+                print "Wistaria covers the college buildings, and in the \
+                    white moonlight the gnarled branches seem to grip the \
+                    old stonework jealously.";
+            else
+                print "Purple-flowering wistaria covers the centuries-old \
+                    stonework, and gargoyles peer down from above.";
+            "^^You can leave the court \
+            in many directions:^^    \
+            West: a great wooden gate leads out to Chapel Street^    \
+            Northwest: the porters' lodge^    \
+            North: ~A~ staircase^    \
+            Northeast: the door to the Master's Lodgings^    \
+            East: a low archway through to another court^    \
+            Southeast: ~B~ staircase^    \
+            South: an archway through to the library";
+        ],
+        w_to GreatGate,
+        nw_to PortersLodgeObject,
+        n_to AStairGround,
+        ne_to DoorMaster,
+        e_to SecondCourtArchwayObject,
+        se_to BStairGround,
+        s_to LibraryArchwayObject,
+        in_to [;
+            if (HouseKeeper in self && DoorMaster has open)
+                return DoorMaster;
+            if (EM == 1) rtrue;
+            "There are many places you could go into from here. Try a \
+            compass direction.";
+        ],
+        out_to GreatGate,
+        u_to [;
+            if (EM == 1) return Wistaria;
+            if (ClockTower.number < 20)
+                "The wistaria is sturdy and certainly capable of \
+                supporting your weight, but before you can get more than \
+                two feet off the ground, the porter emerges from his \
+                lodge and shouts at you: ~Come down off there!~ \
+                Reluctantly, you obey, and the porter goes back inside.";
+            Achieved("climbing the wistaria");
+            print "Under cover of darkness, you may be able to avoid the \
+                watchful eye of the porter.^";
+            return Wistaria;
+        ],
+        before [;
+         Smell: "The flowers on the wistaria are pungent with scent.";
+        ],
+        each_turn [;
+            Achieved("getting into Biblioll college");
+            PuzzleSolved(EnterCollegePuzzle);
+            PuzzleSeen(MalcolmsRoomPuzzle);
+            DoneHint(WhatNextPuzzle,1);
+            AdvanceTime(self);
+            if (DoorMaster has open && Telephone.state == 1)
+                "^You can hear a telephone ringing to the northeast.";
+        ],
+        edward_dirs e_obj w_obj nw_obj;
+
+Nearby  Lawn "immaculate lawn"
+ has    scenery enterable container open
+ with   name "immaculate" "lawn" "freshly-mown",
+        article "an",
+        description "The work of several hundreds of years of careful \
+            attention by generations of gardeners.",
+        before [;
+         SmellThing: "Freshly-mown.";
+         Enter:
+            if (ClockTower.number < 20)
+                "The porter emerges from his lodge and shouts at you: \
+                ~Get off that lawn! Fellows of the college only!~ \
+                Reluctantly, you obey, and the porter goes back inside.";
+         Receive: "The porter emerges from his lodge and shouts at you: \
+            ~Leave the lawn alone! Fellows of the college only!~ \
+            Reluctantly, you obey, and the porter goes back inside.";
+        ];
+
+Nearby  Wisteria "wisteria"
+ has    scenery
+ with   name "wisteria",
+        before [;
+            remove self;
+            "Wistaria was named after the American anatomist Caspar \
+            Wistar (1761-1818). The spelling ~wisteria~, though used by \
+            Thomas Nuttall, who named the genus, is wrong.";
+        ];
+
+Nearby  PortersLodgeObject "Porters' Lodge"
+ has    door scenery open
+ with   name "porters" "porters^" "lodge" "porter" "porter^s",
+        door_to PortersLodge,
+        door_dir nw_to;
+
+Object  Wistaria "wistaria"
+ has    door scenery open
+ with   name "purple" "flowering" "wistaria" "root" "roots" "branch"
+            "gnarled" "branches",
+        description "The wistaria has embedded its roots into the fabric \
+            of the college for decades, and its gnarled branches are \
+            thicker than your arms.",
+        found_in FirstCourt RoofA,
+        door_to [;
+            if (self in RoofA) return FirstCourt;
+            return RoofA;
+        ],
+        door_dir [;
+            if (self in RoofA) return d_to;
+            return u_to;
+        ],
+        article "some",
+        before [;
+         Climb: <<Enter self>>;
+         SmellThing: "The flowers are pungent with scent.";
+        ];
+
+Object  PortersLodge "Porters' lodge"
+ has    light
+ with   name "paper" "papers" "chapel" "newsletter" "door" "doorway" 
+            "courtyard" "court" "yard",
+        description "Hundreds of pigeonholes line the walls of this large \
+            room. A doorway to the southeast leads out to a courtyard.",
+        se_to FirstCourt,
+        out_to FirstCourt,
+        cant_go "The porter grins at you. ~Having trouble, love?~ he asks \
+            you. ~The only way out's the way you came in.~",
+        edward_dirs se_obj,
+        before [;
+         Smell: <<SmellThing Pigeonholes>>;
+        ];
+
+Nearby  Porter "porter"
+ class  CarryingClass TalkableClass
+        ! general if you've shown him the telegram
+ with   name "porter" "ancient" "wrinkled" "gnarled" "chap" "hand" "deaf" 
+            "man",
+        description "The porter is an ancient chap, wrinkled of face \
+            and gnarled of hand.",
+        initial "A porter stands here, idly sorting through some papers.",
+        life [;
+         Show,Give:
+            switch(noun) {
+             Telegram:
+                if (self hasnt general) {
+                    DoneHint(MalcolmsRoomPuzzle,6);
+                    give self general;
+                    "The porter looks at your telegram. ~You're Malcolm's \
+                    sister, aye?~ he asks you. ~I've not seen yer brother \
+                    in the last couple of days, he must be hard at work \
+                    at those experiments of his.~";
+                }
+                "~Aye, you've shown me that,~ he says.";
+             KeyToA5:
+                give KeyToA5 ~general;
+                move KeyToA5 to GivenAway;
+                "~Ta very much,~ says the porter, returning the key to \
+                his key-ring.";
+             Map:
+                "~Lost, are you?~ says the Porter. ~You're right here, \
+                where it says Porter's Lodge.~ He helpfully points it out \
+                to you.";
+            }
+        ],
+        before [;
+         Speak:
+            DoneHint(MalcolmsRoomPuzzle,4);
+            "~Eh?~ asks the porter, cupping his hand to his ear.";
+         SmellThing: "He smells faintly of pipe-tobacco.";
+        ],
+        after [;
+         Examine: DoneHint(MalcolmsRoomPuzzle,3);
+        ];
+
+Nearby  Pigeonholes "pigeonholes"
+ has    proper static concealed
+ with   parse_name [ w i j ok flag;
+            do {
+                ok = 0;
+                w = NextWord();
+                if (w == 'pigeon' or 'hole' or 'pigeonhole' ||
+                    w == 'holes' or 'pigeonholes' or 'mr' ||
+                    w == 'professor' or 'doctor' or 'mister' ||
+                    w == 'prof' or 'dr' or 'rev' ||
+                    w == 'reverend') {
+                    j ++; ok = 1;
+                }
+                if (w == 'johnson' or 'johnson^s') {
+                    j ++; ok = 1; flag = 1; self.number = -1;
+                }
+                if (w == 'malcolm' or 'malcolm^s') {
+                    j ++; ok = 1; flag = 1; self.number = -2;
+                }
+                for (i=player+1: ok==0 && flag==0 && i<=top_object: i++) {
+                    if (i has is_door && (w == ((i.&name)-->1) ||
+                        w == ((i.&name)-->2))) {
+                        flag = 1;
+                        ok = 1;
+                        j ++;
+                        self.number = i;
+                    }
+                }
+            } until (ok == 0);
+            return j;
+        ],
+        description "There are hundreds of pigeonholes, one for each \
+            fellow and student of the college, labelled by surname \
+            only. You'll have to be specific about which one you want. To \
+            refer to a particular person's pigeonhole, use his surname; \
+            for example, ~Johnson's pigeonhole~.",
+        short_name [;
+            switch (self.number) {
+             -1: print "Johnson";
+             -2: print "Malcolm";
+              0: print "the pigeonholes"; rtrue;
+             default: RoomOccupant(self.number);
+            }
+            print "'s pigeonhole";
+            rtrue;
+        ],
+        capacity 2,
+        number 0,
+        before [ i;
+            if (self.number == -2)
+                "Alas, the pigeonholes are labelled by surname only.";
+            if (self.number == -1)
+                "Johnson was only an example. There's no such person.";
+            if (self.number == 0) rfalse;
+         Examine, Search:
+            if (Edward in location) {
+                if (self.number == DoorB5)
+                    print "Edward says, ~I don't think you'll find \
+                        anything in my pigeonhole. No-one ever sends me \
+                        letters.~^^";
+                else
+                    print "Edward whispers, ~Are you sure that's right? \
+                        Going looking in other peoples' pigeonholes \
+                        without their permission?~^^";
+            }
+            else
+                print "You check to make sure that the porter is not \
+                    looking in your direction, then quickly rifle ",
+                    (name) self, ". ";
+            if (child(self.number) == nothing)
+                "All you find is the chapel newsletter and other useless \
+                pieces of paper. You leave them be.";
+            print "You extract ";
+            WriteListFrom(child(self.number), PARTINV_BIT + ENGLISH_BIT);
+            while (child(self.number) ~= nothing) {
+                i = child(self.number);
+                ResetVagueWords(i);
+                move i to player;
+            }
+            ".";
+         Receive:
+            if (children(self.number) >= self.capacity)
+                print_ret (name) self, " is full.";
+            move noun to self.number;
+            print_ret "You put ", (the) noun, " in ", (the) self, ".";
+         SmellThing: "The pigeonholes smell of varnished wood and damp paper.";
+        ],
+        each_turn [; self.number = 0; ];
+
+Nearby  GateList "gate list"
+ has    static
+ with   name "college" "gate" "list",
+        description "It's a list of fellows and students of Biblioll \
+            college, together with their room numbers. You can try \
+            looking up surnames or room numbers.",
+        initial "Tacked up on the wall is the college gate list.",
+        before [ i w n;
+         Consult:
+            DoneHint(MalcolmsRoomPuzzle,1);
+            wn = consult_from;
+            if (consult_words == 2) {
+                w = NextWord();
+                if (w == 'professor' or 'prof' or 'mister' ||
+                    w == 'mr' or 'doctor' or 'dr' ||
+                    w == 'reverend' or 'rev') {
+                    n = 1;
+                    consult_words --;
+                }
+            }
+            if (consult_words == 1) {
+                w = NextWord();
+                if (w == 'malcolm')
+                    "Alas, the gate list consists of surnames only.";
+                for (i = player + 1: i <= top_object: i++) {
+                    if (i has is_door) {
+                        if (n == 0 && w == (i.&name)-->0)
+                            print_ret "According to the gate list, room ",
+                                (string) i.room, " is occupied by ",
+                                (RoomOccupant) i, ".";
+                        if (w == (i.&name)-->1)
+                            print_ret "According to the gate list, ",
+                                (RoomOccupant) i, " lives in room ",
+                                (string) i.room, ".";
+                    }
+                }
+            }
+            "You can't find what you want in the gate list.";
+        ];
+
+Object  KeyToA5 "iron key"
+ class  KeyClass
+        ! general if given to player
+ with   name "iron",
+        article [;
+            if (listing_together.list_together == self.list_together)
+                print "one";
+            else print "an";
+        ];
+
+Object  KeyRing "ring of keys" Porter
+ with   name "ring" "of" "keys" "spare" "key",
+        description [;
+            print "A big metal ring, with perhaps thirty keys dangling \
+                from it";
+            if (KeyToA5 hasnt general) 
+                print ". No doubt there's a spare key to your brother's \
+                    room among them. If only you knew how to persuade the \
+                    porter to give it to you";
+            ".";
+        ],
+        before [;
+         Take, Remove, Point:
+            DoneHint(MalcolmsRoomPuzzle,3,4,5);
+            if (Porter has general) {
+                if (KeyToA5 has general)
+                    "~Didn't I just give you the key to Malcolm's room?~ \
+                    the porter asks you.";
+                give KeyToA5 general;
+                move KeyToA5 to player;
+                ResetVagueWords(KeyToA5);
+                Achieved("acquiring the key to Malcolm's room");
+                "~Oh aye, is Malcolm out somewhere?~ says the porter. \
+                ~Here, take his key and go wait for him.~ The porter \
+                removes a key from his ring of keys and hands it to you.";
+            }
+            "The porter puts a hand over his keys to protect them from \
+            you. ~Get away from those!~ he snaps. ~Who do you think you \
+            are?~";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 3.2 "A" STAIRCASE
+!--------------------------------------------------------------------------
+
+Object  AStairGround "~A~ Staircase, Ground Floor"
+ has    light
+ with   name "stair" "stairs" "first" "court" "doorway",
+        description "This hallway smells of ancient varnish and carbolic \
+            soap. To the east is the door to A1; to the west is the door \
+            to A2; stairs lead up; and a doorway leads south onto First \
+            Court.",
+        u_to AStairFirst,
+        n_to AStairFirst,
+        s_to FirstCourt,
+        out_to FirstCourt,
+        e_to DoorA1,
+        w_to DoorA2,
+        edward_dirs s_obj;
+Nearby  DoorA1 "x" class DoorClass
+ with   name "A1" "Nudd" "Nudd^s", honorific reverend,
+        room "A1", occupant "Nudd", door_dir e_to;
+Nearby  DoorA2 "x" class DoorClass
+ with   name "A2" "Pidduck" "Pidduck^s",
+        room "A2", occupant "Pidduck", door_dir w_to;
+
+Object  AStairFirst "~A~ Staircase, First Floor"
+ has    light
+ with   name "stair" "stairs" "placard",
+        description "A placard on the wall of this narrow landing reads, \
+            ~Entertaining of females in undergraduate rooms is strictly \
+            prohibited on pain of rustication. By order of the Bursar.~ \
+            You feel distinctly unwelcome. To the east is the door to A3; \
+            to the west is the door to A4; creaky wooden stairs lead up \
+            to the second floor and down to the ground floor.",
+        u_to AStairSecond,
+        d_to AStairGround,
+        e_to DoorA3,
+        w_to DoorA4,
+        edward_dirs d_obj;
+Nearby  DoorA3 "x" class DoorClass
+ with   name "A3" "Kisbee" "Kisbee^s", honorific doctor,
+        room "A3", occupant "Kisbee", door_dir e_to;
+Nearby  DoorA4 "x" class DoorClass
+ with   name "A4" "Trembath" "Trembath^s",
+        room "A4", occupant "Trembath", door_dir w_to;
+
+Object  AStairSecond "~A~ Staircase, Second Floor"
+ has    light
+ with   name "stair" "stairs" "skylight",
+        description "A dirty skylight admits a little light into this \
+            second floor landing. To the east is the door to A5; to the \
+            west is the door to A6; and creaky wooden stairs lead down to \
+            the first floor.",
+        d_to AStairFirst,
+        e_to DoorA5,
+        w_to DoorA6,
+        edward_dirs d_obj;
+
+Nearby  DoorA6 "x" class DoorClass
+ with   name "A6" "Guzewich" "Guzewich^s", honorific doctor,
+        room "A6", occupant "Guzewich", door_dir w_to;
+
+Object  DoorA5 "x"
+ class  DoorClass
+ with   name "A5" "Spencer" "Spencer^s",
+        room "A5",
+        occupant "Spencer",
+        honorific doctor,
+        with_key KeyToA5,
+        found_in AStairSecond MalcolmsRoom,
+        door_dir [;
+            if (self in AStairSecond) return e_to;
+            return w_to;
+        ],
+        door_to [;
+            if (self in AStairSecond) return MalcolmsRoom;
+            return AStairSecond;
+        ],
+        before [;
+         Open,Knock:
+            DoneHint(MalcolmsRoomPuzzle,1,2);
+        ];
+
+
+!------------------------------------------------------------------------------
+! 3.3 MALCOLM'S ROOMS
+!------------------------------------------------------------------------------
+
+Object  MalcolmsRoom "Malcolm's Study"
+ has    light no_edward proper
+        ! general if player heard about Malcolm in Edinburgh
+ with   description "Your heart sinks as you look around this room. It has \
+            been thoroughly ransacked: the furniture has been turned \
+            upside down and Malcolm's papers torn and scattered all over \
+            the floor. You could go back out to the second-floor landing \
+            to the west, or you could go through to another room to the \
+            south.",
+        initial [;
+            if (self has visited) rfalse;
+            Achieved("entering Malcolm's room");
+            PuzzleSolved(MalcolmsRoomPuzzle);
+            DoneHint(WhatNextPuzzle,2);
+            if (self has general)
+                "You walk through the door, expecting Malcolm to have \
+                left a note for you explaining his absence, or perhaps \
+                left a notebook describing those mysterious researches of \
+                his, but nothing prepares you for the sight inside.";
+            "You walk through the door, expecting to catch your brother \
+            hard at work and intending to amaze him with your story of \
+            how difficult it was to find him, but he is not here.";
+        ],
+        w_to AStairSecond,
+        out_to AStairSecond,
+        s_to DoorwayA5,
+        in_to DoorwayA5;
+
+Object  MalcolmsBedroom "Malcolm's Bedroom"
+ has    light no_edward
+ with   name "bedroom" "study" "burglar" "burglars",
+        description "Like Malcolm's study, his bedroom has been \
+            thoroughly searched. The bed has been broken up as if for \
+            firewood, the mattress and pillows torn apart and feathers \
+            scattered everywhere. Whatever the burglars were looking for, \
+            they wanted it a lot. A doorway leads back north into the \
+            study.",
+        n_to [;
+            if (Jarboe in MalcolmsRoom && Jarboe hasnt general) {
+              Jarboe.state = 7;
+                "You peer around the corner, hoping to spy on Jarboe and \
+                Bungay while remaining unobserved, but just as you poke \
+                your head through the doorway Bungay looks up. ~What's \
+                this?~ he shouts. ~A spy!~^^You shrink back into the \
+                bedroom as the two men walk towards you.";
+            }
+            if (Jarboe in self) {
+                if (Jarboe.state < 10)
+                    "You try to dart around the two men, but Bungay \
+                    blocks your way with his considerable bulk. ~Not so \
+                    fast,~ he says. ~We haven't finished with you yet.~";
+                "Jarboe shoves you back as you attempt to get past the \
+                two men. ~Remember what we said,~ he snarls.";
+            }
+            return DoorwayA5;
+        ],
+        s_to [;
+            if (WindowA5 has open)
+                "Don't do it! It would be suicidal!";
+            return WindowA5;
+        ],
+        before [;
+         Sing:
+            if (Jarboe in MalcolmsRoom)
+                "Now is no time for singing: the men in the next room \
+                will hear you!";
+        ];
+
+! Hide one or two useful things in the junk?
+! name doesn't include "lab" or "laboratory" because of the lab book
+Object  Junk "junk"
+ has    scenery
+ with   name "junk" "furniture" "paper" "papers" "feathers" "bed" 
+            "mattress" "pillow" "firewood" "wood" "rubbish",
+        description "You search carefully through the junk, but it has \
+            been thoroughly and completely ruined by whoever ransacked \
+            the room.",
+        article "some",
+        before [;
+         Search: <<Examine self>>;
+         Enter:
+            "All the furnishings have been broken into pieces and there's \
+            no way you could hide in them.";
+         Examine: rfalse;
+         default:
+            "There's no point. Everything's been ruined.";
+        ],
+        found_in MalcolmsRoom MalcolmsBedroom;
+
+Object  DoorwayA5 "doorway"
+ has    scenery door open
+ with   name "doorway",
+        description "An ordinary doorway. It's positioned so that you \
+            can't easily see from room to room.",
+        found_in MalcolmsRoom MalcolmsBedroom,
+        door_to [;
+            if (self in MalcolmsRoom) return MalcolmsBedroom;
+            else return MalcolmsRoom;
+        ],
+        door_dir [;
+            if (self in MalcolmsRoom) return s_to; else return n_to;
+        ],
+        before [;
+         Search: <<Enter self>>;
+        ];          
+
+Object  WindowA5 "window" MalcolmsBedroom
+ has    openable static door
+ with   name "window" "sash",
+        description "An ordinary sash window. It reminds you of the \
+            window in your brother's bedroom at home.",
+        when_closed "A closed window looks out south onto First Court.",
+        when_open "An open window looks out south onto First Court.",
+        before [;
+         Examine:
+            print (string) self.description, " ";
+            <<Search self>>;
+         Search:
+            print "Looking through the window, you can see the \
+                courtyard below";
+            if (self has open)
+                print ". You lean out of the window and notice ivy \
+                    clustering around the frame";
+            ".";
+         ThrownAt,Receive:
+            if (self hasnt open) "You've broken enough windows for one \
+                day.";
+            move noun to FirstCourt;
+            print_ret (The) noun, " flies through the open window.";
+        ],
+        after [;
+         Open: move Ivy to MalcolmsBedroom;
+         Close: remove Ivy;
+        ],
+        door_dir s_to,
+        door_to FirstCourt;
+
+Object  Ivy "ivy"
+ has    static concealed
+        ! general if you've found the concealed book
+ with   name "ivy" "creeper" "vine",
+        article "some",
+        before [;
+         Climb: <<Enter WindowA5>>;
+         Receive:
+            move noun to FirstCourt;
+            print_ret "You're not as good at this sort of thing as your \
+                brother. Leaning out of the window two stories above \
+                First Court, you feel rather dizzy and lose hold of ",
+                (the) noun, " which falls to the ground.";
+         Examine, Search:
+            if (self hasnt general) {
+                give self general;
+                move BookLab to player;
+                ResetVagueWords(BookLab);
+                Achieved("finding Malcolm's lab book");
+                DoneHint(WhatNextPuzzle,3);
+                AdvanceTime(self);
+                StartDaemon(Jarboe);
+                "When you were children, Malcolm could never hide his \
+                toys from you for long... Leaning precariously out of the \
+                window, you search around in the ivy, and sure enough, \
+                your hand lights upon a book hidden among the leaves!";
+            }
+        ];
+
+! Code for lab book:
+! ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+! CHRISTABELDFGJKMNOPQUVWXYZchristabeldfgjkmnopquvwxyz
+
+Object  BookLab "lab book"
+ class  BookClass
+ with   name "lab" "laboratory" "wet" "damaged",
+        description "The lab book is considerably the worse for wear, \
+            having been left out in the rain, and Malcolm's handwriting \
+            was atrocious at the best of times. In fact, the only page \
+            that is remotely readable appears to be full of nonsense \
+            words and numbers:^\
+            ^    Fuffy 364^\
+            ^Qbs teopq qwk cos rfsco:^\
+            ^    Codwoeabq 143 (bkjsy kt Saymq?)\
+            ^    Lkbj 11:43 (hcqb kt Deja?)^\
+            ^Msobcmp Pegkj Jkhfs'p fejsp kj Bsfekachcfup,^\
+            ^    Tko E bcvs wsmq gkos qscop qbcj s'so\
+            ^    Qbs cjresjq pcas iei wssm cq gcj'p\
+            ^    aoscq tkffy...^\
+            ^cos c rfus qk qbs qbeoi?",
+        before [;
+         Take, Remove, Examine:
+            if (self in Jarboe)
+                "Jarboe holds the lab book so that you can't reach \
+                it. ~Did you want something?~ he sniggers.";
+         SmellThing: "It's very damp and musty.";
+        ];
+
+Object  CodeBookNote "note" DoorA5
+ class  FlimsyClass
+ with   name "note",
+        size 0,
+        description "The note reads, ~Dear Malcolm, Thanks for returning \
+            Zinovic, much obliged, Mr Baskeyfield.~";
+
+
+!--------------------------------------------------------------------------
+! 3.4 DOCTOR JARBOE AND PROFESSOR BUNGAY
+!--------------------------------------------------------------------------
+
+Object  Jarboe "Doctor Jarboe"
+ class  FollowClass CarryingClass TalkableClass
+ has    proper
+ with   name "doctor" "dr" "jarboe" "fellow",
+        description "Jarboe is a tall, gaunt man, with thin, ungainly \
+            limbs and a long sharp nose. His suit hangs loosely from his \
+            narrow shoulders.",
+        state 0,
+        life [;
+         Kiss: "Yuck! What a horrible suggestion.";
+         Attack:
+            print "Jarboe slaps you in the face, and you stagger \
+                back. ~Cut it out, you pathetic girl!~ he shouts. You \
+                start to cry, and the tears run down your cheeks.^";
+            move TearsA to player;
+            StartTimer(TearsA,3);
+            if (Edward in location)
+                "^Edward runs to your side, looking belligerent, but \
+                Jarboe snarls at him. ~Keep out of this, Forbes, it's \
+                none of your business.~^";
+            rtrue;
+         Show, Give: "Jarboe knocks your offering aside contemptuously.";
+        ],
+        orders [;
+         Give: 
+            if (noun == BookLab && BookLab in self)
+                <<Take BookLab>>;
+        ],
+        before [;
+         Speak: "~Shut up!~ growls Jarboe.";
+         Invoke:
+            if (BookLab notin self && LineOfSight(self, BookLab) == 1) {
+                move BookLab to self;
+                if (self in location || (self in FirstCourt &&
+                    location == AStairGround)) {
+                    print "^~Aha! What have we here, then?~ Jarboe shouts \
+                        exultantly";
+                    if (self in location)
+                        print ", grabbing the lab book";
+                    print ". ~This looks like Spencer's lab book! Just \
+                        what we were looking for! Oh, excellent!~^";
+                }
+            }
+            rtrue;
+        ],
+        daemon [ dest dir;
+            self.state = self.state + 1;
+
+            ! Jarboe will steal the lab book if he sees it
+            <Invoke self>;
+
+            ! Move Jarboe and Bungay around
+            switch (self.state) {
+              7: dest = MalcolmsBedroom; dir = s_obj;
+             12: dest = MalcolmsRoom; dir = n_obj;
+             13: dest = AStairSecond; dir = w_obj;
+             14: dest = AStairFirst; dir = d_obj;
+             15: dest = AStairGround; dir = d_obj;
+             16: dest = FirstCourt; dir = s_obj;
+            }
+            
+            ! Actually move them
+            if (dest ~= 0) {
+                if (self in location) {
+                    print "^Jarboe and Bungay go ";
+                    if (dir ~= u_obj or d_obj) print "to the ";
+                    PrintDirection(dir);
+                    print ".^";
+                }
+                MoveNPC(Jarboe, dest, dir);
+                MoveNPC(Bungay, dest, dir);
+
+                ! Look for the lab book in the new location
+                <Invoke self>;
+            }
+
+            ! Now go through what they say to each other
+            switch (self.state) {
+             1:
+                move Jarboe to MalcolmsRoom;
+                move Bungay to MalcolmsRoom;
+                new_line;
+                if (DoorA5 has locked)
+                    print "You hear the sound of a key turning in the \
+                        door to Malcolm's room, and then the sound of the \
+                        door opening.^^";
+                if (DoorA5 hasnt locked && DoorA5 hasnt open)
+                    print "You hear the sound of the door to Malcolm's \
+                        room opening.^^";
+                give DoorA5 open ~locked;
+                "Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~Well, Jarboe, I suppose we should have \
+                one more look,~ comes a deep voice. ~I am sure that he \
+                has hidden it somewhere in here.~^^~After you, Bungay,~ \
+                replies a thin reedy voice that you suppose must be \
+                Jarboe's.";
+             2:
+                "^Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~What I don't understand,~ says Bungay, \
+                ~is how that confounded man managed to discover the \
+                formula. I mean, he's a blasted chemist, he should be \
+                playing with his test tubes and whatnot. He shouldn't \
+                know anything about historical research.~^^You can hear \
+                the two of them scrabbling around in the debris.";
+             3:
+                "^Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~He's a confounded nuisance,~ says \
+                Jarboe, ~you're right about that. But don't make the \
+                mistake of underestimating scientists.~";
+             4:
+                "^Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~Just because scientists are concerned \
+                with the physical and the concrete,~ continues Jarboe, \
+                ~it doesn't mean they're stupid.~";
+             5:
+                "^Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~Hmm, not in my experience,~ mutters \
+                Bungay.";
+             6:
+                "^Through the doorway, you can hear voices coming from \
+                Malcolm's study. ~Nothing here at all,~ says Jarboe. ~The \
+                sod was too cunning for us. Let's try the bedroom.~^^You \
+                hear footsteps approaching the doorway.";
+             7,8:
+                self.state = 8;
+                if (self notin MalcolmsBedroom) {
+                    MoveNPC(self, MalcolmsBedroom, s_obj);
+                    MoveNPC(Bungay, MalcolmsBedroom, s_obj);
+                }
+                give self general;
+                "^~Well, well, well,~ says Jarboe to Bungay. ~What do we \
+                see here? A little girl skulking in Malcolm Spencer's \
+                bedroom. Who is she, then? Spencer's floozie, come \
+                to look for him? Is that what she is? She looks just \
+                like his type.~";
+             9:
+                "^~No, I rather think she's his sister,~ says Bungay, \
+                ~Look at the family resemblance. I rather think she's \
+                come up hoping for a nice day out on the river. Well,~ \
+                and this latter is directed at you, ~he's not here. He's \
+                gone, scarpered, away.~";
+             10:
+                "^Jarboe waggles his finger and points it at you. ~Just \
+                go home and forget all about your little holiday. Did you \
+                hear that?~ he asks you. ~Did it penetrate your stupid \
+                little head? Go home, keep your nose out of this.~";
+             11:
+                print "^Bungay turns to his colleague. ~We've wasted \
+                    enough time here, there's a lot to be done before \
+                    this evening. I will ring you after five o'clock with \
+                    the details.";
+                if (BookLab in self)
+                    print " Let me know what you discover from the lab \
+                        book.";
+                "~";
+             18:
+                if (self in location) {
+                    if (BookLab in self)
+                        print "^Jarboe leafs through the lab book. ~What \
+                            a shame,~ he says. ~Someone was careless \
+                            enough to leave this out in the rain. Still, \
+                            we have other avenues to pursue.~^";
+                    "^~Look, she's following us,~ says Bungay, noticing \
+                    you.^^Jarboe turns. ~Didn't you get the message? \
+                    Leave well alone what you can't understand.~";
+                }
+             19:
+                MovePrintNPC(self, BStairGround, se_obj);
+                MovePrintNPC(Bungay, SecondCourtArchway, e_obj);
+             21:
+                MovePrintNPC(self, BStairFirst, u_obj);
+                if (Bungay in location)
+                    print "^Bungay takes hold of the big wooden door at \
+                        the east end of the archway and heaves. With a \
+                        loud creaking sound, it opens.^";
+                give DoorArchway open;
+                MovePrintNPC(Bungay, SecondCourt, e_obj);
+             22:
+                if (self in location)
+                    print "^Jarboe unlocks the door to B4, walks through \
+                        it, and shuts it. You hear him locking it.^";
+                if (BookLab notin self)
+                    Achieved("hiding Malcolm's lab book from Doctor \
+                        Jarboe");
+                MoveNPC(self, JarboesSanctum, w_obj);
+                MovePrintNPC(Bungay, CStairGround, e_obj);
+             23:
+                MovePrintNPC(Bungay, CStairFirst, u_obj);
+             24:
+                if (Bungay in location)
+                    print "^Bungay unlocks the door to C3, walks through \
+                        it, and shuts it. You hear him locking it.^";
+                MoveNPC(Bungay, BungaysSanctum, w_obj);
+                StopDaemon(self);
+            }
+            if (self.state <= 24) rtrue;
+            print_ret "** Error: bad line in Jarboe's script: ", self.state,
+                " **";
+        ];
+
+Object  Bungay "Professor Bungay"
+ class  FollowClass CarryingClass TalkableClass
+ has    proper
+        ! general if spoken to Edward Forbes
+ with   name "professor" "prof" "bungay" "fellow",
+        description "Bungay is a short man, at five feet and two inches a \
+            little shorter than yourself, but his vast bulk more than \
+            makes up for his lack of height. His clothes are all but \
+            bursting at the seams.",
+        life [;
+         Kiss: "Yuck! What a horrible suggestion.";
+         Show,Give:
+            "~I'm not interested in that, whatever it is,~ says Bungay \
+            without looking at your offer. ~I'm a busy man and I don't \
+            have time for trifles.~";
+         Attack: "Bungay probably weighs four or five times as much as \
+             you do. It would be madness to attack him.";
+        ],
+        before [;
+         Speak: "~Be quiet, little girl,~ says Bungay with some \
+            distaste.";
+        ];
+
+Object  JarboesSanctum "Jarboe's Study";
+Object  BungaysSanctum "Bungay's Living Room";
+
+!--------------------------------------------------------------------------
+! 3.5 THE MASTER'S LODGE
+!--------------------------------------------------------------------------
+
+Object  DoorMaster "door to the Master's Lodgings"
+ has    door lockable openable locked scenery autoopen
+ with   description [;
+            print "The door to the Master's Lodgings is made of thick, \
+                heavy wood";
+            if (location == FirstCourt)
+                print ". There is a bell-pull to one side";
+            ".";
+        ],
+        name "door" "master^s" "lodge" "lodgings" "lodging" "masters",
+        found_in FirstCourt MastersLodge,
+        article "the",
+        door_dir [;
+            if (self in FirstCourt) return ne_to; else return sw_to;
+        ],
+        door_to [;
+            if (self in FirstCourt) return MastersLodge;
+            else return FirstCourt;
+        ],
+        with_key 0,
+        before [;
+         LookUnder: "The gap is too narrow for you to see anything.";
+         Knock,Attack:
+            if (Edward in FirstCourt && self in FirstCourt)
+                "Edward says, ~Don't knock, use the bell-pull instead.~";
+            if (self in FirstCourt)
+                "There's no reply. Perhaps you should try the bell-pull.";
+            else
+                "There's no need to knock to get out!";
+         Close:
+            if (HouseKeeper in FirstCourt)
+                "Not with the housekeeper in the way.";
+        ];
+
+Object  BellPull "bell pull" FirstCourt
+ has    static concealed
+        ! general if rung before
+ with   name "bell" "pull" "bell-pull" "doorbell" "door-bell",
+        before [;
+         Push: "Perhaps you should try pulling it instead.";
+         Ring, Pull:
+            if (HouseKeeper in location)
+                "~The Master won't come down, no matter how often you \
+                ring the bell.~ says the housekeeper. ~You'll have to \
+                come in yourself.~";
+            print "You pull on the bell, and you can hear a distant \
+                 ringing";
+            if (ClockTower.number > 19)
+                ", but no-one comes to answer the door.";
+            print ". Then you can hear footsteps coming down some stairs, ";
+            if (DoorMaster hasnt open)
+                print "and the fumbling of a key in the lock. ";
+            if (self hasnt general) {
+                give DoorMaster ~locked open;
+                give self general;
+                MoveNPC(HouseKeeper, FirstCourt, 0);
+                StartTimer(HouseKeeper, 3);
+                "The door opens, and you find yourself facing \
+                a young woman wearing the apron and gingham pinafore of \
+                a housekeeper. ~Do come in,~ she says.";
+            } else {
+                if (DoorMaster has open)
+                    print "and the housekeeper comes to the door. ~Silly \
+                        me,~ she says. ~I must have left it open. ";
+                else
+                    print "and the door opens, revealing the housekeeper \
+                        again. ~";
+                give DoorMaster ~open;
+                "I'm afraid the Master's busy and can't see anyone at \
+                the moment. Perhaps some day next week.~ She shuts the \
+                door and you can hear her footsteps going away.";
+            }
+        ];
+
+Object  HouseKeeper "housekeeper"
+ class  FollowClass CarryingClass TalkableClass
+ has    female
+        ! general if told you about dinner
+ with   name "house" "keeper" "housekeeper" "pretty" "young" "woman",
+        description [;
+            print "The housekeeper is a pretty young woman, perhaps five \
+                years older than yourself (but it's impolite to inquire \
+                too deeply into a woman's age, so you don't pursue that \
+                train of thought). She is wearing a gingham dress and an \
+                apron";
+            if (self in MastersLodge)
+                print ". She is busy polishing a silver goblet";
+            print ".";
+        ],
+        describe [;
+            print "^The housekeeper stands ";
+            if (self in FirstCourt) "by the door to the Master's Lodgings.";
+            "here, polishing a silver goblet.";
+        ],
+        life [;
+            <<Question self>>;
+        ],
+        before [;
+         Question: 
+            if (second == QHello)
+                "~And a good morning to you,~ she says.";
+            if (self hasnt general || random(2) == 1) {
+                give self general;
+                print "~I haven't got time for that,~ says the \
+                    housekeeper. ~I'm very busy today, all the \
+                    silverware's got to be polished for the dinner \
+                    tonight. ";
+            }
+            else
+                print "~I wouldn't know anything about that,~ says the \
+                    housekeeper. ~But I'm sure the Master'll be able to \
+                    help you, he's a very clever man. ";
+            if (self in FirstCourt) "Do come inside.~";
+            "Do go up.~";
+        ],
+        time_left 0,
+        time_out [;
+            give DoorMaster ~open locked;
+            MoveNPC(self, 0, ne_obj);
+            if (player in FirstCourt)
+                "^~I can't stand here nattering all day,~ says the \
+                housekeeper. ~I've got the polishing to do.~ She shuts \
+                the door and you can hear her locking it.";
+        ];
+
+Object  MastersLodge "Master's Lodgings"
+ has    light no_edward
+        ! general if visited
+ with   name "gingham" "pinafore" "apron" "thick" "carpet" "wooden"
+            "stairs",
+        description "A richly decorated entrance hall, with thick carpet \
+            that deadens your footsteps, and a mantelpiece covered with \
+            antique silver plate. Biblioll College must have accumulated \
+            a great deal of money in its nearly seven-hundred-year \
+            history to allow its Master to live in such luxury. Wooden \
+            stairs lead up, and a large door leads southwest.",
+        initial [;
+            if (self has general) rfalse;
+            give self general;
+            give DoorMaster ~open;
+            MoveNPC(HouseKeeper, self, ne_obj);
+            StopTimer(HouseKeeper);
+            "The housekeeper follows you in and shuts the door. ~The \
+            Master's in his office upstairs, do go up.~ She picks up a \
+            large silver goblet and starts polishing it.";
+        ],
+        sw_to DoorMaster,
+        out_to DoorMaster,
+        u_to MastersStudy,
+        in_to MastersStudy,
+        before [;
+         Go,Enter:
+            if (parent(TelephoneHandset) ~= nothing or location) {
+                move TelephoneHandset to location;
+                Telephone.state = 0;
+                print "(putting the telephone handset down first)^";
+            }
+        ],
+        each_turn [;
+            if (HouseKeeper notin self) {
+                self.each_turn = NULL;
+                DoneHint(WhatNextPuzzle,21);
+            }
+        ];
+
+Object  Mantelpiece "mantelpiece" MastersLodge
+ has    scenery supporter
+ with   name "mantel" "piece" "mantelpiece",
+        capacity 5;
+
+Nearby  SilverPlate "silver plate"
+ has    scenery
+ with   name "goblet" "goblets" "silver" "plate" "plates" "silverware" 
+            "ware" "antique" "old" "ancient",
+        description "The goblets, plates and other silverware are very \
+            old and, you are sure, are immensely valuable.",
+        before [;
+         Take,Remove: "Remember the fuss when your mother accused the \
+            maid of stealing a knife from the silver drawer and only \
+            after the poor girl had been sacked it was found in the \
+            potting-shed? You've no wish to cause such trouble for the \
+            housekeeper.";
+        ];
+
+Object  MastersStudy "The Master's Study"
+ has    light no_edward
+        ! general if just visisted
+ with   name "leather" "armchair" "stairs" "goatee" "beard" "chair" 
+            "bindings",
+        description "Like the reception room below, the Master's study is \
+            a luxurious place. You've seen more expensively decorated \
+            rooms, but none with such an air of permanence. The walls are \
+            lined with hundreds of books, and in the centre is a large \
+            leather armchair. Stairs lead down.",
+        initial [;
+            StartTimer(Master,0);
+            Achieved("visiting the Master of Biblioll College");
+            DoneHint(WhatNextPuzzle,5);
+            AdvanceTime(self);
+            give self general;
+        ],
+        d_to MastersLodge,
+        out_to MastersLodge,
+        before [;
+         Go:
+            if (noun ~= d_obj or out_obj) rfalse;
+            StopTimer(Master);
+            give DoorMaster ~open ~locked;
+            if (HouseKeeper in MastersLodge)
+                print "~Goodbye, then. Nice to have met you";
+            else
+                print "~Goodbye, then. Always good to see you";
+            print ",~ says the Master as you depart. ~The housekeeper \
+                will show you out.~^^She ushers you briskly out into the \
+                court, and shuts the door. You hear her footsteps going \
+                away.^";
+            PlayerTo(FirstCourt,1);
+            LookSub(1);
+            move HouseKeeper to FirstCourt;
+            MoveNPC(HouseKeeper, 0, ne_obj);
+            move TelephoneHandset to MastersLodge;
+            rtrue;
+         Smell: <<SmellThing MastersBooks>>;
+        ];
+
+Nearby  MastersBooks "Master's library"
+ has    scenery
+        ! general if given you a book
+ with   name "book" "books" "hundreds" "of" "master^s" "library",
+        description "There are hundreds of them, their leather bindings \
+            cracked with age. Obviously a collection built up over the \
+            centuries. The names on the spines don't mean very much to \
+            you.",
+        article "the",
+        state 0,
+        before [;
+         SmellThing: "Mmmm... you breathe in the glorious scent of \
+            crumbling paper and cracked leather and are reminded of long \
+            summer afternoons in the library at home, lazily reading the \
+            latest Evelyn Waugh.";
+         Take:
+            Master.time_left = Master.time_left + 1;
+            if (Master.state <= 4)
+                "~Desist!~ commands the Master. ~I don't know who you \
+                are, so why should I let you look at my books?~ You \
+                desist.";
+            if (self has general)
+                "The Master's already lent you a book. You decide not to \
+                push your luck.";
+            if (Master.state == 6 or 7 or 8)
+                "~Yes, I know,~ says the Master, ~but which one?~";
+            Master.state = 6;
+            "~You want one of my books?~ asks the Master. ~Well, I \
+            suppose I can lend you one while you're staying at the \
+            college. Which one would you like?~";
+        ];
+
+Nearby  Master "Master of Biblioll College"
+ class  FollowClass CarryingClass TalkableClass
+        ! general if he's told you to wander around
+ with   name "Master" "of" "biblioll" "college" "man",
+        article "the",
+        state 0,
+        description "The Master is an old man, but sprightly and still \
+            handsome. His goatee beard is black.",
+        initial "The Master of Biblioll College is sitting in the \
+            armchair, reading a newspaper.",
+        life [;
+         Kiss:
+            "You give the Master a peck on the cheek. He accepts it as \
+            though it is his privilege as Master of the college to be \
+            kissed by every young female visitor.";
+         Show,Give:
+            self.time_left = self.time_left + 1;
+            if (noun == BookArkwright or BookBarker) {
+                give MastersBooks ~general;
+                remove noun;
+                "~I hoped you enjoyed it,~ says the Master, returning the \
+                book to his shelves.";
+            }
+            if (self.state > 4)
+                "~Very interesting,~ says the Master.";
+            if (noun == Telegram) {
+                self.state = 5;
+                "The Master examines the telegram closely. ~Ah,~ he \
+                says. ~You're Spencer's sister! Welcome to Biblioll \
+                College. Now what can I do for you?~";
+            }
+            print_ret "The Master examines ", (the) noun, ". ~This is all \
+                very well,~ he says, ~but it doesn't help me know who you \
+                are.~";
+        ],
+        before [;
+         Examine: quote = 19;
+         Question:
+            Master.time_left = Master.time_left + 1;
+            if (self.state <= 4)
+                "~Much as I would enjoy talking to you,~ says the Master, \
+                ~I can't really do so unless I know who you are. Can't \
+                you show me some proof of identity?~";
+            if (second == QBooks)
+                <<Take MastersBooks>>;
+            if (self.state == 6 or 7 or 8) {
+                self.state = 5;
+                if (MastersBooks.state > 1)
+                    print "~I'm not sure I want my private book \
+                        collection to be treated like a public library,~ \
+                        says the Master, ~but just for you...~ ";
+                MastersBooks.state = MastersBooks.state + 1;
+                give MastersBooks general;
+                print "The Master searches along his shelves. ";
+                if (second == QArkwright or QEgypt or QAkhenaten) {
+                    move BookArkwright to player;
+                    ResetVagueWords(BookArkwright);
+                    Achieved("borrowing a copy of Arkwright from the \
+                        Master");
+                    DoneHint(WhatNextPuzzle,6);
+                    "~Here we are,~ he says. ~The Amarna period. A \
+                    strange choice, for a woman.~ He hands it to \
+                    you. ~Wilderspin was always interested in Egyptian \
+                    history, you might want to see him.~";
+                }
+                move BookBarker to player;
+                ResetVagueWords(BookBarker);
+                "~I can't seem to find that here,~ he says, ~but perhaps \
+                you'd prefer this instead.~ He fetches a slim volume and \
+                hands it to you.";
+            }
+            switch(second) {
+             QDinner:
+                if (DinnerTicket has general)
+                    "~I do hope you'll come to the dinner, and grace us \
+                    with your presence at High Table,~ says the Master.";
+                give DinnerTicket general;
+                move DinnerTicket to player;
+                ResetVagueWords(DinnerTicket);
+                Achieved("getting invited to a dinner");
+                DoneHint(WhatNextPuzzle,23);
+                "~Ah yes, tonight's feast for the commemoration of \
+                benefactors,~ says the Master. ~Should be a spectacular \
+                bash. Perhaps you'd like to come and sit on High Table \
+                with us.~ He reaches inside his jacket, and extracts a \
+                ticket, which he gives to you.";
+             QHello:
+                "~Hello,~ says the Master. ~Welcome to Biblioll College!~ \
+                He beams at you.";
+             QMalcolm:
+                give MalcolmsRoom general;
+                "~I can help you there,~ says the Master. ~It's a bit \
+                unfortunate that you've come today, because your brother \
+                got called away at very short notice to give a seminar in \
+                Edinburgh. Jarboe told me about it yesterday. But I do \
+                hope you enjoy your stay anyway.~";
+             QCollege:
+                "~It's a lovely college, isn't it? Founded in 1275 by \
+                John de Biblioll, the Lord of Branham Castle, after a \
+                dispute with the Bishop of Durham...~ He rambles on in \
+                this manner for several minutes, finishing off by telling \
+                you that all manner of fascinating material about the \
+                College can be found in MacLane's definitive treatise on \
+                the subject.";
+             QHistory:
+                "You decide not to set the Master off on his favourite \
+                topic, as you're not in the mood for a ten-minute \
+                lecture.";
+             QArkwright, QEgypt, QAkhenaten:
+                if (MastersBooks hasnt general) {
+                    self.state = 6;
+                    self.time_left = self.time_left - 1;
+                    <<Question self QArkwright>>;
+                }
+                "~Wilderspin was always interested in Egyptian history,~ \
+                says the Master. ~You might want to see him about that.~";
+             QEdward:
+                "~Never heard of the man,~ says the Master.";
+             QWilderspin:
+                DoneHint(WhatNextPuzzle,7);
+                "~He's a grumpy old sod,~ says the Master. ~If you do \
+                want to see him, try showing him something he's \
+                interested in, such as, say, a book of Egyptology.~";
+             QJarboe:
+                "~Have you met Jarboe?~ asks the Master. ~He's our \
+                mathematics fellow, a frightfully clever chap, knows all \
+                about Riemannian manifolds and all that kind of thing. A \
+                credit to the college.~";
+             QBungay:
+                "~Have you met Bungay?~ asks the Master, ~Rather alarming \
+                exterior, but he knows his history. Specialised in the \
+                reign of King Philip IV of France, I think.~";
+             QMaths,QFrance:
+                "~I wouldn't know anything about that,~ says the Master, \
+                ~It's all right over my head.~";
+             QBaskeyfield:
+                "The Master laughs at your question. ~The librarians of \
+                Biblioll College have always been a queer bunch,~ he \
+                says. ~They've always insisted they know best which books \
+                should go in the library, no matter what the Master or \
+                Fellows of the College have to say.~";
+             QThanks:
+                "~My pleasure,~ says the Master.";
+             QChapel:
+                "~It's a beautiful building, isn't it?~ says the \
+                Master. ~One of the treasures of the college.~";
+             default:
+                "~Mmmm, that's very interesting,~ says the Master.";
+            }
+        ],
+        orders [;
+         Give:
+            if (second == player && noun == MastersBooks)
+                <<Take MastersBooks>>;
+        ],
+        time_left 0,
+        time_out [;
+            if (self notin location) return;
+            StartTimer(self,1);
+            if (MastersStudy has general) {
+                give MastersStudy ~general;
+                if (self.state <= 4)
+                    "^The Master looks up as you enter. ~Hello,~ he says, \
+                    ~Who are you and why do you want to see me?~";
+                "^The Master looks up. ~You again?~ he says. ~I'm very \
+                busy at the moment, but perhaps I can squeeze you in for \
+                five minutes. What was it you wanted?~";
+            }
+            self.state = self.state + 1;
+            switch (self.state) {
+             1: "^~I still don't know who you are,~ grumbles the Master."; 
+             2: "^~It would only be politeness to introduce yourself \
+                properly,~ says the Master.";
+             3: "^~Perhaps you have an identification card you can show \
+                me?~ says the Master.";
+             4: "^~I don't suppose you have a letter of introduction?~ \
+                says the Master.";
+             5: self.state = 0;
+                "^~I know it's rude of me, but I'm a stickler for these \
+                things,~ says the Master.";
+             6: self.state = 5;
+                if (self hasnt general) {
+                    give self general;
+                    "^~Well, be my guest, wander round, take a look at \
+                    the books,~ says the Master. ~I'd offer you some tea, \
+                    but the housekeeper's busy with the polishing \
+                    today. If you want to find out about the history of \
+                    the college, pop along to the library and take a look \
+                    at MacLane.~ He lifts up his newspaper and continues \
+                    to read the business pages.";
+                }
+                return;
+             7: "^~Which book do you want?~ asks the Master.";
+             8: "^~I thought you wanted to look at one of my books,~ says \
+                the Master. ~Which one was it?~";
+             9: self.state = 5;
+                MastersBooks.state = MastersBooks.state + 1;
+                give MastersBooks general;
+                move BookBarker to player;
+                ResetVagueWords(BookBarker);
+                "^~Well, if you're not sure what you want,~ says the \
+                Master, ~maybe you'd enjoy this.~ He fetches a slim \
+                volume and hands it to you.";
+             default:
+                print_ret "** Error: the Master is in the incorrect \
+                    state ", self.state, " **";
+            }
+        ];
+
+Object  Newspaper "newspaper" Master
+ with   name "newspaper" "paper" "news" "financial" "page" "pages"
+            "headline",
+        description "The Master has folded it to the financial pages. \
+            You can make out the headline, ~230,000 unemployment figure \
+            shocks City!~";
+
+Object  DinnerTicket "dinner ticket"
+ class  FlimsyClass
+ with   name "dinner" "ticket" "invitation",
+        size 0,
+        description [;
+            print "You are invited to dine at High Table with the Master \
+                and Fellows of Biblioll College at 7.00pm sharp. Dress \
+                will be formal";
+            if (location == MastersStudy)
+                print ".^^~But I'm sure you can come as you are,~ says the \
+                    Master";
+            ".";
+        ];

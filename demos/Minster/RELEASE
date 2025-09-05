@@ -1,0 +1,36 @@
+CHRISTMINSTER SOURCES
+---------------------
+
+"Christminster" is an adventure game, written by Gareth Rees using
+version 5.5 of Graham Nelson's programming language Inform and version
+5/12 of the Inform libraries.  In order to compile Christminster, you
+must apply the supplied patches (grammar.h.patch, parser.h.patch, and
+verblib.h.patch) to the three version 5/12 library files.  Under Unix,
+use the commands
+
+        patch grammar.h grammar.h.patch
+        patch parser.h  parser.h.patch
+        patch verblib.h verblib.h.patch
+
+These files are provided for interest only; no effort has been made to
+make the code readable, understandable, clear, well-documented and so
+on, except for the bare minimum necessary to keep the program in a state
+where it could be maintained.
+
+Apart from this file and the ten Inform source files, the collection
+includes the following:
+
+        COPYRIGHT        Copyright details pertaining to the whole
+                         collection.
+        notes.txt        List of bugs found and suggestions made during
+                         playtesting and after the first release.
+        minster.rec      Script of commands that wins the game with
+                         maximum points.
+        offcuts.txt      Code that never appeared in the released
+                         versions, but which might be interesting.
+
+        grammar.h.patch  Patches to version 5/12 of the Inform libraries
+        parser.h.patch   needed for "Christminster" to compile correctly.
+        verblib.h.patch
+
+Gareth Rees, January 1997.

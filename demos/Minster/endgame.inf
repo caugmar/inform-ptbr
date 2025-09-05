@@ -1,0 +1,1612 @@
+!--------------------------------------------------------------------------
+! 8 THE ENDGAME
+!--------------------------------------------------------------------------
+! Copyright (c) 1995-1996 by Gareth Rees.
+! This file may be copied and distributed under certain conditions.
+! See the file COPYRIGHT for details.
+
+!--------------------------------------------------------------------------
+! 8.1 DINNER
+!--------------------------------------------------------------------------
+
+Object  DiningHall "Great Hall"
+ has    light
+ with   name "great" "hall" "high" "table" "low" "fellow" "fellows"
+            "student" "students",
+        description "A grand room with a vaulted ceiling far above your \
+            head, echoing with the loud conversation of twenty fellows \
+            sitting around the high table and maybe sixty students on the \
+            low table.^^Sitting near you around the high table you can \
+            see Wilderspin (to your left), the Master (to your right), \
+            Jarboe, Bungay, and Halfhide.",
+        cant_go "It would be impolite to leave until dinner is over.",
+        state 0,
+	before [;
+	 PutOn,ThrowAt:
+	    if (second == d_obj)
+		"Guests at college feasts are expected not to throw \
+		things on the floor.";
+	],
+        each_turn [ i;
+            self.state = self.state + 1;
+
+            ! First course
+            switch (self.state) {
+             1:
+                DoneHint(WhatNextPuzzle,24);
+                "^~How good that you could join us,~ says the Master to \
+                you. ~Wilderspin tells me that you've already met, but \
+                here are Jarboe and Halfhide, and that's Bungay. Should \
+                be a good bash, eh? There will be a little do afterwards \
+                in the senior common room, and we'll be delighted if \
+                you'll tag along.~";
+             2:
+                move Lobster to self;
+                move Widget to self;
+                "^Waiters come past the high table, depositing dishes at \
+                high speed in front of everyone. You end up with a large \
+                lobster and a strange widget.";
+             3:
+                "^There is quiet for a while as everyone tucks in, and \
+                then the pitch of the conversation rises again.";
+             4:
+                "^~I had the most horrible of experiences this morning,~ \
+                says Halfhide. ~I was thinking about some particularly \
+                knotty problem while sunning myself on the Green, and I \
+                suppose I must have dropped off to sleep.~";
+             5:
+                "^Halfhide continues, ~I woke up to discover that a young \
+                woman had stolen my key to the great gate, but when I \
+                challenged her, she denied everything and called for help \
+                from a police officer, who of course believed every word \
+                of her story.~";
+             6:
+                "^Halfhide harrumphs and continues, ~The police officer \
+                insisted on taking me to the police station and \
+                questioning me for an hour. What is the world coming to \
+                when a fellow of the college can't have a decent and \
+                peaceful nap of a Sunday morning?~";
+             7:
+                "^There are general murmurs of sympathy from the \
+                assembled fellows about the over-zealousness of the local \
+                constabulary and how scholars aren't treated with enough \
+                respect.";
+             8:
+                "^~You!~ says Halfhide, suddenly turning and looking at \
+                you closely for the first time. ~It was you who took my \
+                key this morning. How could you?~";
+             9:
+                "^~But I didn't do it,~ you insist, glad that you're not \
+                still carrying the brass key. You smile sweetly and \
+                innocently at Halfhide, and gradually he calms down and \
+                harrumphs, and finally admits that he might have been \
+                wrong, and he might have lost his key in the long \
+                grass. You breathe a silent sigh of relief.";
+             10:
+                if (Lobster in self) {
+                    self.state = 9;
+                    if (random(3) == 1)
+                        "^Everyone is politely not looking at you, but \
+                        you can tell that they're waiting for you to \
+                        finish your lobster before the next course can \
+                        start.";
+                } else {
+                    remove Lobster;
+                    remove Widget;
+                    move Plate to self;
+                    move WineGlass to self;
+                    move Knife to self;
+                    move Fork to self;
+                    "^A waiter arrives and clears away the detritus from \
+                    the first course, and other waiters arrive and \
+                    deposit the second course in front of you.";
+                }
+             11:
+                "^~I hope you like it,~ the Master confides in you. ~Our \
+                new French chef is very gung-ho about the traditional \
+                French cuisine.~";
+             12:
+                "^Wilderspin says, ~Let me tell you about a discovery I \
+                made today. That is, I should say, a discovery that Miss \
+                Spencer made today, for it was she who discovered the \
+                entrance from my study into the secret passage.~";
+             13:
+                "^~That's right,~ continues Wilderspin. ~the old \
+                rumours are true, Henry Garton did put secret passages \
+                into B staircase and the library when he built them. I \
+                think it's a wonder that nobody ever surveyed the \
+                buildings and noticed the extra three or four feet of \
+                width.~";
+             14:
+                "^Wilderspin says, ~I think the secret chamber was \
+                probably intended as a priest-hole; Biblioll College was \
+                at that time staunchly Catholic in despite of the \
+                prevailing religious feeling in England.~";
+             15:
+                "^~I don't know if it was ever put to its purpose,~ muses \
+                Wilderspin, ~because the body we found there, which I am \
+                sure must date from the late seventeenth century, \
+                although I won't know until I go back with the experts \
+                and do a proper dating, is not a Catholic priest hiding \
+                from Puritan religious persecution, but an alchemist!~";
+             16:
+                "^Wilderspin says, ~Perhaps he was afraid of being \
+                denounced as a witch, or perhaps he just wanted to keep \
+                his researches secret from his rivals. He probably died \
+                from mercury poisoning, no doubt exacerbated by the lack \
+                of ventilation in that tiny laboratory.~";
+             17:
+                "^~That's amazing,~ says the Master. ~Stuck there between \
+                B staircase and the library for hundreds of years, and \
+                no-one noticed. I wonder what other secret passages there \
+                might be hidden in those old buildings?~";
+             18:
+                print_ret "^~I wonder if I might inquire as to whether \
+                    anyone here has read the latest University Journal?~ \
+                    interrupts Bungay, but the Master is not so easily \
+                    distracted from his line of thought.^^~Secret \
+                    passages, ha!~ he laughs. ~That sounds like something \
+                    that what's his name, the seventeenth-century Master, \
+                    Lancaster's cousin, might have easily been involved \
+                    in.~";
+             19:
+                "^~Now the Journal -~ tries Bungay again, but the Master \
+                continues as though he hasn't heard. ~Conspiring against \
+                his own Fellows, persistent rumours of being a witch and \
+                a heretic - secret passages would have been all in a \
+                day's work to him!";
+             20:
+                "^~What was it you were about to say about the Journal?~ \
+                the Master asks Bungay, but the later mutters that it \
+                wasn't important and everyone present had probably read \
+                it anyway.";
+             21:
+                if (DeadSnail notin Plate) {
+                    self.state = 20;
+                    if (random(3) == 1)
+                        "^Everyone is politely not looking at you, but \
+                        you can tell that they're waiting for you to \
+                        finish with your food before the next course can \
+                        start.";
+                } else {
+                    remove Snail;
+                    remove Wine;
+                    remove DeadSnail;
+                    remove Plate;
+                    remove Knife;
+                    remove Fork;
+                    remove WineGlass;
+                    move PortGlass to self;
+                    move PortDecanter to self;
+                    move PortA to PortDecanter;
+                    DoneHint(WhatNextPuzzle,25);
+                    "^A waiter arrives and clears away the detritus from \
+                    the second course (thankfully). Another waiter turns \
+                    up with a tray of small glasses and a decanter. He \
+                    places the latter in front of you.";
+                }
+             22:
+                "^~So what has Malcolm been up to?~ Wilderspin asks \
+                you. ~I haven't seen the fellow for a couple of days, and \
+                I thought he'd be here for the dinner.~^^You reply that \
+                you don't know where he is, and that you're very worried \
+                about what might have happened to him.";
+             23:
+                "^~I spoke to Spencer on Friday,~ says Jarboe, ~and he \
+                told me that he had been summoned at very short notice to \
+                a conference in Edinburgh to speak about his work, and \
+                that he was very sorry that he had to rush off before he \
+                could get in touch with Miss Spencer.~";
+             24:
+                "^~But what were you doing in his rooms today?~ you ask, \
+                ~And who ransacked them?~^^~Good grief, how terrible!~ \
+                exclaims the Master. ~What happened?~^^~I didn't have a \
+                chance to tell you this,~ says Bungay. ~Spencer's rooms \
+                appear to have been burgled. We discovered this only this \
+                morning and of course we telephoned the police.~";
+             25:
+                "^You are about to protest at Bungay's blatant untruth \
+                when you catch Jarboe's eye and shrink under his baleful \
+                and hostile glare. It doesn't seem as though anything you \
+                might say could dent the plausibility of this pair of \
+                liars.";
+             26:
+                "^~When will Spencer be back, Jarboe?~ asks the \
+                Master. ~I don't think he'll be very happy at the \
+                news.~^^~I don't know,~ says Jarboe. ~He didn't say how \
+                long the conference would be.~";
+             27:
+                if (PortDecanter notin GivenAway) {
+                    self.state = 26;
+                    switch (random(4)) {
+                     1: "^~Ahem,~ says the Master, looking at you \
+                        meaningfully. You gather that something is \
+                        expected of you.";
+                     2: "^~Tell me, Miss Spencer,~ says Halfhide, ~Do you \
+                        know the Bishop of Bath and Wells?~";
+                    }
+                } else {
+                    remove PortGlass;
+                    remove PortA;
+                    remove PortB;
+                    while (child(CloakRoom) ~= 0)
+                        move child(CloakRoom) to player;
+                    move Candles to SeniorCommonRoom;
+                    SeniorCommonRoom.description = "This plush room is \
+                        crowded with the fellows of the college, talking \
+                        loudly and drunkenly. None of them affect any \
+                        interest in you.";
+                    SeniorCommonRoom.each_turn = SCREachTurn;
+                    GreatHall.s_to = "The door to the kitchens is now shut.";
+                    StopDaemon(self);
+                    ClockTower.number = 21;
+                    give ClockTower general;
+                    ClockTower.time_left = 0;
+                    AdvanceTime(self);
+                    DoneHint(WhatNextPuzzle,26);
+                    if (Intoxicated > 5)
+                        StartDaemon(Hiccups);
+                    print "^The Master stands up, and that seems to be \
+                        the signal for the dinner to end, because \
+                        everyone else gets up too, and makes for the \
+                        various exits. You fetch your possessions from \
+                        the cloakroom and return to see the last of the \
+                        fellows climbing the stairs to the senior common \
+                        room.^^~We're off up for a few drinks,~ the \
+                        Master says to you before he goes. ~I do hope \
+                        you'll join us.~^";
+                    PlayerTo(GreatHall);
+                    for (i = MasterD: i ~= 0: i = i.other_obj) {
+                        move i to GreatHall;
+                        MoveNPC(i,SeniorCommonRoom,u_obj);
+                    }
+                    rtrue;
+                }
+            }
+            switch (random(17)) {
+             1: "^Jarboe whispers something to Bungay, but you are unable \
+                to catch his words.";
+             2: "^Bungay mutters something to Jarboe, but you are unable \
+                to catch what he says.";
+             3: "^Halfhide and the Master speculate about the candidates \
+                for the Provost of Saint Stephen's College.";
+             4: "^The Master complains about the declining standard of \
+                undergraduate entrants to the college.";
+             5: "^Wilderspin speculates about the likelihood of Biblioll \
+                College ever going co-educational. Halfhide is sceptical, \
+                and the Master says that it will never happen while he is \
+                Master. ~Excepting present company, of course,~ he says, \
+                ~women are not capable of the academic workload that \
+                Christminster demands of them.~";
+             6: "^Wilderspin and Bungay discuss the latest candidates for \
+                election to Fellowships at the British Academy, and their \
+                chances of success.";
+             7: "^The Master ruminates on the long history of these \
+                 Commemoration dinners.";
+             8: "^Jarboe talks about the plans to expand the mathematical \
+                syllabus.";
+             9: "^Halfhide compliments the Master on the excellent \
+                 quality of the food.";
+            10: "^The Master talks about the necessity of attracting more \
+                undergraduates to Biblioll College. Jarboe thinks that \
+                this must be done by improving academic standards, but \
+                Halfhide suggests that a good result from the rowing team \
+                would be more successful.";
+            11: "^Halfhide reminisces about his exploits in North Africa \
+                with Monty.";
+            12: "^Wilderspin talks about his plans to put together \
+                funding for an expedition to Aswan. The Master wonders if \
+                that wouldn't be a bit dangerous at the moment, given the \
+                international situation.";
+            }
+        ];
+
+Nearby  CollegePlate "collection of gold plate"
+ has    static
+ with   name "collection" "gold" "silver" "plate" "of" "treasure"
+            "treasures",
+        initial "Displayed prominently on High Table is the College's \
+            collection of plate.",
+        description "This collection of tableware is meant for admiring \
+            rather than eating off: here we have Henry II's gold \
+            christening cup, Charles I's mead horn, the Bishop of \
+            Gloucester's silver communion cup, and many other treasures.",
+        before [;
+         Take,Remove: "You're a guest here, and it isn't polite to steal \
+            your host's valuables.";
+        ];
+
+Class   DinerClass
+ class  TalkableClass
+ has    proper concealed animate
+ with   before [;
+         Speak: 
+            print "Your words are lost in the hubbub of the ";
+            if (location == DiningHall) print "dinner";
+            else print "common room";
+            ", and he doesn't seem to hear you.";
+        ];
+
+Nearby  MasterD "Master of Biblioll College"
+ class  DinerClass
+ has    ~proper
+ with   name "Master" "of" "biblioll" "college" "man",
+        article "the",
+        other_obj JarboeD,
+        description "The Master is an old man, but sprightly and still \
+            handsome. His goatee beard is black.";
+
+Nearby  JarboeD "Doctor Jarboe"
+ class  DinerClass
+ with   name "doctor" "dr" "jarboe" "fellow",
+        other_obj BungayD,
+        description "Jarboe is a tall, gaunt man, with thin, ungainly \
+            limbs and a long sharp nose. His suit hangs loosely from his \
+            narrow shoulders.";
+
+Nearby  BungayD "Professor Bungay"
+ class  DinerClass
+ with   name "professor" "prof" "bungay" "fellow",
+        other_obj WilderspinD,
+        description "Bungay is a short man, at five feet and two inches a \
+            little shorter than yourself, but his vast bulk more than \
+            makes up for his lack of height. His clothes are all but \
+            bursting at the seams.";
+
+Nearby  WilderspinD "Professor Wilderspin"
+ class  DinerClass
+ with   name "professor" "wilderspin" "prof" "fellow",
+        other_obj HalfhideD,
+        description "Wilderspin is tall and bewhiskered, and you might \
+            guess his age to be about fifty.";
+
+Nearby  HalfhideD "Doctor Halfhide"
+ class  DinerClass
+ with   name "doctor" "dr" "halfhide" "don" "donnish" "fellow",
+        other_obj 0,
+        description "He's a donnish sort of chap, with a receding \
+            hairline and a handlebar moustache.";
+
+Class   FoodClass
+ with   before [;
+         Take,Remove: "It's rude to pick up your food.";
+        ];
+
+Object  Lobster "lobster"
+ class  FoodClass
+ has    edible
+        ! general once you've opened it
+ with   name "lobster" "fish" "crayfish" "shellfish",
+        description "You look at the lobster. It stares back \
+            unnervingly. It looks like it will be a tough battle, and you \
+            are not altogether sanguine of the outcome.",
+        before [;
+         Open,AttackWith,Cut:
+            "You'll have to say precisely how you intend to go about \
+            that.";
+         SmellThing:
+            if (self has general)
+                "A rich fishy smell emanates from the lobster's innards.";
+         Insert:
+            if (second == Widget) <<Tie Widget self>>;
+         Eat:
+            if (self hasnt general)
+                "Alas, the thick shell of the lobster is perfectly \
+                adequate to protect it from your feeble attempts to eat \
+                it.";
+            remove self;
+            if (Widget.state > 1) Widget.state = Widget.state - 2;
+            Achieved("eating the lobster");
+            "To your surprise, the lobster is excellent.";
+        ];
+
+Object  Widget "widget"
+ with   name "widget" "implement" "screw" "metal" "u-shaped" "piece",
+        description "It is a U-shaped piece of metal. A screw runs \
+            through holes in the ends, connecting them together.",
+        state 0, ! 0 open
+                 ! 1 closed, not attached to lobster
+                 ! 2 attached to lobster, open
+                 ! 3 attached to lobster, closed
+        before [;
+         Take,Remove:
+            if (self.state == 3)
+                "You'll have to turn the screw before you can remove the \
+                widget from the lobster.";
+         Turn:
+            if (self.state == 1 or 3) {
+                self.state = self.state - 1;
+                "You turn the screw, and the ends of the widget \
+                separate.";
+            }
+            if (self.state == 2 && Lobster hasnt general) {
+                self.state = 3;
+                give Lobster general;
+                "You turn the screw, and the widget clamps onto the \
+                lobster. Relentlessly, you keep on turning until the \
+                lobster's shell snaps with a loud crack. A rich smell \
+                comes from the lobster's innards. Success!";
+            }
+            self.state = self.state + 1;
+            "You turn the screw, bringing the ends of the widget \
+            together.";
+         Tie,PutOn:
+            if (self.state > 1)
+                "The widget is already attached to the lobster.";
+            if (second ~= Lobster) rfalse;
+            if (self.state == 1)
+                "The widget won't fit around the lobster.";
+            self.state = 2;
+            "You slide the widget until it encircles the lobster.";
+        ],
+        after [;
+         Take,Remove:
+            if (self.state == 2) self.state = 0;
+        ];
+
+Object  WineGlass "glass"
+ class  VesselClass
+ has    open
+ with   name "glass" "cup",
+        description "An ordinary wine glass.",
+        before [;
+         Attack,Knock: "You don't want to get broken glass everywhere.";
+         EmptyT:
+            if (second == Plate or Snail && Snail in plate && 
+              Snail.state < 2) {
+                Snail.state = 1;
+                "You pour a little of the wine onto your plate, in \
+                the path of the snail. It's hard to tell, but you could \
+                swear that the snail went right ahead and lapped it up!";
+            }
+        ];
+
+Nearby  Wine "wine"
+ class  LiquidClass
+ with   name "wine" "white",
+        number 10,
+        after [;
+         SmellThing: "A pleasant bouquet.";
+         Drink,Eat:
+            if (Intoxicated > 10)
+                "You've already drunk too much wine, and you have a \
+                distinct feeling that if you drink any more, you'll be \
+                sick.";
+            Intoxicated ++;
+            "You drink a little of the white wine, and it is very \
+            pleasant. But no sooner have you put your glass down than it \
+            is re-filled.";
+         Insert,PutOn,Transfer,Empty,EmptyT:
+            <<EmptyT WineGlass second>>;
+        ];
+
+Object  Plate "china plate"
+ has    supporter
+ with   name "plate" "china",
+        capacity 3,
+        before [;
+         Take,Remove: "It is rude to pick up your plate.";
+        ];
+
+Nearby  Snail "snail"
+ class  FoodClass
+ with   name "snail" "mollusk" "mollusc" "shell",
+        description [;
+            print "It is a large and unappetising mollusc, with a shell \
+                perhaps two inches in diameter. ";
+            switch (self.state) {
+             0: "Something about the way it oozes across your plate tells \
+                you that it is not dead yet.";
+             1: "It oozes across your plate in a haphazard and drunken \
+                manner.";
+             2: "It lies helpless on its back, its soft innards exposed \
+                to you.";
+            }
+        ],
+        state 0,
+        before [;
+         Take,Remove:
+            if (self.state == 0)
+                "The snail glues itself firmly to the plate and you \
+                cannot budge it.";
+            "It is rude to pick up your food.";
+         Eat,Taste:
+            if (self.state < 2)
+                "The snail retreats into its shell and grips the plate \
+                firmly, and you are unable to get at it. Now if you could \
+                turn it over so that its soft parts were exposed, maybe \
+                the odds would be more in your favour.";
+            "Somehow, the idea of eating a live animal doesn't appeal to \
+            you.";
+         Attack,Cut: 
+            if (self.state < 2)
+                "The snail's shell is proof against your feeble attack \
+                Now if you could turn it over so that its soft parts were \
+                exposed, maybe the odds would be more in your favour.";
+            "A better weapon might help you.";
+         AttackWith:
+            if (second == Knife or Fork && self.state == 2) {
+                remove self;
+                move DeadSnail to Plate;
+                Achieved("killing the snail");
+                print_ret "You plunge ", (the) second,
+                    " into the snail, and it perishes messily.";
+            }
+         Turn,Push,Pull:
+            if (self.state == 0)
+                "The snail grips the plate firmly and you are unable to \
+                budge it.";
+            if (self.state == 1) self.state = 2;
+            else self.state = 1;
+            "Using the knife and fork, you turn the unresisting snail \
+            onto its back.";
+        ];
+
+Object  DeadSnail "dead snail"
+ class  FoodClass
+ with   name "dead" "snail" "mollusk" "mollusc" "shell",
+        description "The snail lies dead on your plate. You appear to \
+            have made rather a mess of its innards, and the result is not \
+            a beautiful sight.",
+        before [;
+         Taste,Eat: "The prospect is too disgusting for you to proceed.";
+        ];
+
+Object  Knife "knife"
+ with   name "knife";
+
+Object  Fork "fork"
+ with   name "fork";
+
+Object  PortGlass "glass"
+ class  VesselClass
+ has    open
+ with   name "glass" "cup",
+        description "A small glass, for dessert wine or spirits.";
+
+Object  PortDecanter "decanter"
+ class  VesselClass DelicateClass
+ has    open
+ with   name "decanter",
+        description "A beautiful glass decanter.",
+        before [;
+         Give:
+            if (second == WilderspinD) {
+                move self to GivenAway;
+                Achieved("passing the port");
+                "Wilderspin accepts the decanter from you and pours \
+                himself some, before passing it on around the table.";
+            }
+            if (second has animate)
+                print_ret "~Ahem,~ says ", (the) second,
+                    " pointedly, refusing the port. You gather that you \
+                    haven't quite done the correct thing.";
+        ],
+        each_turn [;
+            if (children(self) == 0) {
+                <Invoke PortStore>;
+                move child(PortStore) to self;
+            }
+        ];
+
+Object  PortStore "port store"
+ class  LiquidStoreClass
+ with   other_obj PortA;
+
+Class   PortClass
+ class  LiquidClass
+ with   name "port" "wine" "red",
+        article "some",
+        number 11,
+        after [;
+         SmellThing: "The port wine smells very sweet and very strong.";
+         Eat,Drink,Taste:
+            if (Intoxicated > 10)
+                "You've already drunk too much, and you have a distinct \
+                feeling that if you drink any more, you'll be sick.";
+            if (children(PortGlass) == 0)
+                "It's the worst of bad manners to drink from the \
+                decanter!";
+            Intoxicated ++;
+            remove child(PortGlass);
+            "You drink the syrupy liquid. It's really too sweet and \
+            cloying to have more than a little.";
+        ];
+
+Nearby  PortA "port" class PortClass with other_obj PortB;
+Nearby  PortB "port" class PortClass with other_obj PortC;
+Nearby  PortC "port" class PortClass with other_obj 0;
+
+
+!--------------------------------------------------------------------------
+! 8.2 AFTER THE DINNER
+!--------------------------------------------------------------------------
+
+Object  SeniorCommonRoom "Senior Common Room"
+ has    light
+        ! general once Jarboe, Bungay gone
+ with   name "senior" "common" "room" "fellow" "fellows" "furnishing" 
+            "furnishings",
+        description "Here the fellows of the college will gather after \
+            dinner to drink and talk. In their absence, the expensive \
+            furnishings are dull and lustreless, and there's nothing to \
+            do except return to the hall.",
+        d_to GreatHall,
+        each_turn NULL,
+	edward_dirs d_obj;
+
+[ SCREachTurn;
+    MoveNPC(JarboeD,0,d_obj);
+    MoveNPC(BungayD,0,d_obj);
+    self.each_turn = NULL;
+    "^You notice Jarboe and Bungay slipping away quietly from the \
+    reception.";
+];
+
+Object  Candles "candles"
+ has    light static
+        ! general if taken the candle
+ with   name "candles" "candle" "wax",
+        initial "Wax candles provide flickery light.",
+        before [;
+         Take:
+            if (self has general)
+                "You've already stolen as many candles as it is prudent \
+                to steal.";
+            give self general;
+            move Candle to player;
+            ResetVagueWords(Candle);
+            StartDaemon(Candle);
+            "You pick up one of the candles.";
+        ];
+
+Object  Candle "candle"
+ has    light
+ with   name "candle",
+        before [;
+         SwitchOn,Burn:
+            if (self has light) "The candle is already burning.";
+            if (FlameAvailable() == 1) {
+                give self light;
+                StartDaemon(self);
+                "You light the candle.";
+            }
+            "You have no source of flame.";
+         SwitchOff:
+            if (self hasnt light) "The candle is not burning.";
+            give self ~light;
+            "You extinguish the candle flame.";
+        ],
+        daemon [;
+            ! It goes out if put into a container.
+            if (parent(self) ~= 0 && parent(self) has container) {
+                give self ~light;
+                StopDaemon(self);
+                if (LineOfSight(self,player) == 1)
+                    "^The candle goes out.";
+            }
+        ];
+
+Object  Hiccups "hiccups"
+        ! general if told you about drinking too much
+ with   time_left 2,
+        number 1,
+        daemon [;
+            self.time_left = self.time_left - 1;
+            if (self.time_left > 0) rfalse;
+            if (self hasnt general) {
+                give self general;
+                print "^Hic! You must have drunk too much wine at \
+                    dinner.^";
+            }
+            else print "^Hic!^";
+            self.time_left = self.number;
+            if (random(self.number) == 1)
+                self.number = self.number + 1;
+            if (location == Crypt && Crypt.state < 8)
+                <<Take JarboeD>>;
+        ];
+
+
+!--------------------------------------------------------------------------
+! 8.3 ENTERING THE ENDGAME
+!--------------------------------------------------------------------------
+
+Object  RoofA "Roof of the Master's Lodgings"
+ has    light no_edward
+ with   name "roof" "gutter" "tile" "tiles" "first" "court" "narrow"
+            "ledge" "great" "gate" "initials",
+        description "It's cool and breezy up here on the tiles of the \
+            college, and you have an excellent but somewhat alarming view \
+            of First Court, and of the college flag flying above the \
+            Great Gate. You could attempt to descend the wistaria, or \
+            follow a narrow ledge to the south.",
+        d_to Wistaria,
+        s_to RoofB,
+        n_to "A precipitous drop prevents you from getting closer to the \
+            clock tower.",
+        cant_go "The only safe way out of here to follow the ledge to the \
+            south, but you could also try descending the wistaria.",
+        before [;
+         Jump: "Surely you still have something to live for?";
+        ];
+
+Nearby  Gargoyle "gargoyle"
+ has    static
+ with   name "gargoyle" "ugly",
+        initial "A fearsome stone gargoyle crouches by the gutter.",
+        description "It's an ugly creature, its face perhaps a \
+            caricature of a past Fellow of the college. The initials ~JF~ \
+            have been carved neatly into its hindquarters.",
+        life [ i;
+         Give:
+            if (noun has is_vessel && noun has open && 
+              children(noun) > 0 && child(noun) has is_liquid) {
+                i = child(noun);
+                print "The gargoyle's gaping mouth points down, so it's \
+                    hard to see how to pour ", (the) i, " into it.";
+                if (i == ElixirC)
+                    print " That's probably just as well; the gargoyle \
+                        doesn't look as though it would be very \
+                        friendly.";
+                new_line; rtrue;
+            }
+        ],
+        before [;
+         Attack,Tickle: "The gargoyle stoically endures your attack.";
+        ];
+
+Nearby  Flag "flag"
+ has    scenery
+ with   name "flag" "flagpole" "pole" "banner" "coat" "of" "arms",
+        description "The flag flutters in the breeze, and you can make \
+            out the college coat of arms: three lions rampant and a \
+            silver cup.",
+        before [;
+         Examine: rfalse;
+         default: "You can't reach the flag from here.";
+        ];
+
+Object  RoofB "The Roof of ~B~ Staircase"
+ has    light no_edward
+ with   name "roof" "staircase" "stair" "b" "tile" "tiles" "tiled" "roofs",
+        description "You are on a narrow ledge on the roof of Biblioll \
+            College. Tiled roofs slope up to the east and west, and the \
+            ledge runs to the north. To the south, a metal ladder \
+            descends into an enclosed space between the college \
+            buildings.",
+        cant_go "The roofs are too steep to climb.",
+        n_to RoofA,
+        s_to [;
+            print "You climb down the ladder.^";
+            return Ladder;
+        ],
+        d_to Ladder;
+
+Object  Ladder "ladder"
+ has    scenery door open
+ with   name "ladder",
+        found_in RoofB Well,
+        door_dir [;
+            if (self in Well) return u_to;
+            return d_to;
+        ],
+        door_to [;
+            if (self in Well) return RoofB;
+            return Well;
+        ],
+        before [;
+         Climb: <<Enter self>>;
+        ];
+
+Object  Well "Small Courtyard"
+ has    light proper no_edward
+ with   name "weed" "weeds" "stair" "staircase" "library" "college" "ugly"
+            "kitchen" "kitchens",
+        description "A small space enclosed on all sides: a college \
+            staircase to the north, the kitchens to the east, the library \
+            to the west, and a tall brick wall to the south. A rickety \
+            metal ladder ascends the building to the north, and ugly \
+            weeds grow all around.",
+        u_to Ladder,
+        n_to Ladder,
+        d_to [;
+            if (Manhole has open) return Manhole;
+            "The manhole is closed.";
+        ],
+        w_to [;
+            if (HoleB notin self) rfalse;
+            print "You crawl on hands and knees back into the library, \
+                and shut the secret entrance behind you.^";
+            return Library;
+        ],
+        before [;
+         Go,Enter,Climb:
+            if (noun == s_obj)
+                <<Climb BrickWall>>;
+        ];
+
+Nearby  Manhole "manhole"
+ has    locked openable lockable static enterable supporter
+ with   name "manhole" "hole" "rust" "keyhole",
+        description "The cover is metal, and so old that its surface is \
+            peeling with rust. There is a keyhole to one side.",
+        describe [;
+            if (self has open)
+                "^An open manhole leads down into darkness.";
+            "^There is a closed manhole in the centre of the courtyard.";
+        ],
+        door_to TunnelA,
+        door_dir d_to,
+        with_key RustyKey,
+        before [;
+         Receive:
+            if (self has open)
+                "That would fall through into the tunnel.";
+         Open:
+            if (player in self)
+                "Not while you're standing on it!";
+         Invoke:
+            switch (second) {
+             0: give self ~open enterable supporter ~door;
+             1: give self ~locked open ~enterable ~supporter door;
+            }
+            if (second > 0) {
+                while (child(self) ~= 0)
+                    move child(self) to KitchenLobby;
+            }
+            rtrue;
+        ],
+        after [;
+         Open: <Invoke self 1>;
+         Close: <Invoke self 0>;
+        ];
+
+Object  RustyKey "rusty key"
+ class  KeyClass
+ with   name "rusty";
+
+Object  HoleB "secret library entrance"
+ has    door static open
+ with   name "secret" "library" "entrance",
+        article "the",
+        initial "A secret entrance to the library leads west.",
+        description "The secret entrance is very low, perhaps a foot and \
+            a half high, but you crawled through it one way, so you're \
+            sure that you can crawl back.",
+        door_dir w_to,
+        door_to Library;
+
+Object  TunnelA "Tunnel"
+ has    light no_edward
+ with   name "tunnel" "uneven" "wood" "wooden" "board" "floorboard"
+            "boards" "hole",
+        description "You are standing on uneven wooden floorboards in a \
+            dark tunnel. A little light enters from a hole in the roof \
+            and the tunnel leads into darkness to the east.",
+        each_turn [;
+            self.each_turn = NULL;
+            DoneHint(WhatNextPuzzle,27);
+        ],
+        e_to [;
+            print "The tunnel goes on for a long way, perhaps fifty \
+                yards, and you grope your way carefully through the \
+                gloom.^";
+            return TunnelB;
+        ],
+        u_to Well; ! can't have manhole closed while in tunnel
+
+Object  TunnelB "Tunnel"
+ has    no_edward
+ with   name "tunnel" "moisture" "drip" "rotting" "rot" "mould" "rotten"
+            "flakes" "flake",
+        description "The rotting wooden walls of this gloomy tunnel drip \
+            with moisture. It continues to the west, but to the east \
+            there's a door.",
+        w_to [;
+            print "You grope your way back along the long tunnel.^";
+            return TunnelA;
+        ],
+        e_to [;
+            if (TunnelDoor has open) {
+                give TunnelDoor ~open locked;
+                print "The door swings shut behind you. You grope your \
+                    way along a dark passage, before finding your way \
+                    blocked by a curtain, on the other side of which you \
+                    can hear voices.^";
+                PlayerTo(Tapestries,-1);
+                StartDaemon(Crypt);
+                AdvanceTime(Crypt);
+                DoneHint(WhatNextPuzzle,28);
+                <<Look>>;
+            }
+            if (OffersLight(self) == 0)
+                "You encounter a barrier of some kind that blocks your \
+                passage further east.";
+            return TunnelDoor;
+        ],
+        before [;
+         Tie: 
+            if (noun == Corkscrew && second == TunnelDoor)
+                <<Insert noun second>>;
+        ];
+
+Nearby  TunnelDoor "door"
+ has    door openable lockable locked scenery autoopen
+        ! general if the handle has broken
+ with   name "door" "wooden" "wood",
+        description "The door is made of the same wood as the tunnel \
+            walls, and has been going slowly rotten for a long time.",
+        door_dir e_to,
+        door_to Crypt,
+        with_key RustyKey,
+        before [;
+         Receive:
+            if (noun == Corkscrew) {
+                give Corkscrew general;
+                move Corkscrew to TunnelB;
+                "The rotten wood is soft enough that you are able to \
+                screw the corkscrew deep into the door.";
+            }
+         Open:
+            if (self has general)
+                "There's no handle.";
+            give self general;
+            "The handle comes off in your hand and disintegrates into \
+            flakes of wood.";
+        ];
+
+Object  Corkscrew "corkscrew"
+        ! general if its in the door
+ with   name "corkscrew" "cork" "screw",
+        describe [;
+            if (self has general) {
+                if (location ~= TunnelB)
+                    "^** Error: corkscrew in wrong place **";
+                "^A corkscrew is embedded in the wooden door.";
+            }
+        ],
+        before [;
+         Pull:
+            if (self has general) {
+                if (TunnelDoor has locked)
+                    "The door is locked.";
+                if (TunnelDoor has open)
+                    "The door is already open.";
+                give TunnelDoor open;
+                Achieved("opening the door in the tunnel");
+                "You pull on the corkscrew with all your weight, and like \
+                a reluctant bottle of wine, the door opens.";
+            }
+        ],
+        after [;
+         Take,Remove:
+            if (self has general) {
+                give self ~general;
+                "You remove the corkscrew from the door.";
+            }
+        ];
+
+
+!--------------------------------------------------------------------------
+! 8.4 THE CRYPT
+!--------------------------------------------------------------------------
+
+Object  Crypt "Crypt"
+ has    light no_edward
+ with   name "crypt" "white" "robe" "robes" "hood" "hoods" "chair" "noose"
+            "rope" "rafter" "rafters",
+        description "From behind a thick curtain, you look upon a dark \
+            underground room, dimly lit by arrays of flickering \
+            candles. Thick tapestries cover all four walls, apart from an \
+            open doorway to the east.^^In the centre of the room, your \
+            brother Malcolm stands on a chair, his feet and hands tied, \
+            and a tight noose around his neck is attached to the ceiling. \
+            Jarboe and Bungay are here, dressed in long white robes. The \
+            scene fills you with horror, but you dare not move or protest \
+            lest you be heard.^^A dark hole leads west.",
+        state 0,
+        e_to [;
+            if (self.state < 8) <<Take DoorCryptC>>;
+            return DoorCrypt;
+        ],
+        before [;
+         Go,Enter:
+            if (noun ~= w_obj) rfalse;
+            if (self.state >= 8)
+                "The tapestries are burning so fiercely that you cannot \
+                leave that way. You must use the door to the east, or \
+                perish!";
+            "Anxious to escape the dreadful scene, you make your way back \
+            along the passage, but to your horror the rotting door is \
+            locked! There is no escape that way.";
+         Speak,Sing,Scream,Mild,Strong:
+            if (self.state < 8)
+                "Shh! Jarboe and Bungay would surely hear you!";
+        ],
+        daemon [ i;
+            if (self.state < 8 && location ~= Crypt)
+                print "^** Error: player escaped from the crypt **^";
+            if (self.state < 8 && location == Crypt &&
+              player notin Tapestries) {
+                new_line;
+                <<Take JarboeC>>;
+            }
+            self.state = self.state + 1;
+            switch (self.state) {
+             1:
+                "^Jarboe pulls a dagger from his robes and waves it in \
+                Malcolm's face. ~Tell us the truth,~ he hisses.";
+             2:
+                "^~I've told you,~ Malcolm says hoarsely, ~I don't know \
+                what you mean. It was just a game ... a silly idea \
+                ... there's no elixir.~ He is clearly having difficulty \
+                talking.";
+             3:
+                "^~You're lying,~ shouts Bungay. ~You're trying to keep \
+                the secret for yourself! We tried your so-called recipe \
+                and it did not work. This is your last chance to tell us \
+                the truth.~";
+             4:
+                "^~My God!~ croaks Malcolm. ~You really believe it ... you \
+                are insane, both of you ... what is this farce? Who are \
+                you?~";
+             5:
+                "^~We are Knights of the Holy Temple,~ intones Bungay \
+                solemnly. ~The guardians of the Qabbala and the wisdom of \
+                Jerusalem!~";
+             6:
+                "^Malcolm laughs feebly. ~Knights Templar! Elixir of life! \
+                Ha ha! What a pair of clowns you are!~";
+             7:
+                ! Just in case the player types 'examine malcolm' on the
+                ! next turn (only!). What we do for realism!
+                MalcolmC.description = MalcolmsBody.description;
+                "^~How dare you?~ screams Jarboe, and with a vicious \
+                kick, he knocks the chair away from under Malcolm, who \
+                gives a strangled cry and then falls silent, slowly \
+                swinging from the ceiling.";
+             8:
+                MoveNPC(JarboeC,0,e_obj);
+                remove BungayC;
+                remove CandlesC;
+                remove MalcolmC;
+                remove DoorCryptC;
+                give DoorCrypt ~absent;
+                move DoorCrypt to self;
+                move MalcolmsBody to self;
+                move Noose to self;
+                move DeadBungay to self;
+                move Dagger to self;
+                give Fire ~absent;
+                move Fire to self;
+                PlayerTo(self,1);
+                give Tapestries ~enterable ~container ~open;
+                Tapestries.description = "Bone-dry from years in this \
+                    underground room, the tapestries have gone up in \
+                    flame like kindling.";
+                self.description = "This underground chamber is lined \
+                    with thick tapestries, now all ablaze. Fire runs up \
+                    the walls and across the ceiling. The heat is \
+                    oppressive, and the smoke stifling. If you don't \
+                    escape soon, you will surely perish!";
+                "^Jarboe stares aghast at what he has done. ~I didn't \
+                mean...~ he begins.^^~You fool,~ cries Bungay. ~You utter \
+                utter fool! What have you done?~ and in a rage he rushes \
+                at Jarboe, fists swinging. The two of them fall clumsily \
+                together onto the floor, knocking the candles over onto \
+                the tapestry, which quickly catches fire.^^Suddenly there \
+                is a terrible high-pitched scream from the brawling men, \
+                and then Jarboe stands up, blood dripping from his \
+                dagger. He stares at it, as though he cannot believe that \
+                he has just killed two men, and then he flings it aside \
+                and runs out through the doorway to the east.";
+            }
+            if (location == Crypt) {
+                switch (self.state) {
+                 9: "^The fire quickly takes hold of the bone-dry \
+                    tapestries, and spreads around the room.";
+                 10: "^The fire continues to spread.";
+                 11: "^The rafters have caught fire, and the flames are \
+                    creeping across the ceiling.";
+                 12: "^The heat is oppressive.";
+                 13: "^The flames continue to creep across the ceiling.";
+                 14: "^The roaring of the fire is very loud now, as the \
+                    flames attack the rafters above your head.";
+                 15: "^The heat is agony now. You must escape!";
+                 16: "^There is a crack! and a burning rafter falls from \
+                    the ceiling, narrowly missing you.";
+                 default:
+                    deadflag = 1;
+                    "^There is a crack! and a burning rafter falls from \
+                    the ceiling, striking you on the head. You fall \
+                    unconscious into the flames...";
+                }
+            }
+            if (location == CryptStairGround or CryptStairTop) {
+                i = self.state;
+                if (location == CryptStairTop) i = i - 4;
+                if (i < 14) rfalse;
+                switch(i) {
+                 14: "^The flames are spreading from the crypt.";
+                 15: "^The wooden treads under your feet are starting to \
+                     smoke.";
+                 16: "^The heat is oppressive.";
+                 17: "^No matter how quickly you stamp on each new tongue \
+                     of flame, the fire is quicker. Soon the whole \
+                     staircase will be ablaze.";
+                 18: "^The roaring of the fire is very loud now, as the \
+                    flames attack the treads under your feet and the \
+                    rafters above your head.";
+                 19: "^The heat is agony now. You must escape!";
+                 default: 
+                    deadflag = 1;
+                    "^There is a crack! and the treads collapse under \
+                     your feet, plunging you down into the inferno.";
+                }
+            }
+        ];
+
+Class   DangerClass
+ with   life [; <<Take self>>; ],
+        before [;
+         Examine: rfalse;
+         default:
+            if (Crypt.state < 8) {
+                deadflag = 1;
+                "~What's that?~ says Bungay, hearing the movement. Before \
+                you can react, he pulls the tapestry aside and grabs you \
+                roughly. ~My God!~ he shouts. ~What have we here? A spy!~ \
+                and his crazed face is the last thing you see before you \
+                faint mercifully into unconsciousness, never to \
+                awaken...";
+            }
+        ];
+
+Class   CultistClass
+ class  DangerClass
+ has    proper animate concealed
+ with   name "cultist",
+        description [;
+            print_ret (The) self, " is dressed in a long white robe, and \
+                a hood obscures most of his face, but from his build and \
+                demeanour you are certain of his identity.";
+        ];
+
+Nearby  Tapestries "tapestries"
+ has    static enterable open container concealed
+ with   name "curtain" "tapestry" "drape" "curtains" "tapestries" "drapes"
+            "wall-hanging" "arras",
+        description "They are enormously old, and bone-dry. They look \
+            almost ready to crumble away.",
+        before [;
+         Burn:
+            if (Crypt.state >= 8)
+                "The tapestries are already burning very nicely.";
+            print "You set fire to the tapestries, which quickly burst \
+                into flame. ";
+            <<Take BungayC>>;
+        ];
+
+Nearby  CandlesC "candles"
+ class  DangerClass
+ has    light static concealed
+ with   name "candles" "array" "flickering" "arrays" "of";
+
+Nearby  JarboeC "Doctor Jarboe"
+ class  CultistClass FollowClass
+ with   name "doctor" "jarboe" "dr" "fellow";
+
+Nearby  BungayC "Professor Bungay"
+ class  CultistClass
+ with   name "professor" "prof" "bungay" "fellow";
+
+Nearby  MalcolmC "Malcolm"
+ class  DangerClass
+ has    animate proper concealed
+ with   name "malcolm" "spencer" "brother" "fellow",
+        description "He stands on tiptoes on the chair, his hands and \
+            feet tied, the noose biting into his neck and pulling him \
+            upwards. He is clearly in much pain and having trouble \
+            breathing. If only you could rescue him!";
+
+Nearby  DoorCryptC "doorway"
+ class  DangerClass
+ has    door openable lockable scenery
+ with   name "door" "doorway",
+        door_dir e_to,
+        door_to 0;
+
+Object  DoorCrypt "doorway"
+ has    door absent scenery open autoopen
+ with   name "door" "doorway",
+        found_in Crypt CryptStairGround,
+        door_dir [; 
+            if (self in Crypt) return e_to;
+            else return d_to;
+        ],
+        door_to [;
+            if (self in Crypt) return CryptStairGround;
+            else return Crypt;
+        ];
+
+Object  Noose "noose"
+ has    static concealed
+ with   name "noose" "rope",
+        before [;
+         Attack,Cut,Untie: "The noose is too tight to undo with your hands.";
+         AttackWith:
+            if (second ~= Dagger)
+                "Your efforts are in vain.";
+            remove self;
+            remove MalcolmsBody;
+            move MalcolmsBodyB to Crypt;
+            Achieved("cutting the noose");
+            "Supporting Malcolm's limp body as best you can, you cut the \
+            rope and lower him to the floor.";
+        ];
+
+Object  Dagger "dagger"
+ with   name "dagger" "knife" "sword" "blood" "bloody",
+        description "It is a horrible sight, covered in Bungay's blood.";
+
+Object  MalcolmsBody "Malcolm's body"
+ has    animate static proper
+ with   name "malcolm" "spencer" "brother" "body" "malcolm^s" "brother^s",
+        initial "Malcolm's body hangs by a noose from the ceiling.",
+        description "He hangs motionless from the ceiling, the noose \
+            biting cruelly into his neck. His eyes are lifeless and his \
+            face is blue.",
+        life [;
+            if (action == ##Give && noun has is_liquid)
+                "The noose is so tight about his neck that you are unable \
+                to open his mouth.";
+            "He makes no movement.";
+        ],
+        before [;
+	 Search: "You find nothing of interest in his pockets.";
+         Attack,Resuscitate,Kiss: "There's no hope of resuscitating him \
+            while he's still being throttled by the noose.";
+         Take,Remove: "It would be better to cut him down.";
+         PushDir,Push,Pull,Touch: "He swings limply on the rope.";
+        ];
+
+Object  MalcolmsBodyB "Malcolm's body"
+ has    animate static proper
+ with   name "malcolm" "spencer" "brother" "body" "malcolm^s" "brother^s",
+        initial "Malcolm lies motionless on the ground.",
+        description "He lies motionless on the ground. You can hear no \
+            heartbeat nor feel any breath. His eyes are lifeless and his \
+            face is blue.",
+        life [ i;
+            if (action == ##Give && noun has is_vessel && noun has open &&
+              children(noun) > 0 && child(noun) has is_liquid) {
+                i = child(noun);
+                print "You open Malcolm's mouth and pour ", (the) i,
+                    " into it. ";
+                remove i;
+                if (i == ElixirC) {
+                    move Malcolm to parent(self);
+                    remove self;
+                    Achieved("giving Malcolm the elixir");
+                    "He gives a sudden convulsive movement and then his \
+                    chest begins to rise and fall. He is alive!";
+                }
+            }
+            "He makes no movement.";
+        ],
+        before [;
+	 Search: "You find nothing of interest in his pockets.";
+         Attack,Resuscitate,Kiss: "You pummel Malcolm's chest and breathe \
+            air into him until you are dizzy, but in vain. There is no \
+            flicker of life.";
+         Take,Remove: "He's too heavy for you to lift, but perhaps you \
+            could pull him.";
+         Push,Pull: "You'll have to say in which direction to you want to \
+             pull Malcolm's body.";
+         PushDir: AllowPushDir(); rtrue;
+        ];
+
+Object  Malcolm "Malcolm"
+ has    animate static proper
+ with   name "malcolm" "spencer" "brother",
+        initial "Malcolm lies unconscious on the ground.",
+        description "He lies unconscious on the ground, and there is \
+            terrible bruising around his neck, but at least he is alive!",
+        life [;
+            "There is no response.";
+        ],
+        before [;
+	 Search: "You find nothing of interest in his pockets.";
+         Take,Remove: "He's too heavy for you to lift, but perhaps you \
+            could pull him.";
+         Push,Pull: "You'll have to say in which direction to you want to \
+             pull Malcolm.";
+         PushDir: AllowPushDir(); rtrue;
+        ];
+
+Object  DeadBungay "Professor Bungay's body"
+ has    animate static
+        ! general if found the key
+ with   name "prof" "professor" "bungay" "bungay^s" "body",
+        initial "Bungay lies dead on the ground.",
+        description "He lies quite dead on the ground, blood pouring from \
+            a wound at his throat and flames licking at his robes.",
+        life [;
+         Give: "Why are you wasting time with him?";
+         default: "He is quite dead and makes no response.";
+        ],
+        before [;
+         Push,Pull: "He is quite immovable.";
+         Resuscitate: "That gaping wound at his throat needs more \
+            attention than you can provide. And it may be cruel to say \
+            so, but you're glad that the horrible man is dead.";
+         Search:
+            if (self hasnt general) {
+                give self general;
+                move SilverKey to player;
+                ResetVagueWords(SilverKey);
+                "You beat at Bungay's burning robes, and manage to quell \
+                the flames for long enough to pick his pocket. You \
+                retrieve a silver key which is almost too hot to hold. You \
+                briefly wonder if Jarboe knows about this key.";
+            }
+            "There's nothing else to find in Bungay's pockets.";
+        ];
+
+Object  SilverKey "silver key"
+ class  KeyClass
+ with   name "silver";
+
+Object  Fire "fire"
+ has    scenery light absent
+ with   name "fire" "flame" "flames" "burning" "smoke",
+        description "It is out of control. If you don't get out of here \
+            soon, then you will surely die!",
+        found_in [;
+            if (location == Crypt && Crypt.state >= 8 ||
+                location == CryptStairGround && Crypt.state >= 14 ||
+                location == CryptStairTop && Crypt.State >= 18)
+                rtrue;
+        ],
+        before [;
+         Examine: rfalse;
+         ThrownAt:
+            if (noun has is_liquid) {
+                remove noun;
+                "Your fire-fighting has no effect.";
+            }
+         SwitchOff:
+            "You have no hope of putting out the fire. It would be better \
+            to escape while you can.";
+         default:
+            "The fire is too hot to approach closely.";
+        ];
+
+
+!--------------------------------------------------------------------------
+! 8.5 THE LAST BATTLE
+!--------------------------------------------------------------------------
+
+Object  CryptStairGround "Bottom of the Secret Staircase"
+ has    no_edward light
+ with   name "stair" "staircase" "wood" "wooden" "tread" "treads",
+        description [;
+            print "The bottom of an ancient cramped staircase. The wooden \
+                treads creak under your feet. The staircase ascends to \
+                the north, and a large room to the west is ablaze with \
+                flame.";
+            if (Jarboe in CryptStairTop)
+                print " You can hear a banging from above, as if someone \
+                    is trying to break down a door.";
+            if (Crypt.state >= 14 && Crypt.state < 17)
+                print " The fire is spreading, and the treads under your \
+                    feet are starting to smoke. You must escape!";
+            if (Crypt.state >= 17)
+                print " The flames are around you, and the heat is \
+                    intolerable. You will surely die soon if you remain!";
+            new_line; rtrue;
+        ],
+        w_to DoorCrypt,
+        n_to CryptStairTop,
+        u_to CryptStairTop,
+        before [;
+         Listen:
+            if (JarboeE in CryptStairTop)
+                print "You can hear knocking from above. ";
+            "The roaring of flames is very loud.";
+        ];
+
+Object  CryptStairTop "Top of the Secret Staircase"
+ has    no_edward light
+ with   name "stair" "staircase" "white" "robe" "hood",
+        initial [;
+            if (Crypt.state < 17) Crypt.state = 17;
+        ],
+        description [;
+            print "The top of an ancient staircase, which descends to the \
+                south. There is a door to the north.";
+            if (Crypt.state >= 18)
+                print " The fire is spreading, and the treads under your \
+                    feet are starting to smoke. You must escape!";
+            if (Crypt.state >= 21)
+                print " The flames are around you, and the heat is \
+                    intolerable. You will surely die soon if you remain!";
+            new_line; rtrue;
+        ],
+        d_to CryptStairGround,
+        s_to CryptStairGround,
+        n_to [ i j;
+            if (Jarboe in self) "Jarboe blocks your way.";
+            if (DoorSecret hasnt open) return DoorSecret;
+            if (pushed_object == Malcolm) i = 1;
+            if (pushed_object == MalcolmsBodyB) j = 1;
+            print "You struggle through the door into a dim room strewn \
+                with expensive furniture. Your strength is failing and \
+                your lungs are full of smoke, and you are so dizzy you \
+                doubt you can move another foot. You are on the verge of \
+                blacking out when a pair of dark helmeted shapes loom \
+                over you. It is the police constable and a fireman with \
+                him! Never has such a sight been so welcome!";
+            if (1 == i or j)
+                print " You manage to retain consciousness long enough to \
+                    say, ~My brother! Help him!~";
+            print " Then the fire and the smoke and the shock are \
+                suddenly all too much for you, and you pass out...^^You \
+                awake a long time later in hospital, recovering from \
+                third-degree burns";
+            if (i == 1) {
+                deadflag = 2;
+                Achieved("saving Malcolm from the fire");
+                print ". Malcolm is sitting by your bedside. \
+                    ~Christabel!~ he says. ~How glad I am to see you! I \
+                    could hug you for joy, but the doctor says I mustn't \
+                    touch you yet.~^";
+            } else {
+                deadflag = 3;
+                print ", with Edward sitting solicitously by your \
+                    bedside. You ask him what happened to Malcolm, and he \
+                    is very reluctant to answer. Finally you force him to \
+                    admit that ";
+                if (j == 1)
+                    print "although everything was tried to resuscitate \
+                        him, Malcolm is dead.^";
+                else
+                    print "Malcolm's body was recovered from the wreck of \
+                        the college, almost too badly burned to \
+                        identify.^";
+            }
+            print "^Later, you learn that Edward had gone to Bungay's \
+                room that night to hand in his essay. Smelling smoke, he \
+                raised the alarm, and the porter rang for the fire \
+                brigade, who smashed down the door of Bungay's room just \
+                in time to save you.^^The fire destroyed almost the whole \
+                of ~C~ staircase before they were able to put it \
+                out. Jarboe's charred bones were found in the wreckage of \
+                the secret staircase, and nothing at all was found of \
+                Bungay";
+            if (i == 0)
+                ", but this is no consolation to you.";
+            ". No-one has any explanation for the bizarre behaviour of \
+            Jarboe and Bungay; if such explanation ever existed, then it \
+            has surely now gone up in flames.";
+        ],
+        before [;
+         Listen: "The roaring of flames is very loud.";
+        ];
+
+Nearby  JarboeE "Doctor Jarboe"
+ class  FollowClass CarryingClass TalkableClass
+ has    proper
+        ! general if no new-line at start of each_turn routine
+ with   name "doctor" "dr" "jarboe" "fellow",
+        initial "Doctor Jarboe stands here.",
+        description "Jarboe is a tall, gaunt man, with thin, ungainly \
+            limbs and a long sharp nose. He is dressed in a long white \
+            robe, and his eyes stare madly at you.",
+        life [;
+         Give:
+            if (noun == SilverKey or Dagger) {
+                move noun to CryptStairTop;
+                give self general;
+                rtrue;
+            }
+         Show:
+            if (noun == SilverKey or Dagger)
+                "~Give me that,~ says Jarboe.";
+        ],
+        before [;
+         Speak:
+            "Jarboe ignores you. He looks so crazy now that you are not \
+            even sure that he hears you.";
+         Attack,AttackWith:
+            if (Dagger notin player) {
+                deadflag = 1;
+                "^Jarboe rushes at you, knocking you head-first down the \
+                stairs. The last thing you see is his boot descending \
+                onto your face.";
+	    }
+            print "Jarboe reaches for your dagger, trying to disarm you, \
+                but you slash at him. He screams, and clutches at his \
+                injured wrist";
+            if (self.state == 2) ".";
+            MoveNPC(self, Crypt, d_obj);
+            ". ~Let me by,~ he yells. ~Let me by, I must fetch the key, \
+            or we'll die in here.~ You stand aside, still pointing the \
+            knife at him, and he runs past you down the stairs into the \
+            blazing crypt.";
+        ],
+        state 0,
+        each_turn [ i;
+            if (self has general) i = 1;
+            give self ~general;
+            if (Dagger in location) {
+                deadflag = 1;
+                if (i == 0) new_line;
+                "Jarboe grabs the dagger. ~Fool!~ he shouts exultantly, \
+                and stabs you in the chest. The last thing you hear is \
+                his insane laughter.";
+            }
+            if (SilverKey in location) {
+                remove SilverKey;
+                MoveNPC(self, 0, n_obj);
+                if (i == 0) new_line;
+                "~Aha, the key!~ shouts Jarboe exultantly, grabbing \
+                it. He unlocks the door and slips through it. You start \
+                after him, but he shoves you back and starts to shut the \
+                door. You put every ounce of energy you have left into \
+                trying to hold the door open, but Jarboe is too strong \
+                for you, and with a dreadful cackle he shoves the door \
+                closed and locks it. You can hear his laughter on the \
+                other side of the door disappearing into the distance \
+                until you are alone with the crackling flames.";
+            }
+            if (self.state == 0)
+                print "^Jarboe throws his weight against the door in an \
+                    attempt to break it down, but without success. ~The \
+                    cretin!~ he shouts, ~He locked the door on me!~ Then \
+                    he hears your footsteps and whirls around. ~You \
+                    again!~ he screams, ~This is all your fault!~^";
+            if (Dagger notin player) {
+                deadflag = 1;
+                "^Jarboe rushes at you, knocking you head-first down the \
+                stairs. The last thing you see is his boot descending \
+                onto your face.";
+            }
+            if (self.state == 0) {
+                if (LineOfSight(self,SilverKey) == 1) {
+                    self.state = 2;
+                    "^He looks as though he is about to attack you, but \
+                    then he stops. ~I see you have the key to the door,~ \
+                    he says. ~Give it to me!~";
+                }
+                self.state = 1;
+                "^He looks as though he is about to attack you, but \
+                then he stops. ~Give me the knife, little girl,~ he says \
+                softly. ~You shouldn't be carrying such a dangerous \
+                thing.~";
+            }
+            if (self.state == 2) {
+                if (LineOfSight(self,SilverKey) == 0)
+                    "^You don't fool me,~ says Jarboe. ~I know you have \
+                    the key. Give it to me so I can unlock the door. It \
+                    wouldn't do for us both to die here.~";
+                "^~Give me the key,~ Jarboe says again, ~I won't hurt \
+                you.~";
+            }
+            "^~Give me the knife, little girl,~ Jarboe says again. ~I \
+            won't hurt you.~";
+        ];
+
+Nearby  DoorSecret "door"
+ has    door openable lockable locked scenery
+ with   name "door",
+        with_key SilverKey,
+        door_dir n_to,
+        door_to 0,
+        before [;
+         Examine: rfalse;
+         default:
+            if (JarboeE in CryptStairTop)
+                "Jarboe blocks your way.";
+        ];
