@@ -44,7 +44,7 @@ Constant MAX_SCORE = 30;        ! Defined in DM4 §22
 Replace DoMenu;
 Replace LowKey_Menu;
 Constant ALTMENU_PROP_STUBS;
-Constant LASTH__TX = "^^^[Por hoje é só, pessoal!]^";
+Constant LASTH__TX = "^^^[Última dica para este assunto.]^";
 Constant HINTD__TX = "DICAS desativadas.";
 
 Include "Parser";
@@ -152,6 +152,9 @@ Object  -> mushroom "cogumelo"
             "O cogumelo cai ao chão, já meio amassado.";
          Eat:
             steps.rubble_filled = false;
+            ! Novas dicas se tornam disponíveis
+            move os_artefatos to menu_de_ajuda;
+            move dentro_da_camera_quadrada to menu_de_ajuda;
             "Você mordisca um canto, incapaz de identificar a
             origem de um sabor acre. E então, o vôo de uma arara
             o distrai, parecendo surgir do próprio sol, o som de
@@ -1113,20 +1116,29 @@ Option -> "Como vencer este jogo"
                     armazene os cinco artefatos, e você vence o jogo.";
 Menu -> great_plaza_hints "A Grande Plaza";
 HintTopic -> -> "Como eu faço para entrar na Estrutura 10?";
+Hint -> -> -> "Examine a estrutura. Reparou nos degraus?";
+Hint -> -> -> "Tente descer pelos degraus.";
+Hint -> -> -> "Hum. Caminho bloqueado. Como fazer para abrir caminho?";
 Hint -> -> -> "Você reparou no cogumelo?";
 Hint -> -> -> "Alguns cogumelos são alucinógenos. Ou venenosos.";
 Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
-HintTopic -> -> "E o que eu faço agora?";
-Hint -> -> -> "Passeie por aí e observe.";
-Hint -> -> -> "Tem alguma coisa de diferente nos arredores?";
-Hint -> -> -> "Talvez algumas inscrições?";
-Hint -> -> -> "Procure pelas inscrições no dicionário maia.";
+
+Menu menu_oculto "Dicas a serem reveladas.";
+
+Menu -> dentro_da_camera_quadrada "Dentro da Câmera Quadrada";
+HintTopic -> -> "Ok, o que eu faço agora?";
+Hint -> -> -> "Você está na Câmara Quadrada, certo? Se ainda não estiver, desça os degraus da Estrutura 10.";
+Hint -> -> -> "Observe as inscrições.";
+Hint -> -> -> "Duas delas se destacam: Flecha e Roda.";
+Hint -> -> -> "Você já notou que está com um dicionário? Olhe no seu inventário, ele está lá.";
+Hint -> -> -> "Experimente pesquisar essas incrições no dicionário.";
+Hint -> -> -> "Se tiver dificuldade, o comando exato é: ~pesquise flecha no dicionário~, e etc.";
+
 Menu -> os_artefatos "Os Artefatos";
 HintTopic -> -> "A Estatueta";
 HintTopic -> -> "A Máscara de Jade";
 HintTopic -> -> "A Pedra Funerária";
 HintTopic -> -> "O Osso Entalhado";
 HintTopic -> -> "O Favo de Mel";
-
 ! ---------------------------------------------------------------------------- !

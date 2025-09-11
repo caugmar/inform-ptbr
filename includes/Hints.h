@@ -162,7 +162,7 @@ Class HintTopic
                          CenterU(self.printsn,2);
                 style roman; style reverse;
                 @set_cursor 3 1; spaces(i);
-                @set_cursor 3 2; print "RETURN = ler dica"; 
+                @set_cursor 3 2; print "ENTER = ler dica"; 
                 j=i-17; @set_cursor 3 j;
                 print "V = menu anterior";
                 style roman; font off;

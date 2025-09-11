@@ -180,9 +180,9 @@ Verb 'esvazie'
 Verb 'entre' 'cruze'
 *                                   -> GoIn
 * 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
-Verb 'examine' 'vasculhe'
+Verb 'vasculhe' 
 * noun                              -> Search;
-Verb 'x//' 'cheque' 'descreva' 'observe' 'olhe' 'veja' 'procure'
+Verb 'x//' 'examine' 'cheque' 'descreva' 'observe' 'olhe' 'veja' 
 *                                   -> Look
 * noun                              -> Examine
 * 'em'/'no'/'na'/'nos'/'nas' noun   -> Search
@@ -190,7 +190,7 @@ Verb 'x//' 'cheque' 'descreva' 'observe' 'olhe' 'veja' 'procure'
 * 'debaixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
 * 'em' 'baixo' 'de'/'do'/'da'/'dos'/'das' noun -> LookUnder
 * noun=ADirection                   -> Examine;
-Verb 'pesquise' 'consulte'
+Verb 'pesquise' 'consulte' 'procure'
 * topic 'em'/'no'/'na'/'nos'/'nas' noun -> Consult
 * noun 'sobre' topic                -> Consult
 * noun 'no' topic                   -> Consult;
