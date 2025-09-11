@@ -153,8 +153,8 @@ Object  -> mushroom "cogumelo"
          Eat:
             steps.rubble_filled = false;
             ! Novas dicas se tornam disponíveis
-            move os_artefatos to menu_de_ajuda;
-            move dentro_da_camera_quadrada to menu_de_ajuda;
+            Pmove(dentro_da_camera_quadrada, menu_de_ajuda);
+            Pmove(os_artefatos, menu_de_ajuda);
             "Você mordisca um canto, incapaz de identificar a
             origem de um sabor acre. E então, o vôo de uma arara
             o distrai, parecendo surgir do próprio sol, o som de
