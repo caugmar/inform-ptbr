@@ -3,41 +3,42 @@ Constant Story "RUÍNAS";
 Constant Headline "^Uma exploração arqueológica interativa^
     Copyright (c) 1999 by Angela M. Horns.^";
 
-! ---------------------------------------------------------------------------- !
-!       This version recreated by Roger Firth in May 2001, using the simple
-!       (albeit time-consuming) process of combining the various fragments
-!       of "Ruins" quoted in Edition 4/1 of the Inform Designer's Manual.
+! ------------------------------------------------------------- !
+!   This version recreated by Roger Firth in May 2001, using
+!   the simple (albeit time-consuming) process of combining
+!   the various fragments of "Ruins" quoted in Edition 4/1
+!   of the Inform Designer's Manual.
 !       
-!                       PLAYER
-!                             lamp,dictionary,map
-!                       GREAT PLAZA
-!                           | mushroom,packing-case,camera,newspaper,steps
-!                           |
-!                           |
-!                       SQUARE CHAMBER -------------------- WORMCAST
-!                           | inscriptions,sunlight,(key)         eggsac
-!                           |
-!                           |
-!                       STOOPED CORRIDOR
-!                           | statuette,door
-!                           |
-!                           |
-!   UPPER CANYON        SHRINE
-!       | ball           /     \ paintings,altar,mask,(priest)
-!       |     ----------         ----------
-!       |   /                               \
-!   XIBALBÁ                                 ANTECHAMBER
-!       | stela                                 | cage,skeletons,(warthog)
-!       |                                       |
-!       |                                       |
-!   LOWER CANYON                            BURIAL SHAFT
-!       | chasm                                   honeycomb
-!       |
-!       |
-!   PUMICE LEDGE
+!                      PLAYER
+!                            lamp,dictionary,map
+!                      GREAT PLAZA
+!                          | mushroom,packing-case,camera,
+!                          | newspaper,steps
+!                          |
+!                      SQUARE CHAMBER --------------- WORMCAST
+!                          | inscriptions,sunlight,     eggsac
+!                          | (key)
+!                          |
+!                      STOOPED CORRIDOR
+!                          | statuette,door
+!                          |
+!                          |
+!  UPPER CANYON        SHRINE
+!      | ball           /     \ paintings,altar,mask,(priest)
+!      |     ----------         ----------
+!      |   /                               \
+!  XIBALBÁ                                 ANTECHAMBER
+!      | stela                                 | cage,skeletons,
+!      |                                       | (warthog)
+!      |                                       |
+!  LOWER CANYON                            BURIAL SHAFT
+!      | chasm                                   honeycomb
+!      |
+!      |
+!  PUMICE LEDGE
 !         bone
 !
-! ---------------------------------------------------------------------------- !
+! ------------------------------------------------------------- !
 
 Constant MAX_CARRIED = 7;       ! Defined in DM4 §22
 Constant MAX_SCORE = 30;        ! Defined in DM4 §22
@@ -1180,7 +1181,8 @@ Hint -> -> -> "Observe as inscrições.";
 Hint -> -> -> "Duas delas se destacam: Flecha e Roda.";
 Hint -> -> -> "Você já notou que está com um dicionário? 
     Olhe no seu inventário, ele está lá.";
-Hint -> -> -> "Experimente pesquisar essas incrições no dicionário.";
+Hint -> -> -> "Experimente pesquisar essas incrições no
+    dicionário.";
 Hint -> -> -> "Se tiver dificuldade, o comando exato é: 
     ~pesquise flecha no dicionário~, e etc.";
 
@@ -1190,5 +1192,6 @@ HintTopic -> -> "A Máscara de Jade";
 HintTopic -> -> "A Pedra Funerária";
 HintTopic -> -> "O Osso Entalhado";
 HintTopic -> -> "O Favo de Mel";
-! ---------------------------------------------------------------------------- !
+
+! ------------------------------------------------------------- !
 
