@@ -1,3 +1,4 @@
+! vi:textwidth=65
 Constant Story "RUÍNAS";
 Constant Headline "^Uma exploração arqueológica interativa^
     Copyright (c) 1999 by Angela M. Horns.^";
@@ -72,8 +73,10 @@ Class   Treasure
                 antes registrar o contexto em que foi encontrado
                 seria agir como um saqueador.";
          Photograph:
-            if (self has moved) "O quê? E falsificar o registro arqueológico?";
-            if (self.photographed_in_situ) "Não é preciso fazer isso de novo.";
+            if (self has moved) 
+                "O quê? E falsificar o registro arqueológico?";
+            if (self.photographed_in_situ) 
+                "Não é preciso fazer isso de novo.";
         ],
         after [;
          Insert:
@@ -118,8 +121,9 @@ Object  Forest "~Grande Plaza~"
         d_to steps,
         in_to steps,
         u_to
-            "Os troncos dessas árvores são cheios de espinhos. Você cortaria
-            suas mãos em tiras se tentasse subir neles.",
+            "Os troncos dessas árvores são cheios de espinhos.
+            Você cortaria suas mãos em tiras se tentasse subir
+            neles.",
         cant_go [;
             print "A floresta tropical é";
             style bold; print " muito "; style roman;
@@ -136,18 +140,19 @@ Object  Forest "~Grande Plaza~"
 Object  -> mushroom "cogumelo"
  with   name 'cogumelo' 'salpicado' 'manchas' 'manchado',
         initial
-            "Um cogumelo salpicado de manchas cresce da terra encharcada, em
-            uma haste longa.",
+            "Um cogumelo salpicado de manchas cresce da terra
+            encharcada, em uma haste longa.",
         description
-            "O cogumelo é coberto de manchas, e você não tem muita certeza se
-            não é venenoso.",
+            "O cogumelo é coberto de manchas, e você não tem
+            muita certeza se não é venenoso.",
         after [;
          Take:
             if (self.mushroom_picked)
                 "Você pega o cogumelo, que está se desintegrando
                 pouco a pouco.";
             self.mushroom_picked = true;
-            "Você pega o cogumelo, fazendo um corte limpo no caule fino.";
+            "Você pega o cogumelo, fazendo um corte limpo no
+            caule fino.";
          Drop:
             "O cogumelo cai ao chão, já meio amassado.";
          Eat:
@@ -174,14 +179,16 @@ Object  -> packing_case "caixote"
             civilização.",
         before [;
          Take, Remove, PushDir, Pull, Push:
-            "O caixote é pesado demais para se incomodar em movê-lo
-            enquanto a expedição ainda não está completa.";
+            "O caixote é pesado demais para se incomodar em
+            movê-lo enquanto a expedição ainda não está
+            completa.";
         ],
  has    static container open openable;
 
 !       Defined in DM4 §6
 Object  -> -> camera "câmera fotográfica de placa úmida"
- with   name 'camera' 'c@^amera' 'fotografica' 'fotogr@'afica' 'de' 'placa' '@'umida' 'umida',
+ with   name 'camera' 'c@^amera' 'fotografica' 'fotogr@'afica'
+            'de' 'placa' '@'umida' 'umida',
         description
             "Um modelo com moldura de madeira, pesada, resistente
             e teimosa: como todo arqueologista, você tem uma
@@ -190,7 +197,8 @@ Object  -> -> camera "câmera fotográfica de placa úmida"
 
 !       Defined in DM4 §23
 Object  -> -> newspaper "jornal de um mês atrás"
- with   name 'jornal' 'de' 'um' 'mes' 'm@^es' 'atras' 'atr@'as' 'velho',
+ with   name 'jornal' 'de' 'um' 'mes' 'm@^es' 'atras' 'atr@'as'
+            'velho',
         description
             "O ~Times~ de 26 de fevereiro de 1938, ao mesmo tempo
             úmido e quebradiço depois de um mês exposto ao clima,
@@ -199,14 +207,15 @@ Object  -> -> newspaper "jornal de um mês atrás"
 
 !       Defined in DM4 §4, modified in §5 and §23
 Object  -> steps "degraus cortados na pedra"
- with   name 'degraus' 'cortados' 'na' 'pedra' 'escada' 'escadas' 'escadaria'
-            'piramide' 'pir@^amide' 'funeraria' 'funer@'aria' 
-            'estrutura' 'dez' '10',
+ with   name 'degraus' 'cortados' 'na' 'pedra' 'escada' 'escadas'
+            'escadaria' 'piramide' 'pir@^amide' 'funeraria' 
+            'funer@'aria' 'estrutura' 'dez' '10',
         description [;
             if (self.rubble_filled)
                 "Escombros bloqueiam o caminho depois de apenas
                 alguns passos.";
-            print "Os degraus rachados e gastos descem para uma câmara sombria. Seus pés ";
+            print "Os degraus rachados e gastos descem para uma
+                câmara sombria. Seus pés ";
             if (Square_Chamber hasnt visited)
                 print "podem ser ";
             else
@@ -257,9 +266,11 @@ Object  Square_Chamber "Câmara Quadrada"
 
 !       Defined in DM4 §8
 Object  -> "inscrições esculpidas"
- with   name 'inscricoes' 'inscri@cc@~oes' 'esculpidas' 'paredes' 'chao' 'ch@~ao' 'teto',
+ with   name 'inscricoes' 'inscri@cc@~oes' 'esculpidas' 'paredes'
+            'chao' 'ch@~ao' 'teto',
         initial
-            "Inscrições esculpidas enchem as paredes, o chão e o teto.",
+            "Inscrições esculpidas enchem as paredes, o chão e o
+            teto.",
         description
             "Quando você examina os entalhes de perto, eles
             parecem estar imóveis.  Mas você tem uma sensação
@@ -270,7 +281,8 @@ Object  -> "inscrições esculpidas"
 
 !       Defined in DM4 §8
 Object  -> sunlight "raio de sol"
- with   name 'raio' 'de' 'sol' 'haste' 'graos' 'gr@~aos' 'poeira' 'solida' 's@'olida',
+ with   name 'raio' 'de' 'sol' 'haste' 'graos' 'gr@~aos' 'poeira'
+            'solida' 's@'olida',
         description
             "Grãos de poeira brilham na haste de ar iluminada
             pelo sol, fazendo-a parecer quase sólida.",
@@ -294,7 +306,8 @@ Object  Corridor "Corredor Inclinado"
 
 !       Defined in DM4 §5
 Treasure -> statuette "estatueta de um espírito pigmeu"
-    with  name 'preciosa' 'estatueta' 'maia' 'espirito' 'esp@'irito' 'pigmeu' 'serpente',
+    with name 'preciosa' 'estatueta' 'maia' 'espirito'
+            'esp@'irito' 'pigmeu' 'serpente',
     initial
         "Há uma preciosa estatueta maia aqui!",
     description
@@ -400,7 +413,8 @@ Object  Canyon_N "Extremidade Superior da Ravina"
 
 !       Defined in DM4 §15, modified in Exercise 24 and §23
 Object  -> huge_ball "enorme bola de pedra-pomes"
- with   name 'enorme' 'bola' 'de' 'pedra-pomes' 'pedra' 'pomes' '-pomes',
+ with   name 'enorme' 'bola' 'de' 'pedra-pomes' 'pedra' 'pomes'
+            '-pomes',
         initial
             "Uma enorme bola de pedra-pomes, com uns dois metros
             e meio de diâmetro, repousa sobre o chão.",
@@ -457,12 +471,13 @@ Object  Junction "Xibalb@'a"
 
 !       Defined in DM4 §23
   Treasure -> stela "pedra funerária"
-    with  name 'pedra' 'funerária' 'funeraria' 'da' 'fronteira' 'marcador',
-    initial 
+    with  name 'pedra' 'funerária' 'funeraria' 'da' 'fronteira'
+            'marcador',
+    initial
         "Uma pedra funerária de tamanho modesto, marcando uma
         fronteira, repousa sobre uma saliência na altura de sua
         cabeça.",
-    description 
+    description
         "Os entalhes parecem avisar que as fronteiras de
         Xibalb@'a, o Lugar do Medo, estão próximas. O glifo do
         Pássaro destaca-se entre as outras inscrições.";
@@ -626,7 +641,8 @@ Object  -> cage "gaiola de ferro"
 
 !       Defined in Exercise 55
 Object  -> -> skeletons "esqueletos"
- with   name 'esqueletos' 'esqueleto' 'caveiras' 'caveira' 'ossos' 'osso',
+ with   name 'esqueletos' 'esqueleto' 'caveiras' 'caveira'
+            'ossos' 'osso',
  has    pluralname static;
 
 ! ---------------------------------------------------------------------------- !
@@ -680,10 +696,10 @@ Treasure -> honeycomb "favo de mel antigo"
         "Talvez fosse algum tipo de oferenda funerária.",
     after [;
         Eat:
-            "Talvez seja a refeição mais cara de sua vida. O mel tem
-            um gosto estranho, provavelmente porque ele foi usado
-            para armazenar as entranhas do Senhor que foi enterrado
-            aqui, mas ainda assim é mel.";
+            "Talvez seja a refeição mais cara de sua vida. O mel
+            tem um gosto estranho, provavelmente porque ele foi
+            usado para armazenar as entranhas do Senhor que foi
+            enterrado aqui, mas ainda assim é mel.";
     ],
     has   edible;
 
@@ -736,7 +752,8 @@ Object  Wormcast "Ninho dos Vermes"
             } else {
                 print " caem";
             }
-            print_ret " para dentro de uma das covas e rapidamente desaparece.";
+            print_ret " para dentro de uma das covas e
+                rapidamente desaparece.";
         ],
  has    light;
 
@@ -779,8 +796,10 @@ Object  sodium_lamp "lanterna de sódio"
         before [;
          Examine:
             print "É uma lanterna para arqueólogos, bastante pesada, ";
-            if (self hasnt on) "e está desligada.";
-            if (self.battery_power < 10) "emitindo uma fraca luz amarelada.";
+            if (self hasnt on) 
+                "e está desligada.";
+            if (self.battery_power < 10) 
+                "emitindo uma fraca luz amarelada.";
             "chamejando com sua luz amarela brilhante.";
          Burn:
             <<SwitchOn self>>;
@@ -815,8 +834,10 @@ Object  sodium_lamp "lanterna de sódio"
             if (self in location) {
                 switch (self.battery_power) {
                  10: "^A lanterna está ficando mais fraca!";
-                 5:  "^A lanterna não vai aguentar muito mais tempo.";
-                 0:  "^Finalmente esgotada, a lanterna se apaga.";
+                 5:  "^A lanterna não vai aguentar muito mais
+                     tempo.";
+                 0:  "^Finalmente esgotada, a lanterna se
+                     apaga.";
                 }
             }
         ],
@@ -825,7 +846,8 @@ Object  sodium_lamp "lanterna de sódio"
 
 !       Defined in DM4 §16
 Object  dictionary "Dicionário Maia de Waldeck"
- with   name 'dicionario' 'dicion@'ario' 'guia' 'maia' 'de' 'waldeck',
+ with   name 'dicionario' 'dicion@'ario' 'guia' 'maia' 'de'
+            'waldeck',
         description
             "Compilado a partir das litografias nada confiáveis
             do lendário contador de histórias e explorador
@@ -841,18 +863,23 @@ Object  dictionary "Dicionário Maia de Waldeck"
             if (consult_words==1 && w1~='glifo' or 'glifos') glyph = w1;
             else if (consult_words==2 && w1=='glifo') glyph = w2;
             else if (consult_words==2 && w2=='glifo') glyph = w1;
-            else "Tente ~pesquise <nome do glifo> no dicionário~.";
+            else "Tente ~pesquise <nome do glifo> no
+                dicionário~.";
             switch (glyph) {
                 'q1': "(Este você já memorizou!)^^
                     Q1: ~local sagrado~.";
-                'crescente': "Crescente: acredita-se que a pronúncia seja ~xibalba~,
-                    embora seu significado seja desconhecido.";
+                'crescente': "Crescente: acredita-se que a
+                    pronúncia seja ~xibalba~, embora seu
+                    significado seja desconhecido.";
                 'flecha': "Flecha: ~jornada; tornar-se~.";
-                'caveira': "Caveira: ~morte, perdição; destino (não necessariamente mau)~.";
-                'roda': "Roda: ~o Sol; também vida, a duração da vida~.";
+                'caveira': "Caveira: ~morte, perdição; destino
+                    (não necessariamente mau)~.";
+                'roda': "Roda: ~o Sol; também vida, a duração da
+                    vida~.";
                 'jaguar': "Jaguar: ~Senhor~.";
                 'macaco': "Macaco: ~sacerdote?~.";
-                'ave': if (self.correct) "Ave: ~morte como uma pedra~.";
+                'ave': if (self.correct) 
+                    "Ave: ~morte como uma pedra~.";
                     "Ave: ~rico, próspero?~.";
                 default: "Este glifo ainda não foi registrado.";
             }
@@ -861,8 +888,8 @@ Object  dictionary "Dicionário Maia de Waldeck"
 
 !       Defined in DM4 §23
 Object  map "mapa esboçado de Quintana Roo"
- with   name 'mapa' 'esbocado' 'esbo@ccado' 'esboco' 'esbo@cco' 
-             'rascunho' 'rascunhado' 'de' 'quintana' 'roo',
+ with   name 'mapa' 'esbocado' 'esbo@ccado' 'esboco' 'esbo@cco'
+            'rascunho' 'rascunhado' 'de' 'quintana' 'roo',
         description
             "Este mapa marca pouco mais do que o riacho pelo qual
             você chegou até aqui, vindo da fronteira sudoeste do
@@ -896,7 +923,8 @@ Object  priest "sacerdote mumificado"
             'glifo', 'glifos', 'dialeto', 'escrita', 'maia':
                 "~Em nossa cultura, os sacerdotes sempre são
                 alfabetizados.~";
-            'senhor', 'tumba', 'santuario', 'templo', 'santu@'ario':
+            'senhor', 'tumba', 'santuario', 'templo',
+            'santuário':
                 "~Este é um assunto particular.~";
             'pinturas':
                 "O sacerdote franze a testa, e diz: ~10 baktun, 4
@@ -910,14 +938,16 @@ Object  priest "sacerdote mumificado"
                 sacerdote continua: ~Assim como os
                 arqueologistas.~";
             'ninho', 'vermes':
-                "~Homem nenhum conseguirá passar pelo Ninho dos Vermes.~";
+                "~Homem nenhum conseguirá passar pelo Ninho dos
+                Vermes.~";
             'xibalba', 'xibalb@'a':
                 if (Shrine.sw_to == Junction)
-                    "O sacerdote estica seu dedo ossudo para sudoeste.";
+                    "O sacerdote estica seu dedo ossudo para
+                    sudoeste.";
                 Shrine.sw_to = Junction;
                 "O sacerdote estende um dedo ossudo para
                 sudoeste, para as estalactites de gelo, e elas se
-                derretem como neve enquanto ele fala: ~Xibalb@'a,
+                derretem como neve enquanto ele fala: ~Xibalbá,
                 o Mundo Inferior.~";
          }
              "~Você deve encontrar sua própria resposta.~";
@@ -925,8 +955,8 @@ Object  priest "sacerdote mumificado"
             "O sacerdote não demonstra interesse nesse assunto.";
          Attack, Kiss:
             remove self;
-            "O sacerdote se desfaz em pó até nada mais restar, nem mesmo um
-            pedaço de osso.";
+            "O sacerdote se desfaz em pó até nada mais restar,
+            nem mesmo um pedaço de osso.";
          ThrowAt:
             move noun to location; <<Attack self>>;
          Show, Give:
@@ -941,7 +971,8 @@ Object  priest "sacerdote mumificado"
                 "Ele observa a data. ~12 baktun 16 katun 4 tun 1
                 uinal 12 kin~, ele declara antes de ler. ~Ah. O
                 progresso.~";
-            "O sacerdote não está interessado nas coisas terrenas.";
+            "O sacerdote não está interessado nas coisas
+            terrenas.";
         ],
         orders [;
          Go:
@@ -962,10 +993,12 @@ Object  warthog "Javali"
         description
             "Enlameado e grunhindo.",
         orders [;
-         Go, Look, Examine, Smell, Taste, Touch, Search,Jump, Enter:
+         Go, Look, Examine, Smell, Taste, Touch, Search, Jump,
+         Enter:
             rfalse;
          Eat:
-            "Você ainda não tem muito jeito para farejar comida.";
+            "Você ainda não tem muito jeito para farejar
+            comida.";
          default:
             "Javalis não conseguem fazer algo tão complicado. Se
             não fosse pela visão noturna e o peso perdido, eles
@@ -991,8 +1024,8 @@ Object  low_mist "névoa baixa"
 
 !       Defined in DM4 Exercise 46
 Object tiny_claws "som de pequenas garras" thedark
-with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr' 'coisas'
-      'criaturas' 'monstros' 'insetos',
+with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr'
+        'coisas' 'criaturas' 'monstros' 'insetos',
     article "o",
     initial
       "Em algum lugar, pequenas garras estão correndo.",
@@ -1004,7 +1037,8 @@ with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr' 'coisas'
     Smell:
       "Você só consegue sentir o cheiro do seu próprio medo.";
     Attack:
-      "Eles facilmente se esquivam do seu movimento desordenado.";
+      "Eles facilmente se esquivam do seu movimento
+      desordenado.";
     default:
       "As criaturas se esquivam de você, chocalhando.";
     ],
@@ -1017,12 +1051,12 @@ with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr' 'coisas'
         }
         switch (++(self.turns_active)) {
             1: "^O som de corrida se aproxima um pouco, e sua
-            respiração se torna alta e rouca.";
-            2: "^O suor do terror escorre da sua testa. As criaturas
-            estão quase aqui!";
-            3: "^Você sente um formigamento nas suas extremidades e
-            chuta para fora, se livrando de algo quitinoso. O som
-            deles sozinho é um ruído ameaçador.";
+               respiração se torna alta e rouca.";
+            2: "^O suor do terror escorre da sua testa. As
+               criaturas estão quase aqui!";
+            3: "^Você sente um formigamento nas suas extremidades
+               e chuta para fora, se livrando de algo quitinoso.
+               O som deles sozinho é um ruído ameaçador.";
             4: deadflag = true;
             "^De repente, há uma pequena dor, de uma presa afiada
             como uma agulha hipodérmica na sua panturrilha. Quase
@@ -1044,7 +1078,8 @@ with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr' 'coisas'
     move sodium_lamp to player;
     move dictionary to player;
     StartDaemon(sodium_lamp);
-    thedark.description = "A escuridão pesa sobre você, e uma ancestral sensação de medo começa a envolvê-lo.";
+    thedark.description = "A escuridão pesa sobre você, e uma
+        ancestral sensação de medo começa a envolvê-lo.";
     "^^^Dias de busca, dias de sede e fome abrindo caminho pela
     floresta densa, mas enfim sua paciência foi recompensada. Uma
     descoberta!^";
@@ -1090,30 +1125,39 @@ Include "PortuguesG";
 
 !       Defined in DM4 §6
 [ PhotographSub;
-    if (camera notin player) "Não sem o uso de sua câmera.";
-    if (noun == player) "Melhor não. Você não faz a barba desde o México.";
+    if (camera notin player) 
+        "Não sem o uso de sua câmera.";
+    if (noun == player) 
+        "Melhor não. Você não faz a barba desde o México.";
     if (children(player) > 1)
-        "Fotografia é um negócio complicado, que exige o uso de ambas as
-        mãos. Você terá que largar todo o resto.";
-    if (location == Forest) "Nesta floresta encharcada de chuva, melhor não.";
-    if (location == thedark) "Está muito escuro.";
+        "Fotografia é um negócio complicado, que exige o uso de
+        ambas as mãos. Você terá que largar todo o resto.";
+    if (location == Forest) 
+        "Nesta floresta encharcada de chuva, melhor não.";
+    if (location == thedark) 
+        "Está muito escuro.";
     if (AfterRoutines()) return;
-    print_ret "Você monta a câmera elefantina, de grande formato e placa úmida,
-        ajusta a lâmpada de sódio e faz uma exposição paciente de ",
+    print_ret "Você monta a câmera elefantina, de grande formato
+        e placa úmida, ajusta a lâmpada de sódio e faz uma
+        exposição paciente de ",
         (the) noun, ".";
 ];
 
 Verb 'fotografe' * noun -> Photograph;
 
 Menu menu_de_ajuda "Ajuda e dicas para ~Ruínas~";
-Option -> "Como Jogar" with description [; howtoplay.description(); ];
+Option -> "Como Jogar" 
+    with description [; 
+        howtoplay.description(); 
+    ];
 Option -> "Como vencer este jogo" 
-  with description "Você é um arqueólogo, um explorador. Há cinco 
-                    artefatos espalhados por este sítio arqueológico. 
-                    Você precisa encontrar cada um deles, fotografá-lo 
-                    no local antes de removê-lo, e aí então levá-lo para 
-                    armazenamento no seu caixote. Encontre, fotografe e 
-                    armazene os cinco artefatos, e você vence o jogo.";
+    with description 
+        "Você é um arqueólogo, um explorador. Há cinco 
+        artefatos espalhados por este sítio arqueológico. 
+        Você precisa encontrar cada um deles, fotografá-lo 
+        no local antes de removê-lo, e aí então levá-lo para 
+        armazenamento no seu caixote. Encontre, fotografe e 
+        armazene os cinco artefatos, e você vence o jogo.";
 Menu -> great_plaza_hints "A Grande Plaza";
 HintTopic -> -> "Como eu faço para entrar na Estrutura 10?";
 Hint -> -> -> "Examine a estrutura. Reparou nos degraus?";
@@ -1121,19 +1165,24 @@ Hint -> -> -> "Tente descer pelos degraus.";
 Hint -> -> -> "Hum. Caminho bloqueado. Como fazer para abrir caminho?";
 Hint -> -> -> "Você reparou no cogumelo?";
 Hint -> -> -> "Alguns cogumelos são alucinógenos. Ou venenosos.";
-Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar em estados alterados de consciência.";
+Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar
+    em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
 
+! TODO Continuar acrescentando dicas
 Menu menu_oculto "Dicas a serem reveladas.";
 
 Menu -> dentro_da_camera_quadrada "Dentro da Câmera Quadrada";
 HintTopic -> -> "Ok, o que eu faço agora?";
-Hint -> -> -> "Você está na Câmara Quadrada, certo? Se ainda não estiver, desça os degraus da Estrutura 10.";
+Hint -> -> -> "Você está na Câmara Quadrada, certo? 
+    Se ainda não estiver, desça os degraus da Estrutura 10.";
 Hint -> -> -> "Observe as inscrições.";
 Hint -> -> -> "Duas delas se destacam: Flecha e Roda.";
-Hint -> -> -> "Você já notou que está com um dicionário? Olhe no seu inventário, ele está lá.";
+Hint -> -> -> "Você já notou que está com um dicionário? 
+    Olhe no seu inventário, ele está lá.";
 Hint -> -> -> "Experimente pesquisar essas incrições no dicionário.";
-Hint -> -> -> "Se tiver dificuldade, o comando exato é: ~pesquise flecha no dicionário~, e etc.";
+Hint -> -> -> "Se tiver dificuldade, o comando exato é: 
+    ~pesquise flecha no dicionário~, e etc.";
 
 Menu -> os_artefatos "Os Artefatos";
 HintTopic -> -> "A Estatueta";
@@ -1142,3 +1191,4 @@ HintTopic -> -> "A Pedra Funerária";
 HintTopic -> -> "O Osso Entalhado";
 HintTopic -> -> "O Favo de Mel";
 ! ---------------------------------------------------------------------------- !
+
