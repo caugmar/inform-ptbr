@@ -1,14 +1,14 @@
+# vi:spelllang=pt_br
+
 Minha tentativa de criar os arquivos necessários para poder escrever 
 ficção interativa em português usando o Inform 6 (que pra mim ainda 
 é o melhor sistema possível!)
 
-Inclui uma versão traduzida do jogo de demonstração "Ruins", que é montado 
-ao longo do DM4.
+Inclui uma versão traduzida do jogo de demonstração "Ruins", que é montado ao longo do DM4.
 
 Notas:
 
-Recomendo usar como editor o Kate. É completo para o que precisamos
-aqui, tem um modo VI, e não te atrapalha.
+Recomendo usar como editor o Neovim. Sem mais.
 
 Aqui você encontra bibliotecas que foram contribuídas por usuários do
 sistema, pode ser muito útil: 

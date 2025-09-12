@@ -1188,10 +1188,20 @@ Hint -> -> -> "Se tiver dificuldade, o comando exato é:
 
 Menu -> os_artefatos "Os Artefatos";
 HintTopic -> -> "A Estatueta";
+Hint -> -> -> "Procure por ela no corredor inclinado.";
 HintTopic -> -> "A Máscara de Jade";
+Hint -> -> -> "Você já encontrou o altar?";
+Hint -> -> -> "Procure por ela no altar.";
 HintTopic -> -> "A Pedra Funerária";
+Hint -> -> -> "Você já encontrou Xibalbá? Se ainda não, procure
+    por esse lugar primeiro.";
+Hint -> -> -> "Procure pela pedra funerária em Xibalbá.";
 HintTopic -> -> "O Osso Entalhado";
+Hint -> -> -> "Você vai encontrar uma saliência depois de rolar
+    uma bola de pedra-pomes.";
+Hint -> -> -> "Procure pelo osso entalhado nessa saliência.";
 HintTopic -> -> "O Favo de Mel";
+Hint -> -> -> "Procure pelo favo de mel no poço funerário.";
 
 ! ------------------------------------------------------------- !
 
