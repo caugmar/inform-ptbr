@@ -72,7 +72,8 @@ Class   Treasure
                 "Estamos nos anos 30, não naqueles velhos e maus
                 tempos. Hoje em dia, remover um artefato sem
                 antes registrar o contexto em que foi encontrado
-                seria agir como um saqueador.";
+                seria agir como um saqueador. Você precisa
+                fotografá-lo antes.";
          Photograph:
             if (self has moved) 
                 "O quê? E falsificar o registro arqueológico?";
@@ -198,7 +199,7 @@ Object  -> -> camera "câmera fotográfica de placa úmida"
 
 !       Defined in DM4 §23
 Object  -> -> newspaper "jornal de um mês atrás"
- with   name 'jornal' 'de' 'um' 'mes' 'm@^es' 'atras' 'atr@'as'
+ with   name 'jornal' 'de' 'um' 'mes' 'mês' 'atras' 'atrás'
             'velho',
         description
             "O ~Times~ de 26 de fevereiro de 1938, ao mesmo tempo
@@ -267,11 +268,10 @@ Object  Square_Chamber "Câmara Quadrada"
 
 !       Defined in DM4 §8
 Object  -> "inscrições esculpidas"
- with   name 'inscricoes' 'inscri@cc@~oes' 'esculpidas' 'paredes'
-            'chao' 'ch@~ao' 'teto',
+ with   name 'inscricoes' 'inscrições' 'esculpidas' 'paredes'
+            'teto',
         initial
-            "Inscrições esculpidas enchem as paredes, o chão e o
-            teto.",
+            "Inscrições esculpidas enchem as paredes e o teto.",
         description
             "Quando você examina os entalhes de perto, eles
             parecem estar imóveis.  Mas você tem uma sensação
@@ -321,7 +321,9 @@ Treasure -> statuette "estatueta de um espírito pigmeu"
 Object  -> StoneDoor "porta de pedra"
  with   name 'porta' 'de' 'pedra' 'massiva' 'grande' 'amarela',
         description
-            "É apenas uma grande porta de pedra.",
+            "É uma grande porta feita de algum tipo de pedra
+            amarela. Há um orifício nela, provavelmente para
+            algum tipo de chave.",
         when_closed
             "A passagem é interrompida por uma massiva porta de
             pedra amarela.",
@@ -782,7 +784,7 @@ Object  -> eggsac "saco de ovos brilhante",
             }
         ];
 
-! ---------------------------------------------------------------------------- !
+! ------------------------------------------------------------- !
 !       These objects are moved into place as the game proceeds.
 !
 !       Defined in DM4 §14, modified in §23
@@ -900,7 +902,11 @@ Object  map "mapa esboçado de Quintana Roo"
 
 !       Defined in DM4 §23
 Object  stone_key "chave de pedra"
- with   name 'chave' 'de' 'pedra';
+ with   name 'chave' 'de' 'pedra'
+        description 
+            "É claramente uma chave, feita de algum tipo de pedra
+            amarela. E toda chave costuma abrir uma porta..."
+ has female;
 
 !       Defined in DM4 §17, modified in §18 and §23 
 Object  priest "sacerdote mumificado"
@@ -1067,7 +1073,7 @@ with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr'
         }
     ],
     turns_active 0;
-! ---------------------------------------------------------------------------- !
+! ------------------------------------------------------------- !
 !       Utility routines.
 
 !       Defined in DM4 §4, modified in §21 and §23
@@ -1120,14 +1126,14 @@ with name 'pequenas' 'garras' 'som' 'de' 'correndo' 'correr'
     if (deadflag == 3) print "Você foi capturado";
 ];
 
-! ---------------------------------------------------------------------------- !
+! ------------------------------------------------------------- !
 
 Include "PortuguesG";
 
 !       Defined in DM4 §6
 [ PhotographSub;
     if (camera notin player) 
-        "Não sem o uso de sua câmera.";
+        "Não sem usar a câmera.";
     if (noun == player) 
         "Melhor não. Você não faz a barba desde o México.";
     if (children(player) > 1)
@@ -1138,10 +1144,9 @@ Include "PortuguesG";
     if (location == thedark) 
         "Está muito escuro.";
     if (AfterRoutines()) return;
-    print_ret "Você monta a câmera elefantina, de grande formato
-        e placa úmida, ajusta a lâmpada de sódio e faz uma
-        exposição paciente de ",
-        (the) noun, ".";
+    print_ret "Você monta a câmera de placa úmida, gigantesca,
+        ajusta a lâmpada de sódio e faz uma exposição paciente de ",
+        (an) noun, ".";
 ];
 
 Verb 'fotografe' * noun -> Photograph;
@@ -1170,7 +1175,11 @@ Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar
     em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
 
-! TODO Continuar acrescentando dicas
+! TODO Continuar acrescentando dicas:
+! Sobre a lanterna: precisa ser colocada no chão,
+! ligada e aí empurrada para dentro da sala escura.
+! Se for colocada no chão antes de ligar, você não vai vê-la mais
+! no escuro.
 Menu menu_oculto "Dicas a serem reveladas.";
 
 Menu -> dentro_da_camera_quadrada "Dentro da Câmera Quadrada";
