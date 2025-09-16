@@ -6,5 +6,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 if vim.g.neovide then
-  vim.opt.linespace = 8
+  vim.opt.linespace = 2
+  vim.o.guifont = "Fira Code:h14"
 end
