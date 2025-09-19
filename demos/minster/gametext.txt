@@ -4443,5 +4443,5 @@ yeglitt      yeglitt'     yes          young        z
 ziggurat     zinovic      zork         
 
 [Compiled Z-machine version 8]
-[End of transcript: release 4, serial 250905]
+[End of transcript: release 4, serial 250919]
 
