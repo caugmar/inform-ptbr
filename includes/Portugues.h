@@ -867,9 +867,9 @@ if (x1 has pluralname) print " têm"; else print " tem";
     }
     ! Push: see Pull
     PushDir: switch (n) {
-        1:  "Isso é o melhor que você consegue pensar?";
+        1:  "Isso não vai resolver nada...";
         2:  "Isso não é uma direção.";
-        3:  "Por esse caminho você não pode.";
+        3:  "Nessa direção não é possível.";
     }
     PutOn: switch (n) {
         1:  "Você precisa estar segurando ", (the) x1, " antes de poder colocar ",
@@ -912,7 +912,7 @@ if (x1 has pluralname) print " têm"; else print " tem";
     }
     ScriptOn: switch (n) {
         1:  "A transcrição já está ligada.";
-        2:  "Início de uma transcrição de";
+        2:  "Início da transcrição.";
         3:  "A tentativa de iniciar a transcrição falhou.";
     }
     Search: switch (n) {

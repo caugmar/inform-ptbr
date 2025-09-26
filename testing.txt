@@ -1,0 +1,68 @@
+pegue tudo da caixa
+pegue o cogumelo
+coma-o
+desça
+examine as inscrições
+procure flecha no dicionário
+procure roda no dicionário
+sul
+norte
+solte tudo no chão
+solte tudo
+pegue tudo menos a lanterna
+ligue a lanterna
+empurre a lanterna para o sul
+ponha a câmera no chão
+fotografe a estatueta com a câmera
+pegue tudo
+i
+olhe
+empurre a lanterna para o norte
+leste
+pegue o saco de ovos
+i
+oeste
+coloque o saco de ovos no sol
+examine a chave
+pegue-a
+i
+leste
+oeste
+sul
+norte
+empurre a câmera para o sul
+empurre a lanterna para o sul
+abra a porta com a chave amarela
+abra a porta
+destranque a porta
+destranque a porta com a chave de pedra
+abra a porta
+observe
+sul
+norte
+empurre a lanterna para o sul
+observe a pintura
+examine a mesa
+observe a máscara
+pegue a máscara
+coloque a máscara
+olhe através da máscara
+olhe
+empurre a lanterna para o norte
+empurre a lanterna para o norte
+leste
+suba
+para cima
+acima
+leste
+acima
+leste
+sul
+leste
+sul
+leste
+nordeste
+desça
+leste
+nordeste
+desça

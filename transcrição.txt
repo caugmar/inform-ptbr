@@ -1,0 +1,416 @@
+Início de uma transcrição de
+
+>pegue tudo da caixa
+câmera fotográfica de placa úmida: jornal de um mês atrás: 
+>pegue o cogumelo
+Você pega o cogumelo, fazendo um corte limpo no caule fino.
+
+>coma-o
+Você mordisca um canto, incapaz de identificar a origem de um sabor acre. E então, o vôo de uma arara o distrai, parecendo surgir do próprio sol, o som de suas asas batendo quase ensurdecedor, pedra caindo sobre pedra.
+
+>desça
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>examine as inscrições
+Quando você examina os entalhes de perto, eles parecem estar imóveis.  Mas você tem uma sensação desconfortável de que, quando olha em outra direção, eles começam a rastejar, a se mover.  Dois glifos se destacam: Flecha e Roda.
+
+>procure flecha no dicionário
+Flecha: "jornada; tornar-se".
+
+>procure roda no dicionário
+Roda: "o Sol; também vida, a duração da vida".
+
+>sul
+
+Escuridão
+A escuridão pesa sobre você, e uma ancestral sensação de medo começa a envolvê-lo.
+
+Em algum lugar, pequenas garras estão correndo.
+
+>norte
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>solte tudo no chão
+Você não pode ver tal coisa.
+
+>solte tudo
+jornal de um mês atrás: Ok.
+câmera fotográfica de placa úmida: Ok.
+Dicionário Maia de Waldeck: Ok.
+lanterna de sódio: Ok.
+mapa esboçado de Quintana Roo: Ok.
+
+>pegue tudo menos a lanterna
+mapa esboçado de Quintana Roo: Peguei.
+Dicionário Maia de Waldeck: Peguei.
+câmera fotográfica de placa úmida: Peguei.
+jornal de um mês atrás: Peguei.
+
+>ligue a lanterna
+Você liga a lanterna de sódio.
+
+>empurre a lanterna para o sul
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A passagem é interrompida por uma massiva porta de pedra amarela.
+
+Há uma preciosa estatueta maia aqui!
+
+>ponha a câmera no chão
+Ok.
+
+>fotografe a estatueta com a câmera
+Eu só entendi que você queria fotografe a estatueta de um espírito pigmeu.
+
+>pegue tudo
+câmera fotográfica de placa úmida: Peguei.
+lanterna de sódio: A lâmpada é muito delicada e o apoio de metal fica quente demais para erguer a lanterna enquanto ela está ligada.
+estatueta de um espírito pigmeu: Estamos nos anos 30, não naqueles velhos e maus tempos. Hoje em dia, remover um artefato sem antes registrar o contexto em que foi encontrado seria agir como um saqueador. Você precisa fotografá-lo antes.
+
+>i
+Você está carregando:
+  uma câmera fotográfica de placa úmida
+  um jornal de um mês atrás
+  um Dicionário Maia de Waldeck
+  um mapa esboçado de Quintana Roo
+
+>olhe
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+A passagem é interrompida por uma massiva porta de pedra amarela.
+
+Há uma preciosa estatueta maia aqui!
+
+>empurre a lanterna para o norte
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+Um saco de ovos branco e brilhante, como um amontoado de ovos de sapo do tamanho de uma bola de praia, está grudado em alguma coisa numa fenda da parede.
+
+>pegue o saco de ovos
+Ah. O tipo de coisa que um explorador tem de fazer.
+
+>i
+Você está carregando:
+  um saco de ovos brilhante
+  uma câmera fotográfica de placa úmida
+  um jornal de um mês atrás
+  um Dicionário Maia de Waldeck
+  um mapa esboçado de Quintana Roo
+
+>oeste
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>coloque o saco de ovos no sol
+Você deixa o saco de ovos cair no brilho do raio de sol. Ele borbulha de um modo asqueroso, distende-se e então explode em uma centena de pequenos insetos, correndo em todas as direções para a escuridão. Sobram apenas respingos de lodo e uma curiosa chave de pedra amarela sobre o chão da câmara.
+
+>examine a chave
+Você não vê nada de especial na chave de pedra.
+
+>pegue-a
+Peguei.
+
+>i
+Você está carregando:
+  uma chave de pedra
+  uma câmera fotográfica de placa úmida
+  um jornal de um mês atrás
+  um Dicionário Maia de Waldeck
+  um mapa esboçado de Quintana Roo
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>oeste
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>sul
+
+Escuridão
+A escuridão pesa sobre você, e uma ancestral sensação de medo começa a envolvê-lo.
+
+Em algum lugar, pequenas garras estão correndo.
+
+>norte
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>empurre a câmera para o sul
+Isso é o melhor que você consegue pensar?
+
+>empurre a lanterna para o sul
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A passagem é interrompida por uma massiva porta de pedra amarela.
+
+Há uma preciosa estatueta maia aqui!
+
+>abra a porta com a chave amarela
+Eu só entendi que você queria abra a porta de pedra com a chave de pedra.
+
+>abra a porta
+Parece estar trancado.
+
+>destranque a porta
+O que você quer para destranqu a porta de pedra com?
+
+>destranque a porta com a chave de pedra
+Você destranca a porta de pedra.
+
+>abra a porta
+Você abre a porta de pedra.
+
+>observe
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+A grande porta de pedra amarela está aberta.
+
+Há uma preciosa estatueta maia aqui!
+
+>sul
+
+Escuridão
+A escuridão pesa sobre você, e uma ancestral sensação de medo começa a envolvê-lo.
+
+Em algum lugar, pequenas garras estão correndo.
+
+>norte
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A grande porta de pedra amarela está aberta.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Há uma preciosa estatueta maia aqui!
+
+>empurre a lanterna para o sul
+
+Santuário
+Este magnífico santuário mostra sinais de ter sido escavado a partir de cavernas calcárias que já existiam, especialmente no mais ocidental dos dois beirais longos ao sul.
+
+A grande porta de pedra amarela está aberta.
+
+Pinturas vívidas e cheias de movimento de um Senhor em sua armadura pisando em um cativo. São quase que brilhantes demais para se olhar, o retrato de uma turba organizada.
+
+Uma grande mesa ou altar de pedra domina o santuário.
+
+Sobre o altar é um máscara de mosaico de jade.
+
+>observe a pintura
+Os corpos na pintura são vermelho sangue. Os marcadores da Contagem Longa datam o evento em 10 baktun 4 katun 0 tun 0 uinal 0 kin, o tipo de aniversário em que um Senhor finalmente decapitaria um rival capturado, que deveria ter sido torturado de forma ritual por um período de alguns anos, na insanidade balcanizada das cidades-estados maias.
+
+>examine a mesa
+Você não vê nada de especial no altar.
+
+>observe a máscara
+Ficará excelente no Museu.
+
+>pegue a máscara
+Estamos nos anos 30, não naqueles velhos e maus tempos. Hoje em dia, remover um artefato sem antes registrar o contexto em que foi encontrado seria agir como um saqueador. Você precisa fotografá-lo antes.
+
+>coloque a máscara
+(primeiro pegando o máscara de mosaico de jade)
+Estamos nos anos 30, não naqueles velhos e maus tempos. Hoje em dia, remover um artefato sem antes registrar o contexto em que foi encontrado seria agir como um saqueador. Você precisa fotografá-lo antes.
+
+>olhe através da máscara
+Você não pode ver tal coisa.
+
+>olhe
+
+Santuário
+Este magnífico santuário mostra sinais de ter sido escavado a partir de cavernas calcárias que já existiam, especialmente no mais ocidental dos dois beirais longos ao sul.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+A grande porta de pedra amarela está aberta.
+
+Pinturas vívidas e cheias de movimento de um Senhor em sua armadura pisando em um cativo. São quase que brilhantes demais para se olhar, o retrato de uma turba organizada.
+
+Uma grande mesa ou altar de pedra domina o santuário.
+
+Sobre o altar é um máscara de mosaico de jade.
+
+>empurre a lanterna para o norte
+
+Corredor Inclinado
+Um corredor baixo e inclinado, indo do norte para o sul.
+
+A grande porta de pedra amarela está aberta.
+
+Há uma preciosa estatueta maia aqui!
+
+>empurre a lanterna para o norte
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>suba
+O que você quer para suba?
+
+>para cima
+Isso não vai dar resultado nenhum.
+
+>acima
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>acima
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>sul
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>sul
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>nordeste
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+"Grande Plaza"
+Pelo menos, é como suas notas chamam esta escarpa baixa de calcário, mas a floresta tropical já a tomou de volta para si. Árvores de um verde oliva escuro aglomeram-se por todos os lados, o ar pesado com o vapor deixado pela chuva recente; moscas pairam na neblina. A "Estrutura 10" é uma confusão de restos de alvenaria que pode ter sido um dia uma pirâmide funerária. Pouco restou, exceto os degraus cortados na pedra que levam para a escuridão abaixo.
+
+Seu caixote está aqui, pronto para armazenar qualquer achado cultural importante que você venha a encontrar, garantindo o transporte seguro de volta à civilização.
+
+>desça
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>leste
+
+Ninho dos Vermes
+Um lugar perturbador, feito de covas esculpidas como a teia de uma aranha, fios de espaço vazio pendurados nas pedras. Os únicos buracos grandes o bastante para que se possa rastejar através deles vão para o nordeste, para o sul, e para cima.
+
+>nordeste
+A parede lisa vai ficando escorregadia ao seu redor, como se o calor do seu corpo estivesse derretendo resinas há muito tempo endurecidas. Você fecha seus olhos o mais que pode enquanto segue cavando através da escuridão.
+
+"Grande Plaza"
+Pelo menos, é como suas notas chamam esta escarpa baixa de calcário, mas a floresta tropical já a tomou de volta para si. Árvores de um verde oliva escuro aglomeram-se por todos os lados, o ar pesado com o vapor deixado pela chuva recente; moscas pairam na neblina. A "Estrutura 10" é uma confusão de restos de alvenaria que pode ter sido um dia uma pirâmide funerária. Pouco restou, exceto os degraus cortados na pedra que levam para a escuridão abaixo.
+
+Seu caixote está aqui, pronto para armazenar qualquer achado cultural importante que você venha a encontrar, garantindo o transporte seguro de volta à civilização.
+
+>desça
+
+Câmara Quadrada
+Uma câmara de pedra funda e sombria, com uns nove metros de largura.  Um raio de sol vem dos degrais acima, dando à câmara uma luz difusa, mas nas sombras há portas baixas ao sul e ao leste, levando às profundezas da escuridão do Templo.
+
+A lanterna de sódio está acesa no chão, iluminando o ambiente.
+
+Inscrições esculpidas enchem as paredes e o teto.
+
+>script off
+Eu só entendi que você queria script.
+
+>script 
+A transcrição já está ligada.
+
+>transcrição desligada
+
+Fim da transcrição.
