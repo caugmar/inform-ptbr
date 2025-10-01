@@ -10,3 +10,9 @@ if vim.g.neovide then
   vim.opt.linespace = 5
   vim.o.guifont = "FiraCode Nerd Font:h14"
 end
+vim.filetype.add({
+  filename = {
+    ["todo.txt"] = "todotxt",
+    ["done.txt"] = "todotxt",
+  },
+})

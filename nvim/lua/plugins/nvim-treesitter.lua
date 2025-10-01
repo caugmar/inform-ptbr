@@ -3,6 +3,8 @@
 -- não faz diferença para os meus usos, resolvi desligar.
 -- Mais pra frente tento ligar de novo.
 
-return {
-  { "nvim-treesitter/nvim-treesitter", enabled = false },
-}
+return {}
+
+-- return {
+--   { "nvim-treesitter/nvim-treesitter", enabled = false },
+-- }
