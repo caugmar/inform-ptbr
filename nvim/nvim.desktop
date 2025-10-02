@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Icon=/home/guto/.icons/nvim.png
-Type=Application
-Exec=gnome-terminal --maximize -- nvim %f
-Name=Neovim
-Comment=Definição personalizada para Neovim
