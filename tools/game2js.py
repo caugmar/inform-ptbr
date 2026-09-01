@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
     game2js.py
@@ -42,19 +42,18 @@ if ('--giload' in args):
     format = 'giload'
 
 if len(args) != 1:
-    print __import__("__main__").__doc__
+    print(__import__("__main__").__doc__)
     sys.exit(-1)
 
 fl = open(args[0], "rb")
 contents = fl.read()
 fl.close()
 
-enc = base64.b64encode(contents)
+enc = base64.b64encode(contents).decode("ascii")
 
 if (format == 'base64z'):
-    print "processBase64Zcode('%s');" % (enc,)
+    print("processBase64Zcode('%s');" % enc)
 elif (format == 'giload'):
-    print "Event.observe(window, 'load', function() {"
-    print "  GiLoad.load_run(null, '%s', 'base64');" % (enc,)
-    print "});"
-
+    print("Event.observe(window, 'load', function() {")
+    print("  GiLoad.load_run(null, '%s', 'base64');" % enc)
+    print("});")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
     zcode2js.py
 
@@ -21,9 +21,8 @@ import base64
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print __import__("__main__").__doc__
+        print(__import__("__main__").__doc__)
         sys.exit(-1)
     contents = open(sys.argv[1], "rb").read()
-    print "processBase64Zcode('%s');" % (
-        base64.b64encode(contents)
-        )
+    print("processBase64Zcode('%s');" %
+        base64.b64encode(contents).decode("ascii"))
