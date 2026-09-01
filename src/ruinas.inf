@@ -243,7 +243,7 @@ Object  Square_Chamber "Câmara Quadrada"
  with   name 'portas' 'baixas' 'leste' 'sul',
         description
             "Uma câmara de pedra funda e sombria, com uns nove
-            metros de largura.  Um raio de sol vem dos degrais
+            metros de largura.  Um raio de sol vem dos degraus
             acima, dando à câmara uma luz difusa, mas nas sombras
             há portas baixas ao sul e ao leste, levando às
             profundezas da escuridão do Templo.",
@@ -400,7 +400,7 @@ Treasure -> -> mask "máscara de mosaico de jade"
         remove priest;
     ],
     cultural_value 10,
-    has   clothing;
+    has   clothing female;
 
 ! ---------------------------------------------------------------------------- !
 !       The UPPER/NORTH CANYON.
@@ -422,7 +422,7 @@ Object  -> huge_ball "enorme bola de pedra-pomes"
             "Uma enorme bola de pedra-pomes, com uns dois metros
             e meio de diâmetro, repousa sobre o chão.",
         description
-            "Tem pelos menos uns dois metros e meio, embora seja
+            "Tem pelo menos uns dois metros e meio, embora seja
             bastante leve.",
         before [;
          PushDir:
@@ -483,7 +483,8 @@ Object  Junction "Xibalb@'a"
     description
         "Os entalhes parecem avisar que as fronteiras de
         Xibalb@'a, o Lugar do Medo, estão próximas. O glifo do
-        Pássaro destaca-se entre as outras inscrições.";
+        Pássaro destaca-se entre as outras inscrições.",
+    has female;
 
 ! ---------------------------------------------------------------------------- !
 !       The LOWER/SOUTH CANYON.
@@ -611,7 +612,7 @@ Object  -> cage "gaiola de ferro"
         ],
         when_open
             "Uma gaiola com barras de ferro, grande o bastante
-            para ficar dentro dela agaixado, repousa ameaçadora,
+            para ficar dentro dela agachado, repousa ameaçadora,
             com sua porta aberta. Há alguns glifos inscritos nas
             barras.",
         when_closed
@@ -640,7 +641,7 @@ Object  -> cage "gaiola de ferro"
             }
         ],
         floor_open false,
- has    enterable transparent container openable open static;
+ has    enterable transparent container openable open static female;
 
 !       Defined in Exercise 55
 Object  -> -> skeletons "esqueletos"
@@ -675,7 +676,7 @@ Object  Burial_Shaft "Poço Funerário"
                 desmorona em cinzas e terra. Algo sem vida e
                 terrivelmente pesado cai sobre você, fazendo-o
                 perder a consciência. E quando desperta, algo
-                impossível e grotesto aconteceu...^";
+                impossível e grotesco aconteceu...^";
             ChangePlayer(selfobj);
             give warthog ~light;
             <<Look>>;
@@ -751,9 +752,9 @@ Object  Wormcast "Ninho dos Vermes"
             move noun to Square_Chamber;
             print (The) noun;
             if(noun has pluralname) {
-                print " cai";
-            } else {
                 print " caem";
+            } else {
+                print " cai";
             }
             print_ret " para dentro de uma das covas e
                 rapidamente desaparece.";
@@ -935,7 +936,7 @@ Object  priest "sacerdote mumificado"
                 "~Este é um assunto particular.~";
             'pinturas':
                 "O sacerdote franze a testa, e diz: ~10 baktun, 4
-                katun, isso são 1.468.800 dias desde o princípío
+                katun, isso são 1.468.800 dias desde o princípio
                 dos tempos; no seu calendário, 19 de janeiro de
                 909.~";
             'ruinas', 'ru@'inas':

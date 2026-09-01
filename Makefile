@@ -24,4 +24,4 @@ parchment-site/ruinas.z5: ruinas.z5
 	cp ruinas.z5 parchment-site/
 
 clean:
-	rm -f ruinas.z5
+	rm -f ruinas.z5 parchment-site/ruinas.z5

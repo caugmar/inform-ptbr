@@ -740,7 +740,7 @@ if (x1 ~= location) {
     print (the) x1, " você";
 }
 else print "^Você";
-if (n == 5) print "também ";
+if (n == 5) print " também";
 print " pode ";
 print "ver ";
 WriteListFrom(child(x1),
