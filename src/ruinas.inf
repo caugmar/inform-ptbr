@@ -387,7 +387,7 @@ Object  -> stone_table "altar"
 Treasure -> -> mask "máscara de mosaico de jade"
     with  name 'mascara' 'm@'ascara' 'de' 'mosaico' 'jade',
     initial
-    "Sobre o altar repousa uma máscara de mosaico de jade.",
+    "Sobre o altar há uma máscara de mosaico de jade.",
     description
     "Ficará excelente no Museu.",
     after [;
@@ -739,7 +739,7 @@ Object  Wormcast "Ninho dos Vermes"
                 logo além das paredes escorregadias deste lugar,
                 nesta direção há espaço para passar, no máximo,
                 um animal não muito grande.  É estreito demais
-                para sua barriga de arqueólogo de poltrona..";
+                para sua barriga de arqueólogo de poltrona.";
             print 
                 "A parede vai ficando escorregadia em torno do
                 seu corpo de javali, e você guincha
@@ -1191,7 +1191,7 @@ Hint -> -> -> "Observe as inscrições.";
 Hint -> -> -> "Duas delas se destacam: Flecha e Roda.";
 Hint -> -> -> "Você já notou que está com um dicionário? 
     Olhe no seu inventário, ele está lá.";
-Hint -> -> -> "Experimente pesquisar essas incrições no
+Hint -> -> -> "Experimente pesquisar essas inscrições no
     dicionário.";
 Hint -> -> -> "Se tiver dificuldade, o comando exato é: 
     ~pesquise flecha no dicionário~, e etc.";

@@ -1,0 +1,20 @@
+pegue a câmera
+pegue o cogumelo
+coma o cogumelo
+desça
+solte o mapa
+solte o dicionário
+solte a lanterna
+ligue a lanterna
+empurre a lanterna para o sul
+fotografe a estatueta
+pegue a estatueta
+empurre a lanterna para o norte
+suba
+coloque a estatueta no caixote
+coloque a estatueta no caixote
+coloque a estatueta no caixote
+coloque a estatueta no caixote
+coloque a estatueta no caixote
+coloque a estatueta no caixote
+pontos
