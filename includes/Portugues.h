@@ -997,7 +997,7 @@ if (x1 has pluralname) print " têm"; else print " tem";
         "fazer parte de ", (the) x1, ".";
         8:  print_ret (Cthatorthose) x1, " ", (isorare) x1,
         " não estão disponíveis.";
-        9:  print_ret (The) x1, " não ", (isorare) x1, " abertos.";
+        9:  print_ret (The) x1, " não ", (esta) x1, " abert", (o) x1, ".";
         10: if (x1 has pluralname) print "Eles são "; else print "Isso é ";
         " dificilmente portátil.";
         11: if (x1 has pluralname) print "Eles estão "; else print "Isso está ";
