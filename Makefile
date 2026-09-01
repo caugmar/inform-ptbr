@@ -6,6 +6,7 @@ DFROTZ ?= dfrotz
 PYTHON ?= python3
 GARGOYLE ?= gargoyle-free
 FIZMO ?= fizmo-ncursesw
+PARCHMENT_URL ?= http://0.0.0.0:8000
 
 .PHONY: all run replay parchment test clean
 
@@ -34,7 +35,15 @@ replay: ruinas.z5
 	fi
 
 parchment: parchment-site/ruinas.z5
-	$(PYTHON) -m http.server --directory parchment-site
+	$(PYTHON) -m http.server --directory parchment-site & \
+	server_pid=$$!; \
+	sleep 1; \
+	if command -v xdg-open >/dev/null 2>&1; then \
+		xdg-open "$(PARCHMENT_URL)" >/dev/null 2>&1 & \
+	elif command -v open >/dev/null 2>&1; then \
+		open "$(PARCHMENT_URL)" >/dev/null 2>&1 & \
+	fi; \
+	wait $$server_pid
 
 parchment-site/ruinas.z5: ruinas.z5
 	cp ruinas.z5 parchment-site/

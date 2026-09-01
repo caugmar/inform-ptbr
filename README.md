@@ -45,12 +45,21 @@ make run
 
 O comando usa Gargoyle quando há uma sessão gráfica disponível e, caso contrário,
 tenta o Fizmo. Também é possível abrir `ruinas.z5` diretamente em qualquer
-interpretador compatível com Z-machine. Uma versão para navegador pode ser
-preparada com:
+interpretador compatível com Z-machine.
+
+### Versão no navegador (Parchment)
+
+Jogadores que preferirem jogar no navegador podem iniciar a versão web a partir
+da raiz do projeto:
 
 ```sh
 make parchment
 ```
+
+Esse comando inicia um servidor local e abre automaticamente o jogo no navegador
+em `http://0.0.0.0:8000`. Se a abertura automática não acontecer, acesse esse
+endereço manualmente. Para encerrar o servidor, volte ao terminal e pressione
+`Ctrl+C`.
 
 Durante a partida, `dicas` oferece ajuda sem exigir que a solução inteira seja
 revelada de uma vez. As categorias ligadas à exploração profunda são liberadas
