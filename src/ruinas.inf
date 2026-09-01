@@ -82,9 +82,10 @@ Class   Treasure
         ],
         after [;
          Insert:
-            if (second == packing_case) {
+            if (second == packing_case && self.score_awarded == false) {
+                self.score_awarded = true;
                 score = score + self.cultural_value;
-                if (score == MAX_SCORE) {
+                if (score >= MAX_SCORE) {
                     deadflag = 2;
                     print_ret "Enquanto você empacota cuidadosamente ",
                         (the) noun,
@@ -103,7 +104,8 @@ Class   Treasure
             self.photographed_in_situ = true;
         ],
         cultural_value 5,
-        photographed_in_situ false;
+        photographed_in_situ false,
+        score_awarded false;
 
 ! ---------------------------------------------------------------------------- !
 !       The game beings in the GRAND PLAZA.
