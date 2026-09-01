@@ -184,6 +184,8 @@ Verb 'vasculhe'
 * noun                              -> Search;
 Verb 'x//' 'examine' 'cheque' 'descreva' 'observe' 'olhe' 'veja' 
 *                                   -> Look
+* 'em' 'volta'                       -> Look
+* 'ao' 'redor'                       -> Look
 * noun                              -> Examine
 * 'em'/'no'/'na'/'nos'/'nas' noun   -> Search
 * 'dentro' 'de'/'do'/'da'/'dos'/'das' noun -> Search

@@ -1177,11 +1177,7 @@ Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar
     em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
 
-! TODO Continuar acrescentando dicas:
-! Sobre a lanterna: precisa ser colocada no chão,
-! ligada e aí empurrada para dentro da sala escura.
-! Se for colocada no chão antes de ligar, você não vai vê-la mais
-! no escuro.
+! Dicas desta seção ficam ocultas até que o cogumelo seja comido.
 Menu menu_oculto "Dicas a serem reveladas.";
 
 Menu -> dentro_da_camera_quadrada "Dentro da Câmera Quadrada";
@@ -1196,22 +1192,87 @@ Hint -> -> -> "Experimente pesquisar essas incrições no
     dicionário.";
 Hint -> -> -> "Se tiver dificuldade, o comando exato é: 
     ~pesquise flecha no dicionário~, e etc.";
+HintTopic -> -> "Como iluminar a câmara?";
+Hint -> -> -> "A lanterna de sódio está com você desde o começo
+    da expedição.";
+Hint -> -> -> "Uma lanterna pesada não deve ser carregada acesa.";
+Hint -> -> -> "Coloque a lanterna no chão antes de ligá-la.";
+Hint -> -> -> "Agora acenda a lanterna e empurre-a para dentro da
+    câmara, através da porta leste.";
+Hint -> -> -> "Se você colocar a lanterna no chão desligada e entrar
+    na escuridão, não conseguirá mais encontrá-la para acendê-la.";
+
+HintTopic -> -> "Como conseguir a chave de pedra?";
+Hint -> -> -> "O saco de ovos brilhante não deve ser levado para a
+    luz natural.";
+Hint -> -> -> "Leve-o até o raio de sol dentro da Câmara Quadrada.";
+Hint -> -> -> "Coloque o saco de ovos no raio de sol.";
+Hint -> -> -> "A explosão deixa uma chave de pedra amarela no chão.";
+
+HintTopic -> -> "Como abrir a porta amarela?";
+Hint -> -> -> "A porta de pedra tem um orifício para uma chave.";
+Hint -> -> -> "Use a chave de pedra na porta de pedra.";
+
+HintTopic -> -> "Como chegar a Xibalbá?";
+Hint -> -> -> "Depois da porta, siga para o sudeste até a antecâmara
+    do santuário.";
+Hint -> -> -> "O sacerdote mumificado pode saber o caminho.";
+Hint -> -> -> "Pergunte ao sacerdote sobre Xibalbá.";
+Hint -> -> -> "As estalactites de gelo escondem a passagem sudoeste.
+    A resposta do sacerdote pode revelar o caminho.";
+
+HintTopic -> -> "Como atravessar o Ninho dos Vermes?";
+Hint -> -> -> "Os túneis do Ninho dos Vermes são estreitos demais
+    para um ser humano.";
+Hint -> -> -> "Você precisará encontrar uma maneira de passar como
+    um animal pequeno.";
+Hint -> -> -> "A gaiola e os esqueletos na antecâmara parecem fazer
+    parte de uma transformação bastante desagradável.";
 
 Menu -> os_artefatos "Os Artefatos";
 HintTopic -> -> "A Estatueta";
 Hint -> -> -> "Procure por ela no corredor inclinado.";
+Hint -> -> -> "Fotografe a estatueta antes de tirá-la do lugar.";
+Hint -> -> -> "Depois, leve-a até o caixote na Grande Plaza.";
 HintTopic -> -> "A Máscara de Jade";
 Hint -> -> -> "Você já encontrou o altar?";
 Hint -> -> -> "Procure por ela no altar.";
+Hint -> -> -> "Fotografe a máscara enquanto ela ainda estiver sobre o
+    altar.";
+Hint -> -> -> "Depois, coloque a máscara no caixote.";
 HintTopic -> -> "A Pedra Funerária";
 Hint -> -> -> "Você já encontrou Xibalbá? Se ainda não, procure
     por esse lugar primeiro.";
 Hint -> -> -> "Procure pela pedra funerária em Xibalbá.";
+Hint -> -> -> "Registre-a com a câmera antes de removê-la.";
+Hint -> -> -> "Leve a pedra funerária fotografada para o caixote.";
 HintTopic -> -> "O Osso Entalhado";
 Hint -> -> -> "Você vai encontrar uma saliência depois de rolar
     uma bola de pedra-pomes.";
 Hint -> -> -> "Procure pelo osso entalhado nessa saliência.";
+Hint -> -> -> "Fotografe o osso antes de pegá-lo.";
+Hint -> -> -> "O osso entalhado também deve ser guardado no caixote.";
 HintTopic -> -> "O Favo de Mel";
 Hint -> -> -> "Procure pelo favo de mel no poço funerário.";
+Hint -> -> -> "Fotografe o favo no poço antes de removê-lo.";
+Hint -> -> -> "Leve o favo de mel de volta à Grande Plaza e coloque-o
+    no caixote.";
+
+HintTopic -> -> "Como rolar a bola de pedra-pomes?";
+Hint -> -> -> "A bola está na extremidade superior da ravina.";
+Hint -> -> -> "Empurre-a para o sul, descendo a ravina.";
+Hint -> -> -> "Quando chegar à extremidade inferior, continue
+    empurrando-a na direção do abismo.";
+Hint -> -> -> "A bola ficará presa no abismo e formará uma saliência
+    onde você poderá procurar.";
+
+HintTopic -> -> "Como entrar no poço funerário?";
+Hint -> -> -> "A gaiola na antecâmara tem uma porta e um chão que pode
+    esconder uma passagem.";
+Hint -> -> -> "Entre na gaiola e descubra o que os esqueletos fazem.";
+Hint -> -> -> "Como javali, siga pelo Ninho dos Vermes até o poço
+    funerário.";
+Hint -> -> -> "No poço, pule para cima para romper o tampão de barro e
+    abrir o caminho de volta.";
 
 ! ------------------------------------------------------------- !
