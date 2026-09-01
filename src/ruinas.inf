@@ -902,7 +902,7 @@ Object  map "mapa esboçado de Quintana Roo"
 
 !       Defined in DM4 §23
 Object  stone_key "chave de pedra"
- with   name 'chave' 'de' 'pedra'
+ with   name 'chave' 'de' 'pedra',
         description 
             "É claramente uma chave, feita de algum tipo de pedra
             amarela. E toda chave costuma abrir uma porta..."
@@ -1132,7 +1132,7 @@ Include "PortuguesG";
 
 !       Defined in DM4 §6
 [ PhotographSub;
-    if (camera notin player) 
+    if (camera notin player && camera notin location)
         "Não sem usar a câmera.";
     if (noun == player) 
         "Melhor não. Você não faz a barba desde o México.";
@@ -1149,7 +1149,9 @@ Include "PortuguesG";
         (an) noun, ".";
 ];
 
-Verb 'fotografe' * noun -> Photograph;
+Verb 'fotografe'
+* noun                              -> Photograph
+* noun 'com' noun                   -> Photograph;
 
 Menu menu_de_ajuda "Ajuda e dicas para ~Ruínas~";
 Option -> "Como Jogar" 
@@ -1213,4 +1215,3 @@ HintTopic -> -> "O Favo de Mel";
 Hint -> -> -> "Procure pelo favo de mel no poço funerário.";
 
 ! ------------------------------------------------------------- !
-

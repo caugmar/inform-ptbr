@@ -59,13 +59,13 @@ CompassDirection -> sw_obj "sudoeste"
 with door_dir sw_to, name 'sw' 'sudoeste';
 CompassDirection -> u_obj "para cima"
 with door_dir u_to, name 'para' 'cima' 'acima' 'suba';
-CompassDirection -> d_obj "ground"
+CompassDirection -> d_obj "para baixo"
 with door_dir d_to, name 'para' 'baixo' 'abaixo' 'des@cca' 'desca';
 #endif; ! WITHOUT_DIRECTIONS
 
 CompassDirection -> in_obj "para dentro"
 with door_dir in_to, name 'para' 'dentro' 'entre';
-CompassDirection -> out_obj "outside"
+CompassDirection -> out_obj "para fora"
 with door_dir out_to, name 'para' 'fora' 'saia';
 
 ! ------------------------------------------------------------------------------
@@ -331,7 +331,8 @@ rfalse;
 ! ----------------------------------------------------------------------------
 
 [ LanguageVerbLikesAdverb w;
-if (w == 'look' or 'go' or 'push' or 'walk') rtrue;
+if (w == 'olhe' or 'veja' or 'observe' or 'va' or 'v@'a'
+    or 'empurre' or 'mova' or 'caminhe') rtrue;
 rfalse;
 ];
 
@@ -345,8 +346,8 @@ rfalse;
 ! ----------------------------------------------------------------------------
 
 [ LanguageVerbMayBeName w;
-if (w == 'long' or 'short' or 'normal'
-    or 'brief' or 'full' or 'verbose')
+if (w == 'longo' or 'longa' or 'curto' or 'curta' or 'normal'
+    or 'breve' or 'completa' or 'completo' or 'verboso')
     rtrue;
 rfalse;
 ];
@@ -514,15 +515,21 @@ return c;
 
 #Endif; ! TARGET_
 
-[ LanguageLM n x1;
+[ LanguageLM n x1 x2;
 Answer,Ask:
 "Não há resposta.";
 ! Ask:      see Answer
 Attack:   "Violência não vai resolver neste caso.";
 Blow:     "Seria inútil soprá-", (lo) x1, ".";
-Burn:     "Isso seria perigoso. E inútil.";
+  Burn: switch (n) {
+      1: "Esse ato perigoso não conseguiria nada.";
+      2: "Não parece uma boa ideia.";
+  }
 Buy:      "Não há nada à venda.";
-Climb:    "Isso não vai dar resultado nenhum.";
+  Climb: switch (n) {
+      1: "Subir n", (thatorthose) x1, " não vai dar resultado nenhum.";
+      2: "Não parece uma boa ideia.";
+  }
 Close: switch (n) {
     1:  print_ret "Você não pode fechá-", (lo) x1, ".";
     2:  print_ret "Já ", (esta) x1, " fechad", (o) x1, ".";
@@ -552,7 +559,10 @@ CommandsRead: switch (n) {
     #Endif; ! TARGET_
 }
 Consult:  "Você não descobre nada de interessante n", (the) x1, ".";
-Cut:      "Cortá-", (lo) x1, " não dará grandes resultados.";
+  Cut: switch (n) {
+      1: "Cortar ", (thatorthose) x1, " não dará grandes resultados.";
+      2: "Não parece uma boa ideia.";
+  }
 Dig:      "Cavar não vai servir para nada aqui.";
 Disrobe: switch (n) {
     1:  "Você não está usando ", (the) x1, ".";
@@ -616,7 +626,10 @@ Exit: switch (n) {
     if (x1 has supporter) print "sobre "; else print "dentro d";
     print_ret (the) x1, ".";
 }
-Fill:     "Mas não há água aqui...";
+  Fill: switch (n) {
+      1: "Mas não há nada óbvio com que encher ", (the) x1, ".";
+      2: "Encher ", (the) x1, " com ", (the) x2, " não faz sentido.";
+  }
 FullScore: switch (n) {
     1:  if (deadflag) print "Sua pontuação era "; else print "Sua pontuação é ";
     "a seguinte:^";
@@ -625,12 +638,13 @@ FullScore: switch (n) {
 4:  print "até agora (de um total de  ", MAX_SCORE; " possíveis)";
 }
 GetOff:   "Mas você não está sobre ", (the) x1, " agora...";
-Give: switch (n) {
+  Give: switch (n) {
     1:  "Você não está com ", (the) x1, ".";
     2:  "Você brinca com ", (the) x1, " por um tempo, mas não consegue muita coisa.";
-    3:  print (The) x1;
+     3:  print (The) x1;
     if (x1 has pluralname) print " não demonstram"; else print " não demonstra";
-    " nenhum interesse.";
+     " nenhum interesse.";
+     4:  "Você entrega ", (the) x1, ".";
 }
 Go: switch (n) {
     1:  print "Você vai ter que ";
@@ -640,8 +654,9 @@ Go: switch (n) {
     3:  "Você não consegue subir pel", (the) x1, ".";
     4:  "Você não consegue descer pel", (the) x1, ".";
     5:  "Não dá, porque ", (the) x1, " ", (esta) x1, " no caminho.";
-    6:  print "Você não pode, porque ", (the) x1;
-    if (x1 has pluralname) " não levam a lugar algum."; else " não leva a lugar algum.";
+     6:  print "Você não pode, porque ", (the) x1;
+     if (x1 has pluralname) " não levam a lugar algum."; else " não leva a lugar algum.";
+     7:  "Você sai.";
 }
 Insert: switch (n) {
     1:  "Você precisa estar segurando ", (the) x1, " antes de colocá-l", (o) x1,
@@ -661,9 +676,13 @@ Inv: switch (n) {
     3:  print ":^";
     4:  print ".^";
 }
-Jump:     "Você pula algumas vezes no mesmo lugar. Obviamente, sem resultados.";
-JumpOver,Tie:
-"Você não conseguirá nada fazendo isso.";
+  Jump:     "Você pula algumas vezes no mesmo lugar. Obviamente, sem resultados.";
+  JumpIn:   "Pular n", (the) x1, " não vai dar resultado nenhum.";
+  JumpOn:   "Pular sobre ", (the) x1, " não vai dar resultado nenhum.";
+  JumpOver: switch (n) {
+      1: "Você não conseguirá nada fazendo isso.";
+      2: "Não parece uma boa ideia.";
+  }
 Kiss:     "Ei, mantenha o foco, ok?";
 Listen:   "Você não ouve nada fora do comum.";
 ListMiscellany: switch (n) {
@@ -832,7 +851,7 @@ Objects: switch (n) {
     9:  print "   (sobre ", (the) x1, ")";
     10: print "   (perdido)";
 }
-Open: switch (n) {
+  Open: switch (n) {
     1:  print_ret (ctheyreorthats) x1, " não é algo que você pode abrir.";
     2:  if (x1 has pluralname) print "Eles parecem "; else print "Parece ";
     "estar trancado.";
@@ -840,7 +859,8 @@ Open: switch (n) {
     4:  print "Você abre ", (the) x1, ", revelando ";
     if (WriteListFrom(child(x1), ENGLISH_BIT+TERSE_BIT+CONCEAL_BIT) == 0) "nada.";
     ".";
-    5:  "Você abre ", (the) x1, ".";
+     5:  "Você abre ", (the) x1, ".";
+     6:  "(primeiro abrindo ", (the) x1, ")";
 }
 Order:    print (The) x1;
 if (x1 has pluralname) print " têm"; else print " tem";
@@ -885,15 +905,20 @@ if (x1 has pluralname) print " têm"; else print " tem";
         1:  print "Por favor, responda sim ou não.";
         2:  print "Tem certeza de que quer encerrar esta sessão de jogo? ";
     }
-    Restart: switch (n) {
+  Restart: switch (n) {
         1:  print "Tem certeza de que quer reiniciar? ";
         2:  "Não foi possível reiniciar.";
     }
-    Restore: switch (n) {
+  Restore: switch (n) {
         1:  "A restauração falhou.";
         2:  "Ok.";
     }
-    Rub:      "Não deu resultado nenhum.";
+  Rub:      "Não deu resultado nenhum.";
+  Remove: switch (n) {
+      1: print_ret (The) x1, " está infelizmente fechad", (o) x1, ".";
+      2: print_ret "Mas ", (the) x1, " não está aí agora.";
+      3: "Removido.";
+  }
     Save: switch (n) {
         1:  "Não foi possível salvar o estado atual do jogo.";
         2:  "Ok.";
@@ -936,7 +961,10 @@ if (x1 has pluralname) print " têm"; else print " tem";
     }
     Sing:     "Você canta muito mal. Sério.";
     Sleep:    "Você não está com muito sono.";
-    Smell:    "Você não sente nenhum cheiro incomum.";
+  Smell: switch (n) {
+      1: "Você não sente nenhum cheiro incomum.";
+      2: "Não parece uma boa ideia.";
+  }
     Sorry:    "Ah, não precisa se desculpar.";
     Squeeze: switch (n) {
         1:  "Hmm. Melhor não.";
@@ -982,19 +1010,21 @@ if (x1 has pluralname) print " têm"; else print " tem";
         1:  "Você fala sozinho por um tempo.";
         2:  "Você não obtém nenhuma reação.";
     }
-    Think:    "Que boa idéia!";
-    ThrowAt: switch (n) {
+    Think:    "Que boa ideia!";
+  ThrowAt: switch (n) {
         1:  "Inútil.";
-        2:  "No último momento, você desiste.";
-    }
-    ! Tie:  see JumpOver.
-    Touch: switch (n) {
+     2:  "No último momento, você desiste.";
+  }
+  Tie: switch (n) {
+      1: "Você não conseguirá nada fazendo isso.";
+      2: "Não parece uma boa ideia.";
+  }
+  Touch: switch (n) {
         1:  "Não, melhor não.";
         2:  "Você não sente nada incomum.";
         3:  "Se você acha que isso pode ajudar...";
-    }
+  }
     ! Turn: see Pull.
-    ! TODO Continuar daqui
     Unlock:  switch (n) {
         1:  if (x1 has pluralname) print "Eles não "; else print "Isso não ";
         "parece ser algo que você possa destrancar.";
@@ -1003,7 +1033,8 @@ if (x1 has pluralname) print " têm"; else print " tem";
         "parecem caber na fechadura.";
         4:  "Você destranca ", (the) x1, ".";
     }
-    VagueGo:  "Você precisa dizer em que direção quer ir.";
+  VagueGo:  "Você precisa dizer em que direção quer ir.";
+  Version:  print_ret (string) LanguageVersion;
     Verify: switch (n) {
         1:  "O arquivo do jogo foi verificado e está intacto.";
         2:  "O arquivo do jogo foi verificado, mas não está intacto. De fato, ele pode até mesmo estar corrompido. Lamentável.";
@@ -1011,9 +1042,10 @@ if (x1 has pluralname) print " têm"; else print " tem";
     Wait:     "O tempo passa.";
     Wake:     "A terrível verdade é que isto não é um sonho.";
     WakeOther:"Isso não parece necessário.";
-    Wave: switch (n) {
+  Wave: switch (n) {
         1:  "Mas você não está segurando ", (the) x1, ".";
-        2:  "Você parece ridículo acenando com ", (the) x1, ".";
+     2:  "Você parece ridículo acenando com ", (the) x1, ".";
+     3:  "Não parece uma boa ideia.";
     }
     WaveHands:"Você acena, sentindo-se tolo.";
     Wear: switch (n) {

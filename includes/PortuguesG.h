@@ -150,7 +150,7 @@ Verb 'queime' 'acenda'
 * noun 'com' held                   -> Burn;
 Verb 'compre'
 * noun                              -> Buy;
-Verb 'suba' 'escale'
+Verb 'escale'
 * noun                              -> Climb
 * 'em'/'no'/'na'/'nos'/'nas' noun   -> Enter;
 Verb 'feche' 'cubra' 'tampe'
