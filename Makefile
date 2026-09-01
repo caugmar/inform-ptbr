@@ -46,7 +46,7 @@ parchment: parchment-site/ruinas.z5
 	wait $$server_pid
 
 parchment-site/ruinas.z5: ruinas.z5
-	cp ruinas.z5 parchment-site/
+	cp $< $@
 
 test: replay
 	@tmp=$$(mktemp); \
@@ -65,4 +65,4 @@ test: replay
 	fi
 
 clean:
-	rm -f ruinas.z5
+	rm -f ruinas.z5 parchment-site/ruinas.z5
