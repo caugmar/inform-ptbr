@@ -1,0 +1,80 @@
+pegue a câmera
+pegue o cogumelo
+coma o cogumelo
+desça
+solte o mapa
+solte o dicionário
+solte a lanterna
+ligue a lanterna
+empurre a lanterna para o sul
+fotografe a estatueta
+pegue a estatueta
+empurre a lanterna para o norte
+suba
+coloque a estatueta no caixote
+desça
+empurre a lanterna para o leste
+pegue o saco de ovos
+empurre a lanterna para o oeste
+coloque o saco de ovos no raio de sol
+pegue a chave de pedra
+empurre a lanterna para o sul
+destranque a porta com a chave de pedra
+abra a porta
+solte a chave de pedra
+empurre a lanterna para o sul
+fotografe a máscara
+pegue a máscara
+vista a máscara
+pergunte sacerdote sobre Xibalbá
+remova a máscara
+empurre a lanterna para o norte
+empurre a lanterna para o norte
+suba
+coloque a máscara no caixote
+desça
+empurre a lanterna para o sul
+empurre a lanterna para o sul
+sudoeste
+fotografe a pedra funerária
+pegue a pedra funerária
+solte a pedra funerária
+norte
+empurre a bola de pedra-pomes para o sul
+empurre a bola de pedra-pomes para o sul
+empurre a bola de pedra-pomes para o sul
+sul
+fotografe o osso entalhado
+pegue o osso entalhado
+norte
+norte
+pegue a pedra funerária
+nordeste
+empurre a lanterna para o norte
+empurre a lanterna para o norte
+suba
+coloque a pedra funerária no caixote
+coloque o osso entalhado no caixote
+desça
+empurre a lanterna para o sul
+empurre a lanterna para o sul
+empurre a lanterna para o sudeste
+entre na gaiola
+noroeste
+norte
+norte
+leste
+norte
+norte
+norte
+pule
+fotografe o favo de mel
+pegue o favo de mel
+suba
+desligue a lanterna
+pegue a lanterna
+noroeste
+norte
+norte
+suba
+coloque o favo de mel no caixote

@@ -1,0 +1,125 @@
+Transcrição completa para vencer RUÍNAS
+
+Os comandos abaixo partem de um jogo novo. As linhas iniciadas por `>` são
+comandos do jogador; as demais são apenas marcos para facilitar a leitura.
+
+> pegue a câmera
+> pegue o cogumelo
+> coma o cogumelo
+> desça
+> solte o mapa
+> solte o dicionário
+> solte a lanterna
+> ligue a lanterna
+> empurre a lanterna para o sul
+
+Corredor Inclinado
+
+> fotografe a estatueta
+> pegue a estatueta
+> empurre a lanterna para o norte
+> suba
+> coloque a estatueta no caixote
+
+Grande Plaza: a estatueta vale 5 pontos.
+
+> desça
+> empurre a lanterna para o leste
+> pegue o saco de ovos
+> empurre a lanterna para o oeste
+> coloque o saco de ovos no raio de sol
+> pegue a chave de pedra
+> empurre a lanterna para o sul
+> destranque a porta com a chave de pedra
+> abra a porta
+> solte a chave de pedra
+> empurre a lanterna para o sul
+
+Santuário
+
+> fotografe a máscara
+> pegue a máscara
+> vista a máscara
+> pergunte sacerdote sobre Xibalbá
+> remova a máscara
+> empurre a lanterna para o norte
+> empurre a lanterna para o norte
+> suba
+> coloque a máscara no caixote
+
+Grande Plaza: a máscara vale 10 pontos, totalizando 15.
+
+> desça
+> empurre a lanterna para o sul
+> empurre a lanterna para o sul
+> sudoeste
+
+Xibalbá
+
+> fotografe a pedra funerária
+> pegue a pedra funerária
+> solte a pedra funerária
+> norte
+> empurre a bola de pedra-pomes para o sul
+> empurre a bola de pedra-pomes para o sul
+> empurre a bola de pedra-pomes para o sul
+> sul
+
+Saliência de Pedra-Pomes
+
+> fotografe o osso entalhado
+> pegue o osso entalhado
+> norte
+> norte
+> pegue a pedra funerária
+> nordeste
+> empurre a lanterna para o norte
+> empurre a lanterna para o norte
+> suba
+> coloque a pedra funerária no caixote
+> coloque o osso entalhado no caixote
+
+Grande Plaza: a pedra e o osso valem 5 pontos cada, totalizando 25.
+
+> desça
+> empurre a lanterna para o sul
+> empurre a lanterna para o sul
+> empurre a lanterna para o sudeste
+
+Antecâmara
+
+> entre na gaiola
+
+Javali
+
+> noroeste
+> norte
+> norte
+> leste
+> norte
+
+No Ninho dos Vermes, o comando sem saída força a passagem até o poço:
+
+> norte
+> norte
+
+Poço Funerário
+
+> pule
+> fotografe o favo de mel
+> pegue o favo de mel
+> suba
+> desligue a lanterna
+> pegue a lanterna
+> noroeste
+> norte
+> norte
+> suba
+> coloque o favo de mel no caixote
+
+Você empacota cuidadosamente o favo de mel. Uma arara-vermelha esvoaça,
+descendo da copa das árvores. Quando o céu torna a ficar visível, a lua
+crescente sobe alta sobre a selva serena. Já é fim de março de 1938 -- e é
+hora de voltar para casa.
+
+Fim: 30 pontos, Diretor da Carnegie Institution.

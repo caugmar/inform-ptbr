@@ -14,10 +14,12 @@ run: ruinas.z5
 		fizmo-ncursesw -lm 1 -rm 1 -dh -xt ruinas.z5 ; \
 	fi
 
+replay: ruinas.z5
+	{ printf ' \n'; while IFS= read -r command; do printf '%s\n' "$$command"; done < "transcrição-vitoria-replay.txt"; } | dfrotz -m -p -q ruinas.z5
+
 parchment: zcode
 	cp ruinas.z5 parchment-site/
 	python3 -m http.server 
 
 clean:
 	rm -f ruinas.z5
-
