@@ -1180,6 +1180,13 @@ Hint -> -> -> "Mas algumas culturas antigas os usavam para entrar
     em estados alterados de consciência.";
 Hint -> -> -> "Tente comer o cogumelo e descer pelas escadas.";
 
+HintTopic -> -> "Como registrar um artefato?";
+Hint -> -> -> "A câmera está no caixote, na Grande Plaza.";
+Hint -> -> -> "Você precisa estar com as duas mãos livres para fotografar.";
+Hint -> -> -> "Pegue a câmera e examine o artefato antes de removê-lo.";
+Hint -> -> -> "O comando é ~fotografe <artefato>~; não confunda o registro
+    com a remoção.";
+
 ! Dicas desta seção ficam ocultas até que o cogumelo seja comido.
 Menu menu_oculto "Dicas a serem reveladas.";
 
@@ -1195,6 +1202,13 @@ Hint -> -> -> "Experimente pesquisar essas inscrições no
     dicionário.";
 Hint -> -> -> "Se tiver dificuldade, o comando exato é: 
     ~pesquise flecha no dicionário~, e etc.";
+HintTopic -> -> "O que os glifos estão dizendo?";
+Hint -> -> -> "A Flecha fala de jornada ou transformação; a Roda fala do
+    Sol e da duração da vida.";
+Hint -> -> -> "O raio de sol não é apenas uma fonte de iluminação: ele pode
+    alterar o que for colocado dentro dele.";
+Hint -> -> -> "Há coisas que devem ser transportadas pela escuridão, não
+    pela luz natural.";
 HintTopic -> -> "Como iluminar a câmara?";
 Hint -> -> -> "A lanterna de sódio está com você desde o começo
     da expedição.";
@@ -1220,6 +1234,8 @@ HintTopic -> -> "Como chegar a Xibalbá?";
 Hint -> -> -> "Depois da porta, siga para o sudeste até a antecâmara
     do santuário.";
 Hint -> -> -> "O sacerdote mumificado pode saber o caminho.";
+Hint -> -> -> "A presença do sacerdote se revela quando você veste a
+    máscara de jade sobre o altar.";
 Hint -> -> -> "Pergunte ao sacerdote sobre Xibalbá.";
 Hint -> -> -> "As estalactites de gelo escondem a passagem sudoeste.
     A resposta do sacerdote pode revelar o caminho.";
@@ -1231,6 +1247,12 @@ Hint -> -> -> "Você precisará encontrar uma maneira de passar como
     um animal pequeno.";
 Hint -> -> -> "A gaiola e os esqueletos na antecâmara parecem fazer
     parte de uma transformação bastante desagradável.";
+Hint -> -> -> "Entre na gaiola. O que acontece ali não pode ser desfeito
+    por uma simples ordem ao personagem.";
+Hint -> -> -> "Como javali, saia da gaiola e procure o Ninho dos Vermes;
+    seus túneis agora são largos o bastante.";
+Hint -> -> -> "No Ninho dos Vermes, siga pelo caminho que leva para o sul
+    até alcançar o poço funerário.";
 
 Menu -> os_artefatos "Os Artefatos";
 HintTopic -> -> "A Estatueta";
@@ -1258,6 +1280,8 @@ Hint -> -> -> "O osso entalhado também deve ser guardado no caixote.";
 HintTopic -> -> "O Favo de Mel";
 Hint -> -> -> "Procure pelo favo de mel no poço funerário.";
 Hint -> -> -> "Fotografe o favo no poço antes de removê-lo.";
+Hint -> -> -> "A lanterna acesa não pode ser recolhida: desligue-a antes
+    de tentar pegá-la.";
 Hint -> -> -> "Leve o favo de mel de volta à Grande Plaza e coloque-o
     no caixote.";
 
