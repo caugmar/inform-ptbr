@@ -1,6 +1,14 @@
-Esta é uma recriação do código-fonte de Curses, release 16, do Graham
-Nelson, conforme o texto original do readme abaixo. A minha ideia é
-eventualmente fazer uma versão em português deste clássico.
+Esta é uma recriação do código-fonte de Curses, release 16, de Graham
+Nelson, conforme o texto original do readme abaixo. A tradução brasileira
+está sendo feita progressivamente, mantendo a lógica e a estrutura da
+recriação original.
+
+Para compilar a versão em português, a partir deste diretório, execute:
+
+    make
+
+O Makefile usa os arquivos de linguagem e gramática em ../../includes e a
+biblioteca Inform 6 em ../../lib, as mesmas usadas por Ruínas.
 
 
 Curses was written by Graham Nelson between 1993 and 1995 in versions

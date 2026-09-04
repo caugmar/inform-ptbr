@@ -1,5 +1,5 @@
-Constant Story "CURSES";
-Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
+Constant Story "MALDIÇÕES";
+Constant Headline "^Uma diversão interativa^Copyright (c) 1993, 1994, 1995 por Graham Nelson.^";
 Release 17;
 
 Constant DEBUG;
@@ -209,6 +209,11 @@ Global good_try_bonus;
 Global one_time_try_bonus;
 Global redraw_statusline;
 
+! The Portuguese language file does not provide the English pronoun globals.
+! These are still used by the original game's custom routines.
+Global itobj;
+Global himobj;
+
 Array henri_post_array ->
     8
     2
@@ -416,7 +421,7 @@ Object LibraryMessages
             Score:
                 if( deadflag == 0 ) {
                     WhereInGame();
-                    print "  ";
+        print "  ";
                 }
                 rfalse;
             Inv:
@@ -1515,5 +1520,5 @@ Object carbolic_soap "carbolic soap"
     rfalse;
 ];
 
-Include "Grammar";
+Include "PortuguesG";
 Include "newverbs.inf";

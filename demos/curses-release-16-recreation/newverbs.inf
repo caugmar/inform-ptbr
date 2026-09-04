@@ -863,33 +863,33 @@
     "There are hints built into this game, but you will have to find out for yourself how to get them.";
 ];
 
-Verb 'strike'
+Verb 'strike' 'golpeie' 'golpe'
     * noun                                              -> Strike
     * noun 'with' held                                  -> Attack;
 
-Verb 'beckon' 'direct' 'gesture' 'point'
+Verb 'beckon' 'direct' 'gesture' 'point' 'aponte'
     * noun                                              -> PointVague
     * 'at' noun                                         -> PointAt
     * held 'at' noun                                    -> Point;
 
-Extend 'turn' last
+Extend 'gire' last
     * noun 'with' held                                  -> TurnWith;
 
-Verb 'knock'
+Verb 'knock' 'bata'
     * 'on' noun                                         -> Knock
     * 'at' noun                                         -> Knock;
 
 
-Verb 'wash'
+Verb 'wash' 'lave'
     * 'my' 'mouth' 'with' held                          -> Wash
     * 'my' 'mouth' 'out' 'with' held                    -> Wash
     * 'mouth' 'with' held                               -> Wash
     * 'mouth' 'out' 'with' held                         -> Wash;
 
-Verb 'milk'
+Verb 'milk' 'ordenhe'
     * noun                                              -> Milk;
 
-Verb 'rip' 'tear'
+Verb 'rip' 'tear' 'rasgue'
     *                                                   -> Rip
     * 'down' noun                                       -> RipDown
     * noun                                              -> Rip;
@@ -897,7 +897,7 @@ Verb 'rip' 'tear'
 Verb 'achetez'
     * special                                           -> Buy;
 
-Verb 'stack'
+Verb 'stack' 'empilhe'
     * noun                                              -> Stack
     * noun 'with' held                                  -> Stack
     * held 'on' noun                                    -> Insert
@@ -918,51 +918,51 @@ Verb 'plover' 'plugh' 'xyzzy'
 Verb 'time'
     *                                                   -> Time;
 
-Verb 'ram'
+Verb 'ram' 'trombe'
     * special                                           -> Ram;
 
 Verb 'bet' 'gamble' 'wager'
     *                                                   -> Gamble
     * 'with' noun                                       -> Gamble;
 
-Verb 'add' 'join' 'mend' 'repair'
+Verb 'add' 'join' 'mend' 'repair' 'conserte' 'repare'
     * noun                                              -> Repair
     * noun 'to' noun                                    -> Repair;
 
 Verb 'anoppe' 'eppona'
     *                                                   -> Anoppe;
 
-Verb 'anoint' 'oil'
+Verb 'anoint' 'oil' 'unja'
     * noun                                              -> Anoint;
 
-Verb 'float' 'sail'
+Verb 'float' 'sail' 'navegue'
     *                                                   -> Sail
     * 'away'                                            -> Sail;
 
-Verb 'hypnotise' 'hypnotize'
+Verb 'hypnotise' 'hypnotize' 'hipnotize'
     * creature                                          -> Hypnotize
     * creature 'with' noun                              -> Hypnotize;
 
-Verb 'etch' 'inscribe' 'scribe' 'write'
+Verb 'etch' 'inscribe' 'scribe' 'write' 'grave' 'inscreva'
     * special                                           -> Inscribe
     * special 'on' noun                                 -> InscribeOn;
 
-Verb 'make' 'wish'
+Verb 'make' 'wish' 'deseje'
     *                                                   -> Wish
     * 'wish'                                            -> Wish
     * 'a//' 'wish'                                      -> Wish
     * 'for' special                                     -> Wish;
 
-Verb 'hint' 'hints'
+Verb 'hint' 'hints' 'dica' 'dicas'
     *                                                   -> Hints;
 
 Verb 'dance' 'tango' 'waltz'
     * 'with' creature                                   -> Dance;
 
-Verb 'beep' 'bleep' 'chirp'
+Verb 'beep' 'bleep' 'chirp' 'bipe'
     *                                                   -> Beep;
 
-Verb 'slide'
+Verb 'slide' 'deslize'
     * readchar                                          -> Slide;
 
 Verb 'play'
@@ -970,67 +970,66 @@ Verb 'play'
     * 'with' held                                       -> Blow
     * held                                              -> Blow;
 
-Extend 'attack' last
+Extend 'ataque' last
    * noun 'with' held                                   -> Kill;
 
 Verb 'pace'
     *                                                   -> Pace
     * CroquetFunc                                       -> PaceDir;
 
-Extend 'take' last
+Extend 'pegue' last
     * AnotherCroquetFunc                                -> PaceDir;
 
 
-Verb 'change' 'flip'
+Verb 'change' 'flip' 'mude'
     * noun                                              -> SwitchOn;
 
-Verb 'reverse' 'revolve'
+Verb 'reverse' 'revolve' 'inverta'
     * noun                                              -> Turn;
 
-Verb 'pinch' 'slap'
+Verb 'pinch' 'slap' 'belisque'
     * creature                                          -> Attack
     * noun                                              -> Take;
 
-Verb 'scratch'
+Verb 'scratch' 'arranhe'
     * noun                                              -> Rub;
 
 Verb 'ring'
     * noun                                              -> Push;
 
-Verb 'diagnose'
+Verb 'diagnose' 'diagnostique'
     *                                                   -> Diagnose;
 
-Verb 'frisk'
+Verb 'frisk' 'revise'
     * animate                                           -> Search;
 
 Verb 'exhibit' 'reveal'
     *                                                   -> Sing;
 
-Verb 'pet' 'stroke' 'tickle'
+Verb 'pet' 'stroke' 'tickle' 'acaricie'
     * noun                                              -> Touch;
 
-Verb 'roll' 'shoot' 'toss'
+Verb 'roll' 'shoot' 'toss' 'role'
     * noun                                              -> Drop;
 
-Verb 'lean' 'prop' 'rest' 'support'
+Verb 'lean' 'prop' 'rest' 'support' 'apoie'
     * held 'against' noun                               -> Lean
     * held 'on' noun                                    -> Lean
     * 'up' noun 'with' held                             -> PropWith
     * noun 'with' held                                  -> PropWith;
 
-Verb 'lay'
+Verb 'lay' 'deposite'
     * noun 'on' noun                                    -> PutOn;
 
-Verb 'start' 'stop'
+Verb 'start' 'stop' 'comece' 'pare'
     * noun                                              -> Start;
 
-Extend 'lie' last
+Extend 'deite' last
     * 'down'                                            -> LieDown
     * 'down' 'on' noun                                  -> Enter; 
 
-Extend 'dig' last
+Extend 'cave' last
     * 'with' held                                       -> DigWith;
 
-Extend 'go' last
+Extend 'va' last
     * CroquetFunc                                       -> PaceDir;
-

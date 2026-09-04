@@ -1,8 +1,8 @@
 Transcript of the text of "curses.inf"
-[From Inform 6.42 for Linux (10th February 2024)]
+[From Inform 6.44 for Linux (11th September 2025)]
 
-CURSES
-^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^
+MALDIÇÕES
+^Uma diversão interativa^Copyright (c) 1993, 1994, 1995 por Graham Nelson.^
 happy Tourist.
 very nearly happy Tourist.
 master Druid.
@@ -122,1225 +122,695 @@ John Lennon's ~Imagine~.
 that grisly carol, ~We Wish You A Merry Christmas~.
 that hoary old favourite, ~Oh Come All Ye Faithful~.
 ~My Way~, crooned over by Frank Sinatra.
-240410
-6.12.7
+180611
+6.12.2
 a
 ---
-the
+Tradução portuguesa por Guto Marcicano
+o
 CompassDirection
 compass
-north
-(n_obj)
-south
-(s_obj)
-east
-(e_obj)
-west
-(w_obj)
-northeast
-(ne_obj)
-northwest
-(nw_obj)
-southeast
-(se_obj)
-southwest
-(sw_obj)
-up above
-(u_obj)
-ground
-(d_obj)
-inside
-(in_obj)
-outside
-(out_obj)
-The 
-the 
+norte
+sul
+leste
+oeste
+nordeste
+noroeste
+sudeste
+sudoeste
+para cima
+para baixo
+para dentro
+para fora
+: 
+meu eu anterior
+eu mesmo
+ era
+ eram
+era 
+eram 
+O 
+o 
+um 
+A 
 a 
-The 
-the 
-an 
-The 
-the 
-some 
-The 
-the 
-some 
-north
-south
-east
-west
-northeast
-northwest
-southeast
-southwest
-up
-down
-in
-out
+uma 
+Os 
+os 
+uns 
+As 
+as 
+umas 
+norte
+sul
+leste
+oeste
+nordeste
+noroeste
+sudeste
+sudoeste
+acima
+abaixo
+para dentro
+para fora
 zero
-minus 
- thousand
+menos 
+ mil
 , 
- hundred
- and 
-one
-two
-three
-four
-five
-six
-seven
-eight
-nine
-ten
-eleven
-twelve
-thirteen
-fourteen
-fifteen
-sixteen
-seventeen
-eighteen
-nineteen
-twenty
-thirty
-forty
-fifty
-sixty
-seventy
-eighty
-ninety
+ cem
+ e 
+um
+dois
+três
+quatro
+cinco
+seis
+sete
+oito
+nove
+dez
+onze
+doze
+treze
+quatorze
+quinze
+dezesseis
+dezessete
+dezoito
+dezenove
+vinte
+trinta
+quarenta
+cinquenta
+sessenta
+setenta
+oitenta
+noventa
 -
- 
-:
- pm
- am
-take inventory
-look
-examine
-wait
-north
-south
-east
-west
-northeast
-northwest
-southeast
-southwest
-N = next subject
-P = previous
-  Q = resume game
-Q = previous menu
-RETURN = read subject
-Score: 
-Moves: 
-Time: 
-S: 
-M: 
-T: 
-You can't go that way.
-your former self
-my former self
-yourself
-myself
-You
-Darkness
-those things
-that
-the
- or 
-nothing
- is
- are
-is 
-are 
- was
- were
-was 
-were 
- and 
-whom 
-which 
+h
+ver o inventário
+examinar
+esperar
+P = próximo     
+A = anterior
+V = volta ao jogo
+V = menu anterior
+ENTER = para ler     
+Pontos: 
+Turnos: 
+Tempo: 
+Você não pode seguir nessa direção.
+seu antigo eu
+você mesmo
+Você
+Escuridão
+essas coisas
+isso
+ ou 
+nada
+ é
+ estão
+é 
+estão 
+ e 
+quem 
+qual 
 , 
-:
-Library error 
-Interpreter 
-Version 
-Standard interpreter 
-Interpreter version 
-Library Serial Number 
-VM 
-Release 
-Serial number 
-Inform v
- Library v
-me
-you
-those
-her
-him
-that
-myself
-yourself
-them
-her
-him
-it
-I
-You
-Those
-She
-He
-That
-I'm
-I was
-'s
- was
-You're
-You were
-They're
-They were
-She's
-She was
-He's
-He was
-That's
-That was
-were
-was
-are
-is
- 
- 
- 
- 
- 
-I 
- 
-you 
-You 
-I'm
-I was
- is
- was
-you're
-you were
-You're
-You were
-are
-is
-was
-I'm not
-I wasn't
- isn't
- wasn't
-you aren't
-you weren't
-You aren't
-You weren't
-aren't
-isn't
-wasn't
-I've
-I had
- has
- had
-you've
-you'd
-You've
-You'd
-have
-has
-had
-I'll
-I would
- will
- would
-you'll
-you'd
-You'll
-You'd
-will
-will
-would
-can
-can
-could
-can't
-can't
-couldn't
-don't
-doesn't
-didn't
-herself
-himself
-yourself
-himself
-herself
-itself
-M
-m
-y
-'s
-Y
-y
-our
-T
-t
-heir
-H
-h
-er
-H
-h
-is
-I
-i
-ts
-I
-it
-she
-he
-you
-they
-she
-he
-that
-decide
-decides
-decided
- that
-'s not
- wasn't
- such a good idea.
-There 
-is
-was
- no reply.
-Violence 
-isn't
-wasn't
- the answer to this one.
- usefully blow 
+ você mesmo
+ esses
+ela
+ele
+esse
+você mesmo
+eles
+ela
+ele
+isso
+são
+é
+Você
+Essas coisas
+Ela
+Ele
+Isso
+Você
+Essas coisas
+Ela
+Ele
+Isso
+lo
+las
+los
+la
+lo
+o
+as
+os
+a
+o
+estão
+está
+podem
+pode
+Não há resposta.
+Violência não vai resolver neste caso.
+Seria inútil soprá-
 .
-This dangerous act would 
-achieve
-have achieved
- little.
-Nothing 
-is
-was
- on sale.
-Climbing 
- would 
-achieve
-have achieved
- little.
- not something 
- can close
- could have closed
+Esse ato perigoso não conseguiria nada.
+Não parece uma boa ideia.
+Não há nada à venda.
+Subir n
+ não vai dar resultado nenhum.
+Não parece uma boa ideia.
+Você não pode fechá-
 .
- already closed.
-close
-closes
-closed
- 
+Já 
+ fechad
 .
-(first closing 
+Você fecha 
+.
+[Gravação de comandos desligada.]
+[Gravação de comandos ligada.]
+[Repetindo comandos.]
+Você não descobre nada de interessante n
+.
+Cortar 
+ não dará grandes resultados.
+Não parece uma boa ideia.
+Cavar não vai servir para nada aqui.
+Você não está usando 
+.
+Você tira 
+.
+Não há nada bom para se beber por aqui.
+ já estão 
+ já está 
+aqui.
+Você não está com 
+.
+(primeiro tirando 
 )
-[Command recording off.]
-[Command recording on.]
-[Replaying commands.]
-discover
-discovers
-discovered
- nothing of interest in 
-.
-.
-Cutting 
- up would 
-achieve
-have achieved
- little.
-Digging would 
-achieve
-have achieved
- nothing here.
- wearing 
-.
-take off
-takes off
-took off
+Ok.
+ é simplesmente intragável.
+Você come 
+. Nada mal.
+ não 
+ conter outras coisas.
  
+ fechad
 .
-(first taking 
- off)
-will need to
-had to
- remove 
- first.
-There
-'s
- was
- nothing suitable to drink here.
- already here.
-haven't got
-hasn't got
-didn't have
- 
+ já 
+ vazi
 .
-Dropped.
-need to take
-had to take
- 
- 
-out
-off
- of 
- before dropping 
+Não dá para esvaziar isso...
+Mas você já está 
+sobre 
+dentro d
 .
- plainly inedible.
-eat
-eats
-ate
- 
-. Not bad.
+Isso não é algo em que você possa 
+ficar de pé.
+sentar-se.
+deitar-se.
+entrar.
+Você não pode entrar n
+ fechad
 .
- contain things.
- closed.
- empty already.
-That wouldn't 
-empty
-have emptied
- anything.
-But 
- already 
-on 
-in 
+Você só pode entrar em algo independente.
+Você está 
+sobre 
+dentro d
 .
- not something 
- can 
- could 
-stand on.
-sit down on.
-lie down on.
-enter.
- get into the closed 
-.
- only get into something free-standing.
-get
-gets
-got
- onto
- into
- 
-.
-(getting 
-off
-out of
- 
+(
+descendo d
+saindo d
 )
-(getting onto 
+(subindo n
+)^
+(entrando n
+)^
+(entrando n
+)^
+Escuridão, substantivo.  A ausência da luz com a qual você poderia enxergar.
+Você não vê nada de especial n
+.
+ 
+ 
+ligad
+desligad
+Mas você não está dentro de nada...
+Não dá: 
+ 
+ fechad
+.
+Você 
+desce d
+sai d
+.
+Mas você não está 
+sobre 
+dentro d
+.
+Mas não há nada óbvio com que encher 
+.
+Encher 
+ com 
+ não faz sentido.
+Sua pontuação era 
+Sua pontuação é 
+a seguinte:^
+encontrar diversos itens
+visitar diversos lugares
+até agora (de um total de  
+ possíveis)
+Mas você não está sobre 
+ agora...
+Você não está com 
+.
+Você brinca com 
+ por um tempo, mas não consegue muita coisa.
+ não demonstram
+ não demonstra
+ nenhum interesse.
+Você entrega 
+.
+Você vai ter que 
+descer d
+sair d
+ primeiro.
+Você não consegue subir pel
+.
+Você não consegue descer pel
+.
+Não dá, porque 
+ 
+ no caminho.
+Você não pode, porque 
+ não levam a lugar algum.
+ não leva a lugar algum.
+Você sai.
+Você precisa estar segurando 
+ antes de colocá-l
+ em alguma outra coisa.
+ não pode conter outras coisas.
+ 
+ fechad
+.
+Você precisa tirar 
+ antes.
+Você não pode colocar uma coisa dentro dela mesma!
+(tirando 
+ antes)^
+Não há mais espaço n
+.
+Feito.
+Você coloca 
+ n
+.
+Você não está carregando nada.
+Você está carregando
+:^
+.^
+Você pula algumas vezes no mesmo lugar. Obviamente, sem resultados.
+Pular n
+ não vai dar resultado nenhum.
+Pular sobre 
+ não vai dar resultado nenhum.
+Você não conseguirá nada fazendo isso.
+Não parece uma boa ideia.
+Ei, mantenha o foco, ok?
+Você não ouve nada fora do comum.
+ (provendo luz)
+ (que 
+ fechad
 )
-(getting into 
+ (fechad
+ e provendo luz)
+ (que 
+ vazi
 )
-(entering 
+ (vazi
+ e provendo luz)
+ (que 
+ fechad
+ e vazi
 )
-Darkness, noun.  An absence of light to see by.
-see
-sees
-saw
- nothing special about 
-.
- currently
- switched 
-on.
-off.
-But 
- in anything at the moment.
- get out of the closed 
-.
-get
-gets
-got
+ (fechad
+, vazi
+ e provendo luz)
+ (provendo luz e sendo usad
+ (provendo luz
+ (sendo usad
+ (que 
  
-off
-out of
- 
-.
- 
-on
-in
- 
-.
-(first getting 
-off
-out of
- 
+abert
+abert
+ mas vazi
+fechad
+fechad
+ e trancad
+ e vazi
+ (que 
+ vazi
 )
-stand
-stands
-stood
- up.
-There 
-isn't
-wasn't
- anything obvious with which to fill 
+ contendo 
+ (sobre 
+, sobre 
+ (dentro d
+, dentro d
+ agora está no seu modo de impressão ~breve~ normal, que dá descrições longas de lugares nunca antes visitados e descrições curtas em outros casos.
+ agora está no seu modo ~detalhado~, que sempre dá descrições longas de lugares (mesmo se você já esteve lá antes).
+ agora está no seu modo ~super-breve~, que sempre dá descrições curtas de lugares (mesmo se você nunca esteve lá antes).
+Eles não parecem 
+Isso não parece 
+ ser algo que você possa trancar.
+ trancados no momento.
+Primeiro você terá que fechar 
 .
-Filling 
- from 
- wouldn't 
-make
-have made
- sense.
-The score was 
-The score is 
-made up as follows:^
-finding sundry items
-visiting various places
-total (out of 
+Eles não parecem 
+Ele não parece 
+caber na fechadura.
+Você tranca 
+.
+ (sobre 
 )
-But 
- on 
- at the moment.
- holding 
-.
-juggle
-juggles
-juggled
- 
- for a while, but 
-don't
-don't
-doesn't
-didn't
- achieve much.
- seem interested.
-hand over
-hands over
-handed over
- 
-.
- have
- have had
- to get 
-off
-out of
- 
- first.
- go that way.
- unable to climb 
-.
- unable to descend by 
-.
- since 
- 
- in the way.
- since 
- 
-lead
-leads
-led
- nowhere.
-depart
-departs
-departed
-.
-need
-needs
-needed
- to be holding 
- before 
- can
- could
- put 
- into something else.
- contain things.
- closed.
- need
- have needed
- to take 
- off first.
- put something inside itself.
-(first taking 
- off)
-There
- is
- was
- no more room in 
-.
-Done.
-put
-puts
-put
- 
- into 
-.
- carrying nothing.
- carrying
-:
-.
-jump
-jumps
-jumped
- on the spot, fruitlessly.
-Jumping in 
- 
-would achieve
-would have achieved
- nothing here.
-Jumping upon 
- 
-would achieve
-would have achieved
- nothing here.
-Jumping over 
- 
-would achieve
-would have achieved
- nothing here.
-Keep your mind on the game.
-hear
-hears
-heard
- nothing unexpected.
- (providing light)
- (which 
- closed)
- (closed and providing light)
- (which 
- empty)
- (empty and providing light)
- (which 
- closed and empty)
- (closed, empty and providing light)
- (providing light and being worn
- (providing light
- (being worn
- (which 
- 
-open
-open but empty
-closed
-closed and locked
- and empty
- (which 
- empty)
- containing 
- (on 
-, on top of 
- (in 
-, inside 
- is now in its 
-normal 
-~brief~ printing mode, which gives long descriptions of places never before visited and short descriptions otherwise.
- is now in its 
-normal 
-~verbose~ mode, which always gives long descriptions of locations (even if you've been there before).
- is now in its 
-normal 
-~superbrief~ mode, which always gives short descriptions of locations (even if you haven't been there before).
- seem to be something 
- can
- could
- lock.
- locked at the moment.
- first have to close 
-.
- seem to fit the lock.
-lock
-locks
-locked
- 
-.
- (on 
+ (dentro d
 )
- (in 
+ (como 
 )
- (as 
+^Sobre 
+.
+^Sobre 
+^Dentro d
+ você
+^Você
+ também
+ pode 
+ver 
+.
+ aqui.
+Você não vê nada que não seria de se esperar nessa direção.
+Mas está escuro.
+Você não encontra nada que possa interessar.
+Ah, é mesmo.
+(considerando apenas os dezesseis primeiros objetos)^
+Nada a fazer!
+ Você morreu 
+ Você venceu 
+^Você gostaria de REINICIAR, RESTAURAR um jogo salvo
+, ver a pontuação TOTAL do jogo
+, ver algumas sugestões de coisas DIVERTIDAS para fazer
+ ou SAIR?
+[Seu interpretador não fornece ~desfazer~. Desculpe!]
+O ~desfazer~ falhou. [Nem todos os interpretadores o fornecem.]
+Por favor, dê uma das respostas acima.
+^Agora está completamente escuro aqui!
+Não entendi. O que você quis dizer mesmo?
+[Você não pode ~desfazer~ o que não foi feito!]
+[Não é possível ~desfazer~ duas vezes seguidas. Desculpe!]
+[Turno anterior desfeito.]
+Desculpe, isso não pode ser corrigido.
+Não foi nada.
+~Oops~ só pode corrigir uma única palavra.
+Está muito escuro, e você não consegue ver nada.
+você mesmo
+Tão bonito(a) como sempre.
+Para repetir um comando como ~sapo, pule~, diga apenas ~novamente~, não ~sapo, novamente~.
+Você dificilmente pode repetir isso.
+Você não pode começar com uma vírgula.
+Você parece querer falar com alguém, mas não consigo ver quem.
+Você não pode falar com 
+.
+Para falar com alguém, tente ~alguém, olá~ ou algo parecido.
+(primeiro pegando 
 )
-^On 
-.
-^On 
-^In 
- 
- 
-can
-could
- also
- see 
-.
- here.
-see
-sees
-saw
- nothing unexpected in that direction.
-But it
-'s
- was
- dark.
-find
-finds
-found
- nothing of interest.
-Quite.
-(considering the first sixteen objects only)^
-Nothing to do.
- 
-died
-have died
-has died
- 
- 
-won
-have won
-has won
- 
-^Would you like to RESTART, RESTORE a saved game
-, give the FULL score for that game
-, see some suggestions for AMUSING things to do
- or QUIT?
-[Your interpreter does not provide ~undo~.  Sorry!]
-~Undo~ failed.  [Not all interpreters provide it.]
-Please give one of the answers above.
-^It 
-is now
-was
- pitch dark in 
-here
-there
-.
-I beg your pardon?
-[You can't ~undo~ what hasn't been done!]
-[Can't ~undo~ twice in succession. Sorry!]
-[Previous turn undone.]
-Sorry, that can't be corrected.
-Think nothing of it.
-~Oops~ can only correct a single word.
-It 
-is
-was
- pitch dark, and 
- can't
- couldn't
- see a thing.
-yourself
-As good-looking as ever.
-To repeat a command like ~frog, jump~, just say ~again~, not ~frog, again~.
- hardly repeat that.
- begin with a comma.
-seem
-seem
-seems
-seemed
- to want to talk to someone, but I 
-can't
-couldn't
- see whom.
- talk to 
-.
-To talk to someone, try ~someone, hello~ or some such.
-(first taking 
-)
-I didn't understand that sentence.
-I only understood you as far as wanting to 
-I didn't understand that number.
- see any such thing.
-seem
-seem
-seems
-seemed
- to have said too little.
- holding that.
-You can't use multiple objects with that verb.
-You can only use multiple objects once on a line.
-I'm not sure what ~
-~ refers to.
-You excepted something not included anyway.
- only do that to something animate.
-That's not a verb I recognise.
-That's not something you need to refer to in the course of this game.
- see ~
+Eu não entendi essa frase.
+Eu só entendi que você queria 
+Eu não entendi esse número.
+Você não pode ver tal coisa.
+Parece que você disse muito pouco!
+Você não está segurando isso!
+Você não pode usar múltiplos objetos com esse verbo.
+Você só pode usar múltiplos objetos uma vez por linha.
+Não tenho certeza a que ~
+~ se refere.
+Você excluiu algo que nem estava incluído!
+Você só pode fazer isso com algo animado.
+Eu não reconheço esse verbo.
+Isso não é algo a que você precise se referir durante este jogo.
+Você não consegue ver ~
 ~ (
-) at the moment.
-I didn't understand the way that finished.
-None
-Only 
- of those 
-is
-are
- available.
-Nothing to do.
-There 
-is
-was
- nothing to 
-.
-Who do you mean, 
-Which do you mean, 
-Sorry, you can only have one item here. Which exactly?
-Whom 
-do
-do
-does
-did
+) no momento.
+Eu não entendi como isso terminou.
+Nenhum
+Apenas 
+ desses 
+é
+são
+ disponível.
+Nada a fazer!
+Não há nenhum disponível!
+Quem você quer dizer, 
+Qual você quer dizer, 
+Desculpe, você só pode ter um item aqui. Qual exatamente você quer?
+Quem você quer
  
-want
-want
-want
-want
+ para 
+?^
+O que você quer
  
- to 
-?
-What 
-do
-do
-does
-did
- 
-want
-want
-want
-want
- 
- to 
-?
-The score has just gone 
-up
-down
- by 
- point
+ para 
+?^
+Sua pontuação acabou de 
+aumentar
+diminuir
+ em 
+ ponto
 s
-(Since something dramatic has happened, your list of commands has been cut short.)
-^Type a number from 1 to 
-, 0 to redisplay or press ENTER.
-^[Please press SPACE.]
-[Comment recorded.]
-[Comment NOT recorded.]
+(Como algo dramático aconteceu, sua lista de comandos foi encurtada.)
+^Digite um número de 1 a 
+, 0 para reexibir ou pressione ENTER.
+^[Por favor, pressione ESPAÇO.]
+[Comentário gravado.]
+[Comentário NÃO gravado.]
+.^
+?^
+Essa foi uma pergunta retórica.
+Notificação de pontuação desativada.
+Notificação de pontuação ativada.
+Objetos que você manipulou:^
+Nenhum.
+   (usado)
+   (segurando)
+   (dado)
+   (em 
+)
+   (em 
+)
+   (dentro 
+)
+   (sobre 
+)
+   (perdido)
+ não é algo que você pode abrir.
+Eles parecem 
+Parece 
+estar trancado.
+ já está aberto.
+Você abre 
+, revelando 
+nada.
 .
-?
-(first taking 
- 
-off
-out of
- 
-)
-You'll have to be more specific.
- observes that 
-That was a rhetorical question.
-Score notification off.
-Score notification on.
-have
-have
-has
- handled
-have
-have
-has
- handled nothing.
- (worn)
- (held)
- (given away)
- (in 
-)
- (in 
-)
- (inside 
-)
- (on 
-)
- (lost)
- not something 
- can open
- could have opened
+Você abre 
 .
-seem
-seems
-seemed
- to be locked.
- already open.
-open
-opens
-opened
- 
-, revealing 
- and revealed 
-nothing.
-.
-open
-opens
-opened
- 
-.
-(first opening 
+(primeiro abrindo 
 )
- better things to do.
-have
-have
-has
- visited
-.
-have
-have
-has
- visited nothing.
-Nothing practical 
-results
-resulted
- from 
- prayer.
+ têm
+ tem
+ coisas melhores para fazer.
+Você visitou: 
+.^
+Nada prático resulta da sua oração.
 ^>
-At the moment, 
-means 
-is unset
-no pronouns are known to the game.
+No momento, 
+significa 
+não está definido
+nenhum pronome é conhecido pelo jogo.
 .
- 
-isn't
-wasn't
- likely to help matters by punishing 
- that way.
-Punishing 
- that way 
-isn't
-wasn't
- likely to help matters.
- fixed in place.
- unable to.
-Nothing obvious 
-happens
-happened
+Esses são 
+É 
+fixo no lugar.
+Você não pode.
+Nada óbvio acontece.
+Isso seria menos do que cortês.
+Isso não vai resolver nada...
+Isso não é uma direção.
+Nessa direção não é possível.
+Você precisa estar segurando 
+ antes de poder colocar 
+ em cima de algo mais.
+Você não pode colocar algo em cima de si mesmo.
+Colocar coisas em 
+ não alcançaria nada.
+Você não tem a destreza.
+(primeiro tirando 
+)^
+Não há mais espaço em 
 .
-That would 
-be
-have been
- less than courteous.
-That really wouldn't 
-serve
-have served
- any purpose.
-That's 
-not
-wasn't
- a direction.
-Not that way 
- can't
-couldn't
+Feito.
+Você coloca 
+ em 
 .
-need
-needs
-needed
- to be holding 
- before 
- can
- could
- put 
- on top of something else.
- put something on top of itself.
-Putting things on 
- would
- achieve
-'ve achieved
- nothing.
-lack
-lacks
-lacked
- the dexterity.
-(first taking 
- off)
-There 
-is
-was
- no more room on 
-.
-Done.
-put
-puts
-put
- 
- on 
-.
-Please answer yes or no.
-Are you sure you want to quit? 
- unfortunately closed.
-But 
- there now.
-Removed.
-But 
- in or on anything.
-Are you sure you want to restart? 
-Failed.
-Restore failed.
+Por favor, responda sim ou não.
+Tem certeza de que quer encerrar esta sessão de jogo? 
+Tem certeza de que quer reiniciar? 
+Não foi possível reiniciar.
+A restauração falhou.
 Ok.
-achieve
-achieves
-achieved
- nothing by this.
-** 
-Preposition not found (this should not occur)
-Property value not routine or string: ~
-~ of ~
-~ (
-)
-Entry in property list not routine or string: ~
-~ list of ~
-~ (
-)
-Too many timers/daemons are active simultaneously. The limit is the library constant MAX_TIMERS (currently 
-) and should be increased
-Object ~
-~ has no ~
-~ property
-The object ~
-~ can only be used as a player object if it has the ~number~ property
-Attempt to take random entry from an empty table array
- is not a valid direction property number
-The player-object is outside the object tree
-The room ~
-~ has no ~
-~ property
-Tried to set a non-existent pronoun using SetPronoun
-A 'topic' token can only be followed by a preposition
-Overflowed buffer limit of 
- using '@@64output_stream 3' 
-LoopWithinObject broken because the object 
- was moved while the loop passed through it.
-Attempt to use illegal narrative_voice of 
+Não deu resultado nenhum.
+ está infelizmente fechad
 .
-(unexplained)
- **
-Save failed.
+Mas 
+ não está aí agora.
+Removido.
+Não foi possível salvar o estado atual do jogo.
 Ok.
-In that game you scored 
-You have so far scored 
- out of a possible 
-, in 
- turn
+Nesse jogo você marcou 
+Você marcou até agora 
+ de um total de 
+, em 
+ jogada
 s
-There is no score in this story.
-Transcripting is already off.
-^End of transcript.
-Attempt to end transcript failed.
-Transcripting is already on.
-Start of a transcript of
-Attempt to begin transcript failed.
-But it
-'s
- was
- dark.
-There 
-is
-was
- nothing on 
+Não há pontuação nesta história.
+A transcrição já está desligada.
+^Fim da transcrição.
+A tentativa de terminar a transcrição falhou.
+A transcrição já está ligada.
+Início da transcrição.
+A tentativa de iniciar a transcrição falhou.
+Mas está escuro.
+Não há nada em 
 .
-On 
+Em 
 .
-find
-finds
-found
- nothing of interest.
- see inside, since 
+Você não nota nada de importante n
+.
+Você não pode olhar lá dentro, porque 
  
- closed.
-
+ fechad
+.
  
- empty.
-In 
+ vazi
 .
- set 
+N
 .
- set 
- to anything.
- holding 
+Não, você não pode definir 
 .
- unimpressed.
- singing 
-is
-was
- abominable.
- feeling especially drowsy.
-smell
-smells
-smelled
- nothing unexpected.
-Oh, don't apologise.
-achieve
-achieves
-achieved
- nothing by this.
-Real adventurers 
-do
-did
- not use such language.
-There
-'s not
- wasn't
- enough water to swim in.
-There
-'s
- was
- nothing sensible to swing here.
- not something 
+Não, você não pode definir 
+ para nada.
+Você não está com 
+.
+ não 
+ impressionad
+.
+Você canta muito mal. Sério.
+Você não está com muito sono.
+Você não sente nenhum cheiro incomum.
+Não parece uma boa ideia.
+Ah, não precisa se desculpar.
+Hmm. Melhor não.
+Você não vai conseguir nada fazendo isso.
+Ah, que coisa mais feia!
+Não há água suficiente para nadar aqui.
+Não há nada aqui que faça sentido balançar.
+Você não pode desligar 
+. Como poderia?
+ já 
+ desligad
+.
+Você desliga 
+.
+Você não pode ligar 
+. Como poderia?
+ já 
+ ligad
+.
+Você liga 
+.
+Peguei.
+Você está sempre em controle de si mesmo.
+Eu não suponho que 
+ se importaria com isso.
+Você teria que sair 
+de cima de 
+de dentro de 
+ primeiro.
+Você já tem 
+.
+Parecem 
+Parece 
+pertencer a 
+.
+Parecem 
+Parece 
+fazer parte de 
+.
  
-can
-could
- switch.
- already off.
-switch
-switches
-switched
- 
- off.
- not something 
- 
-can
-could
- switch.
- already on.
-switch
-switches
-switched
- 
- on.
-Taken.
- always self-possessed.
-I don't suppose 
- would 
-care
-have cared
- for that.
- have 
-
-had 
-to get 
-off
-out of
- 
- first.
-already have
-already has
-already had
- 
+ não estão disponíveis.
+ não 
+ abert
 .
-seem
-seems
-seemed
- to belong to 
+Eles são 
+Isso é 
+ dificilmente portátil.
+Eles estão 
+Isso está 
+fixo no lugar.
+Você já está carregando coisas demais.
+(colocando 
+ em 
+ para abrir espaço)
+Você não percebe nenhum sabor incomum.
+Você fala sozinho por um tempo.
+Você não obtém nenhuma reação.
+Que boa ideia!
+Inútil.
+No último momento, você desiste.
+Você não conseguirá nada fazendo isso.
+Não parece uma boa ideia.
+Não, melhor não.
+Você não sente nada incomum.
+Se você acha que isso pode ajudar...
+Eles não 
+Isso não 
+parece ser algo que você possa destrancar.
+ destrancados no momento.
+Esses não 
+Esse não 
+parecem caber na fechadura.
+Você destranca 
 .
-seem
-seems
-seemed
- to be a part of 
+Você precisa dizer em que direção quer ir.
+O arquivo do jogo foi verificado e está intacto.
+O arquivo do jogo foi verificado, mas não está intacto. De fato, ele pode até mesmo estar corrompido. Lamentável.
+O tempo passa.
+A terrível verdade é que isto não é um sonho.
+Isso não parece necessário.
+Mas você não está segurando 
 .
- not available.
- not open.
- hardly portable.
- fixed in place.
- carrying too many things already.
-(putting 
- into 
- to make room)
-taste
-tastes
-tasted
- nothing unexpected.
-talk
-talks
-talked
- to 
- for a while.
-This provoke
-s
-d
- no reaction.
-What a good idea.
-Futile.
-lack
-lacks
-lacked
- the nerve when it 
-comes
-came
- to the crucial moment.
-would
- achieve
- have achieved
- nothing by this.
-feel
-feels
-felt
- nothing unexpected.
-That really wouldn't 
-serve
-have served
- any purpose.
- seem to be something 
- can unlock
- could have unlocked
+Você parece ridículo acenando com 
 .
- unlocked at the moment.
- seem to fit the lock.
-unlock
-unlocks
-unlocked
- 
-.
-(first unlocking 
-)
- have 
-
-had 
-to say which compass direction to go in.
-The game file has verified as intact.
-The game file did not verify as intact, and may be corrupt.
-Time passe
-s
-d
-.
-The dreadful truth is, this 
-is
-was
- not a dream.
-That seem
-s
-ed
- unnecessary.
-But 
- holding 
-.
-look
-looks
-looked
- ridiculous waving 
- at 
-.
-.
-wave
-waves
-waved
- at 
-, feeling foolish.
- wear 
-.
- not holding 
-.
- already wearing 
-.
-put on
-puts on
-put on
- 
-.
-need to take
-had to take
- 
- 
-out
-off
- of 
- before wearing 
+Não parece uma boa ideia.
+Você acena, sentindo-se tolo.
+Você não pode usar 
+!
+Você não está com 
+!
+Você já está usando 
+!
+Você coloca 
 .
 (darkness object)
+the
 SelfClass
 (self object)
 (Inform Parser)
@@ -1514,7 +984,6 @@ definite object^
 ~ 
 ~
 ~ 
- 
 (Inform Library)
 ^^    
 ***
@@ -1633,27 +1102,68 @@ For some reason, Austin is startled and springs for his life
 right up through the south wall and into Alexandria!
 You feel your brain turning to rice pudding.
 (LibraryMessages)
- / 
- / 
+Release 
+ / Serial number 
+ / Inform v
+ Library v
  
 S
 D
+Standard interpreter 
 .
  (
 ) / 
+Interpreter 
+ Version 
  / 
-** 
+Library serial number 
+** Library error 
  (
 , 
-) **
+) **^** 
+preposition not found (this should not occur)
+Property value not routine or string: ~
+~ of ~
+~ (
+)
+Entry in property list not routine or string: ~
+~ list of ~
+~ (
+)
+Too many timers/daemons are active simultaneously. The limit is the library constant MAX_TIMERS (currently 
+) and should be increased
+Object ~
+~ has no ~
+~ property
+The object ~
+~ can only be used as a player object if it has the ~number~ property
+Attempt to take random entry from an empty table array
+ is not a valid direction property number
+The player-object is outside the object tree
+The room ~
+~ has no ~
+~ property
+Tried to set a non-existent pronoun using SetPronoun
+A 'topic' token can only be followed by a preposition
+Overflowed buffer limit of 
+ using '@@64output_stream 3' 
+LoopWithinObject broken because the object 
+ was moved while the loop passed through it.
+Attempt to use illegal narrative_voice of 
+.
+(unexplained)
+ **
+:^
  
  (
+:^
 )
  (
 )
  
  
  (
+:^
 )
  (
 )
@@ -1667,22 +1177,12 @@ D
  
 >
 > 
- 
- 
- 
- 
-.^
   
    
   
  
  
  
- 
- 
-On 
-In 
-.
  
  
 [Trace on.]
@@ -1868,40 +1368,40 @@ Those are pearls that were his eyes...
 He's one of my colleagues now, of course.
 Drowned Sailor
 HRoom
-   Things to do:^^   1. Find map^   2. Phone airport to check parking^   3. Health forms...^^and so on. Let's face it, 1. is more enticing than the rest put together.
-Immensely useful, that.
-crumpled piece of paper
-There's a battery in already.
-Not surprisingly, it won't fit in the battery compartment.
-There's no switch, just a battery compartment.
-The torch goes out as you open the battery compartment.
-You open the battery compartment of the torch.
-You close the battery compartment of the torch
-, and it explodes with light, becomes hot enough to melt, falls to the floor, catches fire and burns down most of the attic...^^It may be some consolation that since you spend your holiday in the local hospital burns unit, you are never inconvenienced much by not finding the map.
-, and it explodes with light, becomes hot enough to melt, falls from your grasp and perishes away to nothing.
-, but the battery must be dead because nothing happens.
-, and it lights up brightly.
-, and it lights up feebly.
+   Coisas a fazer:^^   1. Encontrar o mapa^   2. Telefonar para o aeroporto para verificar o estacionamento^   3. Formulários de saúde...^^e assim por diante. Convenhamos: a primeira opção é mais interessante que todas as outras juntas.
+Isso é imensamente útil.
+pedaço de papel amassado
+Já há uma bateria dentro.
+Como era de esperar, ela não cabe no compartimento da bateria.
+Não há interruptor, apenas um compartimento de bateria.
+A lanterna se apaga quando você abre o compartimento da bateria.
+Você abre o compartimento da bateria da lanterna.
+Você fecha o compartimento da bateria da lanterna
+, e ela explode em luz, fica quente o bastante para derreter, cai no chão, pega fogo e incendeia a maior parte do sótão...^^Talvez sirva de consolo saber que, como você passa as férias na ala de queimados do hospital local, não chega a se incomodar muito por não encontrar o mapa.
+, e ela explode em luz, fica quente o bastante para derreter, cai da sua mão e desaparece por completo.
+, mas a bateria deve estar descarregada, pois nada acontece.
+, e acende com força.
+, e acende fracamente.
 .
-The torch has a battery compartment which can be reached by opening it up.
-an
+A lanterna tem um compartimento de bateria que pode ser alcançado abrindo-a.
+uma
 ^The torch flickers ominously.^
 ^The torch finally dies out.^
-Pity you can't change the batteries.
-electric torch
+É uma pena que você não possa trocar as baterias.
+lanterna elétrica
 an
-old smudged battery
-Oatmeal covered with plain chocolate, since you ask.
-I bet you didn't know that chocolate biscuit manufacturers are damned in perpetuity? I'm afraid the chapters about that in the Old Testaments were lost, though, and now no-one can remember why.
-chocolate biscuit
-The attics, full of low beams and awkward angles, begin here in a relatively tidy area which extends north, south and east. The wooden floorboards seem fairly sound, just as well considering how heavy all these teachests are. But the old wiring went years ago, and there's no electric light.
-Attic
-You discover a lady's jewellery box under the trapdoor!
-You close the trapdoor, surprised to see that something shiny was obscured by it.
-You close the trapdoor once more. No more jewellery boxes though.
-There is a closed trapdoor in the middle of the floor.
-A hinged trapdoor in the floor stands open, and light streams in from below.
-hinged trapdoor
+bateria velha e manchada
+Aveia coberta com chocolate puro, já que você perguntou.
+Aposto que você não sabia que os fabricantes de biscoitos de chocolate estão condenados por toda a eternidade? Temo que os capítulos do Antigo Testamento que explicavam o motivo tenham se perdido, e agora ninguém se lembra por quê.
+biscoito de chocolate
+O sótão, cheio de vigas baixas e ângulos incômodos, começa aqui em uma área relativamente arrumada que se estende para o norte, o sul e o leste. O assoalho de madeira parece razoavelmente firme, ainda bem, considerando o peso desses baús de chá. Mas a fiação antiga deixou de funcionar há anos, e não há luz elétrica.
+Sótão
+Você descobre uma caixa de joias de senhora sob o alçapão!
+Você fecha o alçapão, surpreso ao ver que ele escondia algo brilhante.
+Você fecha o alçapão outra vez. Mas não há mais caixas de joias.
+Há um alçapão fechado no meio do chão.
+Um alçapão articulado no chão está aberto, e a luz entra por baixo.
+alçapão articulado
 That was the first place you tried, hours and hours ago now
 , and there's nothing there but that boring old book. You pick it up anyway, bored as you are
 .
@@ -5043,282 +4543,303 @@ For some reason, Austin is startled and springs for his life
 right up through the south wall and into Alexandria!
 There are hints built into this game, but you will have to find out for yourself how to get them.
 
-[Dictionary contains 1369 entries:]
+[Dictionary contains 1475 entries:]
 .            ,            ,a           ,b           ,c           
-,d           ,e           a            about        above        
-abstract     ace          achetez      actions      adamant      
-adamantin    add          adjust       aeschylus    aft          
-again        against      agamemnon    agricultu    air          
-alarm        alexander    alexandri    alison       all          
-alpha        altar        aluminium    amber        amusing      
-an           anchor       ancient      and          andromeda    
-angel        angelic      animal       anoint       anoppe       
-another      answer       antique      anton        anxious      
-apart        aphrodite    apollo       apolloniu    april        
-arc          arcana       ares         armchair     armchairs    
-armour       army         array        arrows       arthur       
-ask          astrolabe    astronomi    at           athene       
-attach       attack       attic        august       aunt         
-austin       awake        awaken       away         axis         
-back         backward     backwards    balcony      ball         
-band         banister     bank         bar          bare         
-barrels      barrier      bartender    basket       bateau       
-bats         battery      battlemen    beach        bead         
-beam         beams        bean         beanpole     bear         
-beckon       bed          bedside      beep         bell         
-bells        below        bet          big          bird         
-birds        biscuit      bishops      black        bladed       
-blankets     bleep        blind        blow         blue         
-bluish       board        boat         bomb         bone         
-bones        book         books        both         bother       
+,d           ,e           -a           -as          -o           
+-os          a            abaixo       abra         abrace       
+abstract     acaricie     ace          acenda       acene        
+acesa        acesas       aceso        acesos       achate       
+achetez      acima        acorde       actions      adamant      
+adamantin    add          aeschylus    aft          against      
+agamemnon    agricultu    aguarde      air          ajuste       
+alçap        alarm        alcapao      alexander    alexandri    
+algum        algumas      alguns       alimente     alison       
+alpha        altar        alto         aluminium    amarre       
+amassado     ambas        amber        ambos        anchor       
+ancient      andromeda    angel        angelic      animal       
+anoint       anoppe       antique      anton        anxious      
+ao           apagada      apagadas     apagado      apagados     
+aphrodite    apoie        apollo       apolloniu    aponte       
+apresente    april        arc          arcana       ares         
+armchair     armchairs    armour       army         arranhe      
+arraste      array        arremesse    arrows       arthur       
+articulad    as           assassine    assoalho     astrolabe    
+astronomi    at           ataque       athene       atire        
+ative        attic        august       aunt         austin       
+away         axis         back         backward     backwards    
+baixo        balance      balcony      ball         band         
+banister     bank         bar          bare         barrels      
+barrier      bartender    basket       bata         bateau       
+bateria      bats         battery      battlemen    beach        
+bead         beam         bean         beanpole     bear         
+beba         beckon       bed          bedside      beep         
+beije        belisque     bell         bells        bet          
+big          bipe         bird         birds        biscoito     
+bishops      black        bladed       blankets     bleep        
+blind        blue         bluish       board        boat         
+bomb         bone         bones        book         books        
 bottle       box          brac         braided      branch       
-brass        break        bric         bricks       brief        
-british      broken       bronze       brushes      bunch        
-bunker       burn         bust         but          buy          
-by           cabinet      cafe         calendar     callimach    
-camp         candelabr    candles      cannon       cannonbal    
-canvas       capabilit    capstan      car          carbolic     
-card         cards        carry        carte        carved       
-carvings     case         castle       cat          catch        
-catwalk      causeway     cavity       ceiling      cell         
-center       central      centre       chain        chains       
-change       changes      charcoal     check        chess        
-chest        chests       chicken      chimney      chirp        
-chlamys      chocolate    chocs        choice       chop         
-church       chute        circle       circular     clairvoya    
-classical    clean        clear        clerestor    climb        
-cloak        clock        close        cloud        clover       
-coaches      coal         coals        coat         coffee       
-coffin       coin         colour       colours      comfortab    
-comma,       commemora    compartme    compasses    connect      
-conservat    conspirat    consult      contrapti    copper       
-cord         corn         corncrake    couch        couches      
-cover        crack        crake        crank        cranked      
-crates       crawl        crenellat    crescent     crook        
-croquet      cross        crumpled     crushed      crystals     
-cube         cupboard     cups         curious      curse        
-curses       curtain      cut          cylinder     d            
-daemons      daisies      daisy        daisychai    damn         
-dance        dark         darn         deaf         death        
-december     deck         decor        defaced      defences     
-delicate     delphic      demeter      demijohn     demon        
-demonic      describe     desk         dessert      destroy      
-detector     detonater    detonator    developin    device       
-devil        diagnose     dial         dials        diana        
-diary        dice         dict         dictionar    die          
-dig          dionysus     direct       disc         discard      
-display      disrobe      disturbin    dive         dobbin       
-doff         doktor       dolmen       don          door         
-doorway      down         drag         dragonfli    drat         
-dream        drink        drop         drowned      druid        
-druidess     dug          dumb         dumbwaite    dust         
-dusty        e            each         earth        easels       
-east         eat          ebenezer     egyptian     eight        
-eighteen     ekmek        electric     electrici    elephants    
-eleven       embrace      empty        engraving    ensign       
-enter        enthusias    entrance     epic         eppona       
-eraina       escape       etch         etching      eumenides    
-evans        even         every        everythin    examine      
-except       exhibit      exhibitio    exit         expert       
-eyepiece     face         fallen       family       farmlands    
-fasten       featurele    february     feed         feel         
-fifteen      fifty        fig          fight        figurine     
-filigree     fill         fire         fireplace    fires        
-first        fish         five         fix          flag         
-flagpole     flagstone    flame        flaming      flash        
-flip         float        flock        floor        floorboar    
-flower       flowers      flurries     focus        folly        
-fondle       fool         foot         for          force        
+brass        breve        bric         bricks       british      
+broken       bronze       brushes      bunch        bunker       
+bust         by           cabinet      cafe         calendar     
+callimach    caminhe      camp         candelabr    candles      
+cannon       cannonbal    cante        canvas       capabilit    
+capstan      car          carbolic     card         cards        
+carregue     carte        carved       carvings     case         
+castle       cat          catch        catwalk      causeway     
+cave         cavity       cell         center       central      
+centre       chão         chain        chains       change       
+changes      chao         charcoal     cheire       cheque       
+chess        chest        chests       chicken      chimney      
+chirp        chlamys      chocolate    chocs        choice       
+church       chute        cima         cinco        circle       
+circular     clairvoya    classical    clerestor    cloak        
+clock        cloud        clover       coaches      coal         
+coals        coat         cochile      coffee       coffin       
+coin         coloque      colour       colours      com          
+coma         comece       comfortab    comma,       commemora    
+compartim    compartme    compasses    completa     completo     
+completos    compre       conserte     conservat    conspirat    
+consulte     conte        contrapti    copper       cord         
+corn         corncrake    corra        corte        couch        
+couches      cover        crack        crake        crank        
+cranked      crates       crawl        crenellat    crescent     
+crook        croquet      cross        crushed      cruze        
+crystals     cube         cubra        cupboard     cups         
+curious      curse        curses       curta        curtain      
+curto        cylinder     dê           da           daemons      
+daisies      daisy        daisychai    dance        dark         
+das          de           de den       de nov       deaf         
+death        debaixo      december     deck         decor        
+defaced      defences     deite        deite-se     delicate     
+delphic      demeter      demijohn     demon        demonic      
+dentro       deposite     desça        desative     desca        
+descarte     descreva     descubra     desculpa     desculpas    
+desculpe     deseje       desembrul    desfaç       desfaca      
+desk         desligada    desligado    desligue     deslize      
+desloque     desparafu    desperte     dessert      destranqu    
+destrua      detector     detonater    detonator    developin    
+device       devil        dez          dezenove     dezesseis    
+dezessete    dezoito      diagnose     diagnosti    dial         
+dials        diana        diary        dica         dicas        
+dice         dictionar    die          diga         dionysus     
+direct       disc         dispa        disturbin    do           
+dobbin       dois         doktor       dolmen       door         
+doorway      dos          down         doze         dragonfli    
+dream        droga        drowned      druid        druidess     
+duas         dug          dumb         dumbwaite    durma        
+dust         dusty        e            earth        easels       
+east         ebenezer     egyptian     eight        ekmek        
+elétrica     ela          elas         ele          electrici    
+elephants    eles         eletrica     em           empilhe      
+empurre      encerrar     encha        engraving    engula       
+ensign       então        entao        enthusias    entrance     
+entre        epa          epic         eppona       eraina       
+escale       escape       escute       esfregue     esmague      
+espere       esprema      essa         essas        esse         
+esses        esta         estas        este         estes        
+esvazie      etch         etching      eumenides    evans        
+even         examine      exceto       exhibit      exhibitio    
+exiba        expert       eyepiece     face         fale         
+fallen       family       fareje       farmlands    fatie        
+featurele    february     fechar       feche        fiaçã        
+fifty        fig          figurine     filigree     fire         
+fireplace    fires        first        fish         fixe         
+flag         flagpole     flagstone    flame        flaming      
+flash        flip         float        flock        flower       
+flowers      flurries     focus        foda         folly        
+fool         foot         for          fora         force        
 fore         former       forward      forwards     four         
-fourteen     fragment     frame        framed       franc        
-francs       friend       frieze       frisk        from         
-fuck         full         fullscore    furies       furniture    
-g            galita       gamble       gambler      gambling     
-gap          garden       gardeners    gas          gasmask      
-gates        gauges       gear         gem          gemstone     
-gentleman    georgian     gerard       gesture      get          
-ghost        gift         gilded       ginger       give         
-glass        glasses      globe        gloves       glowing      
-gnome        gnomes       go           goat         goats        
-gods         gold         golden       gonear       gothic       
-gothic-l     goto         grape        grate        grating      
-gravel       greek        green        grey         grid         
-grim         grizzled     grope        ground       gurgling     
-hades        hair         hairband     hall         hamburg      
-hand         handkerch    handle       hanging      hankie       
-hanky        harbour      hard         harrison     hartley      
-hat          hatch        hatchway     hay          head         
-hear         heart        heating      heaven       heavy        
+fragment     frame        framed       franc        francs       
+friend       frieze       frisk        furies       furniture    
+galita       gamble       gambler      gambling     gap          
+garden       gardeners    gas          gasmask      gates        
+gauges       gear         gem          gemstone     gentleman    
+georgian     gerard       gesture      ghost        gift         
+gilded       ginger       gire         glass        glasses      
+globe        gloves       glowing      gnome        gnomes       
+goat         goats        gods         gold         golden       
+golpe        golpeie      gonear       gothic       gothic-l     
+goto         grape        grate        grating      gravaç       
+gravacao     grave        gravel       greek        green        
+grey         grid         grim         grite        grizzled     
+gurgling     hades        hair         hairband     hall         
+hamburg      hand         handkerch    handle       hanging      
+hankie       hanky        harbour      hard         harrison     
+hartley      hat          hatch        hatchway     hay          
+head         heart        heating      heaven       heavy        
 helene       helicon      hell         hemp         henri        
-hephaestu    her          hera         herd         herself      
-hexagonal    hides        hieroglyp    high         hills        
-him          hinged       hint         hints        his          
-historica    history      hit          hobsons      hold         
-hole         holiday      hollow       homer        honourabl    
-hook         hoop         hoops        hop          hoplite      
-horn         hot          house        hug          husbandry    
-hypnotise    hypnotize    hypocaust    i            ice          
-icicle       idol         iliad        images       implement    
-impressio    in           infinity     inscribe     inscribed    
-inscripti    insert       inside       insulatio    into         
-inv          inventory    irate        iron         ironbound    
-isaac        island       it           its          january      
-jemima       jemmy        jewellery    join         joint        
-joshua       july         jump         june         kappa        
-keepsake     key          kill         killer       king         
-kings        kiss         knight       knights      knock        
-kraken       l            label        ladder       lady         
-lagach       lamp         lamps        language     lanterns     
-large        lattice      latticed     lawn         lay          
-layout       leafed       lean         leather      leave        
-lectern      leda         leg          legs         lemniscus    
-letter       lever        librarian    library      lid          
-lie          life         light        lighted      lighthous    
-listen       lit          little       loading      lock         
-locket       log          logs         long         look         
-looking      loose        love         loxias       luck         
-lucky        luminesce    machines     mad          madame       
+hephaestu    hera         herd         herself      hexagonal    
+hides        hieroglyp    high         hills        hinged       
+hint         hints        hipnotize    historica    history      
+hobsons      hole         holiday      hollow       homer        
+honourabl    hook         hoop         hoops        hoplite      
+horn         hot          house        husbandry    hypnotise    
+hypnotize    hypocaust    i            ice          icicle       
+idol         iliad        images       implement    impressio    
+in           infinity     inscreva     inscribe     inscribed    
+inscripti    insira       insulatio    interessa    inv          
+inventár     inventari    inverta      irate        iron         
+ironbound    isaac        island       january      jemima       
+jewellery    jogue        join         joint        joshua       
+july         june         junte        kappa        keepsake     
+key          killer       king         kings        knight       
+knights      knock        kraken       label        ladder       
+lady         lagach       lamp         lamps        language     
+lanterna     lanterns     large        largo        largue       
+lattice      latticed     lave         lawn         lay          
+layout       leafed       lean         leather      lectern      
+leda         leg          legs         leia         lemniscus    
+leste        letter       levante      librarian    library      
+lid          lie          life         ligada       ligadas      
+ligado       light        lighthous    ligue        limpe        
+little       loading      locket       log          logs         
+long         longa        longo        looking      loose        
+love         loxias       luck         lucky        lugares      
+luminesce    lute         machines     mad          madame       
 magdalena    mahogany     maiden       make         mallet       
-man          many         map          marble       march        
-marie        mascot       mask         masked       mast         
-master       match        matchbook    matting      mattings     
-may          maze         me           medicine     meldrew      
-meldrewe     memorial     men          mend         menelaus     
-merchant     merlin       merlyn       mermaid      messages     
-metal        metro        middle       milk         miniature    
-mirror       mirrored     mist         model        monkey       
-moon         moonstone    mosaic       motor        motorised    
-motorway     mounds       mounted      mounting     mouse        
-mousehole    mouth        move         mug          mugs         
-mummy        mural        murder       museum       mute         
-my           myself       mystic       n            nap          
-napoleoni    nasty        nativity     navy         ne           
-nest         nets         new          newspaper    niche        
-nine         nineteen     no           normal       north        
-northeast    northwest    noscript     nose         note         
-notify       nouns        novel        november     nuts         
+man          manchada     many         map          marble       
+march        marie        mascot       mask         masked       
+mast         master       match        matchbook    mate         
+matting      mattings     may          maze         me           
+medicine     meldrew      meldrewe     memorial     men          
+mend         menelaus     menos        merchant     merda        
+mergulhe     merlin       merlyn       mermaid      messages     
+metal        metro        meu          middle       milk         
+mim          miniature    mirror       mirrored     mist         
+model        monkey       moon         moonstone    mosaic       
+mostre       motor        motorised    motorway     mounds       
+mounted      mounting     mouse        mousehole    mouth        
+mova         mude         mug          mugs         mummy        
+mural        museum       mute         my           myself       
+mystic       n            não          na           nade         
+nao          napoleoni    nas          nasty        nativity     
+navegue      navy         ne           nest         nets         
+new          newspaper    niche        no           nomes        
+nordeste     normal       noroeste     norte        north        
+nos          nose         note         notifica     notificac    
+novamente    nove         novel        november     nuts         
 nw           nymph        nymphs       o            oak          
-objects      objets       oblong       obol         obsidian     
-octagon      october      odd          odysseus     odyssey      
-of           off          offer        officer      officers     
-oil          old          omphalos     on           one          
-onto         oops         open         opening      oracle       
-orange       orb          ornament     ornaments    other        
-oubliette    out          outline      outside      over         
+objetos      objets       oblong       obol         observe      
+obsidian     obtenha      octagon      october      odd          
+odysseus     odyssey      oeste        of           ofereç       
+ofereca      off          officer      officers     oil          
+oito         old          olhe         omphalos     on           
+onto         onze         oops         opa          opening      
+oracle       orange       orb          ordenhe      ore          
+ornament     ornaments    os           ouça         oubliette    
+ouca         out          outline      outra        outro        
 ozone        pace         paces        pack         padded       
-page         pages        paint        painted      painting     
-paintings    pamphlet     pan          pane         panel        
-panelling    panpipes     paper        papyrus      paraphern    
-parcel       parchment    paris        parish       patio        
-patrol       pay          pedestria    peel         peeling      
-peg          perseus      perspex      pet          peter        
-pews         pharos       photo        photograp    pick         
+page         pages        pague        paint        painted      
+painting     paintings    pamphlet     pan          pane         
+panel        panelling    panpipes     papel        paper        
+papyrus      para         parafuse     paraphern    parcel       
+parchment    pare         paris        parish       patio        
+patrol       peça         peca         pedaço       pedaco       
+pedestria    peeling      peg          pegue        pense        
+pergunte     perseus      perspex      pesquise     pet          
+peter        pews         pharos       photo        photograp    
 picture      pieces       pigeon       pigeonhol    pile         
 pill         pillar       pinch        pipe         pipes        
-places       plain        plane        plant        plants       
+pique        plain        plane        plant        plants       
 plaque       plaster      plastic      play         plover       
-plugh        pluto        poem         poet         poetry       
-point        pole         polish       port         portico      
-poseidon     post         postcard     poster       posters      
-pot          potted       pottery      power        pray         
-prayer       premoniti    present      press        pretentio    
-prey         priest       priestess    princess     prise        
-prize        processio    projector    pronouns     prop         
-prow         prune        pry          ptolemy      pub          
-public       publicity    pull         pulley       pumice       
-punch        purchase     purloin      purple       push         
-put          pythian      q            quadrants    quarter      
-quarterst    quartet      queen        queens       quinquire    
-quit         racing       racks        radio        ragged       
-rail         rain         ram          random       rats         
-read         reaper       recess       recording    red          
-reeds        reindeer     relief       reliefs      remove       
-repair       replay       rest         restart      restore      
-resurrect    returning    reveal       reverse      revolve      
-revolving    rickety      rigged       rigging      ring         
-rings        rip          river        road         robot        
-rock         rod          rods         roger        roll         
+plugh        pluto        pode         poem         poet         
+poetry       point        pole         ponha        pontos       
+pontuaê      pontuacao    porcaria     porra        port         
+porta        portico      poseidon     post         postcard     
+poster       posters      pot          potted       pottery      
+power        prayer       preencha     premoniti    prenda       
+pretentio    prey         priest       priestess    princess     
+processio    procure      projector    pronomes     prop         
+prove        prow         ptolemy      pub          public       
+publicity    pule         pulley       pumice       purloin      
+purple       push         puxe         pythian      quadrants    
+quarter      quarterst    quartet      quatorze     quatro       
+quebre       queen        queens       queime       quinquire    
+quinze       rache        racing       racks        radio        
+ragged       rail         rain         ram          random       
+rasgue       rats         reaper       recess       red          
+redor        reeds        regule       reindeer     reiniciar    
+relief       reliefs      remova       repair       repare       
+repita       replay       responda     rest         restaurar    
+resurrect    retire       returning    reveal       reverse      
+revise       revolve      revolving    reze         rickety      
+rigged       rigging      ring         rings        rip          
+river        road         robot        rock         rod          
+rode         rods         roger        role         roll         
 roller       rolls        roman        romance      romantic     
 roof         rope         ropes        rose         rosetta      
-rotate       rotted       rotting      rough        round        
-routines     rub          rubber       rubbish      rucksack     
-run          runner       rusted       rusty        s            
-sack         sacrifice    safety       sail         sailing      
-sailor       salt         sand         sandals      sandstone    
-sandwells    sarcophag    sash         sashes       save         
-saxon        say          scale        scarf        scenes       
-sceptre      scope        score        scratch      scratched    
-screw        scribe       script       scripts      scroll       
-scrolls      scrub        sculpture    se           sea          
-search       seaweed      second       secret       seeds        
-seesaw       selenae      self         sepia        september    
-set          seven        sevenbran    seventeen    shadows      
-shaft        shallow      shantih      shed         sheet        
-sheets       shepherds    shift        shine        ship         
-ships        shit         shoes        shoot        shopkeepe    
-short        shout        show         showdict     showobj      
-showverb     shrub        shut         sign         signpost     
-silk         sill         silver       sing         single       
-sip          sir          sit          six          sixes        
-sixteen      sketch       skiff        skip         skull        
-sky          skylight     slab         slap         slave        
-sleep        slice        slide        slot         small        
-smash        smell        smoke        smooth       smudge       
-smudged      smyslov      snaps        sniff        soap         
-socket       sockets      sod          soldier      soldiers     
-some         soot         sooty        sorry        sosostris    
-south        southeast    southwest    souvenirs    spade        
-spar         sparrows     speak        spears       special      
-spherical    sphinx       sphinxes     spindle      spy          
-square       squash       squeeze      squirrel     stack        
-staff        stained      stair        staircase    stairs       
-stalking     stand        star         starboard    start        
-statue       statues      statuette    steel        stein        
-step         steps        stern        stick        sticks       
-stile        still        stone        stop         storm        
-stream       stride       strides      strike       striped      
-stroke       strong       strongbox    summer       summerhou    
-summoning    superbrie    support      surly        sw           
-swallow      sweep        sweeping     swim         swing        
-switch       symbol       symbols      syrinx       table        
-tablet       tail         take         tall         tango        
-tank         tapestry     tarot        tassels      taste        
-tea          teachest     teachests    tear         tell         
-ten          tender       tent         tera         that         
-the          their        them         then         these        
-think        third        thirteen     this         thorns       
-thorny       those        three        through      throw        
-thump        tickle       tie          tight        tile         
-tiles        timber       time         timer        timers       
-times        to           tobias       tomb         tombstone    
-tomes        top          torch        torches      torture      
-toss         touch        tourist      tower        trace        
-transcrip    transfer     trap         trapdoor     tree         
-trestle      tripod       trough       troughs      trouves      
-trowels      tub          tube         tubes        turn         
-twelve       twenty       twist        two          u            
-ugly         ulysses      umbrella     uncover      under        
-undo         unexcitin    unlit        unlock       unsafe       
-unscrew      unscript     unwrap       up           upon         
-urn          valley       vane         vanity       vent         
-vents        verbose      verify       version      village      
-vines        volumes      w            wager        wain         
-wait         waiter       wake         walk         wall         
-waltz        wands        war          warriors     wash         
-watch        water        wave         wear         weather      
-weatherva    weave        webs         weed         weedkille    
-well         wells        west         wheat        wheel        
-whisky       whistle      white        wicked       wide         
-willard      windmill     windmills    window       window-v     
-windowed     windows      windowven    wine         winery       
-wipe         wire         wireless     wiring       wish         
-wishbone     wistaria     with         women        wood         
-wooden       woodlice     words        woven        wrapping     
-wreck        wrench       write        writing      writings     
-wrought      x            xyzzy        y            yacht        
-yellow       yellowish    yes          yourself     z            
-zephyr       zeus         zodiac       zzzzzzzzz    
+rotted       rotting      rough        round        routines     
+rubber       rubbish      rucksack     runner       rusted       
+rusty        s            saboreie     sack         sacrifice    
+safety       saia         sail         sailing      sailor       
+sair         salt         salte        salvar       sand         
+sandals      sandstone    sandwells    sarcophag    sash         
+sashes       saxon        scarf        scenes       sceptre      
+scope        scratch      scratched    scribe       script       
+scripts      scroll       scrolls      sculpture    se           
+sea          seaweed      second       secret       seeds        
+seesaw       segure       seis         selenae      self         
+sente        sente-se     sepia        september    sete         
+seu          seus         sevenbran    shadows      shaft        
+shallow      shantih      sheet        sheets       shepherds    
+ship         ships        shoes        shoot        shopkeepe    
+short        showobj      showverb     shrub        sign         
+signpost     silk         sill         silver       sim          
+single       sinta        sir          sit          sixes        
+sketch       skiff        skull        skylight     slab         
+slap         slave        slide        slot         small        
+smoke        smooth       smudge       smyslov      snaps        
+soap         sobre        socket       sockets      soldier      
+soldiers     solte        soot         sooty        sopre        
+soque        sosostris    south        souvenirs    spade        
+spar         sparrows     spears       special      spherical    
+sphinx       sphinxes     spindle      spy          square       
+squirrel     stack        staff        stained      stair        
+staircase    stairs       stalking     stand        star         
+starboard    start        statue       statues      statuette    
+steel        stein        step         steps        stern        
+stick        sticks       stile        still        stone        
+stop         storm        stream       stride       strides      
+strike       striped      stroke       strong       strongbox    
+suba         sudeste      sudoeste     sul          summer       
+summerhou    summoning    superbrev    support      surly        
+sw           sweeping     switch       symbol       symbols      
+syrinx       table        tablet       tail         tampe        
+tango        tank         tapestry     tarot        tassels      
+tea          teachest     teachests    tear         tender       
+tent         tera         the          third        thorns       
+thorny       tickle       tight        tile         tiles        
+timber       time         timer        timers       times        
+tire         to           tobias       todas        todos        
+tomb         tombstone    tome         tomes        toque        
+torça        torch        torches      torture      toss         
+tourist      tower        três         trace        tranque      
+transcri     transcric    transfira    trave        tree         
+tres         trestle      treze        tripod       trombe       
+trough       troughs      trouves      trowels      tub          
+tube         tubes        tudo         ugly         ulysses      
+um           uma          umas         umbrella     unexcitin    
+unja         uns          unsafe       up           urn          
+use          vá           va           valley       vane         
+vanity       varra        vasculhe     veja         velha        
+vent         vents        verboso      verificar    versão       
+versao       vigas        village      vines        vinte        
+vista        volta        volte        volumes      w            
+wager        wain         waiter       wall         waltz        
+wands        war          warriors     wash         watch        
+water        weather      weatherva    weave        webs         
+weed         weedkille    well         wells        west         
+wheat        wheel        whisky       whistle      white        
+wicked       willard      windmill     windmills    window       
+window-v     windowed     windows      windowven    wine         
+winery       wire         wireless     wish         wishbone     
+wistaria     with         women        wood         wooden       
+woodlice     words        woven        wrapping     wrench       
+write        writing      writings     wrought      x            
+xyzzy        yacht        yellow       yellowish    yourself     
+z            zephyr       zeus         zodiac       zzzzzzzzz    
 
 [Compiled Z-machine version 8]
-[End of transcript: release 17, serial 250919]
+[End of transcript: release 17, serial 260904]
 

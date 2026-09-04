@@ -17,47 +17,42 @@
 Class   HRoom
   with  section T_MODERN; 
 
-Object  crumpled_piece_of_paper "crumpled piece of paper"        
-  with  name 'crumpled' 'paper',
+Object  crumpled_piece_of_paper "pedaço de papel amassado"        
+  with  name 'pedaço' 'papel' 'amassado' 'pedaco',
         list_together n_obj,
-        description "   Things to do:^^   1. Find map^   2. Phone airport to check parking^   3. Health forms...^^and 
-            so on. Let's face it, 1. is more enticing than the rest put together.",
-        devil_hint "Immensely useful, that.",
+         description "   Coisas a fazer:^^   1. Encontrar o mapa^   2. Telefonar para o aeroporto para verificar o estacionamento^   3. Formulários de saúde...^^e assim por diante. Convenhamos: a primeira opção é mais interessante que todas as outras juntas.",
+         devil_hint "Isso é imensamente útil.",
   has   ;
 
-Object  electric_torch "electric torch"  
-  with  name 'electric' 'torch' 'compartment',
+Object  electric_torch "lanterna elétrica"  
+  with  name 'elétrica' 'eletrica' 'lanterna' 'compartimento',
         before [;
             Receive:
                 if( child(self) ) 
-                    "There's a battery in already.";
+                    "Já há uma bateria dentro.";
                 if( noun hasnt battery_flag )
-                    "Not surprisingly, it won't fit in the battery compartment.";
+                    "Como era de esperar, ela não cabe no compartimento da bateria.";
                 rfalse;
             SwitchOn,SwitchOff:
-                "There's no switch, just a battery compartment.";
+                "Não há interruptor, apenas um compartimento de bateria.";
         ],
         after [ bat i;
             Open:
                 if( self has light ) {
                     give self ~light;
-                    "The torch goes out as you open the battery compartment.";
+                    "A lanterna se apaga quando você abre o compartimento da bateria.";
                 }
-                "You open the battery compartment of the torch.";
+                "Você abre o compartimento da bateria da lanterna.";
             Close:
-                print "You close the battery compartment of the torch";
+                print "Você fecha o compartimento da bateria da lanterna";
                 bat = child(self);
                 if( bat == nasty_battery ) {
                     if( game_section == T_MODERN ) {
                         deadflag = FAILED;
-                        ", and it explodes with light, becomes hot enough to melt, falls to the floor, catches fire 
-                         and burns down most of the attic...^^It may be some consolation that since you spend
-                         your holiday in the local hospital burns unit, you are never inconvenienced much by not
-                         finding the map.";
+                         ", e ela explode em luz, fica quente o bastante para derreter, cai no chão, pega fogo e incendeia a maior parte do sótão...^^Talvez sirva de consolo saber que, como você passa as férias na ala de queimados do hospital local, não chega a se incomodar muito por não encontrar o mapa.";
                     } else {
                         remove electric_torch;
-                        ", and it explodes with light, becomes hot enough to melt, falls from your grasp and perishes 
-                         away to nothing.";
+                         ", e ela explode em luz, fica quente o bastante para derreter, cai da sua mão e desaparece por completo.";
                     }
                 }
                 if( bat == new_battery )
@@ -65,18 +60,18 @@ Object  electric_torch "electric torch"
                 if( bat == old_smudged_battery or new_battery ) {
                     i = bat.number;
                     if( i == 0 )
-                        ", but the battery must be dead because nothing happens.";
+                        ", mas a bateria deve estar descarregada, pois nada acontece.";
                     give self light;
                     if( i > 5 ) {
-                        ", and it lights up brightly.";
+                        ", e acende com força.";
                     }
-                    ", and it lights up feebly.";
+                    ", e acende fracamente.";
                 }
                 ".";
         ],
         list_together s_obj,
-        description "The torch has a battery compartment which can be reached by opening it up.",
-        article "an",
+         description "A lanterna tem um compartimento de bateria que pode ser alcançado abrindo-a.",
+         article "uma",
         number 0,
         daemon [ o n;
             if( self hasnt on )
@@ -95,47 +90,43 @@ Object  electric_torch "electric torch"
                 trigger_quotation(8);
             }
         ],
-        devil_hint "Pity you can't change the batteries.",
+         devil_hint "É uma pena que você não possa trocar as baterias.",
   has   container light moved openable;
 
-Object  -> old_smudged_battery "old smudged battery"     
-  with  name 'old' 'smudged' 'battery',
+Object  -> old_smudged_battery "bateria velha e manchada"     
+  with  name 'velha' 'manchada' 'bateria',
         list_together s_obj,
         article "an",
         number 200,
   has   battery_flag;
 
-Object  chocolate_biscuit "chocolate biscuit"    
-  with  name 'chocolate' 'biscuit',
+Object  chocolate_biscuit "biscoito de chocolate"    
+  with  name 'chocolate' 'biscoito',
         after [;
             Eat: Achieved(SCORE_BISCUIT); rfalse;
         ],
-        description "Oatmeal covered with plain chocolate, since you ask.",
-        devil_hint "I bet you didn't know that chocolate biscuit manufacturers are damned in perpetuity? 
-            I'm afraid the chapters about that in the Old Testaments were lost, though, and now no-one can
-            remember why.",
+         description "Aveia coberta com chocolate puro, já que você perguntou.",
+         devil_hint "Aposto que você não sabia que os fabricantes de biscoitos de chocolate estão condenados por toda a eternidade? Temo que os capítulos do Antigo Testamento que explicavam o motivo tenham se perdido, e agora ninguém se lembra por quê.",
   has   edible moved;
 
-HRoom   Attic "Attic"    
-  with  name 'beams' 'wiring' 'floor' 'floorboards',
+HRoom   Attic "Sótão"    
+  with  name 'vigas' 'fiação' 'chão' 'assoalho',
         n_to Old_Winery,
         s_to Old_Furniture,
         e_to Servants_Room,
         d_to hinged_trapdoor,
-        description "The attics, full of low beams and awkward angles, begin here in a relatively tidy area 
-            which extends north, south and east. The wooden floorboards seem fairly sound, just as well considering
-            how heavy all these teachests are. But the old wiring went years ago, and there's no electric light.",
+         description "O sótão, cheio de vigas baixas e ângulos incômodos, começa aqui em uma área relativamente arrumada que se estende para o norte, o sul e o leste. O assoalho de madeira parece razoavelmente firme, ainda bem, considerando o peso desses baús de chá. Mas a fiação antiga deixou de funcionar há anos, e não há luz elétrica.",
   has   ;
 
-Object  -> hinged_trapdoor "hinged trapdoor"     
-  with  name 'hinged' 'trap' 'door' 'trapdoor',
+Object  -> hinged_trapdoor "alçapão articulado"     
+  with  name 'articulado' 'alçapão' 'alcapao' 'porta',
         before [;
             Open:
                 if( antique_jewellery_box hasnt concealed )
                     rfalse;
                 give antique_jewellery_box ~concealed;
                 move antique_jewellery_box to Attic;
-                "You discover a lady's jewellery box under the trapdoor!";
+                 "Você descobre uma caixa de joias de senhora sob o alçapão!";
         ],
         after [;
             Open: give self ~light; rfalse;
@@ -143,14 +134,14 @@ Object  -> hinged_trapdoor "hinged trapdoor"
                 if( antique_jewellery_box has concealed ) {
                     give antique_jewellery_box ~concealed;
                     move antique_jewellery_box to Attic;
-                    "You close the trapdoor, surprised to see that something shiny was obscured by it.";
+                    "Você fecha o alçapão, surpreso ao ver que ele escondia algo brilhante.";
                 }
-                "You close the trapdoor once more. No more jewellery boxes though.";
+                "Você fecha o alçapão outra vez. Mas não há mais caixas de joias.";
         ],
         door_to House,
-        when_closed "There is a closed trapdoor in the middle of the floor.",
+         when_closed "Há um alçapão fechado no meio do chão.",
         door_dir d_to,
-        when_open "A hinged trapdoor in the floor stands open, and light streams in from below.",
+         when_open "Um alçapão articulado no chão está aberto, e a luz entra por baixo.",
   has   door light open openable static;
 
 Object  -> teachests "teachests" 
@@ -3086,5 +3077,4 @@ HRoom   Halfway_up_the_Stairs "Halfway up the Stairs"
         d_to White_Hallway,
         description "This dark, steep staircase zigzagging through the house once gave the servants access throughout. But those days are long gone and now all the doors are locked up.",
   has   ;
-
 
