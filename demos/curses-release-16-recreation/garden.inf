@@ -1,28 +1,28 @@
 Class   GRoom
   with  section T_GARDEN;
 
-GRoom   Garden_Stream "Garden Stream"    
-  with  name 'reeds',
+GRoom   Garden_Stream "Riacho do Jardim"    
+  with  name 'reeds' 'juncos' 'riacho' 'agua' 'água',
         before [;
-            Swim: "Too shallow for comfort.";
-            Drink: "Just about drinkable. Not much fun, though.";
+            Swim: "Raso demais para nadar confortavelmente.";
+            Drink: "Dá para beber. Não é muito agradável, porém.";
         ],
-        n_to "Better not... you'd be seen from the Library.",
+        n_to "Melhor não... você seria visto da Biblioteca.",
         s_to coal_bunker,
         e_to Beside_the_Wall,
-        w_to "Better not... you'd be seen from the Orangery.",
-        ne_to "Better not... you'd be seen from the Old Ballroom.",
+        w_to "Melhor não... você seria visto da Orangerie.",
+        ne_to "Melhor não... você seria visto do Salão Antigo.",
         nw_to Family_Tree,
-        d_to "The Hall is not safely climbable.",
-        description "In the lush, verdant (which is to say, under-cared for) gardens of Meldrew House, where a 
-            stream gurgles pleasantly as it meanders through reeds. The house rises up high above you to the south
-            and you dare not be seen from the windows by the rest of the family, so you'll have to go northwest,
-            deeper into the gardens, or else east along a path hugging the wall.",
-        cant_go "The bulk of the Hall is in your way.",
+        d_to "Não é seguro subir pelo Salão.",
+        description "Nos jardins exuberantes (isto é, malcuidados) da Casa Meldrew, um riacho murmura
+            agradavelmente enquanto serpenteia pelos juncos. A casa se ergue bem acima de você ao sul,
+            e você não ousa ser visto pelas janelas pelo resto da família; terá de seguir a noroeste,
+            entrando mais fundo nos jardins, ou para leste pela trilha junto ao muro.",
+        cant_go "A massa do Salão está no caminho.",
   has   light scored;
 
-Object  -> coal_bunker "coal bunker"     
-  with  name 'coal' 'bunker' 'loading' 'door',
+Object  -> coal_bunker "depósito de carvão"     
+  with  name 'coal' 'bunker' 'loading' 'door' 'carvao' 'carvão' 'deposito' 'depósito' 'porta',
         after [;
             Close: give metal_door ~open; rfalse;
             Open: give metal_door open; rfalse;
@@ -30,64 +30,64 @@ Object  -> coal_bunker "coal bunker"
             Unlock: give metal_door ~locked; rfalse;
         ],
         door_to Dark_Passage,
-        when_closed "On the house wall is a coal bunker, whose loading door is shut.",
+        when_closed "No muro da casa há um depósito de carvão, cuja porta de carga está fechada.",
         door_dir s_to,
-        when_open "On the house wall is a coal bunker, whose door stands open.",
+        when_open "No muro da casa há um depósito de carvão, cuja porta está aberta.",
   has   door locked openable static;
 
-Object  -> stream "stream"       
-  with  name 'stream' 'water' 'gurgling',
+Object  -> stream "riacho"       
+  with  name 'stream' 'water' 'gurgling' 'riacho' 'agua' 'água',
         before [;
             Enter: <<Swim>>;
-            Drink: "It's a warm, not unpleasant taste, silt and algae.";
+            Drink: "Tem um gosto morno e não desagradável, de lodo e algas.";
         ],
   has   scenery;
 
-GRoom   Beside_the_Wall "Beside the Wall"        
-  with  n_to "You'd be seen from the Old Ballroom that way.",
-        s_to "There's no door into the Hall.",
+GRoom   Beside_the_Wall "Ao Lado do Muro"        
+  with  n_to "Por esse lado você seria visto do Salão Antigo.",
+        s_to "Não há porta para o Salão.",
         w_to Garden_Stream,
-        nw_to "You'd be seen from the Library that way.",
-        u_to "The walls of the Hall are unclimbable to someone suffering from your degree of vertigo.",
+        nw_to "Por esse lado você seria visto da Biblioteca.",
+        u_to "As paredes do Salão são impossíveis de escalar para alguém com seu grau de vertigem.",
         d_to nothing,
-        description "The east-west path along the foot of Meldrew Hall ends here at one of the carved walls 
-            bordering the garden.",
-        cant_go "The stone wall blocks further passage east.",
+        description "A trilha leste-oeste junto à base do Salão Meldrew termina aqui, num dos muros esculpidos
+            que delimitam o jardim.",
+        cant_go "O muro de pedra impede a passagem para leste.",
   has   light;
 
-Object  -> potted_shrub "potted shrub"   
-  with  name 'pot' 'potted' 'tub' 'plant' 'shrub',
+Object  -> potted_shrub "arbusto em vaso"   
+  with  name 'pot' 'potted' 'tub' 'plant' 'shrub' 'vaso' 'planta' 'arbusto',
         before [;
-            Climb, Enter: "It's only three feet high!";
-            Turn: "You swivel the plant's tub.";
+            Climb, Enter: "Ele tem apenas um metro de altura!";
+            Turn: "Você gira o vaso da planta.";
             Push, PushDir, Pull:
                 if( self has general ) rfalse;
                 give self general;
                 move timber_hatch to location;
                 Beside_the_Wall.d_to = timber_hatch;
                 move self to location;
-                "Pushing the shrub a little aside reveals an unsightly old timber hatch, about three feet in diameter.";
+                "Ao empurrar um pouco o arbusto, você revela uma velha escotilha de madeira feia, com cerca de um metro de diâmetro.";
         ],
-        initial "A shrub is being nursed in a wide round tub in the centre of the path, sheltered behind the wall.",
+        initial "Um arbusto é cultivado num vaso redondo e largo no centro da trilha, protegido atrás do muro.",
   has   static;
 
-Object  -> stone_wall "stone wall"       
+Object  -> stone_wall "muro de pedra"       
   with  name 'stone' 'wall' 'carved' 'carvings' 'painted',
         before [;
             Climb, Enter:
-                "The old, carved garden wall is one of the treasures of rural England, and you're not nearly 
-                 desperate enough to crumble it further into ruin.";
-            Answer, Ask: "The old wall is mute.";
+                "O velho muro de jardim esculpido é um dos tesouros da Inglaterra rural, e você não está nem de longe
+                 desesperado o bastante para transformá-lo ainda mais em ruínas.";
+            Answer, Ask: "O velho muro é mudo.";
         ],
         orders [;
-            Lagach: "For a moment, the slightest of zephyrs blows from the wall, but dies away to nothing.";
-            default: "The old wall is mute.";
+            Lagach: "Por um instante, a mais leve brisa sopra do muro, mas morre até não restar nada.";
+            default: "O velho muro é mudo.";
         ],
-        description "The garden wall once bore painted carvings, but they have fallen into disrepair.",
+        description "O muro do jardim já teve entalhes pintados, mas eles se deterioraram.",
         found_in Beside_the_Wall Beside_the_Drive,
   has   scenery talkable;
 
-Object  timber_hatch "timber hatch"      
+Object  timber_hatch "escotilha de madeira"      
   with  name 'timber' 'hatch' 'old' 'rotted' 'rotting' 'lid',
         after [;
             Open:
@@ -100,21 +100,20 @@ Object  timber_hatch "timber hatch"
                 rfalse;
         ],
         door_to Wine_Cellars,
-        when_closed "Beside the shrub is a timber hatch, three feet across.",
+        when_closed "Ao lado do arbusto há uma escotilha de madeira com um metro de largura.",
         door_dir d_to,
-        when_open "The timber lid stands open beside the shrub, revealing the old barrel-hatch.",
+        when_open "A tampa de madeira está aberta ao lado do arbusto, revelando a velha escotilha do barril.",
   has   door openable static;
 
-GRoom   Family_Tree "Family Tree"        
+GRoom   Family_Tree "Árvore da Família"        
   with  name 'sign' 'signpost' 'post',
         n_to [;
             if( player in garden_roller )
                 return Maze;
-            "You can't go that way.^^Now, this takes a little explaining... These days, it isn't easy to keep up 
-             a house the size of Meldrew Hall, and your family has had to strike a bargain with the National
-             Trust that the house should be open to the public in the summer months. The maze is so popular with
-             visitors that the grass has worn away, and it's being reseeded at the moment, so you shouldn't go
-             treading all over it.";
+            "Você não pode ir por ali.^^Agora, isso exige uma pequena explicação... Hoje em dia, não é fácil manter
+             uma casa do tamanho do Salão Meldrew, e sua família teve de fazer um acordo com o Patrimônio Nacional
+             para abrir a casa ao público nos meses de verão. O labirinto é tão popular entre os visitantes que a
+             grama desapareceu e está sendo replantada neste momento; portanto, você não deve pisotear tudo.";
         ],
         e_to Lawn_Ornaments,
         w_to Clearing,
@@ -123,200 +122,209 @@ GRoom   Family_Tree "Family Tree"
         initial [;
             MazeX = 4; MazeY = 6; rfalse;
         ],
-        description "You stand in the shade of a great plane tree, seedlings for which were brought back from Spain 
-            by an ancestor of yours in 1806. To the southeast is a stream, to the west is a small clearing and
-            to the north a single break in the green privet hedge marks the entrance to the famously difficult
-            Meldrew Hall Maze. A signpost reading ~To the Mosaic~ points east across the lawn.",
+        description "Você está à sombra de um grande plátano, cujas mudas foram trazidas da Espanha por um ancestral
+            seu em 1806. A sudeste há um riacho, a oeste uma pequena clareira, e ao norte uma abertura na sebe verde
+            de ligustro marca a entrada do famoso e difícil Labirinto do Salão Meldrew. Uma placa com os dizeres
+            ~Para o Mosaico~ aponta para leste através do gramado.",
   has   light;
 
-Object  -> plane_tree "plane tree"       
+Object  -> plane_tree "plátano"       
   with  name 'plane' 'tree' 'family',
         before [; Climb: << Go u_obj >>; ],
   has   scenery;
 
-GRoom   Lawn_Ornaments "Lawn Ornaments"  
+GRoom   Lawn_Ornaments "Enfeites do Gramado"  
   with  name 'gnomes' 'nymphs' 'windmills' 'gnome' 'nymph' 'windmill' 'ornament' 'ornaments',
         e_to Mosaic,
         w_to Family_Tree,
         d_to Mosaic,
-        description "Several hundred years of rolling have made this a rather fine patch of grass, between the privet hedge (north), the plane tree (west) and the mosaic (east). Unfortunately, it is adorned with all the really ugly ornaments (gnomes, plaster nymphs, stone windmills to grow flowers in), this being the corner of the garden least visible from the house.",
-        cant_go "The options appear to be east or west.",
+        description "Centenas de anos de rolagem fizeram deste um belo trecho de grama, entre a sebe de ligustro (norte),
+            o plátano (oeste) e o mosaico (leste). Infelizmente, ele é adornado com todos os enfeites realmente feios
+            (gnomos, ninfas de gesso e moinhos de pedra para cultivar flores), pois este é o canto do jardim menos
+            visível da casa.",
+        cant_go "As opções parecem ser leste ou oeste.",
   has   light;
 
-Object  -> plaster_statuette "plaster statuette" 
+Object  -> plaster_statuette "estatueta de gesso" 
   with  name 'plaster' 'statuette' 'bust' 'statue',
-        initial "Prominent amongst these is a plaster statuette, a bust of a woman.",
-        description "It stands four feet high. At the base is an engraving: ~Self-Portrait, H.M. '54~. (It's presumably not by Her Majesty the Queen, though.)",
+        initial "Entre eles se destaca uma estatueta de gesso, o busto de uma mulher.",
+        description "Ela tem pouco mais de um metro de altura. Na base há uma inscrição: ~Autorretrato, H.M. '54~.
+            (Presumivelmente não é da Sua Majestade a Rainha.)",
   has   static;
 
-Object  ancient_well "ancient well"      
+Object  ancient_well "poço antigo"      
   with  name 'ancient' 'well' 'dark',
         after [;
             Receive:
                 move noun to hanging_cord;
                 give CR ~general;
-                "It plummets down into the well.";
+                "Ela despenca pelo poço.";
         ],
-        initial "The lawn is lightly coated with broken plaster and dust, and in the spot where the statuette once stood is a dark, ancient well.",
-        description "You can make out nothing below, and the well is too small to climb down.",
+        initial "O gramado está levemente coberto de gesso quebrado e poeira, e no lugar da estatueta há um poço antigo e escuro.",
+        description "Você não consegue distinguir nada lá embaixo, e o poço é estreito demais para descer.",
   has   container open static;
 
-GRoom   Mosaic "Mosaic"  
+GRoom   Mosaic "Mosaico"  
   with  name 'perspex' 'scenes' 'quadrants',
         e_to nothing,
         w_to Lawn_Ornaments,
         u_to Lawn_Ornaments,
-        description "This sunken corner of the garden has been excavated and then covered over with tough perspex to protect it from visitors' shoes. It consists of a time-worn Roman mosaic, divided into four quadrants, each showing scenes of idealised Roman life. There was probably a villa on this site, but your family has never been keen on archaeologists so the excavations went no further.",
-        cant_go "From here you can climb back up to the lawn.",
+        description "Este canto rebaixado do jardim foi escavado e depois coberto com perspex resistente para protegê-lo
+            dos sapatos dos visitantes. É um mosaico romano desgastado pelo tempo, dividido em quatro quadrantes,
+            cada um mostrando cenas de uma vida romana idealizada. Provavelmente havia uma vila aqui, mas sua família
+            nunca gostou de arqueólogos, então as escavações não avançaram.",
+        cant_go "Daqui você pode subir de volta ao gramado.",
   has   light;
 
-LagachObj -> Roman_mosaic "Roman mosaic"   
+LagachObj -> Roman_mosaic "mosaico romano"   
   with  name 'roman' 'mosaic',
-        description "Made of terra-cotta and ceramic fragments, it has held together surprisingly well.",
+        description "Feito de fragmentos de terracota e cerâmica, ele se manteve surpreendentemente bem unido.",
   has   scenery;
 
-Object  -> hard_wooden_ball "hard wooden ball"   
+Object  -> hard_wooden_ball "bola de madeira dura"   
   with  name 'croquet' 'hard' 'wooden' 'ball',
-        initial "A hard wooden ball, palm-sized, rolls about across the mosaic.",
-        angel_hint "Splendid, you're having a ball. I do hope you hit it off.",
+        initial "Uma bola de madeira dura, do tamanho da palma da mão, rola pelo mosaico.",
+        angel_hint "Esplêndido, você está se divertindo à bola. Espero que vocês se deem bem.",
   has   ;
 
-GRoom   Clearing "Clearing"      
+GRoom   Clearing "Clareira"      
   with  s_to Vegetable_Garden,
         e_to Family_Tree,
         w_to Garage,
-        description "A clearing at the edge of the garden, surrounded by walls and the privet hedges of the maze. To the east is the plane tree, to the west an opening in the wall makes a garage entrance and to the south is a small vegetable garden.",
+        description "Uma clareira na borda do jardim, cercada por muros e pelas sebes de ligustro do labirinto. A leste
+            fica o plátano, a oeste uma abertura no muro dá acesso à garagem, e ao sul há uma pequena horta.",
   has   light;
 
-GRoom   Vegetable_Garden "Vegetable Garden"      
+GRoom   Vegetable_Garden "Horta"      
   with  n_to Clearing,
         u_to runner_bean_plant,
-        description "A recently-turned vegetable garden, using up a shady corner of the garden. The patch testifies more to good intentions than horticulture.",
-        cant_go "From this corner, you can only go back to the clearing.",
+        description "Uma horta recém-revolvida, ocupando um canto sombreado do jardim. O canteiro testemunha mais boas
+            intenções do que horticultura.",
+        cant_go "Deste canto, você só pode voltar à clareira.",
   has   light;
 
-Object  -> runner_bean_plant "runner-bean plant" 
+Object  -> runner_bean_plant "feijoeiro" 
   with  name 'runner' 'bean' 'plant',
         door_to Up_the_Beanstalk,
-        when_closed "Only a runner-bean plant graces the vegetable garden.",
+        when_closed "Apenas um feijoeiro enfeita a horta.",
         door_dir u_to,
-        when_open "A giant runner-bean plant leads up vertiginously into the sky from here.",
+        when_open "Um feijoeiro gigante sobe vertiginosamente daqui até o céu.",
         section T_GARDEN,
   has   door static;
 
-GRoom   Up_the_Beanstalk "Up the Beanstalk"      
+GRoom   Up_the_Beanstalk "Subindo pelo Feijoeiro"      
   with  before [;
-            Jump: deadflag = DIED; "You fall and break your neck!";
+            Jump: deadflag = DIED; "Você cai e quebra o pescoço!";
         ],
         after [;
             Drop:
                  move noun to Family_Tree;
                  if( noun == medicine_bottle && noun has locked ) {
-                    print "The medicine bottle plummets to the earth below.^";
+                print "O frasco de remédio despenca para a terra abaixo.^";
                     give medicine_bottle ~locked;
                     give medicine_bottle open;
                     rtrue;
                 }
-                print_ret (The) noun, " plummets to the earth below.";
+                print_ret (The) noun, " despenca para a terra abaixo.";
         ],
         n_to Heavenly_Place,
         d_to Vegetable_Garden,
-        description "At the top of the beanstalk, in amongst the clouds. There 
-            is no safe way to go from here except back down, not surprisingly. A dangerous way might be to step
-            out onto the clouds to the north, but even if this is a fairy-tale it would be taking a lot on trust.",
-        cant_go "The clouds are too tenuous that way.",
+        description "No topo do feijoeiro, em meio às nuvens. Não há maneira segura de sair daqui além de descer,
+            como seria de esperar. Talvez fosse possível pisar nas nuvens ao norte, mas, mesmo sendo um conto de fadas,
+            isso exigiria confiança demais.",
+        cant_go "As nuvens são frágeis demais por esse lado.",
   has   light;
 
-GRoom   Garage "Garage"  
+GRoom   Garage "Garagem"  
   with  e_to Clearing,
-        description "A modest brick garage, built into the garden walls. A big open doorway leads east onto the clearing.",
+        description "Uma garagem modesta de tijolos, construída nos muros do jardim. Uma grande porta aberta leva para leste, à clareira.",
   has   light;
 
-Object  -> garden_roller "garden roller" 
+Object  -> garden_roller "rolo de jardim" 
   with  name 'garden' 'roller' 'switch' 'motor' 'motorised' 'power',
         before [;
             Go:
                 if( self hasnt on )
-                    print "(The motor isn't on at the moment.)^";
+                    print "(O motor não está ligado no momento.)^";
                 else {
                     if( noun == u_obj or d_obj ) {
-                        print "The garden roller is a somewhat horizontal conveyance.^";
+                        print "O rolo de jardim é um veículo um tanto horizontal.^";
                         return 2;
                     }
                     if( location == Garden_Stream && noun == s_obj ) {
-                        print "The garden roller will never fit.^";
+                        print "O rolo de jardim nunca vai caber.^";
                         return 2;
                     }
                     if( location == Lawn_Ornaments && noun == e_obj ) {
-                        print "Philistine!  How dare you try to drive a garden roller over a Roman mosaic.^";
+                        print "Filisteu! Como ousa tentar dirigir um rolo de jardim sobre um mosaico romano?^";
                         return 2;
                     }
                     rtrue;
                 }
                 rfalse;
         ],
-        s_to "A big motorised garden roller is parked here.",
-        initial "The garden roller sits here, its engine still running.",
-        description "A motorised garden roller of the kind you sit inside, among whose simple controls is a big 
-            on/off switch.",
+        s_to "Um grande rolo de jardim motorizado está estacionado aqui.",
+        initial "O rolo de jardim está aqui, com o motor ainda ligado.",
+        description "Um rolo de jardim motorizado do tipo em que se senta dentro; entre seus controles simples há um grande
+            interruptor de liga/desliga.",
         each_turn [;
             if( player notin self || self hasnt on )
                 rfalse;
             if( location == Lawn_Ornaments && plaster_statuette in Lawn_Ornaments ) {
-                print "^Crunch!  The garden roller ran into something there.^";
+                print "^Creck! O rolo de jardim bateu em alguma coisa ali.^";
                 give CR light;
                 remove plaster_statuette;
                 move ancient_well to Lawn_Ornaments;
                 give Lawn_Ornaments general;
             }
             if( medicine_bottle in location && medicine_bottle has locked && location ~= Garage ) {
-                print "^Oh dear. The medicine bottle, which you negligently left lying in the path of the roller, 
-                    seems to have been cracked.^";
+                print "^Puxa. O frasco de remédio, que você deixou negligentemente no caminho do rolo,
+                    parece ter rachado.^";
                 give medicine_bottle open;
                 give medicine_bottle ~locked;
             }
         ],
   has   container enterable open static switchable;
 
-Object  -> weed_killer_bottle "weed killer bottle"       
+Object  -> weed_killer_bottle "frasco de herbicida"       
   with  name 'weed' 'killer' 'bottle' 'weedkille',
         before [ i;
             Squeeze, Push:
-                if( self has general ) "Nothing emerges. The bottle must be empty.";
+                if( self has general ) "Nada sai. O frasco deve estar vazio.";
                 give self general;
                 if( location == Wall_of_Thorns ) {
-                    "A valiant but doomed idea. The weed killer harms barely a single tendril of the wall.";
+                    "Uma ideia valente, mas condenada. O herbicida mal prejudica uma única gavinha do muro.";
                 }
                 if( location == Vegetable_Garden ) {
                     remove runner_bean_plant;
                     Vegetable_Garden.u_to = nothing;
-                    "Congratulations. You have devastated the runner-bean plant.";
+                    "Parabéns. Você devastou o feijoeiro.";
                 }
                 if( location == Family_Tree ) {
-                    "Happily, the weed killer makes no impression on the beautiful old tree.";
+                    "Felizmente, o herbicida não causa efeito algum na bela árvore antiga.";
                 }
                 if( game_section == T_GARDEN ) {
                     ! no code
                 } else {
                     if( game_section ~= T_GARDEN_PAST ) {
-                        "A stream of weed-killer emerges, but evaporates almost at once, just as well considering the vile smell.";
+                        "Um jato de herbicida sai, mas evapora quase imediatamente, ainda bem, considerando o cheiro horrível.";
                     }
                     if( location ~= Maze_Foundations ) {
                         ! no code
                     } else {
                         i = MazeBoundary(MazeX,MazeY);
                         if( i == 0 ) 
-                            "A stream of weed-killer soaks into the grass, and does nothing obvious.";
+                            "Um jato de herbicida encharca a grama e não faz nada evidente.";
                         WeedkillerX = MazeX;
                         WeedkillerY = MazeY;
                         StartDaemon(self);
-                        "A stream of weed-killer soaks into the seedbed, and does nothing obvious.";
+                        "Um jato de herbicida encharca o canteiro e não faz nada evidente.";
                     }
                 }
-                "A stream of weed-killer soaks into the earth, and does nothing obvious.";
+                "Um jato de herbicida encharca a terra e não faz nada evidente.";
         ],
-        initial "In the shadows is a weed killer bottle.",
-        description "If squeezed, it squirts weed killer over the ground. There are many warning labels about getting it on one's hands.",
+        initial "Nas sombras há um frasco de herbicida.",
+        description "Se apertado, ele borrifa herbicida no chão. Há muitos rótulos de advertência sobre o contato com as mãos.",
         daemon [ ndx;
             if( game_section ~= T_GARDEN_PAST ) {
                 ndx = WeedkillerX + 9 * WeedkillerY;
@@ -324,7 +332,7 @@ Object  -> weed_killer_bottle "weed killer bottle"
                 StopDaemon(self);
             }
         ],
-        angel_hint "The funny thing is, they didn't have weedkillers in the early nineteenth century, and yet they still planned some marvellous gardens.",
+        angel_hint "O curioso é que não havia herbicidas no começo do século XIX, e mesmo assim eles planejavam jardins maravilhosos.",
   has   ;
 
 Object  -> spade "spade" 
@@ -336,37 +344,37 @@ Object  -> spade "spade"
                 }
                 give spade general;
                 spade.&name-->3 = 'spade';
-                "On second thoughts, let's just call a spade a spade.";
+                "Pensando bem, vamos chamar uma pá de pá.";
         ],
-        initial "Hanging from a hook is a bladed agricultural implement.",
+        initial "Pendurada num gancho há uma ferramenta agrícola laminada.",
         short_name [ ;
             if( self has general ) {
-                print "spade";
+                print "pá";
             } else {
-                print "bladed agricultural implement";
+                print "ferramenta agrícola laminada";
             }
             rtrue;
         ],
-        angel_hint "Do you think there's anywhere in the garden particularly suitable for such an implement?",
+        angel_hint "Você acha que há algum lugar do jardim especialmente adequado para uma ferramenta dessas?",
   has   ;
 
-GRoom   Up_the_Plane_Tree "Up the Plane Tree"    
+GRoom   Up_the_Plane_Tree "No Alto do Plátano"    
   with  name 'jemima' 'conservatory' 'window',
         before [;
             Jump:
-                deadflag = DIED; "You fall and break your neck!";
+                deadflag = DIED; "Você cai e quebra o pescoço!";
         ],
         d_to Family_Tree,
-        description "A magnificent view of the gardens would be yours, were it not for the branches and leaves 
-            which surround you. You can make out Aunt Jemima up at one of the conservatory windows, but hide from
-            her view. Down below, the privet-hedge layout of the maze can be seen through the lower branches.",
-        cant_go "No, don't go out on a limb.",
+        description "Uma vista magnífica dos jardins seria sua, não fossem os galhos e folhas que o cercam. Você
+            distingue Tia Jemima numa das janelas da estufa, mas se esconde de sua vista. Lá embaixo, o traçado do
+            labirinto de sebes de ligustro pode ser visto através dos galhos inferiores.",
+        cant_go "Não, não vá se arriscar assim.",
   has   light;
 
-Object  -> maze_layout "maze layout"     
+Object  -> maze_layout "traçado do labirinto"     
   with  name 'maze' 'layout',
         description [ x y wallp;
-            print "The layout is roughly as follows:^^";
+            print "O traçado é aproximadamente o seguinte:^^";
             0-->8 = 2 | 0-->8;
             y = 0;
             --y;
@@ -390,38 +398,39 @@ Object  -> maze_layout "maze layout"
         article "the",
   has   scenery;
 
-GRoom  Bricked_Path "Bricked Path"      
+GRoom  Bricked_Path "Caminho de Tijolos"      
   with  e_to Hedgery,
         sw_to White_Hallway,
         initial [; trigger_quotation(22); rfalse; ],
-        description "You're strolling on a pleasant bricked path, passing from the outer rooms of Meldrew Hall to a track through the eastern side of the garden.",
+        description "Você passeia por um agradável caminho de tijolos, passando dos cômodos externos do Salão Meldrew para uma trilha pelo lado leste do jardim.",
         section T_GARDEN,
   has   light;
 
-Object Hedgery "Hedgery"        
+Object Hedgery "Jardim de Sebes"        
   with  n_to [;
             give flock_of_sparrows general;
-            print "Your first step towards the sparrows startles them into the air, and they whirl upwards and 
-                around with panic, chirping their alarm.^";
+            print "Seu primeiro passo em direção aos pardais os assusta, e eles sobem e voam em círculos em pânico,
+                gorjeando o alarme.^";
             return Summer_House;
         ],
         e_to Croquet_Lawn,
         w_to Bricked_Path,
-        description "Named by some family wag generations back, this is a restful hedge garden, crowned with a summer house to the north, widening out to a broad croquet lawn east.",
+        description "Batizado por algum brincalhão da família gerações atrás, este é um tranquilo jardim de sebes,
+            coroado por uma casa de verão ao norte e aberto para um amplo gramado de croqué a leste.",
         section T_GARDEN,
   has   light;
 
-Object -> flock_of_sparrows "flock of sparrows" 
+Object -> flock_of_sparrows "bando de pardais" 
   with  name 'flock' 'of' 'sparrows',
-        initial "A flock of sparrows crowds around the gutters of the summer house. Every now and then one flits up and lands somewhere else, and they bustle about chirpily.",
+        initial "Um bando de pardais se aglomera nas calhas da casa de verão. De vez em quando um voa e pousa em outro lugar, e todos se movimentam alegremente.",
   has   static;
 
-GRoom  Summer_House "Summer House"      
+GRoom  Summer_House "Casa de Verão"      
   with  after [;
             if( flock_of_sparrows hasnt general ) {
-                    print "^Sparrows chirp happily away to themselves around the high gutter.^";   
+                    print "^Os pardais gorjeiam felizes junto à calha alta.^";   
                 } else {
-                    print "^Startled sparrows circle high in the sky, showing no signs of calming down.^";
+                    print "^Pardais assustados circulam alto no céu, sem mostrar sinais de se acalmar.^";
                 }
                 rfalse;
         ],
@@ -429,62 +438,63 @@ GRoom  Summer_House "Summer House"
         s_to [;
             if( flock_of_sparrows has general ) {
                 give flock_of_sparrows ~general;
-                print "As you step out, the sparrows gradually settle back down again.^";
+                print "Quando você sai, os pardais gradualmente voltam a pousar.^";
             }
             return Hedgery;
         ],
-        description "An old wooden summer house, reeking of varnish and uncertain beneath your feet. Several 
-            segments of the tall glass many-sided pyramidal roof are missing and others are cracked, but this is
-            still somehow a homely and welcoming retreat. The only entrance is also the only exit.",
+        description "Uma velha casa de verão de madeira, cheirando a verniz e instável sob seus pés. Faltam vários
+            segmentos do alto telhado piramidal de vidro multifacetado, e outros estão rachados, mas ela ainda é de
+            algum modo um refúgio acolhedor. A única entrada também é a única saída.",
         section T_GARDEN,
   has   light;
 
-Object -> croquet_mallet "croquet mallet"       
+Object -> croquet_mallet "marreta de croqué"       
   with  name 'croquet' 'mallet',
-        initial "A croquet mallet stands by one wooden wall.",
-        devil_hint "It's for mashing croquet potatoes.",
-        angel_hint "Croquet is the Devil's own game!",
+        initial "Uma marreta de croqué está junto a uma parede de madeira.",
+        devil_hint "É para amassar batatas de croqué.",
+        angel_hint "Croqué é o jogo do próprio Diabo!",
   has   ;
 
-Object -> gold_watch_on_a_chain "gold watch on a chain" 
+Object -> gold_watch_on_a_chain "relógio de ouro com corrente" 
   with  name 'gold' 'watch' 'on' 'chain',
         before [;
             if( self hasnt moved )
-                "The watch is just within sight, but quite beyond reach.";
-            Swing, Wave: "You come dangerously close to hypnotising yourself.";
+                "O relógio está à vista, mas bem fora de alcance.";
+            Swing, Wave: "Você chega perigosamente perto de hipnotizar a si mesmo.";
         ],
-        initial "Something golden hangs by a chain from a loose pane in the roof, but it's too high up to reach.",
-        description "It is beautifully polished, and captivates the eye. You could stare for hours...",
-        angel_hint "How easily are the weak mesmerised by baubles.",
+        initial "Algo dourado pende por uma corrente de uma vidraça solta no teto, mas está alto demais para alcançar.",
+        description "É belamente polido e cativa o olhar. Você poderia ficar olhando por horas...",
+        angel_hint "Como os fracos são facilmente mesmerizados por bugigangas.",
   has   ;
 
-GRoom   Behind_Summer_House "Behind Summer House"        
+GRoom   Behind_Summer_House "Atrás da Casa de Verão"        
   with  s_to loose_board,
         w_to Mosaic,
         se_to Croquet_Lawn,
         d_to Mosaic,
-        description "Among dense hedges by the shabby wood-slatted back of the summer house. Dark scratchy branches hem you in, but you could scramble down to the west or out onto the croquet lawn southeast.",
+        description "Entre sebes densas junto à parte traseira maltratada, feita de ripas, da casa de verão. Galhos escuros
+            e ásperos cercam você, mas é possível descer para oeste ou sair para o gramado de croqué a sudeste.",
         section T_GARDEN,
   has   light scored;
 
-Object -> loose_board "loose board"     
+Object -> loose_board "tábua solta"     
   with  name 'loose' 'board',
         before [;
             Open, Push, Pull, Turn:
                 if( irate_squirrel_friend in location )
-                    "The squirrel rears up and nips you on the wrist. You withdraw, hurt.";
+                    "O esquilo se ergue e belisca seu pulso. Você recua, machucado.";
                 rfalse;
         ],
         door_to Summer_House,
-        when_closed "One board of the back wall is noticeably loose, making a good-sized crack.",
+        when_closed "Uma tábua da parede traseira está visivelmente solta, formando uma rachadura razoável.",
         door_dir s_to,
-        when_open "You could easily squeeze past the loose board south into the summer house.",
+        when_open "Você poderia facilmente passar pela tábua solta para o sul, entrando na casa de verão.",
   has   door openable static;
 
-Object -> crack "crack" 
+Object -> crack "rachadura" 
   with  name 'crack' 'gap' 'hole' 'summerhou' 'summer' 'house',
         before [;
-            Search: "Through the crack you can see sunlight on the summer-house floorboards.";
+            Search: "Pela rachadura você vê a luz do sol nas tábuas do chão da casa de verão.";
         ],
         after [;
             Receive:
@@ -494,54 +504,55 @@ Object -> crack "crack"
                     move irate_squirrel_friend to Summer_House;
                     GoNuts();
                     Summer_House.n_to = Behind_Summer_House;
-                    "You throw the nuts through the loose board into the summer house, and the squirrel jumps up after them, battering through the board and opening up a hole in the wall.";
+                    "Você joga as nozes pela tábua solta para dentro da casa de verão, e o esquilo salta atrás delas,
+                    arrebentando a tábua e abrindo um buraco na parede.";
                 }
                 move noun to Summer_House;
-                "Thrown through the loose board into the summer house.";
+                "Jogado pela tábua solta para dentro da casa de verão.";
         ],
 
-        description "Through the crack you can see the summer house.",
+        description "Pela rachadura você vê a casa de verão.",
   has   container open scenery;
 
 [ GoNuts ;
-    irate_squirrel_friend.initial = "The squirrel sits here, watchfully pecking away at the nuts.";
+    irate_squirrel_friend.initial = "O esquilo está sentado aqui, bicando as nozes atentamente.";
     rtrue;
 ];
 
-Object -> irate_squirrel_friend "irate squirrel friend" 
+Object -> irate_squirrel_friend "amigo esquilo irritado" 
   with  name 'irate' 'my' 'squirrel' 'friend',
         life [;
             Show:
-                if( noun == bunch_of_nuts ) "The squirrel finds them of consuming interest.";
+                if( noun == bunch_of_nuts ) "O esquilo considera as nozes extremamente interessantes.";
                 rfalse;
             Give:
                 if( noun has edible ) {
                     remove noun;
                     if( noun == bunch_of_nuts ) {
                         GoNuts();
-                        "The squirrel is extremely pleased, and devours the nuts delightedly. You have an 
-                         uncomfortable feeling of having been suckered.";
+                        "O esquilo fica extremamente satisfeito e devora as nozes com prazer. Você tem a desconfortável
+                         sensação de ter sido feito de bobo.";
                     }
-                    print "Grateful for any food he can get, however unsuitable, the squirrel eagerly consumes ";
+                    print "Grato por qualquer comida que consiga, por mais inadequada que seja, o esquilo consome ansiosamente ";
                     if( noun == Ekmek_Special ) {
-                        print "the ";
+                        print "o ";
                     }
                     print (the) noun;
-                    ". He does of course feel no obligation towards you at all as a result, so don't expect any 
-                     favours.";
+                    ". Naturalmente, ele não se sente obrigado a nada com você por causa disso, então não espere nenhum
+                     favor.";
                 }
                 rfalse;
         ],
         initial nothing,
-        description "Not at all shy when on his own territory.",
-        article "your",
+        description "Não é nem um pouco tímido em seu próprio território.",
+        article "seu",
   has   animate;
 
 [ DugHoleDesc ;
     if( OldDigX == DigX && OldDigY == DigY ) {
-        "^The hole you dug in the lawn is just here.";
+        "^O buraco que você cavou no gramado está bem aqui.";
     }
-    print "^Some vandal has dug a hole in the lawn, ";
+    print "^Algum vândalo cavou um buraco no gramado, ";
     DescribePaces(OldDigX - DigX,OldDigY - DigY);
     ".";
 ];
@@ -550,38 +561,37 @@ Object -> irate_squirrel_friend "irate squirrel friend"
     if (x ~= 0) {
         DescribePacesPoetically(x);
         if (x > 0) {
-            print " east";
+            print " leste";
         } else {
-            print " west";
+            print " oeste";
         }
         if (y ~= 0) {
-            print " and ";
+            print " e ";
         }
     }
     if (y ~= 0) {
         DescribePacesPoetically(y);
         if (y > 0) {
-            print " north";
+            print " norte";
         } else {
-            print " south";
+            print " sul";
         }
     }
     rtrue;
 ];
 
-GRoom  Croquet_Lawn "Croquet Lawn"      
+GRoom  Croquet_Lawn "Gramado de Croqué"      
   with  w_to Hedgery,
         nw_to nothing,
         initial [; DigX = 0; DigY = 0; rfalse; ],
         description [;
-            print "One of the most beautiful hedge-enclosed, tree-muffled lawns in England, and just out of sight 
-                of the house, this has been a jewel in the gardens for centuries. Since the twenties it has also
-                been a croquet lawn, of the regulation twenty-four yards square, laid out with a central coloured
-                peg and six peripheral hoops";
+            print "Um dos mais belos gramados da Inglaterra, cercado por sebes e abafado por árvores, escondido da casa,
+                é uma joia dos jardins há séculos. Desde os anos vinte também é um gramado de croqué, um quadrado
+                regulamentar de vinte e quatro jardas, com uma estaca colorida central e seis aros periféricos";
             if( self.nw_to == nothing ) ".";
-            ". The hedge is broken slightly to the northwest.";
+            ". A sebe está ligeiramente rompida a noroeste.";
         ],
-        cant_go "The lawn is enclosed on all sides, but for a gap back west.",
+        cant_go "O gramado é cercado por todos os lados, exceto por uma abertura a oeste.",
         short_name [;
             if( DigX == 0 && DigY == 0 ) {
                 rfalse;
@@ -589,54 +599,53 @@ GRoom  Croquet_Lawn "Croquet Lawn"
 !            if( before_short_desc == true ) {
 !                rfalse;
 !            }
-            print "Croquet Lawn (";
+            print "Gramado de Croqué (";
             DescribePaces(DigX,DigY);
-            print " of the peg)";
+            print " da estaca)";
             rtrue;
         ],
         section T_GARDEN,
   has   light;
 
-Object -> peg_and_six_hoops "peg and six hoops" 
+Object -> peg_and_six_hoops "estaca e seis aros" 
   with  name 'peg' 'hoop' 'hoops',
-        description "There are six arched hoops in a croquet set, arranged around a central peg. These ones 
-            have been safely anchored in place since the lawn was laid out in, oh, Midsummer 1923 if family lore
-            is to be believed.",
+        description "Há seis aros arqueados num conjunto de croqué, dispostos ao redor de uma estaca central. Estes
+            estão seguramente ancorados desde que o gramado foi instalado, digamos, no Solstício de Verão de 1923,
+            se a tradição familiar merece crédito.",
   has   scenery;
 
 Object strongbox "strongbox"    
   with  name 'strong' 'box' 'strongbox',
         with_key iron_key,
-        description "A good strong strongbox, buried for two centuries and now unearthed; it bears a fine gothic 
-            iron lock, and a tasteless coat of arms (a wild boar rampant).",
-        angel_hint "You might have read about this. One of your ancestors is the key, perhaps?",
+        description "Um baú realmente resistente, enterrado por dois séculos e agora desenterrado; traz uma bela fechadura
+            gótica de ferro e um brasão de mau gosto (um javali rampante).",
+        angel_hint "Talvez você tenha lido sobre isso. Um de seus ancestrais é a chave, talvez?",
   has   container lockable locked openable;
 
 Object -> golden_astrolabe "golden astrolabe"   
   with  name 'golden' 'gold' 'astrolabe' 'eyepiece',
         before [;
-            Remove: if( noun == second ) "It is in one piece.";
+                Remove: if( noun == second ) "Ele está inteiro.";
             Search:
                 if( parent(golden_astrolabe) ~= Palace_Balustrade || golden_astrolabe has moved ) 
-                    "You catch a fascinating, but all too brief, glimpse of something grey, angular and tall... 
-                     which slips out of view as your unsteady hand shakes.";
-                print "Through the golden eyepiece you see, not the moon (for the astrolabe is tilted too low), 
-                    but a curious, sunlit, grey triangle.^^Fascinated, you strain closer to the vision... closer...^";
+                    "Você tem um vislumbre fascinante, mas breve demais, de algo cinzento, angular e alto... que sai do
+                     campo de visão quando sua mão trêmula se move.";
+                print "Pela ocular dourada você vê, não a lua (pois o astrolábio está inclinado baixo demais), mas um
+                    curioso triângulo cinzento iluminado pelo sol.^^Fascinado, você se aproxima mais da visão... mais...^";
                 PlayerTo(Out_on_the_Spire);
                 rtrue;
         ],
         after [; Take: trigger_quotation(43); rfalse; ],
         initial nothing,
-        description "A very old instrument for measuring altitudes, this is all that remains of Sir Joshua 
-            Meldrewe's stolen hoard of gold. There is an eyepiece.",
-        angel_hint "A mighty fine instrument, though not much use hand-held.",
+        description "Um instrumento muito antigo para medir altitudes, isto é tudo o que resta do tesouro de ouro roubado
+            por Sir Joshua Meldrewe. Há uma ocular.",
+        angel_hint "Um instrumento magnífico, embora não seja muito útil na mão.",
   has   scored;
 
-Object dug_hole "dug hole"      
+Object dug_hole "buraco cavado"      
   with  name 'hole' 'dug',
-        before [; Take: "A surreal idea, somewhat reminiscent of the Beatles film ~Yellow Submarine~."; ],
-        description "The rich loam, the silver of earthworms, the dignity of toil... none of these pastoral 
-            consolations is yours as you scrabble in the dirt.",
+        before [; Take: "Uma ideia surreal, um tanto reminiscente do filme dos Beatles ~Yellow Submarine~."; ],
+        description "A terra rica, a prata das minhocas, a dignidade do trabalho... nenhum desses consolos pastorais é
+            seu enquanto você remexe a sujeira.",
         describe DugHoleDesc,
   has   container open static;
-

@@ -1,84 +1,80 @@
-Array demon_topics --> 
-    2 'premonition' 'dream' 
-        "~In the premonition, it is vital to get hold of the mascot for later use.~" 
-    2 'torch' 'battery' 
-        "~It's no use poking about on the attic floor for fresh torch batteries, because there aren't any.~" 
-    3 'aunt' 'jemima' 'gloves' 
-        "~Your Aunt Jemima is not the kind of woman to be distracted by music or frivolous presents, mark my words.~" 
-    3 'romance' 'novel' 'marie' 
-        "~Novels are, of course, invariably written by people using their real names, not disguised in any way.~" 
-    3 'daisy' 'daisychain' 'daisies' 
-        "~The thing about daisies is, they are the same all year round, not changing with the calendar.~" 
-    'medicine' 
-        "~Modern medicine bottles can even withstand falls from a great height. I should try heat if I were you.~" 
-    'demijohn' 
-        "~You can easily get a grip on the demijohn with your bare hands.~"
+Array demon_topics -->
+    2 'premonition' 'dream'
+        "~Na premonição, é vital obter o mascote para usá-lo mais tarde.~"
+    2 'torch' 'battery'
+        "~Não adianta procurar pilhas novas para a lanterna no chão do sótão, porque não há nenhuma.~"
+    3 'aunt' 'jemima' 'gloves'
+        "~Sua tia Jemima não é o tipo de mulher que se distrai com música ou presentes frívolos, pode acreditar.~"
+    3 'romance' 'novel' 'marie'
+        "~Romances, é claro, invariavelmente são escritos por pessoas usando seus nomes verdadeiros, sem disfarce algum.~"
+    3 'daisy' 'daisychain' 'daisies'
+        "~O fato sobre as margaridas é que elas são iguais o ano inteiro, sem mudar com o calendário.~"
+    'medicine'
+        "~Frascos de remédio modernos podem até resistir a quedas de grande altura. Eu tentaria o calor, se fosse você.~"
+    'demijohn'
+        "~Você consegue segurar facilmente o garrafão com as mãos nuas.~"
     'bottle'
-        "~The answer's the same, whichever bottle you meant. That counts as your hint, I'm afraid. Not very fair, but then I am a demon.~" 
+        "~A resposta é a mesma, qualquer que seja a garrafa que você quis dizer. Isso conta como sua dica, receio. Não é muito justo, mas eu sou um demônio.~"
     'heaven'
-        "The demon acknowledges the question, but cannot bring himself to speak of Heaven." 
+        "O demônio reconhece a pergunta, mas não consegue falar do Céu."
     'hell'
-        "~Hell?  Oh this isn't your eternal damnation, it's mine, having to answer all these wretched questions. No,
-        Hell itself is a marvellous place, and it has an excellent health club too. Look forward to seeing you there.~"
+        "~Inferno? Ah, este não é o seu tormento eterno, é o meu, tendo de responder a todas estas perguntas miseráveis. Não, o próprio Inferno é um lugar maravilhoso, e também tem uma excelente academia. Espero vê-lo por lá.~"
     2 'card' 'postcard'
-        "~Don't worry, there's nothing written there. No need to look at the problem in a fresh light.~" 
+        "~Não se preocupe, não há nada escrito ali. Não é preciso olhar o problema sob uma nova luz.~"
     3 'ghost' 'sir' 'joshua'
-        "~History never repeats itself, so it's pointless looking him up in the book.~" 
+        "~A história nunca se repete, então não adianta procurá-lo no livro.~"
     2 'prayer' 'isaac'
-        "~The really interesting stuff is at the very start of his working life.~" 
+        "~As coisas realmente interessantes estão no começo da vida profissional dele.~"
     4 'museum' 'arcana' 'doktor' 'stein'
-        "~Forget it, there's no way to return from the museum, and Doktor Stein's medicine has no antidote.~" 
+        "~Esqueça, não há como voltar do museu, e o remédio do Doutor Stein não tem antídoto.~"
     2 'merlyn' 'merlin'
-        "~Merlyn doesn't really come into this. Try working on something else.~" 
+        "~Merlyn não entra realmente nisso. Tente trabalhar em outra coisa.~"
     'hat'
-        "~Literally, Merlyn's actual hat. Green pointy felt, I wouldn't wonder.~" 
+        "~Literalmente, o chapéu de verdade de Merlyn. Feltro verde e pontudo, eu não duvidaria.~"
     'book'
-        "~The answer's the same, whichever book you meant. That counts as your hint, I'm afraid. Not very fair,
-        but then I am a demon.~"
+        "~A resposta é a mesma, qualquer que seja o livro que você quis dizer. Isso conta como sua dica, receio. Não é muito justo, mas eu sou um demônio.~"
     'ebenezer'
-        "~Ebenezer?  He's absolutely central to this. Concentrate on him, definitely.~" 
+        "~Ebenezer? Ele é absolutamente central nisso. Concentre-se nele, sem dúvida.~"
     3 'projector' 'slide' 'cards'
-        "~Trouble with holiday snaps is, once somebody gets the old slide projector going, a boring time is on
-        the cards for all.~"
+        "~O problema das fotos de férias é que, quando alguém liga o velho projetor de slides, um tempo entediante está nas cartas para todos.~"
     2 'rod' 'rods'
-        "~You'll need to be wide awake and alert to work out what to do with them. Finding them is easy - just
-        remember to keep an eye out for short, fat things.~"
+        "~Você precisará estar bem acordado e atento para descobrir o que fazer com elas. Encontrá-las é fácil: basta ficar de olho em coisas curtas e gordas.~"
     2 'tarot' 'sosostris'
-        "~Clairvoyantes are expert at detecting stacked decks, so it's no good cheating.~" 
+        "~Clarividentes são especialistas em detectar baralhos marcados, então não adianta trapacear.~"
     2 'boat' 'hollow'
-        "~Phlebas runs a very badly-advertised service, I'm afraid. I've got no time for him.~" 
+        "~Flebas oferece um serviço muito mal divulgado, receio. Não tenho tempo para ele.~"
     3 'mouse' 'robot' 'hole'
-        "~Once the mouse is in the hole, forget it, it couldn't hear you even if you talked to the hole instead. But there is an alternative method.~" 
+        "~Quando o rato estiver no buraco, esqueça; ele não poderia ouvi-lo nem se você falasse com o buraco. Mas há um método alternativo.~"
     'key'
-        "~Your fault for letting the key get into the foundations - nothing can get in there to retrieve it.~" 
+        "~A culpa é sua por deixar a chave entrar nos alicerces: nada consegue entrar lá para recuperá-la.~"
     2 'radio' 'wireless'
-        "~Marvellous, marvellous contraption. Starts the moment you switch it on, and then nothing but solid gold classics all the way. You can really concentrate when that's playing.~" 
+        "~Maravilhosa, maravilhosa engenhoca. Começa no momento em que você a liga, e depois só há clássicos de ouro maciço. Dá para se concentrar de verdade quando isso está tocando.~"
     2 'fireplace' 'chimney'
-        "~What, the blocked-up old fireplace that doesn't lead anywhere?  You need to be carrying plenty of equipment to get down it - don't worry if it's dark at the bottom, after all there's nothing you can do about that.~" 
+        "~O quê, a velha lareira bloqueada que não leva a lugar nenhum? Você precisa carregar bastante equipamento para descer por ela; não se preocupe se estiver escuro no fundo, afinal não há nada que possa fazer quanto a isso.~"
     2 'sandstone' 'recess'
-        "~The sandstone recess is probably impassible. Better try only when you're wide awake.~" 
+        "~O nicho de arenito provavelmente é intransponível. É melhor tentar apenas quando estiver bem acordado.~"
     2 'austin' 'cat'
-        "~Austin's a perfect devil, isn't he?  She, I should say. Good for nothing except getting in the way, of course. Walks into walls just when you don't want, but at least Jemima calms her down.~" 
+        "~Austin é um demônio perfeito, não é? Ela, quero dizer. Não serve para nada além de atrapalhar, é claro. Entra nas paredes justo quando você não quer, mas pelo menos Jemima a acalma.~"
     3 'smoke' 'detector' 'alarm'
-        "~Smoke detectors like yours are specially rigged not to be triggered by accidental shafts of light.~" 
+        "~Detectores de fumaça como o seu são especialmente preparados para não disparar com feixes acidentais de luz.~"
     'ship'
-        "~Of course the ship is far too large and ungainly ever to fit in the bottle.~" 
+        "~É claro que o navio é grande e desajeitado demais para caber na garrafa.~"
     'flag'
-        "~Cold comfort.~" 
+        "~Pobre consolo.~"
     2 'alison' 'bed'
-        "~A good blanket might be a plain, colourless sort of covering with no emblem to it.~" 
+        "~Um bom cobertor talvez seja uma cobertura simples e sem cor, sem nenhum emblema.~"
     'revolving'
-        "~The thing about the revolving door is, you can only revolve it when you're already standing inside.~" 
+        "~O detalhe da porta giratória é que você só pode girá-la quando já está dentro dela.~"
     2 'cabinet' 'glass'
-        "~Unbreakable glass.~" 'matchbook'
-        "~A vital clue, and useful in its own right.~" 
+        "~Vidro inquebrável.~" 'matchbook'
+        "~Uma pista vital, e útil por si só.~"
     'curses'
-        "~The greatest computer game of all time. I'm proud to be a part of it.~" 
+        "~O melhor jogo de computador de todos os tempos. Tenho orgulho de fazer parte dele.~"
     'tera'
-        "The demon blushes. ~Wasn't my fault!  My partner made a mess of it.~"
-    "";       
+        "O demônio cora. ~Não foi culpa minha! Meu parceiro fez uma bagunça.~"
+    "";
 
-Array angel_topics --> 3 'heaven' 'yourself' 'herself' "~Heaven?  Oh this isn't your eternal salvation, it's mine, able to serve by answering all these delightful questions. No, Heaven itself is a marvellous place, and it has an excellent health club too. Look forward to seeing you there.~" 2 'hell' 'demon' "The angel acknowledges the question, but cannot bring herself to speak of Hell." 'rods' "~The rods definitely fit into all this somewhere.~" 'maze' "~If only you could have been there when the maze was being laid out!~" 'master' "~The master game is like a point at infinity to we mortals,~ the angel says wistfully." 3 'infinity' 'lemniscus' 'arc' "~All a matter of fitting the rods in somewhere.~" 3 'andromeda' 'princess' 'maiden' "~How she must long to let her hair down now, instead of being chained to that rock,~ the angel says sorrowfully. ~But in deference to her wishes, I cannot help you rescue her.~" 'mural' "~Amazing fortune you must have in finding it, I can tell.~" 'folly' "~Ah yes, we must all lament for human folly,~ says the angel, misunderstanding completely." 'zeus' "~Zeus wasn't a true god, of course,~ the angel predictably insists, ~just a manifestation of the laws of physics to an Ancient Greek, a kind of symbol for the way the universe fundamentally worked.~" 2 'bomb' 'lighthouse' "The angel maintains a tight-lipped silence." 'sacrifice' "~That's too dangerous a rod to actually use, of course, and the Church no longer approves of martyrs.~" 'luck' "~Is there really such a thing as luck, or free will?  It's a theological grey area,~ says the angel with fine casuistry." 'fire' "~Certainly a thorny problem, that.~" 5 'mascot' 'old' 'evans' 'moon' 'racing' "~Old Evans would never give you his mascot of his own free will.~" 2 'ugly' 'idol' "~One has to reflect on ugliness like that.~" 3 'gold' 'golden' 'watch' "~It's quite hypnotically fascinating, don't you think?~" 4 'squirrel' 'loose' 'board' 'summerhou' "~Squirrels are very fond of nuts, but you can't trust them an inch.~" 'spade' "~Just think what that would do to a decent lawn!  Oh, it makes me go cold all over.~" 2 'croquet' 'lawn' "~Whatever is a croquet lawn for, if not to play croquet?  Although, now I think about it, there is something else down there.~" 2 'anoppe' 'eppona' "~Ah yes, a code word understood by certain of Alexander the Great's slaves. But you'd have to be in the right place at the right time.~" 2 'tombstone' 'tomb' "~The mouth is the key, or rather the lock.~" 2 'sphinx' 'sphinxes' "~Do be careful. The sphinxes are only made of stone, but they could easily give you nightmares.~" 2 'couch' 'couches' "~Jolly comfortable, some of those funeral couches.~" 5 'skiff' 'yacht' 'boat' 'coffin' 'mummy' "~A one-way ride, but that's life.~" 2 'adamantine' 'knight' "~Once fired with life, the knight will only be yours to command when he has discharged his chivalric duty.~" 2 'hand' 'head' "~Some of those ancient knights were rather loose, but perhaps that's better than being screwed up.~" 2 'library' 'portico' "~The Great Library isn't for passing hooligans, you know,~ says the angel reprovingly. ~Besides, the guards understand their duty by the Cat God far too well to let you through.~" 3 'librarian' 'apollonius' 'callimachus' "~They're always at each other's throats. I shudder to think what might happen if a real fight broke out.~" 2 'alexandria' 'processio' "~Oh, find yourself a costume, join the party!~" 3 'quarterst' 'quarter' 'staff' "~The green wood may one day make a really good staff, but it could take ages. Better leave it with someone for safe keeping.~" 'high' "~Some choices are inevitable and permanent, at least in this world.~" 'oubliette' "~Do be careful of the trap, won't you!  You might want to take precautions with the opening.~" 3 'amber' 'gem' 'gemstone' "~Let me see.~" 2 'statues' 'gods' "~You appreciate, in my position I can't really comment on graven images of pagan gods. Better try some dictionary or other.~" 4 'oracle' 'priestess' 'delphic' 'altar' "~That woman will rabbit on, once you set her off. But only if you sacrifice something. Will you be joining us next Harvest Sunday, by the way?~" 2 'oil' 'trough' "~Ooh, it does make me shiver, thinking of the way they used to pour oil over themselves, anointing they called it.~" 2 'homer' 'poet' "~Shabby old gossip, Homer, always reminds me of Peter Falk. Anyway, just give him his answers. Shouldn't be too hard, with what you're wearing and carrying.~" 3 'summer' 'house' 'summerhou' "~Going in round the front just scares the birds away, I fear.~" 3 'contraption' 'panel' 'grid' "~Find out what you can about your ancestor who built it - his tomb isn't far away. Then reflect as best you can on the problem.~" 'ozone' "~Well, if you know what the odour is, that's the main thing.~" "";       
+Array angel_topics --> 3 'heaven' 'yourself' 'herself' "~Céu? Ah, este não é o seu paraíso eterno, é o meu, podendo servir ao responder a todas estas perguntas deliciosas. Não, o próprio Céu é um lugar maravilhoso e também tem uma excelente academia. Espero vê-lo por lá.~" 2 'hell' 'demon' "O anjo reconhece a pergunta, mas não consegue falar do Inferno." 'rods' "~As hastes certamente se encaixam em algum lugar de tudo isso.~" 'maze' "~Se ao menos você pudesse ter estado lá quando o labirinto foi traçado!~" 'master' "~O jogo mestre é como um ponto no infinito para nós mortais,~ diz o anjo melancolicamente." 3 'infinity' 'lemniscus' 'arc' "~Tudo depende de encaixar as hastes em algum lugar.~" 3 'andromeda' 'princess' 'maiden' "~Como ela deve desejar soltar os cabelos agora, em vez de ficar acorrentada àquela rocha,~ diz o anjo com tristeza. ~Mas, em respeito aos desejos dela, não posso ajudá-lo a resgatá-la.~" 'mural' "~Você deve ter uma sorte incrível para encontrá-lo, posso dizer.~" 'folly' "~Ah sim, todos devemos lamentar a tolice humana,~ diz o anjo, entendendo tudo completamente errado." 'zeus' "~Zeus não era um deus verdadeiro, é claro,~ insiste previsivelmente o anjo, ~apenas uma manifestação das leis da física para um grego antigo, uma espécie de símbolo de como o universo funcionava fundamentalmente.~" 2 'bomb' 'lighthouse' "O anjo mantém um silêncio obstinado." 'sacrifice' "~É claro que essa haste é perigosa demais para ser usada, e a Igreja já não aprova mártires.~" 'luck' "~Será que existe mesmo algo como sorte ou livre-arbítrio? É uma área teológica cinzenta,~ diz o anjo com fina casuística." 'fire' "~Certamente um problema espinhoso.~" 5 'mascot' 'old' 'evans' 'moon' 'racing' "~O velho Evans nunca daria o mascote por vontade própria.~" 2 'ugly' 'idol' "~É preciso refletir sobre uma feiura dessas.~" 3 'gold' 'golden' 'watch' "~É hipnoticamente fascinante, não acha?~" 4 'squirrel' 'loose' 'board' 'summerhou' "~Esquilos adoram nozes, mas não se pode confiar neles nem um pouco.~" 'spade' "~Imagine o que isso faria com um gramado decente! Ah, fico arrepiado só de pensar.~" 2 'croquet' 'lawn' "~Para que serviria um gramado de croqué, senão para jogar croqué? Embora, pensando bem, haja outra coisa lá embaixo.~" 2 'anoppe' 'eppona' "~Ah yes, a code word understood by certain of Alexander the Great's slaves. But you'd have to be in the right place at the right time.~" 2 'tombstone' 'tomb' "~A boca é a chave, ou melhor, a fechadura.~" 2 'sphinx' 'sphinxes' "~Tenha cuidado. As esfinges são apenas de pedra, mas poderiam facilmente causar pesadelos.~" 2 'couch' 'couches' "~Alguns desses leitos funerários são muito confortáveis.~" 5 'skiff' 'yacht' 'boat' 'coffin' 'mummy' "~Uma viagem só de ida, mas é a vida.~" 2 'adamantine' 'knight' "~Once fired with life, the knight will only be yours to command when he has discharged his chivalric duty.~" 2 'hand' 'head' "~Some of those ancient knights were rather loose, but perhaps that's better than being screwed up.~" 2 'library' 'portico' "~A Grande Biblioteca não é para arruaceiros de passagem, sabe,~ says diz o anjo em tom de reprovação. ~Além disso, os guardas entendem bem demais seu dever para com o Deus Gato para deixá-lo passar.~" 3 'librarian' 'apollonius' 'callimachus' "~Eles estão sempre se engalfinhando. Estremeço só de pensar no que aconteceria se uma briga de verdade começasse.~" 2 'alexandria' 'processio' "~Ah, arranje uma fantasia e junte-se à festa!~" 3 'quarterst' 'quarter' 'staff' "~The green wood may one day make a really good staff, but it could take ages. Better leave it with someone for safe keeping.~" 'high' "~Algumas escolhas são inevitáveis e permanentes, pelo menos neste mundo.~" 'oubliette' "~Cuidado com a armadilha, está bem! Talvez queira tomar precauções com a abertura.~" 3 'amber' 'gem' 'gemstone' "~Deixe-me ver.~" 2 'statues' 'gods' "~Você compreende que, na minha posição, não posso comentar imagens esculpidas de deuses pagãos. É melhor tentar algum dicionário.~" 4 'oracle' 'priestess' 'delphic' 'altar' "~Aquela mulher não para de falar quando você a provoca. Mas apenas se sacrificar algo. A propósito, vai juntar-se a nós no próximo Domingo da Colheita?~" 2 'oil' 'trough' "~Ah, eu me arrepio ao pensar no modo como costumavam derramar óleo sobre si mesmos, chamavam isso de unção.~" 2 'homer' 'poet' "~O velho fofoqueiro Homero sempre me lembra Peter Falk. Enfim, basta dar-lhe as respostas. Não deve ser difícil, com o que você veste e carrega.~" 3 'summer' 'house' 'summerhou' "~Receio que entrar pela frente apenas assuste os pássaros.~" 3 'contraption' 'panel' 'grid' "~Descubra o que puder sobre seu ancestral que o construiu: o túmulo dele não fica longe. Depois reflita o melhor que puder sobre o problema.~" 'ozone' "~Bem, se você sabe qual é o odor, isso é o principal.~" "";
 
 [ AngelDevilConsultTopic tbl w ndx i len flag ;
     ndx = 0;
@@ -116,11 +112,11 @@ Array angel_topics --> 3 'heaven' 'yourself' 'herself' "~Heaven?  Oh this isn't 
         rtrue;
     }
     if( AngelDevilConsultTopic(angel_topics,w) ~= 0 ) {
-        "~That's a question you'd better put to my colleague in the Other Place,~ says the demon smoothly. 
-         ~Try something else.~";
+        "~Essa é uma pergunta que você deveria fazer ao meu colega no Outro Lugar,~ diz o demônio suavemente.
+         ~Tente outra coisa.~";
     }
-    print "~That's not something I am empowered to answer,~ says the demon with a nervous glance behind him. 
-           ~Try something else.~^";
+    print "~Não tenho autoridade para responder isso,~ diz o demônio, lançando um olhar nervoso para trás.
+           ~Tente outra coisa.~^";
     rfalse;
 ];
 
@@ -132,22 +128,22 @@ Array angel_topics --> 3 'heaven' 'yourself' 'herself' "~Heaven?  Oh this isn't 
         rtrue;
     }
     if( AngelDevilConsultTopic(demon_topics,w) ~= 0 ) {
-        "~That's a question you'd better put to my colleague in the Other Place,~ says the angel smoothly. 
-         ~Try something else.~^";
+        "~Essa é uma pergunta que você deveria fazer ao meu colega no Outro Lugar,~ diz o anjo suavemente.
+         ~Tente outra coisa.~^";
     }
-    print "~That's not something I am empowered to answer,~ says the angel with a beatific smile upward. 
-           ~Try something else.~^";
+    print "~Não tenho autoridade para responder isso,~ diz o anjo com um sorriso beatífico voltado para cima.
+           ~Tente outra coisa.~^";
     rfalse;
 ];
 
 
-Object Hellish_Place "Hellish Place"
+Object Hellish_Place "Lugar Infernal"
   with  name 'desk',
         after [ cnt;
             Look:
-                new_line; 
+                new_line;
                 if( demon has general ) {
-                    "~Thought what you wanted to ask yet?~ says the demon.";
+                    "~Já pensou no que queria perguntar?~ diz o demônio.";
                 }
                 cnt = demon.number;
                 if( cnt > 0 ) {
@@ -158,35 +154,29 @@ Object Hellish_Place "Hellish Place"
                     }
                 }
                 if( cnt == 0 ) {
-                    "~Begone, pipsqueak!  I'll be seeing you... much later...~ says the demon with a memorable smile.";
+                    "~Suma, pirralho! Vou vê-lo... muito mais tarde...~ diz o demônio com um sorriso memorável.";
                 }
-                if( cnt == 1 ) { 
-                    "~All right, toad, you have one, just one, chance left,~ says the demon with a memorable smile.";
+                if( cnt == 1 ) {
+                    "~Está bem, sapo, você tem uma, apenas uma, chance restante,~ diz o demônio com um sorriso memorável.";
                 }
                 if( cnt == 2 ) {
-                    "~Now then, two chances remaining,~ says the demon with a memorable smile.";
+                    "~Então, restam duas chances,~ diz o demônio com um sorriso memorável.";
                 }
-                "~Good afternoon,~ says the demon with a memorable smile. ~As a reward for your naked greed, may I 
-                 welcome you to our little information service. We try to be as helpful as possible to explorers
-                 who are lost, or can't think how to solve their problems, you know the kind of thing. So just
-                 tell me what you want to know, or show me something to look at. You get the usual three hints.~";
+                "~Boa tarde,~ diz o demônio com um sorriso memorável. ~Como recompensa por sua ganância descarada, permita-me recebê-lo em nosso pequeno serviço de informações. Tentamos ser tão úteis quanto possível a exploradores perdidos ou incapazes de descobrir como resolver seus problemas, esse tipo de coisa. Basta dizer o que quer saber ou mostrar algo para eu ver. Você recebe as três dicas habituais.~";
         ],
         n_to Cellar_West,
         u_to Cellar_West,
-        description "Hell, you always imagined, would contain fiery, sulphurous pits and a great many gentlemen with 
-            forked tails. You were right about the last part. A demon is sitting behind a flame-proofed desk at
-            the bottom of the stairs. There are some disconcerting screams from further away, but nothing to worry
-            about. Not in this life, anyway.",
+        description "O Inferno, você sempre imaginou, conteria poços ardentes e sulfurosos e muitos cavalheiros com caudas bifurcadas. Você acertou quanto à última parte. Um demônio está sentado atrás de uma mesa à prova de chamas no fim das escadas. Há alguns gritos perturbadores mais adiante, mas nada com que se preocupar. Não nesta vida, pelo menos.",
         cant_go [;
             trigger_quotation(37);
-            "That direction is not for the living.";
+            "Essa direção não é para os vivos.";
         ],
         each_turn [;
             switch( random(10) ) {
-                1: "^There is a horrid grinding noise from far away.";
-                2: "^A flash of light sears your eyes, as the sulphurous flames grumble.";
-                3: "^You can almost, but not quite, make out the noise of shouting.";
-                4: "^Thunder and lightning can be heard from the fiery depths.";
+                1: "^Há um ruído horrível de moagem ao longe.";
+                2: "^Um clarão queima seus olhos enquanto as chamas sulfurosas resmungam.";
+                3: "^Você quase, mas não completamente, distingue o som de gritos.";
+                4: "^Trovões e relâmpagos podem ser ouvidos das profundezas ardentes.";
             }
         ],
         section T_AFTERLIFE,
@@ -199,78 +189,69 @@ Object -> demon "demon"
                 if( HellishAsk() ~= 0 ) rtrue;
                 if( DemonQuestion(special_word) ~= 0 ) give demon ~general;
                 rtrue;
-            Order: "One does not give orders to such a character.";
+            Order: "Não se dá ordens a um personagem desses.";
             Give, Show:
                 if( HellishAsk() ~= 0 ) rtrue;
-                print "The demon glances lazily at ", (the) noun, " and rouses himself to say: ~";
+                print "O demônio olha preguiçosamente para ", (the) noun, " e se anima a dizer: ~";
                 give demon ~general;
                 if( noun has edible ) {
                     remove noun;
-                    print "Mmm... delicious!~  Sloth and gluttony... two deadly sins in one minute. His boss will be pleased. ~";
+                    print "Hmm... delicioso!~ Preguiça e gula... dois pecados capitais em um minuto. O chefe dele ficará satisfeito. ~";
                 }
                 i = noun.devil_hint;
                 if( i == -1 || i == nothing ) {
                     if( noun.angel_hint ~= "" )
-                        "I know about that, but my counterpart doesn't.~";
-                    "I know just what that's for.~";
+                        "Eu sei para que serve, mas minha contraparte não.~";
+                    "Eu sei exatamente para que isso serve.~";
                 }
                 print_ret (string) i, "~";
         ],
-        description "If you were to cast a film of your adventures so far, you would hire Donald Sutherland to 
-            play this gentleman.",
+        description "Se você fosse filmar suas aventuras até agora, contrataria Donald Sutherland para interpretar este cavalheiro.",
         number 4,
   has   animate scenery;
 
-Object Heavenly_Place "Heavenly Place"
+Object Heavenly_Place "Lugar Celestial"
   with  name 'furniture' 'cloud',
         before [;
-            Strike: "The clouds are too fluffy."; 
+            Strike: "As nuvens são fofas demais.";
         ],
         after [ i;
             Look:
                 new_line;
                 if( angel has general ) {
-                    "~Take all the time you need,~ says the angel kindly.";
+                    "~Use todo o tempo de que precisar,~ diz o anjo gentilmente.";
                 }
                 i = angel.number;
-                if( i > 0 ) { 
+                if( i > 0 ) {
                     --i;
                     angel.number = i;
-                    if( i > 0 ) { 
+                    if( i > 0 ) {
                         give angel general;
                     }
                 }
-                if( i == 0 ) { 
-                    "~I'm afraid I can be of no further use to you!  See you in another life,~ says the angel with a memorable smile.";
+                if( i == 0 ) {
+                    "~Receio não poder mais ser útil a você! Até outra vida,~ diz o anjo com um sorriso memorável.";
                 }
-                if( i == 1 ) { 
-                    "~You have one remaining question,~ says the angel with a memorable smile."; 
+                if( i == 1 ) {
+                    "~Você tem uma pergunta restante,~ diz o anjo com um sorriso memorável.";
                 }
-                if( i == 2 ) { 
-                    "~A whole two questions left,~ says the angel with a memorable smile.";
+                if( i == 2 ) {
+                    "~Restam duas perguntas inteiras,~ diz o anjo com um sorriso memorável.";
                 }
-                "~Good day,~ says the angel with a memorable smile. ~As a reward for your act of faith, may I welcome 
-                 you to our little information service. We try to be as helpful as possible to explorers who are lost,
-                 or can't think how to solve their problems. Is there anything, pray, which you would like a hint
-                 about, or which you'd like to show me?  You are permitted three hints in all, in accordance with
-                 standard practice.~";
+                "~Bom dia,~ diz o anjo com um sorriso memorável. ~Como recompensa por seu ato de fé, permita-me recebê-lo em nosso pequeno serviço de informações. Tentamos ser tão úteis quanto possível a exploradores perdidos ou incapazes de descobrir como resolver seus problemas. Há algo sobre o qual gostaria de receber uma dica, ou algo que gostaria de me mostrar? Você tem direito a três dicas ao todo, conforme a prática padrão.~";
         ],
         s_to Up_the_Beanstalk,
-        description "Heaven, you always imagined, would be a world of marble pillars, fluffy clouds, harps and 
-            angelic ladies with serene expressions. You were right about the last part. An angel is sitting here
-            behind some new office furniture, next to a blue Tourist Information sign. A bridge of cloud extends
-            south across the sky to the beanstalk. There is some choral singing going on somewhere, but not loud
-            enough for you to hear properly. Not in this life, anyway.",
+        description "O Céu, você sempre imaginou, seria um mundo de pilares de mármore, nuvens fofas, harpas e damas angelicais com expressões serenas. Você acertou quanto à última parte. Um anjo está sentado aqui atrás de móveis novos de escritório, ao lado de uma placa azul de Informações Turísticas. Uma ponte de nuvens se estende para o sul pelo céu até o pé de feijão. Há canto coral acontecendo em algum lugar, mas não alto o bastante para você ouvir direito. Não nesta vida, pelo menos.",
         cant_go [;
             trigger_quotation(27);
-            "That direction is not for the living.";
+            "Essa direção não é para os vivos.";
         ],
         each_turn [;
             switch( random(10) ) {
-                1: "^Angels with harps float by, gossiping about you in a kindly way.";
-                2: "^Babies float by, just counting their toes.";
-                3: "^Burnished-gold sunlight strokes the tops of the clouds here.";
-                4: "^The choir invisible almost, for a moment, becomes audible.";
+                1: "^Anjos com harpas passam flutuando, falando de você de modo bondoso.";
+                2: "^Bebês passam flutuando, apenas contando os dedos dos pés.";
+                3: "^A luz do sol, dourada e polida, toca o topo das nuvens aqui.";
+                4: "^O coro invisível quase se torna audível por um momento.";
             }
         ],
         section T_AFTERLIFE,
@@ -284,40 +265,39 @@ Object -> angel "angel"
                 if( AngelQuestion(special_word) ~= 0 )
                     give demon ~general;   !! Bug, I think. Should be angel
                 rtrue;
-            Order: "One does not give orders to such a character.";
+            Order: "Não se dá ordens a um personagem desses.";
             Give, Show:
                 if( AngelHints() ~= 0 ) rtrue;
-                print "The angel looks keenly at ", (the) noun, " and rouses himself to say: ~";
+                print "O anjo olha atentamente para ", (the) noun, " e se anima a dizer: ~";
                 give angel ~general;
                 i = noun.angel_hint;
                 if( i == -1 || i == nothing ) {
                     if( noun.devil_hint ~= "" )
-                        "I suppose you could ask, um, that tailed gentleman.~";
-                    "I'm afraid I can't help you there.~";
+                        "Suponho que você poderia perguntar, hum, àquele cavalheiro com cauda.~";
+                    "Receio não poder ajudar você com isso.~";
                 }
                 print_ret (string) i, "~";
         ],
-        description "If you were to cast a film of your adventures so far, you would hire Dame Judi Dench to play this lady.",
+        description "Se você fosse filmar suas aventuras até agora, contrataria Dame Judi Dench para interpretar esta dama.",
         number 4,
   has   animate scenery;
 
 [ HellishAsk ;
     if( demon hasnt general ) {
         if( demon.number == 0 ) {
-            "~No hints left, sucker.~";
+            "~Não restam dicas, otário.~";
         }
-        "~Under Regulation 3, paragraph 15 (i) clause (f), only one hint per visit to the infernal domain. You'll have to go away again and come back if you want another. So sorry.~";
+        "~Segundo o Regulamento 3, parágrafo 15, cláusula (i)(f), só é permitida uma dica por visita ao domínio infernal. Você terá de ir embora e voltar se quiser outra. Sinto muito.~";
     }
     rfalse;
 ];
 
-[ AngelHints ;  
+[ AngelHints ;
     if( angel hasnt general ) {
         if( angel.number == 0 ) {
-            "~No hints left, alas.~";
-        }   
-        "~Under Regulation 3, paragraph 15 (i) clause (f), only one hint per visit to the sacred domain. You'll have to go away again and come back if you want another. So sorry.~";
+            "~Não restam dicas, infelizmente.~";
+        }
+        "~Segundo o Regulamento 3, parágrafo 15, cláusula (i)(f), só é permitida uma dica por visita ao domínio sagrado. Você terá de ir embora e voltar se quiser outra. Sinto muito.~";
     }
     rfalse;
-];       
-
+];

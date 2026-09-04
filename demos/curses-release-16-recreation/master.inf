@@ -16,13 +16,10 @@
 [ Capture o s ;
     if( CouncilCnt < 8 ) {
         deadflag = DIED;
-        "^The guardsmen grab your head by the chin and examine you, but take you for a plain thief and 
-         immediately put you to the sword. A pity they did not realise your importance, but then they are only
-         guards, and besides they would probably only have done you in more unpleasantly.";
+        "^Os guardas seguram seu queixo e examinam você, mas tomam-no por um simples ladrão e imediatamente o matam à espada. Pena que não perceberam sua importância, mas são apenas guardas e, além disso, provavelmente teriam feito algo ainda mais desagradável.";
     }
-    print "^Suddenly you are thrust before a druidical figure. He seems to recognise you, and is troubled. 
-        Perhaps because of this, your life is saved and you are taken away into custody, down in the valley among
-        the army encampments.^";
+    print "^De repente, você é levado diante de uma figura druídica. Ele parece reconhecê-lo e fica perturbado. 
+        Talvez por isso sua vida seja poupada e você seja levado sob custódia, no vale entre os acampamentos do exército.^";
 
     StartTimer(tent_pole,4);
     for( o = child(player) : o ~= nothing : o = s ) {
@@ -36,13 +33,13 @@
     rtrue;
 ];
 
-Object Murky_Cave "Murky Cave"  
+Object Murky_Cave "Caverna sombria"  
   with  w_to Spur_of_Rock,
         ne_to Valley_Prospect,
         initial [; StartDaemon(self); ],
-        description "This is a murky hillside cave, whose mouth opens to the northeast, though a tight squeeze might 
-            lead a little way west. Outside is a clear starry night. There is no traffic noise, and the air
-            smells fresh.",
+        description "Esta é uma caverna sombria na encosta, cuja entrada se abre a nordeste, embora um aperto possa 
+            levar um pouco para oeste. Lá fora há uma noite límpida e estrelada. Não há barulho de trânsito, e o ar
+            cheira a fresco.",
         daemon [ cnt;
             if( game_section ~= T_ANCIENT_BRITAIN ) 
                 StopDaemon(self);
@@ -51,420 +48,361 @@ Object Murky_Cave "Murky Cave"
                 ++CouncilCnt;
 
             ! I don't think the following is ever printed:
-            if( cnt == 1 ) "^From up on the hill you hear the blowing of a horn.";
-            if( cnt == 2 ) "^Horses are approaching the villa, coming down the hill.";
-            if( cnt == 3 ) "^The sound of horses draws nearer.";
+            if( cnt == 1 ) "^Do alto da colina você ouve o toque de uma trompa.";
+            if( cnt == 2 ) "^Cavalos se aproximam da vila, descendo a colina.";
+            if( cnt == 3 ) "^O som dos cavalos se aproxima.";
             if( cnt == 4 ) {
                 if( location == Entrance ) {
-                    print "^Horsemen suddenly gallop into the courtyard and you are soon ringed by guards!^";
+                    print "^Cavaleiros de repente entram a galope no pátio e logo você está cercado por guardas!^";
                     Capture();
                 } else {
-                    "^There is definitely activity outside the villa.";
+                    "^Há definitivamente atividade do lado de fora da vila.";
                 }
             }
             if( cnt >= 5 ) {
                 if( location == Entrance ) {
-                    print "^You walk straight into the guards.^";
+                    print "^Você caminha direto para os guardas.^";
                     Capture();
                 }
                 if( location == Roman_Villa ) {
-                    print "^You walk straight into the guards at the back door.^";
+                    print "^Você caminha direto para os guardas na porta dos fundos.^";
                     Capture();
                 }
             }
             if( cnt == 7 ) {
-                print "^There is sudden activity as the guards make a thorough precautionary search of the villa. ";
+                print "^Há uma súbita agitação enquanto os guardas fazem uma busca preventiva minuciosa na vila. ";
                 if( location == Hypocaust ) {
-                    "Luckily, they don't even think of looking down in here.";
+                    "Por sorte, eles nem pensam em olhar aqui embaixo.";
                 }
                 if( location == Inside_Well ) {
                     print "Unfortunately, they do think of looking into the kitchen well, and drag you out onto the 
                         triclinium floor.^";
                 }
                 if( location == Murky_Cave or Spur_of_Rock or Hanging_on_Rope ) 
-                    print "With the kind of zeal which really marked early Dark Age guarding, they look even here.^";
+                    print "Com o tipo de zelo que marcou a guarda no início da Idade das Trevas, eles olham até aqui.^";
                 else if( location ~= Inside_Well )
-                    print "The virtue of doing so is demonstrated when they find you without difficulty.^";
+                    print "A utilidade disso fica demonstrada quando encontram você sem dificuldade.^";
                 Capture();
             }
             if( cnt <= 7 ) 
                 rfalse;
 
             if( location == Triclinium ) {
-                print "^An industrious-looking slave (who cooks for the horsemen) is rather surprised to see you, 
-                    but with creditable presence of mind he summons the guard at once.^";
+                print "^Um escravo de aparência diligente (que cozinha para os cavaleiros) fica bastante surpreso ao ver você, mas, com louvável presença de espírito, chama o guarda imediatamente.^";
                 Capture();
             }
             if( location ~= Hypocaust ) 
                 rfalse;
             if( cnt == 8 ) 
-                "^You hear men walking across the mosaic just above your head.";
+                "^Você ouve homens caminhando sobre o mosaico, logo acima de sua cabeça.";
             if( cnt == 9 ) {
-                print "^A voice, which can just be heard through the vent, says ";
+                print "^Uma voz, que mal pode ser ouvida através da abertura, diz ";
                 if( KnowLanguages == false ) {
-                    "something in Anglo-Saxon or Celtic (hard to say which).";
+                    "algo em anglo-saxão ou celta (difícil dizer qual).";
                 }
                 "~Welcome, great masters. We are convened in secret conclave to decide the fate of Britain. 
                  Lament, for the old ways are passing!  There will be a dark age, a collapse into many monarchies,
                  and any man who can hold a town will call himself King and heir to Vortigern.~";
             }
             if( cnt == 10 ) {
-                print "^A younger, more impatient voice, says ";
-                if( KnowLanguages == false ) "something else.";
-                "~This is an opportunity!  We must be the power behind the thrones, we will in secret unite and 
-                 be the true force of the land...~";
+                print "^Uma voz mais jovem e impaciente diz ";
+                if( KnowLanguages == false ) "outra coisa.";
+                 "~Esta é uma oportunidade! Devemos ser o poder por trás dos tronos; em segredo, vamos nos unir e ser a verdadeira força da terra...~";
             }
             if( cnt == 11 ) {
-                print "^There is cynical laughter for a moment, and a third voice interjects ";
-                if( KnowLanguages == false ) "something.";
-                "~And who will lead this, this unity?  We take all sides and none, you know that. There are 
-                 potent druids in the tents of each general down there in the rabble. They'd kill each other in
-                 a second come the battle.~";
+                print "^Por um momento há uma risada cínica, e uma terceira voz interrompe ";
+                if( KnowLanguages == false ) "alguma coisa.";
+                 "~E quem liderará esta unidade? Tomamos todos os lados e nenhum, você sabe disso. Há druidas poderosos nas tendas de cada general naquela ralé. Eles se matariam assim que começasse a batalha.~";
             }
             if( cnt == 12 ) {
-                print "^The first voice speaks once more. ";
+                print "^A primeira voz fala novamente. ";
                 if( KnowLanguages == false ) {
                     new_line;
                     rtrue;
                 }
-                "~Far worse is to come. The jumped-up kings and their new men will no longer believe in the 
-                 ancient powers. Already I can feel the druidic magic weakening away, and we are perilously close
-                 to the nexus now. In the valleys below, armies wait to fight the decisive battle. Whichever side
-                 wins, they will no longer need us. In a matter of hours, the power will be broken forever.~";
+                 "~Coisas muito piores virão. Os reis arrivistas e seus novos homens não acreditarão mais nos poderes antigos. Já sinto a magia druídica se enfraquecendo, e agora estamos perigosamente perto do nexo. Nos vales abaixo, exércitos aguardam a batalha decisiva. Qualquer lado que vença não precisará mais de nós. Em questão de horas, o poder será destruído para sempre.~";
             }
             if( cnt == 13 ) {
-                print "^After a sombre silence, a much older voice says ";
-                if( KnowLanguages == false ) "something wise. It really is a pity you can't understand them.";
-                "~You did right to call us together. There is a path prepared for us, but the sacrifice will be 
-                 terrible. We must concentrate all the remaining druidical energy into this sacred hill, that it may
-                 last through all time, and we must ensure that druids live on this site forever and keep the faith.~";
+                print "^Depois de um silêncio sombrio, uma voz muito mais velha diz ";
+                if( KnowLanguages == false ) "algo sábio. É realmente uma pena que você não consiga entendê-los.";
+                 "~Você fez bem em nos reunir. Há um caminho preparado para nós, mas o sacrifício será terrível. Devemos concentrar toda a energia druídica restante nesta colina sagrada, para que ela dure por todo o tempo, e devemos garantir que druidas vivam neste local para sempre e mantenham a fé.~";
             }
             if( cnt == 14 ) {
-                print "^The younger voice speaks again. ";
+                print "^A voz mais jovem fala novamente. ";
                 if( KnowLanguages == false ) {
                     new_line;
                     rtrue;
                 }
-                "~For now, yes, for a century or two, yes, but what then?  They will forget the old ways, they 
-                 will no longer truly be druids.~";
+                 "~Por enquanto, sim, por um ou dois séculos, sim, mas e depois? Eles esquecerão os velhos costumes e não serão mais verdadeiramente druidas.~";
             }
             if( cnt == 15 ) {
-                print "^The older voice replies triumphantly. ";
+                print "^A voz mais velha responde triunfalmente. ";
                 if( KnowLanguages == false ) {
                     new_line;
                     rtrue;
                 }
-                "~This is what must be done. They will forget, so we must give them a substitute. We shall accurse 
-                 them to always seek after this magical stone, which it will be all but impossible for them to
-                 find. It will take the form of whatever they most desire. In six hundred years, by my prophecy,
-                 religious wars in the East will capture men's hearts, and then they will think it is the Holy
-                 Grail, the cup which held the blood of Christ. A thousand years later they will think it is -~
-                 But at this moment the voices move away.";
+                 "~É isso que deve ser feito. Eles esquecerão, portanto devemos dar-lhes um substituto. Vamos amaldiçoá-los para que busquem sempre esta pedra mágica, que será quase impossível de encontrar. Ela assumirá a forma do que mais desejarem. Daqui a seiscentos anos, segundo minha profecia, guerras religiosas no Oriente conquistarão os corações dos homens, e então pensarão que ela é o Santo Graal, o cálice que guardou o sangue de Cristo. Mil anos depois pensarão que ela é...~ Mas, nesse momento, as vozes se afastam.";
             }
             rfalse;
         ],
         section T_ANCIENT_BRITAIN,
   has   ;
 
-Object -> flaming_torch "flaming torch" 
+Object -> flaming_torch "tocha acesa" 
   with  name 'flaming' 'torch',
-        initial "Hanging up on an iron bracket is a flaming torch.",
+         initial "Pendurada em um suporte de ferro há uma tocha acesa.",
   has   light;
 
-Object -> historical_pamphlet "historical pamphlet"     
+Object -> historical_pamphlet "folheto histórico"     
   with  name 'historical' 'pamphlet',
         sw_to n_obj,
-        description "It is a summary of the writings of a polemical monk called Gildas, and relates to events 
-            following the fall of the tyrant Vortigern at the turn of the fifth century A.D. After dark decades
-            of pillage by Saxon mercenaries, Britain was reunited by Ambrosius Aurelianus and then defended at the
-            Battle of Badon Hill, some time in the early years of the sixth century.^^This remarkable victory was
-            of no religious significance, so Gildas does not dwell upon it. He tends only to mention bad kings
-            and leaders, and then chiefly to insult them. (Talking about Gildas is an excellent way to annoy an
-            Anglo-Saxon historian.)  Nobody even knows where Badon Hill is any more, or anything else about it,
-            although some students of Welsh poetry believe Ambrosius was the source of the legend of King Arthur.",
+        description "É um resumo dos escritos de um monge polêmico chamado Gildas e relata eventos posteriores à queda do tirano Vortigern na virada do século V d.C. Após décadas sombrias de pilhagem por mercenários saxões, a Bretanha foi reunida por Ambrósio Aureliano e depois defendida na Batalha do Monte Badon, em algum momento dos primeiros anos do século VI.^^Essa vitória extraordinária não teve significado religioso, portanto Gildas não se detém nela. Ele tende apenas a mencionar reis e líderes ruins, principalmente para insultá-los. (Falar de Gildas é uma excelente maneira de irritar um historiador anglo-saxão.) Ninguém sabe mais onde fica o Monte Badon, nem qualquer outra coisa sobre ele, embora alguns estudiosos da poesia galesa acreditem que Ambrósio foi a fonte da lenda do Rei Arthur.",
         article "an",
   has   ;
 
-Object Spur_of_Rock "Spur of Rock"      
+Object Spur_of_Rock "Afloramento rochoso"      
   with  e_to Murky_Cave,
         d_to Hanging_on_Rope,
-        description "An uncomfortable spur of rock on the hillside crags. The only natural access to this spot is a 
-            crevice in the hill to the east, but there is also a securely fastened rope hanging down into the 
-            darkness.",
-        cant_go "The crags are too precipitous.",
+        description "Um afloramento rochoso desconfortável nas escarpas da encosta. O único acesso natural a este lugar é uma fenda na colina a leste, mas também há uma corda bem presa que desce para a escuridão.",
+        cant_go "As escarpas são íngremes demais.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> hanging_rope "hanging rope"   
+Object -> hanging_rope "corda pendurada"   
   with  name 'hanging' 'rope',
         before [;
             Climb: << Go d_obj >>;
         ],
   has   scenery;
 
-Object Hanging_on_Rope "Hanging on Rope"        
+Object Hanging_on_Rope "Pendurado na corda"        
   with  name 'patrol' 'men',
         before [;
             Swing: if( noun ~= hemp_rope ) rfalse;
             give hemp_rope general;
-            "You set the rope swinging back and forth. Very exhilarating!";
+            "Você faz a corda balançar para frente e para trás. Muito emocionante!";
         ],
         after [;
             Drop:
                 remove(noun);
-                print_ret (The) noun, " tumbles end over end into the valley below.";
+                print_ret (The) noun, " cai girando no vale abaixo.";
         ],
         u_to Spur_of_Rock,
         d_to [;
-            print "You clamber down the rope, straight into a patrol of guards who capture you!^";
+            print "Você desce pela corda e cai direto em uma patrulha de guardas que captura você!^";
             Capture();
             rtrue;
         ],
-        description "You are hanging perilously on a hemp rope, suspended from an overhang of rock above, which 
-            drops down into the darkness of the valley. On the tracks below, patrols of men can be heard, and you
-            feel instinctively that they are not friendly.",
-        cant_go "Up and down are it, quite frankly.",
+        description "Você está perigosamente pendurado em uma corda de cânhamo, suspensa de uma saliência rochosa acima, que 
+            desce para a escuridão do vale. Nas trilhas abaixo, ouvem-se patrulhas de homens, e você
+            sente instintivamente que não são amistosos.",
+        cant_go "Francamente, só há para cima ou para baixo.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> hemp_rope "hemp rope" 
+Object -> hemp_rope "corda de cânhamo" 
   with  name 'hemp' 'rope',
   has   scenery;
 
-Object -> yellow_daisy "yellow daisy"   
+Object -> yellow_daisy "margarida amarela"   
   with  name 'yellow' 'daisy',
         before [;
             if( self has moved || hemp_rope has general ) rfalse;
-            "You stretch out your hand, but cannot quite reach the daisy, such is the size of the overhang.";
+            "Você estende a mão, mas não consegue alcançar a margarida, tamanha é a largura da saliência.";
         ],
         after [;
-            Wear: "You tuck the daisy behind your ear, almost out of sight.";
+            Wear: "Você enfia a margarida atrás da orelha, quase fora de vista.";
             Take:
                 if( self hasnt general ) {
                     give self general;
-                    "Aided by the swinging of the rope, you pick the daisy.";
+                    "Ajudado pelo balanço da corda, você colhe a margarida.";
                 }
                 rfalse;
         ],
 !        u_to DaisyUp,
-        initial "A single yellow daisy grows from a little tuft of grass on the crags.",
+        initial "Uma única margarida amarela cresce em um pequeno tufo de grama nas rochas.",
   has   clothing scored;
 
-Object Valley_Prospect "Valley Prospect"        
+Object Valley_Prospect "Vista do vale"        
   with  e_to Roman_Villa,
         sw_to Murky_Cave,
-        description "The geography is strangely familiar here. You are on a natural shelf on the hillside, 
-            overlooking the valley below. An all-but invisible cleft in the rock leads to a cave to the southwest,
-            and the slope can safely be traversed to the east.^^It is a brightly moonlit night, cool as in late
-            spring. There will be a sharp frost tomorrow. Down in the valley, a great cartwheel circle of camp
-            fires illuminate some dark shapes, perhaps crude encampments. There is no other sign of civilisation.",
-        cant_go "The hillside is too steep.",
+         description "A geografia aqui é estranhamente familiar. Você está em uma plataforma natural na encosta, observando o vale abaixo. Uma fenda quase invisível na rocha leva a uma caverna a sudoeste, e a encosta pode ser atravessada com segurança para leste.^^É uma noite de luar intenso, fria como o fim da primavera. Amanhã haverá uma geada forte. No vale, um grande círculo de fogueiras em forma de roda de carroça ilumina algumas formas escuras, talvez acampamentos rudimentares. Não há outro sinal de civilização.",
+         cant_go "A encosta é íngreme demais.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object Roman_Villa "Roman Villa"        
+Object Roman_Villa "Vila romana"        
   with  name 'timber' 'door',
         s_to Atrium_Cloister,
         e_to Villa_Stream,
         w_to Valley_Prospect,
-        description "You stand beside a Roman villa, whose columns cast shadows of an Empire in the moonlight. 
-            It is thirty years since the fall of the West, and Britain is cut off from the continent, where soon even
-            the existence of the Anglis will become a myth. This villa has survived the pestilence and devastation
-            of the civil war, and although it must be a couple of centuries old, it is still standing. From here
-            you could cut across the hillside east to west, or slip in through a none-too-secure timber door.",
+         description "Você está ao lado de uma vila romana, cujas colunas projetam à luz da lua as sombras de um Império. Faz trinta anos que o Ocidente caiu, e a Bretanha está isolada do continente, onde em breve até a existência dos anglos se tornará um mito. Esta vila sobreviveu à peste e à devastação da guerra civil e, embora deva ter alguns séculos, ainda está de pé. Daqui você poderia atravessar a encosta de leste a oeste ou entrar por uma porta de madeira nada segura.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object Villa_Stream "Stream"  
+Object Villa_Stream "Riacho"  
   with  name 'river' 'road' 'stream' 'roof',
         before [;
-            Swim: "Too shallow for comfort.";
-            Drink: "Deliciously clear and unpolluted.";
+             Swim: "Raso demais para ser confortável.";
+             Drink: "Deliciosamente límpido e não poluído.";
         ],
         w_to Roman_Villa,
-        u_to "You climb the ladder and are about to jump onto the roof when you catch sight of a man swaddled in 
-            animal furs, spreadeagled over the tiles, looking down into the central courtyard of the villa. He
-            has a nasty-looking sword and since he hasn't seen you, you quietly shin back down the ladder again.",
-        description "A stream runs past the villa and cascades down the hillside here, to join the river far below, 
-            near the Roman road which will, in 1500 years time, become the motorway which so spoils the view from
-            your back garden. A rough ladder of wood lashed together with leather rests against the villa at the
-            lowest point of the tiled roof.",
+         u_to "Você sobe pela escada e está prestes a pular no telhado quando avista um homem enrolado em peles de animais, esparramado sobre as telhas e olhando para o pátio central da vila. Ele tem uma espada de aparência ameaçadora e, como não viu você, você desce silenciosamente pela escada.",
+         description "Um riacho passa pela vila e desce em cascata pela encosta, juntando-se ao rio muito abaixo, perto da estrada romana que, daqui a 1.500 anos, se tornará a rodovia que tanto estraga a vista do seu jardim. Uma escada tosca de madeira amarrada com couro está apoiada na vila, no ponto mais baixo do telhado de telhas.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> rough_ladder "rough ladder"   
+Object -> rough_ladder "escada tosca"   
   with  name 'rough' 'ladder',
         before [; Climb: << Go u_obj >>; ],
   has   scenery;
 
-Object Atrium_Cloister "Atrium Cloister"        
+Object Atrium_Cloister "Claustro do átrio"        
   with  name 'timber' 'door',
         n_to Roman_Villa,
         s_to Atrium,
-        description "The shadowy cloisters of the villa's atrium. You disturb a fieldmouse, and hear the 
-            scratching of tiny claws on stone. Moonlight filters in from the central courtyard to the south,
-            and a rotten timber door leads back north.",
+        description "Os claustros sombrios do átrio da vila. Você perturba um camundongo e ouve o arranhar de pequenas garras na pedra. A luz da lua entra do pátio central ao sul, e uma porta de madeira apodrecida leva de volta ao norte.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> summoning_horn "summoning horn"       
+Object -> summoning_horn "trompa de convocação"       
   with  name 'horn' 'summoning' 'on' 'pole',
         before [;
             Blow:
-                print "You blow the horn, and it lets a great clarion call out to the hills. ";
+                print "Você sopra a trompa, que emite um grande toque pelas colinas. ";
                 if( CouncilCnt >= 7 ) {
-                    print "The guardsmen, all over the villa, find you very quickly.^";
+                    print "Os guardas, espalhados pela vila, encontram você rapidamente.^";
                     Capture();
                 } else {
-                    print "A call which is rapidly answered as...^";
+                    print "Um chamado que logo recebe resposta...^";
                     CouncilCnt = 7;
                 }
                 rtrue; 
         ],
-        initial "Resting against one pillar is a horn made from a tusk, mounted on a long spear-like pole.",
+        initial "Encostada em uma coluna há uma trompa feita de uma presa, montada em uma longa haste semelhante a uma lança.",
         rod_assoc rod_of_language,
   has   hidden_rod;
 
-Object Atrium "Atrium"  
+Object Atrium "Átrio"  
   with  n_to Atrium_Cloister,
         s_to Entrance,
         e_to Guard_Quarters,
         w_to Triclinium,
-        description "The central well of the villa, ringed with columns. On the north side is a cloister and 
-            stone-linteled doorways lead east, south and west. The central floor area is commanded by a beautiful Roman
-            mosaic, quartered into individual scenes, around the edges of which are vents from the hypocaust. There
-            is no roof over the courtyard, and the atrium is lit by moonlight.",
+        description "O poço central da vila, cercado por colunas. No lado norte há um claustro, e portas com vergas de pedra levam a leste, sul e oeste. A área central do piso é dominada por um belo mosaico romano, dividido em cenas individuais, ao redor do qual há aberturas do hipocausto. Não há teto sobre o pátio, e o átrio é iluminado pela lua.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> ancient_mosaic "mosaic"       
+Object -> ancient_mosaic "mosaico"       
   with  name 'mosaic',
-        description "The four quarters show white-beards in the Forum, farmers in Italian fields, a military 
-            fortification and a grain ship unloading at Ossia.",
+        description "Os quatro quadrantes mostram barbas-brancas no Fórum, agricultores nos campos italianos, uma fortificação militar e um navio de grãos descarregando em Óssia.",
   has   scenery;
 
-Object Guard_Quarters "Guard Quarters"  
+Object Guard_Quarters "Alojamento dos guardas"  
   with  name 'armour' 'spears' 'hides' 'blankets',
         w_to Atrium,
-        description "Whatever function this spacious room once had, now it is evidently home to military men, 
-            for it is filled with crude armour, spears, rough blankets which are little more than animal
-            hides. Fortunately for you the guards are absent.",
+        description "Qualquer que tenha sido a função desta sala espaçosa, agora ela evidentemente abriga militares, pois está cheia de armaduras rudimentares, lanças e cobertores ásperos que não passam de peles de animais. Felizmente para você, os guardas estão ausentes.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> bone_die "crude bone die"     
+Object -> bone_die "dado de osso rudimentar"     
   with  name 'die' 'dice' 'bone',
         after [;
             Drop:
-                print_ret "Alea iacta est. It comes up ", EnglishNumber(random(6)), ".";
+                print_ret "Alea iacta est. O resultado é ", EnglishNumber(random(6)), ".";
         ],
-        description "A crude six-sided die made from animal bone.",
+        description "Um dado rudimentar de seis lados feito de osso animal.",
   has   ;
 
-Object -> leather_sandals "leather sandals"     
+Object -> leather_sandals "sandálias de couro"     
   with  name 'sandals' 'shoes' 'leather',
         article "a pair of",
   has   clothing;
 
-Object Triclinium "Triclinium"  
+Object Triclinium "Triclínio"  
   with  e_to Atrium,
         d_to [;
             if( kitchen_well hasnt open )
-                "The well is covered.";
+                "O poço está coberto.";
             if( kitchen_well has general ) {
-                print "Aware of the dangers, you very carefully lower yourself...^";
+                print "Ciente dos perigos, você desce com muito cuidado...^";
                 Achieved(SCORE_WELL);
                 return kitchen_well;
             }
             deadflag = DIED;
-            "Having no reason to suppose the well is very deep, you cheerfully lower yourself in. This turns out 
-             to be something of a misjudgement and you soon lose your grip and fall, endlessly banging against
-             the walls until finally...";
+            "Sem motivo para supor que o poço seja muito profundo, você desce alegremente. Isso se revela um erro de julgamento, e logo você perde o apoio e cai, batendo sem parar contra as paredes até que finalmente...";
         ],
-        description "What was once the villa's triclinium, or kitchen, is now deserted and long since ransacked for 
-            metal. (Nobody lives on their own in this century, and this villa wouldn't be easy to defend.)
-            A doorway to the east gives onto the atrium.",
+        description "O que já foi o triclínio, ou cozinha, da vila agora está abandonado e há muito foi saqueado em busca de metal. (Ninguém vive sozinho neste século, e esta vila não seria fácil de defender.) Uma porta a leste dá para o átrio.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> kitchen_well "kitchen well"   
+Object -> kitchen_well "poço da cozinha"   
   with  name 'well' 'hinged' 'wooden' 'cover',
         after [;
             Receive:
                 remove noun;
                 if( noun has light ) {
                     give kitchen_well general;
-                    "It plummets out of sight, until even the light vanishes in the distance. This must be an 
-                     extremely deep well.";
+                    "Ele despenca para fora de vista, até que sua luz desaparece ao longe. Este deve ser um poço extremamente profundo.";
                 }
                 if( noun ~= historical_pamphlet ) {
                     StartTimer(self,2);
                 }
-                print_ret (The) noun, " drops into the well-shaft.";
+                print_ret (The) noun, " cai no poço.";
         ],
         door_to Inside_Well,
-        when_closed "In one corner is a hinged wooden cover of some kind, which is shut.",
+        when_closed "Em um canto há uma espécie de tampa de madeira com dobradiças, fechada.",
         door_dir d_to,
-        when_open "The hinged wooden cover is raised, revealing a circular well about a yard in diameter. 
-            It is very dark inside.",
-        description "The well has a hinged wooden cover. You can't tell by looking how deep it is.",
+        when_open "A tampa de madeira com dobradiças está levantada, revelando um poço circular com cerca de um metro de diâmetro. É muito escuro lá dentro.",
+        description "O poço tem uma tampa de madeira com dobradiças. Não é possível saber, olhando, quão profundo ele é.",
         time_left 0,
         time_out [;
             if( player notin Triclinium ) rfalse;
             give kitchen_well general;
             trigger_quotation(9);
-            "^You hear a splash from far down in the depths of the well.";
+            "^Você ouve um respingo vindo do fundo do poço.";
         ],
   has   container door openable static;
 
-Object Inside_Well "Inside Well"        
+Object Inside_Well "Dentro do poço"        
   with  name 'air',
         before [;
             Look, Go, Examine:
                 rfalse;
             default:
-                "In this confined space there is little room for action.";
+                "Neste espaço confinado há pouco espaço para agir.";
         ],
         e_to Hypocaust,
         u_to Triclinium,
-        description "You are clinging perilously to the walls of the deep and dangerous well. You can hardly see 
-            a thing, even with the aid of the torch, but curiously enough you feel warm air blowing across you
-            from the east.",
-        cant_go "Too risky. There might not be anything that way, for all you know.",
+        description "Você se agarra perigosamente às paredes do poço profundo e perigoso. Mal consegue enxergar, mesmo com a ajuda da tocha, mas, curiosamente, sente ar quente soprando sobre você vindo do leste.",
+        cant_go "Arriscado demais. Pelo que você sabe, pode não haver nada naquela direção.",
         section T_ANCIENT_BRITAIN,
   has   ;
 
-Object Hypocaust "Hypocaust"    
+Object Hypocaust "Hipocausto"    
   with  name 'fires' 'heating' 'log' 'logs',
         w_to Inside_Well,
-        description "This very low almost-cellar underneath the atrium is a tiny access space for log fires which are 
-            kept going to provide a form of central heating for the villa. They are lit and going away nicely,
-            interestingly. It isn't very warm by twentieth-century standards, but you have to admit it works.^^A
-            tiny amount of light filters in from the vents in the roof; just enough to see by. The only way in
-            seems to be the way you came.",
-        cant_go "The log fires are hot, and anyway the only way out large enough for you is back west.",
+        description "Este espaço muito baixo, quase um porão, sob o átrio é uma pequena área de acesso às fogueiras de lenha mantidas acesas para fornecer uma forma de aquecimento central à vila. Elas estão acesas e funcionando bem, curiosamente. Não é muito quente segundo os padrões do século XX, mas é preciso admitir que funciona.^^Uma pequena quantidade de luz entra pelas aberturas no teto, apenas o suficiente para enxergar. A única entrada parece ser por onde você veio.",
+        cant_go "As fogueiras de lenha estão quentes e, de qualquer modo, a única saída grande o bastante para você fica de volta a oeste.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
-Object -> vents "vents" 
+Object -> vents "aberturas" 
   with  name 'hypocaust' 'vents',
         before [;
             Examine, Search:
                 if( CouncilCnt > 7 ) 
-                    "Four men in druidic furs are standing on the corners of the mosaic, in some kind of sinister 
-                     conference. This old villa must be some kind of rendezvous point. Between the men a bluish
-                     stone rests on the mosaic floor.";
-                "You see across the mosaic floor of the moonlit atrium.";
+                    "Quatro homens em peles druídicas estão nos cantos do mosaico, em algum tipo de conferência sinistra. Esta velha vila deve ser um ponto de encontro. Entre os homens, uma pedra azulada repousa no piso de mosaico.";
+                "Você enxerga o piso de mosaico do átrio iluminado pela lua.";
         ],
         article "the",
   has   scenery;
 
-Object Entrance "Entrance"      
+Object Entrance "Entrada"      
   with  before [;
             Go:
                 if( noun ~= s_obj or sw_obj or se_obj )
                     rfalse;
-                print "You walk out into the courtyard and are immediately set upon by guards, who drag you away.^";
+                print "Você sai para o pátio e é imediatamente atacado pelos guardas, que o arrastam para longe.^";
                 Capture();
                 rtrue;
         ],
@@ -473,28 +411,22 @@ Object Entrance "Entrance"
                 CouncilCnt = 1;
         ],
         n_to Atrium,
-        description "A well-flagstoned forecourt at the villa entrance, surrounded by lesser wooden buildings. 
-            Some of these are in use as stables, and figures of men slip between them. You hide from sight, not
-            wishing to draw attention to yourself. Up on the hill, where Meldrew Hall will one day be built, men
-            on horseback can be seen circling the access track. For a deserted villa, this is certainly well-guarded.",
+        description "Um pátio frontal bem pavimentado na entrada da vila, cercado por construções menores de madeira. Algumas são usadas como estábulos, e figuras de homens passam entre elas. Você se esconde, sem querer chamar atenção. No alto da colina, onde um dia será construído o Salão Meldrew, homens a cavalo podem ser vistos circulando pela trilha de acesso. Para uma vila abandonada, este lugar é certamente bem guardado.",
         section T_ANCIENT_BRITAIN,
   has   light scored;
 
-Object Rough_Tent "Rough Tent"  
+Object Rough_Tent "Tenda rudimentar"  
   with  name 'hides',
-        description "Well, here you are, imprisoned again. This time the cell is a tent of stitched animal hides, 
-            perhaps twenty feet in diameter, supported by a central pole. You have no idea where the entrance is,
-            because you were blindfolded on the way in. There is at least a dim light from the camp-fires outside
-            the tent.",
-        cant_go "This tent doesn't seem to have an exit, either.",
+        description "Pois bem, aqui está você, preso novamente. Desta vez, a cela é uma tenda de peles de animais costuradas, talvez com seis metros de diâmetro, sustentada por um mastro central. Você não faz ideia de onde fica a entrada, pois entrou vendado. Há ao menos uma luz fraca das fogueiras do lado de fora da tenda.",
+        cant_go "Esta tenda também não parece ter uma saída.",
         section T_ANCIENT_BRITAIN,
   has   light scored;
 
-Object -> tent_pole "tent pole" 
+Object -> tent_pole "mastro da tenda" 
   with  name 'tent' 'pole' 'central',
         before [;
-            Attack: "It won't break.";
-            Push, Pull, Turn: "Its base is in the earth.";
+            Attack: "Ele não vai quebrar.";
+            Push, Pull, Turn: "A base está enterrada.";
         ],
         after [;
             Take:
@@ -502,18 +434,14 @@ Object -> tent_pole "tent pole"
                     rfalse;
                 }
                 give self general;
-                print "As you uproot the tent-pole, the whole tent collapses ignominiously, the animal hides 
-                    falling about your head. The hides are heavy and weigh you down, but you just manage to crawl
-                    out...^";
+                print "Quando você arranca o mastro, a tenda inteira desaba ignominiosamente, e as peles de animais caem sobre sua cabeça. As peles são pesadas e o prendem, mas você consegue rastejar para fora...^";
                 StartTimer(Encampment,10);
                 PlayerTo(Encampment);
                 rtrue;
         ],
         time_left 0,
         time_out [;
-            print "^Without warning a Saxon spy (or, as the guards would no doubt put it, another Saxon spy) is 
-                thrown bodily into the tent, careering into the central pole and slumping unconscious on the ground
-                as a result. For a moment the whole tent rocks with the force - the pole was nearly broken.^";
+            print "^Sem aviso, um espião saxão (ou, como os guardas sem dúvida diriam, outro espião saxão) é atirado de corpo inteiro dentro da tenda, bate no mastro central e cai inconsciente no chão. Por um momento, a tenda inteira balança com o impacto: o mastro quase se parte.^";
             give tent_pole ~static;
             move unconscious_Saxon_spy to Rough_Tent;
             StartTimer(unconscious_Saxon_spy,5);
@@ -521,60 +449,51 @@ Object -> tent_pole "tent pole"
         rod_assoc rod_of_returning2,
   has   concealed static hidden_rod;
 
-Object unconscious_Saxon_spy "unconscious Saxon spy"    
+Object unconscious_Saxon_spy "espião saxão inconsciente"    
   with  name 'saxon' 'spy',
         before [;
-            Search: "Not only are the guards better at searching suspects than you, they also did so first.";
+            Search: "Além de os guardas serem melhores que você em revistar suspeitos, eles já fizeram isso antes.";
         ],
         life [;
-            WakeOther: "The spy is too deeply unconscious.";
-            Attack, Kiss, ThrowAt: "Not an act worthy of a Meldrew.";
-            Order, Answer, Ask, Give: "He's asleep.";
+            WakeOther: "O espião está profundamente inconsciente.";
+            Attack, Kiss, ThrowAt: "Isso não é um ato digno de um Meldrew.";
+            Order, Answer, Ask, Give: "Ele está dormindo.";
         ],
-        initial "An unconscious Saxon spy is slumped on the ground. Occasionally faint noises can be heard from him.",
-        description "He is dishevelled, wiry and unconscious. He is also covered with dust and leaves, as if he 
-            has been lying down on his front outdoors for hours.",
+        initial "Um espião saxão inconsciente está caído no chão. Ocasionalmente, ouvem-se ruídos fracos vindos dele.",
+        description "Ele está desgrenhado, esguio e inconsciente. Também está coberto de poeira e folhas, como se estivesse deitado de bruços ao ar livre há horas.",
         time_left 0,
         time_out [;
             if( location ~= Rough_Tent ) 
                 rfalse;
             if( unconscious_Saxon_spy in Rough_Tent ) {
-                print "^Men arrive to drag the Saxon spy away to some unguessable grisly fate. They grimace at you 
-                    as if to say, ~You're next.~^";
+                print "^Homens chegam para arrastar o espião saxão rumo a algum destino horrível e desconhecido. Eles fazem uma careta para você como se dissessem: ~Você é o próximo.~^";
                 remove unconscious_Saxon_spy;
                 StartTimer(unconscious_Saxon_spy,5);
                 rtrue;
             }
             deadflag = DIED;
-            print "^The men arrive once more and this time they securely grab you by the arms. If you were an 
-                anthropologist, you'd be fascinated by the ritual in which you are bound up, then garotted with a
-                cord and laid into a peat swamp. Instead, your last thought is of the celebrated body they found
-                when they drained the marshes in 1974 to build a motorway service station.";
+            print "^Os homens chegam mais uma vez e agora seguram firmemente seus braços. Se você fosse antropólogo, ficaria fascinado pelo ritual em que é amarrado, estrangulado com uma corda e depositado em um pântano de turfa. Em vez disso, seu último pensamento é sobre o corpo célebre encontrado quando drenaram os pântanos em 1974 para construir uma área de serviço de rodovia.";
             rfalse;
         ],
   has   animate;
 
-Object Encampment "Encampment"  
+Object Encampment "Acampamento"  
   with  name 'fires' 'camp' 'dolmen',
         e_to [;
             if( leather_sandals has worn ) {
-                print "You cross the hot coals nimbly in your sandals.^";
+                print "Você atravessa habilmente as brasas quentes com suas sandálias.^";
                 return dolmen;
             }
-            "Walk across those hot coals!  You must be joking.";
+            "Atravessar essas brasas quentes! Você só pode estar brincando.";
         ],
-        description "Luckily for you the tent, now collapsed, was hardly being watched at all, because all the 
-            attention is diverted to a ghastly ritual being carried out over beyond the camp-fires. But your luck
-            cannot hold for long. You are so surrounded by hostile territory that you simply have nowhere to run
-            or hide. Things are, not to put too fine a point on it, looking grim.",
-        cant_go "Far, far too risky.",
+        description "Por sorte, a tenda agora desabada quase não era vigiada, pois toda a atenção está voltada para um ritual medonho realizado além das fogueiras. Mas sua sorte não pode durar muito. Você está tão cercado por território hostil que simplesmente não tem para onde correr ou se esconder. As coisas, para dizer o mínimo, parecem sombrias.",
+        cant_go "Arriscado demais, demais.",
         time_left 0,
         time_out [;
             if( game_section ~= T_ANCIENT_BRITAIN ) 
                 rfalse;
             deadflag = DIED;
-            "^It had to happen sooner or later. One of the druids looks round, sees you and raises an instant 
-             alarm. It is absolutely hopeless and you are dragged away screaming to your fate.";
+            "^Tinha de acontecer mais cedo ou mais tarde. Um dos druidas olha ao redor, vê você e dá o alarme imediatamente. É absolutamente inútil resistir, e você é arrastado aos gritos para seu destino.";
         ],
         section T_ANCIENT_BRITAIN,
   has   light scored;
@@ -583,26 +502,24 @@ Object -> dolmen "dolmen"
   with  name 'dolmen' 'coals' 'hot' 'rock',
         door_to Beneath_Dolmen,
         door_dir e_to,
-        when_open "An erratic glacial rock, which seems in the feverish firelight to make a natural dolmen, can be 
-            made out to the east, on the other side of an almost-extinguished campfire of hot coals.",
+        when_open "Uma rocha glacial irregular, que à luz febril do fogo parece formar um dólmen natural, pode ser vista a leste, do outro lado de uma fogueira quase extinta de brasas quentes.",
   has   door open static;
 
-Object Beneath_Dolmen "Beneath Dolmen"  
+Object Beneath_Dolmen "Sob o dólmen"  
   with  name 'dolmen',
         w_to Encampment,
-        description "You stand beside the eerie dolmen, surrounded by the terrible noises and incantations of a 
-            druidic rite.",
-        cant_go "Far, far too risky.",
+        description "Você está ao lado do dólmen sinistro, cercado pelos ruídos terríveis e encantamentos de um rito druídico.",
+        cant_go "Arriscado demais, demais.",
         section T_ANCIENT_BRITAIN,
   has   light scored;
 
-Object -> bluish_stone "bluish stone"   
+Object -> bluish_stone "pedra azulada"   
   with  name 'stone' 'blue' 'bluish',
-        initial "Resting on top of the dolmen is a polished blue stone.",
+        initial "Sobre o dólmen repousa uma pedra azul polida.",
         rod_assoc fifty_franc_note,
-        devil_hint "I wouldn't wave that around if I were you!",
+        devil_hint "Eu não ficaria exibindo isso se fosse você!",
   has   scored hidden_rod;
 
-Object fifty_franc_note "fifty-franc note"      
+Object fifty_franc_note "nota de cinquenta francos"      
   with  name 'fifty' 'franc' 'note' 'francs',
   has   ;

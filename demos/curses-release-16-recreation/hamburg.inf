@@ -1,94 +1,82 @@
 class   DERoom
   with  section T_HAMBURG;
 
-DERoom  Museum_Foyer "Museum Foyer"      
+DERoom  Museum_Foyer "Saguão do Museu"
   with  name 'shadows' 'bats' 'lamps' 'rain',
         s_to [;
-            print "You pass between the steel walls and a light passes over you. Now you know how paper feels in a 
-                photocopier";
+            print "Você passa entre as paredes de aço e uma luz passa sobre você. Agora sabe como o papel se sente numa
+                fotocopiadora";
             if( child(player) == nothing ) {
                 print ".^";
                 return Hall_of_Exhibits;
-            } 
-            " - in this case, one which jams. Steel barriers appear across the corridor, and you are obliged to 
-             withdraw back to the foyer.^^After a moment, the barriers recede again.";
+            }
+            " - neste caso, uma que emperra. Barreiras de aço aparecem no corredor, obrigando você a recuar para o saguão.^^Depois de um momento, as barreiras recuam novamente.";
         ],
         ne_to Revolving_Door1,
-        description "The Museum of Arcana is deserted after nightfall and only dimly lit by distant sodium 
-            street-lamps. Outside it is a stormy October night and rain beats against the windowpanes. Shadows
-            swoop and dive in the air like bats.^^The revolving door to northeast, which leads out, seems to be
-            solidly blocked off. But a dim passage runs south, through a strange metal corridor.",
-        cant_go "There's no apparent way but south.",
+        description "O Museu da Arcana fica deserto depois do anoitecer e é iluminado apenas pela luz fraca de distantes postes de sódio. Lá fora é uma noite tempestuosa de outubro e a chuva bate nas vidraças. Sombras mergulham e voam no ar como morcegos.^^A porta giratória a nordeste, que leva para fora, parece estar solidamente bloqueada. Mas uma passagem escura segue para o sul, por um estranho corredor metálico.",
+        cant_go "Não há caminho aparente senão para o sul.",
   has   light scored;
 
-Object  -> revolving_door_obj "revolving door"   
+Object  -> revolving_door_obj "porta giratória"
   with  name 'revolving' 'door',
 !        before RevolvingDoorBefore,
         before [ dst;
             Turn, Push, Pull:
-                print "You give the revolving door a heave, and it begins to move; but you pause, out of breath, 
-                    after only a half turn. ";
-                if( Museum_Foyer.ne_to == Revolving_Door1 ) 
+                print "Você empurra a porta giratória, que começa a se mover; mas para, sem fôlego, depois de apenas meia volta. ";
+                if( Museum_Foyer.ne_to == Revolving_Door1 )
                     dst = Revolving_Door2;
-                else 
+                else
                     dst = Revolving_Door1;
                 Museum_Foyer.ne_to = dst;
                 if( child(dst) )
-                    "Interestingly, there's something inside this segment of it.";
+                    "Curiosamente, há algo dentro deste segmento dela.";
                 new_line;
                 rtrue;
             Enter:
                 << Go ne_obj >>;
         ],
-        description "Why not go northeast and look inside?",
+        description "Por que não ir para nordeste e olhar lá dentro?",
   has   scenery;
 
-Object  -> publicity_poster "publicity poster"   
+Object  -> publicity_poster "publicity poster"
   with  name 'poster' 'publicity' 'pretentio' 'exhibition',
-        initial "A publicity poster is displayed for passers-by outside to see.",
-        description "One of those pretentious exhibition posters. Your German is just about adequate to the 
-            task:^^~Cults of the Druids - a Major Retrospective, October-November 1988~.",
+         initial "Um cartaz de divulgação está exposto para os transeuntes verem.",
+         description "Um daqueles cartazes pretensiosos de exposição. Seu alemão é mais ou menos suficiente para a tarefa:^^~Cultos dos Druidas - Uma Grande Retrospectiva, Outubro-Novembro de 1988~.",
   has   static;
 
-DERoom  Revolving_Door1 "Revolving Door" 
+DERoom  Revolving_Door1 "Porta Giratória"
   with  n_to [; << Push door1 >>; ],
-        e_to "The door only turns clockwise.",
+         e_to "A porta só gira no sentido horário.",
         sw_to Museum_Foyer,
-        description "Inside one quarter of the cramped revolving door, which is blocked off from the world outside 
-            and opens only onto the foyer, southwest.",
-        cant_go "To north and east are the walls of the door.",
+         description "Dentro de um quarto da apertada porta giratória, bloqueada para o mundo exterior e aberta apenas para o saguão, a sudoeste.",
+         cant_go "Ao norte e a leste ficam as paredes da porta.",
   has   light;
 
-Object  -> door1 "door"  
+Object  -> door1 "door"
   with  name 'door' 'revolving',
-        before [;
-            Push, Turn, Pull: "You revolve clockwise with the door, and wind up back adjacent to the foyer.";
+         before [;
+             Push, Turn, Pull: "Você gira no sentido horário com a porta e acaba novamente ao lado do saguão.";
         ],
         found_in Revolving_Door1 Revolving_Door2,
-        description "You stand within it.",
+         description "Você está dentro dela.",
   has   scenery;
 
-DERoom  Revolving_Door2 "Revolving Door" 
+DERoom  Revolving_Door2 "Porta Giratória"
   with  n_to [; << Push door1 >>; ],
-        e_to "The door only turns clockwise.",
+         e_to "A porta só gira no sentido horário.",
         sw_to Museum_Foyer,
-        description "Inside one quarter of the cramped revolving door, which is blocked off from the world outside 
-            and opens only onto the foyer, southwest.",
-        cant_go "To north and east are the walls of the door.",
+         description "Dentro de um quarto da apertada porta giratória, bloqueada para o mundo exterior e aberta apenas para o saguão, a sudoeste.",
+         cant_go "Ao norte e a leste ficam as paredes da porta.",
   has   light;
 
-Object  -> beach_ball "beach ball"       
+Object  -> beach_ball "bola de praia"
   with  name 'striped' 'beach' 'ball',
         before [;
             Take, Remove:
-                "The beach ball, a welcome dash of colour in this drab monochrome night, is simply too big, 
-                 cumbersome and round to get hold of.";
+                "A bola de praia, uma bem-vinda mancha de cor nesta noite monocromática e monótona, é simplesmente grande, desajeitada e redonda demais para ser agarrada.";
             PushDir:
                 if( second == s_obj && location == Museum_Foyer ) {
-                    print "You pass between the steel walls and a light passes over you. Suddenly barriers spring 
-                        out across the corridor, thumping into the beach ball which rapidly begins to deflate.^^There
-                        is a sharp hiss as you nimbly jump over the ball, and then a horrid clang as the barriers
-                        come together behind you.^";
+                    print "Você passa entre as paredes de aço e uma luz passa sobre você. De repente, barreiras saltam no corredor e batem na bola de praia, que começa rapidamente a murchar.^^Há um chiado agudo quando você salta agilmente sobre a bola, e depois um clangor horrível quando as barreiras se juntam atrás de você.^";
                     remove beach_ball;
                     Achieved(SCORE_SECURITY);
                     PlayerTo(Hall_of_Exhibits);
@@ -97,103 +85,96 @@ Object  -> beach_ball "beach ball"
                 AllowPushDir();
                 rtrue;
         ],
-        after [; PushDir: "You bounce the beach ball along in front of you."; ],
-        initial "A colourful, striped inflated beach ball bounces around.",
+         after [; PushDir: "Você quica a bola de praia à sua frente."; ],
+         initial "Uma bola de praia inflada, colorida e listrada, quica por aí.",
   has   ;
 
-DERoom  Hall_of_Exhibits "Hall of Exhibits"      
+DERoom  Hall_of_Exhibits "Salão de Exposições"
   with  n_to Museum_Foyer,
         e_to Cabinet_Room,
         w_to Dark_Staircase,
-        description "A great square gloomy room, just south of the foyer. There are square lintelled doorways east and west. The storm is dark, and the windows are high, but there's just enough light to see by.",
+         description "Uma grande sala quadrada e sombria, logo ao sul do saguão. Há portas quadradas com vergas a leste e oeste. A tempestade escurece tudo e as janelas são altas, mas há luz suficiente para enxergar.",
   has   light;
 
-Object  -> Tarot_box "Tarot box" 
+Object  -> Tarot_box "caixa de tarô"
   with  name 'box' 'of' 'tarot',
         before [;
-            Receive: 
-                if( noun hasnt card ) "Only cards will fit.";
+            Receive:
+                 if( noun hasnt card ) "Só cabem cartas.";
                 rfalse;
         ],
-        initial "Resting on a little display table is a Tarot box.",
-        devil_hint "There's nothing worthwhile in it.",
+         initial "Sobre uma pequena mesa de exposição repousa uma caixa de tarô.",
+         devil_hint "Não há nada de valor nela.",
   has   container openable;
 
-TarotCard -> -> Castle "Castle"    
+TarotCard -> -> Castle "Castelo"
   with  name 'castle',
         door_to Ruined_Castle_Cafe,
-        description "A stone castle on a hill.",
-        devil_hint "It leads nowhere.";
+         description "Um castelo de pedra numa colina.",
+         devil_hint "Não leva a lugar algum.";
 
-TarotCard -> -> Star "Star"        
+TarotCard -> -> Star "Estrela"
   with  name 'star',
         door_to Lighthouse,
-        description "A single bright light in the darkness.",
-        devil_hint "Ugh, what a nasty bright light. Good thing you'll never go there.";
+         description "Uma única luz brilhante na escuridão.",
+         devil_hint "Argh, que luz brilhante desagradável. Ainda bem que você nunca irá até lá.";
 
-TarotCard  -> -> Eight_of_Wands_card "Eight of Wands"       
+TarotCard  -> -> Eight_of_Wands_card "Oito de Varinhas"
   with  name 'eight' 'of' 'wands',
         rod_assoc rod_of_infinity,
-        devil_hint "There's less to this card than meets the eye.",
+         devil_hint "Há menos nesta carta do que os olhos percebem.",
   has   hidden_rod;
 
-TarotCard -> -> Maiden_card "Maiden"       
+TarotCard -> -> Maiden_card "Donzela"
   with  name 'maiden',
         door_to Sea_Shore,
-        description "Andromeda chained to a rock on the sea-shore.",
-        devil_hint "What an ugly girl!  Bet she's good for a laugh though.";
+         description "Andrômeda acorrentada a uma rocha à beira-mar.",
+         devil_hint "Que garota feia! Aposto que pelo menos serve para uma risada.";
 
-LagachObj  -> still_life "still life"       
+LagachObj  -> still_life "still life"
   with  name 'long' 'painted' 'still' 'life' 'painting' 'disturbing',
-        initial "A long painted still life graces one wall near a corner.",
-        description "A disturbing painting, perhaps by Edvard Munch, this is a still life of a seedling on a 
-            table, surrounded by a rusty iron rod with a star on the end, a glass bottle, a lamp and a bunch of
-            keys. No doubt these arcane objects held some special significance for primitive tribes now absorbed
-            into civilisation.",
+         initial "Uma longa natureza-morta pintada adorna uma parede perto de um canto.",
+         description "Uma pintura perturbadora, talvez de Edvard Munch, esta natureza-morta mostra uma muda sobre uma mesa, cercada por uma haste de ferro enferrujada com uma estrela na ponta, uma garrafa de vidro, uma lâmpada e um molho de chaves. Sem dúvida esses objetos arcanos tinham algum significado especial para tribos primitivas hoje absorvidas pela civilização.",
   has   static;
 
-DERoom  Dark_Staircase "Dark Staircase"  
+DERoom  Dark_Staircase "Escada Escura"
   with  before [;
             Listen:
-                "It sounds like a thinly, but enthusiastically, attended football match. There are ragged German 
-                 chants but only the word ~Eumenides~ pokes out.";
+                "Parece uma partida de futebol com pouca, mas entusiasmada, torcida. Há cânticos alemães desafinados, mas apenas a palavra ~Eumenides~ se destaca.";
             Go:
                 if( noun == s_obj or d_obj )
-                    "You step downward in some confusion, but your senses are assailed by some kind of vision, of 
-                     a ghastly circle of druids watching your every move and plotting, plotting...^^In horror you
-                     turn back.";
+                    "Você desce um passo, confuso, mas seus sentidos são assaltados por uma espécie de visão: um círculo horrendo de druidas observando cada movimento seu e conspirando, conspirando...^^Horrorizado, você volta.";
                 rfalse;
         ],
         after [; trigger_quotation(14); ],
         e_to Hall_of_Exhibits,
         u_to Hall_of_Exhibits,
-        description "A dark staircase, turning from east to south as it descends. The hideous sound of arhythmic chanting can be heard from below.",
+        description "Uma escada escura, virando de leste para sul à medida que desce. O som hediondo de cânticos arrítmicos vem de baixo.",
   has   light;
 
-Object  -> discarded_matchbook "discarded matchbook"     
+Object  -> discarded_matchbook "discarded matchbook"
   with  name 'match' 'matchbook' 'book',
-        initial "On one step, an empty matchbook lies discarded.",
-        description "It's from the Ruined Castle Cafe, and (like the Cafe) is matchless.",
-        angel_hint "Ah, I fear it is only a token clue.",
+         initial "Num degrau, uma caixa de fósforos vazia está descartada.",
+         description "É do Café do Castelo em Ruínas e, como o café, não tem fósforos.",
+         angel_hint "Ah, receio que seja apenas uma pista simbólica.",
   has   ;
 
-TarotCard  Ace_of_Cups_card "Ace of Cups"   
+TarotCard  Ace_of_Cups_card "Ás de Copas"
   with  name 'ace' 'of' 'cups',
         door_to Cups_and_Glasses,
-        description "It shows a great many crystal-glass cups and glasses.",
-        devil_hint "It leads nowhere.";
+         description "Mostra uma grande quantidade de taças e copos de cristal.",
+         devil_hint "Não leva a lugar algum.";
 
-DERoom  Coven_Cell "Coven Cell"  
+DERoom  Coven_Cell "Cela do Coven"
   with  before [;
-            Ram: "No, this is a goat. A ~ram~ is a kind of sheep.";
+            Ram: "Não, isto é uma cabra. Um ~carneiro~ é um tipo de ovelha.";
             Wait: rfalse;
-            default: 
+            default:
                 if( player hasnt general ) rfalse;
-                "You seem to lack the will any more. The drug must have taken hold.";
+                "Você parece não ter mais vontade. A droga deve ter feito efeito.";
         ],
-        description "An old administrative office of the museum, emptied and made into a prison cell: amateur but 
-            effective.",
-        cant_go "There's definitely no way out of here.",
+        description "Um antigo escritório administrativo do museu, esvaziado e transformado numa cela: amador, mas eficaz.",
+        cant_go "Definitivamente não há saída daqui.",
         time_left 0,
         time_out [;
             if( player notin self ) rtrue;
@@ -205,90 +186,84 @@ DERoom  Coven_Cell "Coven Cell"
                 StartTimer(self,3);
                 rtrue;
             }
-            print "^A key turns in the door and Doktor Stein bursts in. He stops to pat the goat affectionately. 
-                ~Cheer up, Dobbin. As soon as I've finished this brutal human sacrifice I'll take you for your walk.~
-                He feeds Dobbin some sugar-cake. ~They make such marvellous cheese,~ he explains confidentially.^";
+            print "^Uma chave gira na porta e o Doutor Stein entra de rompante. Ele para para afagar a cabra carinhosamente.
+                ~Anime-se, Dobbin. Assim que eu terminar este brutal sacrifício humano, vou levá-la para passear.~
+                Ele dá um bolo açucarado a Dobbin. ~Elas fazem um queijo maravilhoso,~ explica confidencialmente.^";
             deadflag = DIED;
-            if( player has general ) 
-                "^In a trance, you go willingly to your (somewhat messy) sacrifice...";
-            "^Kicking and screaming, you are are dragged off to a grisly sacrifice...";
+            if( player has general )
+                "^Em transe, você vai voluntariamente para seu sacrifício (um tanto bagunçado)...";
+            "^Chutando e gritando, você é arrastado para um sacrifício horrendo...";
         ],
   has   light;
 
-Object  -> goat "anxious-looking goat"   
+Object  -> goat "cabra de aparência ansiosa"
   with  name 'anxious' 'goat' 'dobbin',
         life [;
             Give:
                 if( noun has edible ) {
                     remove noun;
-                    print_ret "The goat happily munches down ", (the) noun, ".";
+                    print_ret "A cabra mastiga alegremente ", (the) noun, ".";
                 }
                 if( noun == medicine_bottle && medicine_bottle has locked ) {
                     give medicine_bottle ~locked open;
-                    "The medicine bottle cracks open in the goat's jaws!";
+                    "A garrafa de remédio se abre nas mandíbulas da cabra!";
                 }
                 if( noun == daisy_chain )
-                    "For heaven's sake, the daisy chain is far too useful for that.";
+                    "Pelo amor do céu, a corrente de margaridas é útil demais para isso.";
                 rfalse;
             Order, Answer, Ask:
                 if( special_word == 'curses' ) {
-                    print "In a harsh voice, the goat intones:^^";
+                    print "Com voz áspera, a cabra entoa:^^";
                     VersionSub();
                     rtrue;
                 }
-                "Grunt!";
+                "Mée!";
         ],
         article "an",
   has   animate static;
 
-Object  -> crook "shepherd's crook"      
+Object  -> crook "shepherd's crook"
   with  name 'shepherds' 'crook',
         rod_assoc rod_of_husbandry,
-        devil_hint "Just a crook. And what's wrong with crooks, that's what I say.",
+         devil_hint "Apenas um cajado. E o que há de errado com cajados, é o que eu digo.",
   has   hidden_rod;
 
-Object  -> cell_door "cell door" 
+Object  -> cell_door "cell door"
   with  name 'cell' 'door',
         before [;
-            Knock: "They're coming as fast as they can!  Ritual doesn't just happen by itself, you know.";
+            Knock: "Eles estão vindo o mais depressa que podem! Um ritual não acontece sozinho, sabe.";
         ],
         door_to Museum_Foyer,
-        when_closed "As you might expect, the cell door is closed.",
+         when_closed "Como seria de esperar, a porta da cela está fechada.",
         door_dir w_to,
   has   door locked openable static;
 
-DERoom  Cabinet_Room "Cabinet Room"      
+DERoom  Cabinet_Room "Sala dos Armários"
   with  before [;
             Examine:
-                if( noun in glass_cabinet ) "It's too dark to see much inside the cabinet.";
+                if( noun in glass_cabinet ) "Está escuro demais para ver muita coisa dentro do armário.";
                 rfalse;
         ],
         w_to Hall_of_Exhibits,
-        description "An annexe to the museum, containing sundry archaelogical finds, badly labelled in German (which you can hardly read at the best of times) and securely pinioned inside glass cabinets. The storm outside thrashes against the narrow dark windows.",
+         description "Um anexo do museu, contendo diversos achados arqueológicos, mal rotulados em alemão (que você mal consegue ler mesmo nas melhores condições) e firmemente presos dentro de armários de vidro. A tempestade lá fora açoita as estreitas janelas escuras.",
   has   ;
 
-Object  -> glass_cabinet "glass cabinet" 
+Object  -> glass_cabinet "glass cabinet"
   with  name 'glass' 'cabinet' 'pane',
         before [;
             Attack:
-                if( self has open ) "Just how broken do you want it to be?";
+                 if( self has open ) "Quão quebrado você quer que fique?";
                 give self open;
                 StartTimer(self, 5);
-                "You smash the glass... noisily. Still, the cabinet is open now.";
+                "Você quebra o vidro... ruidosamente. Ainda assim, o armário está aberto agora.";
         ],
 
-        when_closed "One cabinet looks particularly vulnerable.",
-        when_open "You could just look inside the broken glass cabinet.",
+         when_closed "Um dos armários parece particularmente vulnerável.",
+         when_open "Você poderia simplesmente olhar dentro do armário de vidro quebrado.",
         time_left 0,
-        time_out [; 
+        time_out [;
             if( game_section == T_HAMBURG && location ~= Coven_Cell ) {
-                print "^Finally reacting to the alarm you set off, Doktor Stein appears and steps toward you, 
-                    clapping his hands sharply. And dozens of robed figures leap out of the darkness - but these
-                    are no security guards. Their faces are painted hideously and they betray no emotion as they
-                    pinion you tight...^^~So, Meldrew. It is all as it was prophesied,~ says Stein in a perfectly
-                    conversational tone as he forces your mouth open and makes you swallow a violet pill.^^~One
-                    of your apothecary ancestors made this drug!  Appropriate, no?~^^", "You feel queasy, but this
-                    is perhaps the least of your problems as they drag you off...^^";
+                print "^Finalmente reagindo ao alarme que você acionou, o Doutor Stein aparece e avança na sua direção, batendo palmas com força. E dezenas de figuras encapuzadas saltam da escuridão, mas não são guardas. Seus rostos estão pintados de modo hediondo e não demonstram emoção enquanto o imobilizam...^^~Então, Meldrew. Tudo está como foi profetizado,~ diz Stein num tom perfeitamente coloquial enquanto força sua boca a abrir e faz você engolir uma pílula violeta.^^~Um de seus ancestrais boticários criou esta droga! Apropriado, não?~^^", "Você sente náuseas, mas esse talvez seja o menor dos seus problemas enquanto o arrastam para longe...^^";
                 StartTimer(Coven_Cell,0);
                 tablet_eaten = false;
                 PlayerTo(Coven_Cell);
@@ -297,24 +272,19 @@ Object  -> glass_cabinet "glass cabinet"
         ],
   has   container static transparent;
 
-Object  -> -> smooth_round_stone "smooth round stone"    
+Object  -> -> smooth_round_stone "smooth round stone"
   with  name 'smooth' 'round' 'pumice' 'metal' 'stone',
         before [;
-            Take: if( self has general ) "Reach down the grating as you may, it remains just beyond reach.";
+            Take: if( self has general ) "Por mais que você tente alcançar através da grade, ela continua fora de alcance.";
         ],
         initial nothing,
-        description "A smooth palm-sized disc, perhaps of pumice stone, painted in yellows and browns with a single 
-            star motif, around which (clockwise) are the words ~nog~, ~er~, ~ska~ and ~iw~. If you remember the
-            label rightly, something funny has been done to a piece of metal embedded in the top, but your German
-            wasn't up to understanding what.",
-        angel_hint "Doesn't the shape strike you as familiar at all?  - There, that should point you in the right 
-            direction.",
+         description "Um disco liso do tamanho da palma da mão, talvez de pedra-pomes, pintado de amarelo e marrom com um único motivo de estrela, ao redor do qual (no sentido horário) estão as palavras ~nog~, ~er~, ~ska~ e ~iw~. Se você se lembra corretamente do rótulo, algo engraçado foi feito com um pedaço de metal embutido no topo, mas seu alemão não foi suficiente para entender o quê.",
+         angel_hint "A forma não lhe parece nem um pouco familiar? Aí está, isso deve apontar na direção certa.",
   has   scored;
 
-Object  -> -> papyrus_fragment "papyrus fragment"        
+Object  -> -> papyrus_fragment "papyrus fragment"
   with  name 'fragment' 'papyrus',
-        description "Only one line has survived intact:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur 
+        description "Only one line has survived intact:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur
             Al-x-an-dr u bir ka ur-a an-ge ur",
-        angel_hint "You need more evidence before you can begin deciphering the language, I fear.",
+         angel_hint "Receio que você precise de mais evidências antes de começar a decifrar a língua.",
   has   ;
-

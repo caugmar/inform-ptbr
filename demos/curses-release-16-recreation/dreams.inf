@@ -1,103 +1,92 @@
 [ DreamCantGo ;
     trigger_quotation(29);
-    "You drift in that direction, but without gaining any ground.";
+    "Você flutua naquela direção, mas não avança nada.";
 ];
 
-[ PremonitionStart ;    
+[ PremonitionStart ;
     move ghost_of_yourself to Premonition;
     ChangePlayer(ghost_of_yourself);
     PlayerTo(Premonition);
     rtrue;
 ];
 
-Object ghost_of_yourself "ghost of yourself"    
+Object ghost_of_yourself "seu próprio fantasma"
   with  before [;
-            Sleep: "In the dream you are not drowsy.";
+            Sleep: "No sonho você não está sonolento.";
             Wake:
                 if( game_section == T_DREAMING )
-                    "You are unable to shake off the dream.";
+                    "Você não consegue se livrar do sonho.";
                 else
-                    "It doesn't seem to be that easy.";
+                    "Não parece ser tão fácil.";
             Attack:
                 if( game_section == T_DREAMING )
                     rfalse;
-                print "Ouch!  You wake up, smarting.^";
+                print "Ai! Você acorda, sentindo dor.^";
                 ChangePlayer(selfobj);
                 <<Look>>;
             Go, Take, Drop, Look, Inv, Wait: rfalse;
-            default: 
-                if( game_section == T_DREAMING ) "You seem unable to concentrate sufficiently.";
+            default:
+                if( game_section == T_DREAMING ) "Você parece incapaz de se concentrar o suficiente.";
                 rfalse;
         ],
-        description "You are transparent like a ghost.",
+        description "Você é transparente como um fantasma.",
         time_left 0,
         capacity 1,
   has   ;
 
-Object Premonition "Premonition"        
+Object Premonition "Premonição"
   with  e_to [;
-            print "You pass uncomfortably straight through the hide wall.^";
+            print "Você atravessa desconfortavelmente a parede de couro.^";
             return The_Generals_Tent;
         ],
         sw_to Camp_Fire,
-        description "It is a frosty, clear night, but there is a scent of camp-fires burning in the distance. You 
-            are passing through the landscape as if a ghost, and all seems faintly unreal. To the east is one side
-            of an animal-hide tent, but there is no way in from here. To southwest, some soldiers sit around the
-            embers of a fire. There is a terrible sense of something about to happen.",
+        description "É uma noite clara e gélida, mas há um cheiro de fogueiras queimando ao longe. Você atravessa a paisagem como um fantasma, e tudo parece vagamente irreal. A leste há um lado de uma tenda de couro de animal, mas não há entrada por aqui. A sudoeste, alguns soldados se sentam ao redor das brasas de uma fogueira. Há uma terrível sensação de que algo está prestes a acontecer.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
 
-Object The_Generals_Tent "The General's Tent"   
+Object The_Generals_Tent "A Tenda do General"
   with  n_to Beside_Table,
         w_to [;
-            print "You pass uncomfortably back through the hide wall.^";
+            print "Você atravessa desconfortavelmente de volta pela parede de couro.^";
             return Premonition;
         ],
-        description "This is the tent of a thin, reedy man who wears no uniform but has an obvious and commanding 
-            presence. He has an aquiline, patrician nose and, at five feet four, is taller than anyone else
-            present. The others are advisers, junior officers, scheming politicians and their like. They are
-            keeping their distance from a trestle table at the north end of the tent.",
+        description "Esta é a tenda de um homem magro e esguio, sem uniforme, mas com uma presença óbvia e imponente. Ele tem um nariz aquilino e patrício e, com um metro e sessenta e dois, é mais alto que todos os demais presentes. Os outros são conselheiros, oficiais subalternos, políticos conspiradores e gente assim. Eles mantêm distância de uma mesa de cavaletes na extremidade norte da tenda.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
 
-Object Beside_Table "Shrine of the Bear"        
+Object Beside_Table "Santuário do Urso"
   with  s_to The_Generals_Tent,
-        description "This is a kind of improvised shrine. A trestle table bears entrails, crude drawings sketched 
-            out on hide, and caged animals: draped beside it is a primitive tapestry of a bear reared up on its
-            hind legs.",
+        description "Este é um tipo de santuário improvisado. Uma mesa de cavaletes sustenta vísceras, desenhos grosseiros feitos em couro e animais enjaulados; ao lado dela está pendurada uma tapeçaria primitiva de um urso erguido sobre as patas traseiras.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
 
-Object -> bear_tapestry "bear tapestry" 
+Object -> bear_tapestry "tapeçaria de urso"
   with  name 'bear' 'tapestry',
         life [;
-            Order, Ask, Answer: "Your mouth is too furred up to speak.";
+            Order, Ask, Answer: "Sua boca está peluda demais para falar.";
         ],
-        description "Primal, bestial, terrifying.",
+         description "Primitiva, bestial, aterrorizante.",
   has   scenery talkable;
 
-Object -> heavy_iron_mascot "heavy iron mascot" 
+Object -> heavy_iron_mascot "mascote de ferro pesado"
   with  name 'heavy' 'iron' 'mascot',
         before [;
-            Give: "Now that really would not be very kind.";
+            Give: "Isso realmente não seria muito gentil.";
         ],
         after [;
             Take:
                 if( Beside_Table hasnt general ) {
                     give Beside_Table general;
                     remove Druid;
-                    "The Druid catches sight of your ghostly hand taking the mascot, and immediately begins her 
-                     occultations, cursing you and your ill-gotten gains. But she is unable to make contact with
-                     you, and turns furiously to the tapestry, hissing ~lagach~ to the Bear. At once a sudden
-                     swirl of wind seems to pull her into the rough cloth, dissolving her to nothing.";
+                    "A Druida vê sua mão fantasmagórica pegando o mascote e imediatamente começa seus ocultamentos, amaldiçoando você e seus ganhos ilícitos. Mas é incapaz de tocar você e se volta furiosa para a tapeçaria, sibilando ~lagach~ para o Urso. De repente, um redemoinho de vento parece puxá-la para dentro do tecido áspero, dissolvendo-a em nada.";
                 }
                 rfalse;
         ],
-        initial "On the table is a heavy iron mascot of some kind.",
-        description "The mascot is in the shape of an ankh, with a lemniscus (or infinity) symbol moulded onto it.",
+        initial "Sobre a mesa há um mascote pesado de ferro, de algum tipo.",
+        description "O mascote tem a forma de um ankh, com um símbolo de lemniscata (ou infinito) moldado nele.",
         number 0,
         daemon [ i;
             if( heavy_iron_mascot notin player ) rfalse;
@@ -105,63 +94,46 @@ Object -> heavy_iron_mascot "heavy iron mascot"
             self.number = i;
             if( i == 0 ) {
                 deadflag = DIED;
-                print "^In an astonishing freak accident, ";
+                print "^Num acidente extraordinariamente estranho, ";
                 switch( random(5) ) {
-                    1: "a meteorite hurtles through the Earth's atmosphere and then straight through your head. 
-                        Anyone would think you had a curse on you (anyone, that is, still able to think).";
-                    2: "an earthquake demolishes everything in the neighbourhood, swallowing you up into a chasm 
-                        in the ground. Anyone would think you had a curse on you.";
-                    3: "a long-dormant volcano erupts instantaneously below your feet. Anyone would think you 
-                        had a curse on you (anyone, that is, still standing).";
-                    4: "lightning abruptly strikes into your body, making your hair stand on end. (Oh, and 
-                        vapourising you utterly, of course.)";
-                    5: "four hundred Spartan soldiers are transported by some quantum-mechanical fluke from the 
-                        Battle of Thermopylae into your immediate
-                        vicinity. They are quite keen for someone to
-                        explain things to them, but unfortunately most
-                        of the spears they were throwing came with them;
-                        one of which struck straight through the mascot
-                        into your body.";
+                    1: "um meteorito atravessa a atmosfera terrestre e depois atravessa diretamente sua cabeça. Qualquer um pensaria que você está amaldiçoado (qualquer um que ainda consiga pensar).";
+                    2: "um terremoto destrói tudo na vizinhança e engole você numa fenda no chão. Qualquer um pensaria que você está amaldiçoado.";
+                    3: "um vulcão há muito adormecido entra instantaneamente em erupção sob seus pés. Qualquer um pensaria que você está amaldiçoado (qualquer um que ainda esteja de pé).";
+                    4: "um raio atinge abruptamente seu corpo, arrepiando seus cabelos. (Ah, e vaporizando você por completo, é claro.)";
+                    5: "quatrocentos soldados espartanos são transportados, por um acaso da mecânica quântica, da Batalha das Termópilas para bem perto de você. Eles querem muito que alguém lhes explique as coisas, mas infelizmente a maioria das lanças que arremessavam veio junto; uma delas atravessou diretamente o mascote e atingiu seu corpo.";
                 }
             }
-            if( i == 10 ) "^You feel very nervous indeed, for some reason.";
+            if( i == 10 ) "^Você se sente muito nervoso, por alguma razão.";
             if( i == 7 ) {
                 if( player notin servants_bed ) {
-                    "^You stub your toe painfully, and trip over.";
+                    "^Você bate o dedo do pé com força e tropeça.";
                 } else {
-                    "^You feel bed-sores coming on.";
+                    "^Você sente que estão surgindo escaras.";
                 }
             }
-            if( i == 5 ) "^You scratch yourself, unable to get rid of an itching sensation.";
-            if( i == 2 ) "^Something feels very wrong indeed. Your hand begins to burn.^";
+            if( i == 5 ) "^Você se coça, incapaz de se livrar da sensação de comichão.";
+            if( i == 2 ) "^Algo está muito errado. Sua mão começa a queimar.^";
         ],
-        devil_hint "An absolute essential.",
+        devil_hint "Uma necessidade absoluta.",
   has   ;
 
-Object -> Druid "Druid" 
+Object -> Druid "Druida"
   with  name 'druid' 'druidess',
         life [;
-            Order, Ask, Answer: "This is one of those dreams where you find you cannot speak.";
+            Order, Ask, Answer: "Este é um daqueles sonhos em que você descobre que não consegue falar.";
         ],
-        initial "Beside the table is a more substantial adviser, as if she too walks in this strange spirit 
-            plane. She is wearing frightening druidical robes, of strange pelts and furs, with nasty-looking
-            charms around her neck. Every so often, she seems to catch sight of you out of the corner of her eye,
-            but then look round and see nothing. The military men do not believe in her power, and yet... they
-            treat her with respect.",
+        initial "Ao lado da mesa está uma conselheira mais importante, como se ela também caminhasse neste estranho plano espiritual. Ela veste trajes druídicos assustadores, feitos de peles estranhas, com amuletos de aparência desagradável ao redor do pescoço. De vez em quando parece avistar você pelo canto do olho, mas então olha em volta e não vê nada. Os militares não acreditam no poder dela, mas... tratam-na com respeito.",
   has   animate proper;
 
-Object Camp_Fire "Camp Fire"    
+Object Camp_Fire "Fogueira"
   with  e_to Near_Dolmen,
         ne_to Premonition,
-        description "You can almost smell fear here. A motley platoon of soldiers are sitting about the embers 
-            of a fire. None are talking or sleeping, and the false good humour of the evening has died away. At
-            first light, you realise, there will be a battle. It isn't a risk you'd like to run in their place. And
-            there is a strange light already in the east... not yet a dawn, for the soldiers seem unaware of it.",
+        description "Quase é possível sentir o cheiro do medo aqui. Um pelotão heterogêneo de soldados está sentado ao redor das brasas de uma fogueira. Ninguém conversa ou dorme, e o falso bom humor da noite desapareceu. Ao amanhecer, você percebe, haverá uma batalha. Não é um risco que você gostaria de correr no lugar deles. E já há uma luz estranha no leste... ainda não é alvorada, pois os soldados parecem não perceber.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
 
-Object Near_Dolmen "Near Dolmen"        
+Object Near_Dolmen "Perto do Dólmen"
   with  after [;
             Look:
                 ChangePlayer(selfobj);
@@ -172,20 +144,17 @@ Object Near_Dolmen "Near Dolmen"
                     Achieved(SCORE_MASCOT);
                     score = score - 50;
                 }
-                "^You awaken, shivering with dread.";
+                "^Você desperta, tremendo de pavor.";
         ],
-        description "A standing stone, perhaps a glacial erratic, stands here and on top of it is a shining 
-            blue stone, whose brightness almost blinds you. You feel irresistably drawn to it, and your hand
-            reaches out...",
+        description "Uma pedra erguida, talvez um bloco errático glacial, está aqui; sobre ela há uma pedra azul brilhante, cuja luminosidade quase cega você. Você se sente irresistivelmente atraído por ela, e sua mão se estende...",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
 
-Object Melancholy_Dream "Melancholy Dream"      
+Object Melancholy_Dream "Sonho Melancólico"
   with  e_to nothing,
         d_to nothing,
-        description "A strangely familiar, dusty passage, sloping down from a southern end bathed in hostile 
-            light to some kind of metal barrier in the north.",
+        description "Uma passagem empoeirada e estranhamente familiar, descendo de uma extremidade sul banhada por luz hostil até algum tipo de barreira metálica ao norte.",
         cant_go DreamCantGo,
         each_turn [;
             ++DreamCnt;
@@ -193,77 +162,66 @@ Object Melancholy_Dream "Melancholy Dream"
             move green_luminescence to Melancholy_Dream;
             Melancholy_Dream.e_to = Solid_Sand;
             Melancholy_Dream.d_to = Solid_Sand;
-            "^A ghostly apparition of a venerable man hazes into view. He raises his mahogany staff and strikes
-             it (silently) on the ground, then points it at the walls, and suddenly a flurry of green luminescence
-             chases around you!^^He fades away again, mumbling something incoherent.";
+            "^A aparição fantasmagórica de um homem venerável surge na névoa. Ele ergue seu cajado de mogno e bate com ele (silenciosamente) no chão, depois aponta para as paredes, e de repente uma rajada de luminescência verde corre ao seu redor!^^Ele desaparece novamente, murmurando algo incoerente.";
 
         ],
         section (T_DREAMING|T_UNREAL),
   has   light;
 
-Object -> metal_barrier "metal barrier" 
+Object -> metal_barrier "barreira metálica"
   with  name 'metal' 'barrier',
-        before [; "The metal barrier is indistinct, on the edge of your consciousness, and you can't get close. 
-            However familiar it seems."; ],
+         before [; "A barreira metálica é indistinta, no limite da sua consciência, e você não consegue se aproximar. Por mais familiar que pareça."; ],
   has   scenery;
 
-Object green_luminescence "flurries of green luminescence"      
+Object green_luminescence "flocos de luminescência verde"
   with  name 'green' 'flurries' 'of' 'luminesce',
         before [;
             Take, Remove, Touch:
-                "You bat at the flurries with your hand, but they're just green light (with the tiniest 
-                 mosquito-sting).";
+                "Você golpeia os flocos com a mão, mas eles são apenas luz verde (com uma picada minúscula de mosquito).";
         ],
-        initial "Flurries of green luminescence whirl endlessly around you, west to east and over.",
-        description "The flurries have almost endless fascination... but you manage to tear your eyes away after, 
-            oh, an hour?",
+        initial "Flocos de luminescência verde giram sem parar ao seu redor, de oeste para leste e por cima.",
+        description "Os flocos têm um fascínio quase infinito... mas você consegue desviar os olhos depois de, ah, uma hora?",
   has   static;
 
-Object Solid_Sand "Solid Sand"  
+Object Solid_Sand "Areia Sólida"
   with  e_to Octagonal_Tomb,
         w_to Melancholy_Dream,
         u_to Melancholy_Dream,
         d_to Octagonal_Tomb,
-        description "Your ghostly self is embedded in a diagonal downward shaft (descending to the east) entirely 
-            filled with dry sand. Solid flagstones line the walls.",
+        description "Seu eu fantasmagórico está embutido num poço diagonal descendente (que desce para leste), inteiramente cheio de areia seca. Lajes sólidas revestem as paredes.",
         cant_go DreamCantGo,
         section (T_DREAMING|T_UNREAL),
   has   light;
 
-Object Octagonal_Tomb "Octagonal Tomb"  
+Object Octagonal_Tomb "Túmulo Octogonal"
   with  name 'torch' 'torches' 'slab',
         w_to Solid_Sand,
         u_to Solid_Sand,
-        description "Flaming torches bracketed in the wall gutter as the last oxygen in the air is consumed, 
-            and the flicker of flame plays across the yellow-orange glaze of the tomb walls.^^This octagonal
-            chamber is lined with Egyptian hieroglyphics. Sand spills across the floor from under the sole entrance,
-            sealed by an ingenious stone slab.",
+        description "Tochas flamejantes presas à parede se apagam enquanto o último oxigênio do ar é consumido, e o tremeluzir das chamas brinca sobre o esmalte amarelo-alaranjado das paredes do túmulo.^^Esta câmara octogonal é revestida de hieróglifos egípcios. A areia se espalha pelo chão, vinda de baixo da única entrada, selada por uma engenhosa laje de pedra.",
         cant_go DreamCantGo,
         section (T_DREAMING|T_UNREAL),
   has   light;
 
-Object -> hieroglyphic_symbols "hieroglyphic symbols"   
+Object -> hieroglyphic_symbols "hieroglyphic symbols"
   with  name 'symbols' 'hieroglyphs' 'egyptian',
         description [;
-            print "Your dream eye is caught by...^^";
+            print "O olhar do seu sonho é atraído por...^^";
             0-->8 = 2 | 0-->8;
             print "       (|/        ^   #   -o-  >>>   ^       /|)        ^";
             0-->8 = 65533 & 0-->8;
-            "^Confused and hazy, you feel you can understand hieroglyphics, - or hasn't that happened yet?";
+            "^Confuso e enevoado, você sente que consegue entender os hieróglifos, ou isso ainda não aconteceu?";
         ],
         article "some",
   has   scenery;
 
-Object -> ships_wheel "ship's wheel"    
+Object -> ships_wheel "ship's wheel"
   with  name 'ships' 'wheel',
         before [;
             Turn:
-                if( self has general ) "Your hands seem unable to touch it again.";
+                if( self has general ) "Suas mãos parecem incapazes de tocá-lo novamente.";
                 give self general;
                 give sandstone_recess open;
-                "You try turning the wheel, but it moves only infinitesimally slowly. The door begins to raise 
-                 the tiniest fraction, and a few grains of sand cascade in slow motion, rattling horribly against
-                 each other...^^It will take forever, and the air is running out...";
+                "Você tenta girar o volante, mas ele se move com uma lentidão infinitesimal. A porta começa a subir uma fração mínima, e alguns grãos de areia descem em câmera lenta, chacoalhando horrivelmente uns contra os outros...^^Vai levar uma eternidade, e o ar está acabando...";
         ],
-        initial "A kind of ship's wheel (of eight-spoked timber) is affixed to the northwest wall.",
+        initial "Uma espécie de roda de navio (de madeira com oito raios) está fixada à parede noroeste.",
   has   static;

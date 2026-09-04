@@ -1,109 +1,98 @@
 Class   URoom
   with  section T_UNREAL;
 
-URoom   Unreal_City "Unreal City"        
+URoom   Unreal_City "Cidade Irreal"
   with  n_to Shadowy_Hallway,
         e_to Near_Ring_Road,
         w_to Down_by_River,
-        description "This is a city side street, but as if seen through the grey of despair. People stream by, some 
-            of whom you almost recognise, as if dead. The street runs east-west, and to the north is a doorway
-            into a grubby tenement building.",
+         description "Esta é uma rua lateral da cidade, mas como se vista através do cinza do desespero. Pessoas passam, algumas quase reconhecíveis, como se estivessem mortas. A rua corre de leste a oeste, e ao norte há uma porta para um prédio de apartamentos imundo.",
         each_turn UnrealEachTurn,
   has   light scored;
 
-URoom   Shadowy_Hallway "Shadowy Hallway"        
+URoom   Shadowy_Hallway "Corredor Sombrio"
   with  s_to Unreal_City,
         e_to Bohemia,
         u_to Consulting_Room,
-        description "This shambolic flat, extending to the east, shares a filthy hallway with the one upstairs. To 
-            the south, passers-by pass by along the street. Peeling-away posters have been stuck up on top of each
-            other on the walls, in such a way that you can only read the most recent.",
+         description "Este apartamento desmantelado, que se estende para leste, compartilha um corredor imundo com o andar de cima. Ao sul, transeuntes passam pela rua. Cartazes descascados foram colados uns sobre os outros nas paredes, de modo que só é possível ler o mais recente.",
   has   light;
 
-Object  -> poster "poster"       
+Object  -> poster "poster"
   with  name 'poster' 'posters' 'peeling',
         before [;
             Take, RipDown, Rip, Pull:
                 if( self has scenery ) {
                     give self ~scenery;
-                    "You hastily tear down the poster, but there's nothing interesting behind it, only painted 
-                     graffiti: ~Shantih Shantih Shantih~.";
+                     "Você arranca depressa o cartaz, mas não há nada interessante atrás dele, apenas um grafite pintado: ~Shantih Shantih Shantih~.";
                 }
                 rfalse;
             Wave:
                 if( location == Down_by_River && tourist_boat hasnt open ) {
-                    print "You wave the poster at the boat, but the boat remains unmoved.^";
+                     print "Você acena com o cartaz para o barco, mas ele não se move.^";
                     GoodTry();
                     rtrue;
                 }
                 rfalse;
         ],
-        description "~Bateaux Phlebas - toujours le dernier mot~. You briefly wish you had a dog called Toto, so 
-            as to be able to say ~Toto, I've got a feeling we're not in England any more.~",
-        devil_hint "What a very useful piece of paper. Pity there's writing on it.",
+         description "~Bateaux Phlebas - toujours le dernier mot~. Por um instante você gostaria de ter um cachorro chamado Toto, para poder dizer ~Toto, tenho a sensação de que não estamos mais na Inglaterra.~",
+         devil_hint "Que pedaço de papel tão útil. Pena que há escrita nele.",
   has   scenery;
 
-URoom   Bohemia "Bohemia"        
+URoom   Bohemia "Boêmia"
   with  name 'easels' 'brushes' 'paint',
         w_to Shadowy_Hallway,
         initial [;
             switch( random(10) ) {
-                1: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a yellow chair.";
-                2: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of lilies on a pond.";
-                3: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a chateau in Aix-en-Provence.";
-                4: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of nude bathers.";
-                5: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a waitress at a bar.";
-                6: Impressionist_painting.initial = "One whole wall is an Cubist mural painting of a woman with a plate of fish on her head.";
-                7: Impressionist_painting.initial = "One whole wall is an abstract Cubist mural painting.";
-                8: Impressionist_painting.initial = "One whole wall is an Pre-Raphaelite mural painting of the Virgin Mary looking up at the light.";
-                9: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a woman with a parasol.";
-                10: Impressionist_painting.initial = "One whole wall is an pointillist mural painting of a scene in a park by a lake.";
+                 1: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de uma cadeira amarela.";
+                 2: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de lírios num lago.";
+                 3: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de um castelo em Aix-en-Provence.";
+                 4: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de banhistas nus.";
+                 5: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de uma garçonete num bar.";
+                 6: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural cubista de uma mulher com um prato de peixes na cabeça.";
+                 7: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural cubista abstrata.";
+                 8: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural pré-rafaelita da Virgem Maria olhando para a luz.";
+                 9: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural impressionista de uma mulher com uma sombrinha.";
+                 10: Impressionist_painting.initial = "Uma parede inteira é uma pintura mural pontilhista de uma cena num parque junto a um lago.";
             }
         ],
 
-        description "Flats occupied by starving-but-noble artists can be romantic and stylish despite the squalor. 
-            This one, however, is simply a one-room hovel, caked with paint, littered with brushes and improvised
-            easels, and you can't help standing on tiptoe here.",
+         description "Apartamentos ocupados por artistas famintos mas nobres podem ser românticos e elegantes apesar da sujeira. Este, porém, é simplesmente um casebre de um cômodo, coberto de tinta, cheio de pincéis e cavaletes improvisados; aqui você não consegue evitar ficar na ponta dos pés.",
   has   light;
 
-LagachObj -> Impressionist_painting "Impressionist painting"       
+LagachObj -> Impressionist_painting "pintura impressionista"
   with  name 'impressionist' 'painting' 'mural',
         initial nothing,
-        description "The bottom corner is signed simply ~Helene~.",
+         description "O canto inferior traz apenas a assinatura ~Helene~.",
         article "an",
   has   static;
 
-URoom   Consulting_Room "Consulting Room"        
+URoom   Consulting_Room "Sala de Consulta"
   with  name 'sevenbranch' 'candelabra' 'sticks' 'table',
-        before [; Smell: "You feel briefly incensed."; ],
-        w_to "Peculiarly, the hanging curtain seems to be solid iron when you walk into it.",
+         before [; Smell: "Você se sente brevemente indignado."; ],
+         w_to "Curiosamente, a cortina pendurada parece ser de ferro maciço quando você entra nela.",
         d_to Shadowy_Hallway,
-        description "The stairs end at a shabby room, with screened windows, lit by incense sticks and sevenbranched 
-            candelabra. A doorway with a hanging bead curtain leads west. In the centre of the room is a table,
-            on which is an electric bell push and a wicked Tarot pack.",
+         description "As escadas terminam numa sala surrada, com janelas gradeadas, iluminada por varetas de incenso e candelabros de sete braços. Uma porta com uma cortina de contas leva a oeste. No centro da sala há uma mesa, sobre a qual estão um botão de campainha elétrica e um baralho de tarô perverso.",
   has   light;
 
-Object  -> Tarot_pack "Tarot pack"       
+Object  -> Tarot_pack "baralho de tarô"
   with  name 'wicked' 'tarot' 'pack' 'deck',
         before [;
             Take, Remove:
-                "That's funny. For a moment there your hand seemed to go straight through the pack of cards without 
-                 touching it!";
+                "Que engraçado. Por um instante sua mão pareceu atravessar diretamente o baralho sem tocá-lo!";
             Stack:
                 if( second == nothing )
-                    "An intriguing idea, but you'll have to be more explicit about how to do it.";
+                    "Uma ideia intrigante, mas você terá de ser mais específico sobre como fazê-lo.";
                 << Insert second self >>;
             Receive:
-                if( Madame_Sosostris in location ) "Madame Sosostris won't let you.";
-                if( noun hasnt card ) "That would look rather incongruous, surely?";
+                if( Madame_Sosostris in location ) "Madame Sosostris não vai deixar.";
+                if( noun hasnt card ) "Isso pareceria bastante incongruente, não acha?";
                 remove noun;
                 InsertCardIntoDeck(noun);
-                print_ret "You carefully lay ", (the) noun, " face down on the tarot pack.";
-            Search, Examine, LookUnder: "The cards defy mortal examination.";
+                print_ret "Você coloca cuidadosamente ", (the) noun, " virada para baixo sobre o baralho de tarô.";
+            Search, Examine, LookUnder: "As cartas desafiam qualquer exame mortal.";
         ],
   has   scenery;
 
-Object  -> curtain "curtain"     
+Object  -> curtain "curtain"
   with  name 'curtain' 'bead',
   has   scenery;
 
@@ -114,17 +103,17 @@ Object  -> curtain "curtain"
 ];
 
 [ Deal_card_number rank ;
-    print "the ";
-    if( rank == 1 ) print "Ace";
-    if( rank == 2 ) print "Two";
-    if( rank == 3 ) print "Three";
-    if( rank == 4 ) print "Four";
-    if( rank == 5 ) print "Five";
-    if( rank == 6 ) print "Six";
-    if( rank == 7 ) print "Seven";
-    if( rank == 8 ) print "King";
-    if( rank == 9 ) print "Queen";
-    if( rank == 10 ) print "Knave";
+    print "o ";
+    if( rank == 1 ) print "Ás";
+    if( rank == 2 ) print "Dois";
+    if( rank == 3 ) print "Três";
+    if( rank == 4 ) print "Quatro";
+    if( rank == 5 ) print "Cinco";
+    if( rank == 6 ) print "Seis";
+    if( rank == 7 ) print "Sete";
+    if( rank == 8 ) print "Rei";
+    if( rank == 9 ) print "Rainha";
+    if( rank == 10 ) print "Valete";
     rtrue;
 ];
 
@@ -133,43 +122,43 @@ Object  -> curtain "curtain"
         card = random(50);
         while( card == i || card == j )
             card = random(50);
-        if( card == 1 ) print "the Blank Card (~which I am forbidden to see~)";
-        if( card == 2 ) print "the One-Eyed Merchant";
-        if( card == 3 ) print "Marie, the Sledging Girl";
-        if( card == 4 ) print "the Red Rock";
-        if( card == 5 ) print "the Stony Wastes";
-        if( card == 6 ) print "the Arch-Duke";
-        if( card == 7 ) print "the Hyacinths";
-        if( card == 8 ) print "the Wheel";
-        if( card == 9 ) print "Belladonna, the Lady of the Rocks";
-        if( card == 10 ) print "the Hypocrit Reader";
-        if( card == 11 ) print "the Golden Cupidon";
-        if( card == 12 ) print "the Candle-Flames";
-        if( card == 13 ) print "the Carved Dolphin";
-        if( card == 14 ) print "Philomel, the Barbarous King";
-        if( card == 15 ) print "the Lonely Typist";
-        if( card == 16 ) print "the Bradford Millionaire";
-        if( card == 17 ) print "Magnus, the Martyr";
-        if( card == 18 ) print "Phlebas, the Phoenician";
-        if( card == 19 ) print "the Woman with Long Black Hair";
-        if( card == 20 ) print "the Cicadas in the Pine Trees";
+        if( card == 1 ) print "a Carta em Branco (~que estou proibido de ver~)";
+        if( card == 2 ) print "o Mercador Caolho";
+        if( card == 3 ) print "Marie, a Moça do Trenó";
+        if( card == 4 ) print "a Rocha Vermelha";
+        if( card == 5 ) print "os Ermos Pedregosos";
+        if( card == 6 ) print "o Arquiduque";
+        if( card == 7 ) print "os Jacintos";
+        if( card == 8 ) print "a Roda";
+        if( card == 9 ) print "Beladona, a Dama das Rochas";
+        if( card == 10 ) print "o Leitor Hipócrita";
+        if( card == 11 ) print "o Cupido Dourado";
+        if( card == 12 ) print "as Chamas das Velas";
+        if( card == 13 ) print "o Golfinho Entalhado";
+        if( card == 14 ) print "Filomela, o Rei Bárbaro";
+        if( card == 15 ) print "o Datilógrafo Solitário";
+        if( card == 16 ) print "o Milionário de Bradford";
+        if( card == 17 ) print "Magnus, o Mártir";
+        if( card == 18 ) print "Flebas, o Fenício";
+        if( card == 19 ) print "a Mulher de Longos Cabelos Negros";
+        if( card == 20 ) print "as Cigarras nos Pinheiros";
         if( card < 21 ) return card;
         if( card < 31 ) {
             Deal_card_number(card - 20);
-            print " of Staves";
+            print " de Bastões";
             return card;
         }
         if( card == 31 ) {
-            print "Tiresias, the shape changer";
+            print "Tirésias, o transmorfo";
             return card;
         }
         if( card < 41 ) {
             Deal_card_number(card - 30);
-            print " of Cups";
+            print " de Copas";
             return card;
         }
         Deal_card_number(card - 40);
-        print " of Stones";
+        print " de Pedras";
         return card;
     }
     --card_ptr;
@@ -179,69 +168,59 @@ Object  -> curtain "curtain"
     return card;
 ];
 
-[ SosostrisDeals card3 card2 card1 ;     
-    print "Madame Sosostris picks up the cards and deals them onto the table. She frowns in concentration as ";
+[ SosostrisDeals card3 card2 card1 ;
+    print "Madame Sosostris pega as cartas e as distribui sobre a mesa. Ela franze a testa, concentrada, enquanto ";
     card3 = Deal_random_card(0,0);
     print ", ";
     card2 = Deal_random_card(card3,0);
-    print " and then ";
+    print " e depois ";
     card1 = Deal_random_card(card3,card2);
-    print " show. ";
+    print " aparecem. ";
     if( card3 == Death_card ) {
-        print "She blanches with alarm, then recovers and jabbers something about not taking the cards too 
-            literally, the images being symbolic and so on. As rapidly as she possibly can, she warns you to fear
-            death by water and then hustles you out onto the street.^";
+        print "Ela empalidece, alarmada, depois se recupera e tagarela algo sobre não interpretar as cartas literalmente, pois as imagens são simbólicas e coisas assim. O mais depressa que consegue, avisa você para temer a morte pela água e então o expulsa para a rua.^";
     } else {
         if( card3 ~= Star || card2 ~= Maiden_card || card1 ~= Eight_of_Wands_card ) {
             ! no code
         } else {
-            print "~You have come!  At last, after all these centuries!  But there is little I can do to ease 
-                your way, save to return the staff you left with me for safe keeping.~  And she shows you out. You
-                feel rather bewildered.^";
+            print "~Você veio! Finalmente, depois de todos estes séculos! Mas pouco posso fazer para facilitar seu caminho, salvo devolver o cajado que deixou comigo para guardar.~ E ela o acompanha até a saída. Você se sente bastante atordoado.^";
             move oak_quarterstaff to player;
             give Unreal_City general;
             PlayerTo(Unreal_City);
         }
         trigger_quotation(18);
-        print "~Curse it, another nobody,~ she hisses in an unguarded moment, as she tidies the pack absentmindedly 
-            with her hands. Then she recovers her poise and advises about handsome strangers, fearing death by
-            water, crossing palms with gold and so on. Eventually she ushers you out.^";
+        print "~Maldição, outro zé-ninguém,~ ela sibila num momento de descuido enquanto arruma o baralho distraidamente com as mãos. Depois recupera a compostura e dá conselhos sobre estranhos bonitos, temer a morte pela água, cruzar as palmas com ouro e assim por diante. Por fim, ela o expulsa.^";
     }
     PlayerTo(Unreal_City);
 ];
 
-Object  -> bell_push "bell push" 
+Object  -> bell_push "bell push"
   with  name 'bell' 'push',
         before [;
             Push:
-                if( Madame_Sosostris in Consulting_Room ) "Madame Sosostris looks at you in some irritation.";
+                if( Madame_Sosostris in Consulting_Room ) "Madame Sosostris olha para você com certa irritação.";
                 if( Madame_Sosostris hasnt general ) {
                     move Madame_Sosostris to Consulting_Room;
                     give curtain general;
-                    "Madame Sosostris, the famous clairvoyante, breezes in through the hanging curtain and sits 
-                     behind the table, making waving gestures with her hands.^^~First, this I must know, were you
-                     born in an even, or an odd, year?~";
+                    "Madame Sosostris, a famosa clarividente, entra com desenvoltura pela cortina pendurada e se senta atrás da mesa, fazendo gestos ondulantes com as mãos.^^~Primeiro, preciso saber: você nasceu num ano par ou ímpar?~";
                 }
-                if( Unreal_City has general ) "She has helped enough.";
-                print "Madame Sosostris breezes in once more. ~You again,~ she says warily. ~Let us see how your 
-                    fortunes have changed.~^^";
+                if( Unreal_City has general ) "Ela já ajudou o bastante.";
+                print "Madame Sosostris entra com desenvoltura mais uma vez. ~Você de novo,~ diz cautelosamente. ~Vamos ver como sua sorte mudou.~^^";
                 SosostrisDeals();
                 rtrue;
         ],
   has   scenery;
 
-Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante" 
+Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante"
   with  name 'sosostris' 'madame' 'clairvoyant',
         life [;
             Give:
                 if( noun == silk_handkerchief )
-                    "Gratefully she blows her nose but then returns the handkerchief. You refold it ingeniously.";
-                print_ret "She looks warily at ", (the) noun, ".";
-            Kiss: "She kisses you forcibly. Her mouth tastes of tobacco.";
-            Attack: "She mesmerises you into immobility. She hasn't lived all these centuries in the Latin Quarter 
-                     for nothing, you know.";
+                    "Ela assoa o nariz agradecida, mas devolve o lenço. Você o dobra novamente com engenhosidade.";
+                print_ret "Ela olha cautelosamente para ", (the) noun, ".";
+            Kiss: "Ela beija você à força. A boca dela tem gosto de tabaco.";
+            Attack: "Ela hipnotiza você até a imobilidade. Não viveu todos estes séculos no Quartier Latin à toa, sabe.";
             Answer:
-                if( curtain hasnt general ) "She is startled and stares.";
+                if( curtain hasnt general ) "Ela se assusta e fica olhando.";
                 if( special_word == 'even' or 'odd' ) {
                     SosostrisDeals();
                     remove Madame_Sosostris;
@@ -249,83 +228,76 @@ Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante"
                     give Madame_Sosostris general concealed;
                     rtrue;
                 }
-                "~You must answer my question!~  She does seem anxious.";
+                "~Você precisa responder à minha pergunta!~ Ela parece mesmo ansiosa.";
         ],
-        description "She has a bad cold, but nevertheless is known to be the wisest woman in Europe.",
+        description "Ela está muito resfriada, mas ainda assim é conhecida como a mulher mais sábia da Europa.",
   has   animate proper;
 
-Object  oak_quarterstaff "oak quarterstaff"      
+Object  oak_quarterstaff "oak quarterstaff"
   with  name 'oak' 'staff' 'quarterstaff',
         article "an",
         rod_assoc rod_of_bronze,
-        devil_hint "Shoddy workmanship, but never mind, it's only a staff and who needs those any more?",
+         devil_hint "Trabalho malfeito, mas não importa: é apenas um cajado, e quem ainda precisa deles?",
   has   hidden_rod;
 
-URoom   Down_by_River "Down by River"    
+URoom   Down_by_River "À Beira do Rio"
   with  name 'rats' 'mounds' 'rubbish',
         before [;
-            Swim, Drink: "That foul water?  Not a chance.";
-        ], 
+            Swim, Drink: "Essa água imunda? Nem pensar.";
+        ],
         e_to Unreal_City,
         w_to [;
             if( tourist_boat hasnt open )
                 << Enter tourist_boat >>;
             return tourist_boat;
         ],
-        description "Down at the end of the street, the brown urban waters carry by unpleasant rubbish, and rats 
-            scuttle up and over the mounds washed up around you.",
+         description "No fim da rua, as águas urbanas marrons carregam lixo desagradável, e ratos correm pelos montes trazidos pela correnteza ao seu redor.",
   has   light;
 
-Object  -> silk_handkerchief "silk handkerchief" 
+Object  -> silk_handkerchief "lenço de seda"
   with  name 'silk' 'handkerchier' 'hanky' 'hankie',
         before [;
             Wave:
                 if( location == Down_by_River && tourist_boat hasnt open ) {
                     give tourist_boat open;
-                    "You wave the handkerchief, and the boat glides smoothly across the river toward you.";
+                    "Você acena com o lenço, e o barco desliza suavemente pelo rio em sua direção.";
                 }
                 rfalse;
         ],
-        initial "On one especially repellent mound is, of all things, a fine silk handkerchief.",
-        description "Monogrammed J. A. P., but that's no great matter.",
-        devil_hint "People had no style in those days, before they invented paper tissues. I mean this tatty cloth is 
-            hardly attractive, is it?",
+         initial "Sobre um monte especialmente repulsivo há, de todas as coisas, um belo lenço de seda.",
+         description "Com o monograma J. A. P., mas isso não tem grande importância.",
+         devil_hint "As pessoas não tinham estilo naqueles dias, antes de inventarem os lenços de papel. Quer dizer, este pano puído não é exatamente atraente, é?",
   has   ;
 
-Object  -> tourist_boat "tourist boat"   
+Object  -> tourist_boat "barco turístico"
   with  name 'tourist' 'boat' 'bateau',
         before [;
             Enter:
                 if( self hasnt open )
-                    "Are you in Seine?  There is a river in between you and the boat.";
+                    "Você está no Sena? Há um rio entre você e o barco.";
                 rfalse;
         ],
         door_to On_board_the_Phlebas,
-        when_closed "On the far bank is a glass-roofed tourist boat. As much as you like to explore, you can't see 
-            how to attract its attention.",
+         when_closed "Na margem oposta há um barco turístico com teto de vidro. Por mais que você queira explorar, não consegue ver como chamar a atenção dele.",
         door_dir w_to,
-        when_open "Moored close to the bank is a glass-roofed tourist boat.",
+         when_open "Perto da margem está atracado um barco turístico com teto de vidro.",
         description "The side reads: PHLEBAS.",
   has   door static;
 
-URoom   On_board_the_Phlebas "On board the Phlebas"      
+URoom   On_board_the_Phlebas "A Bordo do Phlebas"
   with  name 'wheel',
         e_to Down_by_River,
-        description "A tourist river-boat, glass-roofed. You can climb out to the shore to the east. At the helm is a 
-            very strange man, at times almost a straw dummy, almost perhaps a hollow cut-out made of paper. He
-            (or it) turns the wheel and casts his eyes to windward.",
+         description "Um barco turístico de rio, com teto de vidro. Você pode desembarcar na margem a leste. Ao leme está um homem muito estranho, às vezes quase um boneco de palha, talvez quase um recorte oco de papel. Ele (ou isso) gira o volante e olha para barlavento.",
   has   light;
 
-Object  -> hollow_man "hollow man"       
+Object  -> hollow_man "homem oco"
   with  name 'hollow' 'man',
         life [;
-            Attack: "You are unable to touch the man. It is as if he isn't there.";
-            Ask: "Your question merely echoes inside him.";
+            Attack: "Você não consegue tocar o homem. É como se ele não estivesse ali.";
+            Ask: "Sua pergunta apenas ecoa dentro dele.";
             Answer, Order:
                 if( special_word == 'time' || action == ##Time ) {
-                    print "You lose all sense of time and place as the boat drifts down river... It comes as a 
-                        considerable relief to your befuddled nerves when the man helps you off the boat again, 
-                        and you find yourself:^";
+                    print "Você perde toda noção de tempo e lugar enquanto o barco desce o rio... É um grande alívio para seus nervos confusos quando o homem o ajuda a desembarcar novamente, e você se vê:^";
                     if( tourist_map_of_Paris has moved ) {
                         PlayerTo(Infinity_Symbol);
                         rtrue;
@@ -334,89 +306,78 @@ Object  -> hollow_man "hollow man"
                     if( hollow_man hasnt general ) {
                         give hollow_man general;
                         move Ace_of_Cups_card to player;
-                        "^Was any of that real? you wonder, as you relax in the sunshine. But then you realise 
-                         you are clutching a tarot card which certainly is.";
+                        "^Será que tudo aquilo foi real? você se pergunta, relaxando ao sol. Mas então percebe que está segurando uma carta de tarô que certamente é real.";
                     }
                     rtrue;
                 }
                 ++hollow_man_cnt;
-                if( hollow_man_cnt == 1 ) "~I don't believe in that place any more. Hurry up please it's time!~";
-                if( hollow_man_cnt == 2 ) "~Hurry up please it's time!~";
-                if( hollow_man_cnt == 3 ) "~HURRY UP PLEASE IT'S TIME!~";
-                if( hollow_man_cnt == 4 ) "He can't be bothered to say anything this time.";
-                if( hollow_man_cnt == 5 ) "It really is time you thought of something.";
-                if( hollow_man_cnt == 6 ) "Time and time again you haven't guessed correctly.";
-                if( hollow_man_cnt == 7 ) "The hollow man must be beginning to think you can't take a hint.";
-                "~It's time!~ repeats the hollow man.";
+                if( hollow_man_cnt == 1 ) "~Já não acredito naquele lugar. Depressa, por favor, está na hora!~";
+                if( hollow_man_cnt == 2 ) "~Depressa, por favor, está na hora!~";
+                if( hollow_man_cnt == 3 ) "~DEPRESSA, POR FAVOR, ESTÁ NA HORA!~";
+                if( hollow_man_cnt == 4 ) "Desta vez ele não se dá ao trabalho de dizer nada.";
+                if( hollow_man_cnt == 5 ) "Já está na hora de você pensar em alguma coisa.";
+                if( hollow_man_cnt == 6 ) "Vez após vez você não adivinhou corretamente.";
+                if( hollow_man_cnt == 7 ) "O homem oco deve estar começando a achar que você não entende uma dica.";
+                "~Está na hora!~ repete o homem oco.";
         ],
-        initial "The hollow man mechanically says: ~Where to, guv'nor?  Me with my big mouth, I gone and done it 
-            again, calling you the guv'nor. I was down Margate Sands way once, had a bloke come on board, he
-            thought any old destination would do, like a real place, like anywhere was real... We are the hollow
-            men, I says, he didn't like that... Hurry up, please, it's time.~",
-        description "Every now and then he whimpers.",
+        initial "O homem oco diz mecanicamente: ~Para onde, chefe? Eu e minha boca grande fizemos de novo, chamando você de chefe. Certa vez eu estava lá pelos areais de Margate, um sujeito embarcou, achou que qualquer destino serviria, um lugar de verdade, como se qualquer lugar fosse real... Nós somos os homens ocos, eu digo; ele não gostou... Depressa, por favor, está na hora.~",
+        description "De vez em quando ele choraminga.",
         article "the",
   has   animate;
 
 [ UnrealEachTurn ;
     switch( random(10) ) {
-        1: "^A clock keeps the hours, with a dead sound on the final stroke of nine.";
-        2: "^There is a brown fog about, like a winter dawn's.";
-        3: "^You can almost make out the pleasant whining of a mandoline from a faraway bar.";
-        4: "^Drifting through the streets from some distant bar comes the sound of one of Scott Joplin's 
-            newfangled piano pieces, accompanying song settings from ~Romeo and Juliet~.";
+        1: "^Um relógio marca as horas, com um som morto na última batida das nove.";
+        2: "^Há uma névoa marrom, como a de uma alvorada de inverno.";
+        3: "^Quase dá para distinguir o agradável lamento de uma bandolim vindo de um bar distante.";
+        4: "^Pelas ruas, vindo de algum bar distante, chega o som de uma das novidades para piano de Scott Joplin, acompanhando canções de ~Romeu e Julieta~.";
     }
 ];
 
-URoom   Near_Ring_Road "Near Ring Road"  
+URoom   Near_Ring_Road "Perto do Anel Rodoviário"
   with  name 'metro' 'pedestrians' 'army',
         w_to Unreal_City,
         d_to Chatelet_les_Halles,
-        description "A dry, desolate waste of buildings borders here on a main road, so full of black-suited 
-            pedestrians off to work at banks that you can't force your way any further east. Once in a while a
-            few of the bowler-hatted army step into the street and down some steps below a Metropolitan sign.",
-        cant_go "You can't force your way through the tide of bankers.",
+         description "Um deserto seco e desolado de prédios margeia uma avenida, tão cheia de pedestres de terno preto a caminho dos bancos que você não consegue avançar mais para leste. De vez em quando, alguns membros do exército de chapéu-coco entram na rua e descem por uma escada sob uma placa de Metropolitan.",
+         cant_go "Você não consegue atravessar a maré de banqueiros.",
         each_turn UnrealEachTurn,
   has   light;
 
-URoom   Chatelet_les_Halles "Chatelet-les-Halles"        
+URoom   Chatelet_les_Halles "Châtelet-les-Halles"
   with  name 'gates',
         before [; Buy: "~Q'est-ce que vous voulez acheter?~"; ],
         u_to Near_Ring_Road,
-        description "This is a vast underground station in great rectangular caverns, deep beneath the streets. 
-            You are outside the ticket gates, near a flight of steps back up to the city, and since you haven't
-            a ticket you're likely to stay that way.",
-        cant_go "Back up the stairs for you. Call yourself a traveller...",
+         description "Esta é uma vasta estação subterrânea, em grandes cavernas retangulares, bem abaixo das ruas. Você está do lado de fora das catracas, perto de uma escada de volta à cidade, e como não tem bilhete provavelmente continuará assim.",
+         cant_go "Suba as escadas de volta. E você se chama viajante...",
   has   light;
 
-Object  -> surly_shopkeeper "surly shopkeeper"   
+Object  -> surly_shopkeeper "lojista mal-humorado"
   with  name 'surly' 'man' 'shopkeeper',
         life [;
-            Give:
-                if( noun ~= fifty_franc_note ) "~Ceci n'est pas argent,~ he explains wearily.";
+             Give:
+                 if( noun ~= fifty_franc_note ) "~Ceci n'est pas argent,~ ele explica cansado.";
                 remove noun;
                 give noun general;
-                "He takes the money. ~Q'est-ce que vous desirez?~";
+                 "Ele pega o dinheiro. ~Q'est-ce que vous desirez?~";
             Answer:
                 if( fifty_franc_note hasnt general )
-                    "It's not that he doesn't understand you, he's just obstructive for the sake of it.";
+                    "Não é que ele não entenda você; ele apenas é obstrutivo por gosto.";
                 if( special_word == 'carte' ) {
                     move tourist_map_of_Paris to player;
                     Achieved(SCORE_MAP);
                     give tourist_map_of_Paris moved;
-                    "Extremely reluctantly he serves you, giving you a tourist map of Paris.";
+                    "Com extrema relutância ele o atende, entregando um mapa turístico de Paris.";
                 }
-                if( special_word == 'map' ) "He refuses to understand you, on principle.";
-                "~Non.~  And he folds his arms defiantly. Perhaps he has no such thing.";
+                if( special_word == 'map' ) "Ele se recusa a entender você, por princípio.";
+                "~Non.~ E ele cruza os braços desafiadoramente. Talvez não exista tal coisa.";
         ],
-        initial "Behind a kiosk, a surly-looking man is selling guide books and maps.",
-        description "His jumper is unstriped, and there are no onions around his neck. Nonetheless he has a rather 
-            Gallic, disgruntled look to him. Perhaps he's a former Socialist cabinet minister.",
+         initial "Atrás de um quiosque, um homem de aspecto mal-humorado vende guias e mapas.",
+         description "Seu suéter não tem listras e não há cebolas ao redor do pescoço. Ainda assim, ele tem um ar bastante gaulês e descontente. Talvez seja um ex-ministro socialista.",
   has   animate;
 
-Object  tourist_map_of_Paris "tourist map of Paris"      
+Object  tourist_map_of_Paris "mapa turístico de Paris"
   with  name 'tourist' 'map' 'of' 'paris',
-        description "Just the way you remember yours having been.",
-        devil_hint "Burn it!  Burn it at once!",
-        angel_hint "What a very useful map!  Now you can go on holiday.",
+         description "Exatamente como você se lembra que era o seu.",
+         devil_hint "Queime-o! Queime-o agora!",
+         angel_hint "Que mapa tão útil! Agora você pode sair de férias.",
   has   ;
-

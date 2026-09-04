@@ -2,26 +2,26 @@ Class   TRoom
   with  section T_TAROT;
 
 [ BombTicks w i ;
-    print "The clock is ticking downwards, and is ";
+    print "O relógio está contando para trás e está ";
     if( complicated_looking_bomb.number == 0 ) {
-        print "right on the red zone!  ";
+        print "bem na zona vermelha!  ";
     } else {
         EnglishNumber(complicated_looking_bomb.number);
-        print " minute";
+        print " minuto";
         if( complicated_looking_bomb.number ~= 1 ) {
             print "s";
         }
-        print " short of the red zone. ";
+        print " aquém da zona vermelha. ";
         if( complicated_looking_bomb.number == 5 ) {
             trigger_quotation(10);
         }
     }
     w = complicated_looking_bomb.time_left;
-    if( w == 0 ) "All four wires are plugged into the timer.";
-    if( w == 1 ) print "Only the ";
-    if( w == 2 ) print "The ";
-    if( w == 3 ) print "The ";
-    if( w == 4 ) "None of the wires are plugged in.";
+    if( w == 0 ) "Os quatro fios estão conectados ao temporizador.";
+    if( w == 1 ) print "Apenas o ";
+    if( w == 2 ) print "O ";
+    if( w == 3 ) print "O ";
+    if( w == 4 ) "Nenhum dos fios está conectado.";
 
     i = w;
     if( red_wire has general ) {
@@ -45,82 +45,79 @@ Class   TRoom
         AndList(i);
     }
     if( w == 1 ) 
-        " is unplugged.";
-    " are unplugged.";
+        " está desconectado.";
+    " estão desconectados.";
 ];
 
 [ AndList i ;   
     if( i == 1 ) {
-        print " and ";
+        print " e ";
         rfalse;
     }
     if( i == 0 ) {
         rfalse;
     }
-    print ", ";
+        print ", ";
     rtrue;
 ];
 
-TRoom   Ruined_Castle_Cafe "Ruined Castle Cafe"  
+TRoom   Ruined_Castle_Cafe "Café do Castelo em Ruínas"  
   with  name 'decor' 'arrows' 'quartet' 'waiter',
         after [;
             Look:
                 if( Cups_and_Glasses has visited && complicated_looking_bomb has concealed ) 
-                    "^Over in one corner, you can see a little square window, behind which must be the store of cups 
-                     and glasses. Remembering this, you are distracted and unable to enjoy the entertainment. Even
-                     the table is annoying. It must have one leg shorter than the rest, or something, because it
-                     rattles now and then.";
+                    "^Num canto, você vê uma pequena janela quadrada, atrás da qual deve ficar o depósito de copos.
+                     Ao se lembrar disso, você se distrai e não consegue apreciar o entretenimento. Até a mesa incomoda.
+                     Uma perna deve ser mais curta que as outras, ou algo assim, pois ela chacoalha de vez em quando.";
             Strike:
-                "You look rather conspicuous striking the rod on the cafe table, but everyone else assumes you're 
-                 part of the cabaret. Anyway, the rod charges up as usual.";
+                "Você chama bastante atenção ao bater o bastão na mesa do café, mas todos presumem que você faz parte
+                 do cabaré. De todo modo, o bastão se carrega como sempre.";
         ],
         initial [;
             if( complicated_looking_bomb has concealed ) StartTimer(complicated_looking_bomb,10);
         ],
-        description "This crowded, bohemian cafe bears only a passing resemblance to the ruined castle of the 
-            Tarot card: the decor imitates castle walls and arrowslits. You find yourself sitting at a table for
-            one in the centre of the cafe floor. It is noisy, bustling and cheery, and a string quartet plays
-            Strauss under the chattering of German voices. Your chances of attracting a waiter are very slight.",
-        cant_go "The crowd is lively and exciting, but also inconsiderate and bulky.",
+        description "Este café boêmio e lotado lembra apenas vagamente o castelo em ruínas da carta do Tarô: a decoração
+            imita muros de castelo e seteiras. Você se encontra sentado sozinho a uma mesa no centro do salão. É um lugar
+            barulhento, movimentado e alegre; um quarteto de cordas toca Strauss sob a conversa de vozes alemãs. Suas
+            chances de atrair um garçom são mínimas.",
+        cant_go "A multidão é animada e empolgante, mas também inconveniente e corpulenta.",
         each_turn [;
             if( complicated_looking_bomb hasnt concealed ) {
                 new_line;
                 BombTicks();
             } else {
-                print "^The table rattles again.^";
+                print "^A mesa chacoalha novamente.^";
             }
         ],
   has   light scored;
 
-Object  -> cafe_table "cafe table"       
+Object  -> cafe_table "mesa do café"       
   with  name 'cafe' 'table' 'leg' 'legs',
         before [;
             LookUnder, Search:
                 if( complicated_looking_bomb has concealed ) {
                     give complicated_looking_bomb ~concealed;
                     move complicated_looking_bomb to Ruined_Castle_Cafe;
-                    "Now don't panic, but there's a ticking bomb loosely taped to the underside of the table you're sitting at!";
+                    "Não entre em pânico, mas há uma bomba-relógio presa frouxamente à parte inferior da mesa em que você está sentado!";
                 }
-                "You make no further alarming discoveries.";
+                "Você não faz mais nenhuma descoberta alarmante.";
             Enter:
-                "Even in a cafe as lively as this, your natural English inhibitions make it impossible for you to 
-                 climb up on the table.";
+                "Mesmo num café tão animado, suas inibições inglesas naturais tornam impossível subir na mesa.";
         ],
   has   scenery supporter;
 
-Object  complicated_looking_bomb "complicated-looking bomb"      
+Object  complicated_looking_bomb "bomba de aparência complicada"      
   with  name 'bomb',
         after [;
             Take:
                 deadflag = PRISON;
-                "Suddenly, someone catches sight of you with the bomb and screams. One thing leads to another, 
-                 and, well, you know how it is with foreign legal systems. At least the bomb gets defused, and
-                 twenty-five years isn't all that long.";
+                "De repente, alguém vê você com a bomba e grita. Uma coisa leva a outra e, bem, você sabe como são os
+                 sistemas jurídicos estrangeiros. Pelo menos a bomba é desarmada, e vinte e cinco anos não é tanto assim.";
         ],
-        initial "Taped loosely to the underside of the table is a complicated-looking bomb.",
-        description "It contains a timer-detonator, a bundle of plastic explosives and many, many wires. The 
-            most obvious ones are green, red, blue and black. They would pull out of their loose sockets in the
-            timer easily, so perhaps this bomb disposal nonsense isn't as tricky as people make out.",
+        initial "Presa frouxamente à parte inferior da mesa há uma bomba de aparência complicada.",
+        description "Ela contém um temporizador-detonador, um feixe de explosivos plásticos e muitos, muitos fios. Os
+            mais óbvios são verde, vermelho, azul e preto. Eles sairiam facilmente de seus soquetes frouxos no
+            temporizador; talvez esse negócio de desarmar bombas não seja tão difícil quanto dizem.",
         number 0,
         time_left 0,
         time_out [;
@@ -128,16 +125,17 @@ Object  complicated_looking_bomb "complicated-looking bomb"
                 rfalse;
             if( complicated_looking_bomb hasnt concealed ) {
                 if( blue_wire ~= bomb_wires-->0 || green_wire ~= bomb_wires-->1 || black_wire ~= bomb_wires-->2 || red_wire ~= bomb_wires-->3 ) {
-                    print "^Click!  Perhaps there's more to bomb disposal than you thought.^";
+                    print "^Clique! Talvez desarmar bombas seja mais complicado do que você pensava.^";
                 } else {
-                    print "^Click!  The timer runs out, but the bomb was disarmed. You pocket the timer and hide the rest of the evidence under the table.^";
+                    print "^Clique! O temporizador chega ao fim, mas a bomba foi desarmada. Você guarda o temporizador no bolso e esconde o resto das provas sob a mesa.^";
                     move timer_detonator to player;
                     give timer_detonator ~static;
                     remove complicated_looking_bomb;
                     rtrue;
                 }
             }
-            print "^In a sudden cataclysm, there is an enormous explosion from your table, blowing out all the arrowslit windows, making a thunderous noise, starting a minor fire, and of course having one other consequence:^";
+            print "^Num cataclismo repentino, uma enorme explosão vem da sua mesa, estourando todas as janelas de seteira,
+                produzindo um estrondo, iniciando um pequeno incêndio e, naturalmente, tendo outra consequência:^";
             deadflag = DIED;
         ],
   has   concealed container open;
@@ -146,24 +144,24 @@ Object  -> timer_detonator "timer-detonator"
   with  name 'timer' 'detonater' 'detonator',
         before [ i;
             Examine:
-                print "The timer seems quite simple to set. ";
+                print "O temporizador parece bastante simples de ajustar. ";
                 i = self.number;
                 if( self.time_left ~= 0 ) {
-                    print "The clock is running, and currently at ";
+                    print "O relógio está funcionando e marca ";
                     EnglishNumber(i);
-                    " minutes.";
+                    " minutos.";
                 }
                 if( i ~= 0 ) {
                     BombTicks();
                     rtrue;
                 }
-                "At present the clock is reset to zero.";
+                "No momento, o relógio está zerado.";
             Set:
                 if( self.time_left ~= 0 ) {
-                    "It is already running!";
+                    "Ele já está funcionando!";
                 }
                 StartTimer(self,10);
-                "You wind back the timer to ten minutes, and off it goes.";
+                "Você ajusta o temporizador para dez minutos, e ele começa a funcionar.";
         ],
         number 10,
         time_left 0,
@@ -175,7 +173,7 @@ Object  -> timer_detonator "timer-detonator"
                 i = parent(i);
 
             if( location == i ) {
-                print "^You hear a sharp click!^";
+                print "^Você ouve um clique agudo!^";
                 if( j == photographers_flash ) {
                     new_line;
                     k = child(j);
@@ -183,12 +181,12 @@ Object  -> timer_detonator "timer-detonator"
                         k = sibling(k);
                     }
                     if( k == nothing ) {
-                        "But the flash does nothing.";
+                        "Mas o flash não faz nada.";
                     }
                     if( k ~= nasty_battery ) {
-                        "And the flash gives a pathetically small flash of light.";
+                        "E o flash produz uma quantidade pateticamente pequena de luz.";
                     }
-                    print "The flash suddenly gives an enormous magnesium-flare flash, almost blinding in its intensity. Your eyes take a little while to adjust. ";
+                    print "O flash de repente produz uma enorme luz de magnésio, quase cegante em sua intensidade. Seus olhos demoram um pouco para se ajustar. ";
                     if( location == Ruined_Castle_Cafe ) {
                         print "Consequently you can only hear as the cabaret audience gives you a round of applause for what they think is a magic trick.";
                     }
@@ -262,65 +260,65 @@ Wire_Class -> blue_wire "blue wire"
 Wire_Class -> black_wire "black wire"       
   with  name 'black' 'wire';
 
-TRoom   Cups_and_Glasses "Cups and Glasses"      
+TRoom   Cups_and_Glasses "Copos e Taças"      
   with  name 'skylight' 'old' 'women' 'conspirators',
         n_to windowed_door,
-        description "This basement room is filled with crate after crate of glasses and cups, enough for an entire hotel, or restaurant perhaps. Almost anything might be hidden among them. A little light comes in from an opaque skylight which is at street level outdoors. There is no way out of here, since the only door is shut tight.",
-        cant_go "There's no apparent way out of here.",
+        description "Este porão está cheio de caixas e mais caixas de copos e taças, suficientes para um hotel inteiro,
+            ou talvez um restaurante. Quase qualquer coisa poderia estar escondida entre elas. Entra um pouco de luz
+            por uma claraboia opaca ao nível da rua. Não há saída, pois a única porta está bem fechada.",
+        cant_go "Não há saída aparente daqui.",
         number 0,
         each_turn [ i;
             self.number = self.number + 1;
             i = self.number;
             if( i == 2 ) 
-                "^There is a scuffling noise as some people gather up on the pavement outside the skylight.";
+                "^Há um ruído de passos enquanto algumas pessoas se reúnem na calçada, do lado de fora da claraboia.";
             if( i == 3 ) 
-                "^The men begin to talk like conspirators, but half in chants. You catch occasional sounds, but 
-                 can make little sense of them.";
+                "^Os homens começam a falar como conspiradores, mas em parte como se entoassem cânticos. Você capta sons
+                 ocasionais, mas não consegue entendê-los bem.";
             if( i == 4 ) 
-                "^Alarmingly, you catch the odd word ~incendiary~ and are almost sure you can make out someone 
-                 say ~accursed Meldrew~ (in the old-fashioned way, you know, so that ~accursed~ rhymes with
-                 ~dead~). Paranoia, bound to be. There surely can't really be a conspiracy of druid-worshippers
-                 out to get you?";
+                "^Alarmantemente, você capta a palavra ~incendiário~ e quase tem certeza de ouvir alguém dizer
+                 ~maldito Meldrew~ (à moda antiga, de modo que ~maldito~ rime com ~morto~). Paranoia, sem dúvida.
+                 Certamente não pode haver uma conspiração de adoradores de druidas atrás de você, pode?";
             if( i == 5 ) 
-                "^~The prophecy must be fulfilled!~ one warns, in an unearthly voice which suddenly carries. 
-                 The others hush him.";
+                "^~A profecia deve ser cumprida!~ avisa um deles, numa voz sobrenatural que de repente se faz ouvir.
+                 Os outros o mandam calar.";
             if( i == 6 ) 
-                "^The men walk away, perhaps a few feet, perhaps a mile.";
+                "^Os homens se afastam, talvez alguns metros, talvez um quilômetro.";
         ],
   has   light;
 
-Object  -> windowed_door "windowed door" 
+Object  -> windowed_door "porta com janela" 
   with  name 'door' 'window' 'windowed',
         door_to Cups_and_Glasses,
         door_dir n_to,
-        description "Through the square window in the door you can see a bar at which staff are serving, and a very crowded and lively cafe-restaurant beyond. The cabaret act has her back to you, and a considerable amount of her front to the diners.",
+        description "Pela janela quadrada da porta você vê um bar onde funcionários servem bebidas e, além dele, um café-restaurante muito cheio e animado. A artista do cabaré está de costas para você e bastante de frente para os clientes.",
   has   door lockable locked openable scenery;
 
-Object  -> cups_and_glasses_obj "cups and glasses"   
+Object  -> cups_and_glasses_obj "copos e taças"   
   with  name 'crates' 'glasses' 'cups',
         before [;
             Search, Examine, LookUnder:
                 if( model_ship hasnt general ) 
-                    "Nothing else.";
+                    "Nada mais.";
                 give model_ship ~general;
                 give model_ship moved;
                 move model_ship to player;
-                "In fact there's nothing hidden among the crates but a model sailing ship. You pick it up from 
-                 force of habit.";
+                "Na verdade, não há nada escondido entre as caixas além de um modelo de navio à vela. Você o pega por força do hábito.";
         ],
         article "numerous",
   has   scenery;
 
-Object  -> mounted_bottle "mounted bottle"       
+Object  -> mounted_bottle "garrafa montada"       
   with  name 'mounted' 'whisky' 'glass' 'bottle',
-        initial "An unlabelled whisky bottle, laid on its side and mounted on a wood plaque, lies deservedly unwanted on one of the crates.",
-        description "Old, unwanted, dusty, empty.",
+        initial "Uma garrafa de uísque sem rótulo, deitada de lado e montada numa placa de madeira, está merecidamente abandonada sobre uma das caixas.",
+        description "Velha, indesejada, empoeirada, vazia.",
         before [;
             Receive:
                 if( noun == model_ship )
-                    "The model ship is, of course, far too large to fit into the bottle.";
+                    "O modelo de navio é, naturalmente, grande demais para caber na garrafa.";
                 if( noun ~= stick_with_an_anchor )
-                    "It won't fit.";
+                    "Não vai caber.";
         ],
         after [;
             Receive:
@@ -329,102 +327,100 @@ Object  -> mounted_bottle "mounted bottle"
                 move ship_in_a_bottle to player;
                 give ship_in_a_bottle moved;
                 Achieved(SCORE_SHIP);
-                "The bundle of sticks will just fit through the bottle's neck. With a sudden spring, just as the 
-                 last of the stick passes the neck, its masts fold out... and you have put the ship into the bottle.";
+                "O feixe de gravetos passa bem pelo gargalo da garrafa. Com um salto repentino, assim que o último
+                 graveto passa pelo gargalo, seus mastros se abrem... e você colocou o navio na garrafa.";
         ],
-        angel_hint "The great challenge, of course, is to get a ship inside.",
+        angel_hint "O grande desafio, naturalmente, é colocar um navio dentro.",
   has   open container transparent;
 
-Object ship_in_a_bottle "ship in a bottle"      
+Object ship_in_a_bottle "navio numa garrafa"      
   with  name 'ship' 'in' 'bottle',
         before [;
             Examine:
                 if( self notin player ) 
-                    "You can't get a good look from here.";
+                    "Você não consegue olhar bem daqui.";
 
                 if( game_section ~= T_TAROT ) 
-                    "You admire the fine detail on the model sailing ship, and feel strangely drawn to it. But back 
-                     out of the world of the Tarot box, nothing else could happen.";
+                    "Você admira os detalhes do modelo de navio à vela e se sente estranhamente atraído por ele. Mas fora
+                     do mundo da caixa de Tarô, nada mais poderia acontecer.";
 
                 if( location == Lighthouse )
-                    "Bright sunshine glints off the glass bottle, making it impossible to see detail within.";
+                    "A luz intensa do sol cintila na garrafa de vidro, tornando impossível ver os detalhes dentro dela.";
 
                 move ship_in_a_bottle to Souvenirs_Room;
                 PlayerTo(Aboard_Ship,1);
-                "You look very closely at the fine detail on the model sailing ship. Perhaps it's the distorting 
-                 glass of the bottle, perhaps your romantic imagination, but the deck seems more detailed, the
-                 rigging might almost be swaying, the little figure by one mast might almost be alive...^^In fact,
-                 the closer you look the more sea-sick you feel.^^Thank heavens for the deck rail, something to
-                 hang on to while this moment of queasiness passes.";
+                "Você observa atentamente os detalhes do modelo de navio à vela. Talvez seja o vidro deformador da
+                 garrafa, talvez sua imaginação romântica, mas o convés parece mais detalhado, o cordame quase parece
+                 balançar, e a pequena figura junto a um mastro quase parece viva...^^Na verdade, quanto mais olha,
+                 mais enjoado você fica.^^Graças aos céus pelo corrimão do convés, algo em que se segurar enquanto
+                 passa esse momento de náusea.";
         ],
-        description "Within the whisky bottle is a model sailing ship, far too large to have passed the neck.",
-        angel_hint "Oh, well done!  Why not take a closer look, you deserve it?",
+        description "Dentro da garrafa de uísque há um modelo de navio à vela, grande demais para ter passado pelo gargalo.",
+        angel_hint "Muito bem! Por que não olha mais de perto? Você merece.",
   has   ;
 
-Object model_ship "model ship"  
+Object model_ship "modelo de navio"  
   with  name 'model' 'sailing' 'ship' 'anchor' 'chain' 'mermaid' 'filigree' 'prow' 'stern',
-        description "A superb model sailing ship, about six inches from prow to stern, immaculate in every detail from an anchor on a filigree chain to a carved mermaid up front.",
+         description "Um soberbo modelo de navio à vela, com cerca de quinze centímetros da proa à popa, impecável em cada detalhe, da âncora numa corrente de filigrana à sereia esculpida na frente.",
         before [;
             Pull:
                 remove model_ship;
                 move stick_with_an_anchor to player;
                 itobj = stick_with_an_anchor;
                 give itobj moved;
-                "As you pull the anchor chain, the masts fold inwards and the decks concertina back, until you're 
-                 holding no more than a tight bundle of sticks.";
+                 "Quando você puxa a corrente da âncora, os mastros se dobram para dentro e os conveses se recolhem,
+                  até que você não esteja segurando mais que um feixe compacto de gravetos.";
         ],
-        angel_hint "The great challenge, of course, is to get it inside a bottle.",
+         angel_hint "O grande desafio, naturalmente, é colocá-lo dentro de uma garrafa.",
   has   general;
 
-Object  stick_with_an_anchor "stick with an anchor"      
+Object  stick_with_an_anchor "gravetos com âncora"      
   with  name 'stick' 'with' 'anchor' 'chain' 'sticks' 'ship',
         before [;
-            Wave: "Ever the optimist.";
+             Wave: "Sempre otimista.";
             Pull:
                 remove stick_with_an_anchor;
                 move model_ship to player;
                 itobj = model_ship;
-                "As you pull the anchor chain, the sticks spring back outwards into the fully-rigged model sailing ship you knew of old.";
+                 "Quando você puxa a corrente da âncora, os gravetos saltam para fora e voltam a formar o modelo de navio à vela totalmente aparelhado que você conhecia.";
         ],
-        description "A tightly-folded bundle of sticks, about six inches long, with a filigree chain and anchor 
-            hanging from it.",
-        angel_hint "The great challenge, of course, is to get it inside a bottle.",
+         description "Um feixe de gravetos dobrado compactamente, com cerca de quinze centímetros, com uma corrente de filigrana e uma âncora penduradas nele.",
+         angel_hint "O grande desafio, naturalmente, é colocá-lo dentro de uma garrafa.",
   has   ;
 
-TRoom   Sea_Shore "Sea Shore"    
+TRoom   Sea_Shore "Costa Marítima"    
   with  before [;
-            Drink: "Salt water!  No thanks.";
+             Drink: "Água salgada! Não, obrigado.";
             Swim:
                 if( poseiden_warning == false ) {
                     poseiden_warning = true; 
-                    "Mmm. Here is your first and only warning: the sea is the domain of Poseidon, and he's not 
-                     what you'd call a gentleman.";
+                     "Hum. Aqui está seu primeiro e único aviso: o mar é o domínio de Poseidon, e ele não é exatamente
+                      o que se chamaria de cavalheiro.";
                 }
                 deadflag = MYTH;
-                "As you dive into the sea, you catch sight of Andromeda looking suddenly cheerful. It soon becomes 
-                 apparent why, as a Kraken wakes from the depths of the ocean and swipes you for a quick snack. You
-                 seem to have replaced her as sacrifice... a Pyrrhic victory which even the prospect of stellification
-                 does little to assuage.";
+                 "Ao mergulhar no mar, você vê Andrômeda de repente alegre. Logo fica claro o motivo, quando um Kraken
+                  desperta das profundezas e o agarra para um lanche rápido. Parece que você a substituiu como sacrifício...
+                  uma vitória pírrica que nem a perspectiva de virar uma estrela consegue amenizar.";
         ],
         u_to Cliffs,
         description [;
-            print "A rough rocky sea shore below barely-climbable cliffs, against which inviting deep blue sea 
-                laps. It seems to be early morning, soon after dawn, from the look of the sun on the water.^";
+             print "Uma costa marítima rochosa e irregular abaixo de penhascos quase escaláveis, contra os quais lambe
+                 um convidativo mar azul-profundo. Parece ser manhã cedo, pouco depois do amanhecer, pelo aspecto do sol na água.^";
             if( Lighthouse has visited && Lighthouse hasnt general ) {
                 give Lighthouse general;
-                "^You can just make out the Pharos atop the cliffs. But it seems to be earlier, nearer dawn, 
-                 than your last visit.";
+                 "^Você mal consegue distinguir o Faros no alto dos penhascos. Mas parece ser mais cedo, mais perto do
+                  amanhecer, que em sua última visita.";
             }
             rtrue;
         ],
-        cant_go "The rocks are too dangerous. You'll have to scale the cliff.",
+         cant_go "As rochas são perigosas demais. Você terá de escalar o penhasco.",
   has   light;
 
-Object  -> Andromeda "Andromeda" 
+Object  -> Andromeda "Andrômeda" 
   with  name 'andromeda' 'maiden',
         life [;
-            Kiss: "She evades you deftly, having had years of practice with Greek men.";
-            Attack: "No need, if the sea-monster is all it's cracked up to be.";
+             Kiss: "Ela o evita habilmente, depois de anos de prática com homens gregos.";
+             Attack: "Não é necessário, se o monstro marinho for tudo o que dizem.";
             Give:
                 if( noun has edible ) {
                     if( noun == Ekmek_Special ) {
@@ -432,42 +428,40 @@ Object  -> Andromeda "Andromeda"
                         give amber_hairband ~static;
                         give amber_hairband moved;
                         move amber_hairband to player;
-                        "She smiles as if to say there's not much point watching her waist-line any more, and 
-                         hungrily wolfs down her favourite dessert. As a gesture of thanks, she takes off her
-                         amber hairband and hands it you. Quickly she readopts her noble pose, however, just in
-                         case anyone else is looking.";
+                         "Ela sorri como se dissesse que não adianta mais cuidar da cintura e devora faminta sua sobremesa
+                          favorita. Como gesto de agradecimento, tira a faixa de cabelo de âmbar e entrega-a a você. Logo
+                          retoma sua pose nobre, para o caso de alguém estar olhando.";
                     }
-                    "She looks with obvious hunger, but her sense of duty wins out and she refuses.";
+                     "Ela olha com fome evidente, mas seu senso de dever vence e ela recusa.";
                 }
-                "She looks down her nose at you.";
+                 "Ela olha para você com desprezo.";
             Order, Ask, Answer:
-                "Andromeda hisses something contemptuous at you in Greek. (Attic, not Demotic, ironically enough, 
-                 but then it's all Greek to you.)";
+                 "Andrômeda sibila algo depreciativo para você em grego. (Ático, não demótico, ironicamente, mas para
+                  você é tudo grego mesmo.)";
         ],
-        initial "Chained to the cliff face is the beautiful Andromeda, looking nobly out to sea as she awaits her 
-            fate.",
+        initial "Acorrentada à face do penhasco está a bela Andrômeda, olhando nobremente para o mar enquanto aguarda seu destino.",
         description [;
-            print "Avert your eyes. She is naked";
+            print "Desvie os olhos. Ela está nua";
             if( amber_hairband has static ) 
-                print " (unless you count a hairband)";
+                print " (a menos que se conte a faixa de cabelo)";
             print ", as was fashionable for human sacrifices: the victim left overnight without food or shelter 
-                until the dawn. It has to be said that she doesn't look all that keen to be rescued";
+                até o amanhecer. É preciso dizer que ela não parece muito ansiosa para ser resgatada";
             if( photographers_flash hasnt general ) 
                 ".";
             ".^^Of course you've already rescued her, in a sense, but that's not due to happen for an hour or two 
-                yet by her time, so you can hardly expect thanks. Gives you a nice warm feeling inside, all the same.";
+                horas para ela, então dificilmente pode esperar agradecimentos. Ainda assim, dá uma agradável sensação interior.";
         ],
   has   animate proper;
 
-Object  -> amber_hairband "amber hairband"       
+Object  -> amber_hairband "faixa de cabelo de âmbar"       
   with  name 'amber' 'hairband' 'hair' 'band',
-        description "A long clasp of amber, perfect for long straggly Greek hair.",
-        article "Andromeda's",
+        description "Um longo prendedor de âmbar, perfeito para cabelos gregos longos e desgrenhados.",
+        article "de Andrômeda",
         rod_assoc rod_of_sacrifice,
-        devil_hint "Mmm... it still has her perfume on it. Hehehehe. Bet she's dead now.",
+        devil_hint "Hum... ainda tem o perfume dela. Hehehehe. Aposto que ela já morreu.",
   has   concealed static hidden_rod;
 
-TRoom   Cliffs "Cliffs"  
+TRoom   Cliffs "Penhascos"  
   with  name 'pharos' 'lighthouse' 'tower',
         e_to Clifftop_Walk,
         sw_to Cave_Mouth,
@@ -476,7 +470,7 @@ TRoom   Cliffs "Cliffs"
         cant_go "There's only dull grassland that way.",
   has   light;
 
-TRoom   Clifftop_Walk "Clifftop Walk"    
+TRoom   Clifftop_Walk "Trilha no Alto dos Penhascos"    
   with  s_to Wall_of_Thorns,
         e_to [;
             if( herd_of_goats hasnt general ) 
@@ -489,7 +483,7 @@ TRoom   Clifftop_Walk "Clifftop Walk"
         cant_go "There's only dull grassland that way.",
   has   light;
 
-Object  -> herd_of_goats "herd of goats" 
+Object  -> herd_of_goats "rebanho de cabras" 
   with  name 'goat' 'goats' 'herd' 'of',
         life [;
             Order, Ask, Answer:
@@ -497,14 +491,14 @@ Object  -> herd_of_goats "herd of goats"
         ],
   has   scenery talkable;
 
-TRoom   Outside_Taverna "Outside Taverna"        
+TRoom   Outside_Taverna "Fora da Taverna"        
   with  s_to Eraina_Taverna,
         w_to Clifftop_Walk,
         description "A long walk along the cliffs from the lighthouse leads naturally here, just outside the Eraina Taverna, whose open doorway lies to the south.",
         cant_go "There's only dull grassland that way.",
   has   light;
 
-Object  -> small_thorny_tree "small thorny tree" 
+Object  -> small_thorny_tree "árvore pequena e espinhosa" 
   with  name 'tree' 'thorny' 'small',
         before [;
             Climb, Enter: "The thorns deter you.";
@@ -520,7 +514,7 @@ Object  -> fig "fig"
         angel_hint "Good enough for a god.",
   has   edible;
 
-TRoom   Eraina_Taverna "Eraina Taverna"  
+TRoom   Eraina_Taverna "Taverna Eraina"  
   with  before [;
             Buy: "Given the language difficulty, you'd better resort to barter.";
         ],
@@ -538,7 +532,7 @@ TRoom   Eraina_Taverna "Eraina Taverna"
         ],
   has   light scored;
 
-Object  -> Ekmek_Special "Ekmek Special" 
+Object  -> Ekmek_Special "Especial Ekmek" 
   with  name 'ekmek' 'special' 'dessert',
         before [;
             Take:
@@ -572,14 +566,14 @@ Object  -> bartender "bartender"
         description "Morose and unconvivial at the best of times. This is not the best of times.",
   has   animate;
 
-TRoom   Wall_of_Thorns "Wall of Thorns"  
+TRoom   Wall_of_Thorns "Muro de Espinhos"  
   with  n_to Clifftop_Walk,
         s_to wall_of_thorns_object,
         description "The rather sparse rolling landscape is dominated here by a massive, and suspiciously unnatural, wall of thorns, which forms a great ring about an area perhaps a hundred yards in diameter. There are goat pastures to the north.",
         cant_go "There's only dull grassland that way.",
   has   light;
 
-Object  -> wall_of_thorns_object "wall of thorns"        
+Object  -> wall_of_thorns_object "muro de espinhos"        
   with  name 'gap' 'thorns' 'of' 'wall',
         door_to Sacred_Earth,
         when_closed "The wall rustles and clashes its thorns like a beast alive.",
@@ -588,7 +582,7 @@ Object  -> wall_of_thorns_object "wall of thorns"
         description "It's hard to imagine what could possibly shift a wall like that.",
   has   door static;
 
-TRoom   Sacred_Earth "Sacred Earth"      
+TRoom   Sacred_Earth "Terra Sagrada"      
   with  after [; trigger_quotation(4); rfalse; ],
         n_to Wall_of_Thorns,
         s_to [;
@@ -615,7 +609,7 @@ TRoom   Sacred_Earth "Sacred Earth"
         cant_go "The wall of thorns hems you in.",
   has   light;
 
-TRoom   Temple_of_Zeus "Temple of Zeus"  
+TRoom   Temple_of_Zeus "Templo de Zeus"  
   with  name 'pillar',
         n_to [;
             print "~I'll get you this time, worm!~ bellows Zeus, and hurls another thunderbolt, but now he's 
@@ -637,7 +631,7 @@ Object  -> copper_coin "copper coin"
         angel_hint "This currency is only valid in ancient Greece. Where on earth have you been?",
   has   ;
 
-TRoom   East_Cloister "East Cloister"    
+TRoom   East_Cloister "Claustro Leste"    
   with  name 'niche',
         nw_to Temple_of_Zeus,
         sw_to Inner_Sanctum,
@@ -658,7 +652,7 @@ Object  -> inscribed_stone "inscribed stone"
         angel_hint "Whoever wrote this must have wanted to get the message across very badly, to write it all out twice.",
   has   scored;
 
-TRoom   West_Cloister "West Cloister"    
+TRoom   West_Cloister "Claustro Oeste"    
   with  ne_to Temple_of_Zeus,
         se_to Inner_Sanctum,
         description "Along the west cloister, turning from northeast to southeast, is a broad bas relief depicting the seasons: the planting of seed, high summer, the harvest, floods and then the coming of ice.",
@@ -670,7 +664,7 @@ Object  -> symbol "symbol"
         description "  j  c     k  b   s you gk ",
   has   static;
 
-TRoom   Inner_Sanctum "Inner Sanctum"    
+TRoom   Inner_Sanctum "Santuário Interior"    
   with  n_to Cross_Centre,
         ne_to East_Cloister,
         nw_to West_Cloister,
@@ -690,7 +684,7 @@ TRoom   Inner_Sanctum "Inner Sanctum"
     "~Hopeless,~ he says dismissively and falls asleep.";
 ];
 
-Object  -> Homer "Homer" 
+Object  -> Homer "Homero" 
   with  name 'homer' 'blind' 'poet',
         life [;
             Order, Ask:
@@ -742,7 +736,7 @@ Object  -> Homer "Homer"
         time_left 0,
   has   animate proper;
 
-Object  -> -> Pan_pipes "Pan pipes"      
+Object  -> -> Pan_pipes "flautas de Pã"      
   with  name 'pan' 'pipes' 'panpipes' 'syrinx',
         before [;
             Blow:
@@ -774,10 +768,10 @@ Object  -> -> Pan_pipes "Pan pipes"
         ],
         description "Carefully cut from river reeds, these once belonged to Homer himself. As you may recall.",
         article "the",
-        angel_hint "Marvellous! A sound to soothe the spirit.",
+        angel_hint "Maravilhoso! Um som que acalma o espírito.",
   has   ;
 
-TRoom   Cross_Centre "Cross Centre"      
+TRoom   Cross_Centre "Centro da Cruz"      
   with  before [;
             Take, Remove:
                 if( noun == inscribed_stone or old_timber_spar && noun has scenery )
@@ -812,7 +806,7 @@ TRoom   Cross_Centre "Cross Centre"
         ],
   has   ;
 
-Object  -> inscriptions "inscriptions"   
+Object  -> inscriptions "inscrições"   
   with  name 'inscription' 'opening',
         before [;
             Receive:
@@ -846,7 +840,7 @@ TRoom   Oubliette "Oubliette"
             ~forgotten~.",
   has   ;
 
-Object  -> gleaming_amber_gem "gleaming amber gem"       
+Object  -> gleaming_amber_gem "gema de âmbar reluzente"       
   with  name 'amber' 'gem',
         before [;
             Take:
@@ -866,7 +860,7 @@ Object  -> gleaming_amber_gem "gleaming amber gem"
         angel_hint "Isn't there some classical legend about her?",
   has   scored;
 
-TRoom   Northeast_Cross "Northeast Cross"        
+TRoom   Northeast_Cross "Cruz Nordeste"        
   with  name 'carvings' 'fish' 'nets',
         sw_to Cross_Centre,
         description "This cross-corner is inlaid with carvings of fish, of the waves, of great casting nets 
@@ -893,7 +887,7 @@ Statue  -> statue_of_Demeter "statue of Demeter"
   with  name 'demeter' 'statue' 'of',
         initial "A fine statue of the goddess Demeter stands here.";
 
-TRoom   Northwest_Cross "Northwest Cross"        
+TRoom   Northwest_Cross "Cruz Noroeste"        
   with  name 'carvings' 'wheat',
         se_to Cross_Centre,
         description "This cross-corner is surrounded with carvings of wheat swaying in the breeze, bathed with 
@@ -904,7 +898,7 @@ Statue  -> statue_of_Dionysus "statue of Dionysus"
   with  name 'dionysus' 'statue' 'of',
         initial "A fine statue of the god Dionysus stands here.";
 
-TRoom   Southeast_Cross "Southeast Cross"        
+TRoom   Southeast_Cross "Cruz Sudeste"        
   with  name 'carvings' 'hoplite' 'warriors',
         nw_to Cross_Centre,
         description "This cross-corner is decorated with carvings of massed ranks of hoplite warriors, advancing 
@@ -915,7 +909,7 @@ Statue  -> statue_of_Ares "statue of Ares"
   with  name 'ares' 'statue' 'of',
         initial "A fine statue of the god Ares stands here.";
 
-TRoom   Southwest_Cross "Southwest Cross"        
+TRoom   Southwest_Cross "Cruz Sudoeste"        
   with  name 'carvings' 'grape' 'vines' 'barrels',
         ne_to Cross_Centre,
         description "This cross-corner is decorated with carvings of grape-vines and barrels.^^The Labyrinth 
@@ -926,14 +920,14 @@ Statue  -> statue_of_Poseidon "statue of Poseidon"
   with  name 'poseidon' 'statue' 'of',
         initial "A fine statue of the god Poseidon stands here.";
 
-TRoom   Cave_Mouth "Cave Mouth"  
+TRoom   Cave_Mouth "Boca da Caverna"  
   with  name 'lamps' 'trestle' 'altar' 'stone',
         ne_to Cliffs,
         description "A dry cave opening from a crack to the northeast, becoming a fair-sized cavern, furnished 
             with bronze and lit by trestle lamps chained from the ceiling.",
   has   light;
 
-Object  -> flaming_bronze_urn "flaming bronze urn"       
+Object  -> flaming_bronze_urn "urna de bronze flamejante"       
   with  name 'flaming' 'bronze' 'urn' 'flame' 'cube' 'obsidian' 'altar' 'stone',
         before [;
             Receive:
@@ -1029,7 +1023,7 @@ Object  Oracle "Oracle"
     }
 ];
 
-TRoom   Lighthouse "Lighthouse"  
+TRoom   Lighthouse "Farol"  
   with  name 'smudge' 'quinquire',
         d_to [; FlashFallsOut(); return Greek_Frieze1; ],
         description [;
@@ -1056,16 +1050,16 @@ TRoom   Lighthouse "Lighthouse"
         cant_go "Being a lighthouse, this pinnacle is way up in the air. Point taken?",
   has   light scored;
 
-Object  -> mirrored_device "mirrored device"     
+Object  -> mirrored_device "dispositivo espelhado"     
   with  name 'device' 'mirrored' 'bronze',
   has   container open scenery;
 
-TRoom   Greek_Frieze1 "Greek Frieze"     
+TRoom   Greek_Frieze1 "Friso Grego"     
   with  u_to Lighthouse,
         description "A brown-tinted frieze, depicting hunters and spear-carriers, surrounds this dark stair-well, which has no exit except for a spiral staircase leading back up.",
   has   light;
 
-LagachObj -> Greek_frieze2 "Greek frieze"  
+LagachObj -> Greek_frieze2 "friso grego"  
   with  name 'greek' 'frieze' 'mural',
         description "The decorated strip of entablature between the architrave and the cornice, in the Attic style circa fifth century B.C.^^Well, you did ask.",
   has   scenery;
@@ -1101,7 +1095,7 @@ Object  some_landlubbers_direction "some landlubber's direction"
         ],
   has   proper scenery;
 
-TRoom   Aboard_Ship "Aboard Ship"        
+TRoom   Aboard_Ship "A Bordo do Navio"        
   with  name 'rail' 'storm',
         n_to Prow_of_the_Lady_Magdalena,
         s_to Stern,
@@ -1149,7 +1143,7 @@ TRoom   Aboard_Ship "Aboard Ship"
         ],
   has   light ship_flag;
 
-Object  -> mast_and_rigging "mast and rigging"   
+Object  -> mast_and_rigging "mastro e cordame"   
   with  name 'mast' 'rigged' 'rigging',
         before [;
             Enter, Climb: << Go u_obj >>;
@@ -1157,7 +1151,7 @@ Object  -> mast_and_rigging "mast and rigging"
         article "the",
   has   scenery;
 
-TRoom   Up_the_Mast "Up the Mast"        
+TRoom   Up_the_Mast "No Alto do Mastro"        
   with  before [;
             Jump:
                 print "You jump (madly) from the crow's nest ";
@@ -1206,7 +1200,7 @@ TRoom   Up_the_Mast "Up the Mast"
         cant_go "Down might be a better idea.",
   has   light ship_flag;
 
-Object  -> flagpole "flagpole"   
+Object  -> flagpole "mastro da bandeira"   
   with  name 'pole' 'flagpole' 'mast' 'ensign' 'spar',
         before [;
             Take, Turn, Push, Pull: "The flagpole is very securely fixed to the main mast.";
@@ -1215,7 +1209,7 @@ Object  -> flagpole "flagpole"
         description "The flagpole juts out to port with the prevailing... wind?",
   has   static;
 
-Object  -> british_flag "flag of the British Merchant Navy" 
+Object  -> british_flag "bandeira da Marinha Mercante Britânica" 
   with  name 'flag' 'ensign' 'navy' 'british' 'merchant' 'of' 'tassels',
         before [;
             Remove:
@@ -1227,7 +1221,7 @@ Object  -> british_flag "flag of the British Merchant Navy"
                 give british_flag general;
                 "You take hold of the tassels of the flag in one hand (though it won't pull away from the pole).";
             Drop, Remove:
-                ! Slight game-logic mistake: doesn't check if the flag has general
+                ! Pequeno erro de lógica: não verifica se a bandeira tem general
                 give british_flag ~general;
                 "You leave hold of the tassels of the flag.";
         ],
@@ -1237,12 +1231,12 @@ Object  -> british_flag "flag of the British Merchant Navy"
         devil_hint "Piece of advice - it's never very comfortable wrapping yourself in the Flag.",
   has   concealed;
 
-Object  old_timber_spar "old timber spar"        
+Object  old_timber_spar "verga velha de madeira"        
   with  name 'old' 'prop' 'timber' 'flagpole' 'spar',
         after [;
             Take:
                 if( old_timber_spar hasnt general ) rfalse;
-                !!! BUG: this must be left over from the gardens. Pointless, really.
+                !!! BUG: isto deve ter sobrado dos jardins. Na prática, não serve para nada.
                 give old_timber_spar ~general;
                 StartTimer(bean_pole,5);
                 rfalse;
@@ -1254,7 +1248,7 @@ Object  old_timber_spar "old timber spar"
         devil_hint "A plain old piece of timber.",
   has   hidden_rod;
 
-TRoom   Prow_of_the_Lady_Magdalena "Prow of the Lady Magdalena"  
+TRoom   Prow_of_the_Lady_Magdalena "Proa do Lady Magdalena"  
   with  name 'lady' 'magdalena' 'mermaid' 'figurine',
         s_to Aboard_Ship,
         description "You stand in the triangular prow of the ship, which is graced by a carved and painted figurine and named the ~Lady Magdalena~. There is no sign of water, but the boat is rocked too often for it to be aground. And the glassy mist hangs ahead.",
@@ -1265,7 +1259,7 @@ TRoom   Prow_of_the_Lady_Magdalena "Prow of the Lady Magdalena"
         ],
   has   light ship_flag;
 
-Object  -> green_branch "green branch"   
+Object  -> green_branch "ramo verde"   
   with  name 'green' 'branch' 'leafed',
         before [;
             Wave: 
@@ -1279,10 +1273,10 @@ Object  -> green_branch "green branch"
         ],
         initial "In the Lady Magdalena's loose grip is a traditional sailor's good-luck token: a green-leafed branch, to attract the gulls of an approaching shore.",
         section T_TAROT,
-        angel_hint "Oh, you startled me for a moment there! I am getting flighty.",
+        angel_hint "Oh, você me assustou por um instante! Estou ficando avoado.",
   has   ;
 
-TRoom   Stern "Stern"    
+TRoom   Stern "Popa"    
   with  name 'sand' 'bank' 'mist',
         n_to Aboard_Ship,
         d_to [;
@@ -1302,7 +1296,7 @@ TRoom   Stern "Stern"
         cant_go "The boat runs fore.",
   has   light ship_flag;
 
-Object  -> capstan "capstan"     
+Object  -> capstan "cabrestante"     
   with  name 'capstan' 'anchor' 'chain' 'wheel',
         before [;
             Turn, Push, PushDir:
@@ -1320,4 +1314,3 @@ Object  -> capstan "capstan"
         initial "The top of the anchor chain is wound around the capstan, a great wheel on the deck beside you. 
             The chain disappears over the side.",
   has   static;
-

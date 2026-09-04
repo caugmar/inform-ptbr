@@ -13,7 +13,7 @@
     rtrue;
 ];
 
-! A room in the house
+! Um comodo da casa
 Class   HRoom
   with  section T_MODERN; 
 
@@ -83,9 +83,9 @@ Object  electric_torch "lanterna elétrica"
             if( n < 200 )
                 o.number = n;
             if( n == 2 )
-                print "^The torch flickers ominously.^";
+                print "^A lanterna pisca de modo ameaçador.^";
             if( n == 0 ) {
-                print "^The torch finally dies out.^";
+                print "^A lanterna finalmente se apaga.^";
                 give electric_torch ~light;
                 trigger_quotation(8);
             }
@@ -144,25 +144,24 @@ Object  -> hinged_trapdoor "alçapão articulado"
          when_open "Um alçapão articulado no chão está aberto, e a luz entra por baixo.",
   has   door light open openable static;
 
-Object  -> teachests "teachests" 
+Object  -> teachests "baus de cha" 
   with  name 'tea' 'chests' 'teachests' 'chest' 'teachest',
         before [;
             Search:
-                print "That was the first place you tried, hours and hours ago now";
+                print "Esse foi o primeiro lugar que voce tentou, ha horas e horas";
                 if( Meldrewes_History has concealed ) {
-                    print ", and there's nothing there but that boring old book. You pick it up anyway, bored 
-                        as you are";
+                    print ", e nao ha nada ali alem daquele livro velho e enfadonho. Mesmo assim voce o pega, entediado como esta";
                     trigger_quotation(33);
                     give Meldrewes_History ~concealed;
                     move Meldrewes_History to player;
                 }
                 ".";
         ],
-        description "Open-topped. You could easily look inside, if so minded.",
-        article "some",
+        description "Aberto em cima. Voce poderia olhar dentro facilmente, se quisesse.",
+        article "alguns",
   has   container open scenery;
 
-Object  -> -> Meldrewes_History "History of the Meldrews (vol. II)"      
+Object  -> -> Meldrewes_History "Historia dos Meldrews (vol. II)"      
   with  name 'book' 'history',
         parse_name BookParsename,
         before [ w ;
@@ -173,12 +172,12 @@ Object  -> -> Meldrewes_History "History of the Meldrews (vol. II)"
                     w = NextWord();
                 if( w == 'me' or 'myself' or 'self' ) {
                     trigger_quotation(48);
-                    "Perhaps you may one day earn a place in vol. III.";
+                    "Talvez um dia voce possa conquistar um lugar no vol. III.";
                 }
                 if( w == 'peter' )
-                    "Modestly, the author (died 1940 or so?) missed himself out.";
+                    "Modestamente, o autor (morto por volta de 1940?) deixou a si mesmo de fora.";
                 if( w == 'jemima' )
-                    "She's far too recent to be included.";
+                    "Ela e recente demais para ser incluida.";
                 if( w == 'isaac' )
                     "Mad Isaac (1705-1792) went in for mystic experiments of all kinds, and was a noted antiquarian. He
                     believed that the Meldrew family had an ancestral curse, dooming each member to undertake
@@ -248,7 +247,7 @@ Object  -> -> Meldrewes_History "History of the Meldrews (vol. II)"
                     "Roger's eldest son Gerard (1898-1916) was killed in the Battle of the Somme. His mother, ~Marie
                     Swelldon~, gave up writing afterwards.";
                 if( w == 'austin' )
-                    "Austin's quite venerable for a cat, but not that old.";
+                    "Austin e bastante veneravel para um gato, mas nao e tao velho.";
                 if( w == 'tobias' )
                     "Tobias Meldrew (1801-1870) was Professor of Theology at Christminster, 1850-66. He set himself the
                     task of proving the existence of God from first principles, a task which he announced in 1860 that
@@ -265,56 +264,50 @@ Object  -> -> Meldrewes_History "History of the Meldrews (vol. II)"
             this typifies your family, and consulting this worthy book about your ancestors makes you realise what
             an uncanny knack they had for never quite achieving anything.^^Unless, of course, you count having an
             awful lot of children. So many Meldrews are listed here that you'll have to look them up individually.",
-        article "the",
-        devil_hint "What a boring old book!  There's nobody worth looking up.",
+        article "o",
+        devil_hint "Que livro velho e enfadonho! Nao ha ninguem que valha a pena consultar.",
   has   concealed consultable;
 
-Object  antique_jewellery_box "antique jewellery box"    
+Object  antique_jewellery_box "caixa de joias antiga"    
   with  name 'antique' 'jewellery' 'box',
         with_key delicate_gold_key,
-        initial "In one corner is a jewellery box, which had previously been hidden by the open trapdoor.",
-        description "A graceful lady's box, bearing the initials A. M. and engraved with a drawing of what 
-            seems to be a rabbit's foot.",
-        article "an",
-        angel_hint "Try investigating the world of the romantic novel, out on the balconies of life.",
+        initial "Num canto ha uma caixa de joias, antes escondida pelo alçapao aberto.",
+        description "Uma elegante caixa feminina, com as iniciais A. M. e gravada com o desenho do que parece ser uma pata de coelho.",
+        article "uma",
+        angel_hint "Tente investigar o mundo do romance, nas varandas da vida.",
   has   concealed container lockable locked openable;
 
-Object  -> four_leafed_clover "four-leafed clover"       
+Object  -> four_leafed_clover "trevo de quatro folhas"       
   with  name 'four' 'leafed' 'clover',
-        description "Actually a four-leafed sprig of herb paris (Paris Quadrifolia) in the shape of a fourfold 
-            true-love knot. But that was good enough for Alison.",
+        description "Na verdade, um ramo de erva-de-paris (Paris Quadrifolia) de quatro folhas, no formato de um no do amor verdadeiro. Mas isso bastava para Alison.",
         rod_assoc rod_of_luck,
-        angel_hint "Not much use as it is, is it?",
+        angel_hint "Nao serve para muita coisa assim, serve?",
   has   hidden_rod;
 
-HRoom   House "House"    
+HRoom   House "Casa"    
   with  after [ ; 
             if( tourist_map_of_Paris in player || (tourist_map_of_Paris in rucksack && rucksack in player) ) {
                 deadflag = WON;
-                "You have succeeded in shaking off the Curse of the Meldrews: for the first time in sixty 
-                 generations, a Meldrew has found the useless object he was doomed to seek!  Unfortunately on
-                 the way to the airport you realise that you left the map on the kitchen table in all the rush,
-                 but never mind, you're on holiday now.";
+                 "Voce conseguiu se livrar da Maldicao dos Meldrews: pela primeira vez em sessenta geracoes, um Meldrew encontrou o objeto inutil que estava condenado a procurar! Infelizmente, a caminho do aeroporto, voce percebe que deixou o mapa na mesa da cozinha na correria, mas nao importa, agora voce esta de ferias.";
             }
             deadflag = FAILED;
-            "Yes, probably just as well to give up looking, and heaven knows there's enough packing to do, 
-             what with the rest of the family in uproar. Oh well.";
+            "Sim, provavelmente e melhor desistir de procurar, e Deus sabe que ha bastante coisa para arrumar, com o resto da familia em alvoroço. Fazer o que.";
         ],
   has   light;
 
-HRoom   Servants_Room "Servant's Room"   
+HRoom   Servants_Room "Quarto dos criados"   
   with  name 'bedside' 'table',
         before [;
             Sleep:
                 if( carbolic_soap hasnt concealed ) 
-                    "Racked with guilt over your bad language, you are unable to nod off.";
+                    "Dominado pela culpa por sua linguagem indecente, voce nao consegue dormir.";
                 if( player notin servants_bed ) 
                     rfalse;
                 if( Austin in location ) 
                     "Austin leaps up onto the bed, jumps around for a bit, and then falls back onto the floor. 
                      You are unable to get any sleep.";
                 if( servants_bed has general ) 
-                    "You doze awhile, but that's all.";
+                    "Voce cochila por um tempo, mas e so isso.";
                 give servants_bed general;
                 print "You sleep unexpectedly deeply, but just as you think you are starting to wake up, you 
                     experience a sudden...^";
@@ -330,7 +323,7 @@ HRoom   Servants_Room "Servant's Room"
             all this warm stuffy air. All you want to do is curl up and sleep.",
   has   ;
 
-Object  -> classical_dictionary "classical dictionary"   
+Object  -> classical_dictionary "dicionario classico"   
   with  name 'hobsons' 'choice' 'classical' 'dictionary' 'book',
         parse_name BookParsename,
         before [ w;
@@ -339,51 +332,51 @@ Object  -> classical_dictionary "classical dictionary"
                 w = NextWord();
                 if( Homer has general && Homer.number < 3 && Homer in location ) {
                     HomerSleeps();
-                    print "~Well, if you're going to cheat, forget it,~ says Homer loudly as he falls asleep.^^";
+                    print "~Bem, se voce vai trapacear, esqueca,~ diz Homero em voz alta enquanto adormece.^^";
                 }
-                if( w == 'galita' ) "Minor deity of tombs, reincarnated from a fly who flew into setting amber.";
-                if( w == 'menelaus' ) "General in Trojan War, and brother of Agamemnon.";
-                if( w == 'agamemnon' ) "General in Trojan War, and brother of Menelaus.";
-                if( w == 'ares' ) "Greek god of war.";
+                if( w == 'galita' ) "Divindade menor dos tumulos, reencarnada de uma mosca que voou para dentro de ambar em solidificacao.";
+                if( w == 'menelaus' ) "General na Guerra de Troia e irmao de Agamemnon.";
+                if( w == 'agamemnon' ) "General na Guerra de Troia e irmao de Menelau.";
+                if( w == 'ares' ) "Deus grego da guerra.";
                 if( w == 'chlamys' ) "An emperor's (rectangular) cloak.";
-                if( w == 'husbandry' ) "Not this dictionary!";
-                if( w == 'hades' ) "Underworld of spirits.";
-                if( w == 'adamantine' ) "Hardest stone known to the ancients.";
+                if( w == 'husbandry' ) "Nao neste dicionario!";
+                if( w == 'hades' ) "Mundo subterraneo dos espiritos.";
+                if( w == 'adamantine' ) "A pedra mais dura conhecida pelos antigos.";
                 if( w == 'iliad' or 'odyssey' ) "Epic by Homer.";
-                if( w == 'helicon' ) "Mythical mountain of poets and muses.";
-                if( w == 'hephaestus' ) "Greek god of blacksmiths and master of metals.";
-                if( w == 'pan' ) "Greek god of pastures and shepherds; player of the syrinx, or pipes.";
-                if( w == 'demeter' ) "Greek goddess of plenty.";
-                if( w == 'poseidon' ) "Greek god of the sea, and of horses.";
-                if( w == 'apollo' or 'loxias' ) "Greek god of words, music and poetry.";
-                if( w == 'zeus' ) "Greek ruler of the gods.";
-                if( w == 'leda' ) "Mortal woman seduced by Zeus, who appeared to her in the form of a swan.";
-                if( w == 'hera' ) "Jealous wife of Zeus.";
-                if( w == 'aphrodite' ) "Greek goddess of beauty.";
-                if( w == 'athene' ) "Greek goddess of wisdom.";
-                if( w == 'diana' ) "Goddess of hunting, the underworld (with Pluto) and the moon.";
-                if( w == 'selenae' ) "Mythical island mountain home of Diana.";
+                if( w == 'helicon' ) "Montanha mitica dos poetas e das musas.";
+                if( w == 'hephaestus' ) "Deus grego dos ferreiros e mestre dos metais.";
+                if( w == 'pan' ) "Deus grego dos pastos e pastores; toca a sirinx, ou flauta.";
+                if( w == 'demeter' ) "Deusa grega da abundancia.";
+                if( w == 'poseidon' ) "Deus grego do mar e dos cavalos.";
+                if( w == 'apollo' or 'loxias' ) "Deus grego das palavras, musica e poesia.";
+                if( w == 'zeus' ) "Governante grego dos deuses.";
+                if( w == 'leda' ) "Mulher mortal seduzida por Zeus, que apareceu para ela na forma de um cisne.";
+                if( w == 'hera' ) "Esposa ciumenta de Zeus.";
+                if( w == 'aphrodite' ) "Deusa grega da beleza.";
+                if( w == 'athene' ) "Deusa grega da sabedoria.";
+                if( w == 'diana' ) "Deusa da caca, do mundo subterraneo (com Pluto) e da lua.";
+                if( w == 'selenae' ) "Ilha mitica, lar montanhoso de Diana.";
                 if( w == 'sosostris' ) 
                     "Mythical pharoah of Egypt, after whom a curious cult rose: sometimes confused with 
                      Alexander the Great.";
-                if( w == 'pluto' ) "Canine Walt Disney character, after whom the planet is named.";
-                if( w == 'dionysus' ) "Greek god of wine, and revelry.";
+                if( w == 'pluto' ) "Personagem canino de Walt Disney, que deu nome ao planeta.";
+                if( w == 'dionysus' ) "Deus grego do vinho e da folia.";
                 if( w == 'furies' or 'curses' or 'eumenides' ) 
                     "Eternally pursuing Greek goddesses, they enforced divine rules by punishing the 
                      families of miscreants through all time.";
-                if( w == 'omphalos' ) "Fabled to be the stone at the centre (literally ~navel~) of the world.";
+                if( w == 'omphalos' ) "Diz-se que e a pedra no centro (literalmente ~umbigo~) do mundo.";
                 if( w == 'oracle' or 'pythian' ) 
                     "Priestess of Apollo: her predictions were legendary for their accuracy, and also their 
                      difficulty to interpret.";
                 if( w == 'pharos' ) 
-                    "Lighthouse-tower. The great one at Alexandria was one of the Seven Wonders of the World.";
-                if( w == 'aeschylus' ) "The first great tragic playwright (525 - c.456 BC).";
+                    "Torre-farol. O grande farol de Alexandria era uma das Sete Maravilhas do Mundo.";
+                if( w == 'aeschylus' ) "O primeiro grande dramaturgo tragico (525 - c.456 a.C.).";
                 if( w == 'kraken' ) 
                     "Legendary sea-monster of Poseidon (though the word derives from the Norwegian - not a 
                      lot of people know that).";
                 if( w == 'andromeda' ) 
-                    "Maiden sacrificed to a sea-monster, according to myth eventually saved by Perseus.";
-                if( w == 'perseus' ) "Greek hero and slayer of monsters.";
+                    "Donzela sacrificada a um monstro marinho, salva por Perseu segundo a lenda.";
+                if( w == 'perseus' ) "Heroi grego e matador de monstros.";
                 if( w == 'syrinx' ) "Pan-pipes: reed-cut.";
                 if( w == 'homer' ) 
                     "Earliest poet of the Greek tradition, legendarily blind: nothing is known about him, 
@@ -392,75 +385,75 @@ Object  -> classical_dictionary "classical dictionary"
                     "The Ekmek Special is a delicacy still served to this day by the Eraina Taverna, Free School 
                      Lane, Cambridge, England. Much prized by itinerant mathematicians.";
                 if( w == 'callimachus' ) 
-                    "Cataloguer of the Alexandrian library: most famous of all the wittily brief epigrammatic poets.";
+                    "Catalogador da biblioteca de Alexandria, o mais famoso dos poetas epigramaticos, espirituosos e concisos.";
                 if( w == 'apollonius' ) "Librarian, mathematician, epic poet, politician.";
-                if( w == 'arthur' ) "Half-mythical High King of the Britons.";
-                if( w == 'merlin' or 'merlyn' ) "Half-mythical wizard to the court of King Arthur.";
-                if( w == 'alexandria' ) "City on the Nile Delta founded by Alexander the Great.";
-                if( w == 'alexander' ) "Macedonian who conquered the known world in his twenties.";
-                if( w == 'ptolemy' ) "General of Alexander the Great, governed and later inherited Egypt.";
-                if( w == 'odysseus' or 'ulysses' ) "Wasn't he a sailor?";
-                "Sorry, there's nothing on that.";
+                if( w == 'arthur' ) "Alto rei dos britanos, meio mitico.";
+                if( w == 'merlin' or 'merlyn' ) "Mago meio mitico da corte do rei Arthur.";
+                if( w == 'alexandria' ) "Cidade no delta do Nilo fundada por Alexandre, o Grande.";
+                if( w == 'alexander' ) "Macedonio que conquistou o mundo conhecido aos vinte e poucos anos.";
+                if( w == 'ptolemy' ) "General de Alexandre, o Grande, governou e depois herdou o Egito.";
+                if( w == 'odysseus' or 'ulysses' ) "Ele nao era marinheiro?";
+                "Desculpe, nao ha nada sobre isso.";
         ],
         list_together n_obj,
-        initial "There's a little book on the tiny bedside table.",
-        description "~Hobson's: A Choice Classical Dictionary~. It claims to have numerous entries.",
+        initial "Ha um livrinho sobre a mesinha ao lado da cama.",
+        description "~Hobson: Um Dicionario Classico de Escolhas~. Ele afirma ter numerosos verbetes.",
         article "Hobson's",
-        devil_hint "Lots of naughty words in that one.",
+        devil_hint "Ha muitas palavras indecentes nesse.",
   has   consultable;
 
-Object  -> servants_bed "camp bed"       
+Object  -> servants_bed "cama de campanha"       
   with  name 'camp' 'bed',
   has   enterable scenery supporter;
 
-Object  -> old_striped_scarf "old striped scarf" 
+Object  -> old_striped_scarf "cachecol listrado velho" 
   with  name 'old' 'striped' 'scarf',
-        initial "An old striped scarf hangs up behind the doorway.",
+        initial "Um cachecol listrado velho esta pendurado atras da porta.",
         description "This is an old Biblioll College scarf, made by Dunn and Co. (naturally). It has four stripes: 
             royal blue, emerald, dark grey and scarlet.",
-        article "an",
-        devil_hint "The very height of fashion, if you ignore the colours and wear it regardless.",
+        article "um",
+        devil_hint "O auge da moda, se voce ignorar as cores e usa-lo mesmo assim.",
   has   clothing;
 
-Object  tight_door "tight door"  
+Object  tight_door "porta estreita"  
   with  name 'tight' 'door',
-        initial "A tight door stands open in the northern wall, giving onto the servants' staircase.",
+        initial "Uma porta estreita esta aberta na parede norte, dando para a escada dos criados.",
   has   static;
 
-HRoom   Old_Furniture "Old Furniture"    
+HRoom   Old_Furniture "Moveis velhos"    
   with  name 'armchairs' 'umbrella' 'table' 'stand' 'rubbish' 'armchair',
         n_to Attic,
         se_to Over_the_East_Wing,
         description "Scruffy old furniture is piled up here: armchairs with springs coming out, umbrella 
             stands, a badly scratched cupboard, a table with one leg missing... You try to remember why you keep
             all this rubbish, and fail. Anyway the attic continues to the southeast.",
-        cant_go "The attic turns from north to southeast here.",
+        cant_go "O sotao muda do norte para o sudeste aqui.",
   has   ;
 
-Object  -> furniture "furniture" 
+Object  -> furniture "moveis" 
   with  name 'furniture',
-        description "Nothing there, but that cupboard looks interesting.",
+        description "Nada ali, mas aquele armario parece interessante.",
   has   scenery;
 
-Object  -> scratched_cupboard "scratched cupboard"       
+Object  -> scratched_cupboard "armario arranhado"       
   with  name 'scratched' 'cupboard',
   has   container open openable scenery;
 
-Object  -> -> bird_whistle "bird whistle"        
+Object  -> -> bird_whistle "apito de passarinho"        
   with  name 'bird' 'whistle' 'harrison',
         before [;
             Blow:
-                if( gas_mask has worn ) "With the gas mask on?";
+                if( gas_mask has worn ) "Com a mascara de gas?";
                  print "Fweep!  Fweep!^";
                 if( Austin in location ) 
-                    print "^Austin is startled, but too lazy to look up.^";
+                    print "^Austin se assusta, mas e preguicoso demais para olhar para cima.^";
                 if( location == Hedgery ) 
-                    "^The sparrows swoop down and around you, but rapidly lose interest.";
+                    "^Os pardais mergulham e voam ao seu redor, mas logo perdem o interesse.";
                 if( location == Summer_House ) {
                     if( flock_of_sparrows has general ) 
-                        "^But the sparrows cannot hear.";
+                        "^Mas os pardais nao conseguem ouvir.";
                     if( gold_watch_on_a_chain has moved ) 
-                        "^But the sparrows are wise to that one.";
+                        "^Mas os pardais ja conhecem esse truque.";
                     give gold_watch_on_a_chain moved;
                     give flock_of_sparrows general;
                     remove irate_squirrel_friend;
@@ -471,7 +464,7 @@ Object  -> -> bird_whistle "bird whistle"
                      who take to the skies. You feel rather deserted all of a sudden.";
                 }
                 if( location == Cliffs or Cave_Mouth ) 
-                    "^The sacred falcon of Apollo wheels high in the sky over the cave mouth, but then flies away.";
+                    "^O falcao sagrado de Apolo circula alto no ceu sobre a entrada da caverna, mas depois voa para longe.";
                 if( location == Necropolis && unexciting_tombstone in nothing )  {
                     move cloak_of_many_colours to Necropolis;
                     move unexciting_tombstone to Necropolis;
@@ -485,11 +478,11 @@ Object  -> -> bird_whistle "bird whistle"
                      awake at night.)";
                 rtrue;
         ],
-        description "A patent ~Harrison~ bird-whistle, according to the slogan on one side.",
-        devil_hint "It has a calm, soothing effect.",
+        description "Um apito de passarinho ~Harrison~, segundo o slogan em um dos lados.",
+        devil_hint "Ele tem um efeito calmo e tranquilizador.",
   has   ;
 
-Object  -> -> gift_wrapped_parcel "gift-wrapped parcel"  
+Object  -> -> gift_wrapped_parcel "pacote embrulhado para presente"  
   with  name 'gift' 'parcel',
         before [ ;
             Open:
@@ -497,12 +490,12 @@ Object  -> -> gift_wrapped_parcel "gift-wrapped parcel"
                 move postcard_of_the_Champs_Elysees to player;
                 move box_of_chocolates to player;
                 move wrapping_paper to location;
-                "You tear open the parcel to find a box of chocolates and a card.";
+                "Voce rasga o pacote e encontra uma caixa de chocolates e um cartao.";
         ],
-        devil_hint "Shame the wrapping paper won't come off.",
+        devil_hint "Que pena que o papel de presente nao sai.",
   has   ;
 
-Object  -> -> medicine_bottle "mb"       
+Object  -> -> medicine_bottle "frasco de remedio"       
   with  name 'medicine' 'bottle',
         before [;
             Attack:
@@ -515,45 +508,45 @@ Object  -> -> medicine_bottle "mb"
                  take to break the dratted thing?";
             Receive:
                 if( self has open && noun ~= red_tablet )
-                    "The neck is too narrow to fit anything but the pill.";
+                    "O gargalo e estreito demais para caber qualquer coisa alem do comprimido.";
                 rfalse;
         ],
         initial nothing,
-        description "~Antidote only: no preventative effect.~",
+        description "~Somente antidoto: nenhum efeito preventivo.~",
         short_name [;
             if( self hasnt locked ) {
                 print "cracked medicine bottle";
             } else {
-                print "guaranteed-unbreakable medicine bottle with a child-proof lock";
+                print "frasco de remedio indestrutivel garantido com trava a prova de criancas";
             }
             rtrue;
         ],
-        devil_hint "These bottles can even survive long drops, so perhaps you should try fire.",
+        devil_hint "Esses frascos sobrevivem ate a quedas longas, entao talvez voce deva tentar o fogo.",
   has   container locked openable;
 
-Object  -> -> -> red_tablet "red tablet" 
+Object  -> -> -> red_tablet "comprimido vermelho" 
   with  name 'red' 'pill' 'tablet',
         after [;
             Eat:
                 give player ~general;
                 tablet_eaten = true;
-                "It tastes alarmingly of chocolate.";
+                "O gosto alarmante e de chocolate.";
         ],
-        devil_hint "This drug is for fun, it isn't an antidote. And it tastes gorgeous...",
+        devil_hint "Esta droga e para diversao, nao e um antidoto. E tem um sabor delicioso...",
   has   edible scored;
 
-Object  box_of_chocolates "box of chocolates"    
+Object  box_of_chocolates "caixa de chocolates"    
   with  name 'box' 'of' 'chocolate' 'chocs',
-        devil_hint "Far too nice to give to anybody else. In fact...",
+        devil_hint "Bom demais para dar a qualquer outra pessoa. Na verdade...",
   has   edible;
 
-Object  wrapping_paper "wrapping paper with reindeer on" 
+Object  wrapping_paper "papel de presente com renas" 
   with  name 'wrapping' 'paper' 'reindeer',
         article "some",
-        devil_hint "The reindeer have enormous significance.",
+        devil_hint "As renas tem enorme importancia.",
   has   ;
 
-Object  postcard_of_the_Champs_Elysees "postcard of the Champs-Elysees"  
+Object  postcard_of_the_Champs_Elysees "cartao-postal dos Campos Eliseos"  
   with  name 'postcard' 'card',
         after [;
             Examine:
@@ -565,11 +558,11 @@ Object  postcard_of_the_Champs_Elysees "postcard of the Champs-Elysees"
                 }
         ],
         list_together n_obj,
-        description "It is addressed to the house, and postmarked 1963, but has no message. Odd, that.",
-        devil_hint "There's no message there to read.",
+        description "E enderecado a casa e carimbado em 1963, mas nao tem mensagem. Estranho.",
+        devil_hint "Nao ha mensagem para ler.",
   has   ;
 
-HRoom   Over_the_East_Wing "Over the East Wing"  
+HRoom   Over_the_East_Wing "Sobre a ala leste"  
   with  name 'steps',
         s_to Disused_Observatory,
         e_to East_Annexe,
@@ -590,13 +583,13 @@ Object  -> Austin "Austin"
   with  name 'austin' 'cat' 'ginger' 'tail',
         before [;
             Rub, Touch, Squeeze:
-                "Austin curls about your foot implacably.";
+                "Austin se enrola implacavelmente em seu pe.";
             Take:
-                "Austin sidles out of reach resentfully, then belches.";
+                "Austin se afasta ressentido, para fora do alcance, e depois arrota.";
             Pull:
-                "Austin hisses and will not be pulled by the tail.";
+                "Austin sibila e nao deixa que puxem seu rabo.";
             Push:
-                "Perhaps you should say which way to push Austin.";
+                "Talvez voce deva dizer para que lado empurrar Austin.";
             PushDir:
                 if( ( location == Attic && second == n_obj or e_obj or s_obj ) ||
                     ( location == Old_Winery && second == w_obj or s_obj ) ||
@@ -612,32 +605,32 @@ Object  -> Austin "Austin"
                     give self moved;
                     rtrue;
                 }
-                "Austin refuses to go that way.";
+                "Austin se recusa a ir por ali.";
         ],
         after [;
-            PushDir: "Austin reluctantly accompanies you.";
+            PushDir: "Austin acompanha voce de ma vontade.";
         ],
         life [;
             Attack: 
                 "It is so pathetically easy to kick Austin that you never quite have the heart. Thus he outwits 
                  you again.";
-            Order, Answer: "I can see you've never had a cat.";
-            Ask: "Austin belches splendidly by way of reply.";
-            Kiss: "Austin (just) tolerates this show of affection.";
+            Order, Answer: "Vejo que voce nunca teve um gato.";
+            Ask: "Austin arrota esplendidamente em resposta.";
+            Kiss: "Austin apenas tolera essa demonstracao de afeto.";
             Give:
                 if( noun == chicken_wishbone ) {
                     GoodTry();
-                    "Some cats do like the smell of chicken bones, but Austin doesn't.";
+                    "Alguns gatos gostam do cheiro de ossos de galinha, mas Austin nao.";
                 }
                 if( noun == robot_mouse ) {
                     move robot_mouse to location;
-                    "Austin claws it to the ground, captiously.";
+                    "Austin derruba isso no chao com as garras, de modo irritadico.";
                 }
                 if( noun has edible )
-                    "For once, Austin is not really hungry.";
-                print_ret "Austin is unimpressed with ", (the) noun, ".";
+                    "Pela primeira vez, Austin nao esta realmente com fome.";
+                print_ret "Austin nao se impressiona com ", (the) noun, ".";
         ],
-        initial "Austin, your incorrigible ginger cat, lounges around here.",
+        initial "Austin, seu gato ruivo incorrigivel, fica esparramado por aqui.",
         description "(Aunt Jemima has two cats, Jane and Austin, but she finds Austin especially annoying - about 
             the only point you have ever agreed with her about.)^^Austin, a ginger with a long tail and an
             uncompromisingly lazy expression, is the kind of cat who hates being pushed around.",
@@ -677,10 +670,10 @@ Object  -> Austin "Austin"
         if( env == Potting_Room ) {
             move Austin to Conservatory;
             if( location == Potting_Room ) {
-                "^Jemima catches sight of Austin, and without warning jumps on the spot, startling him. He springs away, hissing.";
+                "^Jemima ve Austin e, sem aviso, pula no lugar, assustando-o. Ele salta para longe, sibilando.";
             }
             if( location == Conservatory ) {
-                "^Austin springs in from the potting room like a scalded cat, but hastily rearranges himself to his usual ~cool slob~ demeanour.";
+                "^Austin entra da sala de jardinagem como um gato escaldado, mas logo reassume seu habitual jeito de ~folgado tranquilo~.";
             } 
             rfalse;
         }
@@ -692,25 +685,25 @@ Object  -> Austin "Austin"
                 rfalse;
             }
             if( robot_mouse in location ) {
-                "^Austin plays with the robot mouse, kicking it wildly across the floorboards. It beeps piteously, hoping to be rescued.";
+                "^Austin brinca com o rato robo, chutando-o pelo assoalho. Ele apita lastimosamente, esperando ser resgatado.";
             }
             if( location == East_Annexe && random(2) == 1 ) {
-                "^Austin scuffles with the insulation rolls, as if trying to bury something.";
+                "^Austin se atraca com os rolos de isolamento, como se tentasse enterrar algo.";
             }
             if( location == Dark_Room && random(2) == 1 ) {
-                "^Austin jumps up at the cord, but falls back down again, growling.";
+                "^Austin pula na corda, mas cai de volta, rosnando.";
             }
             if( i == 1 ) {
                 "^Austin yawns.";
             }
             if( i == 2 ) {
-                "^Austin rolls over on his back and stretches.";
+                "^Austin rola de costas e se espreguica.";
             }
             if( i == 3 ) {
                 "^Austin looks ineffable again.";
             }
             if( i == 4 ) {
-                "^Austin purrs and licks one of his paws.";
+                "^Austin ronrona e lambe uma das patas.";
             }
             rfalse;
         }
@@ -879,7 +872,7 @@ Object  -> Austin "Austin"
     rtrue;
 ];
 
-HRoom   Dark_Room "Dark Room"    
+HRoom   Dark_Room "Camara escura"    
   with  after [;
             Look:
                 if( self has light )
@@ -892,7 +885,7 @@ HRoom   Dark_Room "Dark Room"
         cant_go "The only doorway is back east.",
   has   ;
 
-Object  -> sepia_photograph "sepia photograph"   
+Object  -> sepia_photograph "fotografia em sepia"   
   with  name 'sepia' 'photo' 'photograp' 'plaque',
         initial "Mounted on a plaque is an old sepia photograph of a man.",
         description "The photograph is one of the very early ones which looks as if it was taken in the dark 
@@ -902,7 +895,7 @@ Object  -> sepia_photograph "sepia photograph"
         article "the old",
   has   static;
 
-Object  -> hanging_cord "hanging cord"   
+Object  -> hanging_cord "cordao pendurado"   
   with  name 'hanging' 'cord',
         before [;
             Pull:
@@ -920,7 +913,7 @@ Object  -> hanging_cord "hanging cord"
         description "It is attached to the ceiling.",
   has   static;
 
-Object  -> -> golden_orb "glowing golden orb"    
+Object  -> -> golden_orb "orbe dourado brilhante"    
   with  name 'glowing' 'golden' 'orb',
         before [;
             Rub:
@@ -939,7 +932,7 @@ Object  -> -> golden_orb "glowing golden orb"
             seem visible through the haze: a horse's head, castle walls, a priest's crook.",
   has   scored;
 
-Object  -> photographers_flash "photographer's flash"    
+Object  -> photographers_flash "flash fotografico"    
   with  name 'photograp' 'flash' 'compartment',
         before [ i j;
             Receive:
@@ -960,12 +953,12 @@ Object  -> photographers_flash "photographer's flash"
         angel_hint "When you can get this working, perhaps you should take it somewhere prominent.",
   has   container openable;
 
-Object  red_lamp "red lamp"      
+Object  red_lamp "lampada vermelha"      
   with  name 'red' 'lamp' 'light' 'developing',
         description "Things do look subtly different in this light.",
   has   scenery;
 
-HRoom   Disused_Observatory "Disused Observatory"        
+HRoom   Disused_Observatory "Observatorio desativado"        
   with  name 'mural' 'zodiac' 'beam' 'stand',
         after [;
             Look:
@@ -1046,7 +1039,7 @@ HRoom   Disused_Observatory "Disused Observatory"
         quite a loud report from off to the east somewhere.";
 ];
 
-Object  -> smoke_detector "smoke detector"       
+Object  -> smoke_detector "detector de fumaca"       
   with  name 'smoke' 'detector' 'alarm' 'fire',
         description "It isn't at all clear on what principle the detector works. It looks like a smoke detector, 
             certainly. But you just left the contractors to sort out all those boring fire prevention matters
@@ -1055,7 +1048,7 @@ Object  -> smoke_detector "smoke detector"
             chances are it would be useless.",
   has   scenery;
 
-Object  -> solid_glass_ball "solid glass ball"   
+Object  -> solid_glass_ball "bola de vidro macico"   
   with  name 'glass' 'ball',
         before [;
             Rub:
@@ -1088,7 +1081,7 @@ Object  -> solid_glass_ball "solid glass ball"
         initial "Mounted on the old telescope stand is what looks like a solid glass ball.",
   has   static;
 
-HRoom   Library_Storage "Library Storage"        
+HRoom   Library_Storage "Deposito da biblioteca"        
   with  name 'tank',
         e_to Disused_Observatory,
         description "Once upon a time, the house library was used as a gun-room, and all the unwanted books kept 
@@ -1097,7 +1090,7 @@ HRoom   Library_Storage "Library Storage"
         cant_go "From here, you can only squeeze back east to the observatory.",
   has   ;
 
-Object  -> water_pipe "water pipe"       
+Object  -> water_pipe "cano de agua"       
   with  name 'water' 'pipe' 'joint' 'pipes',
         before [;
             TurnWith:
@@ -1122,7 +1115,7 @@ Object  -> water_pipe "water pipe"
         description "The joint on the water pipe looks none too sturdy.",
   has   concealed static;
 
-Object  -> romantic_novel "romantic novel"       
+Object  -> romantic_novel "romance"       
   with  name 'romance' 'romantic' 'novel' 'book',
         parse_name BookParsename,
         before [;
@@ -1152,7 +1145,7 @@ Object  -> romantic_novel "romantic novel"
         obliged to spend the rest of the afternoon getting a plumber at short notice.";
 ];
 
-Object  -> book_of_Twenties_poetry "book of Twenties poetry"     
+Object  -> book_of_Twenties_poetry "livro de poesia dos anos vinte"     
   with  name 'poetry' 'book',
         parse_name BookParsename,
         before [;
@@ -1195,7 +1188,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
     ", beautifully magnified and amazingly life-like. Why, you'd hardly know there was a wall there at all.";
 ];
 
-HRoom   Souvenirs_Room "Souvenirs Room"  
+HRoom   Souvenirs_Room "Sala das lembrancas"  
   with  name 'souvenirs' 'holiday' 'snaps' 'beam',
         before [ o;
             Examine:
@@ -1229,7 +1222,7 @@ HRoom   Souvenirs_Room "Souvenirs Room"
             house. The only way to go is back up to the observatory.",
   has   ;
 
-Object  -> slide_projector "slide projector"     
+Object  -> slide_projector "projetor de slides"     
   with  name 'slide' 'projector' 'switch' 'dial' 'slot' 'focus',
         before [;
             Receive:
@@ -1332,7 +1325,7 @@ Object  -> slide_projector "slide projector"
     rtrue;
 ];
 
-Object  -> south_wall "south wall"       
+Object  -> south_wall "parede sul"       
   with  before [ o;
             Enter:
                 o = child(slide_projector);
@@ -1370,7 +1363,7 @@ Object  -> south_wall "south wall"
         door_dir s_to,
   has   concealed door open scenery static;
 
-HRoom   East_Annexe "East Annexe"        
+HRoom   East_Annexe "Anexo leste"        
   with  name 'gap' 'tiles' 'roof',
         before [;
             Go, Enter:
@@ -1394,7 +1387,7 @@ HRoom   East_Annexe "East Annexe"
         ],
   has   light;
 
-Object  -> insulation_rolls "insulation rolls"   
+Object  -> insulation_rolls "rolos de isolamento"   
   with  name 'insulation' 'rolls' 'roll',
         before [;
             Examine, Search, LookUnder:
@@ -1410,14 +1403,14 @@ Object  -> insulation_rolls "insulation rolls"
         article "some",
   has   scenery;
 
-Object  -> -> new_battery "new-looking battery"  
+Object  -> -> new_battery "bateria aparentemente nova"  
   with  name 'new' 'battery',
         list_together s_obj,
         number 300,
         devil_hint "That is a difficult puzzle, yes.",
   has   battery_flag;
 
-Object  -> cupboard_door "cupboard door" 
+Object  -> cupboard_door "porta do armario" 
   with  name 'cupboard' 'door',
         before [;
             Knock: "There is no reply, and frankly it's hard to imagine anyone's in there.";
@@ -1429,7 +1422,7 @@ Object  -> cupboard_door "cupboard door"
         when_open "In the north wall is an open cupboard door, large enough to step inside.",
   has   door lockable openable static;
 
-HRoom   Dead_End "Dead End"      
+HRoom   Dead_End "Beco sem saida"      
   with  name 'soot' 'chimney' 'sweeping' 'gear',
         before [;
             Go:
@@ -1446,7 +1439,7 @@ HRoom   Dead_End "Dead End"
   has   ;
 
 ! this is not in the original, which gives the compass objects names 'wall'. I'm just going to add it for simplicity
-Object  -> south_wall2 "south wall"
+Object  -> south_wall2 "parede sul"
         with name 'south' 'wall',
         before [;
             Knock: "The south wall rings curiously hollow.";
@@ -1459,7 +1452,7 @@ Object  -> south_wall2 "south wall"
         ],
         has scenery;
 
-Object  -> rucksack "canvas rucksack"     
+Object  -> rucksack "mochila de lona"     
   with  name 'canvas' 'rucksack' 'sack',
         initial "Great Scott!  That old canvas rucksack must be the very one your famous ancestor, the African 
             explorer Ebenezer Meldrew, brought back from the Zambezi Expedition of 1882!",
@@ -1468,7 +1461,7 @@ Object  -> rucksack "canvas rucksack"
         devil_hint "It might be handy, if only it could carry anything.",
   has   clothing container open openable;
 
-Object  secret_door "secret door"        
+Object  secret_door "porta secreta"        
   with  name 'secret' 'door',
         door_to Alisons_Writing_Room,
         when_closed "The secret door is closed.",
@@ -1476,21 +1469,21 @@ Object  secret_door "secret door"
         when_open "A secret door stands open in the south wall!",
   has   concealed door open openable static;
 
-Object  fire_escape "fire escape"        
+Object  fire_escape "escada de incendio"       
   with  name 'fire' 'escape' 'hatchway' 'hatch',
         door_to Beside_the_Drive,
         door_dir d_to,
         when_open "A hatchway in the east wall, onto an old iron fire escape, is open and light floods in through it. (Some fool must have set the alarm off.)",
   has   door open static;
 
-HRoom   Inside_Cupboard "Inside Cupboard"        
+HRoom   Inside_Cupboard "Dentro do armario"        
   with  s_to East_Annexe,
         w_to big_iron_fireplace,
         u_to cranked_skylight,
         description "This is a surprisingly spacious cupboard, which you can't recall ever visiting before today. You really ought to use this convenient empty room for something...",
   has   ;
 
-Object  -> painting_of_Mad_Isaac_Meldrewe "painting of Mad Isaac Meldrewe"       
+Object  -> painting_of_Mad_Isaac_Meldrewe "quadro de Isaac Meldrewe, o Louco"       
   with  name 'painting' 'of' 'mad' 'isaac' 'picture',
         after [;
             Take:        
@@ -1511,7 +1504,7 @@ Object  -> painting_of_Mad_Isaac_Meldrewe "painting of Mad Isaac Meldrewe"
         devil_hint "Carry this with you everywhere you go.",
   has   ;
 
-Object  -> big_iron_fireplace "big iron fireplace"       
+Object  -> big_iron_fireplace "grande lareira de ferro"       
   with  name 'iron' 'fireplace' 'chimney',
         after [;
             Receive:
@@ -1531,7 +1524,7 @@ Object  -> big_iron_fireplace "big iron fireplace"
         when_open "There is a big iron fireplace in the west wall.",
   has   concealed container door open static;
 
-Object  -> cranked_skylight "cranked skylight"   
+Object  -> cranked_skylight "claraboia com manivela"   
   with  name 'crank' 'cranked' 'skylight' 'handle',
         before [;
             Turn:
@@ -1554,7 +1547,7 @@ Object  -> cranked_skylight "cranked skylight"
             is completely irrelevant, but you did ask.",
   has   door static;
 
-Object  -> gas_mask "gas mask"   
+Object  -> gas_mask "mascara de gas"   
   with  name 'gas' 'mask' 'gasmask',
         after [;
             Wear: "After a brief ecstasy of fumbling, you pull it on. It smells unpleasantly of World War II leftover 
@@ -1563,7 +1556,7 @@ Object  -> gas_mask "gas mask"
         devil_hint "The cork filters have gone. It's useless now.",
   has   clothing;
 
-HRoom   Roof "Roof"      
+HRoom   Roof "Telhado"      
   with  name 'roof' 'balcony' 'skylight' 'tiles' 'tile' 'catwalk',
         nw_to Battlements,
         d_to Inside_Cupboard,
@@ -1571,14 +1564,14 @@ HRoom   Roof "Roof"
         cant_go "William Wordsworth once described poetry as emotion recollected in tranquillity. If so, hospitals must be full of people turning out verses about what it was like to fall off the roof of a high building. Perhaps it might be better not to join them.",
   has   light;
 
-HRoom   Battlements "Battlements"        
+HRoom   Battlements "Ameias"        
   with  name 'battlements' 'crenellations',
         se_to Roof,
         description "The old crenellated battlements of the house. An Englishman's home is, of course, his castle, but Meldrew Hall never saw much fighting and these military-looking features were just a seventeenth-century fashion. They also weren't intended for standing on, and the only safe way to proceed is back southeast.^^It is peculiarly cold here.",
         cant_go "The rooftop is far too dangerous in that direction.",
   has   light;
 
-Object  -> iron_key "gothic-looking iron key"    
+Object  -> iron_key "chave de ferro gotica"    
   with  name 'gothic' 'looking' 'iron' 'key' 'gothic-looking',
         before [;
             Take:
@@ -1649,7 +1642,7 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
 
   has   animate concealed;
 
-Object  Chimney "Chimney"        
+Object  Chimney "Chamine"        
   with  before [ o;
             Exit, Look, Inv: rfalse;
             Go:
@@ -1667,7 +1660,7 @@ Object  Chimney "Chimney"
         cant_go "Not a chance!",
   has   ;
 
-Object  -> sooty_old_stick "sooty old stick"     
+Object  -> sooty_old_stick "galho velho sujo de fuligem"     
   with  name 'sooty' 'stick',
         initial "Wedged loosely in beside you is a sooty old stick.",
         rod_assoc rod_of_fire,
@@ -1681,7 +1674,7 @@ Object  -> sooty_old_stick "sooty old stick"
     rtrue;
 ];
 
-HRoom   Priests_Hole "Priest's Hole"    
+HRoom   Priests_Hole "Esconderijo do padre"    
   with  name 'cross' 'padded' 'chute' 'crawl',
         before [ o;
             Enter:
@@ -1715,7 +1708,7 @@ Object  -> hatch "hatch"
         description "Perhaps the attic key might unlock it?  It does look modern compared to everything else here.",
   has   door lockable locked openable static;
 
-Object  -> ancient_prayer_book "ancient prayer book"     
+Object  -> ancient_prayer_book "livro de oracoes antigo"     
   with  name 'diary' 'ancient' 'prayer' 'book',
         parse_name BookParsename,
         before [ year;
@@ -1753,7 +1746,7 @@ Object  -> ancient_prayer_book "ancient prayer book"
         devil_hint "The really good research was in his earlier years.",
   has   consultable;
 
-HRoom   Alisons_Writing_Room "Alison's Writing Room"     
+HRoom   Alisons_Writing_Room "Escritorio de Alison"     
   with  name 'engraving' 'dice' 'outline' 'sixes' 'door',
         before [;
             Sleep:
@@ -1790,7 +1783,7 @@ HRoom   Alisons_Writing_Room "Alison's Writing Room"
         cant_go "There's just the secret north door, unless of course you count the windows.",
   has   light;
 
-Object  -> comfortable_bed "comfortable bed"     
+Object  -> comfortable_bed "cama confortavel"     
   with  name 'comfortable' 'bed',
         before [;
             Receive:
@@ -1801,7 +1794,7 @@ Object  -> comfortable_bed "comfortable bed"
         ],
   has   enterable light scenery supporter;
 
-Object  -> windows "windows"     
+Object  -> windows "janelas"     
   with  name 'windows' 'window' 'latticed' 'glass' 'lattice',
         before [;
             Attack, Push, Pull:
@@ -1845,7 +1838,7 @@ Object  -> windows "windows"
      house. You can just make it out as it races down the footpath.";
 ];
 
-Object  -> long_vanity_mirror "long vanity mirror"       
+Object  -> long_vanity_mirror "espelho comprido"       
   with  name 'long' 'vanity' 'mirror',
         before [ o i;
             Attack: "What, and earn seven years bad luck?";
@@ -1878,7 +1871,7 @@ Object  -> long_vanity_mirror "long vanity mirror"
         initial "There is a long vanity mirror beside the bed.",
   has   static;
 
-HRoom   Tiny_Balcony "Tiny Balcony"      
+HRoom   Tiny_Balcony "Varanda pequena"      
   with  name 'roof' 'motorway' 'garden',
         n_to Alisons_Writing_Room,
         description "A tiny balcony around Miss Alison's windows, offering fresh air, blue skies and a 
@@ -1887,7 +1880,7 @@ HRoom   Tiny_Balcony "Tiny Balcony"
         cant_go "The rooftop is far too dangerous in that direction.",
   has   light;
 
-Object  -> window_sill "window sill"     
+Object  -> window_sill "parapeito da janela"     
   with  name 'window' 'sill',
         before [;
             Search, LookUnder:
@@ -1901,13 +1894,13 @@ Object  -> window_sill "window sill"
         description "You look down on a low, bare window-sill.",
   has   static;
 
-Object  -> delicate_gold_key "delicate gold key" 
+Object  -> delicate_gold_key "chave de ouro delicada" 
   with  name 'delicate' 'gold' 'key',
         sw_to compass,
         devil_hint "Gold and lead are naturally related, so you want to find a lead box to open.",
   has   concealed scored;
 
-HRoom   Old_Winery "Old Winery"  
+HRoom   Old_Winery "Adega velha"  
   with  name 'banister' 'rail' 'crack' 'paraphernalia',
         before [;
             PutOn:
@@ -1940,7 +1933,7 @@ HRoom   Old_Winery "Old Winery"
         ],
   has   ;
 
-Object  -> demijohn "labelled glass demijohn" 
+Object  -> demijohn "garrafao de vidro rotulado" 
   with  name 'demijohn' 'glass' 'bottle' 'label',
         before [;
             Open:
@@ -1955,14 +1948,14 @@ Object  -> demijohn "labelled glass demijohn"
         description "Faded ink on the label reads: Elderberry '63.",
   has   container openable static transparent;
 
-Object  -> -> nasty_battery "nasty-looking red battery"       
+Object  -> -> nasty_battery "bateria vermelha de aspecto desagradavel"       
   with  name 'nasty' 'red' 'battery',
         list_together s_obj,
         description "On the side is the word ~Achtung~.",
         devil_hint "It's provided for your torch, and not for anything else.",
   has   battery_flag;
 
-Object  -> -> tourist_map "tourist map"  
+Object  -> -> tourist_map "mapa turistico"  
   with  name 'hamburg' 'tourist' 'map',
         before [ n;
             Consult:
@@ -1984,7 +1977,7 @@ Object  -> -> tourist_map "tourist map"
         devil_hint "Purely decorative.",
   has   ;
 
-HRoom   Conservatory "Aunt Jemima's Lair"        
+HRoom   Conservatory "Covil da tia Jemima"        
   with  name 'objets' 'trouves' 'pottery' 'bric' 'brac',
         after [;
             Look:
@@ -2005,7 +1998,7 @@ HRoom   Conservatory "Aunt Jemima's Lair"
             leads up and to the east into the attic.^^Jemima herself seems to be in the potting room to the west.",
   has   light;
 
-Object  -> daisy_calendar "daisy calendar"       
+Object  -> daisy_calendar "calendario de margaridas"       
   with  name 'calendar' 'page' 'pages' 'daisy',
         before [ i w;
             Examine: 
@@ -2058,14 +2051,14 @@ Object  -> daisy_calendar "daisy calendar"
         number 5,
   has   scenery;
 
-HRoom   Airing_Cupboard "Airing Cupboard"        
+HRoom   Airing_Cupboard "Armario de roupas"        
   with  name 'coffee' 'mugs' 'sculpture' 'racks' 'mug',
         n_to Conservatory,
         description "A space about six feet square. The old drying racks now contain odd ceramic sculptures almost but not quite unrecognisable as coffee mugs. One corner is filled with an enormous pile of tie-dyed sheets, from Aunt Jemima's infamous Sixties Revival period of last October.",
         cant_go "The only way to go from here is back north.",
   has   light;
 
-Object  -> pile_of_sheets "pile of sheets"       
+Object  -> pile_of_sheets "pilha de lencois"       
   with  name 'pile' 'of' 'sheets' 'sheet',
         before [;
             Take:
@@ -2107,7 +2100,7 @@ Object  -> pile_of_sheets "pile of sheets"
         ],
   has   scenery;
 
-Object  -> antiquated_wireless "antiquated wireless"     
+Object  -> antiquated_wireless "radio antiga"     
   with  name 'switch' 'cabinet' 'radio' 'wireless',
         before [;
             if( self has concealed )   ! pretty sure this is impossible to reach -- ATG
@@ -2164,7 +2157,7 @@ Object  -> antiquated_wireless "antiquated wireless"
 
   has   concealed static switchable;
 
-HRoom   Potting_Room "Potting Room"      
+HRoom   Potting_Room "Sala de jardinagem"      
   with  name 'plants' 'flowers' 'seeds' 'trowels',
         after [;
             Go:
@@ -2187,7 +2180,7 @@ HRoom   Potting_Room "Potting Room"
         cant_go "The only exit is back east to the conservatory.",
   has   light;
 
-Object  -> old_gardeners__gloves "old gardeners' gloves" 
+Object  -> old_gardeners__gloves "luvas velhas de jardineiro" 
   with  name 'old' 'gardeners' 'gloves',
         before [;
             Take:
@@ -2352,7 +2345,7 @@ Object  -> Jemima "Jemima"
     }
 ];
 
-Object  daisy_chain "daisy chain"        
+Object  daisy_chain "corrente de margaridas"        
   with  name 'daisy' 'chain' 'daisychain',
         before [;
             Examine:
@@ -2368,7 +2361,7 @@ Object  daisy_chain "daisy chain"
         devil_hint "Dangerous to wear. But at least any sort of daisies will do.",
   has   clothing;
 
-HRoom   Storage_Room "Storage Room"      
+HRoom   Storage_Room "Despensa"      
   with  before [;
             Enter:
                 if( noun == dark_shaft_obj ) {
@@ -2424,13 +2417,13 @@ Object  -> wheel2 "wheel"
         description "There is a concealed safety catch (poorly) hidden on the wheel.",
   has   on scenery switchable;
 
-Object  -> dumbwaiter "dumbwaiter"       
+Object  -> dumbwaiter "monta-cargas"       
   with  name 'dumb' 'waiter' 'dumbwaiter',
         initial "Inside the dark shaft is the old dumbwaiter.",
         article "the old",
   has   container enterable open static;
 
-Object  -> -> pulley_ropes "pulley ropes"        
+Object  -> -> pulley_ropes "cordas da roldana"        
   with  name 'pulley' 'rope' 'ropes',
         before [ r;
             Climb: "If only you didn't suffer from such dreadful vertigo...";
@@ -2458,7 +2451,7 @@ Object  -> -> pulley_ropes "pulley ropes"
         article "the",
   has   static;
 
-Object  -> -> chicken_wishbone "chicken wishbone"        
+Object  -> -> chicken_wishbone "osso da sorte de galinha"        
   with  name 'wish' 'bone' 'wishbone' 'chicken',
         before [;
             Pull: "It already has been. The part you have, lost.";
@@ -2467,7 +2460,7 @@ Object  -> -> chicken_wishbone "chicken wishbone"
         devil_hint "It isn't even mentioned in any of the books I've read.",
   has   ;
 
-Object  -> dark_shaft_obj "dark shaft"   
+Object  -> dark_shaft_obj "eixo escuro"   
   with  name 'shaft' 'dark',
         after [;
             Receive:
@@ -2483,7 +2476,7 @@ Object  -> dark_shaft_obj "dark shaft"
         description "Uninviting.",
   has   container open scenery;
 
-Object  -> steel_wrench "steel wrench"   
+Object  -> steel_wrench "chave de boca de aco"   
   with  name 'steel' 'wrench',
         after [;
             Take: "It's a wrench, but you take it.";
@@ -2491,7 +2484,7 @@ Object  -> steel_wrench "steel wrench"
         initial "A steel wrench gathers dust in the corner.",
   has   ;
 
-HRoom   Dark_Shaft "Dark Shaft"  
+HRoom   Dark_Shaft "Eixo escuro"  
   with  before [;
             Go:
                 if( noun == d_obj && dumbwaiter in Dark_Shaft )
@@ -2511,7 +2504,7 @@ HRoom   Dark_Shaft "Dark Shaft"
             leading north.",
   has   ;
 
-HRoom   Dark_Passage "Dark Passage"      
+HRoom   Dark_Passage "Passagem escura"      
   with  name 'coal' 'dust',
         before [;
             if( sandstone_recess has open ) 
@@ -2534,7 +2527,7 @@ HRoom   Dark_Passage "Dark Passage"
         number 2,
   has   ;
 
-Object  -> sandstone_recess "sandstone recess"   
+Object  -> sandstone_recess "nicho de arenito"   
   with  name 'sandstone' 'recess' 'shallow',
         door_to Sandstone_Passage,
         when_closed "There is a shallow sandstone recess in the east wall.",
@@ -2542,7 +2535,7 @@ Object  -> sandstone_recess "sandstone recess"
         when_open "A secret passage slants down to the east through a sandstone recess.",
   has   door static;
 
-Object  -> metal_door "metal door"       
+Object  -> metal_door "porta de metal"       
   with  name 'metal' 'door',
         after [;
             Unlock: give coal_bunker ~locked; rfalse;
@@ -2557,7 +2550,7 @@ Object  -> metal_door "metal door"
         when_open "At the north end is a metal door, standing open.",
   has   door lockable locked openable static;
 
-HRoom   Cellars "Cellars"        
+HRoom   Cellars "Poroes"        
   with  before [;
             Enter:
                 if( noun == dark_shaft_obj2 ) {
@@ -3077,4 +3070,3 @@ HRoom   Halfway_up_the_Stairs "Halfway up the Stairs"
         d_to White_Hallway,
         description "This dark, steep staircase zigzagging through the house once gave the servants access throughout. But those days are long gone and now all the doors are locked up.",
   has   ;
-

@@ -1,205 +1,198 @@
 
-Object  Beside_the_Drive "Beside the Drive"      
+Object  Beside_the_Drive "Ao lado da alameda"      
   with  name 'wistaria' 'car' 'gravel',
         before [;
             Go:
                 if( noun == w_obj or u_obj && self.u_to == Dead_End )
-                    print "With your heart in your mouth, you scale the old fire escape once again, breathing a 
-                        sigh of relief as you haul yourself in through the open hatchway at the top.^";
+                    print "Com o coração na boca, você sobe novamente pela velha escada de incêndio, soltando um 
+                        suspiro de alívio ao entrar pela escotilha aberta no topo.^";
                 rfalse;
         ],
-        n_to "The old carved southern wall of the gardens blocks your way around the edge of the Hall.",
-        w_to "The Hall is in the way.",
+        n_to "A velha muralha sul entalhada dos jardins bloqueia seu caminho ao redor do Salão.",
+        w_to "O Salão está no caminho.",
         ne_to Public_Footpath,
-        u_to "The fire escape is perilous and leads nowhere. Doubtless it would be useless in any real fire.",
-        description "At the foot of the Hall is the drive, a long gravel lane approaching the house through trees.^^Since your family are intermittently loading suitcases into the car, which only makes you feel guilty, the only safe way to creep away is along the public footpath, to northeast.",
-        cant_go "Better not - they might catch you.",
+        u_to "A escada de incêndio é perigosa e não leva a lugar algum. Sem dúvida seria inútil em um incêndio de verdade.",
+        description "Aos pés do Salão fica a alameda, uma longa faixa de cascalho que chega à casa por entre as árvores.^^Como sua família carrega malas no carro de vez em quando, o que só faz você se sentir culpado, o único modo seguro de escapar é pela trilha pública, a nordeste.",
+        cant_go "Melhor não: podem pegar você.",
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> fire_escape2 "fire escape"     
+Object  -> fire_escape2 "escada de incêndio"     
   with  name 'fire' 'escape' 'white' 'rope' 'rickety',
         before [; Climb, Enter: << Go u_obj >>; ],
         initial [;
             if( Beside_the_Drive.u_to ~= Dead_End )
-                "Wistaria climbs a desperately rickety fire escape up the side of the Hall.";
-            "Wistaria climbs a desperately rickety fire escape up the east side of the Hall, and so might you: 
-                at the top the fire escape door into the attic is open.";
+                "Wistaria sobe por uma escada de incêndio desesperadamente precária na lateral do Salão.";
+            "Wistaria sobe por uma escada de incêndio desesperadamente precária no lado leste do Salão, e você também pode fazê-lo: 
+                no topo, a porta da escada para o sótão está aberta.";
         ],
-        description "For the first couple of storeys, an old iron zig-zag, and after that a ladder that might or might not be well-anchored. The gardeners have done a good job of concealing it behind wistaria which (in any case) looks the stronger of the two.",
+        description "Nos primeiros andares, uma velha estrutura de ferro em zigue-zague; depois, uma escada que talvez esteja bem ancorada, talvez não. Os jardineiros fizeram um bom trabalho escondendo-a atrás da glicínia, que (de qualquer modo) parece a mais resistente das duas.",
   has   static;
 
-Object  Public_Footpath "Public Footpath"        
+Object  Public_Footpath "Trilha pública"        
   with  name 'stile' 'dragonflies' 'house' 'hall' 'battlements',
         n_to Stone_Cross,
         sw_to Beside_the_Drive,
         d_to Hollow,
-        description "By a stile in the public footpath across the fields to the village, which lies to the north. Sitting on the stile you have a splendid view of the house and its battlements. The air is ablaze with pollen and dragonflies.^^It might be possible to scramble down to a hollow, but it surely wouldn't be pleasant.",
-        cant_go "The footpath turns from southwest to north.",
+        description "Junto a uma escada de cerca na trilha pública que atravessa os campos até a aldeia, ao norte. Sentado na escada, você tem uma vista esplêndida da casa e de suas ameias. O ar está repleto de pólen e libélulas.^^Talvez seja possível descer desajeitadamente até uma depressão, mas certamente não seria agradável.",
+        cant_go "A trilha vai do sudoeste para o norte.",
         section T_NE_OF_HOME,
   has   light;
 
-Object  Hollow "Hollow"  
+Object  Hollow "Depressão"  
   with  nw_to Mosaic,
         u_to Public_Footpath,
-        description "A low, muddy, stinking hollow, trodden with reeds, dried out in the long summer and no more than moist now. You could climb back up, or go northwest, though that would mean crawling through a thorny hedge.",
+        description "Uma depressão baixa, lamacenta e fétida, pisoteada por juncos, seca durante o longo verão e agora apenas úmida. Você poderia subir de volta ou seguir para noroeste, mas isso exigiria rastejar por uma sebe espinhosa.",
         section T_NE_OF_HOME,
   has   light;
 
 Object  -> nest "nest"   
   with  name 'nest',
-        initial "There's a bird's nest at the bottom of the hollow.",
+         initial "Há um ninho de pássaro no fundo da depressão.",
   has   static;
 
-Object  -> bunch_of_nuts "bunch of nuts" 
+Object  -> bunch_of_nuts "punhado de nozes" 
   with  name 'bunch' 'of' 'nuts',
         before [;
             ! Yes, unconditional "before"
             trigger_quotation(41);
-            if( corn_crake in Hollow ) "The corn crake won't let you near her nest.";
+            if( corn_crake in Hollow ) "O codornizão não deixa você se aproximar do ninho.";
         ],
-        initial "Entwined in the nest is a bunch of nuts.",
-        description "A bunch of nuts, left over from last autumn.",
-        devil_hint "Nuts to you too.",
-        angel_hint "Do you know, I love nuts, but I have to be so careful what I eat now... Still, the little ones will have them.",
+         initial "Entrelaçado no ninho há um punhado de nozes.",
+         description "Um punhado de nozes, sobras do outono passado.",
+         devil_hint "Nozes para você também.",
+         angel_hint "Sabe, eu adoro nozes, mas agora preciso ter muito cuidado com o que como... Ainda assim, os pequenos vão comê-las.",
   has   edible scored;
 
-Object  -> corn_crake "corn crake"       
+Object  -> corn_crake "codornizão"       
   with  name 'corn' 'crake' 'corncrake' 'deaf' 'rail' 'bird',
-        life [; Order, Ask, Answer: "The bird seems not to have heard."; ],
-        initial "And sat upon it is, as you might expect, a bird: a corn crake, in fact.",
-        description "A rail with a distinctive cry. And a possessive look.",
+         life [; Order, Ask, Answer: "O pássaro parece não ter escutado."; ],
+         initial "E, sentado nele, como seria de esperar, há um pássaro: na verdade, um codornizão.",
+         description "Um ralídeo de chamado característico. E um olhar possessivo.",
   has   animate;
 
-Object  Stone_Cross "Stone Cross"        
+Object  Stone_Cross "Cruz de pedra"        
   with  name 'pub' 'goat' 'compasses',
         n_to parish_church,
         s_to Public_Footpath,
-        description "Beside the long triangle of the green, under the stone cross of the First World War memorial. The public footpath runs south to a stile. The village is tiny: the parish church, the ~Goat and Compasses~ pub (which, owing to quaint English licensing laws, is closed) and a few houses and desultory tea-shops for tourists visiting Meldrew Hall.",
-        cant_go "You wander around the peaceful green for a while, but there's nothing to do.",
+         description "Ao lado do longo triângulo do gramado, sob a cruz de pedra do memorial da Primeira Guerra Mundial. A trilha pública segue para o sul até uma escada de cerca. A aldeia é minúscula: a igreja paroquial, o pub ~Bode e Compassos~ (fechado devido às pitorescas leis inglesas de licenciamento) e algumas casas e casas de chá ocasionais para turistas que visitam o Salão Meldrew.",
+         cant_go "Você passeia pelo gramado tranquilo por um tempo, mas não há nada para fazer.",
         section T_NE_OF_HOME,
   has   light;
 
 [ OldEvansLife ;
     if( action == ##Order or ##Ask ) {
         if( self hasnt general ) {
-            "~Just a minute, I'm doing my form.~";
+            "~Só um instante, estou estudando meu formulário.~";
         }
-        print "He looks at you in a hypnotic daze,";
+        print "Ele olha para você em transe hipnótico,";
         if( action == ##Give && noun == Crescent_Moon && second == player ) {
             move Crescent_Moon to player;
             Achieved(SCORE_HYPNOSIS);
-            self.description = "Old Evans' hat is empty. You feel terribly guilty.";
-            " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+            self.description = "O chapéu do velho Evans está vazio. Você se sente terrivelmente culpado.";
+            " e, antes que você consiga dizer ~Como sou desalmado~, ele obedientemente lhe entrega a Lua.";
         }
-        " unable to follow your perfectly clear instruction.";
+        " incapaz de seguir sua instrução perfeitamente clara.";
     }
     if( action == ##Answer ) {
-        "Evans is lost. Whatever do you mean?";
+        "Evans está perdido. O que você quer dizer?";
     }
     if( action == ##Give ) {
         if( noun == Crescent_Moon ) {
-            "Evans looks sadly at the mascot. But it is tarnished now, you have spoilt it. Your guilt increases further.";
+            "Evans olha tristemente para o talismã. Mas agora ele está manchado, você o estragou. Sua culpa aumenta ainda mais.";
         }
         rfalse;
     }
     rfalse;
 ];
 
-Object  -> Old_Evans "Old Evans" 
+Object  -> Old_Evans "Velho Evans" 
   with  name 'racing' 'enthusiast' 'old' 'evans',
         life OldEvansLife,
         orders [;
-            print "He looks at you in a hypnotic daze,";
+            print "Ele olha para você em transe hipnótico,";
             Give:
                 if( noun == Crescent_Moon && second == player ) {
                     move Crescent_Moon to player;
                     Achieved(SCORE_HYPNOSIS);
-                    self.description = "Old Evans' hat is empty. You feel terribly guilty.";
-                    " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+                    self.description = "O chapéu do velho Evans está vazio. Você se sente terrivelmente culpado.";
+                    " e, antes que você consiga dizer ~Como sou desalmado~, ele obedientemente lhe entrega a Lua.";
                 }
-            " unable to follow your perfectly clear instruction.";
+            " incapaz de seguir sua instrução perfeitamente clara.";
         ],
-        initial "Old Evans, the village racing enthusiast, sits on the steps of the memorial, combing the back pages of his ~Racing Times~ newspaper.",
-        description "In the band of his hat is his lucky mascot: a little picture of the crescent moon.",
+        initial "O velho Evans, entusiasta das corridas da aldeia, senta-se nos degraus do memorial, lendo as páginas de resultados do jornal ~Tempos das Corridas~.",
+        description "Na faixa do chapéu está seu talismã da sorte: uma pequena imagem da lua crescente.",
   has   animate proper transparent;
 
-TarotCard -> -> Crescent_Moon "Crescent Moon"      
+TarotCard -> -> Crescent_Moon "Lua crescente"      
   with  name 'crescent' 'moon' 'mascot' 'lucky',
         before  [;
             Take, Remove:
                 if( self in Old_Evans )
-                    "Evans isn't giving up his mascot that easily.";
+                    "Evans não vai entregar seu talismã tão facilmente.";
                 rfalse;
         ],
         door_to Parish_Church_Room,
-        description "Some kind of crescent moon, an old Druidical symbol.",
-        devil_hint "It leads nowhere.";
+        description "Uma espécie de lua crescente, um antigo símbolo druídico.",
+        devil_hint "Isso não leva a lugar algum.";
 
-Object  -> -> Racing_Times "Racing Times"        
+Object  -> -> Racing_Times "Tempos das Corridas"        
   with  name 'paper' 'newspaper' 'racing' 'times',
         before [;
-            Take, Remove: "Evans isn't giving up his paper.";
+            Take, Remove: "Evans não vai entregar seu jornal.";
         ],
-        description "The front page story (~Lord Lucan's new acquisition Shergar comes out of retirement to win 
-            the Grand National~) is so boringly unsensational that you quickly lose interest. But Evans is eternally
-            fascinated with minute details of the form of the horses, tomorrow's race meetings, current odds quoted
-            by the bookmakers, and so on.",
+        description "A notícia da primeira página (~Shergar, nova aquisição de Lorde Lucan, sai da aposentadoria para vencer o Grande Nacional~) é tão sem emoção que você perde o interesse rapidamente. Mas Evans se fascina eternamente pelos mínimos detalhes do formulário dos cavalos, pelas corridas de amanhã, pelas cotações atuais dos bookmakers e assim por diante.",
   has   ;
 
-Object  -> -> hat_band "hat band"        
+Object  -> -> hat_band "faixa do chapéu"        
   with  name 'hat' 'band',
         before [;
-            Take, Remove: "Evans isn't giving up his hat-band.";
+            Take, Remove: "Evans não vai entregar a faixa do chapéu.";
         ],
-        description "Racing aficionados consider it lucky to wear mascots in the bands of their hats.",
+        description "Os aficionados por corridas consideram dar sorte usar talismãs nas faixas dos chapéus.",
   has   ;
 
-Object  -> war_memorial "war memorial"   
+Object  -> war_memorial "memorial de guerra"   
   with  name 'war' 'memorial' 'cross' 'green' 'stone' 'fallen',
-        description "The stone cross, for the fallen of the Great War of 1914-18, contains more names than there are houses in the village.^^Your eye is caught by Second Lieutenant Gerard Meldrew of the 19th/21st Rifles, and you shiver, although the afternoon is warm.",
+        description "A cruz de pedra, dedicada aos mortos da Grande Guerra de 1914-18, contém mais nomes do que há casas na aldeia.^^Seu olhar é atraído pelo segundo-tenente Gerard Meldrew, do 19/21 Regimento de Fuzileiros, e você estremece, embora a tarde esteja quente.",
   has   scenery;
 
-Object  -> parish_church "parish church" 
+Object  -> parish_church "igreja paroquial" 
   with  name 'parish' 'church' 'door',
         before [; 
             Enter:
                 if( self hasnt open )
-                    "The Church door is barred from the far side.";
+                    "A porta da igreja está travada do outro lado.";
                 rfalse;
         ],
         door_to Parish_Church_Room,
         door_dir n_to,
-        when_closed "The fourteenth-century Church of St Michael and All Angels doesn't seem to be locked up, exactly - just barred from the other side.",
+        when_closed "A Igreja de São Miguel e Todos os Anjos, do século XIV, não parece exatamente trancada: apenas está travada do outro lado.",
   has   door scenery;
 
 Object  -> Goat_and_Compasses "Goat and Compasses"       
   with  name 'pub' 'goat' 'compasses' 'public' 'house' 'bar',
-        before [; Enter: "The pub is closed, licensing laws being what they are."; ],
+         before [; Enter: "O pub está fechado, dadas as leis de licenciamento."; ],
         door_dir w_to,
-        description "In the days of Oliver Cromwell, it was called ~God Encompasseth~, but the locals have worn 
-            down the name over the centuries to ~Goat and Compasses~. It is of course closed, owing to the licensing
-            laws. You congratulate yourself on living in such a modern, forward-looking country.",
+        description "Nos dias de Oliver Cromwell, chamava-se ~Deus Abrange~, mas os moradores desgastaram o nome ao longo dos séculos até ~Bode e Compassos~. É claro que está fechado devido às leis de licenciamento. Você se parabeniza por viver em um país tão moderno e progressista.",
   has   door locked proper scenery;
 
-Object  pet_monkey "pet monkey"  
+Object  pet_monkey "macaco de estimação"  
   with  name 'pet' 'monkey',
         before [;
-            Touch: "You stroke the monkey's pelt. It jumps about, cheeping.";
-            Kiss: "Evans rather resents this importunate advance.";
+            Touch: "Você acaricia o pelo do macaco. Ele pula, piando.";
+            Kiss: "Evans se ressente um tanto desse avanço importuno.";
         ],
-        initial "The monkey sits on Evans' shoulder, cheeping with excitement. Evans has found a pet, and is so 
-            gruffly delighted that he has forgotten all about the mascot you stole. Now if he could only predict
-            the 3.40 at Borchester Mills...",
+         initial "O macaco senta-se no ombro de Evans, piando de excitação. Evans encontrou um animal de estimação e está tão rudemente encantado que esqueceu completamente o talismã que você roubou. Agora, se ele ao menos pudesse prever a corrida das 15h40 em Borchester Mills...",
   has   animate;
 
-Object  Parish_Church_Room "Parish Church"    
+Object  Parish_Church_Room "Igreja paroquial"    
   with  name 'flowers' 'pews' 'woven' 'mattings' 'lectern' 'altar',
         s_to [;
             if (parish_church hasnt open) {
                 give parish_church open;
-                parish_church.description = "The church door is open.";
-                print "You unbar the door, and let yourself out.^";
+                parish_church.description = "A porta da igreja está aberta.";
+                print "Você destrava a porta e sai.^";
             }
             return Stone_Cross;
         ],
@@ -208,14 +201,10 @@ Object  Parish_Church_Room "Parish Church"
         u_to Bell_Tower,
         d_to [;
             if( Moonstone has open ) 
-                "To your horror your body partly thins to mist as you climb down through the threshold!  Alarmed, 
-                 you pull back. The underworld beneath the Moonstone, it seems, is not for mortals.";
-            "The Moonstone is huge and solid.";
+                "Para seu horror, seu corpo se transforma parcialmente em névoa ao descer pela soleira! Alarmado, você recua. O submundo sob a Pedra lunar, ao que parece, não é para mortais.";
+            "A Pedra lunar é enorme e sólida.";
         ],
-        description "Before this was the Norman church of St Michael and All Angels, it was a Saxon one: this is 
-            an ancient site. A great space of stone, filled with dark wooden pews and woven mattings. Flowers left
-            over from Sunday grace the lectern and altar. A narrow stair leads upward, and the village green lies
-            to the south.^^Old side chapels lie east and west.",
+        description "Antes de ser a igreja normanda de São Miguel e Todos os Anjos, esta era uma igreja saxônica: é um local antigo. Um grande espaço de pedra, cheio de bancos escuros de madeira e esteiras trançadas. Flores que sobraram do domingo enfeitam o púlpito e o altar. Uma escada estreita sobe, e o gramado da aldeia fica ao sul.^^Antigas capelas laterais ficam a leste e a oeste.",
         section T_NE_OF_HOME,
   has   light;
 
@@ -225,44 +214,41 @@ Object  -> Moonstone "Moonstone"
             Examine: trigger_quotation(47); rfalse;
             Open, Push, Pull, Take:
                 trigger_quotation(19);
-                "Legend has it nothing holds down the stone, but if so it's far too heavy to budge.";
+                "Diz a lenda que nada prende a pedra, mas, se for assim, ela é pesada demais para se mover.";
             PointAt, Knock:
                 if( adamantine_knight in location ) 
-                    "The knight comes a little closer, cupping one ear to pantomime listening. He does seem 
-                     to have partial hearing.";
+                    "O cavaleiro se aproxima um pouco, levando a mão a uma orelha para mimetizar que escuta. Ele parece ter alguma audição.";
         ],
-        when_closed "Set into the floor, and slightly raised, is the Moonstone, an ancient broad flagstone the size of a door, inscribed with a crescent moon.",
+        when_closed "Inserida no chão e ligeiramente elevada está a Pedra lunar, uma antiga laje larga do tamanho de uma porta, gravada com uma lua crescente.",
         door_dir d_to,
-        when_open "A passage slants down through a solid crystal doorway in the Moonstone.",
-        description "The Moonstone is very old, probably pre-dating the rest of the church by some centuries. 
-            Legends about it abound: some say the spirits of the departed pass beneath. Old iron rings are set in
-            it, but nobody has ever succeeded in lifting the colossal weight.",
+        when_open "Uma passagem desce por uma porta de cristal sólido na Pedra lunar.",
+        description "A Pedra lunar é muito antiga, provavelmente anterior ao restante da igreja em vários séculos. Abundam lendas sobre ela: dizem que os espíritos dos mortos passam por baixo. Velhos anéis de ferro estão fixados nela, mas ninguém jamais conseguiu erguer seu peso colossal.",
         article "the",
   has   door static;
 
-Object  West_Side_Chapel "West Side Chapel"      
+Object  West_Side_Chapel "Capela lateral oeste"      
   with  name 'stained' 'glass' 'windows' 'resurrect',
         before [;
             Repair, Insert, PutOn:
                 if( second ~= adamantine_statue ) rfalse;
                 if( noun ~= adamantine_hand or adamantine_skull or adamantine_heart )   
-                    "That seems incongruous.";
+                    "Isso parece incongruente.";
                 if( noun == adamantine_hand ) {
                     move adamantine_hand to West_Side_Chapel;
                     give adamantine_hand concealed;
                     LeftHand = 2;
-                    "The hand fits rather loosely onto the left ~wrist~ of the adamantine knight.";
+                    "A mão se encaixa frouxamente no ~pulso~ esquerdo do cavaleiro de adamantino.";
                 }
                 if( noun == adamantine_skull ) {
                     move adamantine_skull to West_Side_Chapel;
                     give adamantine_skull concealed;
                     SkullFit = 2;
-                    "The skull fits very loosely onto the ~neck~ of the adamantine knight.";
+                    "O crânio se encaixa muito frouxamente no ~pescoço~ do cavaleiro de adamantino.";
                 }
                 if( noun == adamantine_heart ) {
                     remove adamantine_heart;
                     give adamantine_heart general;
-                    "The heart sits well in the so-empty ribcage of the adamantine knight.";
+                    "O coração se acomoda bem na caixa torácica tão vazia do cavaleiro de adamantino.";
                 }
                 rfalse;
             Turn:
@@ -272,14 +258,14 @@ Object  West_Side_Chapel "West Side Chapel"
                         LeftHand = 0;
                         give adamantine_hand general;
                         give adamantine_hand ~concealed;
-                        "The hand screws tightly onto the adamantine knight.";
+                        "A mão se aparafusa firmemente ao cavaleiro de adamantino.";
                     }
                     if( noun == adamantine_skull ) {
                         remove adamantine_skull;
                         SkullFit = 0;
                         give adamantine_skull general;
                         give adamantine_skull ~concealed;
-                        "The skull screws tightly onto the adamantine knight.";
+                        "O crânio se aparafusa firmemente ao cavaleiro de adamantino.";
                     }
                 }
                 rfalse;
@@ -291,21 +277,21 @@ Object  West_Side_Chapel "West Side Chapel"
                 rfalse;
         ],
         e_to Parish_Church_Room,
-        description "An alcove in the ancient west side of the church, beneath stained glass windows of the Resurrection.",
-        cant_go "The church lies east.",
+        description "Um nicho no antigo lado oeste da igreja, sob vitrais da Ressurreição.",
+        cant_go "A igreja fica a leste.",
         each_turn [;
             if( SkullFit > 0 ) {
                 --SkullFit;
                 if( SkullFit == 0 ) {
                     give adamantine_skull ~concealed;
-                    "^The skull wobbles and falls off the knight again.";
+                    "^O crânio balança e cai novamente do cavaleiro.";
                 }
             }
             if( LeftHand > 0 ) {
                 --LeftHand;
                 if( LeftHand == 0 ) {
                     give adamantine_hand ~concealed;
-                    "^The hand wavers and falls off the knight again.";
+                    "^A mão vacila e cai novamente do cavaleiro.";
                 }
             }
         ],
@@ -315,86 +301,76 @@ Object  West_Side_Chapel "West Side Chapel"
 
 [ DisplayKnight ;
     if( adamantine_skull hasnt general && adamantine_skull hasnt concealed ) 
-        print "^A headless ";
+        print "^Uma estátua sem cabeça ";
     else 
-        print "^An ";
-    print "adamantine statue lies prone here, a knight on a tomb";
+        print "^Uma ";
+        print "uma estátua de adamantino jaz aqui, um cavaleiro sobre um túmulo";
     if( adamantine_hand hasnt general && adamantine_heart hasnt general ) 
         ".";
     if( adamantine_hand has general || adamantine_hand has concealed ) 
-        print " with hand outstretched";
+        print " com a mão estendida";
     if( adamantine_heart has general ) 
-        ", a heart in his ribcage. And yet there is no spark of life in him.";
-    ", heartless and implacable.";
+        ", um coração na caixa torácica. E, ainda assim, não há nele nenhuma centelha de vida.";
+    ", sem coração e implacável.";
 ];
 
-Object  -> adamantine_statue "adamantine statue" 
+Object  -> adamantine_statue "estátua de adamantino" 
   with  name 'adamantine' 'statue' 'adamant' 'knight',
-        description "The statue is half-skeleton, and you can see clear through the bones.",
+        description "A estátua é metade esqueleto, e você consegue enxergar através dos ossos.",
         article "an",
   has   concealed static;
 
-Object  adamantine_knight "adamantine knight"    
+Object  adamantine_knight "cavaleiro de adamantino"    
   with  name 'adamantine' 'statue' 'adamant' 'knight',
         life [;
-            Ask, Answer: "A shame there were no adamantine ears, really.";
+            Ask, Answer: "É uma pena que não existam orelhas de adamantino, realmente.";
             Show, Give:
                 if (noun == marble_rose) {
                     move marble_rose to adamantine_knight;
-                    "The knight is exceedingly pleased, and takes the flower.";
+                    "O cavaleiro fica extremamente satisfeito e pega a flor.";
                 }
                 if (noun == silver_keepsake) {
 
                     if (marble_rose notin adamantine_knight) 
-                        "The knight looks sadly at the picture.";
+                        "O cavaleiro olha tristemente para a imagem.";
 
                     if (location ~= East_Side_Chapel) 
-                        "The knight looks at the picture sadly, unable to see its immediate relevance.";
+                        "O cavaleiro olha tristemente para a imagem, incapaz de perceber sua relevância imediata.";
 
                     move marble_rose to statue_of_Diana;
                     give adamantine_knight general;
-                    statue_of_Diana.initial = "Diana's tall marble statue bathes in the moonlight: and a flower is 
-                        placed gaily in her hair.";
+                    statue_of_Diana.initial = "A alta estátua de mármore de Diana banha-se ao luar, e uma flor foi colocada alegremente em seus cabelos.";
                     Achieved(SCORE_KNIGHT_ENCOURAGE);
                     remove silver_keepsake;
-                    "The knight takes the keepsake, and studies it. Catching on, he places the marble flower in 
-                     Diana's hair, high up beyond your reach. Afterward, he bows to you gravely. But there is a
-                     little sadness in his eye as he turns away from her.";
+                    "O cavaleiro pega a lembrança e a examina. Entendendo a intenção, coloca a flor de mármore nos cabelos de Diana, bem acima do seu alcance. Depois, faz uma reverência solene para você. Mas há um pouco de tristeza em seu olhar ao se afastar dela.";
                 }
-                "The knight has forsworn earthly things in the service of Diana.";
-            Attack: "He is adamant.";
+                "O cavaleiro renunciou às coisas terrenas a serviço de Diana.";
+            Attack: "Ele é adamantino.";
         ],
         orders [ o;
             Jump, Dance, Sing:
-                "The knight dances a jig with sheer exuberance.";
+                "O cavaleiro dança uma jiga com pura exuberância.";
             Open, Pull, Take:
                 if( noun == Moonstone && Moonstone hasnt open ) {
                     if( adamantine_knight hasnt general ) 
-                        "The knight understands what is to be done. But he is world-weary and sad, and not yet in 
-                         your service.";
+                        "O cavaleiro entende o que deve ser feito. Mas está cansado do mundo e triste, e ainda não está a seu serviço.";
                     give Moonstone open;
-                    "The knight bows, and pulls the enormously heavy Moonstone open. He plainly expected it to be 
-                     effortless, but by the time he's finished you can almost see ghostly perspiration bead on
-                     the ghostly sinews around his adamantine body.";
+                    "O cavaleiro se curva e abre a Pedra lunar, enormemente pesada. Ele claramente esperava que fosse fácil, mas, quando termina, quase se pode ver suor fantasmagórico brotando nos tendões fantasmagóricos de seu corpo de adamantino.";
                 }
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                "O cavaleiro está confuso. Talvez você tenha sido um pouco brusco com o crânio.";
             Go:
-                "The knight just about understands that he is to go somewhere, but cannot quite comprehend the 
-                 direction. You'll have to indicate it somehow. (Shame there were no adamantine ears, really.)";
+                "O cavaleiro entende mais ou menos que deve ir a algum lugar, mas não consegue compreender a direção. Você terá de indicá-la de algum modo. (É uma pena que não existam orelhas de adamantino, realmente.)";
             PointVague:
                 if( location == Parish_Church_Room && noun == d_obj ) {
                     if( Moonstone hasnt open ) {
-                        "The knight is unable to walk straight through the Moonstone.";
+                        "O cavaleiro não consegue atravessar diretamente a Pedra lunar.";
                     }
                     remove adamantine_knight;
                     move rod_of_life to Parish_Church_Room;
                     move rod_of_death to Parish_Church_Room;
                     move rod_of_love to Parish_Church_Room;
                     move Moonstone to Parish_Church_Room;
-                    "The knight strides down into the underworld beneath the Moonstone, to be lost to your sight... 
-                     forever?^^For even he has not life force enough to hold together in the mists: his skeleton
-                     begins to clatter away to nothing, falling in all directions, his heart, hand and skull returning
-                     Somehow to your feet. And they are altering, altering even as you look down into the void...";
+                    "O cavaleiro desce para o submundo sob a Pedra lunar, perdido de sua vista... para sempre?^^Pois nem ele tem força vital suficiente para permanecer unido na névoa: seu esqueleto começa a se desfazer em nada, caindo em todas as direções, enquanto seu coração, sua mão e seu crânio retornam de algum modo a seus pés. E eles estão mudando, mudando enquanto você olha para o vazio...";
                 }
                 o = nothing;
                 if( location == Parish_Church_Room ) {
@@ -408,9 +384,7 @@ Object  adamantine_knight "adamantine knight"
                         o = West_Side_Chapel;
                     }
                     if( noun == u_obj ) 
-                        "Somewhat comically, the knight is too bulky to squeeze into the staircase. After a moment or 
-                         two of watching an immovable object fighting it out with an irresistable force, you point
-                         back, and the knight returns, chastened.";
+                        "De modo um tanto cômico, o cavaleiro é corpulento demais para passar pela escada. Depois de observar por um ou dois instantes um objeto imóvel lutando contra uma força irresistível, você aponta para trás e o cavaleiro retorna, repreendido.";
                 }
                 if( location == East_Side_Chapel && noun == w_obj ) {
                     o = Parish_Church_Room;
@@ -419,46 +393,45 @@ Object  adamantine_knight "adamantine knight"
                     o = Parish_Church_Room;
                 }
                 if( o == nothing ) {
-                    "The knight shakes his head, solemnly.";
+                    "O cavaleiro balança a cabeça solenemente.";
                 }
                 if( o == Stone_Cross ) {
-                    "The knight won't leave sacred ground.";
+                    "O cavaleiro não deixará solo sagrado.";
                 }
                 move adamantine_knight to o;
                 if( o == East_Side_Chapel ) {
-                    adamantine_knight.initial = "The knight stands here, bowing toward Diana.";
+                    adamantine_knight.initial = "O cavaleiro está aqui, curvando-se para Diana.";
                     move statue_of_Diana to o;
                 } else if( marble_rose in adamantine_knight ) {
-                    adamantine_knight.initial = "The knight stands clasping the flower.";
+                    adamantine_knight.initial = "O cavaleiro está aqui, segurando a flor.";
                 } else {
-                    adamantine_knight.initial = "The knight stands staunchly here.";
+                    adamantine_knight.initial = "O cavaleiro está aqui, firme.";
                 }
-                print "The knight strides boldly away to the ";
+                print "O cavaleiro caminha ousadamente para o ";
                 if( noun == n_obj ) {
-                    "north.";
+                    "norte.";
                 }
                 if( noun == s_obj ) {
-                    "south.";
+                    "sul.";
                 }
                 if( noun == e_obj ) {
-                    "east.";
+                    "leste.";
                 }
-                "west.";
+                "oeste.";
             Give, Insert:
                 if( second == statue_of_Diana && noun == marble_rose ) 
-                    "The knight likes the idea but is confused.";
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                    "O cavaleiro gosta da ideia, mas está confuso.";
+                "O cavaleiro está confuso. Talvez você tenha sido um pouco brusco com o crânio.";
             default: 
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                "O cavaleiro está confuso. Talvez você tenha sido um pouco brusco com o crânio.";
         ],
-        initial "The adamantine knight stands staunchly here.",
+        initial "O cavaleiro de adamantino está aqui, firme.",
         description [  ;
-            print "The knight is bursting and eager with life, as though nothing could fade his boundless energy for 
-                existence. ";
+            print "O cavaleiro transborda vida e entusiasmo, como se nada pudesse apagar sua energia ilimitada para existir. ";
             if( marble_rose in self ) 
-                print "He is holding the marble flower. ";
+                print "Ele segura a flor de mármore. ";
             if( statue_of_Diana in location && marble_rose notin statue_of_Diana ) 
-                "He gazes sadly at Diana, wanting only to be of chivalrous service.";
+                "Ele contempla Diana com tristeza, desejando apenas servi-la cavalheirescamente.";
             new_line;
             rtrue;
         ],
@@ -468,8 +441,8 @@ Object  adamantine_knight "adamantine knight"
 Object  East_Side_Chapel "East Side Chapel"      
   with  name 'stained' 'glass' 'windows' 'nativity',
         w_to Parish_Church_Room,
-        description "A small clear space to the side of the church, in a bay ringed with stained glass windows of the Nativity.",
-        cant_go "The church lies west.",
+        description "Um pequeno espaço aberto ao lado da igreja, em uma abside cercada por vitrais da Natividade.",
+        cant_go "A igreja fica a oeste.",
         section T_NE_OF_HOME,
   has   light;
 
@@ -479,55 +452,51 @@ Object  -> statue_of_Diana "statue of Diana"
             PointAt:
                 if( adamantine_knight in location ) {
                     if( marble_rose in self )
-                        "The knight has done all he can for Diana, and is now in your service.";
-                    "The knight is unable to think how he can serve Diana.";
+                        "O cavaleiro fez tudo o que podia por Diana e agora está a seu serviço.";
+                    "O cavaleiro não consegue pensar em como servir Diana.";
                 }
                 rfalse;
         ],
-        initial "A tall marble statue of Diana stands here: a find from the nearby Roman remains.",
-        description "There is a sly look in her eye as she smiles aslant.",
+        initial "Uma alta estátua de mármore de Diana está aqui: uma descoberta das ruínas romanas próximas.",
+        description "Há um olhar astuto em seus olhos enquanto ela sorri de lado.",
   has   static;
 
-Object  Bell_Tower "Bell Tower"  
+Object  Bell_Tower "Torre do sino"  
   with  name 'clerestory' 'plaque',
-        u_to "The ropes are too smooth and noisy to climb.",
+         u_to "As cordas são lisas e barulhentas demais para subir.",
         d_to Parish_Church_Room,
-        description "The bell-ringing chamber, half-way up the church tower. Thick braided ropes hang down, tailing into sashes. A plaque on one wall announces that in 1901, ten men (Roger Meldrew among them) rang a Kent Triple Bob.",
+         description "A câmara dos sinos, no meio da torre da igreja. Cordas grossas e trançadas pendem, terminando em faixas. Uma placa em uma parede anuncia que, em 1901, dez homens (entre eles Roger Meldrew) tocaram um Triplo Bob de Kent.",
         section T_NE_OF_HOME,
   has   light;
 
 Object  -> bell_ropes "bell ropes"       
   with  name 'bell' 'bells' 'rope' 'ropes' 'braided' 'sash' 'sashes',
         before [;
-            Pull, Push, Blow: "You ring an amateurish, jangling peal.";
+             Pull, Push, Blow: "Você toca uma sequência amadora e desafinada.";
         ],
         article "eight",
   has   scenery;
 
-Object  Out_on_the_Spire "Out on the Spire"      
+Object  Out_on_the_Spire "No pináculo"      
   with  name 'village' 'clerestory' 'hills' 'farmlands' 'weather' 'vane' 'weathervane',
         d_to [;
-            print "You slither down a bell rope, noisily...^";
+             print "Você escorrega ruidosamente por uma corda de sino...^";
             return Bell_Tower;
         ],
-        description "There is a beautiful view over the green parceled farmlands and hills surrounding the village, 
-            and you feel a certain pride to see Meldrew Hall sitting amongst it. It's also windy and dangerous up
-            here on the grey lead spire of the parish church, beside the old clock: fortunately an opening leads
-            down into the clerestory.",
+         description "Há uma bela vista dos campos cultivados e das colinas que cercam a aldeia, e você sente certo orgulho ao ver o Salão Meldrew entre eles. Também venta e é perigoso aqui, no pináculo cinzento de chumbo da igreja paroquial, ao lado do velho relógio: felizmente, uma abertura leva à câmara superior.",
         section T_NE_OF_HOME,
   has   light;
 
 Object  -> adamantine_hand "adamantine hand"     
   with  name 'adamantine' 'hand' 'adamant',
-        initial "Mounted loosely on the end of the weathervane, an adamantine hand points the way the wind blows.",
-        description "Like a solid glove.^^It reminds you oddly of one of the symbolic pieces in Monopoly - the ship, the car and so on.",
+         initial "Montada frouxamente na ponta do cata-vento, uma mão de adamantino aponta para onde sopra o vento.",
+         description "Como uma luva sólida.^^Ela lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o navio, o carro e assim por diante.",
         article "an",
-        angel_hint "There must be more to this marvellous figure somewhere.",
+         angel_hint "Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.",
   has   ;
 
 Object  -> old_village_clock "old village clock" 
   with  name 'clock' 'old' 'plaque' 'commemorative',
-        description "The clock stands at ten past three, as it has done for some years. According to a small commemorative plaque, it was the work of William Snelson the Clockmaker (1776-1848).",
+         description "O relógio marca dez minutos depois das três, como tem feito há anos. Segundo uma pequena placa comemorativa, foi obra do relojoeiro William Snelson (1776-1848).",
         article "William Snelson's",
   has   scenery;
-

@@ -59,32 +59,32 @@
     ++MazeX;
     numwalls = n_side + s_side + e_side + w_side;
     if( numwalls == 4 ) {
-        "^You are hedged in on all sides.";
+        "^Você está cercado por sebes de todos os lados.";
     }
     if( numwalls == 3 ) {
-        print "^You are hedged in and can only go back ";
+        print "^Você está cercado e só pode voltar ";
     }
     if( numwalls == 2 ) {
-        print "^The corridor runs ";
+        print "^O corredor segue ";
     }
     if( numwalls == 1 ) {
-        print "^At this junction, the maze runs ";
+        print "^Neste cruzamento, o labirinto segue ";
     }
     if( numwalls == 0 ) {
-        "^This is a crossroads in the maze.";
+        "^Este é um cruzamento no labirinto.";
     }
     while( numwalls < 4 ) {
         if( n_side == false ) {
-            print "north";
+            print "norte";
             n_side = true;
         } else if( s_side == false ) {
-            print "east";
+            print "leste";
             s_side = true;
         } else if( e_side == false ) {
-            print "south";
+            print "sul";
             e_side = true;
         } else if( w_side == false ) {
-            print "west";
+            print "oeste";
             w_side = true;
         }
         ++numwalls;
@@ -92,7 +92,7 @@
             ".";
         }
         if( numwalls == 3 ) {
-            print " and ";
+            print " e ";
         }
         if( numwalls == 2 ) {
             print ", ";
@@ -111,13 +111,13 @@
     }
     new_line; 
     if( numwalls == 1 ) {
-        print "You are standing on a bed in which seeds have been recently planted. ";
+        print "Você está sobre um canteiro onde sementes foram plantadas recentemente. ";
     }
     if( numwalls == 0 ) {
-        print "You stand on a rough patch of grass. ";
+        print "Você está sobre um trecho irregular de grama. ";
     }
     if( numwalls == 2 ) {
-        print "You stand on a rough patch of grass, marked out with whitewash. ";
+        print "Você está sobre um trecho irregular de grama, demarcado com cal. ";
     }
     --MazeY;
     n_side = CheckMaze(MazeX,MazeY);
@@ -133,30 +133,30 @@
     ++MazeX;
     numwalls = n_side + s_side + e_side + w_side;
     if( numwalls == 4 ) {
-        print "There are seedbeds on all sides. ";
+        print "Há canteiros de sementes por todos os lados. ";
     } else {
         if( numwalls == 3 ) {
-            print "There are seedbeds to ";
+            print "Há canteiros de sementes ao ";
         }
         if( numwalls == 2 ) {
-            print "There are seedbeds to the ";
+            print "Há canteiros de sementes ao ";
         }
         if( numwalls == 1 ) {
-            print "There is a seedbed to the ";
+            print "Há um canteiro de sementes ao ";
         }
         if( numwalls > 0 ) {
             while( numwalls > 0 ) {
                 if( n_side == true ) {
-                    print "north";
+                    print "norte";
                     n_side = false;
                 } else if( s_side == true ) {
-                    print "east";
+                    print "leste";
                     s_side = false;
                 } else if( e_side == true ) {
-                    print "south";
+                    print "sul";
                     e_side = false;
                 } else if( w_side == true ) {
-                    print "west";
+                    print "oeste";
                     w_side = false;
                 }
                 --numwalls;
@@ -194,38 +194,38 @@
         rfalse;
     }
     if( numwalls == 1 ) {
-        print "There is a fence to the ";
+        print "Há uma cerca ao ";
     }
     if( numwalls == 2 ) {
-        print "There are fences to ";
+        print "Há cercas ao ";
     }
     if( numwalls == 3 ) {
-        print "There are fences to ";
+        print "Há cercas ao ";
     }
     if( numwalls == 4 ) {
-        "This is a fenced-in area.";
+        "Esta é uma área cercada.";
     }
     if( numwalls == 2 && s_side == true && w_side == true ) {
         cornerp = 1;
     }
     while( numwalls > 0 ) {
         if( n_side == true ) {
-            print "north";
+            print "norte";
             n_side = false;
         } else if( s_side == true ) {
-            print "east";
+            print "leste";
             s_side = false;
         } else if( e_side == true ) {
-            print "south";
+            print "sul";
             e_side = false;
         } else if( w_side == true ) {
-            print "west";
+            print "oeste";
             w_side = false;
         }
         --numwalls;
         if( numwalls == 0 ) {
             if( cornerp == 1 ) {
-                "; uncouth rustics are at work to the south, but fortunately they haven't yet seen you.";
+                "; camponeses grosseiros trabalham ao sul, mas felizmente ainda não viram você.";
             }
             ".";
         }
@@ -243,12 +243,12 @@
 
 
 
-GRoom   Maze "Maze"      
+GRoom   Maze "Labirinto"      
   with  before [ x y;
-            Exit: "Remember the poor grass!";
+            Exit: "Lembre-se da pobre grama!";
             Go:
                 if( garden_roller hasnt on ) {
-                    "But the garden roller is switched off, and won't drive.";
+                    "Mas o rolo de jardim está desligado e não anda.";
                 }
                 if( MazeX == 4 && MazeY == 6 && noun == s_obj ) {
                     rfalse;
@@ -275,10 +275,10 @@ GRoom   Maze "Maze"
                     y = MazeY;
                 }
                 if( x == 100 ) {
-                    "The maze is constructed with rectangular grid-lines of privet, so you can only proceed north, east, south or west.";
+                    "O labirinto é construído com linhas retangulares de ligustro, então você só pode seguir para norte, leste, sul ou oeste.";
                 }
                 if( MazeBoundary(x,y) == 1 ) {
-                    "The privet hedge is in the way.";
+                    "A sebe de ligustro está no caminho.";
                 }
                 MazeX = x;
                 MazeY = y;
@@ -296,85 +296,83 @@ GRoom   Maze "Maze"
         after [; Look: MazeDescribe(); rtrue; ],
         s_to Family_Tree,
         w_to Viewpoint_Ledge,
-        description "A maze of green privet passages, all alike.",
-        cant_go "The privet hedges are in the way.",
+        description "Um labirinto de passagens de ligustro verde, todas iguais.",
+        cant_go "As sebes de ligustro estão no caminho.",
   has   light scored;
 
-GRoom   Patio_in_Maze "Patio in Maze"    
+GRoom   Patio_in_Maze "Pátio no Labirinto"    
   with  name 'patio' 'flagstone',
         before [;
             Go:
                 if( noun == d_obj or u_obj )
                     rfalse;
-                if( player notin garden_roller ) "Mustn't tread on the grass now!";
+                if( player notin garden_roller ) "Não se deve pisar na grama agora!";
                 return RunRoutines(Maze, before);
         ],
         after [; Look: MazeDescribe(); rtrue; ],
-        u_to "Up?  Are we playing the same game?",
+        u_to "Para cima? Estamos jogando o mesmo jogo?",
         d_to Crypt,
-        description "This is an old stone patio in the heart of the garden maze. A missing flagstone offers an intriguing dark prospect beneath.",
-        cant_go "The privet hedges are in the way.",
+        description "Este é um velho pátio de pedra no coração do labirinto do jardim. Uma pedra ausente oferece uma intrigante perspectiva escura abaixo.",
+        cant_go "As sebes de ligustro estão no caminho.",
   has   light scored;
 
-Object  -> marble_rose "marble rose"     
+Object  -> marble_rose "rosa de mármore"     
   with  name 'marble' 'rose' 'flower',
         before [;
             Insert, Give:
                 if( second == statue_of_Diana )
-                            "It would look perfect in Diana's hair, but her head is far too high to reach.";
+                            "Ela ficaria perfeita no cabelo de Diana, mas a cabeça dela está alta demais para alcançar.";
         ],
-        initial "Sticking out of some soft earth is a perfectly-carved marble rose.",
-        angel_hint "Perfection set in stone. Not a gift for mortal women!",
+        initial "Uma rosa de mármore perfeitamente esculpida desponta da terra macia.",
+        angel_hint "Perfeição gravada em pedra. Não é presente para mulheres mortais!",
   has   ;
 
-GRoom   Viewpoint_Ledge "Viewpoint Ledge"        
+GRoom   Viewpoint_Ledge "Mirante"        
   with  name 'motorway' 'coaches',
         before [;
             Examine:
-                if( player in garden_roller && noun == plaque ) "The writing's too small from here.";
+                if( player in garden_roller && noun == plaque ) "A inscrição é pequena demais para ser lida daqui.";
             Go:
                 if( noun == e_obj && player notin garden_roller )
-                    "For the sake of the grass, you can't go that way.";
+                    "Pelo bem da grama, você não pode ir por ali.";
         ],
         e_to Maze,
-        description "This flagstoned rampart on the hillside looks across the valley, down (unfortunately) 
-            to the motorway below. Coaches pass by, reminding you of the rapidly approaching time when visitors
-            will have to be let in again for the summer. The only safe way to go is back east into the maze. To
-            one side is a plaque.",
-        cant_go "The hillside is too steep.",
+        description "Esta muralha de pedras na encosta dá para o vale e, infelizmente, para a rodovia abaixo. Ônibus
+            passam, lembrando você de que logo chegará a hora de deixar os visitantes entrarem novamente no verão.
+            O único caminho seguro é voltar para leste, ao labirinto. De um lado há uma placa.",
+        cant_go "A encosta é íngreme demais.",
   has   light scored;
 
 Object  -> plaque "plaque"       
   with  name 'plaque',
-        description "~This viewpoint, one of the finest in the county, was laid down by Capability Meldrew, 
-            a well-known landscape gardener of his day. It was intended as one of the rewards of the garden maze,
-            and was constructed c. 1808 after an earlier folly on the site collapsed.~",
+        description "~Este mirante, um dos melhores do condado, foi construído por Capability Meldrew, famoso paisagista
+            de sua época. Destinava-se a ser uma das recompensas do labirinto do jardim e foi construído por volta de
+            1808, depois que uma antiga torre no local desabou.~",
   has   scenery;
 
-Object  -> miniature "miniature" 
+Object  -> miniature "miniatura" 
   with  name 'miniature' 'plastic' 'etching',
         door_to Folly,
-        initial "A miniature plastic etching rests on the plaque.",
-        description "No larger than a playing card, it depicts the Folly which used to stand on the hillside outcrop.",
-        devil_hint "What's the point of a drawing so small it might almost be a playing card?",
+        initial "Uma gravura plástica em miniatura repousa sobre a placa.",
+        description "Não maior que uma carta de baralho, ela representa a Torre que antes ficava na saliência da encosta.",
+        devil_hint "Qual é o sentido de um desenho tão pequeno que quase poderia ser uma carta de baralho?",
   has   ;
 
-Object Folly "Folly"    
+Object Folly "Torre"    
   with  name 'wain' 'hay' 'valley',
         after [; default: MazeX = 0; MazeY = 1; rfalse; ],
         e_to Maze_Foundations,
-        description "This is a rampart on the hillside, a natural ledge leading east. Down below in the valley, 
-            rough cottages surround a church. Labourers toil in the fields, and a hay wain is being pulled across
-            the river.^^Towering over you is a monstrously awful piece of architecture, a Folly. The freestanding
-            tower has no appreciable purpose and no apparent entrance. The latter is just as well since it looks
-            extremely unsafe.",
-        cant_go "The hillside is too steep.",
+        description "Esta é uma muralha na encosta, uma saliência natural que leva para leste. Lá embaixo, no vale,
+            chalés rústicos cercam uma igreja. Trabalhadores labutam nos campos, e uma carroça de feno é puxada pelo
+            rio.^^Erguida sobre você há uma construção monstruosamente horrível, uma Torre. A torre independente não
+            tem finalidade perceptível nem entrada aparente. Ainda bem, pois parece extremamente insegura.",
+        cant_go "A encosta é íngreme demais.",
         section T_GARDEN_PAST,
   has   light scored;
 
-Object -> Folly_tower "Folly tower"     
+Object -> Folly_tower "torre"     
   with  name 'folly' 'tower' 'bricks' 'unsafe',
-        description "Decidedly unsteady.",
+        description "Decididamente instável.",
   has   scenery;
 
 Object -> bean_pole "bean pole" 
@@ -389,22 +387,22 @@ Object -> bean_pole "bean pole"
                 rfalse;
         ],
 
-        initial "A bean pole, of the kind used to grow climbing plants, rests against the side of the tower.",
+        initial "Uma vara de feijão, do tipo usado para cultivar trepadeiras, está apoiada na lateral da torre.",
         time_left 0,
         time_out [;
             if( game_section == T_GARDEN_PAST ) {
-                print "^There is a great rumbling sound and then a thunderous avalanche of stone cascades down the 
-                    hillside into the valley. The Folly has collapsed!  Capability Meldrew and his workmen come
-                    running to investigate. In the ensuing confusion, they come across you and, of course, blame
-                    you for their incompetent masonry. You are hauled up before the county assizes...^";
+                print "^Há um grande estrondo e então uma avalanche trovejante de pedras desce pela encosta até o vale.
+                    A Torre desabou! Capability Meldrew e seus trabalhadores correm para investigar. Na confusão,
+                    eles encontram você e, naturalmente, culpam-no pela alvenaria incompetente. Você é levado perante
+                    o tribunal do condado...^";
                 deadflag = AUSTRALIA;
             }
         ],
         rod_assoc rod_of_stalking,
-        devil_hint "Whatever you do, it'll always be a bean pole.",
+        devil_hint "Faça o que fizer, ela sempre será uma vara de feijão.",
   has   general hidden_rod;
 
-Object Maze_Foundations "Maze Foundations"      
+Object Maze_Foundations "Fundações do Labirinto"      
   with  before [ x y;
             Go:
                 if( MazeX == 4 && MazeY == 6 && noun == s_obj ) {
@@ -448,10 +446,10 @@ Object Maze_Foundations "Maze Foundations"
                     y = MazeY + 1;
                 }
                 if( x == 100 ) {
-                    "The maze is only two-dimensional.";
+                    "O labirinto é apenas bidimensional.";
                 }
                 if( CheckMaze2(x,y) ~= 0 ) {
-                    "The wooden fence is in the way.";
+                    "A cerca de madeira está no caminho.";
                 }
                 MazeX = x;
                 MazeY = y;
@@ -459,19 +457,18 @@ Object Maze_Foundations "Maze Foundations"
         ],
         after [;
             Look: MazeOldDescribe(); rtrue;
-            Drop: deadflag = PARADOX; "You feel an alarming wrench in your insides.";
+            Drop: deadflag = PARADOX; "Você sente um puxão alarmante nas entranhas.";
         ],
         s_to Tree_Planting,
         w_to Folly,
-        description "A square grid of plots of grass and seedbeds, all alike.",
+        description "Uma grade quadrada de trechos de grama e canteiros de sementes, todos iguais.",
         section T_GARDEN_PAST,
   has   light;
 
-Object Tree_Planting "Tree Planting"    
+Object Tree_Planting "Plantio de Árvores"    
   with  after [; deadflag = AUSTRALIA; ],
-        description "Capability Meldrew and his gang of workmen are delicately planting a sapling plane tree 
-            here. Your disturbance annoys them immensely and you are immediately arrested for vagrancy and
-            theft. After a few months in prison, you are hauled up before the County Assizes and sentenced...",
+        description "Capability Meldrew e seu grupo de trabalhadores plantam delicadamente uma muda de plátano aqui.
+            Sua perturbação os irrita enormemente, e você é imediatamente preso por vadiagem e roubo. Depois de alguns
+            meses na prisão, você é levado perante o Tribunal do Condado e condenado...",
         section T_GARDEN_PAST,
   has   light;
-

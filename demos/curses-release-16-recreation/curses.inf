@@ -1,5 +1,5 @@
-Constant Story "MALDIÇÕES";
-Constant Headline "^Uma diversão interativa^Copyright (c) 1993, 1994, 1995 por Graham Nelson.^";
+Constant Story "MALDICOES";
+Constant Headline "^Uma diversao interativa^Copyright (c) 1993, 1994, 1995 por Graham Nelson.^";
 Release 17;
 
 Constant DEBUG;
@@ -253,30 +253,30 @@ Array bomb_wires --> 4;
 
 Array rank_levels -->
     48
-    500 "happy Tourist."
-    499 "very nearly happy Tourist."
-    450 "master Druid."
-    425 "journeyman Druid."
-    400 "apprentice Druid."
-    375 "Master Navigator."
-    340 "Navigator."
-    310 "Voyager."
-    280 "Explorer."
-    250 "expert Traveller."
-    210 "Traveller."
-    170 "Adventurer."
-    150 "Connoisseur."
-    125 "Jack-of-all-trades."
-    100 "amateur Adventurer."
-    75 "Dilettante."
-    50 "cynical Tourist."
-    35 "experienced Tourist."
-    20 "seasoned Tourist."
-    10 "casual Tourist."
-    1 "gauche Tourist."
-    0 "hapless Tourist."
-    65438 "accursed Tourist."
-    64536 "irresponsible deity."
+     500 "Turista feliz."
+     499 "Turista quase feliz."
+     450 "Druida mestre."
+     425 "Druida veterano."
+     400 "Druida aprendiz."
+     375 "Navegador mestre."
+     340 "Navegador."
+     310 "Viajante."
+     280 "Explorador."
+     250 "Viajante experiente."
+     210 "Viajante."
+     170 "Aventureiro."
+     150 "Conhecedor."
+     125 "Faz-tudo."
+     100 "Aventureiro amador."
+     75 "Diletante."
+     50 "Turista cinico."
+     35 "Turista experiente."
+     20 "Turista calejado."
+     10 "Turista casual."
+     1 "Turista desajeitado."
+     0 "Turista azarado."
+     65438 "Turista maldito."
+     64536 "divindade irresponsavel."
 ;
 
 Array card_deck --> 10;
@@ -445,15 +445,15 @@ Object LibraryMessages
                     rfalse;
                 }
                 if( game_section == T_ALEXANDRIA ) {
-                    "Austin is quite unruffled.";
+                    "Austin esta completamente tranquilo.";
                 }
-                print "For some reason, Austin is startled and springs for his life ";
+                print "Por alguma razao, Austin se assusta e salta para salvar a vida ";
                 trigger_quotation(7);
                 if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
                     move Austin to Causeway;
                     Achieved(SCORE_AUSTIN);
                     StartDaemon(Outside_the_Royal_Museum);
-                    "right up through the south wall and into Alexandria!";
+                    "direto pela parede sul e para dentro de Alexandria!";
                 }
                 AustinMovements(true);
                 rfalse;
@@ -464,7 +464,7 @@ Object LibraryMessages
 !                rfalse;
             Listen:
                 if( antiquated_wireless has general && (antiquated_wireless in location || (antiquated_wireless in Conservatory && location == Potting_Room)) )
-                    "You feel your brain turning to rice pudding.";
+                    "Voce sente seu cerebro se transformar em mingau de arroz.";
                 rfalse;
         ]
   has   scenery;
@@ -483,7 +483,7 @@ Include "VerbLib";
     return j;
 ];
 
-[ WindBlows; "A swirl of wind almost bowls you over, but nothing else happens."; ];
+[ WindBlows; "Um redemoinho de vento quase derruba voce, mas nada mais acontece."; ];
 
 Class LagachObj
   with  orders [ i r flag;
@@ -491,7 +491,7 @@ Class LagachObj
                 if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
                     rfalse;
                 if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
-                    "A breeze ripples the canvas of the unanchored painting, but that's all.";
+                    "Uma brisa ondula a tela da pintura desprendida, mas so isso.";
                 i = 0;
                 if( location == Greek_Frieze1 ) i = 1;
                 if( location == Mosaic ) i = 2;
@@ -535,7 +535,7 @@ Class LagachObj
                 if( r == location )
                     return WindBlows();
 
-                print "A swirl of wind snakes out from ", (the) self, " and whisks you away to...^";
+                print "Um redemoinho de vento sai de ", (the) self, " e leva voce para...^";
                 PlayerTo(r);
                 rtrue;
             default: return WindBlows();
@@ -646,7 +646,7 @@ Object carbolic_soap "carbolic soap"
   has   concealed;
 
 [ PrintRank s ndx ;     
-    print ", giving you the rank of ";
+    print ", dando a voce o posto de ";
     s = score;
     if (s ~= 65437 && task_done->11 ~= 0) {
         s = s - 50;
@@ -665,167 +665,167 @@ Object carbolic_soap "carbolic soap"
 
 [ PrintTaskName n ;
     if( n == SCORE_HAMBURG ) {
-        "reading postcard";
+        "lendo o cartao-postal";
     }
     if( n == SCORE_TORCH ) {
-        "recharging torch";
+        "recarregando a tocha";
     }
     if( n == SCORE_JOSHUA ) {
-        "exorcism";
+        "exorcismo";
     }
     if( n == SCORE_SECRETDOOR ) {
-        "opening secret door";
+        "abrindo a porta secreta";
     }
     if( n == SCORE_DEMIJOHN ) {
-        "opening demijohn";
+        "abrindo o garrafao";
     }
     if( n == SCORE_WAITER ) {
-        "using dumbwaiter";
+        "usando o monta-cargas";
     }
     if( n == SCORE_WAND ) {
-        "charging a rod";
+        "carregando uma vara";
     }
     if( n == SCORE_AIMWAND ) {
-        "firing a rod";
+        "disparando uma vara";
     }
     if( n == SCORE_WIRELESS ) {
-        "exposing radio";
+        "expondo o radio";
     }
     if( n == SCORE_DAISY ) {
-        "sporting a daisy chain";
+        "usando uma corrente de margaridas";
     }
     if( n == SCORE_CHOCOLATE ) {
-        "placating Aunt Jemima";
+        "acalmando Tia Jemima";
     }
     if( n == SCORE_ANDROMEDA ) {
-        "rescuing Andromeda";
+        "resgatando Andromeda";
     }
     if( n == SCORE_BATTERY ) {
-        "uncovering battery";
+        "descobrindo a bateria";
     }
     if( n == SCORE_PLUMBING ) {
-        "mending the plumbing";
+        "consertando o encanamento";
     }
     if( n == SCORE_SMELL ) {
-        "scenting a passage";
+        "sentindo o cheiro de uma passagem";
     }
     if( n == SCORE_REFLECTING ) {
-        "reflecting";
+        "refletindo";
     }
     if( n == SCORE_HENRIPOST ) {
-        "solving the grid";
+        "resolvendo a grade";
     }
     if( n == SCORE_ORB ) {
-        "winning the orb";
+        "vencendo o orbe";
     }
     if( n == SCORE_MAP ) {
-        "buying map of Paris";
+        "comprando o mapa de Paris";
     }
     if( n == SCORE_ARC ) {
-        "filling the arc";
+        "preenchendo o arco";
     }
     if( n == SCORE_WELL ) {
-        "getting into the well";
+        "entrando no poco";
     }
     if( n == SCORE_MASCOT ) {
-        "acquiring the mascot";
+        "adquirindo o mascote";
     }
     if( n == SCORE_BISCUIT ) {
-        "eating between meals";
+        "comendo entre as refeicoes";
     }
     if( n == SCORE_SMOKE ) {
-        "smoke detecting";
+        "detectando fumaca";
     }
     if( n == SCORE_SHIP ) {
-        "putting a ship in a bottle";
+        "colocando um navio numa garrafa";
     }
     if( n == SCORE_FLAG ) {
-        "parachuting on deck";
+        "saltando de paraquedas no conves";
     }
     if( n == SCORE_SLEEP ) {
-        "sleeping in Alison's bed";
+        "dormindo na cama de Alison";
     }
     if( n == SCORE_SECRET_PASS ) {
-        "opening sandstone crevice";
+        "abrindo a fenda de arenito";
     }
     if( n == SCORE_ROD_IDENT ) {
-        "identifying a rod";
+        "identificando uma vara";
     }
     if( n == SCORE_WATCH ) {
-        "dislodging the watch";
+        "soltando o relogio";
     }
     if( n == SCORE_HYPNOSIS ) {
-        "hypnosis";
+        "hipnose";
     }
     if( n == SCORE_SECURITY ) {
-        "passing security";
+        "passando pela seguranca";
     }
     if( n == SCORE_TEMPLE ) {
-        "restoring the Temple";
+        "restaurando o Templo";
     }
     if( n == SCORE_HOMER ) {
-        "answering Homer";
+        "respondendo a Homer";
     }
     if( n == SCORE_ORACLE ) {
-        "summoning the oracle";
+        "convocando o oraculo";
     }
     if( n == SCORE_STRONGBOX ) {
-        "unearthing strongbox";
+        "desenterrando o cofre";
     }
     if( n == SCORE_AUSTIN ) {
-        "startling Austin";
+        "assustando Austin";
     }
     if( n == SCORE_WASH ) {
-        "washing away the stone";
+        "lavando a pedra";
     }
     if( n == SCORE_LIBRARY ) {
-        "provoking the librarians";
+        "provocando os bibliotecarios";
     }
     if( n == SCORE_SPHINX ) {
-        "twisting the sphinx's nose";
+        "torcendo o nariz da esfinge";
     }
     if( n == SCORE_QUARTERSTAFF ) {
-        "depositing the quarterstaff";
+        "depositando o bordao";
     }
     if( n == SCORE_AFTERLIFE ) {
-        "rising in the afterlife";
+        "subindo no alem-vida";
     }
     if( n == SCORE_KNIGHT ) {
-        "reviving the knight";
+        "revivendo o cavaleiro";
     }
     if( n == SCORE_KNIGHT_ENCOURAGE ) {
-        "encouraging the knight";
+        "encorajando o cavaleiro";
     }
     if( n == SCORE_HIGHROD ) {
-        "choosing a High Rod";
+        "escolhendo uma Vara Superior";
     }
     "** Nameless task **";
 ];
 
 [ DeathMessage ;
     if( deadflag == FAILED ) {
-        print "You have missed the point entirely";
+        print "Voce perdeu completamente o sentido da coisa";
     }
     if( deadflag == DESTROYED_UNIVERSE ) {
-        print "You have disembodied the entire universe";
+        print "Voce desincorporou o universo inteiro";
     }
     if( deadflag == AUSTRALIA ) {
-        print "You have been transported to Australia";
+        print "Voce foi transportado para a Australia";
     }
     if( deadflag == PARADOX ) {
-        print "You have been annihilated by a temporal paradox";
+        print "Voce foi aniquilado por um paradoxo temporal";
     }
     if( deadflag == MYTH ) {
-        print "You have become a constellation";
+        print "Voce se tornou uma constelacao";
     }
     if( deadflag == PRISON ) {
-        print "You have been imprisoned as a terrorist";
+        print "Voce foi preso como terrorista";
     }
     if( deadflag == CHECKMATED ) {
-        print "You have been checkmated";
+        print "Voce sofreu xeque-mate";
     }
     if( deadflag == SPOOKED ) {
-        print "You have been spooked";
+        print "Voce levou um susto";
     }
     rtrue;
 ];

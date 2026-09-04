@@ -1,43 +1,43 @@
-Object Crypt "Crypt"
+Object Crypt "Cripta"
   with  s_to bronze_mural,
         u_to Patio_in_Maze,
         d_to bronze_mural,
         initial [; MazeX = 7; MazeY = 5; rfalse; ],
-        description "A dismal crypt, disused, rainswept and strewn with leaves. Light streams in from the square hole in the roof. There are no bones or urns on show.",
+         description "Uma cripta lúgubre, abandonada, castigada pela chuva e coberta de folhas. A luz entra pelo buraco quadrado no teto. Não há ossos nem urnas à vista.",
         section T_CATACOMBS,
   has   light;
 
-LagachObj -> bronze_mural "bronze mural"
+LagachObj -> bronze_mural "mural de bronze"
   with  name 'bronze' 'mural',
         door_to Jagged_Passage,
-        when_closed "The south wall forms a giant bronze mural, which has stood the test of time.",
+         when_closed "A parede sul forma um gigantesco mural de bronze, que resistiu ao teste do tempo.",
         door_dir d_to,
-        when_open "The mural stands slightly to one side, revealing a passage leading downward.",
-        description "The mural depicts an old bearded wise man following a star in the western sky. He has his right arm around an attractive young woman and holds a bundle of wands with his left hand. Around the border are astrological symbols of all kinds, from Tarot suits to zodiacal constellations.",
+         when_open "O mural está ligeiramente deslocado, revelando uma passagem que desce.",
+         description "O mural retrata um velho sábio barbudo seguindo uma estrela no céu ocidental. Ele mantém o braço direito em torno de uma jovem atraente e segura um feixe de varinhas com a mão esquerda. Ao redor da borda há símbolos astrológicos de todo tipo, dos naipes do tarô às constelações do zodíaco.",
   has   door static;
 
-[ CryptRoomBefore i ;   
+[ CryptRoomBefore i ;
     if( action == ##Smell ) {
-        if( location ~= The_Catacombs ) "Ugh.";
+        if( location ~= The_Catacombs ) "Argh.";
 
         i = The_Catacombs.time_left + 1;
         The_Catacombs.time_left = i;
-        if( i == 1 ) { 
-            "Something like... perhaps, air after a thunderstorm... but no, you still can't be sure what it is.";
+        if( i == 1 ) {
+            "Algo como... talvez ar depois de uma tempestade... mas não, você ainda não consegue ter certeza do que é.";
         }
         if( i == 2 ) {
             move aluminium_staircase to The_Catacombs;
             The_Catacombs.d_to = Universe_Maintenance_Room;
             OzoneSmelled = true;
             Achieved(SCORE_SMELL);
-            "Ozone!  That's what it's called. Funny sort of odour for a cave - especially since, on investigating further, you find that it's drifting up from a concealed aluminium staircase.";
+            "Ozônio! É assim que se chama. Um cheiro curioso para uma caverna, especialmente porque, investigando melhor, você descobre que ele sobe de uma escada de alumínio escondida.";
         }
-        "Definitely ozone.";
+        "Definitivamente ozônio.";
     }
     rfalse;
 ];
 
-Object Jagged_Passage "Jagged Passage"
+Object Jagged_Passage "Passagem Irregular"
   with  name 'bones',
         before CryptRoomBefore,
         n_to Crypt,
@@ -45,59 +45,59 @@ Object Jagged_Passage "Jagged Passage"
         e_to Charnel_Passage,
         u_to Crypt,
         d_to The_Catacombs,
-        description "An eerie passage, running down from an opening at the north to murky depths in the south. The walls are jagged, uneven and decorated with bones. An unpleasantly stale, charnel odour drifts in through a gap to the east.",
+         description "Uma passagem sinistra, que desce de uma abertura ao norte até profundezas sombrias ao sul. As paredes são irregulares, desniveladas e decoradas com ossos. Um odor desagradavelmente rançoso, de cadáveres, entra por uma fresta a leste.",
         section T_CATACOMBS,
   has   ;
 
-Object -> wrought_iron_key "long wrought iron key"
+Object -> wrought_iron_key "chave comprida de ferro forjado"
   with  name 'long' 'wrought' 'iron' 'key',
         sw_to compass,
-        initial "You appear to be standing on a wrought iron key.",
-        description "A figure-eight double ring, a long barrel and a finely-cut ten-groove claw: this is the ultimate in keys. It is superb.",
+         initial "Você parece estar pisando sobre uma chave de ferro forjado.",
+         description "Um anel duplo em forma de oito, um cano comprido e uma lingueta finamente cortada com dez ranhuras: esta é a chave definitiva. É magnífica.",
   has   ;
 
-Object Charnel_Passage "Charnel Passage"
+Object Charnel_Passage "Passagem dos Cadáveres"
   with  before CryptRoomBefore,
         e_to Sarcophagus,
         w_to Jagged_Passage,
-        description "A long, winding, vile passage through the earth, running east to west. The distasteful odour grows stronger as you go east.",
+         description "Uma passagem longa, tortuosa e asquerosa pela terra, de leste a oeste. O odor repulsivo fica mais forte conforme você avança para leste.",
         section T_CATACOMBS,
   has   ;
 
-Object Sarcophagus "Sarcophagus"
+Object Sarcophagus "Sarcófago"
   with  before CryptRoomBefore,
         w_to Charnel_Passage,
-        description "Well, perhaps ~sarcophagus~ is a little melodramatic, but it's that kind of moment. This must be somewhere under the old parish church. You are stooped over inside a stone tomb, stained and crumbled with decay, broken only by a crevice you crawled in by. It is a nightmarish place.",
+         description "Bem, talvez ~sarcófago~ seja um pouco melodramático, mas é esse tipo de momento. Isto deve ficar em algum lugar sob a velha igreja paroquial. Você está curvado dentro de um túmulo de pedra, manchado e esfarelado pela decomposição, interrompido apenas pela fenda por onde rastejou. É um lugar de pesadelo.",
         section T_CATACOMBS,
   has   ;
 
 Object -> tombstone "tombstone"
   with  name 'tombstone' 'tomb' 'stone',
-        initial "Nightmarishly, even the floor you kneel on is a fallen tombstone.",
-        description "The gist of the inscription is: ~Henri Maladreue, obiit mcdlvi.~",
+         initial "Como num pesadelo, até o chão onde você se ajoelha é uma lápide caída.",
+         description "O essencial da inscrição é: ~Henri Maladreue, obiit mcdlvi.~",
   has   static;
 
-Object The_Catacombs "Catacombs"
+Object The_Catacombs "Catacumbas"
   with  before CryptRoomBefore,
         n_to Jagged_Passage,
         w_to CR,
         u_to Jagged_Passage,
         d_to nothing,
-        description "A large, grisly cave, deep under the garden, dimly lit and eerie. Darkness curls around the natural pillars of rock like a mist: and there is a peculiar, vaguely familiar odour to it. The only obvious routes out are an uneven passage climbing to the north and a crawl west.",
-        cant_go "You bumped into something unpleasant there.",
+         description "Uma caverna grande e horrenda, bem abaixo do jardim, mal iluminada e sinistra. A escuridão se enrola em torno dos pilares naturais de rocha como névoa, e há nela um odor peculiar e vagamente familiar. As únicas saídas óbvias são uma passagem irregular que sobe ao norte e um rastejo para oeste.",
+         cant_go "Você esbarrou em algo desagradável ali.",
         time_left 0,
         section T_CATACOMBS,
   has   ;
 
-Object aluminium_staircase "aluminium staircase"
+Object aluminium_staircase "escada de alumínio"
   with  name 'staircase' 'stairs' 'stair' 'case' 'aluminium',
         before [; Climb, Enter: << Go d_obj >>; ],
-        initial "The odd smell seems to be ozone, and it drifts up from a previously concealed aluminium staircase.",
-        description "Leading down.",
+         initial "O cheiro estranho parece ser ozônio, e sobe de uma escada de alumínio antes escondida.",
+         description "Desce.",
         article "an",
   has   static;
 
-[ AdjustSlide i j u v ; 
+[ AdjustSlide i j u v ;
     u = henri_post_array->i;
     v = henri_post_array->j;
     henri_post_array->j = u;
@@ -105,18 +105,18 @@ Object aluminium_staircase "aluminium staircase"
     rtrue;
 ];
 
-[ DisplaySlidePos ndx chr ;      
+[ DisplaySlidePos ndx chr ;
     chr = henri_post_array->(ndx - 1);
     if( chr == 0 ) {
         print ". ";
         rfalse;
     }
-    chr = chr + 65 - 1; 
+    chr = chr + 65 - 1;
     print (char) chr, " ";
     rtrue;
 ];
 
-[ DisplayWholeGrid ;  
+[ DisplayWholeGrid ;
     0-->8 = 2 | 0-->8;
     print "     ";
     DisplaySlidePos(1);
@@ -133,7 +133,7 @@ Object aluminium_staircase "aluminium staircase"
     print "^      + +^", "     ";
     DisplaySlidePos(10);
     DisplaySlidePos(11);
-    DisplaySlidePos(12); 
+    DisplaySlidePos(12);
     print "^      + +^", "     ";
     DisplaySlidePos(13);
     DisplaySlidePos(14);
@@ -148,8 +148,8 @@ Object CR "CR"
         after [;
             Go, Enter:
                 if (noun == n_obj or s_obj or metal_wall) {
-                    print "^Walking through the mirror is a wrench, but leaves you somewhere... almost exactly 
-                        the same...^";
+                    print "^Atravessar o espelho é desconcertante, mas deixa você em algum lugar... quase exatamente
+                        igual...^";
                     redraw_statusline = true;
                     Achieved(SCORE_REFLECTING);
                     if (noun == n_obj) {
@@ -176,20 +176,21 @@ Object CR "CR"
         s_to nothing,
         e_to [;
             if( self.time_left == 3 )
-                "You bump into an invisible barrier - perhaps the edge of the reflection.";
+                "Você esbarra numa barreira invisível, talvez a borda do reflexo.";
             return The_Catacombs;
         ],
-        description "The cartoonist Heath Robinson used to specialise in drawings of fantastically complicated 
-            machines of string, pulleys, levers, counterweights, cogs, mice running about on wheels and the
-            like. Just such a contraption fills the west end of this room, though most of the workings are behind
-            a glass wall which, although running with age, is as solid as the day it was built. The parts are very
-            old (hand-made, not machined) but uncorroded.^^The only way out appears to be via the crawl to the east.",
+        description "O cartunista Heath Robinson se especializava em desenhos de máquinas fantasticamente complicadas,
+            com cordas, roldanas, alavancas, contrapesos, engrenagens, ratos correndo em rodas e coisas assim. Uma
+            engenhoca desse tipo ocupa o lado oeste desta sala, embora a maior parte do mecanismo esteja atrás de
+            uma parede de vidro que, apesar de envelhecida, é tão sólida quanto no dia em que foi construída. As peças
+            são muito antigas (feitas à mão, não usinadas), mas não estão corroídas.^^A única saída parece ser pelo
+            rastejo a leste.",
         time_left 2,
         short_name [;
-            if( self.time_left == 3 ) 
-                print "Contraption Reflection";
+            if( self.time_left == 3 )
+                print "Reflexo da Engenhoca";
             else
-                print "Contraption Room";
+                print "Sala da Engenhoca";
             rtrue;
         ],
         section T_CATACOMBS,
@@ -198,77 +199,77 @@ Object CR "CR"
 Object -> metal_wall "metal wall"
   with  name 'mirror' 'metal' 'bronze' 'wall' 'sheet' 'amber',
         before [;
-            Rub: "You polish the metal a little, but there's far too much to do by hand.";
+            Rub: "Você lustra um pouco o metal, mas há trabalho demais para fazer à mão.";
         ],
         door_to CR,
-        when_closed "The north edge of the room is a big sheet of dull amber-coloured metal.",
+        when_closed "A borda norte da sala é uma grande chapa de metal cor de âmbar fosco.",
         door_dir n_to,
         when_open [;
-            print "The whole "; 
+            print "Toda a ";
             if( CR.time_left == 2 ) {
-                print "north";
+                print "parede norte";
             } else {
-                print "south";
-            } 
-            " wall is occupied by a bronze mirror, reflecting the room.";
+                print "parede sul";
+            }
+            " é ocupada por um espelho de bronze que reflete a sala.";
         ],
-        description "Someone rather good-looking (you can't help thinking) is reflected in the metal surface.",
+        description "Alguém bastante bonito, você não consegue deixar de pensar, está refletido na superfície metálica.",
   has   door static;
 
 Object -> iron_grid "iron grid"
   with  name 'iron' 'grid' 'contraption' 'panel',
         initial [;
-            print "Amid the glass wall is an iron panel divided into a three-by-five grid.^^Behind the glass is a kind of see-saw of two leather baskets at opposite ends of an oak pivot. ", "In one corner of the roof, above the far end of the see-saw, is a ";
+            print "No meio da parede de vidro há um painel de ferro dividido numa grade de três por cinco.^^Atrás do vidro há uma espécie de gangorra com dois cestos de couro nas extremidades opostas de um pivô de carvalho. ", "Num canto do teto, acima da extremidade distante da gangorra, há um ";
             if( ancient_well notin nothing ) {
-                print "hole through which dim natural light emanates.^^";
+                print "buraco pelo qual emana uma luz natural fraca.^^";
             } else {
-                print "dark hole.^^";
+                print "buraco escuro.^^";
             }
-            print "Projecting out of the back of the panel mechanism at the near end is a metal hand, which ";
+            print "Projetando-se da parte traseira do mecanismo do painel, na extremidade próxima, há uma mão metálica que ";
             if( CR has general ) {
-                "grasps empty air.";
+                "agarra o ar vazio.";
             }
-            "grasps a cannonball in mid-air.";
+            "agarra uma bala de canhão no ar.";
         ],
         description [;
-            print "There are fourteen pieces in the grid, and one gap. The pieces have letters upon them ";
+            print "Há quatorze peças na grade e uma lacuna. As peças têm letras ";
             if( CR.time_left == 3 ) {
-                print "(in reflected script) ";
+                print "(em escrita refletida) ";
             }
-            print "and are arranged as follows:^^";
+            print "e estão dispostas assim:^^";
             DisplayWholeGrid();
-            "^[Try ~slide b~, for instance, to move a piece into the gap.]";
+            "^[Tente ~deslizar b~, por exemplo, para mover uma peça até a lacuna.]";
         ],
   has   static;
 
-Object -> glowing_golden_orb "glowing golden orb"
+Object -> glowing_golden_orb "orbe dourado brilhante"
   with  name 'glowing' 'golden' 'orb',
-        before [; default: "It is out of reach, beyond the glass."; ],
-        description "How tantalisingly valuable it seems.",
+         before [; default: "Está fora de alcance, além do vidro."; ],
+         description "Como ele parece tentadoramente valioso.",
   has   scenery;
 
-Object -> cannonball "cannonball"
+Object -> cannonball "bala de canhão"
   with  name 'cannon' 'ball' 'cannonball',
         before [;
-            Examine: "It is out of reach, beyond the glass.";
+            Examine: "Está fora de alcance, além do vidro.";
         ],
-        description "Solid, heavy, reliable, out of reach on the other side of the glass.",
+         description "Sólida, pesada, confiável, fora de alcance do outro lado do vidro.",
   has   scenery;
 
-Object Universe_Maintenance_Room "Universe Maintenance Room"
+Object Universe_Maintenance_Room "Sala de Manutenção do Universo"
   with  name 'gauges' 'machines' 'cube' 'dials',
         u_to The_Catacombs,
-        description "You really should try to be more awestruck, for this is Merlin's cave, the hub of Creation. Every visitor perceives this place differently, according to his or her own myths and beliefs. Your particular creed being science, there is only a black metal one-metre cube with an unimpressive collection of gauges and dials. An aluminium staircase leads up.",
+         description "Você realmente deveria ficar mais maravilhado, pois esta é a caverna de Merlin, o centro da Criação. Cada visitante percebe este lugar de modo diferente, conforme seus próprios mitos e crenças. Como sua crença particular é a ciência, há apenas um cubo de metal preto de um metro, com uma coleção pouco impressionante de medidores e mostradores. Uma escada de alumínio sobe.",
         section T_CATACOMBS,
   has   scored;
 
 Object -> big_electricians_switch "big electrician's switch"
   with  name 'big' 'electricians' 'switch',
         after [;
-            SwitchOn: "Click-clunk!  The world looks precisely the same.";
-            SwitchOff: "Clunk-click!  Probably nothing very much has changed.";
+             SwitchOn: "Clique-clanc! O mundo parece exatamente igual.";
+             SwitchOff: "Clanc-clique! Provavelmente nada mudou de verdade.";
         ],
-        description "The lower, on, position is labelled ~Determinism~. The upper, off, position is labelled ~Chance~.",
+         description "A posição inferior, ligada, está marcada ~Determinismo~. A posição superior, desligada, está marcada ~Acaso~.",
   has   on scenery static switchable;
 
 Object -> large_dial "large dial"
@@ -278,22 +279,22 @@ Object -> large_dial "large dial"
                 if( PlanckWarning == false ) {
                     PlanckWarning = true;
                     trigger_quotation(12);
-                    "Is it really wise to go meddling with things here?  Well, only one way to find out. Don't expect a second warning!";
+                     "É mesmo sensato mexer nas coisas por aqui? Bem, só há um jeito de descobrir. Não espere um segundo aviso!";
                 }
                 deadflag = DESTROYED_UNIVERSE;
                 score = 65437;
-                "Mmm. On the whole, it's probably best not to alter one of the fundamental constants of the physical universe while still inside it. On the bright side, for once you are unlikely to get the blame.";
+                 "Hmm. No geral, provavelmente é melhor não alterar uma das constantes fundamentais do universo físico enquanto ainda está dentro dele. Pelo lado bom, desta vez é improvável que culpem você.";
         ],
-        initial "Particularly prominent are a large dial, like the volume control on an expensive hi-fi amplifier, and a big electrician's switch. Both are labelled in small print.",
-        description "Above the dial is a lower-case letter h with a slashed line through it. It is currently turned to 1.055 or thereabouts. There is something worryingly dangerous about its matter-of-factness.",
+         initial "Destacam-se um mostrador grande, como o controle de volume de um amplificador hi-fi caro, e um grande interruptor elétrico. Ambos estão marcados em letras miúdas.",
+         description "Acima do mostrador há uma letra h minúscula cortada por uma linha. Atualmente está ajustado para 1,055, mais ou menos. Há algo preocupantemente perigoso em sua simplicidade objetiva.",
   has   static;
 
-Object Inside_the_Orb "Inside the Orb"
+Object Inside_the_Orb "Dentro do Orbe"
   with  name 'light',
         after [;
-            Strike: "The sphere rings with a hollow noise, but the rod charges up.";
+             Strike: "A esfera ressoa com um ruído oco, mas a haste se carrega.";
         ],
-        description "You half-stand, half-float in a golden, misty sphere perhaps ten yards across, which slowly spins. The centre, out of reach and somehow insubstantial, is an eight-by-eight lattice of oblong crystals, bathed in warm pearly light.",
+         description "Você fica meio de pé, meio flutuando numa esfera dourada e enevoada de talvez nove metros de diâmetro, que gira lentamente. O centro, fora de alcance e de algum modo insubstancial, é uma treliça de cristais oblongos de oito por oito, banhada por uma luz perolada e quente.",
         number 0,
         each_turn [ i j;
             i = Inside_the_Orb.number + 1;
@@ -302,49 +303,47 @@ Object Inside_the_Orb "Inside the Orb"
                 rtrue;
             }
             if( i == 2 ) {
-                print "^The sphere rotates, giving you a fresh view of the images: stylised Kings and Queens?^";
+                print "^A esfera gira, oferecendo uma nova visão das imagens: Reis e Rainhas estilizados?^";
             }
             if( i == 4 ) {
-                print "^The sphere rotates, giving you another look: humble tokens of warriors.^";
+                print "^A esfera gira, oferecendo outra visão: humildes peças de guerreiros.^";
             }
             if( i == 6 ) {
-                print "^The sphere rotates, giving you another look: carved horse-heads and Bishops' mitres.^";
+                print "^A esfera gira, oferecendo outra visão: cabeças de cavalos entalhadas e mitras de bispos.^";
             }
             if( i == 8 ) {
-                print "^(The sphere rotates.)  It's a chess game!  Now you understand. But you still can't puzzle out the actual solution.^";
+                print "^(A esfera gira.) É um jogo de xadrez! Agora você entende. Mas ainda não consegue descobrir a solução propriamente dita.^";
             }
             if( i == 10 ) {
-                print "^(The sphere rotates.)  You have some impression that White is trying to make an attack, having plenty of spare pieces.^";
+                print "^(A esfera gira.) Você tem a impressão de que as Brancas estão tentando atacar, com muitas peças sobrando.^";
                 trigger_quotation(26);
             }
             if( i == 12 ) {
-                print "^(The sphere rotates.)  Seeing the board from Black's point of view, the defence looks solid.^";
+                print "^(A esfera gira.) Vendo o tabuleiro do ponto de vista das Pretas, a defesa parece sólida.^";
             }
             if( i == 14 ) {
-                print "^(The sphere rotates.)  Back to White's side. You definitely need to smash through somehow, all that cautious exchanging of pieces hasn't worked. If you want White to win, that is.^";
+                print "^(A esfera gira.) De volta ao lado das Brancas. Você definitivamente precisa romper de algum modo; toda aquela troca cautelosa de peças não funcionou. Isto é, se quiser que as Brancas vençam.^";
             }
             j = i % 4;
             if( j == 0 ) {
                 give Inside_the_Orb ~general;
                 if( i > 12 ) {
-                    "^(The sphere rotates.)  Black still looks safe.";
+                    "^(A esfera gira.) As Pretas ainda parecem seguras.";
                 }
             }
             if( j == 2 ) {
                 give Inside_the_Orb general;
                 if( i > 14 ) {
-                    "^(The sphere rotates.)  White must break out somehow.";
+                    "^(A esfera gira.) As Brancas precisam escapar de algum modo.";
                 }
             }
         ],
         section T_CATACOMBS,
   has   light;
 
-Object -> array_of_oblong_crystals "array of oblong crystals"
+Object -> array_of_oblong_crystals "conjunto de cristais oblongos"
   with  name 'array' 'oblong' 'lattice' 'crystals' 'images' 'board' 'chess' 'pieces' 'king' 'queen' 'white' 'black' 'kings' 'queens' 'bishops' 'knights',
-        initial "Images lurk about the array of oblong crystals.",
-        description "They are extremely hard to see and impossible to touch, as if you can only catch anything at all through the corner of your eye.",
+         initial "Imagens espreitam entre o conjunto de cristais oblongos.",
+         description "Eles são extremamente difíceis de ver e impossíveis de tocar, como se só fosse possível captar alguma coisa pelo canto do olho.",
         article "an",
   has   static;
-
-
