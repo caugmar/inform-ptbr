@@ -164,7 +164,7 @@
                     print ". ";
                 } else {
                     if( numwalls == 1 ) {
-                        print " and ";
+                        print " e ";
                     }
                     if( numwalls == 2 ) {
                         print ", ";
@@ -230,7 +230,7 @@
             ".";
         }
         if( numwalls == 1 ) {
-            print " and ";
+            print " e ";
         }
         if( numwalls == 2 ) {
             print ", ";

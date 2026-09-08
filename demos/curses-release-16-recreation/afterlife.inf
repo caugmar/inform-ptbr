@@ -182,7 +182,7 @@ Object Hellish_Place "Lugar Infernal"
         section T_AFTERLIFE,
   has   light;
 
-Object -> demon "demon"
+Object -> demon "demônio"
   with  name 'devil' 'demon' 'demonic' 'gentleman',
         life [ i;
             Ask, Answer:
@@ -257,7 +257,7 @@ Object Heavenly_Place "Lugar Celestial"
         section T_AFTERLIFE,
   has   light;
 
-Object -> angel "angel"
+Object -> angel "anjo"
   with  name 'angel' 'lady' 'angelic',
         life [ i;
             Answer, Ask:

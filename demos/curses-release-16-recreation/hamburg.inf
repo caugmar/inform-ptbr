@@ -38,7 +38,7 @@ Object  -> revolving_door_obj "porta giratória"
         description "Por que não ir para nordeste e olhar lá dentro?",
   has   scenery;
 
-Object  -> publicity_poster "publicity poster"
+Object  -> publicity_poster "cartaz de divulgação"
   with  name 'poster' 'publicity' 'pretentio' 'exhibition',
          initial "Um cartaz de divulgação está exposto para os transeuntes verem.",
          description "Um daqueles cartazes pretensiosos de exposição. Seu alemão é mais ou menos suficiente para a tarefa:^^~Cultos dos Druidas - Uma Grande Retrospectiva, Outubro-Novembro de 1988~.",
@@ -52,7 +52,7 @@ DERoom  Revolving_Door1 "Porta Giratória"
          cant_go "Ao norte e a leste ficam as paredes da porta.",
   has   light;
 
-Object  -> door1 "door"
+Object  -> door1 "porta"
   with  name 'door' 'revolving',
          before [;
              Push, Turn, Pull: "Você gira no sentido horário com a porta e acaba novamente ao lado do saguão.";
@@ -152,7 +152,7 @@ DERoom  Dark_Staircase "Escada Escura"
         description "Uma escada escura, virando de leste para sul à medida que desce. O som hediondo de cânticos arrítmicos vem de baixo.",
   has   light;
 
-Object  -> discarded_matchbook "discarded matchbook"
+Object  -> discarded_matchbook "caixa de fósforos descartada"
   with  name 'match' 'matchbook' 'book',
          initial "Num degrau, uma caixa de fósforos vazia está descartada.",
          description "É do Café do Castelo em Ruínas e, como o café, não tem fósforos.",
@@ -219,16 +219,16 @@ Object  -> goat "cabra de aparência ansiosa"
                 }
                 "Mée!";
         ],
-        article "an",
+        article "uma",
   has   animate static;
 
-Object  -> crook "shepherd's crook"
+Object  -> crook "cajado de pastor"
   with  name 'shepherds' 'crook',
         rod_assoc rod_of_husbandry,
          devil_hint "Apenas um cajado. E o que há de errado com cajados, é o que eu digo.",
   has   hidden_rod;
 
-Object  -> cell_door "cell door"
+Object  -> cell_door "porta da cela"
   with  name 'cell' 'door',
         before [;
             Knock: "Eles estão vindo o mais depressa que podem! Um ritual não acontece sozinho, sabe.";
@@ -248,7 +248,7 @@ DERoom  Cabinet_Room "Sala dos Armários"
          description "Um anexo do museu, contendo diversos achados arqueológicos, mal rotulados em alemão (que você mal consegue ler mesmo nas melhores condições) e firmemente presos dentro de armários de vidro. A tempestade lá fora açoita as estreitas janelas escuras.",
   has   ;
 
-Object  -> glass_cabinet "glass cabinet"
+Object  -> glass_cabinet "armário de vidro"
   with  name 'glass' 'cabinet' 'pane',
         before [;
             Attack:
@@ -272,7 +272,7 @@ Object  -> glass_cabinet "glass cabinet"
         ],
   has   container static transparent;
 
-Object  -> -> smooth_round_stone "smooth round stone"
+Object  -> -> smooth_round_stone "pedra lisa e redonda"
   with  name 'smooth' 'round' 'pumice' 'metal' 'stone',
         before [;
             Take: if( self has general ) "Por mais que você tente alcançar através da grade, ela continua fora de alcance.";
@@ -282,9 +282,9 @@ Object  -> -> smooth_round_stone "smooth round stone"
          angel_hint "A forma não lhe parece nem um pouco familiar? Aí está, isso deve apontar na direção certa.",
   has   scored;
 
-Object  -> -> papyrus_fragment "papyrus fragment"
+Object  -> -> papyrus_fragment "fragmento de papiro"
   with  name 'fragment' 'papyrus',
-        description "Only one line has survived intact:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur
+         description "Apenas uma linha sobreviveu intacta:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur
             Al-x-an-dr u bir ka ur-a an-ge ur",
          angel_hint "Receio que você precise de mais evidências antes de começar a decifrar a língua.",
   has   ;

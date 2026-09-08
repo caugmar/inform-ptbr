@@ -96,7 +96,7 @@ Object  electric_torch "lanterna elétrica"
 Object  -> old_smudged_battery "bateria velha e manchada"     
   with  name 'velha' 'manchada' 'bateria',
         list_together s_obj,
-        article "an",
+        article "uma",
         number 200,
   has   battery_flag;
 
@@ -386,7 +386,7 @@ Object  -> classical_dictionary "dicionario classico"
         list_together n_obj,
         initial "Ha um livrinho sobre a mesinha ao lado da cama.",
         description "~Hobson: Um Dicionario Classico de Escolhas~. Ele afirma ter numerosos verbetes.",
-        article "Hobson's",
+        article "de Hobson",
         devil_hint "Ha muitas palavras indecentes nesse.",
   has   consultable;
 
@@ -528,7 +528,7 @@ Object  box_of_chocolates "caixa de chocolates"
 
 Object  wrapping_paper "papel de presente com renas" 
   with  name 'wrapping' 'paper' 'reindeer' 'embrulho' 'papel' 'rena' 'renas',
-        article "some",
+        article "alguns",
         devil_hint "As renas tem enorme importancia.",
   has   ;
 
@@ -1378,7 +1378,7 @@ Object  -> insulation_rolls "rolos de isolamento"
                  "Você descobre uma bateria nova e brilhante. Ela deve ter caído por acidente quando o isolamento do sótão
                   estava sendo instalado.";
         ],
-        article "some",
+        article "alguns",
   has   scenery;
 
 Object  -> -> new_battery "bateria aparentemente nova"  
@@ -1733,7 +1733,7 @@ Object  -> ancient_prayer_book "livro de oracoes antigo"
         description "Apesar das aparências, este não é um livro de orações, mas o diário de investigações sobrenaturais de Mad Isaac!
         A escrita é cursiva e superficial, enquanto ele divaga sobre todas aquelas teorias da Maldição. Há tanto texto que é melhor
         consultar apenas anos específicos.",
-        article "an",
+        article "uma",
         devil_hint "A pesquisa realmente boa foi feita nos primeiros anos.",
   has   consultable;
 
@@ -2132,7 +2132,7 @@ Object  -> antiquated_wireless "radio antiga"
             if( self has on ) print "válvulas brilhantes ";
             "lá dentro. No topo há um interruptor de baquelite.";
         ],
-        article "an",
+        article "um",
         time_left 0,
         time_out [;
             if( self has on ) {
@@ -2181,7 +2181,7 @@ Object  -> old_gardeners__gloves "luvas velhas de jardineiro"
                  a família. Você se oferece para mover algumas malas só para escapar dela.";
         ],
         initial "Um par de luvas amarelas de borracha pende de um gancho numa parede.",
-        article "some",
+        article "alguns",
         devil_hint "Não servem para nada. Por que você iria querer luvas?",
   has   clothing scored;
 
@@ -2760,7 +2760,7 @@ Object  -> ironbound_door "porta revestida de ferro"
          when_open "Na parede noroeste, a porta revestida de ferro está aberta.",
          description "Há momentos em que sua vida parece uma sequência interminável de portas trancadas, cada uma mais difícil de
          atravessar que a anterior. Esta, porém, tem uma sensação de definitivo.",
-        article "an",
+        article "uma",
   has   door lockable locked openable static;
 
  HRoom   Infinity_Symbol "Símbolo do infinito"        

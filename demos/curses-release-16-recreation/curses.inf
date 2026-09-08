@@ -282,105 +282,105 @@ Array rank_levels -->
 Array card_deck --> 10;
 
 Array type_of_tune table
-    "a synthesized"
-    "a light orchestra"
-    "a choral"
-    "a snare drum and strings"
-    "a country-and-western"
-    "a one-finger piano"
-    "a Welsh coal-miners' Eisteddfod choir"
-    "a Hammond organ"
-    "an easy-listening"
-    "a ~lite-n-mellow~"
-    "a jazz trio"
-    "a Big Band"
+     "um som sintetizado"
+     "uma orquestra leve"
+     "um coro"
+     "uma bateria e cordas"
+     "um country e western"
+     "um piano de um dedo"
+     "um coro galês de mineiros de carvão no Eisteddfod"
+     "um órgão Hammond"
+     "um som suave"
+     "um ~lite-n-mellow~"
+     "um trio de jazz"
+     "uma big band"
 ;
 Array tune_version table
-    " version of "
-    " rendition of "
-    " travesty of "
-    " arrangement of "
-    " transcription of "
+     " versão de "
+     " interpretação de "
+     " paródia de "
+     " arranjo de "
+     " transcrição de "
 ;
 Array horrible_tunes table
-    "Queen's ~I Want To Break Free~."
-    "Bach's ~Air on a G-string~."
-    "Mozart's ~Musical Joke~."
-    "Stockhausen's ~Piano Pieces I-IX~."
-    "Beethoven's ~Moonlight Sonata~."
-    "Summer from Vivaldi's ~Four Seasons~."
-    "the especially slow movement of Gorecki's ~Symphony no. 3~."
-    "Spandau Ballet's ~Gold~."
-    "Duran Duran's ~Is There Something I Should Know?~."
-    "Derek and the Dominos' ~Layla~."
-    "Don McLean's ~American Pie~."
-    "Chopin's ~Nocturne no. 1~."
-    "Oxygene by Jean-Michel Jarre."
-    "the Beatles' ~Yellow Submarine~."
-    "the Beatles' ~She Loves You~."
-    "the Beatles' ~Hey Jude~."
-    "the Beatles' ~Lucy in the Sky with Diamonds~."
-    "Queen's ~Bohemian Rhapsody~."
-    "the Beatles' ~Magical Mystery Tour~."
-    "the Beatles' ~I Am The Walrus~."
-    "Bill Haley's ~Rock Around the Clock~."
-    "the old Elvis Presley number ~Jailhouse Rock~."
-    "the old Elvis Presley number ~Blue Suede Shoes~."
-    "ELO's ~Mr Blue Sky~."
-    "Bach's Toccata in D minor for organ."
-    "ABC's ~The Look of Love~."
-    "the Beach Boys' ~California Girls~."
-    "the Stranglers' ~Golden Brown~."
-    "Genesis' ~That's All~."
-    "Grieg's piano concerto."
-    "Bruce Springsteen's ~Born in the USA~."
-    "Beethoven's Symphony no. 5."
-    "Beethoven's ~Emperor~ piano concerto."
-    "Mozart's ~Elvira Madigan~ concerto."
-    "Bach's Brandenburg Concerto no. 5."
-    "Deep Purple's ~Smoke On The Water~."
-    "Faure's Requiem."
-    "Tchaikovsky's ~1812 Overture~."
-    "the Swan from Saint-Saens' ~Carnival of the Animals~."
-    "the ~O Fortuna~ from Carl Orff's ~Carmina Burana~."
-    "Led Zeppelin's ~Stairway to Heaven~."
-    "the Bugs Bunny theme tune."
-    "Strauss' ~Blue Danube~ waltz."
-    "the Star Wars theme tune."
-    "the Star Trek theme tune."
-    "the Dallas theme tune."
-    "Wagner's ~Ride of the Valkyries~ overture."
-    "Dire Straits' ~Money For Nothing~."
-    "Dire Straits' ~Brothers In Arms~."
-    "Dire Straits' ~Tunnel Of Love~."
-    "Wham's ~Wake Me Up Before You Go-Go~."
-    "something abysmal by Leo Sayer."
-    "Lionel Richie's ~Hello~."
-    "Hot Chocolate's ~Happy Birthday~."
-    "Abba's ~Mama Mia~."
-    "Abba's ~Knowing Me, Knowing You~."
-    "Barry Manilow's ~I Write The Songs~."
-    "Ian Dury and the Blockheads' ~Hit Me With Your Rhythm Stick~."
-    "Ravel's ~Bolero~."
-    "~Nessun Dorma~, as sung simultaneously by Pavarotti, Carreras and Dolly Parton."
-    "Michael Jackson's ~Thriller~."
-    "Michael Jackson's ~Billy Jean~."
-    "Michael Jackson's ~Beat It~."
-    "Kylie Minogue's ~I Should Be So Lucky~."
-    "the Eurovision Song Contest's finest five minutes, ~Diggy-Loo Diggy-Lay (Life Is Going My Way)~."
-    "Dexy's Midnight Runners' ~Come on Eileen~."
-    "Steppenwolf's ~Born to be Wild~."
-    "Toto's ~The Eye of the Tiger~."
-    "Cyndi Lauper's ~Girls Just Wanna Have Fun~."
-    "the traditional air ~Greensleeves~."
-    "Hoagy Carmichael's ~Skylark~."
-    "Noel Coward's ~Don't Put Your Daughter On The Stage~."
-    "Chas and Dave's ~Rabbit Song~."
-    "Paul McCartney's ~Mull of Kintyre~."
-    "John Lennon's ~Imagine~."
-    "that grisly carol, ~We Wish You A Merry Christmas~."
-    "that hoary old favourite, ~Oh Come All Ye Faithful~."
-    "~My Way~, crooned over by Frank Sinatra."
+    "~I Want To Break Free~, do Queen."
+    "~Air on a G-string~, de Bach."
+    "~Musical Joke~, de Mozart."
+    "~Piano Pieces I-IX~, de Stockhausen."
+    "~Moonlight Sonata~, de Beethoven."
+    "Verão, de ~As Quatro Estações~, de Vivaldi."
+    "o movimento especialmente lento da ~Sinfonia número 3~, de Gorecki."
+    "~Gold~, do Spandau Ballet."
+    "~Is There Something I Should Know?~, do Duran Duran."
+    "~Layla~, de Derek and the Dominos."
+    "~American Pie~, de Don McLean."
+    "~Nocturne número 1~, de Chopin."
+    "Oxygene, de Jean-Michel Jarre."
+    "~Yellow Submarine~, dos Beatles."
+    "~She Loves You~, dos Beatles."
+    "~Hey Jude~, dos Beatles."
+    "~Lucy in the Sky with Diamonds~, dos Beatles."
+    "~Bohemian Rhapsody~, do Queen."
+    "~Magical Mystery Tour~, dos Beatles."
+    "~I Am The Walrus~, dos Beatles."
+    "~Rock Around the Clock~, de Bill Haley."
+    "a velha canção de Elvis Presley, ~Jailhouse Rock~."
+    "a velha canção de Elvis Presley, ~Blue Suede Shoes~."
+    "~Mr Blue Sky~, do ELO."
+    "Tocata em ré menor para órgão, de Bach."
+    "~The Look of Love~, do ABC."
+    "~California Girls~, dos Beach Boys."
+    "~Golden Brown~, dos Stranglers."
+    "~That's All~, do Genesis."
+    "concerto para piano, de Grieg."
+    "~Born in the USA~, de Bruce Springsteen."
+    "Sinfonia número 5, de Beethoven."
+    "concerto para piano ~Emperor~, de Beethoven."
+    "concerto ~Elvira Madigan~, de Mozart."
+    "Concerto de Brandemburgo número 5, de Bach."
+    "~Smoke On The Water~, do Deep Purple."
+    "Réquiem, de Faure."
+    "~Abertura de 1812~, de Tchaikovsky."
+    "o Cisne, de ~O Carnaval dos Animais~, de Saint-Saens."
+    "o ~O Fortuna~, de ~Carmina Burana~, de Carl Orff."
+    "~Stairway to Heaven~, do Led Zeppelin."
+    "a música-tema do Pernalonga."
+    "a valsa ~Danúbio Azul~, de Strauss."
+    "a música-tema de Star Wars."
+    "a música-tema de Star Trek."
+    "a música-tema de Dallas."
+    "a abertura ~Cavalgada das Valquírias~, de Wagner."
+    "~Money For Nothing~, do Dire Straits."
+    "~Brothers In Arms~, do Dire Straits."
+    "~Tunnel Of Love~, do Dire Straits."
+    "~Wake Me Up Before You Go-Go~, do Wham."
+    "alguma coisa abominável de Leo Sayer."
+    "~Hello~, de Lionel Richie."
+    "~Happy Birthday~, do Hot Chocolate."
+    "~Mama Mia~, do Abba."
+    "~Knowing Me, Knowing You~, do Abba."
+    "~I Write The Songs~, de Barry Manilow."
+    "~Hit Me With Your Rhythm Stick~, de Ian Dury and the Blockheads."
+    "~Bolero~, de Ravel."
+    "~Nessun Dorma~, cantada simultaneamente por Pavarotti, Carreras e Dolly Parton."
+    "~Thriller~, de Michael Jackson."
+    "~Billy Jean~, de Michael Jackson."
+    "~Beat It~, de Michael Jackson."
+    "~I Should Be So Lucky~, de Kylie Minogue."
+    "os cinco melhores minutos do Festival Eurovisão da Canção, ~Diggy-Loo Diggy-Lay (Life Is Going My Way)~."
+    "~Come on Eileen~, de Dexy's Midnight Runners."
+    "~Born to be Wild~, de Steppenwolf."
+    "~The Eye of the Tiger~, de Toto."
+    "~Girls Just Wanna Have Fun~, de Cyndi Lauper."
+    "a melodia tradicional ~Greensleeves~."
+    "~Skylark~, de Hoagy Carmichael."
+    "~Don't Put Your Daughter On The Stage~, de Noel Coward."
+    "~Rabbit Song~, de Chas and Dave."
+    "~Mull of Kintyre~, de Paul McCartney."
+    "~Imagine~, de John Lennon."
+    "o medonho cântico natalino ~We Wish You A Merry Christmas~."
+    "a velha favorita ~Oh Come All Ye Faithful~."
+    "~My Way~, entoada por Frank Sinatra."
 ;
 
 Array quote_flag_set -> 49;
@@ -501,8 +501,7 @@ Class LagachObj
                 if( location == XIIth_Dynasty_Pyramid ) i = 6;
                 if( location == White_Hallway ) i = 7;
                 if( tourist_map_of_Paris has moved )
-                    "Nothing happens!  Already the druids' magic fades from the earth, and you cannot help feeling 
-                     saddened.";
+                    "Nada acontece! A magia dos druidas já está desaparecendo da terra, e você não consegue evitar a tristeza.";
                 if( i == 0 )
                     return WindBlows();
                 r = carbolic_soap;
@@ -579,9 +578,7 @@ Include "afterlife.inf";
     StrongboxX = random(18) - 9;
     StrongboxY = random(18) - 9;
 
-    "^^^^It's become a matter of pride now not to give up. That tourist map of Paris must be up here 
-     somewhere in all this clutter, even if it has been five years since your last trip. And it's your own fault. It
-     looks as if your great-grandfather was the last person to tidy up these lofts...^";
+    "^^^^Agora é uma questão de orgulho não desistir. O mapa turístico de Paris deve estar em algum lugar aqui em meio a toda esta bagunça, mesmo que já faça cinco anos desde sua última viagem. E a culpa é sua. Parece que seu bisavô foi a última pessoa a arrumar estes sótãos...^";
 ];
 
 [ trigger_quotation i ;
@@ -601,14 +598,14 @@ Include "afterlife.inf";
     StartTimer(Old_Winery,4);
     score = score + 5;
     good_try_bonus = 1;
-    "^A shame to see such a good try unrewarded... oh, go on, have an extra five points.";
+    "^Seria uma pena ver uma tentativa tão boa sem recompensa... vá em frente, fique com cinco pontos extras.";
 ];
 
 [ GoodTryRevoked ;
     if( good_try_bonus == 1 ) {
         score = score - 5;
         good_try_bonus = 0;
-        "^Under the circumstances, the 5-point bonus is forfeit.";
+        "^Nestas circunstâncias, o bônus de cinco pontos foi perdido.";
     }
     rtrue;
 ];
@@ -616,32 +613,25 @@ Include "afterlife.inf";
 [ DarkToDark ;
     deadflag = DIED;
     if( game_section ~= T_MODERN ) {
-        "As you step falteringly through the darkness, the air falls ice-cold, whispering in secret languages. 
-         Suddenly a great bear rears up before you, savagely sweeping its paw!";
+        "Enquanto você avança trôpego pela escuridão, o ar fica gélido e sussurra em línguas secretas. De repente, um enorme urso se ergue diante de você e golpeia ferozmente com a pata!";
     }
     deadflag = FAILED;
-    print "As you unwisely blunder about in the dark, you ";
+    print "Enquanto você se atrapalha imprudentemente no escuro, ";
     if( location == Priests_Hole ) 
-        "slip down a side passage of the chimney, further and further, blindly landing in a cloud of soot in the 
-         fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back
-         to work packing.";
+        "você escorrega por uma passagem lateral da chaminé, cada vez mais para baixo, e aterrissa às cegas numa nuvem de fuligem na lareira da sala no andar inferior. Felizmente, sua família está por perto para limpá-lo e mandá-lo de volta a fazer as malas.";
 
 ! TODO: handle this
     if( location >= 123 ) 
-        "miss your footing, trip over and bang your head... Some time later you wake up in hospital, 
-         very confused and not on holiday. Fortunately Aunt Jemima comes to visit you every afternoon with plenty
-         of things for you to do...";
-    "put a foot wrong and crash through a thin plaster roof into one of the upstairs bedrooms, happily landing 
-     on the bed. In later years it becomes a family joke that you demolished half the house for a tatty old
-     tourist map.";
+        "você perde o equilíbrio, tropeça e bate a cabeça... Algum tempo depois, acorda no hospital, muito confuso e sem estar de férias. Felizmente, Tia Jemima visita você todas as tardes com muitas tarefas...";
+    "você pisa em falso e atravessa um telhado fino de gesso, caindo felizmente sobre a cama de um dos quartos do andar de cima. Anos depois, a família transforma em piada o fato de você ter demolido metade da casa por causa de um velho mapa turístico.";
 ];
 
 Object carbolic_soap "carbolic soap"
   with  name 'soap' 'carbolic',
         before [; Eat: << Wash self >>; ],
         description "~For foulmouths everywhere~.",
-        article "a cake of",
-        devil_hint "That's the spirit, keep it up!",
+        article "um pedaço de",
+        devil_hint "Esse é o espírito, continue assim!",
         angel_hint "Really!  How disgraceful!",
   has   concealed;
 
@@ -1235,7 +1225,7 @@ Object carbolic_soap "carbolic soap"
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "               Welcome to CURSES^";
+    print "               Bem-vindo a MALDIÇÕES^";
     style roman;
     print "^^";
     generic_globvar = i;
@@ -1244,7 +1234,7 @@ Object carbolic_soap "carbolic soap"
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "         [Please press SPACE to begin.]^";
+    print "         [Pressione ESPAÇO para começar.]^";
     0-->8 = 65533 & 0-->8;
     i = random(3);
     if( i == 1 ) {
@@ -1330,9 +1320,9 @@ Object carbolic_soap "carbolic soap"
             c2 = columns - 35;
             @set_cursor 1 c2;
             if (deadflag > 0) {
-                print "Final score: ";
+                print "Pontuação final: ";
             } else {
-                print "Score: ";
+                print "Pontuação: ";
             }
         } else {
             c2 = columns - 28;
@@ -1346,7 +1336,7 @@ Object carbolic_soap "carbolic soap"
         }
         @set_cursor 2 c2;
         if (redraw_statusline == true) {
-            print "Turns: ";
+                print "Turnos: ";
         }
         print turns;
         if (redraw_statusline == true || save_game_sec ~= game_section) {
@@ -1354,31 +1344,31 @@ Object carbolic_soap "carbolic soap"
             c2 = columns - 20;
             @set_cursor 2 c2;
             if (game_section == T_MODERN) {
-                print "    June 3rd, 1993";
+                print "    3 de junho de 1993";
             }
             if (game_section == T_UNREAL) {
-                print " October 5th, 1922";
+                print " 5 de outubro de 1922";
             }
             if (game_section == T_HAMBURG) {
-                print "October 31st, 1988";
+                print "31 de outubro de 1988";
             }
             if (game_section == T_GARDEN) {
-                print "    June 3rd, 1993";
+                print "    3 de junho de 1993";
             }
             if (game_section == T_GARDEN_PAST) {
-                print "  March 14th, 1808";
+                print " 14 de março de 1808";
             }
             if (game_section == T_ANCIENT_BRITAIN) {
-                print "  Sixth century AD";
+                print "  século VI d.C.";
             }
             if (game_section == T_CATACOMBS) {
-                print "    June 3rd, 1993";
+                print "    3 de junho de 1993";
             }
             if (game_section == T_ALEXANDRIA) {
-                print "  Winter of 275 BC";
+                print "  Inverno de 275 a.C.";
             }
             if (game_section == T_NE_OF_HOME) {
-                print "    June 3rd, 1993";
+                print "    3 de junho de 1993";
             }
             if (game_section == T_EGYPT_DREAMING or T_SPIRIT_WORLD or T_TAROT or T_AFTERLIFE) {
                 print "                  ";
@@ -1388,34 +1378,34 @@ Object carbolic_soap "carbolic soap"
                 print "(in Meldrew Hall)       ";
             }
             if (game_section == T_UNREAL) {
-                print "(in the Unreal City)    ";
+                print "(na Cidade Irreal)      ";
             }
             if (game_section == T_HAMBURG) {
-                print "(Hamburg by night)      ";
+                print "(Hamburgo à noite)      ";
             }
             if (game_section == T_TAROT) {
-                print "(in the Tarot box)      ";
+                print "(na caixa de Tarô)      ";
             }
             if (game_section == T_GARDEN) {
-                print "(in the gardens)        ";
+                print "(nos jardins)           ";
             }
             if (game_section == T_GARDEN_PAST) {
-                print "(in the gardens)        ";
+                print "(nos jardins)           ";
             }
             if (game_section == T_ANCIENT_BRITAIN) {
-                print "(in the Master Game)    ";
+                print "(no Jogo Mestre)        ";
             }
             if (game_section == T_DREAMING or T_EGYPT_DREAMING) {
-                print "(dreaming?)             ";
+                print "(sonhando?)             ";
             }
             if (game_section == T_CATACOMBS) {
-                print "(in the catacombs)      ";
+                print "(nas catacumbas)        ";
             }
             if (game_section == T_ALEXANDRIA) {
                 print "(in Alexandria)         ";
             }
             if (game_section == T_NE_OF_HOME) {
-                print "(northeast of the House)";
+                print "(a nordeste do Solar)";
             }
             if (game_section == T_SPIRIT_WORLD or T_AFTERLIFE) {
                 print "                        ";
@@ -1504,17 +1494,17 @@ Object carbolic_soap "carbolic soap"
 [ GamePreRoutine ;
     if( action == ##Go && carbolic_soap hasnt concealed ) {
         trigger_quotation(13);
-        "You're going nowhere until you make amends for that nasty bad language.";
+        "Você não vai a lugar algum até se redimir por esse palavrão horrível.";
     }
     if( gas_mask has worn ) {
         if( action == ##Smell ) {
-            "With the gas mask on all you can smell is old cork and rubber.";
+            "Com a máscara de gás, você só sente cheiro de cortiça velha e borracha.";
         }
         if( action == ##Eat ) {
             "Not with a gas mask on!";
         }
         if( action == ##Order or ##Answer or ##Ask ) {
-            "Your speech is muffled into silence by the gas mask.";
+            "A máscara de gás abafa sua fala até o silêncio.";
         }
     }
     rfalse;

@@ -395,7 +395,7 @@ Object  -> maze_layout "traçado do labirinto"
             }
             0-->8 = 65533 & 0-->8;
         ],
-        article "the",
+        article "o",
   has   scenery;
 
 GRoom  Bricked_Path "Caminho de Tijolos"      

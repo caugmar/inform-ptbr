@@ -16,7 +16,7 @@ URoom   Shadowy_Hallway "Corredor Sombrio"
          description "Este apartamento desmantelado, que se estende para leste, compartilha um corredor imundo com o andar de cima. Ao sul, transeuntes passam pela rua. Cartazes descascados foram colados uns sobre os outros nas paredes, de modo que só é possível ler o mais recente.",
   has   light;
 
-Object  -> poster "poster"
+Object  -> poster "cartaz"
   with  name 'poster' 'posters' 'peeling',
         before [;
             Take, RipDown, Rip, Pull:
@@ -62,7 +62,7 @@ LagachObj -> Impressionist_painting "pintura impressionista"
   with  name 'impressionist' 'painting' 'mural',
         initial nothing,
          description "O canto inferior traz apenas a assinatura ~Helene~.",
-        article "an",
+        article "uma",
   has   static;
 
 URoom   Consulting_Room "Sala de Consulta"
@@ -92,7 +92,7 @@ Object  -> Tarot_pack "baralho de tarô"
         ],
   has   scenery;
 
-Object  -> curtain "curtain"
+Object  -> curtain "cortina"
   with  name 'curtain' 'bead',
   has   scenery;
 
@@ -193,7 +193,7 @@ Object  -> curtain "curtain"
     PlayerTo(Unreal_City);
 ];
 
-Object  -> bell_push "bell push"
+Object  -> bell_push "botão da campainha"
   with  name 'bell' 'push',
         before [;
             Push:
@@ -210,7 +210,7 @@ Object  -> bell_push "bell push"
         ],
   has   scenery;
 
-Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante"
+Object  Madame_Sosostris "Madame Sosostris, famosa clarividente"
   with  name 'sosostris' 'madame' 'clairvoyant',
         life [;
             Give:
@@ -233,9 +233,9 @@ Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante"
         description "Ela está muito resfriada, mas ainda assim é conhecida como a mulher mais sábia da Europa.",
   has   animate proper;
 
-Object  oak_quarterstaff "oak quarterstaff"
+Object  oak_quarterstaff "cajado de carvalho"
   with  name 'oak' 'staff' 'quarterstaff',
-        article "an",
+        article "um",
         rod_assoc rod_of_bronze,
          devil_hint "Trabalho malfeito, mas não importa: é apenas um cajado, e quem ainda precisa deles?",
   has   hidden_rod;
@@ -281,7 +281,7 @@ Object  -> tourist_boat "barco turístico"
          when_closed "Na margem oposta há um barco turístico com teto de vidro. Por mais que você queira explorar, não consegue ver como chamar a atenção dele.",
         door_dir w_to,
          when_open "Perto da margem está atracado um barco turístico com teto de vidro.",
-        description "The side reads: PHLEBAS.",
+         description "A lateral traz a inscrição: PHLEBAS.",
   has   door static;
 
 URoom   On_board_the_Phlebas "A Bordo do Phlebas"
@@ -322,7 +322,7 @@ Object  -> hollow_man "homem oco"
         ],
         initial "O homem oco diz mecanicamente: ~Para onde, chefe? Eu e minha boca grande fizemos de novo, chamando você de chefe. Certa vez eu estava lá pelos areais de Margate, um sujeito embarcou, achou que qualquer destino serviria, um lugar de verdade, como se qualquer lugar fosse real... Nós somos os homens ocos, eu digo; ele não gostou... Depressa, por favor, está na hora.~",
         description "De vez em quando ele choraminga.",
-        article "the",
+        article "o",
   has   animate;
 
 [ UnrealEachTurn ;

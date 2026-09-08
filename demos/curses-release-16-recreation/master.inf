@@ -75,8 +75,7 @@ Object Murky_Cave "Caverna sombria"
                     "Por sorte, eles nem pensam em olhar aqui embaixo.";
                 }
                 if( location == Inside_Well ) {
-                    print "Unfortunately, they do think of looking into the kitchen well, and drag you out onto the 
-                        triclinium floor.^";
+                    print "Infelizmente, eles pensam em olhar dentro do poço da cozinha e arrastam você para o chão do triclínio.^";
                 }
                 if( location == Murky_Cave or Spur_of_Rock or Hanging_on_Rope ) 
                     print "Com o tipo de zelo que marcou a guarda no início da Idade das Trevas, eles olham até aqui.^";
@@ -100,9 +99,7 @@ Object Murky_Cave "Caverna sombria"
                 if( KnowLanguages == false ) {
                     "algo em anglo-saxão ou celta (difícil dizer qual).";
                 }
-                "~Welcome, great masters. We are convened in secret conclave to decide the fate of Britain. 
-                 Lament, for the old ways are passing!  There will be a dark age, a collapse into many monarchies,
-                 and any man who can hold a town will call himself King and heir to Vortigern.~";
+                "~Bem-vindos, grandes mestres. Estamos reunidos em conclave secreto para decidir o destino da Bretanha. Lamentem, pois os velhos costumes estão desaparecendo! Haverá uma idade das trevas, um colapso em muitas monarquias, e qualquer homem que consiga manter uma cidade se chamará Rei e herdeiro de Vortigern.~";
             }
             if( cnt == 10 ) {
                 print "^Uma voz mais jovem e impaciente diz ";
@@ -157,7 +154,7 @@ Object -> historical_pamphlet "folheto histórico"
   with  name 'historical' 'pamphlet',
         sw_to n_obj,
         description "É um resumo dos escritos de um monge polêmico chamado Gildas e relata eventos posteriores à queda do tirano Vortigern na virada do século V d.C. Após décadas sombrias de pilhagem por mercenários saxões, a Bretanha foi reunida por Ambrósio Aureliano e depois defendida na Batalha do Monte Badon, em algum momento dos primeiros anos do século VI.^^Essa vitória extraordinária não teve significado religioso, portanto Gildas não se detém nela. Ele tende apenas a mencionar reis e líderes ruins, principalmente para insultá-los. (Falar de Gildas é uma excelente maneira de irritar um historiador anglo-saxão.) Ninguém sabe mais onde fica o Monte Badon, nem qualquer outra coisa sobre ele, embora alguns estudiosos da poesia galesa acreditem que Ambrósio foi a fonte da lenda do Rei Arthur.",
-        article "an",
+        article "uma",
   has   ;
 
 Object Spur_of_Rock "Afloramento rochoso"      
@@ -315,7 +312,7 @@ Object -> bone_die "dado de osso rudimentar"
 
 Object -> leather_sandals "sandálias de couro"     
   with  name 'sandals' 'shoes' 'leather',
-        article "a pair of",
+        article "um par de",
   has   clothing;
 
 Object Triclinium "Triclínio"  
@@ -394,7 +391,7 @@ Object -> vents "aberturas"
                     "Quatro homens em peles druídicas estão nos cantos do mosaico, em algum tipo de conferência sinistra. Esta velha vila deve ser um ponto de encontro. Entre os homens, uma pedra azulada repousa no piso de mosaico.";
                 "Você enxerga o piso de mosaico do átrio iluminado pela lua.";
         ],
-        article "the",
+        article "o",
   has   scenery;
 
 Object Entrance "Entrada"      

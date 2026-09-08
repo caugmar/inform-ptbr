@@ -27,101 +27,101 @@ Turista desajeitado.
 Turista azarado.
 Turista maldito.
 divindade irresponsavel.
-a synthesized
-a light orchestra
-a choral
-a snare drum and strings
-a country-and-western
-a one-finger piano
-a Welsh coal-miners' Eisteddfod choir
-a Hammond organ
-an easy-listening
-a ~lite-n-mellow~
-a jazz trio
-a Big Band
- version of 
- rendition of 
- travesty of 
- arrangement of 
- transcription of 
-Queen's ~I Want To Break Free~.
-Bach's ~Air on a G-string~.
-Mozart's ~Musical Joke~.
-Stockhausen's ~Piano Pieces I-IX~.
-Beethoven's ~Moonlight Sonata~.
-Summer from Vivaldi's ~Four Seasons~.
-the especially slow movement of Gorecki's ~Symphony no. 3~.
-Spandau Ballet's ~Gold~.
-Duran Duran's ~Is There Something I Should Know?~.
-Derek and the Dominos' ~Layla~.
-Don McLean's ~American Pie~.
-Chopin's ~Nocturne no. 1~.
-Oxygene by Jean-Michel Jarre.
-the Beatles' ~Yellow Submarine~.
-the Beatles' ~She Loves You~.
-the Beatles' ~Hey Jude~.
-the Beatles' ~Lucy in the Sky with Diamonds~.
-Queen's ~Bohemian Rhapsody~.
-the Beatles' ~Magical Mystery Tour~.
-the Beatles' ~I Am The Walrus~.
-Bill Haley's ~Rock Around the Clock~.
-the old Elvis Presley number ~Jailhouse Rock~.
-the old Elvis Presley number ~Blue Suede Shoes~.
-ELO's ~Mr Blue Sky~.
-Bach's Toccata in D minor for organ.
-ABC's ~The Look of Love~.
-the Beach Boys' ~California Girls~.
-the Stranglers' ~Golden Brown~.
-Genesis' ~That's All~.
-Grieg's piano concerto.
-Bruce Springsteen's ~Born in the USA~.
-Beethoven's Symphony no. 5.
-Beethoven's ~Emperor~ piano concerto.
-Mozart's ~Elvira Madigan~ concerto.
-Bach's Brandenburg Concerto no. 5.
-Deep Purple's ~Smoke On The Water~.
-Faure's Requiem.
-Tchaikovsky's ~1812 Overture~.
-the Swan from Saint-Saens' ~Carnival of the Animals~.
-the ~O Fortuna~ from Carl Orff's ~Carmina Burana~.
-Led Zeppelin's ~Stairway to Heaven~.
-the Bugs Bunny theme tune.
-Strauss' ~Blue Danube~ waltz.
-the Star Wars theme tune.
-the Star Trek theme tune.
-the Dallas theme tune.
-Wagner's ~Ride of the Valkyries~ overture.
-Dire Straits' ~Money For Nothing~.
-Dire Straits' ~Brothers In Arms~.
-Dire Straits' ~Tunnel Of Love~.
-Wham's ~Wake Me Up Before You Go-Go~.
-something abysmal by Leo Sayer.
-Lionel Richie's ~Hello~.
-Hot Chocolate's ~Happy Birthday~.
-Abba's ~Mama Mia~.
-Abba's ~Knowing Me, Knowing You~.
-Barry Manilow's ~I Write The Songs~.
-Ian Dury and the Blockheads' ~Hit Me With Your Rhythm Stick~.
-Ravel's ~Bolero~.
-~Nessun Dorma~, as sung simultaneously by Pavarotti, Carreras and Dolly Parton.
-Michael Jackson's ~Thriller~.
-Michael Jackson's ~Billy Jean~.
-Michael Jackson's ~Beat It~.
-Kylie Minogue's ~I Should Be So Lucky~.
-the Eurovision Song Contest's finest five minutes, ~Diggy-Loo Diggy-Lay (Life Is Going My Way)~.
-Dexy's Midnight Runners' ~Come on Eileen~.
-Steppenwolf's ~Born to be Wild~.
-Toto's ~The Eye of the Tiger~.
-Cyndi Lauper's ~Girls Just Wanna Have Fun~.
-the traditional air ~Greensleeves~.
-Hoagy Carmichael's ~Skylark~.
-Noel Coward's ~Don't Put Your Daughter On The Stage~.
-Chas and Dave's ~Rabbit Song~.
-Paul McCartney's ~Mull of Kintyre~.
-John Lennon's ~Imagine~.
-that grisly carol, ~We Wish You A Merry Christmas~.
-that hoary old favourite, ~Oh Come All Ye Faithful~.
-~My Way~, crooned over by Frank Sinatra.
+um som sintetizado
+uma orquestra leve
+um coro
+uma bateria e cordas
+um country e western
+um piano de um dedo
+um coro galês de mineiros de carvão no Eisteddfod
+um órgão Hammond
+um som suave
+um ~lite-n-mellow~
+um trio de jazz
+uma big band
+ versão de 
+ interpretação de 
+ paródia de 
+ arranjo de 
+ transcrição de 
+~I Want To Break Free~, do Queen.
+~Air on a G-string~, de Bach.
+~Musical Joke~, de Mozart.
+~Piano Pieces I-IX~, de Stockhausen.
+~Moonlight Sonata~, de Beethoven.
+Verão, de ~As Quatro Estações~, de Vivaldi.
+o movimento especialmente lento da ~Sinfonia número 3~, de Gorecki.
+~Gold~, do Spandau Ballet.
+~Is There Something I Should Know?~, do Duran Duran.
+~Layla~, de Derek and the Dominos.
+~American Pie~, de Don McLean.
+~Nocturne número 1~, de Chopin.
+Oxygene, de Jean-Michel Jarre.
+~Yellow Submarine~, dos Beatles.
+~She Loves You~, dos Beatles.
+~Hey Jude~, dos Beatles.
+~Lucy in the Sky with Diamonds~, dos Beatles.
+~Bohemian Rhapsody~, do Queen.
+~Magical Mystery Tour~, dos Beatles.
+~I Am The Walrus~, dos Beatles.
+~Rock Around the Clock~, de Bill Haley.
+a velha canção de Elvis Presley, ~Jailhouse Rock~.
+a velha canção de Elvis Presley, ~Blue Suede Shoes~.
+~Mr Blue Sky~, do ELO.
+Tocata em ré menor para órgão, de Bach.
+~The Look of Love~, do ABC.
+~California Girls~, dos Beach Boys.
+~Golden Brown~, dos Stranglers.
+~That's All~, do Genesis.
+concerto para piano, de Grieg.
+~Born in the USA~, de Bruce Springsteen.
+Sinfonia número 5, de Beethoven.
+concerto para piano ~Emperor~, de Beethoven.
+concerto ~Elvira Madigan~, de Mozart.
+Concerto de Brandemburgo número 5, de Bach.
+~Smoke On The Water~, do Deep Purple.
+Réquiem, de Faure.
+~Abertura de 1812~, de Tchaikovsky.
+o Cisne, de ~O Carnaval dos Animais~, de Saint-Saens.
+o ~O Fortuna~, de ~Carmina Burana~, de Carl Orff.
+~Stairway to Heaven~, do Led Zeppelin.
+a música-tema do Pernalonga.
+a valsa ~Danúbio Azul~, de Strauss.
+a música-tema de Star Wars.
+a música-tema de Star Trek.
+a música-tema de Dallas.
+a abertura ~Cavalgada das Valquírias~, de Wagner.
+~Money For Nothing~, do Dire Straits.
+~Brothers In Arms~, do Dire Straits.
+~Tunnel Of Love~, do Dire Straits.
+~Wake Me Up Before You Go-Go~, do Wham.
+alguma coisa abominável de Leo Sayer.
+~Hello~, de Lionel Richie.
+~Happy Birthday~, do Hot Chocolate.
+~Mama Mia~, do Abba.
+~Knowing Me, Knowing You~, do Abba.
+~I Write The Songs~, de Barry Manilow.
+~Hit Me With Your Rhythm Stick~, de Ian Dury and the Blockheads.
+~Bolero~, de Ravel.
+~Nessun Dorma~, cantada simultaneamente por Pavarotti, Carreras e Dolly Parton.
+~Thriller~, de Michael Jackson.
+~Billy Jean~, de Michael Jackson.
+~Beat It~, de Michael Jackson.
+~I Should Be So Lucky~, de Kylie Minogue.
+os cinco melhores minutos do Festival Eurovisão da Canção, ~Diggy-Loo Diggy-Lay (Life Is Going My Way)~.
+~Come on Eileen~, de Dexy's Midnight Runners.
+~Born to be Wild~, de Steppenwolf.
+~The Eye of the Tiger~, de Toto.
+~Girls Just Wanna Have Fun~, de Cyndi Lauper.
+a melodia tradicional ~Greensleeves~.
+~Skylark~, de Hoagy Carmichael.
+~Don't Put Your Daughter On The Stage~, de Noel Coward.
+~Rabbit Song~, de Chas and Dave.
+~Mull of Kintyre~, de Paul McCartney.
+~Imagine~, de John Lennon.
+o medonho cântico natalino ~We Wish You A Merry Christmas~.
+a velha favorita ~Oh Come All Ye Faithful~.
+~My Way~, entoada por Frank Sinatra.
 180611
 6.12.2
 a
@@ -1222,7 +1222,7 @@ in ~
 Nothing is in scope.
 Um redemoinho de vento quase derruba voce, mas nada mais acontece.
 Uma brisa ondula a tela da pintura desprendida, mas so isso.
-Nothing happens!  Already the druids' magic fades from the earth, and you cannot help feeling saddened.
+Nada acontece! A magia dos druidas já está desaparecendo da terra, e você não consegue evitar a tristeza.
 Um redemoinho de vento sai de 
  e leva voce para...^
 LagachObj
@@ -1238,7 +1238,7 @@ vara de mogno sem marcas
 Superior 
 Vara de 
 a
-the
+a
 Rod
 Voce e derrubado pelo poder de uma das Varas Superiores, mas ela e poderosa demais para um mortal como voce.
 Ela esta incandescente! Mesmo com as luvas, voce nao pode tocar o adamantino.
@@ -1293,7 +1293,7 @@ Voce sente o ar se carregar de excitacao, e o simbolo brilha dourado por um inst
 Nada acontece desta vez.
 O ar se carrega de excitacao, e o simbolo brilha dourado, entao comeca a girar, cada vez mais rapido, transformando-se numa luz dourada perolada que banha voce com magia pura. 
 Mas ainda esta fraco demais! Voce meio que ouve, meio que imagina um sussurro de druidas...
-Everything becomes a daze and then you find yourself...^
+Tudo fica enevoado e então você se encontra...^
 Bem, onde voce poderia ter visto o infinito antes?
 Infinity
 Voce se sente subitamente obediente e por um instante imagina um biscoito para caes.
@@ -1356,7 +1356,7 @@ Espantoso! Uma das tres Varas Superiores!
 Love
 Uma imagem lindamente realista. 
 cartas de tarô
-the
+o
 TarotCard
 Capuz, foice, esqueleto, sorriso implacável: sim, é o Ceifador mesmo.
 É essencial deslizar logo esta carta.
@@ -1389,7 +1389,7 @@ uma
 ^A lanterna finalmente se apaga.^
 É uma pena que você não possa trocar as baterias.
 lanterna elétrica
-an
+uma
 bateria velha e manchada
 Aveia coberta com chocolate puro, já que você perguntou.
 Aposto que você não sabia que os fabricantes de biscoitos de chocolate estão condenados por toda a eternidade? Temo que os capítulos do Antigo Testamento que explicavam o motivo tenham se perdido, e agora ninguém se lembra por quê.
@@ -1495,7 +1495,7 @@ Ele nao era marinheiro?
 Desculpe, nao ha nada sobre isso.
 Ha um livrinho sobre a mesinha ao lado da cama.
 ~Hobson: Um Dicionario Classico de Escolhas~. Ele afirma ter numerosos verbetes.
-Hobson's
+de Hobson
 Ha muitas palavras indecentes nesse.
 dicionario classico
 cama de campanha
@@ -1541,7 +1541,7 @@ Esta droga e para diversao, nao e um antidoto. E tem um sabor delicioso...
 comprimido vermelho
 Bom demais para dar a qualquer outra pessoa. Na verdade...
 caixa de chocolates
-some
+alguns
 As renas tem enorme importancia.
 papel de presente com renas
 ^Não... espere. A luz sinistra da lâmpada revela uma mensagem em tinta invisível:^^   Hamburgo 1420^^   Bilhete 7.-^^O sete está riscado à maneira continental.
@@ -1756,7 +1756,7 @@ Anexo leste
 Uma atitude imprudente. As fibras irritantes do isolamento logo o fazem desistir.
 Infelizmente, não há mais nada ali.
 Você descobre uma bateria nova e brilhante. Ela deve ter caído por acidente quando o isolamento do sótão estava sendo instalado.
-some
+alguns
 rolos de isolamento
 Esse é um quebra-cabeça difícil, sim.
 bateria aparentemente nova
@@ -1856,7 +1856,7 @@ os baços de aves que não voam.
 pontos de fusão dos metais.
 A poeira e a sujeira do chão quase escondem um antigo livro de orações.
 Apesar das aparências, este não é um livro de orações, mas o diário de investigações sobrenaturais de Mad Isaac! A escrita é cursiva e superficial, enquanto ele divaga sobre todas aquelas teorias da Maldição. Há tanto texto que é melhor consultar apenas anos específicos.
-an
+uma
 A pesquisa realmente boa foi feita nos primeiros anos.
 livro de oracoes antigo
 A consciência de que algo importante está acontecendo puxa seu subconsciente.^^Mas você se sente exposto demais para dormir apenas com um lençol na cama e não consegue ficar confortável.
@@ -1962,7 +1962,7 @@ Ele rola sobre rodízios e tem um interruptor liga/desliga de baquelite.
 ^De um lado há um armário pesado sobre rodízios contendo um rádio antigo, do tipo com 
 válvulas brilhantes 
 lá dentro. No topo há um interruptor de baquelite.
-an
+um
 ^As válvulas do rádio brilham, e uma música execrável, supostamente fácil de ouvir, enche o ar como algodão-doce sonoro.^
 ^Música execrável começa a soar da estufa, e tia Jemima cantarola distraidamente.^
 radio antiga
@@ -1974,7 +1974,7 @@ A única saída é voltar a leste, para a estufa.
 Sala de jardinagem
 Tia Jemima de repente ouve você, vira-se e o vê furtando suas luvas, gritando irritada até finalmente chamar toda a família. Você se oferece para mover algumas malas só para escapar dela.
 Um par de luvas amarelas de borracha pende de um gancho numa parede.
-some
+alguns
 Não servem para nada. Por que você iria querer luvas?
 luvas velhas de jardineiro
 Definitivamente apaziguada.
@@ -2130,7 +2130,7 @@ Você bate os nós dos dedos dolorosamente no ferro, sem resultado.
 Na parede noroeste há uma pesada e imponente porta revestida de ferro.
 Na parede noroeste, a porta revestida de ferro está aberta.
 Há momentos em que sua vida parece uma sequência interminável de portas trancadas, cada uma mais difícil de atravessar que a anterior. Esta, porém, tem uma sensação de definitivo.
-an
+uma
 porta revestida de ferro
 ^Ao redor da borda do disco há um arco circular, envolvendo o lemnisco, que passa por nove encaixes ou poços cilíndricos igualmente espaçados.
   Um encaixe contém uma vara, fixa no lugar.
@@ -2327,7 +2327,7 @@ O traçado é aproximadamente o seguinte:^^
     
 ###
 ...
-the
+o
 traçado do labirinto
 Você passeia por um agradável caminho de tijolos, passando dos cômodos externos do Salão Meldrew para uma trilha pelo lado leste do jardim.
 Caminho de Tijolos
@@ -2425,7 +2425,7 @@ leste
 sul
 oeste
 . 
- and 
+ e 
 , 
 , 
 Há uma cerca ao 
@@ -2438,7 +2438,7 @@ sul
 oeste
 ; camponeses grosseiros trabalham ao sul, mas felizmente ainda não viram você.
 .
- and 
+ e 
 , 
 , 
 Lembre-se da pobre grama!
@@ -2544,12 +2544,12 @@ Túmulo Octogonal
 O olhar do seu sonho é atraído por...^^
        (|/        ^   #   -o-  >>>   ^       /|)        ^
 ^Confuso e enevoado, você sente que consegue entender os hieróglifos, ou isso ainda não aconteceu?
-some
-hieroglyphic symbols
+alguns
+símbolos hieroglíficos
 Suas mãos parecem incapazes de tocá-lo novamente.
 Você tenta girar o volante, mas ele se move com uma lentidão infinitesimal. A porta começa a subir uma fração mínima, e alguns grãos de areia descem em câmera lenta, chacoalhando horrivelmente uns contra os outros...^^Vai levar uma eternidade, e o ar está acabando...
 Uma espécie de roda de navio (de madeira com oito raios) está fixada à parede noroeste.
-ship's wheel
+roda do navio
 URoom
 Esta é uma rua lateral da cidade, mas como se vista através do cinza do desespero. Pessoas passam, algumas quase reconhecíveis, como se estivessem mortas. A rua corre de leste a oeste, e ao norte há uma porta para um prédio de apartamentos imundo.
 Cidade Irreal
@@ -2559,7 +2559,7 @@ Você arranca depressa o cartaz, mas não há nada interessante atrás dele, ape
 Você acena com o cartaz para o barco, mas ele não se move.^
 ~Bateaux Phlebas - toujours le dernier mot~. Por um instante você gostaria de ter um cachorro chamado Toto, para poder dizer ~Toto, tenho a sensação de que não estamos mais na Inglaterra.~
 Que pedaço de papel tão útil. Pena que há escrita nele.
-poster
+cartaz
 Uma parede inteira é uma pintura mural impressionista de uma cadeira amarela.
 Uma parede inteira é uma pintura mural impressionista de lírios num lago.
 Uma parede inteira é uma pintura mural impressionista de um castelo em Aix-en-Provence.
@@ -2573,7 +2573,7 @@ Uma parede inteira é uma pintura mural pontilhista de uma cena num parque junto
 Apartamentos ocupados por artistas famintos mas nobres podem ser românticos e elegantes apesar da sujeira. Este, porém, é simplesmente um casebre de um cômodo, coberto de tinta, cheio de pincéis e cavaletes improvisados; aqui você não consegue evitar ficar na ponta dos pés.
 Boêmia
 O canto inferior traz apenas a assinatura ~Helene~.
-an
+uma
 pintura impressionista
 Você se sente brevemente indignado.
 Curiosamente, a cortina pendurada parece ser de ferro maciço quando você entra nela.
@@ -2587,7 +2587,7 @@ Você coloca cuidadosamente
  virada para baixo sobre o baralho de tarô.
 As cartas desafiam qualquer exame mortal.
 baralho de tarô
-curtain
+cortina
 o 
 Ás
 Dois
@@ -2634,7 +2634,7 @@ Madame Sosostris olha para você com certa irritação.
 Madame Sosostris, a famosa clarividente, entra com desenvoltura pela cortina pendurada e se senta atrás da mesa, fazendo gestos ondulantes com as mãos.^^~Primeiro, preciso saber: você nasceu num ano par ou ímpar?~
 Ela já ajudou o bastante.
 Madame Sosostris entra com desenvoltura mais uma vez. ~Você de novo,~ diz cautelosamente. ~Vamos ver como sua sorte mudou.~^^
-bell push
+botão da campainha
 Ela assoa o nariz agradecida, mas devolve o lenço. Você o dobra novamente com engenhosidade.
 Ela olha cautelosamente para 
 .
@@ -2643,10 +2643,10 @@ Ela hipnotiza você até a imobilidade. Não viveu todos estes séculos no Quart
 Ela se assusta e fica olhando.
 ~Você precisa responder à minha pergunta!~ Ela parece mesmo ansiosa.
 Ela está muito resfriada, mas ainda assim é conhecida como a mulher mais sábia da Europa.
-Madame Sosostris, famous clairvoyante
-an
+Madame Sosostris, famosa clarividente
+um
 Trabalho malfeito, mas não importa: é apenas um cajado, e quem ainda precisa deles?
-oak quarterstaff
+cajado de carvalho
 Essa água imunda? Nem pensar.
 No fim da rua, as águas urbanas marrons carregam lixo desagradável, e ratos correm pelos montes trazidos pela correnteza ao seu redor.
 À Beira do Rio
@@ -2658,7 +2658,7 @@ lenço de seda
 Você está no Sena? Há um rio entre você e o barco.
 Na margem oposta há um barco turístico com teto de vidro. Por mais que você queira explorar, não consegue ver como chamar a atenção dele.
 Perto da margem está atracado um barco turístico com teto de vidro.
-The side reads: PHLEBAS.
+A lateral traz a inscrição: PHLEBAS.
 barco turístico
 Um barco turístico de rio, com teto de vidro. Você pode desembarcar na margem a leste. Ao leme está um homem muito estranho, às vezes quase um boneco de palha, talvez quase um recorte oco de papel. Ele (ou isso) gira o volante e olha para barlavento.
 A Bordo do Phlebas
@@ -2676,7 +2676,7 @@ O homem oco deve estar começando a achar que você não entende uma dica.
 ~Está na hora!~ repete o homem oco.
 O homem oco diz mecanicamente: ~Para onde, chefe? Eu e minha boca grande fizemos de novo, chamando você de chefe. Certa vez eu estava lá pelos areais de Margate, um sujeito embarcou, achou que qualquer destino serviria, um lugar de verdade, como se qualquer lugar fosse real... Nós somos os homens ocos, eu digo; ele não gostou... Depressa, por favor, está na hora.~
 De vez em quando ele choraminga.
-the
+o
 homem oco
 ^Um relógio marca as horas, com um som morto na última batida das nove.
 ^Há uma névoa marrom, como a de uma alvorada de inverno.
@@ -2715,14 +2715,14 @@ Por que não ir para nordeste e olhar lá dentro?
 porta giratória
 Um cartaz de divulgação está exposto para os transeuntes verem.
 Um daqueles cartazes pretensiosos de exposição. Seu alemão é mais ou menos suficiente para a tarefa:^^~Cultos dos Druidas - Uma Grande Retrospectiva, Outubro-Novembro de 1988~.
-publicity poster
+cartaz de divulgação
 A porta só gira no sentido horário.
 Dentro de um quarto da apertada porta giratória, bloqueada para o mundo exterior e aberta apenas para o saguão, a sudoeste.
 Ao norte e a leste ficam as paredes da porta.
 Porta Giratória
 Você gira no sentido horário com a porta e acaba novamente ao lado do saguão.
 Você está dentro dela.
-door
+porta
 A porta só gira no sentido horário.
 Dentro de um quarto da apertada porta giratória, bloqueada para o mundo exterior e aberta apenas para o saguão, a sudoeste.
 Ao norte e a leste ficam as paredes da porta.
@@ -2759,7 +2759,7 @@ Escada Escura
 Num degrau, uma caixa de fósforos vazia está descartada.
 É do Café do Castelo em Ruínas e, como o café, não tem fósforos.
 Ah, receio que seja apenas uma pista simbólica.
-discarded matchbook
+caixa de fósforos descartada
 Mostra uma grande quantidade de taças e copos de cristal.
 Não leva a lugar algum.
 Ás de Copas
@@ -2777,13 +2777,13 @@ A garrafa de remédio se abre nas mandíbulas da cabra!
 Pelo amor do céu, a corrente de margaridas é útil demais para isso.
 Com voz áspera, a cabra entoa:^^
 Mée!
-an
+uma
 cabra de aparência ansiosa
 Apenas um cajado. E o que há de errado com cajados, é o que eu digo.
-shepherd's crook
+cajado de pastor
 Eles estão vindo o mais depressa que podem! Um ritual não acontece sozinho, sabe.
 Como seria de esperar, a porta da cela está fechada.
-cell door
+porta da cela
 Está escuro demais para ver muita coisa dentro do armário.
 Um anexo do museu, contendo diversos achados arqueológicos, mal rotulados em alemão (que você mal consegue ler mesmo nas melhores condições) e firmemente presos dentro de armários de vidro. A tempestade lá fora açoita as estreitas janelas escuras.
 Sala dos Armários
@@ -2793,14 +2793,14 @@ Um dos armários parece particularmente vulnerável.
 Você poderia simplesmente olhar dentro do armário de vidro quebrado.
 ^Finalmente reagindo ao alarme que você acionou, o Doutor Stein aparece e avança na sua direção, batendo palmas com força. E dezenas de figuras encapuzadas saltam da escuridão, mas não são guardas. Seus rostos estão pintados de modo hediondo e não demonstram emoção enquanto o imobilizam...^^~Então, Meldrew. Tudo está como foi profetizado,~ diz Stein num tom perfeitamente coloquial enquanto força sua boca a abrir e faz você engolir uma pílula violeta.^^~Um de seus ancestrais boticários criou esta droga! Apropriado, não?~^^
 Você sente náuseas, mas esse talvez seja o menor dos seus problemas enquanto o arrastam para longe...^^
-glass cabinet
+armário de vidro
 Por mais que você tente alcançar através da grade, ela continua fora de alcance.
 Um disco liso do tamanho da palma da mão, talvez de pedra-pomes, pintado de amarelo e marrom com um único motivo de estrela, ao redor do qual (no sentido horário) estão as palavras ~nog~, ~er~, ~ska~ e ~iw~. Se você se lembra corretamente do rótulo, algo engraçado foi feito com um pedaço de metal embutido no topo, mas seu alemão não foi suficiente para entender o quê.
 A forma não lhe parece nem um pouco familiar? Aí está, isso deve apontar na direção certa.
-smooth round stone
-Only one line has survived intact:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur Al-x-an-dr u bir ka ur-a an-ge ur
+pedra lisa e redonda
+Apenas uma linha sobreviveu intacta:^^.<anoppe> an-spe : ska er nog-er an-ge : to-ro-ma ka ur Al-x-an-dr u bir ka ur-a an-ge ur
 Receio que você precise de mais evidências antes de começar a decifrar a língua.
-papyrus fragment
+fragmento de papiro
 TRoom
 O relógio está contando para trás e está 
 bem na zona vermelha!  
@@ -2843,22 +2843,22 @@ Você ajusta o temporizador para dez minutos, e ele começa a funcionar.
 Mas o flash não faz nada.
 E o flash produz uma quantidade pateticamente pequena de luz.
 O flash de repente produz uma enorme luz de magnésio, quase cegante em sua intensidade. Seus olhos demoram um pouco para se ajustar. 
-Consequently you can only hear as the cabaret audience gives you a round of applause for what they think is a magic trick.
-Consequently you can only hear as the smudge on the horizon rises from the waves, becomes an enormous Kraken sea monster and lunges for the stone tower. (Considering this is supposed to be a Greek myth it feels surprisingly like a Japanese 1960s creature film.) The Kraken swipes at you, overreaches itself and falls over forward, impaling itself extremely messily on the pharos. Your eyes just about recover by the time the rest of your body is crushed by its weight.^^Up on Mount Olympus, Zeus is still cross. ~Take me to your Leda~, you wittily demand, but this does not seem to improve matters. Poseidon also looks rather fed up, but luckily a sizeable faction of goddesses takes your side and arranges to have you resurrected...^
-^Austin jumps with fear, then slouches back again into his ~cool~ pose.
-^The squirrel covers his eyes with his paws for a moment.
+Consequentemente, você só consegue ouvir a plateia do cabaré aplaudindo o que considera um truque de mágica.
+Consequentemente, você só consegue ouvir enquanto a mancha no horizonte se ergue das ondas, transforma-se num enorme monstro marinho Kraken e avança contra a torre de pedra. (Considerando que isto deveria ser um mito grego, parece surpreendentemente um filme japonês de monstros dos anos 1960.) O Kraken golpeia você, exagera no movimento e cai para a frente, empalando-se de modo extremamente grotesco no farol. Seus olhos mal se recuperam a tempo de o resto do seu corpo ser esmagado pelo peso.^^No alto do Monte Olimpo, Zeus continua furioso. ~Leve-me até sua Leda~, você exige espirituosamente, mas isso não parece melhorar as coisas. Poseidon também parece bastante farto, mas felizmente um grupo considerável de deusas fica do seu lado e providencia sua ressurreição...^
+^Austin salta assustado, depois volta a se esparramar em sua pose ~descolada~.
+^O esquilo cobre os olhos com as patas por um momento.
 Time flies down here, you know. Eternity simply breezes by.
-Good photographic gear that. You didn't get it from a... well, a bomb, I hope.
-timer-detonator
-That one's already pulled out.
-You pull out 
+Um bom equipamento fotográfico. Você não o conseguiu de uma... bem, de uma bomba, espero.
+temporizador-detonador
+Esse já foi puxado.
+Você puxa 
 . 
-All four wires are now disconnected.
+Todos os quatro fios estão desconectados.
 Wire_Class
-green wire
-red wire
-blue wire
-black wire
+fio verde
+fio vermelho
+fio azul
+fio preto
 Este porão está cheio de caixas e mais caixas de copos e taças, suficientes para um hotel inteiro, ou talvez um restaurante. Quase qualquer coisa poderia estar escondida entre elas. Entra um pouco de luz por uma claraboia opaca ao nível da rua. Não há saída, pois a única porta está bem fechada.
 Não há saída aparente daqui.
 ^Há um ruído de passos enquanto algumas pessoas se reúnem na calçada, do lado de fora da claraboia.
@@ -2871,7 +2871,7 @@ Pela janela quadrada da porta você vê um bar onde funcionários servem bebidas
 porta com janela
 Nada mais.
 Na verdade, não há nada escondido entre as caixas além de um modelo de navio à vela. Você o pega por força do hábito.
-numerous
+numerosos
 copos e taças
 Uma garrafa de uísque sem rótulo, deitada de lado e montada numa placa de madeira, está merecidamente abandonada sobre uma das caixas.
 Velha, indesejada, empoeirada, vazia.
@@ -2912,273 +2912,273 @@ Andrômeda sibila algo depreciativo para você em grego. (Ático, não demótico
 Acorrentada à face do penhasco está a bela Andrômeda, olhando nobremente para o mar enquanto aguarda seu destino.
 Desvie os olhos. Ela está nua
  (a menos que se conte a faixa de cabelo)
-, as was fashionable for human sacrifices: the victim left overnight without food or shelter até o amanhecer. É preciso dizer que ela não parece muito ansiosa para ser resgatada
+, como era moda nos sacrifícios humanos: a vítima passava a noite sem comida nem abrigo até o amanhecer. É preciso dizer que ela não parece muito ansiosa para ser resgatada
 .
-.^^Of course you've already rescued her, in a sense, but that's not due to happen for an hour or two horas para ela, então dificilmente pode esperar agradecimentos. Ainda assim, dá uma agradável sensação interior.
+.^^É claro que, em certo sentido, você já a resgatou, mas isso só acontecerá para ela daqui a uma ou duas horas, então dificilmente pode esperar agradecimentos. Ainda assim, dá uma agradável sensação interior.
 Andrômeda
 Um longo prendedor de âmbar, perfeito para cabelos gregos longos e desgrenhados.
 de Andrômeda
 Hum... ainda tem o perfume dela. Hehehehe. Aposto que ela já morreu.
 faixa de cabelo de âmbar
-On top of some exposed cliffs on the Mediterranean. A dangerous slither down leads on one side to the shore, all other ways down being even more hazardous. Atop the cliffs is the Pharos tower, a round stone pinnacle lighthouse, but there is no way in from here.^^A grassy walk leads east, and a narrow crack leads southwest into a cave mouth.
-There's only dull grassland that way.
+No alto de penhascos expostos sobre o Mediterrâneo. Uma descida perigosa leva de um lado à costa; todos os outros caminhos para baixo são ainda mais arriscados. No alto dos penhascos fica a torre de Faros, um farol no topo de um pináculo redondo de pedra, mas não há como entrar por aqui.^^Uma trilha gramada segue para leste, e uma fenda estreita leva a sudoeste até a boca de uma caverna.
+Por esse lado só há um terreno gramado e sem graça.
 Penhascos
-The goats hiss and butt against you, not letting you through.
-The goats obediently part to allow you to get by.^
-A long clifftop walk by the sea, from the lighthouse to the west to the village not far east. These fields are occupied by herds of hardy mountain goats, continually butting each other and frisking. To the south a path leads across sparse grassland to a great outgrowth of some kind.
-There's only dull grassland that way.
+As cabras chiam e dão cabeçadas em você, não deixando que passe.
+As cabras obedientemente se afastam para permitir sua passagem.^
+Uma longa trilha no alto dos penhascos junto ao mar, do farol a oeste até a vila não muito distante a leste. Esses campos são ocupados por rebanhos de resistentes cabras montanhesas, que vivem dando cabeçadas umas nas outras e saltitando. Ao sul, uma trilha atravessa o terreno gramado esparso até uma grande formação de algum tipo.
+Por esse lado só há um terreno gramado e sem graça.
 Trilha no Alto dos Penhascos
 Grunt!
 rebanho de cabras
-A long walk along the cliffs from the lighthouse leads naturally here, just outside the Eraina Taverna, whose open doorway lies to the south.
-There's only dull grassland that way.
+Uma longa trilha pelos penhascos, vinda naturalmente do farol, chega aqui, logo diante da Taverna Eraina, cuja porta aberta fica ao sul.
+Por esse lado só há um terreno gramado e sem graça.
 Fora da Taverna
-The thorns deter you.
-Only a small, thorny, unclimbable fig tree.
+Os espinhos fazem você desistir.
+Apenas uma pequena figueira espinhosa e impossível de escalar.
 árvore pequena e espinhosa
-Hanging from a low branch of a fig tree is, as you might expect, a fig.
-Legend has it that the Roman emperor Augustus was killed by his wife Livia, who painted the figs on his tree with poison. Actually it looks like a perfectly nice piece of fruit.
-You can ask a god for a date, but they just don't give a fig.
-Good enough for a god.
+Pendurado num galho baixo de uma figueira está, como seria de esperar, um figo.
+Diz a lenda que o imperador romano Augusto foi morto por sua esposa Livia, que pintou os figos de sua árvore com veneno. Na verdade, este parece ser um fruto perfeitamente bom.
+Você pode pedir uma data a um deus, mas eles simplesmente não dão a mínima.
+Bom o bastante para um deus.
 fig
-Given the language difficulty, you'd better resort to barter.
-A plain but cheery taverna, fill of miserable and rather ashamed men who are drinking retsina heavily. The day is dawning outside the north door, but they strangely do not share your uplifted feeling at the sight.
-The tavern entrance is to the north.
-^The diners grumble and play backgammon viciously.
-^The bartender gives you a hard stare.
-^A fight breaks out, over an obscure question to do with somebody's second cousin.
-^The gentle sound of bazouki music strikes up in the background, gradually rising to an intolerable pitch. After a moment comes a dull thud and a strangled noise, then blessed quiet.
+Dada a dificuldade com o idioma, é melhor recorrer à troca.
+Uma taverna simples, mas alegre, cheia de homens miseráveis e um tanto envergonhados que bebem muita retsina. O dia amanhece do lado de fora da porta norte, mas, estranhamente, eles não compartilham sua animação ao ver isso.
+A entrada da taverna fica ao norte.
+^Os clientes resmungam e jogam gamão com ferocidade.
+^O bartender lança um olhar duro para você.
+^Começa uma briga por causa de uma questão obscura envolvendo o primo de segundo grau de alguém.
+^O som suave de um bouzouki começa ao fundo, subindo gradualmente a um tom intolerável. Depois de um momento, ouve-se um baque surdo e um ruído estrangulado, então abençoado silêncio.
 Taverna Eraina
-You can't understand a word of what the bartender says, but the drift is clear enough. Not until you pay for it.
-Left untouched on one table is an Ekmek Special dessert.
-A speciality dessert of the Taverna: ice cream, kateifi, raspberry sauce, cream. An acquired taste.
-Better with chocolate ice cream, I think.
-Doesn't somebody else need this more than you?
+Você não entende uma palavra do que o bartender diz, mas o sentido está claro o bastante. Só depois que pagar.
+Intocado sobre uma mesa está um doce Especial Ekmek.
+Uma sobremesa especial da Taverna: sorvete, kadaifi, calda de framboesa e creme. Um gosto que se aprende a apreciar.
+Acho que fica melhor com sorvete de chocolate.
+Outra pessoa não precisa mais disso do que você?
 Especial Ekmek
-The bartender takes the coin wearily, with a ~how can you eat at a time like this?~ look.
-The bartender looks at 
- with a glazed expression.
-Being an educated person, the bartender speaks a little Latin and some Aramaic. Being an uneducated one, you don't, and communication proves impossible.
-Here, surrounded by all his cronies?
-Behind the bar, a depressed bartender polishes glasses.
-Morose and unconvivial at the best of times. This is not the best of times.
+O bartender pega a moeda cansado, com uma expressão de ~como você consegue comer numa hora dessas?~
+O bartender olha para 
+ com uma expressão apática.
+Por ser instruído, o bartender fala um pouco de latim e aramaico. Por não ser instruído, você não fala, e a comunicação se mostra impossível.
+Aqui, cercado por todos os seus amigos?
+Atrás do balcão, um bartender deprimido lustra copos.
+Mal-humorado e pouco sociável nos melhores momentos. Este não é um dos melhores momentos.
 bartender
-The rather sparse rolling landscape is dominated here by a massive, and suspiciously unnatural, wall of thorns, which forms a great ring about an area perhaps a hundred yards in diameter. There are goat pastures to the north.
-There's only dull grassland that way.
+A paisagem ondulada e relativamente árida é dominada aqui por um muro maciço e suspeitosamente antinatural de espinhos, que forma um grande anel ao redor de uma área talvez com cem metros de diâmetro. Ao norte há pastos de cabras.
+Por esse lado só há um terreno gramado e sem graça.
 Muro de Espinhos
-The wall rustles and clashes its thorns like a beast alive.
-A ragged gap in the wall has been burnt out to the south.
-It's hard to imagine what could possibly shift a wall like that.
+O muro farfalha e faz seus espinhos chocarem como uma fera viva.
+Uma abertura irregular foi queimada no muro ao sul.
+É difícil imaginar o que poderia mover um muro desses.
 muro de espinhos
-Zeus, chief of all the gods, appears and hurls a thunderbolt down just before you begin to cross into the Temple. 
-With the kind of calculation only a god could make, Zeus has worked out exactly what would happen and aimed the thunderbolt so that it hits you straight in the back despite your attempt to weave about. Pretty impressive prediction, is your last thought.
-Astonishingly, you beat the luck of the gods and slip into the temple just clear of the thunderbolt. ~Damn, missed!~ says a sepulchral voice from without.^
-With the luck of the gods, Zeus' thunderbolt strikes you just about exactly in the back, despite your attempts to weave about.
-Here inside the thorn wall, a north-south path leads across sacred earth into the imposing marble Temple of Zeus. You feel distinctly uneasy walking on such hallowed turf. There are any number of myths about gods getting cross about that sort of thing.
-The wall of thorns hems you in.
+Zeus, chefe de todos os deuses, aparece e lança um raio bem quando você começa a atravessar para o Templo. 
+Com o tipo de cálculo que só um deus poderia fazer, Zeus descobriu exatamente o que aconteceria e apontou o raio para atingir você bem nas costas, apesar de suas tentativas de se esquivar. Uma previsão impressionante, é seu último pensamento.
+Espantosamente, você supera a sorte dos deuses e entra no templo por pouco, escapando do raio. ~Droga, errei!~ diz uma voz sepulcral do lado de fora.^
+Com a sorte dos deuses, o raio de Zeus atinge você exatamente nas costas, apesar de suas tentativas de se esquivar.
+Aqui, dentro do muro de espinhos, um caminho de norte a sul atravessa a terra sagrada até o imponente Templo de mármore de Zeus. Você se sente claramente desconfortável caminhando em solo tão sagrado. Há inúmeros mitos sobre deuses que se irritam com esse tipo de coisa.
+O muro de espinhos mantém você encurralado.
 Terra Sagrada
-~I'll get you this time, worm!~ bellows Zeus, and hurls another thunderbolt, but now he's angry his aim is right off. You survive once more.^
-The beautiful candle-lit Temple of Zeus, a cavern of marble pillars which is quite empty and featureless save for the entrance at the north. So much for all the rumours about hoards of treasure - it looks as if Zeus (who is, by the way howling with anger outside) was bluffing all along.^^Cloisters lead southeast and southwest, deeper into the temple.
+~Desta vez eu pego você, verme!~ brada Zeus e lança outro raio, mas agora está tão furioso que erra completamente o alvo. Você sobrevive mais uma vez.^
+O belo Templo de Zeus, iluminado por velas, é uma caverna de pilares de mármore completamente vazia e sem características, exceto pela entrada ao norte. Quanto aos rumores sobre tesouros escondidos: parece que Zeus (que, aliás, uiva de raiva do lado de fora) estava blefando o tempo todo.^^Claustros levam a sudeste e sudoeste, mais para dentro do templo.
 Templo de Zeus
-On one side, a man's face: on the other, a symbol, I. One obol, or one-sixth of a drachma.
-one
-This currency is only valid in ancient Greece. Where on earth have you been?
+De um lado, o rosto de um homem; do outro, um símbolo, I. Um óbolo, ou um sexto de uma dracma.
+uma
+Esta moeda só é válida na Grécia antiga. Onde você esteve, afinal?
 copper coin
-The east cloister of the Temple, which turns from northwest to southwest, is bare but for a small niche.
+O claustro leste do Templo, que vai de noroeste a sudoeste, é vazio, exceto por um pequeno nicho.
 Claustro Leste
-Resting in the niche is an inscribed pumice stone, two feet tall.
-The stone bears two inscriptions, side by side:^
+No nicho repousa uma pedra-pomes inscrita, com sessenta centímetros de altura.
+A pedra traz duas inscrições, lado a lado:^
 ^   #. [] = # +*+  __             an-ta re-im ka u bir ka-i^             |||       ^        |        |     ^   / # -+- :; # -+-                 ka ne : to-ro-ma ka ur^        |        |     ^                       ^   >>> -> # (---)         .je-fe-im ka ur-a an-ge to-ro-ma^             |||^
-an
-Whoever wrote this must have wanted to get the message across very badly, to write it all out twice.
-inscribed stone
-Along the west cloister, turning from northeast to southeast, is a broad bas relief depicting the seasons: the planting of seed, high summer, the harvest, floods and then the coming of ice.
+um
+Quem escreveu isto deve ter querido transmitir a mensagem com muita insistência, a ponto de escrevê-la duas vezes.
+pedra inscrita
+Ao longo do claustro oeste, que vai de nordeste a sudeste, há um amplo baixo-relevo representando as estações: o plantio, o auge do verão, a colheita, as enchentes e então a chegada do gelo.
 Claustro Oeste
-A curious symbol is repeated along the top of the relief.
+Um símbolo curioso se repete no alto do relevo.
   j  c     k  b   s you gk 
 symbol
-Here from the dark heart of the temple, cloisters fork northeast and northwest while a flight of narrowing steps lead down and to the north.
+Aqui, no coração escuro do templo, os claustros se bifurcam para nordeste e noroeste, enquanto uma escada estreita desce para o norte.
 Santuário Interior
-Homer is asleep again, his syrinx tight in his arms.
-~Hopeless,~ he says dismissively and falls asleep.
-Homer is far too busy composing Book XIV of the Iliad.
-Homer is asleep.^
-Homer is awake already.
-Homer sits half-awake, clutching his syrinx.
-Homer wakes up, with a start. ~I suppose you want the syrinx,~ he grumbles, ~they always do. There are three questions you must answer wisely. The usual deal.~^^(He seems to be under an enchantment and able to speak modern English, or at least American.)^^~First: who is the brother of Menelaus?~
-What, strike the greatest poet who ever lived?
-Homer is asleep.
-Homer glares back.
-~Mph,~ he says (untranslatably). ~But can ya see the future?  Who's gonna rule Alexandria after the fall of the guy they're gonna call Alexander the Big?~
-~What's your favorite color?~
-Homer glares at you through sightless eyes.
-Homer reluctantly hands you the syrinx. ~Now leave me alone, I got six books of the Iliad left to compose.~
-The blind poet Homer half-slumbers here, clutching his syrinx (or Pan-pipes) to himself.
-Homer is wearing a Columbo-style raincoat.
+Homero está dormindo novamente, com a sirinx apertada nos braços.
+~Sem esperança,~ diz ele com desdém e adormece.
+Homero está ocupado demais compondo o Livro XIV da Ilíada.
+Homero está dormindo.^
+Homero já está acordado.
+Homero se senta meio acordado, agarrado à sirinx.
+Homero acorda assustado. ~Suponho que você queira a sirinx,~ resmunga, ~todos querem. Há três perguntas que você deve responder com sabedoria. O acordo de sempre.~^^(Ele parece estar sob um encantamento e ser capaz de falar inglês moderno, ou pelo menos americano.)^^~Primeiro: quem é o irmão de Menelau?~
+O quê, atacar o maior poeta que já viveu?
+Homero está dormindo.
+Homero olha de volta para você.
+~Mph,~ diz ele (de modo intraduzível). ~Mas você consegue ver o futuro? Quem vai governar Alexandria depois da queda daquele sujeito que vão chamar de Alexandre, o Grande?~
+~Qual é sua cor favorita?~
+Homero encara você através de olhos cegos.
+Homero entrega a você a sirinx, relutante. ~Agora me deixe em paz, ainda tenho seis livros da Ilíada para compor.~
+O poeta cego Homero cochila aqui, agarrado à sirinx (ou flautas de Pã).
+Homero veste uma capa de chuva ao estilo Columbo.
 Homero
-With the gas mask on?
-The goats are amused by your derisory playing.
-You sound off some dissonant notes.
-Seized by divine inspiration, you launch into J. S. Bach's 
-Prelude number 1
+Com a máscara de gás?
+As cabras se divertem com sua execução ridícula.
+Você produz algumas notas dissonantes.
+Tomado por inspiração divina, você começa a tocar 
+Prelúdio número 1
 Passacaglia
-Chromatic Fantasy and Fugue
-partita for unaccompanied flute
-duet number four
+Fantasia cromática e fuga
+partita para flauta desacompanhada
+dueto número quatro
 .
-. Suddenly the great god Apollo appears before you!  As he speaks the very rock reverberates.^^   ~All wisdom is mine, mortal!^   Though you shall seek out your curse^   A thousand years and more. Now ask!~^^Apollo, as he vanishes, laughs in that style more recently popularised by Third World dictators and mad scientists. His priestess, the Oracle, steps out of the shadows.^
-Carefully cut from river reeds, these once belonged to Homer himself. As you may recall.
-the
+. De repente, o grande deus Apolo aparece diante de você! Enquanto fala, a própria rocha reverbera.^^   ~Toda a sabedoria é minha, mortal!^   Embora você procure sua maldição^   por mil anos ou mais. Agora pergunte!~^^Apolo, ao desaparecer, ri daquele jeito popularizado mais recentemente por ditadores do Terceiro Mundo e cientistas loucos. Sua sacerdotisa, a Oráculo, sai das sombras.^
+Cuidadosamente cortadas de juncos de rio, estas flautas pertenceram ao proprio Homero, como voce deve se lembrar.
+a
 Maravilhoso! Um som que acalma o espírito.
 flautas de Pã
-The two-foot opening is clear again.
-The fabled Labyrinth seems only to consist of a broad cross. Arms run to northeast, northwest, southeast and southwest, while a flight of stone steps widens and climbs south.
-^You hear the noise of stone grating against stone.
+A abertura de sessenta centimetros esta livre novamente.
+O lendário Labirinto parece consistir apenas numa cruz larga. Seus braços seguem para nordeste, noroeste, sudeste e sudoeste, enquanto uma escada de pedra se alarga e sobe para o sul.
+^Voce ouve o som de pedra raspando contra pedra.
 Centro da Cruz
- would simply fall through.
-The opening is securely wedged with the stone.
-The opening is securely wedged with the prop.
-You wedge 
- across the opening.
-There are extremely scuffed and faded inscriptions at the centre of the cross.
-Beside the inscriptions is an opening in the floor, about two feet square.
+ simplesmente cairia pela abertura.
+A abertura esta firmemente bloqueada pela pedra.
+A abertura esta firmemente bloqueada pela escora.
+Voce atravessa a abertura com 
+.
+Ha inscricoes muito gastas e desbotadas no centro da cruz.
+Ao lado das inscricoes ha uma abertura no chao, com cerca de sessenta centimetros quadrados.
 ~ka-i ur-a re-im ka an-ge~
-the
+a
 inscrições
-A foul, musty bone pit, beneath the cross, where sacrificial victims were once dropped and ~forgotten~.
+Um poco de ossos fetido e mofado, sob a cruz, onde vitimas sacrificiais eram jogadas e ~esquecidas~.
 Oubliette
-There is a horrible screeching sound as a trap is sprung. 
-The walls begin to crush together: but are securely wedged, and cannot move...^^
-The opening crushes together, and so do the walls!  They reduce you to powdered dog biscuit in a matter of seconds.
-Lying on top of crushed, broken bones, in plain view, is a gleaming gem of amber.
-Embedded within is the body of a fly. Scratched upon one face is the word ~GALITA~.
-Isn't there some classical legend about her?
+Ocorre um guincho horrivel quando uma armadilha e acionada. 
+As paredes comecam a se fechar, mas estao firmemente bloqueadas e nao conseguem se mover...^^
+A abertura se fecha, e as paredes tambem! Em questao de segundos, elas reduzem voce a po de biscoito para caes.
+A vista, sobre ossos esmagados e quebrados, repousa uma gema de ambar reluzente.
+Dentro dela está o corpo de uma mosca. Raspada numa das faces está a palavra ~GALITA~.
+Nao ha alguma lenda classica sobre ela?
 gema de âmbar reluzente
-This cross-corner is inlaid with carvings of fish, of the waves, of great casting nets sweeping through the water.^^The Labyrinth lies to southwest.
+Este canto da cruz é incrustado com entalhes de peixes, ondas e grandes redes varrendo a água.^^O Labirinto fica a sudoeste.
 Cruz Nordeste
-Perhaps you should say which way to push.
-The only direction to push the statue in is to the centre of the cross, but there's a pit open in the floor there.
-You heave the statue along with you.
+Talvez voce deva dizer em que direcao empurrar.
+A unica direcao para empurrar a estatua e o centro da cruz, mas ha um poco aberto no chao ali.
+Voce empurra a estatua junto com voce.
 Statue
-A fine statue of the goddess Demeter stands here.
-statue of Demeter
-This cross-corner is surrounded with carvings of wheat swaying in the breeze, bathed with sunshine.^^The Labyrinth lies to southeast.
+Uma bela estatua da deusa Demeter esta aqui.
+estátua de Deméter
+Este canto da cruz é cercado por entalhes de trigo balançando ao vento, banhados pelo sol.^^O Labirinto fica a sudeste.
 Cruz Noroeste
-A fine statue of the god Dionysus stands here.
-statue of Dionysus
-This cross-corner is decorated with carvings of massed ranks of hoplite warriors, advancing into battle.^^The Labyrinth lies to northwest.
+Uma bela estatua do deus Dionisio esta aqui.
+estátua de Dionísio
+Este canto da cruz é decorado com entalhes de fileiras cerradas de guerreiros hoplitas avançando para a batalha.^^O Labirinto fica a noroeste.
 Cruz Sudeste
-A fine statue of the god Ares stands here.
-statue of Ares
-This cross-corner is decorated with carvings of grape-vines and barrels.^^The Labyrinth lies to northeast.
+Uma bela estatua do deus Ares esta aqui.
+estátua de Ares
+Este canto da cruz é decorado com entalhes de videiras e barris.^^O Labirinto fica a nordeste.
 Cruz Sudoeste
-A fine statue of the god Poseidon stands here.
-statue of Poseidon
-A dry cave opening from a crack to the northeast, becoming a fair-sized cavern, furnished with bronze and lit by trestle lamps chained from the ceiling.
+Uma bela estatua do deus Poseidon esta aqui.
+estátua de Poseidon
+Uma caverna seca que começa numa fenda a nordeste, tornando-se uma gruta de bom tamanho, mobiliada com bronze e iluminada por lamparinas suspensas em correntes no teto.
 Boca da Caverna
-Perhaps the gods no longer inhabit such places. Your offering burns to nothing, for nothing.
-The god Apollo moves in mysterious ways, for another fig has appeared on the tree.
-You have pleased the god Apollo - Loxias, god of words and counsel, as he was once called! Very wise.
-The god Apollo is unimpressed with your offering, which feeds the eternal flame.
-You have no desire to be burnt.
-In the centre of the cave rests an obsidian altar stone with a flaming bronze urn.
-The altar stone, sometimes called ~Omphalos~ or ~the navel~, bears an odd cross or plus sign and is fabled to mark the centre of the world.^^Around the side of the urn are reliefs of feasts, of oxen being tracked and sacrificed, of the gathering of fruit and the making of cheese.
-the
+Talvez os deuses ja nao habitem lugares assim. Sua oferenda queima em vao.
+O deus Apolo age de maneiras misteriosas, pois outro figo apareceu na arvore.
+Voce agradou ao deus Apolo, Loxias, deus das palavras e dos conselhos, como ja foi chamado! Muito sabio.
+O deus Apolo nao se impressiona com sua oferenda, que alimenta a chama eterna.
+Voce nao deseja ser queimado.
+No centro da caverna repousa uma pedra de altar de obsidiana com uma urna de bronze flamejante.
+A pedra do altar, as vezes chamada de ~Omphalos~ ou ~o umbigo~, traz uma estranha cruz ou sinal de mais e, segundo a lenda, marca o centro do mundo.^^Ao redor da urna ha relevos de banquetes, bois sendo perseguidos e sacrificados, colheitas de frutas e fabricacao de queijo.
+a
 urna de bronze flamejante
-nought
-a pace
- paces
-The priestess has told you enough.
-The priestess remains silent. Only by an offering can the wisdom of Apollo be gained.
-The priestess, Pythian oracle of Loxias, seems hardly to hear or understand: but goes into a trance, swaying to a sensuous rhythm: and chants, in English,^^
- ~As Hephaestus, master of the metals^  uncovered the gilden sunrise of Helicon^  so, in 
- and 
-^  when six arches have stood sixty years^  shall even a shade's remains be cast.~
- ~Like the eruptions of Sicilian mounts^  shall come devices to ruin a castle,^  which no bronze armour can withstand^  save, it may be, a veil of the neck.~
- ~Your ancestor, pestle in hand^  made the salve you shall need^  to defy the Druids' earthly band:^  take care, mortal, take heed.~
-^Apollo is what you might call an annoying git, were he not also an alarmingly powerful deity.
-As you ought to know, the Oracle is inviolable.
-The Oracle, the masked priestess of Apollo, stands here behind an obsidian altar-stone, three cubits cubed: to her side is a bronze urn, mouthing perpetual flame.
-the
+zero
+um passo
+ passos
+A sacerdotisa já disse o bastante.
+A sacerdotisa permanece em silêncio. Só uma oferenda pode obter a sabedoria de Apolo.
+A sacerdotisa, oráculo pítia de Loxias, mal parece ouvir ou entender: entra em transe, balançando-se num ritmo sensual, e canta em português,^^
+ ~Assim como Hefesto, mestre dos metais,^  descobriu o amanhecer dourado do Hélicon,^  assim, em 
+ e 
+^  quando seis arcos tiverem permanecido por sessenta anos,^  até os restos de uma sombra serão lançados.~
+ ~Como as erupções dos montes sicilianos,^  virão engenhos para arruinar um castelo,^  que nenhuma armadura de bronze pode suportar,^  salvo, talvez, um véu para o pescoço.~
+ ~Seu ancestral, pilão na mão,^  fez o unguento de que você precisará^  para desafiar a ordem terrena dos druidas:^  cuidado, mortal, atenção.~
+^Apolo seria o que você chamaria de sujeito irritante, se não fosse também uma divindade assustadoramente poderosa.
+Como você deveria saber, a Oráculo é inviolável.
+A Oráculo, sacerdotisa mascarada de Apolo, está aqui atrás de uma pedra de altar de obsidiana, com três côvados cúbicos; ao seu lado há uma urna de bronze com uma chama perpétua.
+a
 Oracle
-(Out of the corner of your eye, you notice the flash fall out of the device.)^
-You stand atop a pinnacle of stone, on an early Pharos, or lighthouse. Considerately enough, the builders have provided a spiral staircase down. 
-The cliffs below are familiar, but it's a little later in the day than your arrival on the sea shore. 
-Much traffic plies across the bay, and trade seems to be picking up again now that the Kraken has gone.
-There seems to be very little traffic at the moment, though a smudge on the horizon might possibly be a quinquireme.
-^^In the centre of the pinnacle is a marvellous device of polished bronze mirrors, its open end pointed out across the bay. 
-The Mediterranean sparkles in the hot afternoon sun.
-The sun is rising and the sky is clear blue over the Mediterranean: it's going to be a beautiful day.
-Being a lighthouse, this pinnacle is way up in the air. Point taken?
+(Pelo canto do olho, você percebe o flash cair do dispositivo.)^
+Você está no alto de um pináculo de pedra, num Faros antigo, ou farol. Atenciosamente, os construtores deixaram uma escada em espiral para baixo. 
+Os penhascos abaixo são familiares, mas é um pouco mais tarde do que quando você chegou à costa. 
+Há muito movimento na baía, e o comércio parece estar se recuperando agora que o Kraken partiu.
+Parece haver pouquíssimo movimento no momento, embora uma mancha no horizonte possa ser uma quinquerreme.
+^^No centro do pináculo há um maravilhoso dispositivo de espelhos de bronze polido, com a extremidade aberta apontada para a baía. 
+O Mediterrâneo cintila sob o sol quente da tarde.
+O sol está nascendo e o céu está azul e límpido sobre o Mediterrâneo: será um belo dia.
+Como este é um farol, o pináculo fica muito alto no ar. Entendeu?
 Farol
 dispositivo espelhado
-A brown-tinted frieze, depicting hunters and spear-carriers, surrounds this dark stair-well, which has no exit except for a spiral staircase leading back up.
+Um friso marrom, representando caçadores e lanceiros, circunda esta escada escura, que não tem saída além da escada em espiral que leva de volta para cima.
 Friso Grego
-The decorated strip of entablature between the architrave and the cornice, in the Attic style circa fifth century B.C.^^Well, you did ask.
+A faixa decorada do entablamento entre a arquitrave e a cornija, no estilo ático do século V a.C.^^Bem, você perguntou.
 friso grego
-the
+a
 port wall
-the
+a
 starboard wall
-the
+a
 fore wall
-the
+a
 aft wall
-Here aboard ship, such a landlubber's direction seems inappropriate.
+Aqui a bordo, uma direção de quem não entende de navegação parece inadequada.
 some landlubber's direction
-There is a storm tossing the deck, one which drives no rain: you reel from one side to the other, hanging onto the rail, grabbing at the mast or the rigging. Nobody else seems to be aboard. The boat makes no headway in a strange, glassy mist.^^The mast rises dizzyingly high.^^You can't even make out the water below. A great pink haze spreads across the sky. With omens like these, who needs albatrosses?
-The deck runs fore to aft (as all decks do).
+Uma tempestade sacode o convés, mas não traz chuva: você cambaleia de um lado para o outro, agarrado ao corrimão, ao mastro ou ao cordame. Não parece haver mais ninguém a bordo. O barco não avança na estranha névoa vítrea.^^O mastro sobe vertiginosamente.^^Você nem consegue distinguir a água abaixo. Uma grande névoa rosa se espalha pelo céu. Com presságios assim, quem precisa de albatrozes?
+O convés vai da proa à popa, como todos os convés.
 A Bordo do Navio
-the
+a
 mastro e cordame
-You jump (madly) from the crow's nest 
-(tearing the flag as you go) 
-to a colourful demise on the deck below.
+Você salta (loucamente) do cesto da gávea 
+(rasgando a bandeira ao passar) 
+para uma morte colorida no convés abaixo.
 Up here?
-The medicine bottle drops like a stone to the deck far below, where it cracks like an egg.
-Dropped a long way down, onto the deck.
-You wander out onto the flagpole, which bows and bends alarmingly, until suddenly...^^Crack!  And you are falling
-, plummeting, head over heels to the hard wooden deck and the inevitable iron fixtures...
-... but gracefully, as the flag billows out into a parachute, until it suddenly tears out of your hand and you come down in an ignominious heap.
-You are obliged to leave hold of the flag en route.^^
-Coming up here must be one of your less inspired ideas. The mist is all around you, confusing your senses. Two pale, bluish moons hang in a pink sky.
+O frasco de remédio cai como uma pedra no convés muito abaixo, onde racha como um ovo.
+Caiu de muito alto, sobre o convés.
+Você caminha até o mastro da bandeira, que se curva e dobra de modo alarmante, até que de repente...^^Crac! E você está caindo
+, despencando de cabeça para baixo no convés duro de madeira e nas inevitáveis ferragens...
+... mas com elegância, enquanto a bandeira se abre como um paraquedas, até que de repente se rasga da sua mão e você cai numa pilha ignominiosa.
+Você é obrigado a soltar a bandeira no caminho.^^
+Subir até aqui deve ser uma de suas ideias menos inspiradas. A névoa está por toda parte, confundindo seus sentidos. Duas luas azuladas e pálidas pairam num céu rosa.
 Down might be a better idea.
 No Alto do Mastro
-The flagpole is very securely fixed to the main mast.
-A flagpole juts out portwards from the top of the mast, far too insubstantial to bear any weight. From it hangs the ensign of the British Merchant Navy (which you could just reach the bottom of).
-The flagpole juts out to port with the prevailing... wind?
+O mastro da bandeira está firmemente preso ao mastro principal.
+Um mastro de bandeira se projeta para bombordo do alto do mastro, frágil demais para suportar qualquer peso. Pende dele a bandeira da Marinha Mercante Britânica (cuja parte inferior você quase consegue alcançar).
+O mastro da bandeira se projeta para bombordo com o vento predominante... ou será?
 mastro da bandeira
-The flag seems perfect for the bed as it is.
-The flag seems perfect for the bed as it is.
-You take hold of the tassels of the flag in one hand (though it won't pull away from the pole).
-You leave hold of the tassels of the flag.
-The flag has fluttered to a heap on deck.
-Broad, heavy, scarlet cloth, halfway between a silken sheet and a carpet, with a cross and a Union Jack in one corner.
-Piece of advice - it's never very comfortable wrapping yourself in the Flag.
+A bandeira parece perfeita para a cama do jeito que está.
+A bandeira parece perfeita para a cama do jeito que está.
+Você segura as borlas da bandeira com uma mão (embora ela não se solte do mastro).
+Você solta as borlas da bandeira.
+A bandeira esvoaçou e caiu amontoada no convés.
+Tecido escarlate, largo e pesado, entre um lençol de seda e um tapete, com uma cruz e uma Union Jack num canto.
+Um conselho: nunca é muito confortável enrolar-se na Bandeira.
 bandeira da Marinha Mercante Britânica
-The broken flagpole, a plain timber spar, lies beside the mast.
-An old timber prop, once the spar of a main mast.
-an
-A plain old piece of timber.
+O mastro quebrado da bandeira, uma simples verga de madeira, está ao lado do mastro.
+Uma velha escora de madeira, antes a verga de um mastro principal.
+uma
+Um simples pedaço velho de madeira.
 verga velha de madeira
-You stand in the triangular prow of the ship, which is graced by a carved and painted figurine and named the ~Lady Magdalena~. There is no sign of water, but the boat is rocked too often for it to be aground. And the glassy mist hangs ahead.
-You can only go aft.^
+Você está na proa triangular do navio, adornada por uma figura esculpida e pintada e chamada ~Lady Magdalena~. Não há sinal de água, mas o barco balança demais para estar encalhado. À frente paira a névoa vítrea.
+Você só pode ir para a popa.^
 Proa do Lady Magdalena
-Jemima, who has hay fever, is extremely annoyed by this. So it wasn't a turn entirely wasted.
-The pollen given off makes you sneeze a little, but fails to give you the bird. (Worth a try, anyway.)
-The bird is so startled by the cloud of pollen from the waved branch that she leaps into the skies, squawking with flighty anxiety.
-In the Lady Magdalena's loose grip is a traditional sailor's good-luck token: a green-leafed branch, to attract the gulls of an approaching shore.
+Jemima, que tem febre do feno, fica extremamente irritada. Portanto, não foi uma ação totalmente desperdiçada.
+O pólen faz você espirrar um pouco, mas não dá resultado. (De qualquer modo, valeu a tentativa.)
+O pássaro se assusta tanto com a nuvem de pólen do ramo agitado que salta para o céu, grasnando de ansiedade alada.
+Na mão frouxa da Lady Magdalena há um amuleto tradicional de boa sorte dos marinheiros: um ramo de folhas verdes para atrair as gaivotas de uma costa próxima.
 Oh, você me assustou por um instante! Estou ficando avoado.
 ramo verde
-You shin precariously down the anchor chain, but reach the end while still hanging very far above the... water? quicksand?  Concentrating very carefully, you heave yourself back aboard and pant with relief.
-You shin down the anchor chain, down, down, under the keel of the Lady Magdalena, down until there is nothing but the glassy mist and the endless chain...^^...And the approaching soft, spongy, pinkish sand-bank, which welcomes you with its warmth: you step ashore, and immediately sink into the clammy, living sand, until you are engulfed altogether... and pass out.^^However, the hard attic floorboards beneath your back soon wake you again.
-The square stern of the ship looks out south, not onto receding waves, but to what seems a tunnel through dense, glassy mist. You can faintly make out an odd, pale reddish sand bank in the distance.
-The boat runs fore.
+Você desce precariamente pela corrente da âncora, mas chega ao fim ainda pendurado muito acima da... água? areia movediça? Concentrando-se com muito cuidado, você se ergue de volta a bordo e ofega aliviado.
+Você desce pela corrente da âncora, para baixo, para baixo, sob a quilha da Lady Magdalena, até que não há nada além da névoa vítrea e da corrente interminável...^^...E do banco de areia macio, esponjoso e rosado que se aproxima e recebe você com seu calor: você pisa em terra e imediatamente afunda na areia úmida e viva, até ser completamente engolido... e desmaiar.^^No entanto, as tábuas duras do sótão sob suas costas logo o despertam novamente.
+A popa quadrada do navio aponta para o sul, não para ondas recuando, mas para o que parece um túnel através da névoa densa e vítrea. Ao longe, você mal distingue um estranho banco de areia avermelhado e pálido.
+O barco segue para a proa.
 Popa
-You heave away at the capstan, 
+Você gira o cabrestante com esforço, 
 un
-winding the great anchor chain.
-The top of the anchor chain is wound around the capstan, a great wheel on the deck beside you. The chain disappears over the side.
+enrolando a grande corrente da âncora.
+O topo da corrente da âncora está enrolado no cabrestante, uma grande roda no convés ao seu lado. A corrente desaparece pela lateral.
 cabrestante
 Com o coração na boca, você sobe novamente pela velha escada de incêndio, soltando um suspiro de alívio ao entrar pela escotilha aberta no topo.^
 A velha muralha sul entalhada dos jardins bloqueia seu caminho ao redor do Salão.
@@ -3197,7 +3197,7 @@ Trilha pública
 Uma depressão baixa, lamacenta e fétida, pisoteada por juncos, seca durante o longo verão e agora apenas úmida. Você poderia subir de volta ou seguir para noroeste, mas isso exigiria rastejar por uma sebe espinhosa.
 Depressão
 Há um ninho de pássaro no fundo da depressão.
-nest
+ninho
 O codornizão não deixa você se aproximar do ninho.
 Entrelaçado no ninho há um punhado de nozes.
 Um punhado de nozes, sobras do outono passado.
@@ -3242,7 +3242,7 @@ A Igreja de São Miguel e Todos os Anjos, do século XIV, não parece exatamente
 igreja paroquial
 O pub está fechado, dadas as leis de licenciamento.
 Nos dias de Oliver Cromwell, chamava-se ~Deus Abrange~, mas os moradores desgastaram o nome ao longo dos séculos até ~Bode e Compassos~. É claro que está fechado devido às leis de licenciamento. Você se parabeniza por viver em um país tão moderno e progressista.
-Goat and Compasses
+Cabra e Bússolas
 Você acaricia o pelo do macaco. Ele pula, piando.
 Evans se ressente um tanto desse avanço importuno.
 O macaco senta-se no ombro de Evans, piando de excitação. Evans encontrou um animal de estimação e está tão rudemente encantado que esqueceu completamente o talismã que você roubou. Agora, se ele ao menos pudesse prever a corrida das 15h40 em Borchester Mills...
@@ -3258,8 +3258,8 @@ O cavaleiro se aproxima um pouco, levando a mão a uma orelha para mimetizar que
 Inserida no chão e ligeiramente elevada está a Pedra lunar, uma antiga laje larga do tamanho de uma porta, gravada com uma lua crescente.
 Uma passagem desce por uma porta de cristal sólido na Pedra lunar.
 A Pedra lunar é muito antiga, provavelmente anterior ao restante da igreja em vários séculos. Abundam lendas sobre ela: dizem que os espíritos dos mortos passam por baixo. Velhos anéis de ferro estão fixados nela, mas ninguém jamais conseguiu erguer seu peso colossal.
-the
-Moonstone
+o
+pedra lunar
 Isso parece incongruente.
 A mão se encaixa frouxamente no ~pulso~ esquerdo do cavaleiro de adamantino.
 O crânio se encaixa muito frouxamente no ~pescoço~ do cavaleiro de adamantino.
@@ -3279,7 +3279,7 @@ uma estátua de adamantino jaz aqui, um cavaleiro sobre um túmulo
 , um coração na caixa torácica. E, ainda assim, não há nele nenhuma centelha de vida.
 , sem coração e implacável.
 A estátua é metade esqueleto, e você consegue enxergar através dos ossos.
-an
+um
 estátua de adamantino
 É uma pena que não existam orelhas de adamantino, realmente.
 O cavaleiro fica extremamente satisfeito e pega a flor.
@@ -3314,33 +3314,33 @@ O cavaleiro de adamantino está aqui, firme.
 O cavaleiro transborda vida e entusiasmo, como se nada pudesse apagar sua energia ilimitada para existir. 
 Ele segura a flor de mármore. 
 Ele contempla Diana com tristeza, desejando apenas servi-la cavalheirescamente.
-the
+a
 cavaleiro de adamantino
 Um pequeno espaço aberto ao lado da igreja, em uma abside cercada por vitrais da Natividade.
 A igreja fica a oeste.
-East Side Chapel
+Capela lateral leste
 O cavaleiro fez tudo o que podia por Diana e agora está a seu serviço.
 O cavaleiro não consegue pensar em como servir Diana.
 Uma alta estátua de mármore de Diana está aqui: uma descoberta das ruínas romanas próximas.
 Há um olhar astuto em seus olhos enquanto ela sorri de lado.
-statue of Diana
+estátua de Diana
 As cordas são lisas e barulhentas demais para subir.
 A câmara dos sinos, no meio da torre da igreja. Cordas grossas e trançadas pendem, terminando em faixas. Uma placa em uma parede anuncia que, em 1901, dez homens (entre eles Roger Meldrew) tocaram um Triplo Bob de Kent.
 Torre do sino
 Você toca uma sequência amadora e desafinada.
-eight
-bell ropes
+oito
+cordas do sino
 Você escorrega ruidosamente por uma corda de sino...^
 Há uma bela vista dos campos cultivados e das colinas que cercam a aldeia, e você sente certo orgulho ao ver o Salão Meldrew entre eles. Também venta e é perigoso aqui, no pináculo cinzento de chumbo da igreja paroquial, ao lado do velho relógio: felizmente, uma abertura leva à câmara superior.
 No pináculo
 Montada frouxamente na ponta do cata-vento, uma mão de adamantino aponta para onde sopra o vento.
 Como uma luva sólida.^^Ela lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o navio, o carro e assim por diante.
-an
+um
 Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.
-adamantine hand
+mão de adamantino
 O relógio marca dez minutos depois das três, como tem feito há anos. Segundo uma pequena placa comemorativa, foi obra do relojoeiro William Snelson (1776-1848).
-William Snelson's
-old village clock
+de William Snelson
+relógio antigo da vila
 ^Os guardas seguram seu queixo e examinam você, mas tomam-no por um simples ladrão e imediatamente o matam à espada. Pena que não perceberam sua importância, mas são apenas guardas e, além disso, provavelmente teriam feito algo ainda mais desagradável.
 ^De repente, você é levado diante de uma figura druídica. Ele parece reconhecê-lo e fica perturbado. Talvez por isso sua vida seja poupada e você seja levado sob custódia, no vale entre os acampamentos do exército.^
 Esta é uma caverna sombria na encosta, cuja entrada se abre a nordeste, embora um aperto possa levar um pouco para oeste. Lá fora há uma noite límpida e estrelada. Não há barulho de trânsito, e o ar cheira a fresco.
@@ -3353,14 +3353,14 @@ Esta é uma caverna sombria na encosta, cuja entrada se abre a nordeste, embora 
 ^Você caminha direto para os guardas na porta dos fundos.^
 ^Há uma súbita agitação enquanto os guardas fazem uma busca preventiva minuciosa na vila. 
 Por sorte, eles nem pensam em olhar aqui embaixo.
-Unfortunately, they do think of looking into the kitchen well, and drag you out onto the triclinium floor.^
+Infelizmente, eles pensam em olhar dentro do poço da cozinha e arrastam você para o chão do triclínio.^
 Com o tipo de zelo que marcou a guarda no início da Idade das Trevas, eles olham até aqui.^
 A utilidade disso fica demonstrada quando encontram você sem dificuldade.^
 ^Um escravo de aparência diligente (que cozinha para os cavaleiros) fica bastante surpreso ao ver você, mas, com louvável presença de espírito, chama o guarda imediatamente.^
 ^Você ouve homens caminhando sobre o mosaico, logo acima de sua cabeça.
 ^Uma voz, que mal pode ser ouvida através da abertura, diz 
 algo em anglo-saxão ou celta (difícil dizer qual).
-~Welcome, great masters. We are convened in secret conclave to decide the fate of Britain. Lament, for the old ways are passing!  There will be a dark age, a collapse into many monarchies, and any man who can hold a town will call himself King and heir to Vortigern.~
+~Bem-vindos, grandes mestres. Estamos reunidos em conclave secreto para decidir o destino da Bretanha. Lamentem, pois os velhos costumes estão desaparecendo! Haverá uma idade das trevas, um colapso em muitas monarquias, e qualquer homem que consiga manter uma cidade se chamará Rei e herdeiro de Vortigern.~
 ^Uma voz mais jovem e impaciente diz 
 outra coisa.
 ~Esta é uma oportunidade! Devemos ser o poder por trás dos tronos; em segredo, vamos nos unir e ser a verdadeira força da terra...~
@@ -3380,7 +3380,7 @@ Caverna sombria
 Pendurada em um suporte de ferro há uma tocha acesa.
 tocha acesa
 É um resumo dos escritos de um monge polêmico chamado Gildas e relata eventos posteriores à queda do tirano Vortigern na virada do século V d.C. Após décadas sombrias de pilhagem por mercenários saxões, a Bretanha foi reunida por Ambrósio Aureliano e depois defendida na Batalha do Monte Badon, em algum momento dos primeiros anos do século VI.^^Essa vitória extraordinária não teve significado religioso, portanto Gildas não se detém nela. Ele tende apenas a mencionar reis e líderes ruins, principalmente para insultá-los. (Falar de Gildas é uma excelente maneira de irritar um historiador anglo-saxão.) Ninguém sabe mais onde fica o Monte Badon, nem qualquer outra coisa sobre ele, embora alguns estudiosos da poesia galesa acreditem que Ambrósio foi a fonte da lenda do Rei Arthur.
-an
+uma
 folheto histórico
 Um afloramento rochoso desconfortável nas escarpas da encosta. O único acesso natural a este lugar é uma fenda na colina a leste, mas também há uma corda bem presa que desce para a escuridão.
 As escarpas são íngremes demais.
@@ -3426,7 +3426,7 @@ Alea iacta est. O resultado é
 .
 Um dado rudimentar de seis lados feito de osso animal.
 dado de osso rudimentar
-a pair of
+um par de
 sandálias de couro
 O poço está coberto.
 Ciente dos perigos, você desce com muito cuidado...^
@@ -3449,7 +3449,7 @@ As fogueiras de lenha estão quentes e, de qualquer modo, a única saída grande
 Hipocausto
 Quatro homens em peles druídicas estão nos cantos do mosaico, em algum tipo de conferência sinistra. Esta velha vila deve ser um ponto de encontro. Entre os homens, uma pedra azulada repousa no piso de mosaico.
 Você enxerga o piso de mosaico do átrio iluminado pela lua.
-the
+o
 aberturas
 Você sai para o pátio e é imediatamente atacado pelos guardas, que o arrastam para longe.^
 Um pátio frontal bem pavimentado na entrada da vila, cercado por construções menores de madeira. Algumas são usadas como estábulos, e figuras de homens passam entre elas. Você se esconde, sem querer chamar atenção. No alto da colina, onde um dia será construído o Salão Meldrew, homens a cavalo podem ser vistos circulando pela trilha de acesso. Para uma vila abandonada, este lugar é certamente bem guardado.
@@ -3513,7 +3513,7 @@ Você esbarrou em algo desagradável ali.
 Catacumbas
 O cheiro estranho parece ser ozônio, e sobe de uma escada de alumínio antes escondida.
 Desce.
-an
+uma
 escada de alumínio
 . 
  
@@ -3583,7 +3583,7 @@ Você fica meio de pé, meio flutuando numa esfera dourada e enevoada de talvez 
 Dentro do Orbe
 Imagens espreitam entre o conjunto de cristais oblongos.
 Eles são extremamente difíceis de ver e impossíveis de tocar, como se só fosse possível captar alguma coisa pelo canto do olho.
-an
+uma
 conjunto de cristais oblongos
 As águas são traiçoeiras apesar da aparência. Melhor não.
 Beber água morna e salgada? Não.
@@ -3592,8 +3592,8 @@ Uma cálida noite de inverno na antiga cidade de Alexandria, na calçada do Hept
 ^Uma procissão animada e muito barulhenta atravessa o local, e alguns carros alegóricos espetaculares se aproximam rapidamente.
 ^A Estrela da Manhã conduz uma enorme procissão pelo festival de Dioniso, repleta de autoridades vestidas como sátiros, atores e cidadãs.
 ^Atrás da frente vêm enormes estátuas em carros mecânicos, ladeadas por jarras gigantes transbordando vinho. E os animais estão chegando!
-^Yes, 2000 oxen dressed in gold, as many dogs, and the giraffes, the antelopes, the gnus, parrots, elephants, wildebeest... ostriches pulling carts, a white bear...
-^Next the dancers, in a great masque of the life of Alexander the Great, his travels, conquests, founding of the City, and so on. The delicate matter of how exactly his general Ptolemy took over is omitted, since Ptolemy's son Ptolemy II is now very much in charge.
+^Sim, dois mil bois vestidos de ouro, outros tantos cães, girafas, antílopes, gnus, papagaios, elefantes, búfalos... avestruzes puxando carroças, um urso branco...
+^Depois vêm os dançarinos, num grande espetáculo sobre a vida de Alexandre, o Grande: suas viagens, conquistas, fundação da Cidade e assim por diante. O delicado assunto de como exatamente seu general Ptolomeu assumiu o poder é omitido, pois o filho de Ptolomeu, Ptolomeu II, agora está firmemente no comando.
 ^A peça central da procissão: um enorme falo dourado enfeitado com fitas, com sessenta metros de comprimento e uma estrela gigante na ponta. Inexplicavelmente, você é a única pessoa presente que considera isso de gosto duvidoso.
 ^Em seguida vem uma procissão de mulheres, cada uma com o traje nacional de uma cidade-estado aliada, de todo o mundo helenístico, do norte da África à Sicília e à Ásia.
 ^A procissão termina como começou, com uma grande Estrela da Tarde, antes de se dissolver em uma multidão desordenada de foliões bêbados e sentimentais.
@@ -3628,7 +3628,7 @@ Você poderia velejar para longe facilmente: onde terminaria dependeria das mar�
 bote
 Um coração de adamantino está no bote.
 Um cardioide do tipo preferido por cartões de Dia dos Namorados, não por cirurgiões.^^Ele lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o navio, o chapéu e assim por diante.
-an
+um
 Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.
 coração de adamantino
 A calma sepulcral do oceano domina você, e só é possível observar e velejar.
@@ -3649,7 +3649,7 @@ Um vale espaçoso, sombrio, magnífico e iluminado pela lua, cheio de túmulos, 
 Este não é lugar para vagar depois de escurecer.
 Necrópole
 Aves de rapina circulam alto no céu noturno, suas garras brilhando ao luar.
-some
+alguns
 aves de rapina
 Não parece encaixar.
 O quê?
@@ -3673,7 +3673,7 @@ Por que você só sente cheiros intensos em lugares desagradáveis? O odor é re
 Saqueado, mal iluminado, apertado e vazio, este túmulo rudimentar e irregular está para as Grandes Pirâmides de Gizé (construídas apenas um século antes) como o caramanchão de seu jardim está para o Castelo de Windsor. Há apenas inscrições pintadas sem graça, um odor desagradável e uma passagem para o norte.
 Pirâmide da XII Dinastia
 Um dos chamados Textos das Pirâmides que compõem o chamado ~Livro dos Mortos~. Esta passagem dramática parece dedicada a sábios preparando seus corpos para ressurgir na vida após a morte, ungindo-se com óleo. Um motivo interessante de dez traços, disposto assim^^   III IIIIII I^^, chama a atenção.
-some
+algumas
 inscrições pintadas
 As pesadas esteiras trançadas são tão confortáveis que você desliza para...^
 Primeiro, levante-se.
@@ -3682,7 +3682,7 @@ Uma sala perfeitamente cortada em granito cor-de-rosa, com quatro metros de larg
 O auge da moda
 As esfinges parecem encarar você ameaçadoramente.
 Nenhum túmulo estaria completo sem uma delas.
-two
+duas
 esfinges
 Um divã de madeira de aparência confortável, coberto por esteiras trançadas.
 divã de madeira
@@ -3723,7 +3723,7 @@ Seu corpo passa através deles.
 Eles não ouvem nada.
 Dois oficiais napoleônicos permanecem maravilhados enquanto a luz de suas lanternas ilumina as riquezas do túmulo.
 Os oficiais usam os uniformes da ocupação do delta do Nilo pelo imperador em 1798 e carregam belas lanternas de latão.
-two
+duas
 oficiais napoleônicos
 A passagem, descendo do leste para o oeste, é escavada no mármore, revestida de cenas pintadas das comédias elegantes de Menandro e decorada com ornamentos de vidro colorido alexandrino.^^A expressão ~Você não pode levar isso consigo~ não parece popular por aqui.
 Apenas uma passagem de leste a oeste.
@@ -3737,7 +3737,7 @@ modelo de um animal tão feio que você não suporta olhar
 Infelizmente, a passagem desce apenas até uma parede sólida de mármore.
 A passagem se abre para a câmara funerária abaixo.
 parede de mármore
-(That's a relief.)^
+(Que alívio.)^
 (Você está tão distraído que o bom senso assume o controle e você sai do caixão de múmia.)^
 A passagem parece interminável, e você é obrigado a recuar antes que o ar acabe. Ao fazê-lo, tropeça em algo, praguejando baixinho.
 A passagem parece interminável e você recua.
@@ -3758,19 +3758,19 @@ Está fechado.
 Um belo caixão de múmia, ou sarcófago, dourado e azul, repousa pesadamente aqui.
 Dourado, azul-pavão, suavemente curvo, imensamente pesado, belo. E definitivo, e morto.
 caixão de múmia
-Above 
- is the single word ~
+Acima de 
+ há uma única palavra: ~
 ~.
 O cetro se projeta da primeira cavidade como uma alça.
 O cetro se projeta da segunda cavidade como uma alça.
 O cetro se projeta da terceira cavidade como uma alça.
 Ele se encaixa perfeitamente (não é mesmo?).
 Não parece se encaixar.
-the
+a
 TombSocket
-first socket
-second socket
-third socket
+primeira cavidade
+segunda cavidade
+terceira cavidade
 Não há para onde ir.
 ^Seu espírito, depois de já ter enganado a morte uma vez, é sobrecarregado por sua vida dupla e não se difundirá novamente.
 ^Seu espírito se ergue, preparado como estava para a vida após a morte, e se difunde através do ouro maciço do caixão por pura força de vontade, finalmente começando a se recompor. Você cambaleia, confuso, por cavernas escuras até finalmente chegar à luz, segurando algo sólido...^
@@ -3782,7 +3782,7 @@ Você está deitado no caixão de múmia, com os braços cruzados, o rosto contr
 Enterrado vivo
 Um crânio de adamantino está aqui, como se tivesse sido casualmente deixado pela mão de um deus.
 Ele lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o carro, a bota e assim por diante.
-an
+um
 Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.
 crânio de adamantino
 O grande Estádio de Alexandria, com capacidade para abrigar toda a população da cidade, parece lotado. As cerimônias de abertura olímpica na era da televisão não são nada comparadas a esta gente. A procissão entra continuamente, circula pela pista e sai novamente, e em meio à agitação você não consegue atravessar.
@@ -3858,7 +3858,7 @@ Você joga um ~
 ~, seja lá o que isso signifique.
 Um dado de seis lados com inscrições está sobre a mesa diante dele.
 Os lados que você consegue ver estão marcados com palavras curtas.
-an
+um
 dado inscrito
 A célebre Biblioteca de Alexandria, a melhor do mundo inteiro, possui centenas de milhares de livros: é onde os Ptolomeus governantes mantêm quase presos estudiosos fanáticos e briguentos enquanto produzem comentários rivais sobre os poemas antigos, daí o apelido.^^Há uma portinha ao sul; um corredor empoeirado a sudeste; uma passagem a leste e uma entrada grandiosa a noroeste.
 ^Um menino mensageiro de túnica branca simples entra sorrateiramente na biblioteca e coloca alguns tubos no nicho de pombos. Tão ressentido está por perder a festa lá fora que não nota você e sai correndo imediatamente.^
@@ -3883,7 +3883,7 @@ Você espalha óleo na cabeça, anotando mentalmente que deve lavar o cabelo pel
 Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua tocha é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.
 Sala do óleo
 Que ideia repugnante!
-the
+o
 calhas cheias de óleo
 O salão bastante negligenciado para o estudo preciso da geografia, em oposição às histórias sensacionalistas de viajantes preferidas pela maioria dos escritores deste século descuidado. Ninguém trabalha aqui, e só é possível voltar para noroeste.
 Para garantir que os geógrafos não se percam, a única saída é a noroeste.
@@ -3898,7 +3898,7 @@ Um corredor espaçoso e densamente colunado, com paredes revestidas de prateleir
 Você vagueia entre as colunas, mas não encontra saída além da passagem a oeste e de um pequeno escritório ao sul.
 Corredor de leitura
 Até um único livro pode se estender por dezenas de pergaminhos individuais, e os títulos são difíceis de interpretar; de todo modo, a maioria dos livros é lixo. A classificação decimal de Dewey ainda demorará milênios para ser inventada.
-endless
+inúmeros
 pergaminhos empoeirados
 Ele pega o tubo, vê a letra nele, parece exasperado, bate na sua cabeça com o tubo e o empurra de volta para seus braços.
  pega o tubo e olha dentro
@@ -3915,8 +3915,8 @@ Apollonius e Calímaco têm uma discussão furiosa, acalorada e interminável so
 Finalmente, depois de uma espera muito longa, 
 Mas logo 
 ele termina, coloca o pergaminho de volta no tubo com o hábito de um bibliotecário treinado e o deixa cair distraidamente no chão.
- to find 
-, which, to say the least, comes as a surprise. Such a fuss is kicked up that you are quickly thrown out into the street.^
+ para encontrar 
+, o que, para dizer o mínimo, é uma surpresa. Faz-se tamanho escândalo que logo você é expulso para a rua.^
 Como você poderia subornar homens de saber tão desinteressados quanto os bibliotecários?
 Como um estudioso bárbaro que não conhece grego, você dificilmente pode esperar conversar com alguém como ele.
 O especialista em questão é Calímaco, debruçado sobre um pergaminho e quase inconsciente de sua presença.
@@ -3955,7 +3955,7 @@ Em seu lugar, há um astrolábio.
 Ele se encaixa perfeitamente, como se tivesse sido feito para estar ali.
 Não encaixa.
 Um impressionante suporte astronômico está sobre um tripé aqui. Mas não há telescópio.
-an
+um
 suporte astronômico
 ~Na premonição, é vital obter o mascote para usá-lo mais tarde.~
 ~Não adianta procurar pilhas novas para a lanterna no chão do sótão, porque não há nenhuma.~
@@ -4062,7 +4062,7 @@ Eu sei para que serve, mas minha contraparte não.~
 Eu sei exatamente para que isso serve.~
 ~
 Se você fosse filmar suas aventuras até agora, contrataria Donald Sutherland para interpretar este cavalheiro.
-demon
+demônio
 As nuvens são fofas demais.
 ~Use todo o tempo de que precisar,~ diz o anjo gentilmente.
 ~Receio não poder mais ser útil a você! Até outra vida,~ diz o anjo com um sorriso memorável.
@@ -4084,22 +4084,22 @@ Suponho que você poderia perguntar, hum, àquele cavalheiro com cauda.~
 Receio não poder ajudar você com isso.~
 ~
 Se você fosse filmar suas aventuras até agora, contrataria Dame Judi Dench para interpretar esta dama.
-angel
+anjo
 ~Não restam dicas, otário.~
 ~Segundo o Regulamento 3, parágrafo 15, cláusula (i)(f), só é permitida uma dica por visita ao domínio infernal. Você terá de ir embora e voltar se quiser outra. Sinto muito.~
 ~Não restam dicas, infelizmente.~
 ~Segundo o Regulamento 3, parágrafo 15, cláusula (i)(f), só é permitida uma dica por visita ao domínio sagrado. Você terá de ir embora e voltar se quiser outra. Sinto muito.~
-^^^^It's become a matter of pride now not to give up. That tourist map of Paris must be up here somewhere in all this clutter, even if it has been five years since your last trip. And it's your own fault. It looks as if your great-grandfather was the last person to tidy up these lofts...^
-^A shame to see such a good try unrewarded... oh, go on, have an extra five points.
-^Under the circumstances, the 5-point bonus is forfeit.
-As you step falteringly through the darkness, the air falls ice-cold, whispering in secret languages. Suddenly a great bear rears up before you, savagely sweeping its paw!
-As you unwisely blunder about in the dark, you 
-slip down a side passage of the chimney, further and further, blindly landing in a cloud of soot in the fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back to work packing.
-miss your footing, trip over and bang your head... Some time later you wake up in hospital, very confused and not on holiday. Fortunately Aunt Jemima comes to visit you every afternoon with plenty of things for you to do...
-put a foot wrong and crash through a thin plaster roof into one of the upstairs bedrooms, happily landing on the bed. In later years it becomes a family joke that you demolished half the house for a tatty old tourist map.
+^^^^Agora é uma questão de orgulho não desistir. O mapa turístico de Paris deve estar em algum lugar aqui em meio a toda esta bagunça, mesmo que já faça cinco anos desde sua última viagem. E a culpa é sua. Parece que seu bisavô foi a última pessoa a arrumar estes sótãos...^
+^Seria uma pena ver uma tentativa tão boa sem recompensa... vá em frente, fique com cinco pontos extras.
+^Nestas circunstâncias, o bônus de cinco pontos foi perdido.
+Enquanto você avança trôpego pela escuridão, o ar fica gélido e sussurra em línguas secretas. De repente, um enorme urso se ergue diante de você e golpeia ferozmente com a pata!
+Enquanto você se atrapalha imprudentemente no escuro, 
+você escorrega por uma passagem lateral da chaminé, cada vez mais para baixo, e aterrissa às cegas numa nuvem de fuligem na lareira da sala no andar inferior. Felizmente, sua família está por perto para limpá-lo e mandá-lo de volta a fazer as malas.
+você perde o equilíbrio, tropeça e bate a cabeça... Algum tempo depois, acorda no hospital, muito confuso e sem estar de férias. Felizmente, Tia Jemima visita você todas as tardes com muitas tarefas...
+você pisa em falso e atravessa um telhado fino de gesso, caindo felizmente sobre a cama de um dos quartos do andar de cima. Anos depois, a família transforma em piada o fato de você ter demolido metade da casa por causa de um velho mapa turístico.
 ~For foulmouths everywhere~.
-a cake of
-That's the spirit, keep it up!
+um pedaço de
+Esse é o espírito, continue assim!
 Really!  How disgraceful!
 carbolic soap
 , dando a voce o posto de 
@@ -4347,10 +4347,10 @@ previous ages had left unfinished.
 -- Carl Jung, ~Memories, Dreams, Reflections~
 ^^^^^^^^^^^^^
  
-               Welcome to CURSES^
+               Bem-vindo a MALDIÇÕES^
 ^^
  
-         [Please press SPACE to begin.]^
+         [Pressione ESPAÇO para começar.]^
 Nine times she waved the fluttering wimple round,
 And made a little plot of magic ground.
 And in that daisied circle, as men say,
@@ -4366,31 +4366,31 @@ Kingdoms are clay.
 -- Shakespeare, ~Antony and Cleopatra~ I:1
 /
    
-Final score: 
-Score: 
+Pontuação final: 
+Pontuação: 
 /550
-Turns: 
-    June 3rd, 1993
- October 5th, 1922
-October 31st, 1988
-    June 3rd, 1993
-  March 14th, 1808
-  Sixth century AD
-    June 3rd, 1993
-  Winter of 275 BC
-    June 3rd, 1993
+Turnos: 
+    3 de junho de 1993
+ 5 de outubro de 1922
+31 de outubro de 1988
+    3 de junho de 1993
+ 14 de março de 1808
+  século VI d.C.
+    3 de junho de 1993
+  Inverno de 275 a.C.
+    3 de junho de 1993
                   
 (in Meldrew Hall)       
-(in the Unreal City)    
-(Hamburg by night)      
-(in the Tarot box)      
-(in the gardens)        
-(in the gardens)        
-(in the Master Game)    
-(dreaming?)             
-(in the catacombs)      
+(na Cidade Irreal)      
+(Hamburgo à noite)      
+(na caixa de Tarô)      
+(nos jardins)           
+(nos jardins)           
+(no Jogo Mestre)        
+(sonhando?)             
+(nas catacumbas)        
 (in Alexandria)         
-(northeast of the House)
+(a nordeste do Solar)
                         
  
  
@@ -4398,10 +4398,10 @@ October 31st, 1988
 [ 
 ]^^
 ^  
-You're going nowhere until you make amends for that nasty bad language.
-With the gas mask on all you can smell is old cork and rubber.
+Você não vai a lugar algum até se redimir por esse palavrão horrível.
+Com a máscara de gás, você só sente cheiro de cortiça velha e borracha.
 Not with a gas mask on!
-Your speech is muffled into silence by the gas mask.
+A máscara de gás abafa sua fala até o silêncio.
 Nao e uma ferramenta muito adequada.
 Voce nao tem nenhuma ferramenta adequada a mao.
 Voce so consegue remexer ainda mais a terra.
@@ -4727,7 +4727,7 @@ language     lanterna     lanterns     lareira      large
 largo        largue       latão        latao        lattice      
 latticed     lave         lawn         lay          layout       
 leafed       lean         leather      lectern      leda         
-leg          legs         leia         lembran@{16} lembranca    
+leg          legs         leia         lembranY     lembranca    
 lemnisco     lemniscus    lençó        lençol       lencois      
 leste        letter       levante      librarian    library      
 lid          lie          life         ligada       ligadas      
@@ -4840,7 +4840,7 @@ sashes       saxon        scarf        scenes       sceptre
 scope        scratch      scratched    scribe       script       
 scripts      scroll       scrolls      sculpture    se           
 sea          seaweed      second       secret       secreta      
-seeds        seesaw       seguran@{16} seguranca    segure       
+seeds        seesaw       seguranY     seguranca    segure       
 seis         selenae      self         sementes     senhor       
 sente        sente-se     sepia        september    sete         
 seu          seus         sevenbran    shadows      shaft        
@@ -4890,7 +4890,7 @@ unja         uns          unsafe       up           urn
 use          utensíli     utensilio    vá           va           
 valley       vane         vanity       vara         varanda      
 varra        vasculhe     vaso         veja         velha        
-velhas       velho        vent         ventila@{16} ventilaca    
+velhas       velho        vent         ventilaY     ventilaca    
 vents        verboso      verificar    vermelha     vermelho     
 versão       versao       vidro        vigas        village      
 vines        vinho        vinte        vista        volta        

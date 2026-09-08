@@ -46,7 +46,7 @@ Object  Hollow "Depressão"
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> nest "nest"   
+Object  -> nest "ninho"
   with  name 'nest',
          initial "Há um ninho de pássaro no fundo da depressão.",
   has   static;
@@ -170,7 +170,7 @@ Object  -> parish_church "igreja paroquial"
         when_closed "A Igreja de São Miguel e Todos os Anjos, do século XIV, não parece exatamente trancada: apenas está travada do outro lado.",
   has   door scenery;
 
-Object  -> Goat_and_Compasses "Goat and Compasses"       
+Object  -> Goat_and_Compasses "Cabra e Bússolas"
   with  name 'pub' 'goat' 'compasses' 'public' 'house' 'bar',
          before [; Enter: "O pub está fechado, dadas as leis de licenciamento."; ],
         door_dir w_to,
@@ -208,7 +208,7 @@ Object  Parish_Church_Room "Igreja paroquial"
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> Moonstone "Moonstone" 
+Object  -> Moonstone "pedra lunar"
   with  name 'moonstone' 'moon' 'stone' 'door' 'flagstone' 'iron' 'rings' 'old',
         before [;
             Examine: trigger_quotation(47); rfalse;
@@ -223,7 +223,7 @@ Object  -> Moonstone "Moonstone"
         door_dir d_to,
         when_open "Uma passagem desce por uma porta de cristal sólido na Pedra lunar.",
         description "A Pedra lunar é muito antiga, provavelmente anterior ao restante da igreja em vários séculos. Abundam lendas sobre ela: dizem que os espíritos dos mortos passam por baixo. Velhos anéis de ferro estão fixados nela, mas ninguém jamais conseguiu erguer seu peso colossal.",
-        article "the",
+         article "o",
   has   door static;
 
 Object  West_Side_Chapel "Capela lateral oeste"      
@@ -317,7 +317,7 @@ Object  West_Side_Chapel "Capela lateral oeste"
 Object  -> adamantine_statue "estátua de adamantino" 
   with  name 'adamantine' 'statue' 'adamant' 'knight',
         description "A estátua é metade esqueleto, e você consegue enxergar através dos ossos.",
-        article "an",
+         article "um",
   has   concealed static;
 
 Object  adamantine_knight "cavaleiro de adamantino"    
@@ -435,10 +435,10 @@ Object  adamantine_knight "cavaleiro de adamantino"
             new_line;
             rtrue;
         ],
-        article "the",
+         article "a",
   has   animate;
 
-Object  East_Side_Chapel "East Side Chapel"      
+Object  East_Side_Chapel "Capela lateral leste"
   with  name 'stained' 'glass' 'windows' 'nativity',
         w_to Parish_Church_Room,
         description "Um pequeno espaço aberto ao lado da igreja, em uma abside cercada por vitrais da Natividade.",
@@ -446,7 +446,7 @@ Object  East_Side_Chapel "East Side Chapel"
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> statue_of_Diana "statue of Diana"     
+Object  -> statue_of_Diana "estátua de Diana"
   with  name 'marble' 'statue' 'of' 'diana',
         before [;
             PointAt:
@@ -469,12 +469,12 @@ Object  Bell_Tower "Torre do sino"
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> bell_ropes "bell ropes"       
+Object  -> bell_ropes "cordas do sino"
   with  name 'bell' 'bells' 'rope' 'ropes' 'braided' 'sash' 'sashes',
         before [;
              Pull, Push, Blow: "Você toca uma sequência amadora e desafinada.";
         ],
-        article "eight",
+         article "oito",
   has   scenery;
 
 Object  Out_on_the_Spire "No pináculo"      
@@ -487,16 +487,16 @@ Object  Out_on_the_Spire "No pináculo"
         section T_NE_OF_HOME,
   has   light;
 
-Object  -> adamantine_hand "adamantine hand"     
+Object  -> adamantine_hand "mão de adamantino"
   with  name 'adamantine' 'hand' 'adamant',
          initial "Montada frouxamente na ponta do cata-vento, uma mão de adamantino aponta para onde sopra o vento.",
          description "Como uma luva sólida.^^Ela lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o navio, o carro e assim por diante.",
-        article "an",
+         article "um",
          angel_hint "Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.",
   has   ;
 
-Object  -> old_village_clock "old village clock" 
+Object  -> old_village_clock "relógio antigo da vila"
   with  name 'clock' 'old' 'plaque' 'commemorative',
          description "O relógio marca dez minutos depois das três, como tem feito há anos. Segundo uma pequena placa comemorativa, foi obra do relojoeiro William Snelson (1776-1848).",
-        article "William Snelson's",
+         article "de William Snelson",
   has   scenery;

@@ -29,7 +29,7 @@ class   TarotCard
             }
             return cnt;
        ],
-        article "the",
+        article "o",
   has   card;
 
 TarotCard Death_card "Ceifador"

@@ -43,12 +43,9 @@ Object  Causeway "Calçada"
             if( i == 5 ) 
                  "^Atrás da frente vêm enormes estátuas em carros mecânicos, ladeadas por jarras gigantes transbordando vinho. E os animais estão chegando!";
             if( i == 6 ) 
-                "^Yes, 2000 oxen dressed in gold, as many dogs, and the giraffes, the antelopes, the gnus, 
-                 parrots, elephants, wildebeest... ostriches pulling carts, a white bear...";
+                 "^Sim, dois mil bois vestidos de ouro, outros tantos cães, girafas, antílopes, gnus, papagaios, elefantes, búfalos... avestruzes puxando carroças, um urso branco...";
             if( i == 7 ) 
-                "^Next the dancers, in a great masque of the life of Alexander the Great, his travels, conquests, 
-                 founding of the City, and so on. The delicate matter of how exactly his general Ptolemy took over
-                 is omitted, since Ptolemy's son Ptolemy II is now very much in charge.";
+                 "^Depois vêm os dançarinos, num grande espetáculo sobre a vida de Alexandre, o Grande: suas viagens, conquistas, fundação da Cidade e assim por diante. O delicado assunto de como exatamente seu general Ptolomeu assumiu o poder é omitido, pois o filho de Ptolomeu, Ptolomeu II, agora está firmemente no comando.";
             if( i == 8 ) 
                  "^A peça central da procissão: um enorme falo dourado enfeitado com fitas, com sessenta metros de comprimento e uma estrela gigante na ponta. Inexplicavelmente, você é a única pessoa presente que considera isso de gosto duvidoso.";
             if( i == 9 ) 
@@ -155,7 +152,7 @@ Object  -> -> adamantine_heart "coração de adamantino"
   with  name 'adamantine' 'heart' 'adamant' 'adamantino' 'coração',
         initial "Um coração de adamantino está no bote.",
         description "Um cardioide do tipo preferido por cartões de Dia dos Namorados, não por cirurgiões.^^Ele lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o navio, o chapéu e assim por diante.",
-        article "an",
+         article "um",
         angel_hint "Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.",
   has   ;
 
@@ -226,7 +223,7 @@ Object  Necropolis "Necrópole"
 Object  -> birds_of_prey "aves de rapina" 
   with  name 'birds' 'of' 'prey' 'aves' 'rapina',
         initial "Aves de rapina circulam alto no céu noturno, suas garras brilhando ao luar.",
-        article "some",
+         article "alguns",
   has   static;
 
 Object  unexciting_tombstone "lápide sem graça"      
@@ -289,7 +286,7 @@ Object  XIIth_Dynasty_Pyramid "Pirâmide da XII Dinastia"
 LagachObj  -> painted_writings "inscrições pintadas"   
   with  name 'painted' 'paintings' 'writing' 'writings',
         description "Um dos chamados Textos das Pirâmides que compõem o chamado ~Livro dos Mortos~. Esta passagem dramática parece dedicada a sábios preparando seus corpos para ressurgir na vida após a morte, ungindo-se com óleo. Um motivo interessante de dez traços, disposto assim^^   III IIIIII I^^, chama a atenção.",
-        article "some",
+         article "algumas",
   has   scenery;
 
 Object  The_Height_of_Fashion "O auge da moda"    
@@ -318,7 +315,7 @@ Object  -> sphinxes "esfinges"
   with  name 'sphinx' 'sphinxes' 'stone' 'statue' 'statues' 'esfinge' 'esfinges' 'pedra' 'estátua' 'estátuas',
         initial "As esfinges parecem encarar você ameaçadoramente.",
         description "Nenhum túmulo estaria completo sem uma delas.",
-        article "two",
+         article "duas",
   has   static;
 
 Object  -> wooden_couch "divã de madeira"   
@@ -437,7 +434,7 @@ Object  Napoleonic_officers "oficiais napoleônicos"
         ],
         initial "Dois oficiais napoleônicos permanecem maravilhados enquanto a luz de suas lanternas ilumina as riquezas do túmulo.",
         description "Os oficiais usam os uniformes da ocupação do delta do Nilo pelo imperador em 1798 e carregam belas lanternas de latão.",
-        article "two",
+         article "duas",
   has   animate;
 
 Object  This_Is_The_Death "Isto é a morte"    
@@ -476,7 +473,7 @@ Object  Quite_an_Undertaking "Um empreendimento e tanto"
   with  before [;
             Exit:
                 if( player in mummy_case ) {
-                    print "(That's a relief.)^";
+                    print "(Que alívio.)^";
                     rfalse;
                 }
                 rfalse;
@@ -544,7 +541,7 @@ Object  -> mummy_case "caixão de múmia"
 
 class   TombSocket
   with  description [;
-            print "Above ", (the) self, " is the single word ~";
+            print "Acima de ", (the) self, " há uma única palavra: ~";
             EtruscanInt(self.number);
             "~.";
         ],
@@ -568,16 +565,16 @@ class   TombSocket
                 } else 
                     "Não parece se encaixar.";
         ],
-        article "the",
+         article "a",
   has   scenery;
 
-TombSocket -> first_socket "first socket"   
+TombSocket -> first_socket "primeira cavidade"
   with  name 'first' 'socket' 'sockets' 'words';
 
-TombSocket  -> second_socket "second socket" 
+TombSocket  -> second_socket "segunda cavidade"
   with  name 'second' 'socket' 'sockets' 'words';
 
-TombSocket  -> third_socket "third socket"   
+TombSocket  -> third_socket "terceira cavidade"
   with  name 'third' 'socket' 'sockets' 'words';
 
 Object  Buried_Alive "Enterrado vivo"      
@@ -615,7 +612,7 @@ Object  adamantine_skull "crânio de adamantino"
   with  name 'adamantine' 'skull' 'adamant',
         initial "Um crânio de adamantino está aqui, como se tivesse sido casualmente deixado pela mão de um deus.",
         description "Ele lembra estranhamente uma das peças simbólicas do Banco Imobiliário: o carro, a bota e assim por diante.",
-        article "an",
+         article "um",
         angel_hint "Deve haver mais alguma coisa em algum lugar sobre esta figura maravilhosa.",
   has   ;
 
@@ -837,7 +834,7 @@ Object  -> inscribed_die "dado inscrito"
         ],
         initial "Um dado de seis lados com inscrições está sobre a mesa diante dele.",
         description "Os lados que você consegue ver estão marcados com palavras curtas.",
-        article "an",
+         article "um",
         number 3,
   has   static;
 
@@ -961,7 +958,7 @@ Object  -> oil_filled_troughs "calhas cheias de óleo"
         before [;
              Drink, Enter: "Que ideia repugnante!";
         ],
-        article "the",
+         article "o",
   has   scenery;
 
 Object  Geography_Room "Sala de geografia"  
@@ -999,7 +996,7 @@ Object  Reading_Corridor "Corredor de leitura"
 Object  -> dusty_scrolls "pergaminhos empoeirados" 
   with  name 'dusty' 'scrolls' 'scroll' 'books' 'book',
          description "Até um único livro pode se estender por dezenas de pergaminhos individuais, e os títulos são difíceis de interpretar; de todo modo, a maioria dos livros é lixo. A classificação decimal de Dewey ainda demorará milênios para ser inventada.",
-        article "endless",
+         article "inúmeros",
   has   scenery;
 
 [ CallimachusLife o ;
@@ -1049,9 +1046,9 @@ Object  -> dusty_scrolls "pergaminhos empoeirados"
                 move noun to location; 
                 "ele termina, coloca o pergaminho de volta no tubo com o hábito de um bibliotecário treinado e o deixa cair distraidamente no chão.";
             }
-            print " to find ";
+            print " para encontrar ";
             Indefart(o);
-            print ", which, to say the least, comes as a surprise. Such a fuss is kicked up that you are quickly thrown out into the street.^";
+            print ", o que, para dizer o mínimo, é uma surpresa. Faz-se tamanho escândalo que logo você é expulso para a rua.^";
             PlayerTo(Outside_the_Royal_Museum,1);
             rfalse;
         }
@@ -1206,5 +1203,5 @@ Object  -> astronomical_mounting "suporte astronômico"
                 "Não encaixa.";
         ],
         initial "Um impressionante suporte astronômico está sobre um tripé aqui. Mas não há telescópio.",
-        article "an",
+         article "um",
   has   static;

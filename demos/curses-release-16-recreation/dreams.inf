@@ -202,7 +202,7 @@ Object Octagonal_Tomb "Túmulo Octogonal"
         section (T_DREAMING|T_UNREAL),
   has   light;
 
-Object -> hieroglyphic_symbols "hieroglyphic symbols"
+Object -> hieroglyphic_symbols "símbolos hieroglíficos"
   with  name 'symbols' 'hieroglyphs' 'egyptian',
         description [;
             print "O olhar do seu sonho é atraído por...^^";
@@ -211,10 +211,10 @@ Object -> hieroglyphic_symbols "hieroglyphic symbols"
             0-->8 = 65533 & 0-->8;
             "^Confuso e enevoado, você sente que consegue entender os hieróglifos, ou isso ainda não aconteceu?";
         ],
-        article "some",
+        article "alguns",
   has   scenery;
 
-Object -> ships_wheel "ship's wheel"
+Object -> ships_wheel "roda do navio"
   with  name 'ships' 'wheel',
         before [;
             Turn:

@@ -85,7 +85,7 @@ Class   Rod
             if( self has unidentifed_rod )
                 print "a";
             else
-                print "the";
+                print "a";
             return;
         ],
   has   rod_attr;
@@ -313,7 +313,7 @@ Rod     rod_of_infinity "Infinity"
                  rapido, transformando-se numa luz dourada perolada que banha voce com magia pura. ";
             if (spherical_opening hasnt general)
                 "Mas ainda esta fraco demais! Voce meio que ouve, meio que imagina um sussurro de druidas...";
-            print "Everything becomes a daze and then you find yourself...^";
+            print "Tudo fica enevoado e então você se encontra...^";
             give noun general;
             StartMasterGame();
             rtrue;
