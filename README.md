@@ -19,6 +19,8 @@ funerária, o osso entalhado e o favo de mel. Fotografe cada peça no local,
 remova-a somente depois do registro e coloque-a no caixote da Grande Plaza.
 Reunir os cinco artefatos vale 30 pontos e encerra a expedição.
 
+Para uma solução comentada, consulte o [tutorial de vitória](tutorial-vitoria.md).
+
 O jogo é uma aventura de exploração e quebra-cabeças. Observe cuidadosamente os
 ambientes, examine objetos, consulte o dicionário maia e faça um mapa. A história
 usa a luz, os glifos, a máscara e as passagens estreitas para conduzir a
