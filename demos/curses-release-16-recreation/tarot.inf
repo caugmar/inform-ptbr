@@ -605,7 +605,7 @@ Object  -> copper_coin "moeda de cobre"
          description "De um lado, o rosto de um homem; do outro, um símbolo, I. Um óbolo, ou um sexto de uma dracma.",
         article "uma",
          angel_hint "Esta moeda só é válida na Grécia antiga. Onde você esteve, afinal?",
-  has   ;
+  has   female;
 
 TRoom   East_Cloister "Claustro Leste"    
   with  name 'niche',
@@ -1191,7 +1191,7 @@ Object  old_timber_spar "verga velha de madeira"
         article "uma",
         rod_assoc rod_of_returning,
         devil_hint "Um simples pedaço velho de madeira.",
-  has   hidden_rod;
+  has   hidden_rod female;
 
 TRoom   Prow_of_the_Lady_Magdalena "Proa do Lady Magdalena"  
   with  name 'lady' 'magdalena' 'mermaid' 'figurine',

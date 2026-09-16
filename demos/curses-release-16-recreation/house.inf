@@ -91,14 +91,14 @@ Object  electric_torch "lanterna elétrica"
             }
         ],
          devil_hint "É uma pena que você não possa trocar as baterias.",
-  has   container light moved openable;
+  has   container light moved openable female;
 
 Object  -> old_smudged_battery "bateria velha e manchada"     
   with  name 'velha' 'manchada' 'bateria',
         list_together s_obj,
         article "uma",
         number 200,
-  has   battery_flag;
+  has   battery_flag female;
 
 Object  chocolate_biscuit "biscoito de chocolate"    
   with  name 'chocolate' 'biscoito',
@@ -269,7 +269,7 @@ Object  antique_jewellery_box "caixa de joias antiga"
         description "Uma elegante caixa feminina, com as iniciais A. M. e gravada com o desenho do que parece ser uma pata de coelho.",
         article "uma",
         angel_hint "Tente investigar o mundo do romance, nas varandas da vida.",
-  has   concealed container lockable locked openable;
+  has   concealed container lockable locked openable female;
 
 Object  -> four_leafed_clover "trevo de quatro folhas"       
   with  name 'four' 'leafed' 'clover' 'quatro' 'folhas' 'trevo',
@@ -1386,7 +1386,7 @@ Object  -> -> new_battery "bateria aparentemente nova"
         list_together s_obj,
         number 300,
          devil_hint "Esse é um quebra-cabeça difícil, sim.",
-  has   battery_flag;
+  has   battery_flag female;
 
 Object  -> cupboard_door "porta do armario" 
   with  name 'cupboard' 'door' 'armario' 'armário' 'porta',
@@ -1398,7 +1398,7 @@ Object  -> cupboard_door "porta do armario"
         with_key small_brass_key,
         door_dir n_to,
          when_open "Na parede norte há uma porta de armário aberta, grande o bastante para entrar.",
-  has   door lockable openable static;
+  has   door lockable openable static female;
 
 HRoom   Dead_End "Beco sem saida"      
   with  name 'soot' 'chimney' 'sweeping' 'gear' 'fuligem' 'chamine' 'chaminé' 'limpeza' 'equipamento',
@@ -1942,7 +1942,7 @@ Object  -> -> nasty_battery "bateria vermelha de aspecto desagradavel"
         list_together s_obj,
         description "Na lateral está a palavra ~Achtung~.",
         devil_hint "Ela foi feita para sua lanterna, e não para outra coisa.",
-  has   battery_flag;
+  has   battery_flag female;
 
 Object  -> -> tourist_map "mapa turistico"  
   with  name 'hamburg' 'tourist' 'map' 'hamburgo' 'turistico' 'turístico' 'mapa',

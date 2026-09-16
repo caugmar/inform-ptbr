@@ -154,7 +154,7 @@ Object -> historical_pamphlet "folheto histórico"
   with  name 'historical' 'pamphlet',
         sw_to n_obj,
         description "É um resumo dos escritos de um monge polêmico chamado Gildas e relata eventos posteriores à queda do tirano Vortigern na virada do século V d.C. Após décadas sombrias de pilhagem por mercenários saxões, a Bretanha foi reunida por Ambrósio Aureliano e depois defendida na Batalha do Monte Badon, em algum momento dos primeiros anos do século VI.^^Essa vitória extraordinária não teve significado religioso, portanto Gildas não se detém nela. Ele tende apenas a mencionar reis e líderes ruins, principalmente para insultá-los. (Falar de Gildas é uma excelente maneira de irritar um historiador anglo-saxão.) Ninguém sabe mais onde fica o Monte Badon, nem qualquer outra coisa sobre ele, embora alguns estudiosos da poesia galesa acreditem que Ambrósio foi a fonte da lenda do Rei Arthur.",
-        article "uma",
+        article "um",
   has   ;
 
 Object Spur_of_Rock "Afloramento rochoso"      

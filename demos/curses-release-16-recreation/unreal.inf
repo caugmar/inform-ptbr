@@ -63,7 +63,7 @@ LagachObj -> Impressionist_painting "pintura impressionista"
         initial nothing,
          description "O canto inferior traz apenas a assinatura ~Helene~.",
         article "uma",
-  has   static;
+  has   static female;
 
 URoom   Consulting_Room "Sala de Consulta"
   with  name 'sevenbranch' 'candelabra' 'sticks' 'table',

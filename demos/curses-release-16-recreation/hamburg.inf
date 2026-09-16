@@ -220,7 +220,7 @@ Object  -> goat "cabra de aparência ansiosa"
                 "Mée!";
         ],
         article "uma",
-  has   animate static;
+  has   animate static female;
 
 Object  -> crook "cajado de pastor"
   with  name 'shepherds' 'crook',

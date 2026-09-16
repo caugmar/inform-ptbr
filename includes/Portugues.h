@@ -207,6 +207,10 @@ for (x=2:x<2+buffer->1:x++) if (buffer->x == '-') LTI_Insert(x++, ' ');
 !   Part IV.   Printing
 ! ------------------------------------------------------------------------------
 
+! O gênero gramatical de cada objeto deve ser indicado com os atributos
+! male, female ou neuter (e pluralname para o número). Isso é usado tanto
+! pelos artigos quanto pelas terminações e pronomes abaixo; não inferimos o
+! gênero a partir do texto do nome, que pode conter mais de um substantivo.
 Constant LanguageAnimateGender = male;
 Constant LanguageInanimateGender = male;
 

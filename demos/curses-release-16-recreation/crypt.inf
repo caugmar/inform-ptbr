@@ -95,7 +95,7 @@ Object aluminium_staircase "escada de alumínio"
          initial "O cheiro estranho parece ser ozônio, e sobe de uma escada de alumínio antes escondida.",
          description "Desce.",
         article "uma",
-  has   static;
+  has   static female;
 
 [ AdjustSlide i j u v ;
     u = henri_post_array->i;
@@ -345,5 +345,5 @@ Object -> array_of_oblong_crystals "conjunto de cristais oblongos"
   with  name 'array' 'oblong' 'lattice' 'crystals' 'images' 'board' 'chess' 'pieces' 'king' 'queen' 'white' 'black' 'kings' 'queens' 'bishops' 'knights',
          initial "Imagens espreitam entre o conjunto de cristais oblongos.",
          description "Eles são extremamente difíceis de ver e impossíveis de tocar, como se só fosse possível captar alguma coisa pelo canto do olho.",
-        article "uma",
+        article "um",
   has   static;
