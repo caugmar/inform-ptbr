@@ -3740,7 +3740,7 @@ Os espíritos das esfinges rondam a porta, com as patas erguidas, e então avan�
 Uma sala perfeitamente cortada em granito cor-de-rosa, com quatro metros de largura, pintada de amarelo e marrom para simular painéis de alabastro, ao pé de um lance de degraus que leva apenas a uma parede selada.
 ^A entrada do túmulo estremece.^
 ^O ruído aumenta, e poeira cai das rachaduras na alvenaria.^
-^A entrada explode aberta em uma chuva de reboco! A luz entra, queimando seus olhos. Há uma grande comoção. Dois oficiais franceses napoleônicos descem as escadas com lanternas nas mãos, admirando o pátio. Eles parecem não ver você.^
+^A entrada explode aberta em uma chuva de reboco! A luz entra, queimando seus olhos. Há uma grande comoção. Dois oficiais franceses napoleônicos descem as escadas com tochas nas mãos, admirando o pátio. Eles parecem não ver você.^
 ^Os oficiais ficam fascinados pelo modo como o túmulo parece quase intocado, e ainda assim o divã parece ter sido usado.^
 ^Os oficiais olham pela passagem e descobrem que ela está selada.^
 ^Os oficiais sentam-se ao lado das esfinges, acariciando os bigodes em perplexidade cômica. Enquanto fazem isso, um bate a cabeça em um nariz de pedra.^
@@ -3755,8 +3755,8 @@ Um divã de madeira de aparência confortável, coberto por esteiras trançadas.
 divã de madeira
 Seu corpo passa através deles.
 Eles não ouvem nada.
-Dois oficiais napoleônicos permanecem maravilhados enquanto a luz de suas lanternas ilumina as riquezas do túmulo.
-Os oficiais usam os uniformes da ocupação do delta do Nilo pelo imperador em 1798 e carregam belas lanternas de latão.
+Dois oficiais napoleônicos permanecem maravilhados enquanto a luz de suas tochas ilumina as riquezas do túmulo.
+Os oficiais usam os uniformes da ocupação do delta do Nilo pelo imperador em 1798 e carregam belas tochas de latão.
 duas
 oficiais napoleônicos
 A passagem, descendo do leste para o oeste, é escavada no mármore, revestida de cenas pintadas das comédias elegantes de Menandro e decorada com ornamentos de vidro colorido alexandrino.^^A expressão ~Você não pode levar isso consigo~ não parece popular por aqui.
@@ -3914,7 +3914,7 @@ Minha nossa. ~Eu toco seu... e o seu aroma sobe de... seu belo...~ É melhor nã
 pergaminho com um poema curto
 Isso mal parece valer a pena.
 Você espalha óleo na cabeça, anotando mentalmente que deve lavar o cabelo pela manhã. É o ritual sagrado menos sagrado de que já participou.
-Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua lanterna é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.
+Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua tocha é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.
 Sala do óleo
 Que ideia repugnante!
 o
@@ -5114,4 +5114,3 @@ zodiac       zodiaco      zzzzzzzzz
 
 [Compiled Z-machine version 8]
 [End of transcript: release 17, serial 260916]
-

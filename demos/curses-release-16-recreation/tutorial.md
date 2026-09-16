@@ -57,7 +57,7 @@ s
 get rucksack
 ```
 
-O ultimo comando conclui a preparacao. A tocha precisa da bateria nova antes
+O ultimo comando conclui a preparacao. A lanterna precisa da bateria nova antes
 de qualquer excursao no escuro.
 
 ## 2. Rato, premonicao e Tia Jemima (28 pontos)
