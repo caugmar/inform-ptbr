@@ -854,10 +854,6 @@
 ];
 
 
-[ HintsSub ;
-    "Ha dicas incorporadas a este jogo, mas voce tera de descobrir sozinho como obte-las.";
-];
-
 Verb 'strike' 'golpeie' 'golpe'
     * noun                                              -> Strike
     * noun 'with' held                                  -> Attack;
@@ -947,9 +943,6 @@ Verb 'make' 'wish' 'deseje'
     * 'wish'                                            -> Wish
     * 'a//' 'wish'                                      -> Wish
     * 'for' special                                     -> Wish;
-
-Verb 'hint' 'hints' 'dica' 'dicas'
-    *                                                   -> Hints;
 
 Verb 'dance' 'tango' 'waltz'
     * 'with' creature                                   -> Dance;

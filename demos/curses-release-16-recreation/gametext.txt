@@ -1096,6 +1096,45 @@ in PrintToBuffer()
  
  
 (Library Extensions)
+Ha dicas incorporadas a este jogo, mas voce tera de descobrir sozinho como obte-las.^
+Se você estiver realmente perdido, digite DICAS novamente para acessar o sistema completo de dicas. Mas só faça isso se você estiver REALMENTE perdido, porque vai afetar sua experiência do jogo.
+(temp_obj)
+*
+[Press Any Key]
+[More]
+--- 
+ ---^
+> 
+ 
+  
+Option
+separator
+SwitchOption
+
+Menu
+
+^^^[É só, pessoal!]^
+DICAS desativadas.
+[
+ dica
+s
+ restantes]-> 
+ [
+/
+]
+ (
+ dica
+s
+ restante
+s
+.)
+DicasInvisíveis
+^Pressione ENTER para outra dica, Q para retornar ao menu.
+ENTER = ler dica
+V = menu anterior
+^^^^^
+HintTopic
+Hint
   
 Austin esta completamente tranquilo.
 Por alguma razao, Austin se assusta e salta para salvar a vida 
@@ -1171,11 +1210,6 @@ Attempt to use illegal narrative_voice of
 
 )
 )
---- 
- ---^^
-> 
- 
->
 > 
   
    
@@ -4541,9 +4575,180 @@ Voce zarpa, e uma brisa leve impulsiona seu bote...^
 Austin esta completamente tranquilo.
 Por alguma razao, Austin se assusta e salta para salvar a vida 
 direto pela parede sul e para dentro de Alexandria!
-Ha dicas incorporadas a este jogo, mas voce tera de descobrir sozinho como obte-las.
+Escolha um assunto. Cada ENTER revela a proxima dica.
+Dicas de Curses
+Preparacao no sotao
+Como preparar a tocha?
+Comece examinando os lençois e empurrando o radio para o norte.
+Ligue o radio e espere a musica começar; entao pegue e vista as luvas.
+Abra o garrafao, examine os rolos de isolamento e pegue a bateria nova.
+Abra a tocha, esvazie-a, coloque a bateria nova e feche-a.
+Pegue o rucksack antes de sair da area do sotao.
+Como resolver o labirinto do rato?
+Leve o rato ate os buracos e deixe-o no inicio do caminho.
+Digite mouse, w e depois hole, seguido das direcoes do mapa.
+O caminho completo e: W W W N W N S E S E E E E.
+No fim, pegue a attic key; depois use o dumbwaiter para voltar.
+Como chegar a premonicao?
+Vista a mascara de gas antes de atravessar a porta do sotao.
+No teachest, examine e olhe dentro; no quarto, deite e durma.
+A mascote e importante: pegue-a para descobrir a palavra magica.
+A palavra e lagach. Solte a mascote depois de memoriza-la.
+Jemima e a primeira volta
+O que responder a Jemima?
+Vire o calendario ate fevereiro e procure as margaridas de Merlyn.
+A cor pedida esta no calendario; nesta partida, a resposta e yellow.
+Tire a mascara, de a caixa de chocolates a Jemima e diga: say yellow.
+Como revelar a fotografia?
+Puxe o cordao no quarto escuro e examine o cartao-postal.
+Abra o flash e troque a bateria pela nasty red battery.
+Feche o flash, examine a photograph e leia Roger no history book.
+Fantasma e chaminé
+Como lidar com o fantasma?
+Pegue a wishbone no dumbwaiter e leve-a ate o fantasma.
+Diga give wishbone to ghost; isso abre o caminho para o subsolo.
+Como descer pela lareira?
+A lanterna e a brass key precisam estar na lareira.
+Coloque as duas, solte o restante e entre na fireplace.
+No fundo, pegue tudo, abra a hatch e use o dumbwaiter.
+Como abrir a medicine bottle?
+Desligue e ligue a roda para posicionar o eixo do dumbwaiter.
+Coloque a medicine bottle no shaft e gire a roda novamente.
+Pegue a tablet ao sair do dumbwaiter.
+No glass ball, use a wrench para fixar o pipe; leia os dois livros.
+Cidade irreal e o navio
+Como entrar na cidade irreal?
+Leia o poetry book; toque o sino e responda even.
+Pegue as tarot cards, examine o mural e pegue o handkerchief.
+Wave o handkerchief, embarque no barco e diga time.
+Como atravessar o labirinto?
+Suba na arvore e examine o maze para memorizar o caminho.
+Pegue o roller, ligue-o e siga pelo trajeto ate a miniature.
+Pegue a miniature e refaça o trajeto de volta antes de desligar o roller.
+Como colocar o navio na garrafa?
+No projetor, gire o dial e coloque o Ace of Cups no slot.
+Procure nas crates a mounted bottle e puxe a anchor do navio.
+Coloque o stick ship na mounted bottle e examine o navio.
+Suba ao mastro, pegue a flag, va para port, fore e aft; pegue a branch.
+Alison e os bastoes
+Como encontrar Alison?
+Coloque o Fool no slot e examine o cross.
+Leia Alison no history book; empurre a south wall no Dead End.
+Na cama, coloque a flag e durma; espere uma vez antes de sair.
+Como obter a gold key e o trevo?
+Use o stick no espelho, wave o timber spar e quebre a janela.
+Procure sob a janela e pegue a gold key.
+Abra a box com a gold key, pegue o four leaf clover e wave-o.
+Como identificar todos os bastoes?
+Pegue o charcoal sketch, quebre sua moldura e leia a letter.
+Leia a inscription do coffin e coloque nele um mahogany rod.
+Feche e abra o coffin; pegue o bastao nomeado.
+Repita o ciclo para cada bastao de mogno encontrado, agora e depois.
+Pendure a painting no hook e procure o sceptre no umbrella stand.
+Hamburgo e o retorno
+Como abrir o caminho de Hamburgo?
+Suba, leia 1420 no map of Hamburg e gire a door.
+Empurre a ball para SW e S; abra a tarot box e quebre o cabinet.
+Pegue a tablet e o Rod of Returning; golpeie-o e espere os druidas.
+Coma a tablet, pegue o Shepherd's crook e aponte o Rod of Returning para si.
+Como atravessar o passado com o weed killer?
+Use o Fool e a miniature no slot do souvenir e retorne com o bastao.
+No whitewashed area, squeeze a weed killer bottle no ponto indicado pelo maze.
+Pegue o bean pole e use o Rod of Returning para voltar a biblioteca.
+Manutencao do universo
+Como empilhar o baralho?
+Leia o poetry book e examine o mural da crypt.
+Coloque o 8 of wands, a maiden e a star no deck.
+Toque o sino, suba e pegue novamente as tarot cards.
+Como converter os bastoes?
+No coffin, wave o quarterstaff, o crook, o bean pole e o 8 of wands.
+Feche e abra o coffin apos cada wave para obter Bronze, Husbandry, Stalking e Infinity.
+Golpeie o Rod of Bronze e aponte-o para o mural bronze.
+Como resolver o painel?
+Leia o tombstone e cheire duas vezes a passagem.
+Desligue o switch para tornar o transporte deterministico.
+Examine panel e bronze wall; use o Rod of Bronze na parede.
+Deslize as letras nesta ordem: i k c a n e l o s t k k.
+Grecia antiga
+Como vencer a prova do templo?
+Pegue o golden orb e use a maiden no slot da estatua.
+Use o Rod of Fire na parede e o Rod of Luck em voce.
+Pegue a copper coin, o inscribed stone e examine a pedra.
+Acorde Homer e responda: Agamemnon, Ptolemy, yellow.
+Como abrir a passagem das estatuas?
+Empurre Dionysus SE e SW, Demeter SW e NW, e Poseidon NE.
+Coloque o inscribed stone na abertura e desça.
+Pegue o amber gem e coloque-o no socket quando chegar ao Egito.
+Como libertar Andromeda?
+Use o Rod of Husbandry nos goats e pegue o fig.
+Entregue a copper coin ao bartender e pegue a sobremesa.
+Dê o dessert a Andromeda; toque os pan-pipes e coloque o fig na urn.
+Pergunte: priestess, tell me about fig. Anote os dois numeros recebidos.
+Castelo, bomba e grade
+Como desarmar a bomba?
+Coloque o castle card no slot e examine a scarf sob a mesa.
+Puxe os fios nesta ordem: blue, green, black, red.
+Espere o timer terminar e retorne com o Rod of Returning.
+Como revelar a frieze?
+Coloque a star no projetor e examine a frieze.
+Coloque o timer no flash, feche-o e ponha o flash no device.
+Espere ate o disparo; use lagach nas imagens ate retornar a frieze.
+Como fazer Austin saltar?
+Coloque o charcoal sketch no slot do projetor.
+Espere Austin aparecer, empurre Austin para o sul e use jump.
+Pegue a smooth round stone e solte-a na grating.
+Como abrir a grade?
+Use o bird whistle, pegue e vista o cloak; depois diga anoint me.
+Troque os poemas entre os tubos Alpha e Kappa.
+Entregue Kappa a Callimachus e Alpha a Apollonius.
+Pegue o rusty key, abra a grating e desça ate o coração.
+Jardim e o strongbox
+Como chegar ao strongbox?
+No Garden Stream, converta spindle e hairband no coffin.
+Wave a green branch, pegue nuts e o wooden ball perto do mosaic.
+Leve o wooden ball ao maze, pegue o croquet mallet e consulte a sacerdotisa.
+Caminhe X passos na primeira direcao e Y na segunda, conforme a resposta da sacerdotisa.
+Como terminar a prova do jardim?
+Com o gardening implement, cave e abra o strongbox com a gothic key.
+Pegue o astrolabe, preencha o buraco, solte a wooden ball e bata nela.
+Coloque nuts na crack e use o bird whistle para obter o gold watch.
+Submundo e igreja
+Como atravessar o submundo?
+Coloque o amber gem no socket e durma quatro vezes no couch.
+Espere os soldados franceses sairem e avance para oeste, levantando-se a cada parada.
+Torça o nariz da sphinx e pegue o model e o greenish oak.
+Como restaurar o templo?
+Coloque o sceptre nos tres sockets e ajuste-os para si, huth e thu.
+Entre no coffin, feche a tampa duas vezes e suba.
+Vire e vista o cloak para abrir a torre; coloque o oak na mesa.
+Vista o purple sash, diga anoppe e use o astrolabe no mounting.
+Como reviver o cavaleiro?
+Coloque hand, skull e heart na estatua; use o Rod of Fire nela.
+Entregue a marble rose e mostre o keepsake ao knight.
+Abra o moonstone com o knight; use o Rod of Ice no Rod of Love.
+Pegue o Rod of Love e hipnotize Evans com o gold watch.
+Orb e infinito
+Como vencer dentro do orb?
+Pegue e limpe o golden orb; use o Rod of Sacrifice apontado para black.
+Passe pela porta com a wrought iron key e entre no Lemniscus.
+Coloque no Lemniscus todos os bastoes, exceto o Rod of Eternity.
+Coloque o orb na abertura; golpeie o Rod of Infinity e aponte-o ao Lemniscus.
+Master Game
+Como chegar a Britain?
+Pegue a torch, balance a rope e pegue a daisy; vista-a.
+Pegue e vista os sandals; coloque a torch no well aberto.
+Use o horn e depois o Rod of Language apontado para si.
+Como concluir o dialogo dos druidas?
+Espere ate os druidas terminarem de falar e suba.
+Espere o espiao saxao ser jogado na tenda.
+Pegue o tent pole, wave-o, pegue a blue stone e use o Rod of Returning.
+Como obter os ultimos pontos?
+Leia o poetry book, wave a blue stone e entregue a fifty-franc note.
+Diga carte e retorne de barco dizendo time.
+Use o dumbwaiter para voltar ao corredor final.
+Beije Jemima antes de descer; isso preserva o bonus temporario.
 
-[Dictionary contains 1820 entries:]
+[Dictionary contains 1821 entries:]
 água         .            ,            ,a           ,b           
 ,c           ,d           ,e           -a           -as          
 -o           -os          a            aço          abaixo       
@@ -4553,362 +4758,363 @@ aceso        acesos       achate       achetez      acima
 aco          acolchoad    acorde       actions      adamant      
 adamantin    add          aeschylus    afogado      aft          
 against      agamemnon    agricultu    agua         aguarde      
-air          ajuste       alça         alçap        alarm        
-alarme       alca         alcapao      alexander    alexandri    
-algas        algum        algumas      alguns       alimente     
-alison       alpha        altar        alto         aluminium    
-amarre       amassado     ambas        amber        ambos        
-ameias       anchor       ancient      andromeda    angel        
-angelic      animal       anoint       anoppe       antiga       
-antigo       antique      anton        anxious      ao           
-apagada      apagadas     apagado      apagados     aphrodite    
-apito        apoie        apollo       apolloniu    aponte       
-apresente    april        arbusto      arc          arcana       
-arco         arenito      ares         armário      armario      
-armchair     armchairs    armour       army         arranhado    
-arranhe      arraste      array        arremesse    arrows       
-arthur       articulad    as           assassine    assoalho     
-astrolabe    astronomi    at           ataque       athene       
-atire        ative        attic        august       aunt         
-austin       aves         away         axis         baú          
-back         backward     backwards    baixo        balance      
-balcony      ball         band         banister     bank         
-bar          barco        bare         barrels      barrier      
-bartender    basket       bata         bateau       bateria      
-bats         battery      battlemen    bau          baus         
-beach        bead         beam         bean         beanpole     
-bear         beba         beckon       bed          bedside      
-beep         beije        belisque     bell         bells        
-bet          big          bipe         bird         birds        
-biscoito     bishops      black        bladed       blankets     
-bleep        blind        blue         bluish       board        
-boat         bola         bomb         bone         bones        
-book         books        botão        botao        bote         
-bottle       box          brac         braided      branch       
-branco       brass        breve        bric         bricks       
-brilhante    british      broken       bronze       brushes      
-bunch        bunker       buraco       bust         by           
-círculo      cabeceira    cabinet      cachecol     café         
-cafe         caixão       caixa        caixao       calçad       
-calendár     calendar     calendari    callimach    cama         
-caminhe      camp         campanha     candelabr    candles      
-caneca       canecas      cannon       cannonbal    cano         
-canos        cante        canvas       capabilit    capstan      
-car          carbolic     card         cards        carregue     
-cartão       carta        cartao       carte        carvão       
-carvao       carved       carvings     case         castle       
-cat          catch        catwalk      cauda        causeway     
-cave         cavidade     cavity       ceifador     cell         
-center       central      centre       cerâmi       ceramica     
-cetro        chá          chão         cha          chain        
-chains       chaminé      chamine      change       changes      
-chao         charcoal     chave        cheire       cheque       
-chess        chest        chests       chicken      chimney      
-chirp        chlamys      chocolate    chocs        choice       
-church       chute        cima         cinco        circle       
-circular     clássico     clairvoya    clarabói     claraboia    
-classical    classico     clerestor    cloak        clock        
-cloud        clover       coaches      coal         coals        
-coat         cochile      coffee       coffin       coin         
-coloque      colour       colours      com          coma         
-comece       comfortab    comma,       commemora    compartim    
-compartme    compasses    completa     completo     completos    
-compre       comprido     comprimid    confortá     confortav    
-conserte     conservat    conspirat    consulte     conte        
-contorno     contrapti    copper       coraç        cord         
-cordão       corda        cordao       cordas       corn         
-corncrake    corra        corrente     corrimão     corrimao     
-corte        couch        couches      cover        crack        
-crake        crank        cranked      crates       crawl        
-crenellat    crescent     crook        croquet      cross        
-crushed      cruz         cruze        crystals     cube         
-cubra        cupboard     cups         curious      curse        
-curses       curta        curtain      curto        cylinder     
-dê           da           dados        daemons      daisies      
-daisy        daisychai    dance        dark         das          
-de           de den       de nov       deaf         death        
-debaixo      december     deck         decor        defaced      
-defences     defesas      degraus      deite        deite-se     
-delicada     delicate     delphic      demeter      demijohn     
-demon        demonic      dentro       depósito     deposite     
-deposito     desça        desagrad     desagrada    desative     
-desca        descarte     descreva     descubra     desculpa     
-desculpas    desculpe     deseje       desembrul    desfaç       
-desfaca      desk         desligada    desligado    desligue     
-deslize      desloque     desparafu    desperte     dessert      
-destranqu    destrua      detector     detonater    detonator    
-developin    device       devil        dez          dezenove     
-dezesseis    dezessete    dezoito      diário       diagnose     
-diagnosti    dial         dials        diana        diario       
-diary        dica         dicas        dice         dicionár     
-dicionari    dictionar    die          diga         dionysus     
-direct       disc         disco        dispa        disturbin    
-divã         do           dobbin       dois         doktor       
-dolmen       door         doorway      dos          dourado      
-down         doze         dragonfli    dream        droga        
-drowned      druid        druidess     duas         dug          
-dumb         dumbwaite    durma        dust         dusty        
-duto         e            earth        easels       east         
-ebenezer     egyptian     eight        eixo         ekmek        
-elétrica     ela          elas         ele          electrici    
-elefante     elephants    eles         eletrica     em           
-embrulho     emoldurad    empilhe      empurre      encaixe      
-encaixes     encerrar     encha        encontrad    enferruja    
-engraving    engula       ensign       então        entao        
-enthusias    entrance     entre        epa          epic         
-eppona       equipamen    eraina       esboço       esboco       
-escada       escale       escape       escolha      escultura    
-escuro       escute       esférica     esfarrapa    esferica     
-esfinge      esfinges     esfregue     esmague      espátula     
-espatulas    espelho      espere       esprema      essa         
-essas        esse         esses        estátua      estátuas     
-esta         estalacti    estas        este         esteira      
-estes        estreita     esvazie      etch         etching      
-eumenides    evans        even         examine      exceto       
-exhibit      exhibitio    exiba        expert       eyepiece     
-férias       face         fale         fallen       family       
-fantasma     fareje       farmlands    farol        faros        
-fatie        featurele    february     fechar       feche        
-feixe        ferias       ferro        fiaçã        fifty        
-fig          figurine     filigree     fire         fireplace    
-fires        first        fish         fixe         flag         
-flagpole     flagstone    flame        flaming      flash        
-flip         float        flock        flores       flower       
-flowers      flurries     foco         focus        foda         
-fogo         folhas       folly        fool         foot         
-for          fora         force        fore         former       
-forward      forwards     foto         fotográf     fotografi    
-fotos        four         fragment     frame        framed       
-franc        francs       frasco       fresta       friend       
-frieze       frisk        fuligem      fumaça       fumaca       
-furies       furniture    gótica       galho        galinha      
-galita       gamble       gambler      gambling     gancho       
-gap          garden       gardeners    garrafão     garrafa      
-garrafao     gas          gasmask      gates        gato         
-gauges       gear         gem          gemstone     gentleman    
-georgian     georgiano    gerard       gesture      ghost        
-gift         gilded       ginger       gire         glass        
-glasses      globe        gloves       glowing      gnome        
-gnomes       goat         goats        gods         gold         
-golden       golpe        golpeie      gonear       gothic       
-gothic-l     gotica       goto         grade        gradeadas    
-grape        grate        grating      gravaç       gravacao     
-grave        gravel       gravura      greek        green        
-grey         grid         grim         grite        grizzled     
-guarda-c     gurgling     hades        hair         hairband     
-hall         hamburg      hamburgo     hand         handkerch    
-handle       hanging      hankie       hanky        harbour      
-hard         harrison     hartley      hat          hatch        
-hatchway     hay          head         heart        heating      
-heaven       heavy        helene       helicon      hell         
-hemp         henri        hephaestu    hera         herd         
-herself      hexagonal    hides        hieroglyp    high         
-hills        hinged       hint         hints        hipnotize    
-história     historia     historica    history      hobson       
-hobsons      hole         holiday      hollow       homer        
-honourabl    hook         hoop         hoops        hoplite      
-horn         hot          house        husbandry    hypnotise    
-hypnotize    hypocaust    i            ice          icicle       
-idol         ilha         iliad        imagem       images       
-implement    impressio    in           incênd       incendio     
-infinito     infinity     inscreva     inscriê      inscribe     
-inscribed    inscricao    inscripti    insira       insulatio    
-interessa    interrupt    inv          inventár     inventari    
-inverta      irate        iron         ironbound    isaac        
-island       isolament    janela       janelas      january      
-jardim       jardinage    jardineir    jemima       jewellery    
-jogue        joia         joias        join         joint        
-joshua       july         junçã        juncao       juncos       
-june         junte        kappa        keepsake     key          
-killer       king         kings        knight       knights      
-knock        kraken       lâmpad       label        ladder       
-lady         lagach       lamp         lampada      lamps        
-language     lanterna     lanterns     lareira      large        
-largo        largue       latão        latao        lattice      
-latticed     lave         lawn         lay          layout       
-leafed       lean         leather      lectern      leda         
-leg          legs         leia         lembranY     lembranca    
-lemnisco     lemniscus    lençó        lençol       lencois      
-leste        letter       levante      librarian    library      
-lid          lie          life         ligada       ligadas      
-ligado       light        lighthous    ligue        limpe        
-limpeza      listrado     little       livro        lixo         
-loading      locket       log          logs         lona         
-long         longa        longo        looking      loose        
-louco        love         loxias       lua          luck         
-lucky        lugares      luminesce    lute         luvas        
-luz          mármore      máscara      móveis       machines     
-mad          madame       madeira      magdalena    mahogany     
-maiden       make         mallet       man          manchada     
-manivela     many         map          mapa         mar          
-marble       march        margarida    marie        marinheir    
-marmore      mascara      mascot       mask         masked       
-mast         master       match        matchbook    mate         
-matting      mattings     may          maze         me           
-medicine     meldrew      meldrewe     meldrews     memorial     
-men          mend         menelaus     menos        merchant     
-merda        mergulhe     merlin       merlyn       mermaid      
-mesa         mesinha      messages     metal        metro        
-meu          middle       milk         mim          miniature    
-mirror       mirrored     mist         mochila      model        
-modelo       moldura      monkey       monta-ca     montacarg    
-moon         moonstone    morte        mosaic       mostre       
-motor        motorised    motorway     mounds       mounted      
-mounting     mouse        mousehole    mouth        mova         
-moveis       mude         mug          mugs         mummy        
-mural        muralhas     museum       mute         my           
-myself       mystic       n            não          na           
-nade         nao          napoleoni    nas          nasty        
-nativity     navegue      navy         ne           nest         
-nets         new          newspaper    niche        nicho        
-no           nomes        nordeste     normal       noroeste     
-norte        north        nos          nose         note         
-notifica     notificac    nova         novamente    nove         
-novel        november     nuts         nw           nymph        
-nymphs       o            oak          objetos      objets       
-oblong       obol         observe      obsidian     obtenha      
-octógono     octagon      october      odd          odysseus     
-odyssey      oeste        of           ofereç       ofereca      
-off          officer      officers     oil          oito         
-old          olhe         omphalos     on           onto         
-onze         oops         opa          opening      oraçõ        
-oracle       oracoes      orange       orb          orbe         
-ordenhe      ore          ornament     ornaments    os           
-osso         ouça         oubliette    ouca         ouro         
-out          outline      outra        outro        ozone        
-página       páginas      pássaro      pace         paces        
-pack         pacote       padded       page         pages        
-pagina       paginas      pague        painéis      paint        
-painted      painting     paintings    pamphlet     pan          
-pane         panel        panelling    panpipes     papel        
-paper        papyrus      para         parafuse     parapeito    
-paraphern    parcel       parchment    pare         parede       
-paris        parish       passagem     passarela    passaro      
-patio        patrol       pe           peça         peca         
-pedaço       pedaco       pedestria    pedra        peeling      
-peg          pegue        pendurado    pense        pequena      
-pequeno      pergaminh    pergunte     perseus      perspex      
-pesquise     pet          peter        pews         pharos       
-photo        photograp    picture      pieces       pigeon       
-pigeonhol    pile         pilha        pill         pillar       
-pinch        pipe         pipes        pique        placa        
-plain        plane        plant        planta       plantas      
-plants       plaque       plaster      plastic      play         
-plover       plugh        pluto        poço         poços        
-poco         pocos        pode         poeira       poem         
-poesia       poet         poetry       point        pole         
-poltrona     poltronas    ponha        pontos       pontuaê      
-pontuacao    porcaria     porra        port         porta        
-portico      porto        poseidon     post         postal       
-postcard     poster       posters      pot          potted       
-pottery      power        prateleir    prayer       preencha     
-premoniti    prenda       presente     pretentio    prey         
-priest       priestess    princess     processio    procissã     
-procure      projector    projetor     pronomes     prop         
-prove        prow         ptolemy      pub          public       
-publicity    pule         pulley       pumice       purloin      
-purple       push         puxe         pythian      quadrado     
-quadrants    quadro       quarter      quarterst    quartet      
-quatorze     quatro       quebre       queen        queens       
-queime       quinquilh    quinquire    quinze       rádio        
-rótulo       rabo         rachadura    rache        racing       
-racks        radio        ragged       rail         rain         
-ram          random       rapina       rasgue       raso         
-rato         rats         reaper       recess       red          
-redor        reeds        regule       reindeer     reiniciar    
-relief       reliefs      remédio      remedio      remova       
-rena         renas        repair       repare       repita       
-replay       responda     rest         restaurar    resurrect    
-retire       retrato      returning    reveal       revelaê      
-revelacao    reverse      revestida    revise       revolve      
-revolving    reze         riacho       rickety      rigged       
-rigging      ring         rings        rip          river        
-road         robô         robo         robot        rock         
-rod          roda         rode         rodovia      rods         
-roger        roldana      role         roll         roller       
-rolls        rolo         rolos        românt       roman        
-romance      romantic     romantico    roof         rope         
-ropes        rose         rosetta      rotted       rotting      
-rotulo       rough        round        routines     rubber       
-rubbish      rucksack     ruivo        runner       rusted       
-rusty        s            sépia        símbolo      sótão        
-saboreie     sack         saco         sacrifice    safety       
-saia         sail         sailing      sailor       sair         
-sal          salt         salte        salvar       sand         
-sandals      sandstone    sandwells    sarcophag    sash         
-sashes       saxon        scarf        scenes       sceptre      
-scope        scratch      scratched    scribe       script       
-scripts      scroll       scrolls      sculpture    se           
-sea          seaweed      second       secret       secreta      
-seeds        seesaw       seguranY     seguranca    segure       
-seis         selenae      self         sementes     senhor       
-sente        sente-se     sepia        september    sete         
-seu          seus         sevenbran    shadows      shaft        
-shallow      shantih      sheet        sheets       shepherds    
-ship         ships        shoes        shoot        shopkeepe    
-short        showobj      showverb     shrub        sign         
-signpost     silk         sill         silver       sim          
-simbolo      single       sinta        sir          sit          
-sixes        sketch       skiff        skull        skylight     
-slab         slap         slave        slide        slides       
-slot         small        smoke        smooth       smudge       
-smyslov      snaps        soap         sobre        socket       
-sockets      soldier      soldiers     solte        soot         
-sooty        sopre        soque        sorte        sosostris    
-sotao        south        souvenirs    spade        spar         
-sparrows     spears       special      spherical    sphinx       
-sphinxes     spindle      spy          square       squirrel     
-stack        staff        stained      stair        staircase    
-stairs       stalking     stand        star         starboard    
-start        statue       statues      statuette    steel        
-stein        step         steps        stern        stick        
-sticks       stile        still        stone        stop         
-storm        stream       stride       strides      strike       
-striped      stroke       strong       strongbox    suba         
-sudeste      sudoeste     sul          summer       summerhou    
-summoning    superbrev    suporte      support      surly        
-sw           sweeping     switch       symbol       symbols      
-syrinx       table        tablet       tablete      tail         
-tampa        tampe        tango        tank         tanque       
-tapestry     tarot        tassels      tatuzinho    tea          
-teachest     teachests    tear         teias        telhado      
-telhas       tender       tent         tera         the          
-third        thorns       thorny       tia          tickle       
-tight        tile         tiles        timber       time         
-timer        timers       times        tire         to           
-tobias       todas        todos        tomb         tombstone    
-tome         tomes        toque        torça        torch        
-torches      torre        torture      toss         tourist      
-tower        três         trace        trança       tranque      
-transcri     transcric    transfira    trava        trave        
-tree         tres         trestle      trevo        treze        
-trilho       tripod       trombe       trough       troughs      
-trouves      trowels      tub          tube         tubes        
-tudo         turístic     turistico    ugly         ulysses      
-um           uma          umas         umbrella     unexcitin    
-unja         uns          unsafe       up           urn          
-use          utensíli     utensilio    vá           va           
-valley       vane         vanity       vara         varanda      
-varra        vasculhe     vaso         veja         velha        
-velhas       velho        vent         ventilaY     ventilaca    
-vents        verboso      verificar    vermelha     vermelho     
-versão       versao       vidro        vigas        village      
-vines        vinho        vinte        vista        volta        
-volte        volumes      w            wager        wain         
-waiter       wall         waltz        wands        war          
-warriors     wash         watch        water        weather      
-weatherva    weave        webs         weed         weedkille    
-well         wells        west         wheat        wheel        
-whisky       whistle      white        wicked       willard      
-windmill     windmills    window       window-v     windowed     
-windows      windowven    wine         winery       wire         
-wireless     wish         wishbone     wistaria     with         
-women        wood         wooden       woodlice     words        
-woven        wrapping     wrench       write        writing      
-writings     wrought      x            xyzzy        yacht        
-yellow       yellowish    yourself     z            zephyr       
-zeus         zodíaco      zodiac       zodiaco      zzzzzzzzz    
+air          ajuda        ajuste       alça         alçap        
+alarm        alarme       alca         alcapao      alexander    
+alexandri    algas        algum        algumas      alguns       
+alimente     alison       alpha        altar        alto         
+aluminium    amarre       amassado     ambas        amber        
+ambos        ameias       anchor       ancient      andromeda    
+angel        angelic      animal       anoint       anoppe       
+antiga       antigo       antique      anton        anxious      
+ao           apagada      apagadas     apagado      apagados     
+aphrodite    apito        apoie        apollo       apolloniu    
+aponte       apresente    april        arbusto      arc          
+arcana       arco         arenito      ares         armário      
+armario      armchair     armchairs    armour       army         
+arranhado    arranhe      arraste      array        arremesse    
+arrows       arthur       articulad    as           assassine    
+assoalho     astrolabe    astronomi    at           ataque       
+athene       atire        ative        attic        august       
+aunt         austin       aves         away         axis         
+baú          back         backward     backwards    baixo        
+balance      balcony      ball         band         banister     
+bank         bar          barco        bare         barrels      
+barrier      bartender    basket       bata         bateau       
+bateria      bats         battery      battlemen    bau          
+baus         beach        bead         beam         bean         
+beanpole     bear         beba         beckon       bed          
+bedside      beep         beije        belisque     bell         
+bells        bet          big          bipe         bird         
+birds        biscoito     bishops      black        bladed       
+blankets     bleep        blind        blue         bluish       
+board        boat         bola         bomb         bone         
+bones        book         books        botão        botao        
+bote         bottle       box          brac         braided      
+branch       branco       brass        breve        bric         
+bricks       brilhante    british      broken       bronze       
+brushes      bunch        bunker       buraco       bust         
+by           círculo      cabeceira    cabinet      cachecol     
+café         cafe         caixão       caixa        caixao       
+calçad       calendár     calendar     calendari    callimach    
+cama         caminhe      camp         campanha     candelabr    
+candles      caneca       canecas      cannon       cannonbal    
+cano         canos        cante        canvas       capabilit    
+capstan      car          carbolic     card         cards        
+carregue     cartão       carta        cartao       carte        
+carvão       carvao       carved       carvings     case         
+castle       cat          catch        catwalk      cauda        
+causeway     cave         cavidade     cavity       ceifador     
+cell         center       central      centre       cerâmi       
+ceramica     cetro        chá          chão         cha          
+chain        chains       chaminé      chamine      change       
+changes      chao         charcoal     chave        cheire       
+cheque       chess        chest        chests       chicken      
+chimney      chirp        chlamys      chocolate    chocs        
+choice       church       chute        cima         cinco        
+circle       circular     clássico     clairvoya    clarabói     
+claraboia    classical    classico     clerestor    cloak        
+clock        cloud        clover       coaches      coal         
+coals        coat         cochile      coffee       coffin       
+coin         coloque      colour       colours      com          
+coma         comece       comfortab    comma,       commemora    
+compartim    compartme    compasses    completa     completo     
+completos    compre       comprido     comprimid    confortá     
+confortav    conserte     conservat    conspirat    consulte     
+conte        contorno     contrapti    copper       coraç        
+cord         cordão       corda        cordao       cordas       
+corn         corncrake    corra        corrente     corrimão     
+corrimao     corte        couch        couches      cover        
+crack        crake        crank        cranked      crates       
+crawl        crenellat    crescent     crook        croquet      
+cross        crushed      cruz         cruze        crystals     
+cube         cubra        cupboard     cups         curious      
+curse        curses       curta        curtain      curto        
+cylinder     dê           da           dados        daemons      
+daisies      daisy        daisychai    dance        dark         
+das          de           de den       de nov       deaf         
+death        debaixo      december     deck         decor        
+defaced      defences     defesas      degraus      deite        
+deite-se     delicada     delicate     delphic      demeter      
+demijohn     demon        demonic      dentro       depósito     
+deposite     deposito     desça        desagrad     desagrada    
+desative     desca        descarte     descreva     descubra     
+desculpa     desculpas    desculpe     deseje       desembrul    
+desfaç       desfaca      desk         desligada    desligado    
+desligue     deslize      desloque     desparafu    desperte     
+dessert      destranqu    destrua      detector     detonater    
+detonator    developin    device       devil        dez          
+dezenove     dezesseis    dezessete    dezoito      diário       
+diagnose     diagnosti    dial         dials        diana        
+diario       diary        dica         dicas        dice         
+dicionár     dicionari    dictionar    die          diga         
+dionysus     direct       disc         disco        dispa        
+disturbin    divã         do           dobbin       dois         
+doktor       dolmen       door         doorway      dos          
+dourado      down         doze         dragonfli    dream        
+droga        drowned      druid        druidess     duas         
+dug          dumb         dumbwaite    durma        dust         
+dusty        duto         e            earth        easels       
+east         ebenezer     egyptian     eight        eixo         
+ekmek        elétrica     ela          elas         ele          
+electrici    elefante     elephants    eles         eletrica     
+em           embrulho     emoldurad    empilhe      empurre      
+encaixe      encaixes     encerrar     encha        encontrad    
+enferruja    engraving    engula       ensign       então        
+entao        enthusias    entrance     entre        epa          
+epic         eppona       equipamen    eraina       esboço       
+esboco       escada       escale       escape       escolha      
+escultura    escuro       escute       esférica     esfarrapa    
+esferica     esfinge      esfinges     esfregue     esmague      
+espátula     espatulas    espelho      espere       esprema      
+essa         essas        esse         esses        estátua      
+estátuas     esta         estalacti    estas        este         
+esteira      estes        estreita     esvazie      etch         
+etching      eumenides    evans        even         examine      
+exceto       exhibit      exhibitio    exiba        expert       
+eyepiece     férias       face         fale         fallen       
+family       fantasma     fareje       farmlands    farol        
+faros        fatie        featurele    february     fechar       
+feche        feixe        ferias       ferro        fiaçã        
+fifty        fig          figurine     filigree     fire         
+fireplace    fires        first        fish         fixe         
+flag         flagpole     flagstone    flame        flaming      
+flash        flip         float        flock        flores       
+flower       flowers      flurries     foco         focus        
+foda         fogo         folhas       folly        fool         
+foot         for          fora         force        fore         
+former       forward      forwards     foto         fotográf     
+fotografi    fotos        four         fragment     frame        
+framed       franc        francs       frasco       fresta       
+friend       frieze       frisk        fuligem      fumaça       
+fumaca       furies       furniture    gótica       galho        
+galinha      galita       gamble       gambler      gambling     
+gancho       gap          garden       gardeners    garrafão     
+garrafa      garrafao     gas          gasmask      gates        
+gato         gauges       gear         gem          gemstone     
+gentleman    georgian     georgiano    gerard       gesture      
+ghost        gift         gilded       ginger       gire         
+glass        glasses      globe        gloves       glowing      
+gnome        gnomes       goat         goats        gods         
+gold         golden       golpe        golpeie      gonear       
+gothic       gothic-l     gotica       goto         grade        
+gradeadas    grape        grate        grating      gravaç       
+gravacao     grave        gravel       gravura      greek        
+green        grey         grid         grim         grite        
+grizzled     guarda-c     gurgling     hades        hair         
+hairband     hall         hamburg      hamburgo     hand         
+handkerch    handle       hanging      hankie       hanky        
+harbour      hard         harrison     hartley      hat          
+hatch        hatchway     hay          head         heart        
+heating      heaven       heavy        helene       helicon      
+hell         hemp         henri        hephaestu    hera         
+herd         herself      hexagonal    hides        hieroglyp    
+high         hills        hinged       hipnotize    história     
+historia     historica    history      hobson       hobsons      
+hole         holiday      hollow       homer        honourabl    
+hook         hoop         hoops        hoplite      horn         
+hot          house        husbandry    hypnotise    hypnotize    
+hypocaust    i            ice          icicle       idol         
+ilha         iliad        imagem       images       implement    
+impressio    in           incênd       incendio     infinito     
+infinity     inscreva     inscriê      inscribe     inscribed    
+inscricao    inscripti    insira       insulatio    interessa    
+interrupt    inv          inventár     inventari    inverta      
+irate        iron         ironbound    isaac        island       
+isolament    janela       janelas      january      jardim       
+jardinage    jardineir    jemima       jewellery    jogue        
+joia         joias        join         joint        joshua       
+july         junçã        juncao       juncos       june         
+junte        kappa        keepsake     key          killer       
+king         kings        knight       knights      knock        
+kraken       lâmpad       label        ladder       lady         
+lagach       lamp         lampada      lamps        language     
+lanterna     lanterns     lareira      large        largo        
+largue       latão        latao        lattice      latticed     
+lave         lawn         lay          layout       leafed       
+lean         leather      lectern      leda         leg          
+legs         leia         lembrang     lembranca    lemnisco     
+lemniscus    lençó        lençol       lencois      leste        
+letter       levante      librarian    library      lid          
+lie          life         ligada       ligadas      ligado       
+light        lighthous    ligue        limpe        limpeza      
+listrado     little       livro        lixo         loading      
+locket       log          logs         lona         long         
+longa        longo        looking      loose        louco        
+love         loxias       lua          luck         lucky        
+lugares      luminesce    lute         luvas        luz          
+mármore      máscara      móveis       machines     mad          
+madame       madeira      magdalena    mahogany     maiden       
+make         mallet       man          manchada     manivela     
+many         map          mapa         mar          marble       
+march        margarida    marie        marinheir    marmore      
+mascara      mascot       mask         masked       mast         
+master       match        matchbook    mate         matting      
+mattings     may          maze         me           medicine     
+meldrew      meldrewe     meldrews     memorial     men          
+mend         menelaus     menos        merchant     merda        
+mergulhe     merlin       merlyn       mermaid      mesa         
+mesinha      messages     metal        metro        meu          
+middle       milk         mim          miniature    mirror       
+mirrored     mist         mochila      model        modelo       
+moldura      monkey       monta-ca     montacarg    moon         
+moonstone    morte        mosaic       mostre       motor        
+motorised    motorway     mounds       mounted      mounting     
+mouse        mousehole    mouth        mova         moveis       
+mude         mug          mugs         mummy        mural        
+muralhas     museum       mute         my           myself       
+mystic       n            não          na           nade         
+nao          napoleoni    nas          nasty        nativity     
+navegue      navy         ne           nest         nets         
+new          newspaper    niche        nicho        no           
+nomes        nordeste     normal       noroeste     norte        
+north        nos          nose         note         notifica     
+notificac    nova         novamente    nove         novel        
+november     nuts         nw           nymph        nymphs       
+o            oak          objetos      objets       oblong       
+obol         observe      obsidian     obtenha      octógono     
+octagon      october      odd          odysseus     odyssey      
+oeste        of           ofereç       ofereca      off          
+officer      officers     oil          oito         old          
+olhe         omphalos     on           onto         onze         
+oops         opa          opening      oraçõ        oracle       
+oracoes      orange       orb          orbe         ordenhe      
+ore          ornament     ornaments    os           osso         
+ouça         oubliette    ouca         ouro         out          
+outline      outra        outro        ozone        página       
+páginas      pássaro      pace         paces        pack         
+pacote       padded       page         pages        pagina       
+paginas      pague        painéis      paint        painted      
+painting     paintings    pamphlet     pan          pane         
+panel        panelling    panpipes     papel        paper        
+papyrus      para         parafuse     parapeito    paraphern    
+parcel       parchment    pare         parede       paris        
+parish       passagem     passarela    passaro      patio        
+patrol       pe           peça         peca         pedaço       
+pedaco       pedestria    pedra        peeling      peg          
+pegue        pendurado    pense        pequena      pequeno      
+pergaminh    pergunte     perseus      perspex      pesquise     
+pet          peter        pews         pharos       photo        
+photograp    picture      pieces       pigeon       pigeonhol    
+pile         pilha        pill         pillar       pinch        
+pipe         pipes        pique        pista        pistas       
+placa        plain        plane        plant        planta       
+plantas      plants       plaque       plaster      plastic      
+play         plover       plugh        pluto        poço         
+poços        poco         pocos        pode         poeira       
+poem         poesia       poet         poetry       point        
+pole         poltrona     poltronas    ponha        pontos       
+pontuaê      pontuacao    porcaria     porra        port         
+porta        portico      porto        poseidon     post         
+postal       postcard     poster       posters      pot          
+potted       pottery      power        prateleir    prayer       
+preencha     premoniti    prenda       presente     pretentio    
+prey         priest       priestess    princess     processio    
+procissã     procure      projector    projetor     pronomes     
+prop         prove        prow         ptolemy      pub          
+public       publicity    pule         pulley       pumice       
+purloin      purple       push         puxe         pythian      
+quadrado     quadrants    quadro       quarter      quarterst    
+quartet      quatorze     quatro       quebre       queen        
+queens       queime       quinquilh    quinquire    quinze       
+rádio        rótulo       rabo         rachadura    rache        
+racing       racks        radio        ragged       rail         
+rain         ram          random       rapina       rasgue       
+raso         rato         rats         reaper       recess       
+red          redor        reeds        regule       reindeer     
+reiniciar    relief       reliefs      remédio      remedio      
+remova       rena         renas        repair       repare       
+repita       replay       responda     rest         restaurar    
+resurrect    retire       retrato      returning    reveal       
+revelaê      revelacao    reverse      revestida    revise       
+revolve      revolving    reze         riacho       rickety      
+rigged       rigging      ring         rings        rip          
+river        road         robô         robo         robot        
+rock         rod          roda         rode         rodovia      
+rods         roger        roldana      role         roll         
+roller       rolls        rolo         rolos        românt       
+roman        romance      romantic     romantico    roof         
+rope         ropes        rose         rosetta      rotted       
+rotting      rotulo       rough        round        routines     
+rubber       rubbish      rucksack     ruivo        runner       
+rusted       rusty        s            sépia        símbolo      
+sótão        saboreie     sack         saco         sacrifice    
+safety       saia         sail         sailing      sailor       
+sair         sal          salt         salte        salvar       
+sand         sandals      sandstone    sandwells    sarcophag    
+sash         sashes       saxon        scarf        scenes       
+sceptre      scope        scratch      scratched    scribe       
+script       scripts      scroll       scrolls      sculpture    
+se           sea          seaweed      second       secret       
+secreta      seeds        seesaw       segurang     seguranca    
+segure       seis         selenae      self         sementes     
+senhor       sente        sente-se     sepia        september    
+sete         seu          seus         sevenbran    shadows      
+shaft        shallow      shantih      sheet        sheets       
+shepherds    ship         ships        shoes        shoot        
+shopkeepe    short        showobj      showverb     shrub        
+sign         signpost     silk         sill         silver       
+sim          simbolo      single       sinta        sir          
+sit          sixes        sketch       skiff        skull        
+skylight     slab         slap         slave        slide        
+slides       slot         small        smoke        smooth       
+smudge       smyslov      snaps        soap         sobre        
+socket       sockets      soldier      soldiers     solte        
+soot         sooty        sopre        soque        sorte        
+sosostris    sotao        south        souvenirs    spade        
+spar         sparrows     spears       special      spherical    
+sphinx       sphinxes     spindle      spy          square       
+squirrel     stack        staff        stained      stair        
+staircase    stairs       stalking     stand        star         
+starboard    start        statue       statues      statuette    
+steel        stein        step         steps        stern        
+stick        sticks       stile        still        stone        
+stop         storm        stream       stride       strides      
+strike       striped      stroke       strong       strongbox    
+suba         sudeste      sudoeste     sul          summer       
+summerhou    summoning    superbrev    suporte      support      
+surly        sw           sweeping     switch       symbol       
+symbols      syrinx       table        tablet       tablete      
+tail         tampa        tampe        tango        tank         
+tanque       tapestry     tarot        tassels      tatuzinho    
+tea          teachest     teachests    tear         teias        
+telhado      telhas       tender       tent         tera         
+the          third        thorns       thorny       tia          
+tickle       tight        tile         tiles        timber       
+time         timer        timers       times        tire         
+to           tobias       todas        todos        tomb         
+tombstone    tome         tomes        toque        torça        
+torch        torches      torre        torture      toss         
+tourist      tower        três         trace        trança       
+tranque      transcri     transcric    transfira    trava        
+trave        tree         tres         trestle      trevo        
+treze        trilho       tripod       trombe       trough       
+troughs      trouves      trowels      tub          tube         
+tubes        tudo         turístic     turistico    ugly         
+ulysses      um           uma          umas         umbrella     
+unexcitin    unja         uns          unsafe       up           
+urn          use          utensíli     utensilio    vá           
+va           valley       vane         vanity       vara         
+varanda      varra        vasculhe     vaso         veja         
+velha        velhas       velho        vent         ventilag     
+ventilaca    vents        verboso      verificar    vermelha     
+vermelho     versão       versao       vidro        vigas        
+village      vines        vinho        vinte        vista        
+volta        volte        volumes      w            wager        
+wain         waiter       wall         waltz        wands        
+war          warriors     wash         watch        water        
+weather      weatherva    weave        webs         weed         
+weedkille    well         wells        west         wheat        
+wheel        whisky       whistle      white        wicked       
+willard      windmill     windmills    window       window-v     
+windowed     windows      windowven    wine         winery       
+wire         wireless     wish         wishbone     wistaria     
+with         women        wood         wooden       woodlice     
+words        woven        wrapping     wrench       write        
+writing      writings     wrought      x            xyzzy        
+yacht        yellow       yellowish    yourself     z            
+zephyr       zeus         zodíaco      zodiac       zodiaco      
+zzzzzzzzz    
 
 [Compiled Z-machine version 8]
-[End of transcript: release 17, serial 260908]
+[End of transcript: release 17, serial 260916]
 

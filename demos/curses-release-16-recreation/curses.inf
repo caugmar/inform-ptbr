@@ -6,6 +6,7 @@ Constant DEBUG;
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
 Constant MAX_SCORE = 550;
+Constant ALTMENU_PROP_STUBS;
 
 Constant T_MODERN = 1;
 Constant T_UNREAL = 2;
@@ -164,6 +165,7 @@ Global current_game_sec;
 Global short_loc_var;
 Global save_score;
 Global quote_selection = -1;
+Global hints_in_a_row;
 Global ball_polished;
 Global rod_identity;
 Global OldDigX;
@@ -413,8 +415,24 @@ Replace MildSub;
 Replace SorrySub;
 Replace JumpSub;
 Replace DarkToDark;
+Replace DoMenu;
+Replace LowKey_Menu;
 
 Include "Parser";
+Global hint_menu;
+[ HelpSub ;
+    if( hints_in_a_row == 0 ) {
+        hints_in_a_row = 1;
+        print "Ha dicas incorporadas a este jogo, mas voce tera de descobrir sozinho como obte-las.^";
+        "Se você estiver realmente perdido, digite DICAS novamente para acessar o sistema completo de dicas. Mas só faça isso se você estiver REALMENTE perdido, porque vai afetar sua experiência do jogo.";
+    }
+    hints_in_a_row = 0;
+    hint_menu.select();
+];
+Include "Utility";
+Include "DoMenu";
+Include "AltMenu";
+Include "Hints";
 
 Object LibraryMessages
   with  before [;
@@ -559,6 +577,7 @@ Include "afterlife.inf";
 
 [ Initialise; ;
     StartSplash();
+    hint_menu = menu_de_dicas;
     location = Attic;
 
     #Ifdef DEBUG;
@@ -1492,6 +1511,8 @@ Object carbolic_soap "carbolic soap"
 ];
 
 [ GamePreRoutine ;
+    if( action ~= ##Help )
+        hints_in_a_row = 0;
     if( action == ##Go && carbolic_soap hasnt concealed ) {
         trigger_quotation(13);
         "Você não vai a lugar algum até se redimir por esse palavrão horrível.";
@@ -1512,3 +1533,4 @@ Object carbolic_soap "carbolic soap"
 
 Include "PortuguesG";
 Include "newverbs.inf";
+Include "hints.inf";
