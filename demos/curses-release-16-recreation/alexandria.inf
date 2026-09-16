@@ -949,7 +949,7 @@ Object  Oil_Room "Sala do óleo"
                 "Você espalha óleo na cabeça, anotando mentalmente que deve lavar o cabelo pela manhã. É o ritual sagrado menos sagrado de que já participou.";
         ],
         n_to The_Birdcage_of_the_Muses,
-        description "Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua tocha é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.",
+        description "Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua lanterna é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.",
         section T_ALEXANDRIA,
   has   ;
 
