@@ -1,26 +1,26 @@
 [ DigWithSub ;
     if( noun ~= spade ) {
-        "Nao e uma ferramenta muito adequada.";
+        "Não é uma ferramenta muito adequada.";
     }
     DigSub();
     rtrue;
 ];
 
 [ DigSub ;
-    if( spade notin player ) "Voce nao tem nenhuma ferramenta adequada a mao.";
-    if( location == Vegetable_Garden or Maze_Foundations ) "Voce so consegue remexer ainda mais a terra.";
-    if( location == Mosaic ) "Arqueologia nao e para amadores!";
-    if( location == Beside_the_Drive ) "O cascalho e fino e esta sobre concreto.";
+    if( spade notin player ) "Você não tem nenhuma ferramenta adequada à mão.";
+    if( location == Vegetable_Garden or Maze_Foundations ) "Você só consegue remexer ainda mais a terra.";
+    if( location == Mosaic ) "Arqueologia não é para amadores!";
+    if( location == Beside_the_Drive ) "O cascalho é fino e está sobre concreto.";
     if( location == Up_the_Plane_Tree ) "Surreal!";
-    if( location ~= Croquet_Lawn ) "O solo nao serve.";
+    if( location ~= Croquet_Lawn ) "O solo não serve.";
 
     if( DigX == 0 && DigY == 0 ) 
-        "Voce certamente nao quer cavar aqui, bem no meio de um gramado tao bonito. A estaca cairia, e isso nao pode acontecer.";
-    if( DigX == OldDigX && DigY == OldDigY ) "Ja existe um buraco exatamente neste ponto do gramado.";
+        "Você certamente não quer cavar aqui, bem no meio de um gramado tão bonito. A estaca cairia, e isso não pode acontecer.";
+    if( DigX == OldDigX && DigY == OldDigY ) "Já existe um buraco exatamente neste ponto do gramado.";
 
     OldDigX = DigX;
     OldDigY = DigY;
-    print "Voce cava um pequeno buraco vigoroso na grama excelente";
+    print "Você cava um pequeno buraco vigoroso na grama excelente";
     if( dug_hole in Croquet_Lawn ) {
         print ", enchendo o anterior com a terra retirada";
         while( child(dug_hole) ~= nothing ) {
@@ -29,12 +29,12 @@
         }
     }
     if( DigX == StrongboxX && DigY == StrongboxY && strongbox hasnt moved ) {
-        print ", ate sua pa bater em algo solido";
+        print ", até sua pá bater em algo sólido";
         move strongbox to dug_hole;
         Achieved(SCORE_STRONGBOX);
     } else if( dig_cnt == 1 ) {
         dig_cnt = 0;
-        print ", sem encontrar o que quer que voce tenha enterrado";
+        print ", sem encontrar o que quer que você tenha enterrado";
     }
     move dug_hole to Croquet_Lawn;
     if( dig_cnt == 2 ) {
@@ -46,23 +46,23 @@
 [ LieDownSub ;
     if( location == Servants_Room ) << Enter servants_bed >>;
     if( location == Alisons_Writing_Room ) << Enter comfortable_bed >>;
-    "Voce se deita no chao por um tempo e depois se levanta, sentindo-se tolo.";
+    "Você se deita no chão por um tempo e depois se levanta, sentindo-se tolo.";
 ];
 
 
 [ StartSub ;    
-    "Voce tera de dizer exatamente como fazer isso.";
+    "Você terá de dizer exatamente como fazer isso.";
 ];
 
 [ LeanSub ;
     if( location ~= Folly ) {
-        "Isso nao vai conseguir muita coisa.";
+        "Isso não vai conseguir muita coisa.";
     }
     if( second ~= Folly_tower ) {
-        "Isso nao parece precisar de apoio.";
+        "Isso não parece precisar de apoio.";
     }
     if( noun ~= old_timber_spar ) {
-        "Isso nao e um apoio particularmente bom.";
+        "Isso não é um apoio particularmente bom.";
     }
     move old_timber_spar to Folly;
     old_timber_spar.initial = "A escora de madeira se apoia na Torre instavel, sustentando-a.";
@@ -70,7 +70,7 @@
     bean_pole.number = 0;
     give old_timber_spar general;
     give bean_pole ~general;
-    "Voce apoia a escora de madeira na torre, sustentando-a. (E melhor torcer para nao precisar dela para outra coisa!)";
+    "Você apoia a escora de madeira na torre, sustentando-a. (É melhor torcer para não precisar dela para outra coisa!)";
 ];
 
 [ PropWithSub o ;
@@ -88,7 +88,7 @@
 ];
 
 [ DiagnoseSub ;
-    "Espere um instante... sim, voce ainda esta respirando. Continue assim!";
+    "Espere um instante... sim, você ainda está respirando. Continue assim!";
 ];
 
 [ PaceSub ;
@@ -124,10 +124,10 @@
         << Look >>;
     }
     if( location ~= Croquet_Lawn ) {
-        "Voce anda de um lado para o outro, a maneira de Holmes.";
+        "Você anda de um lado para o outro, à maneira de Holmes.";
     }
     if( d == nothing ) {
-        "Talvez voce deva dizer em que direcao andar.";
+        "Talvez você deva dizer em que direção andar.";
     }
     if( parent(d) ~= compass ) {
         "O que?";
@@ -338,9 +338,9 @@
     if( noun ~= hard_wooden_ball || second ~= croquet_mallet ) 
         << Attack noun >>;
     if( parent(hard_wooden_ball) ~= location ) 
-        "A bola nao esta no chao.";
+        "A bola não está no chão.";
     trigger_quotation(15);
-    print "Voce bate na bola com o taco, produzindo um agradavel estalo.^";
+    print "Você bate na bola com o taco, produzindo um agradável estalo.^";
     if( location == Lawn_Ornaments ) 
         "^A bola ricocheteia entre os ornamentos como numa maquina de pinball.";
 
@@ -356,17 +356,17 @@
     Croquet_Lawn.nw_to = Behind_Summer_House;
     Lawn_Ornaments.cant_go = "Ha caminhos apenas para oeste e noroeste.";
     Mosaic.e_to = Behind_Summer_House;
-    ", ate a sebe noroeste e encontra um esquilo irritado. Com um subito farfalhar, ele salta, afasta um galho podre e revela uma pequena passagem pela sebe.";
+    ", até a sebe noroeste e encontra um esquilo irritado. Com um súbito farfalhar, ele salta, afasta um galho podre e revela uma pequena passagem pela sebe.";
 ];
 
-[ RepairSub; "Voce nao conseguiria nada com isso."; ];
+[ RepairSub; "Você não conseguiria nada com isso."; ];
 
 [ BeepSub ;
-    "Voce esta se sentindo bem?";
+    "Você está se sentindo bem?";
 ];
 
 [ PlayCroquetSub ;      
-    "Voce tera de ser um pouco mais especifico.";
+    "Você terá de ser um pouco mais específico.";
 ];
 
 [ FullScoreSub ndx score_var ;  
@@ -417,20 +417,20 @@
     PANum(score);
     L__M(##FullScore,4);
     if( deadflag == WON && task_done->11 == 0 ) {
-        "^Infelizmente, voce perdeu o bonus de 50 pontos por resgatar Andromeda.";
+        "^Infelizmente, você perdeu o bônus de 50 pontos por resgatar Andrômeda.";
     }
     rtrue;
 ];
 
 [ WaveSub r ;
     if (noun notin player) {
-        "Mas voce nao esta segurando isso.";
+        "Mas você não está segurando isso.";
     }
     if (noun has hidden_rod) {
         if (daisy_chain in player && daisy_chain has worn && daisy_chain.number == 1) {
             score = score + 6;
             rod_score = rod_score + 6;
-            print "A luz pulsa ao redor da corrente de margaridas, entao salta para envolver ", (the) noun, " que derrete e se transforma em ";
+            print "A luz pulsa ao redor da corrente de margaridas, então salta para envolver ", (the) noun, " que derrete e se transforma em ";
             remove noun;
             r = noun.rod_assoc;
             itobj = r;
@@ -458,25 +458,25 @@
         }
     }
     if (noun has rod_attr) {
-        "Parece que nao e bem assim que elas funcionam...";
+        "Parece que não é bem assim que elas funcionam...";
     }
     if (noun has worn) {
-        "Voce nao pode agitar o que esta vestindo.";
+        "Você não pode agitar o que está vestindo.";
     }
-    print "Voce parece ridiculo agitando ";
+    print "Você parece ridículo agitando ";
     Defart(noun);
     ".";
 ];
 
 [ WishSub ;
     if( chicken_wishbone notin player ) {
-        "Voce faz um pedido.";
+        "Você faz um pedido.";
     }
-    "O osso da sorte ja foi puxado, e voce ficou com a parte que perdeu.";
+    "O osso da sorte já foi puxado, e você ficou com a parte que perdeu.";
 ];
 
 [ DanceSub ;
-    print_ret (The) noun, " nao quer dancar com voce.";
+    print_ret (The) noun, " não quer dançar com você.";
 ];
 
 [ InscribeSub ; "Grafite e grosseiro."; ];
@@ -491,40 +491,40 @@
 
 [ TurnWithSub ;
     if( second ~= steel_wrench )
-        print_ret (The) second, " nao serve para girar coisas.";
+        print_ret (The) second, " não serve para girar coisas.";
     if( location ~= Library_Storage )
-        print "(A chave parece desnecessaria, entao voce usa as maos.)^";
+        print "(A chave parece desnecessária, então você usa as mãos.)^";
     << Turn noun >>;
 ];
 
 [ KnockSub ;
     if( noun hasnt door )
-        print "(Se voce insiste.)  ";
-    "Nao ha resposta.";
+        print "(Se você insiste.)  ";
+    "Não há resposta.";
 ];
 
 [ WashSub ;
-    if( noun ~= carbolic_soap ) "Isso nao serve para lavar.";
-    if( carbolic_soap notin player ) "Voce nao tem sabao.";
+    if( noun ~= carbolic_soap ) "Isso não serve para lavar.";
+    if( carbolic_soap notin player ) "Você não tem sabão.";
     remove carbolic_soap;
     give carbolic_soap concealed;
-    "Argh, o gosto e absolutamente horrivel. Mas voce se sente melhor por isso.";
+    "Argh, o gosto é absolutamente horrível. Mas você se sente melhor por isso.";
 ];
 
 
 [ StrongSub ;
     move carbolic_soap to player;
     give carbolic_soap ~concealed;
-    "Esse tipo de linguagem e uma desgraca absoluta, e voce vai ter de pagar o preco por ela.";
+    "Esse tipo de linguagem é uma desgraça absoluta, e você vai ter de pagar o preço por ela.";
 ];
 
 [ MildSub ;
-    "E bom que voce consiga expressar sua frustracao de maneira tao branda.";
+    "É bom que você consiga expressar sua frustração de maneira tão branda.";
 ];
 
 [ SorrySub ;
-    if( carbolic_soap has concealed ) "Ah, nao se desculpe.";
-    "Desculpa nao basta!";
+    if( carbolic_soap has concealed ) "Ah, não se desculpe.";
+    "Desculpa não basta!";
 ];
 
 [ PointAtSub ;
@@ -854,11 +854,11 @@
 ];
 
 
-Verb 'strike' 'golpeie' 'golpe'
+Verb 'golpeie' 'golpe'
     * noun                                              -> Strike
     * noun 'with' held                                  -> Attack;
 
-Verb 'beckon' 'direct' 'gesture' 'point' 'aponte'
+Verb 'aponte'
     * noun                                              -> PointVague
     * 'at' noun                                         -> PointAt
     * held 'at' noun                                    -> Point;
@@ -866,21 +866,21 @@ Verb 'beckon' 'direct' 'gesture' 'point' 'aponte'
 Extend 'gire' last
     * noun 'with' held                                  -> TurnWith;
 
-Verb 'knock' 'bata'
+Verb 'bata'
     * 'on' noun                                         -> Knock
     * 'at' noun                                         -> Knock;
 
 
-Verb 'wash' 'lave'
+Verb 'lave'
     * 'my' 'mouth' 'with' held                          -> Wash
     * 'my' 'mouth' 'out' 'with' held                    -> Wash
     * 'mouth' 'with' held                               -> Wash
     * 'mouth' 'out' 'with' held                         -> Wash;
 
-Verb 'milk' 'ordenhe'
+Verb 'ordenhe'
     * noun                                              -> Milk;
 
-Verb 'rip' 'tear' 'rasgue'
+Verb 'rasgue'
     *                                                   -> Rip
     * 'down' noun                                       -> RipDown
     * noun                                              -> Rip;
@@ -888,7 +888,7 @@ Verb 'rip' 'tear' 'rasgue'
 Verb 'achetez'
     * special                                           -> Buy;
 
-Verb 'stack' 'empilhe'
+Verb 'empilhe'
     * noun                                              -> Stack
     * noun 'with' held                                  -> Stack
     * held 'on' noun                                    -> Insert
@@ -944,7 +944,7 @@ Verb 'make' 'wish' 'deseje'
     * 'a//' 'wish'                                      -> Wish
     * 'for' special                                     -> Wish;
 
-Verb 'dance' 'tango' 'waltz'
+Verb 'dance'
     * 'with' creature                                   -> Dance;
 
 Verb 'beep' 'bleep' 'chirp' 'bipe'

@@ -217,7 +217,7 @@ Object  -> timer_detonator "temporizador-detonador"
                 }
             }
         ],
-        devil_hint "Time flies down here, you know. Eternity simply breezes by.",
+        devil_hint "O tempo voa por aqui, sabia? A eternidade simplesmente passa num sopro.",
         angel_hint "Um bom equipamento fotográfico. Você não o conseguiu de uma... bem, de uma bomba, espero.",
   has   static;
 
@@ -600,7 +600,7 @@ TRoom   Temple_of_Zeus "Templo de Zeus"
          description "O belo Templo de Zeus, iluminado por velas, é uma caverna de pilares de mármore completamente vazia e sem características, exceto pela entrada ao norte. Quanto aos rumores sobre tesouros escondidos: parece que Zeus (que, aliás, uiva de raiva do lado de fora) estava blefando o tempo todo.^^Claustros levam a sudeste e sudoeste, mais para dentro do templo.",
   has   light scored;
 
-Object  -> copper_coin "copper coin"     
+Object  -> copper_coin "moeda de cobre"     
   with  name 'copper' 'coin' 'obol',
          description "De um lado, o rosto de um homem; do outro, um símbolo, I. Um óbolo, ou um sexto de uma dracma.",
         article "uma",
@@ -634,7 +634,7 @@ TRoom   West_Cloister "Claustro Oeste"
          description "Ao longo do claustro oeste, que vai de nordeste a sudeste, há um amplo baixo-relevo representando as estações: o plantio, o auge do verão, a colheita, as enchentes e então a chegada do gelo.",
   has   ;
 
-Object  -> symbol "symbol"       
+Object  -> symbol "símbolo"       
   with  name 'symbol' 'symbols',
          initial "Um símbolo curioso se repete no alto do relevo.",
         description "  j  c     k  b   s you gk ",
@@ -733,7 +733,7 @@ Object  -> -> Pan_pipes "flautas de Pã"
                 Achieved(SCORE_ORACLE);
                 rtrue;
         ],
-        description "Cuidadosamente cortadas de juncos de rio, estas flautas pertenceram ao proprio Homero, como voce deve se lembrar.",
+         description "Cuidadosamente cortadas de juncos de rio, estas flautas pertenceram ao próprio Homero, como você deve se lembrar.",
         article "a",
         angel_hint "Maravilhoso! Um som que acalma o espírito.",
   has   ;
@@ -748,7 +748,7 @@ TRoom   Cross_Centre "Centro da Cruz"
         after [;
             Take, Remove:
                 if( noun == inscribed_stone or old_timber_spar && noun has static )
-                     inscriptions.when_open = "A abertura de sessenta centimetros esta livre novamente.";
+                      inscriptions.when_open = "A abertura de sessenta centímetros está livre novamente.";
                 rfalse;
         ],
         s_to Inner_Sanctum,
@@ -767,7 +767,7 @@ TRoom   Cross_Centre "Centro da Cruz"
                     rtrue;
                 give inscriptions open;
                 Achieved(SCORE_TEMPLE);
-                 "^Voce ouve o som de pedra raspando contra pedra.";
+                  "^Você ouve o som de pedra raspando contra pedra.";
             }
         ],
   has   ;
@@ -782,27 +782,27 @@ Object  -> inscriptions "inscrições"
                      print_ret (The) noun, " simplesmente cairia pela abertura.";
 
                 if( noun == inscribed_stone ) {
-                     self.when_open = "A abertura esta firmemente bloqueada pela pedra.";
+                     self.when_open = "A abertura está firmemente bloqueada pela pedra.";
                 } else {
-                     self.when_open = "A abertura esta firmemente bloqueada pela escora.";
+                     self.when_open = "A abertura está firmemente bloqueada pela escora.";
                 }
                 give noun scenery ~moved ~scored;
                 move noun to location;
-                 print_ret "Voce atravessa a abertura com ", (the) noun, ".";
+                  print_ret "Você atravessa a abertura com ", (the) noun, ".";
 
         ],
         door_to Oubliette,
-         when_closed "Ha inscricoes muito gastas e desbotadas no centro da cruz.",
+          when_closed "Há inscrições muito gastas e desbotadas no centro da cruz.",
         door_dir d_to,
-         when_open "Ao lado das inscricoes ha uma abertura no chao, com cerca de sessenta centimetros quadrados.",
+          when_open "Ao lado das inscrições há uma abertura no chão, com cerca de sessenta centímetros quadrados.",
         description "~ka-i ur-a re-im ka an-ge~",
         article "a",
   has   door static;
 
-TRoom   Oubliette "Oubliette"    
+TRoom   Oubliette "Masmorra"    
   with  name 'crushed' 'broken' 'bones',
         u_to Cross_Centre,
-         description "Um poco de ossos fetido e mofado, sob a cruz, onde vitimas sacrificiais eram jogadas e ~esquecidas~.",
+          description "Um poço de ossos fétido e mofado, sob a cruz, onde vítimas sacrificiais eram jogadas e ~esquecidas~.",
   has   ;
 
 Object  -> gleaming_amber_gem "gema de âmbar reluzente"       
@@ -811,15 +811,15 @@ Object  -> gleaming_amber_gem "gema de âmbar reluzente"
             Take:
                 if( self has moved ) 
                     rfalse;
-                 print "Ocorre um guincho horrivel quando uma armadilha e acionada. ";
+                 print "Ocorre um guincho horrível quando uma armadilha é acionada. ";
                 if( inscribed_stone has scenery || old_timber_spar has scenery ) {
-                     print "As paredes comecam a se fechar, mas estao firmemente bloqueadas e nao conseguem se mover...^^";
+                     print "As paredes começam a se fechar, mas estão firmemente bloqueadas e não conseguem se mover...^^";
                     rfalse;
                 }
                 deadflag = DIED;
-                 "A abertura se fecha, e as paredes tambem! Em questao de segundos, elas reduzem voce a po de biscoito para caes.";
+                 "A abertura se fecha, e as paredes também! Em questão de segundos, elas reduzem você a pó de biscoito para cães.";
         ],
-         initial "A vista, sobre ossos esmagados e quebrados, repousa uma gema de ambar reluzente.",
+          initial "À vista, sobre ossos esmagados e quebrados, repousa uma gema de âmbar reluzente.",
          description "Dentro dela está o corpo de uma mosca. Raspada numa das faces está a palavra ~GALITA~.",
          angel_hint "Nao ha alguma lenda classica sobre ela?",
   has   scored;
@@ -832,22 +832,22 @@ TRoom   Northeast_Cross "Cruz Nordeste"
 
 Class Statue
   with  before [;
-             Push: "Talvez voce deva dizer em que direcao empurrar.";
+              Push: "Talvez você deva dizer em que direção empurrar.";
             PushDir:
                 if( inscriptions has open ) 
-                     "A unica direcao para empurrar a estatua e o centro da cruz, mas ha um poco aberto no chao ali.";
+                      "A única direção para empurrar a estátua é o centro da cruz, mas há um poço aberto no chão ali.";
             if( second ~= u_obj or d_obj ) {
                 AllowPushDir();
                 rtrue;
             }
             rfalse;
         ],
-         after [; PushDir: "Voce empurra a estatua junto com voce."; ],
+          after [; PushDir: "Você empurra a estátua junto com você."; ],
   has   static statue_flag;
 
 Statue  -> statue_of_Demeter "estátua de Deméter"
   with  name 'demeter' 'statue' 'of',
-         initial "Uma bela estatua da deusa Demeter esta aqui.";
+          initial "Uma bela estátua da deusa Deméter está aqui.";
 
 TRoom   Northwest_Cross "Cruz Noroeste"        
   with  name 'carvings' 'wheat',
@@ -857,7 +857,7 @@ TRoom   Northwest_Cross "Cruz Noroeste"
 
 Statue  -> statue_of_Dionysus "estátua de Dionísio"
   with  name 'dionysus' 'statue' 'of',
-         initial "Uma bela estatua do deus Dionisio esta aqui.";
+          initial "Uma bela estátua do deus Dionísio está aqui.";
 
 TRoom   Southeast_Cross "Cruz Sudeste"        
   with  name 'carvings' 'hoplite' 'warriors',
@@ -867,7 +867,7 @@ TRoom   Southeast_Cross "Cruz Sudeste"
 
 Statue  -> statue_of_Ares "estátua de Ares"
   with  name 'ares' 'statue' 'of',
-         initial "Uma bela estatua do deus Ares esta aqui.";
+          initial "Uma bela estátua do deus Ares está aqui.";
 
 TRoom   Southwest_Cross "Cruz Sudoeste"        
   with  name 'carvings' 'grape' 'vines' 'barrels',
@@ -877,7 +877,7 @@ TRoom   Southwest_Cross "Cruz Sudoeste"
 
 Statue  -> statue_of_Poseidon "estátua de Poseidon"
   with  name 'poseidon' 'statue' 'of',
-         initial "Uma bela estatua do deus Poseidon esta aqui.";
+          initial "Uma bela estátua do deus Poseidon está aqui.";
 
 TRoom   Cave_Mouth "Boca da Caverna"  
   with  name 'lamps' 'trestle' 'altar' 'stone',
@@ -892,21 +892,21 @@ Object  -> flaming_bronze_urn "urna de bronze flamejante"
                 if( noun == player ) << Enter self >>;
                 remove noun;
                  if( Oracle notin location )
-                    "Talvez os deuses ja nao habitem lugares assim. Sua oferenda queima em vao.";
+                     "Talvez os deuses já não habitem lugares assim. Sua oferenda queima em vão.";
                 if( noun == fig ) {
                     move fig to Outside_Taverna;
-                     fig.initial = "O deus Apolo age de maneiras misteriosas, pois outro figo apareceu na arvore.";
+                     fig.initial = "O deus Apolo age de maneiras misteriosas, pois outro figo apareceu na árvore.";
                     give fig ~moved;
                 }
                 if( noun has edible ) {
                     give Oracle general;
-                     "Voce agradou ao deus Apolo, Loxias, deus das palavras e dos conselhos, como ja foi chamado! Muito sabio.";
+                     "Você agradou ao deus Apolo, Loxias, deus das palavras e dos conselhos, como já foi chamado! Muito sábio.";
                 }
-                 "O deus Apolo nao se impressiona com sua oferenda, que alimenta a chama eterna.";
-             Enter: "Voce nao deseja ser queimado.";
+                  "O deus Apolo não se impressiona com sua oferenda, que alimenta a chama eterna.";
+              Enter: "Você não deseja ser queimado.";
         ],
          initial "No centro da caverna repousa uma pedra de altar de obsidiana com uma urna de bronze flamejante.",
-         description "A pedra do altar, as vezes chamada de ~Omphalos~ ou ~o umbigo~, traz uma estranha cruz ou sinal de mais e, segundo a lenda, marca o centro do mundo.^^Ao redor da urna ha relevos de banquetes, bois sendo perseguidos e sacrificados, colheitas de frutas e fabricacao de queijo.",
+          description "A pedra do altar, às vezes chamada de ~Omphalos~ ou ~o umbigo~, traz uma estranha cruz ou sinal de mais e, segundo a lenda, marca o centro do mundo.^^Ao redor da urna há relevos de banquetes, bois sendo perseguidos e sacrificados, colheitas de frutas e fabricação de queijo.",
         article "a",
   has   container open static;
 
@@ -957,7 +957,7 @@ Object  -> flaming_bronze_urn "urna de bronze flamejante"
     rtrue;
 ];
 
-Object  Oracle "Oracle"  
+Object  Oracle "Oráculo"  
   with  name 'oracle' 'masked' 'priestess' 'pythian' 'loxias' 'of' 'apollo',
         life [;
             Attack, Kiss, ThrowAt: "Como você deveria saber, a Oráculo é inviolável.";
@@ -1010,25 +1010,25 @@ LagachObj -> Greek_frieze2 "friso grego"
         description "A faixa decorada do entablamento entre a arquitrave e a cornija, no estilo ático do século V a.C.^^Bem, você perguntou.",
   has   scenery;
 
-Object  port_obj "port wall"     
+Object  port_obj "parede de bombordo"     
   with  name 'port',
         door_dir w_to,
         article "a",
   has   scenery;
 
-Object  starboard_obj "starboard wall"   
+Object  starboard_obj "parede de estibordo"   
   with  name 'starboard',
         door_dir e_obj,
         article "a",
   has   scenery;
 
-Object  fore_obj "fore wall"     
+Object  fore_obj "parede dianteira"     
   with  name 'fore',
         door_dir n_to,
         article "a",
   has   scenery;
 
-Object  aft_obj "aft wall"       
+Object  aft_obj "parede traseira"       
   with  name 'aft',
         door_dir s_to,
         article "a",

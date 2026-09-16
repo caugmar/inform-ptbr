@@ -71,7 +71,7 @@ Object Sarcophagus "Sarcófago"
         section T_CATACOMBS,
   has   ;
 
-Object -> tombstone "tombstone"
+Object -> tombstone "lápide"
   with  name 'tombstone' 'tomb' 'stone',
          initial "Como num pesadelo, até o chão onde você se ajoelha é uma lápide caída.",
          description "O essencial da inscrição é: ~Henri Maladreue, obiit mcdlvi.~",
@@ -196,7 +196,7 @@ Object CR "CR"
         section T_CATACOMBS,
   has   ;
 
-Object -> metal_wall "metal wall"
+Object -> metal_wall "parede metálica"
   with  name 'mirror' 'metal' 'bronze' 'wall' 'sheet' 'amber',
         before [;
             Rub: "Você lustra um pouco o metal, mas há trabalho demais para fazer à mão.";
@@ -216,7 +216,7 @@ Object -> metal_wall "metal wall"
         description "Alguém bastante bonito, você não consegue deixar de pensar, está refletido na superfície metálica.",
   has   door static;
 
-Object -> iron_grid "iron grid"
+Object -> iron_grid "grade de ferro"
   with  name 'iron' 'grid' 'contraption' 'panel',
         initial [;
             print "No meio da parede de vidro há um painel de ferro dividido numa grade de três por cinco.^^Atrás do vidro há uma espécie de gangorra com dois cestos de couro nas extremidades opostas de um pivô de carvalho. ", "Num canto do teto, acima da extremidade distante da gangorra, há um ";

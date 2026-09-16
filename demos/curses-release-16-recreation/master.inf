@@ -495,7 +495,7 @@ Object Encampment "Acampamento"
         section T_ANCIENT_BRITAIN,
   has   light scored;
 
-Object -> dolmen "dolmen"       
+Object -> dolmen "dólmen"
   with  name 'dolmen' 'coals' 'hot' 'rock',
         door_to Beneath_Dolmen,
         door_dir e_to,

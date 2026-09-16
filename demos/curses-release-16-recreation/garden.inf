@@ -335,7 +335,7 @@ Object  -> weed_killer_bottle "frasco de herbicida"
         angel_hint "O curioso é que não havia herbicidas no começo do século XIX, e mesmo assim eles planejavam jardins maravilhosos.",
   has   ;
 
-Object  -> spade "spade" 
+Object  -> spade "pá" 
   with  name 'bladed' 'agricultural' 'implement' 'zzzzzzzzz',
         before [;
             Examine:
@@ -614,7 +614,7 @@ Object -> peg_and_six_hoops "estaca e seis aros"
             se a tradição familiar merece crédito.",
   has   scenery;
 
-Object strongbox "strongbox"    
+Object strongbox "cofre"    
   with  name 'strong' 'box' 'strongbox',
         with_key iron_key,
         description "Um baú realmente resistente, enterrado por dois séculos e agora desenterrado; traz uma bela fechadura
@@ -622,7 +622,7 @@ Object strongbox "strongbox"
         angel_hint "Talvez você tenha lido sobre isso. Um de seus ancestrais é a chave, talvez?",
   has   container lockable locked openable;
 
-Object -> golden_astrolabe "golden astrolabe"   
+Object -> golden_astrolabe "astrolábio dourado"   
   with  name 'golden' 'gold' 'astrolabe' 'eyepiece',
         before [;
                 Remove: if( noun == second ) "Ele está inteiro.";

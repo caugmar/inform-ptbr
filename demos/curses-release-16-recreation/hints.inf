@@ -1,73 +1,73 @@
 ! Progressive hints for Curses.  Each topic reveals one more explicit step.
 
 Menu menu_de_dicas "Dicas de Curses"
-  with description "Escolha um assunto. Cada ENTER revela a proxima dica.";
+  with description "Escolha um assunto. Cada ENTER revela a próxima dica.";
 
-Menu -> dicas_inicio "Preparacao no sotao";
-HintTopic -> -> "Como preparar a tocha?";
-Hint -> -> -> "Comece examinando os lençois e empurrando o radio para o norte.";
-Hint -> -> -> "Ligue o radio e espere a musica começar; entao pegue e vista as luvas.";
-Hint -> -> -> "Abra o garrafao, examine os rolos de isolamento e pegue a bateria nova.";
-Hint -> -> -> "Abra a tocha, esvazie-a, coloque a bateria nova e feche-a.";
-Hint -> -> -> "Pegue o rucksack antes de sair da area do sotao.";
+Menu -> dicas_inicio "Preparação no sótão";
+HintTopic -> -> "Como preparar a lanterna?";
+Hint -> -> -> "Comece examinando os lençóis e empurrando o rádio para o norte.";
+Hint -> -> -> "Ligue o rádio e espere a música começar; então pegue e vista as luvas.";
+Hint -> -> -> "Abra o garrafão, examine os rolos de isolamento e pegue a bateria nova.";
+Hint -> -> -> "Abra a lanterna, esvazie-a, coloque a bateria nova e feche-a.";
+Hint -> -> -> "Pegue a mochila antes de sair da área do sótão.";
 
 HintTopic -> -> "Como resolver o labirinto do rato?";
-Hint -> -> -> "Leve o rato ate os buracos e deixe-o no inicio do caminho.";
-Hint -> -> -> "Digite mouse, w e depois hole, seguido das direcoes do mapa.";
-Hint -> -> -> "O caminho completo e: W W W N W N S E S E E E E.";
-Hint -> -> -> "No fim, pegue a attic key; depois use o dumbwaiter para voltar.";
+Hint -> -> -> "Leve o rato até os buracos e deixe-o no início do caminho.";
+Hint -> -> -> "Digite mouse, w e depois hole, seguido das direções do mapa.";
+Hint -> -> -> "O caminho completo é: W W W N W N S E S E E E E.";
+Hint -> -> -> "No fim, pegue a chave do sótão; depois use o monta-cargas para voltar.";
 
-HintTopic -> -> "Como chegar a premonicao?";
-Hint -> -> -> "Vista a mascara de gas antes de atravessar a porta do sotao.";
-Hint -> -> -> "No teachest, examine e olhe dentro; no quarto, deite e durma.";
-Hint -> -> -> "A mascote e importante: pegue-a para descobrir a palavra magica.";
-Hint -> -> -> "A palavra e lagach. Solte a mascote depois de memoriza-la.";
+HintTopic -> -> "Como chegar à premonição?";
+Hint -> -> -> "Vista a máscara de gás antes de atravessar a porta do sótão.";
+Hint -> -> -> "No baú de chá, examine e olhe dentro; no quarto, deite e durma.";
+Hint -> -> -> "A mascote é importante: pegue-a para descobrir a palavra mágica.";
+Hint -> -> -> "A palavra é lagach. Solte a mascote depois de memorizá-la.";
 
 Menu -> dicas_jemima "Jemima e a primeira volta";
 HintTopic -> -> "O que responder a Jemima?";
-Hint -> -> -> "Vire o calendario ate fevereiro e procure as margaridas de Merlyn.";
-Hint -> -> -> "A cor pedida esta no calendario; nesta partida, a resposta e yellow.";
-Hint -> -> -> "Tire a mascara, de a caixa de chocolates a Jemima e diga: say yellow.";
+Hint -> -> -> "Vire o calendário até fevereiro e procure as margaridas de Merlyn.";
+Hint -> -> -> "A cor pedida está no calendário; nesta partida, a resposta é amarela.";
+Hint -> -> -> "Tire a máscara, dê a caixa de chocolates a Jemima e diga: diga amarelo.";
 
 HintTopic -> -> "Como revelar a fotografia?";
-Hint -> -> -> "Puxe o cordao no quarto escuro e examine o cartao-postal.";
-Hint -> -> -> "Abra o flash e troque a bateria pela nasty red battery.";
-Hint -> -> -> "Feche o flash, examine a photograph e leia Roger no history book.";
+Hint -> -> -> "Puxe o cordão no quarto escuro e examine o cartão-postal.";
+Hint -> -> -> "Abra o flash e troque a bateria pela bateria vermelha desagradável.";
+Hint -> -> -> "Feche o flash, examine a fotografia e leia Roger no livro de história.";
 
 Menu -> dicas_subsolo "Fantasma e chaminé";
 HintTopic -> -> "Como lidar com o fantasma?";
-Hint -> -> -> "Pegue a wishbone no dumbwaiter e leve-a ate o fantasma.";
+Hint -> -> -> "Pegue o osso da sorte no monta-cargas e leve-o até o fantasma.";
 Hint -> -> -> "Diga give wishbone to ghost; isso abre o caminho para o subsolo.";
 
 HintTopic -> -> "Como descer pela lareira?";
-Hint -> -> -> "A lanterna e a brass key precisam estar na lareira.";
-Hint -> -> -> "Coloque as duas, solte o restante e entre na fireplace.";
-Hint -> -> -> "No fundo, pegue tudo, abra a hatch e use o dumbwaiter.";
+Hint -> -> -> "A lanterna e a chave de latão precisam estar na lareira.";
+Hint -> -> -> "Coloque as duas, solte o restante e entre na lareira.";
+Hint -> -> -> "No fundo, pegue tudo, abra a escotilha e use o monta-cargas.";
 
-HintTopic -> -> "Como abrir a medicine bottle?";
-Hint -> -> -> "Desligue e ligue a roda para posicionar o eixo do dumbwaiter.";
-Hint -> -> -> "Coloque a medicine bottle no shaft e gire a roda novamente.";
-Hint -> -> -> "Pegue a tablet ao sair do dumbwaiter.";
-Hint -> -> -> "No glass ball, use a wrench para fixar o pipe; leia os dois livros.";
+HintTopic -> -> "Como abrir o frasco de remédio?";
+Hint -> -> -> "Desligue e ligue a roda para posicionar o eixo do monta-cargas.";
+Hint -> -> -> "Coloque o frasco de remédio no eixo e gire a roda novamente.";
+Hint -> -> -> "Pegue o comprimido ao sair do monta-cargas.";
+Hint -> -> -> "Na esfera de vidro, use a chave inglesa para fixar o cano; leia os dois livros.";
 
 Menu -> dicas_cidade_irreal "Cidade irreal e o navio";
 HintTopic -> -> "Como entrar na cidade irreal?";
-Hint -> -> -> "Leia o poetry book; toque o sino e responda even.";
-Hint -> -> -> "Pegue as tarot cards, examine o mural e pegue o handkerchief.";
-Hint -> -> -> "Wave o handkerchief, embarque no barco e diga time.";
+Hint -> -> -> "Leia o livro de poesia; toque o sino e responda par.";
+Hint -> -> -> "Pegue as cartas de tarô, examine o mural e pegue o lenço.";
+Hint -> -> -> "Agite o lenço, embarque no barco e diga tempo.";
 
 HintTopic -> -> "Como atravessar o labirinto?";
-Hint -> -> -> "Suba na arvore e examine o maze para memorizar o caminho.";
-Hint -> -> -> "Pegue o roller, ligue-o e siga pelo trajeto ate a miniature.";
-Hint -> -> -> "Pegue a miniature e refaça o trajeto de volta antes de desligar o roller.";
+Hint -> -> -> "Suba na árvore e examine o labirinto para memorizar o caminho.";
+Hint -> -> -> "Pegue o rolo, ligue-o e siga pelo trajeto até a miniatura.";
+Hint -> -> -> "Pegue a miniatura e refaça o trajeto de volta antes de desligar o rolo.";
 
 HintTopic -> -> "Como colocar o navio na garrafa?";
-Hint -> -> -> "No projetor, gire o dial e coloque o Ace of Cups no slot.";
-Hint -> -> -> "Procure nas crates a mounted bottle e puxe a anchor do navio.";
-Hint -> -> -> "Coloque o stick ship na mounted bottle e examine o navio.";
-Hint -> -> -> "Suba ao mastro, pegue a flag, va para port, fore e aft; pegue a branch.";
+Hint -> -> -> "No projetor, gire o seletor e coloque o Ás de Copas no compartimento.";
+Hint -> -> -> "Procure nas caixas a garrafa montada e puxe a âncora do navio.";
+Hint -> -> -> "Coloque o navio de madeira na garrafa montada e examine o navio.";
+Hint -> -> -> "Suba ao mastro, pegue a bandeira, vá para bombordo, dianteira e traseira; pegue o galho.";
 
-Menu -> dicas_alison "Alison e os bastoes";
+Menu -> dicas_alison "Alison e os bastões";
 HintTopic -> -> "Como encontrar Alison?";
 Hint -> -> -> "Coloque o Fool no slot e examine o cross.";
 Hint -> -> -> "Leia Alison no history book; empurre a south wall no Dead End.";
@@ -78,11 +78,11 @@ Hint -> -> -> "Use o stick no espelho, wave o timber spar e quebre a janela.";
 Hint -> -> -> "Procure sob a janela e pegue a gold key.";
 Hint -> -> -> "Abra a box com a gold key, pegue o four leaf clover e wave-o.";
 
-HintTopic -> -> "Como identificar todos os bastoes?";
+HintTopic -> -> "Como identificar todos os bastões?";
 Hint -> -> -> "Pegue o charcoal sketch, quebre sua moldura e leia a letter.";
 Hint -> -> -> "Leia a inscription do coffin e coloque nele um mahogany rod.";
-Hint -> -> -> "Feche e abra o coffin; pegue o bastao nomeado.";
-Hint -> -> -> "Repita o ciclo para cada bastao de mogno encontrado, agora e depois.";
+Hint -> -> -> "Feche e abra o coffin; pegue o bastão nomeado.";
+Hint -> -> -> "Repita o ciclo para cada bastão de mogno encontrado, agora e depois.";
 Hint -> -> -> "Pendure a painting no hook e procure o sceptre no umbrella stand.";
 
 Menu -> dicas_hamburgo "Hamburgo e o retorno";
@@ -97,31 +97,31 @@ Hint -> -> -> "Use o Fool e a miniature no slot do souvenir e retorne com o bast
 Hint -> -> -> "No whitewashed area, squeeze a weed killer bottle no ponto indicado pelo maze.";
 Hint -> -> -> "Pegue o bean pole e use o Rod of Returning para voltar a biblioteca.";
 
-Menu -> dicas_manutencao "Manutencao do universo";
+Menu -> dicas_manutencao "Manutenção do universo";
 HintTopic -> -> "Como empilhar o baralho?";
 Hint -> -> -> "Leia o poetry book e examine o mural da crypt.";
 Hint -> -> -> "Coloque o 8 of wands, a maiden e a star no deck.";
 Hint -> -> -> "Toque o sino, suba e pegue novamente as tarot cards.";
 
-HintTopic -> -> "Como converter os bastoes?";
+HintTopic -> -> "Como converter os bastões?";
 Hint -> -> -> "No coffin, wave o quarterstaff, o crook, o bean pole e o 8 of wands.";
-Hint -> -> -> "Feche e abra o coffin apos cada wave para obter Bronze, Husbandry, Stalking e Infinity.";
+Hint -> -> -> "Feche e abra o coffin após cada wave para obter Bronze, Husbandry, Stalking e Infinity.";
 Hint -> -> -> "Golpeie o Rod of Bronze e aponte-o para o mural bronze.";
 
 HintTopic -> -> "Como resolver o painel?";
 Hint -> -> -> "Leia o tombstone e cheire duas vezes a passagem.";
-Hint -> -> -> "Desligue o switch para tornar o transporte deterministico.";
+Hint -> -> -> "Desligue o switch para tornar o transporte determinístico.";
 Hint -> -> -> "Examine panel e bronze wall; use o Rod of Bronze na parede.";
 Hint -> -> -> "Deslize as letras nesta ordem: i k c a n e l o s t k k.";
 
-Menu -> dicas_grecia "Grecia antiga";
+Menu -> dicas_grecia "Grécia antiga";
 HintTopic -> -> "Como vencer a prova do templo?";
-Hint -> -> -> "Pegue o golden orb e use a maiden no slot da estatua.";
-Hint -> -> -> "Use o Rod of Fire na parede e o Rod of Luck em voce.";
+Hint -> -> -> "Pegue o golden orb e use a maiden no slot da estátua.";
+Hint -> -> -> "Use o Rod of Fire na parede e o Rod of Luck em você.";
 Hint -> -> -> "Pegue a copper coin, o inscribed stone e examine a pedra.";
 Hint -> -> -> "Acorde Homer e responda: Agamemnon, Ptolemy, yellow.";
 
-HintTopic -> -> "Como abrir a passagem das estatuas?";
+HintTopic -> -> "Como abrir a passagem das estátuas?";
 Hint -> -> -> "Empurre Dionysus SE e SW, Demeter SW e NW, e Poseidon NE.";
 Hint -> -> -> "Coloque o inscribed stone na abertura e desça.";
 Hint -> -> -> "Pegue o amber gem e coloque-o no socket quando chegar ao Egito.";
@@ -130,7 +130,7 @@ HintTopic -> -> "Como libertar Andromeda?";
 Hint -> -> -> "Use o Rod of Husbandry nos goats e pegue o fig.";
 Hint -> -> -> "Entregue a copper coin ao bartender e pegue a sobremesa.";
 Hint -> -> -> "Dê o dessert a Andromeda; toque os pan-pipes e coloque o fig na urn.";
-Hint -> -> -> "Pergunte: priestess, tell me about fig. Anote os dois numeros recebidos.";
+Hint -> -> -> "Pergunte: priestess, tell me about fig. Anote os dois números recebidos.";
 
 Menu -> dicas_castelo "Castelo, bomba e grade";
 HintTopic -> -> "Como desarmar a bomba?";
@@ -141,7 +141,7 @@ Hint -> -> -> "Espere o timer terminar e retorne com o Rod of Returning.";
 HintTopic -> -> "Como revelar a frieze?";
 Hint -> -> -> "Coloque a star no projetor e examine a frieze.";
 Hint -> -> -> "Coloque o timer no flash, feche-o e ponha o flash no device.";
-Hint -> -> -> "Espere ate o disparo; use lagach nas imagens ate retornar a frieze.";
+Hint -> -> -> "Espere até o disparo; use lagach nas imagens até retornar a frieze.";
 
 HintTopic -> -> "Como fazer Austin saltar?";
 Hint -> -> -> "Coloque o charcoal sketch no slot do projetor.";
@@ -152,14 +152,14 @@ HintTopic -> -> "Como abrir a grade?";
 Hint -> -> -> "Use o bird whistle, pegue e vista o cloak; depois diga anoint me.";
 Hint -> -> -> "Troque os poemas entre os tubos Alpha e Kappa.";
 Hint -> -> -> "Entregue Kappa a Callimachus e Alpha a Apollonius.";
-Hint -> -> -> "Pegue o rusty key, abra a grating e desça ate o coração.";
+Hint -> -> -> "Pegue o rusty key, abra a grating e desça até o coração.";
 
 Menu -> dicas_jardim "Jardim e o strongbox";
 HintTopic -> -> "Como chegar ao strongbox?";
 Hint -> -> -> "No Garden Stream, converta spindle e hairband no coffin.";
 Hint -> -> -> "Wave a green branch, pegue nuts e o wooden ball perto do mosaic.";
 Hint -> -> -> "Leve o wooden ball ao maze, pegue o croquet mallet e consulte a sacerdotisa.";
-Hint -> -> -> "Caminhe X passos na primeira direcao e Y na segunda, conforme a resposta da sacerdotisa.";
+Hint -> -> -> "Caminhe X passos na primeira direção e Y na segunda, conforme a resposta da sacerdotisa.";
 
 HintTopic -> -> "Como terminar a prova do jardim?";
 Hint -> -> -> "Com o gardening implement, cave e abra o strongbox com a gothic key.";
@@ -169,17 +169,17 @@ Hint -> -> -> "Coloque nuts na crack e use o bird whistle para obter o gold watc
 Menu -> dicas_submundo "Submundo e igreja";
 HintTopic -> -> "Como atravessar o submundo?";
 Hint -> -> -> "Coloque o amber gem no socket e durma quatro vezes no couch.";
-Hint -> -> -> "Espere os soldados franceses sairem e avance para oeste, levantando-se a cada parada.";
+Hint -> -> -> "Espere os soldados franceses saírem e avance para oeste, levantando-se a cada parada.";
 Hint -> -> -> "Torça o nariz da sphinx e pegue o model e o greenish oak.";
 
 HintTopic -> -> "Como restaurar o templo?";
-Hint -> -> -> "Coloque o sceptre nos tres sockets e ajuste-os para si, huth e thu.";
+Hint -> -> -> "Coloque o sceptre nos três sockets e ajuste-os para si, huth e thu.";
 Hint -> -> -> "Entre no coffin, feche a tampa duas vezes e suba.";
 Hint -> -> -> "Vire e vista o cloak para abrir a torre; coloque o oak na mesa.";
 Hint -> -> -> "Vista o purple sash, diga anoppe e use o astrolabe no mounting.";
 
 HintTopic -> -> "Como reviver o cavaleiro?";
-Hint -> -> -> "Coloque hand, skull e heart na estatua; use o Rod of Fire nela.";
+Hint -> -> -> "Coloque hand, skull e heart na estátua; use o Rod of Fire nela.";
 Hint -> -> -> "Entregue a marble rose e mostre o keepsake ao knight.";
 Hint -> -> -> "Abra o moonstone com o knight; use o Rod of Ice no Rod of Love.";
 Hint -> -> -> "Pegue o Rod of Love e hipnotize Evans com o gold watch.";
@@ -188,22 +188,22 @@ Menu -> dicas_infinito "Orb e infinito";
 HintTopic -> -> "Como vencer dentro do orb?";
 Hint -> -> -> "Pegue e limpe o golden orb; use o Rod of Sacrifice apontado para black.";
 Hint -> -> -> "Passe pela porta com a wrought iron key e entre no Lemniscus.";
-Hint -> -> -> "Coloque no Lemniscus todos os bastoes, exceto o Rod of Eternity.";
+Hint -> -> -> "Coloque no Lemniscus todos os bastões, exceto o Rod of Eternity.";
 Hint -> -> -> "Coloque o orb na abertura; golpeie o Rod of Infinity e aponte-o ao Lemniscus.";
 
 Menu -> dicas_master_game "Master Game";
 HintTopic -> -> "Como chegar a Britain?";
-Hint -> -> -> "Pegue a torch, balance a rope e pegue a daisy; vista-a.";
-Hint -> -> -> "Pegue e vista os sandals; coloque a torch no well aberto.";
+Hint -> -> -> "Pegue a lanterna, balance a corda e pegue a margarida; vista-a.";
+Hint -> -> -> "Pegue e vista as sandálias; coloque a lanterna no poço aberto.";
 Hint -> -> -> "Use o horn e depois o Rod of Language apontado para si.";
 
-HintTopic -> -> "Como concluir o dialogo dos druidas?";
-Hint -> -> -> "Espere ate os druidas terminarem de falar e suba.";
-Hint -> -> -> "Espere o espiao saxao ser jogado na tenda.";
+HintTopic -> -> "Como concluir o diálogo dos druidas?";
+Hint -> -> -> "Espere até os druidas terminarem de falar e suba.";
+Hint -> -> -> "Espere o espião saxão ser jogado na tenda.";
 Hint -> -> -> "Pegue o tent pole, wave-o, pegue a blue stone e use o Rod of Returning.";
 
-HintTopic -> -> "Como obter os ultimos pontos?";
+HintTopic -> -> "Como obter os últimos pontos?";
 Hint -> -> -> "Leia o poetry book, wave a blue stone e entregue a fifty-franc note.";
 Hint -> -> -> "Diga carte e retorne de barco dizendo time.";
 Hint -> -> -> "Use o dumbwaiter para voltar ao corredor final.";
-Hint -> -> -> "Beije Jemima antes de descer; isso preserva o bonus temporario.";
+Hint -> -> -> "Beije Jemima antes de descer; isso preserva o bônus temporário.";

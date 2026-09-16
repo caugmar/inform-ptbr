@@ -1096,7 +1096,7 @@ in PrintToBuffer()
  
  
 (Library Extensions)
-Ha dicas incorporadas a este jogo, mas voce tera de descobrir sozinho como obte-las.^
+Há dicas incorporadas a este jogo, mas você terá de descobrir sozinho como obtê-las.^
 Se você estiver realmente perdido, digite DICAS novamente para acessar o sistema completo de dicas. Mas só faça isso se você estiver REALMENTE perdido, porque vai afetar sua experiência do jogo.
 (temp_obj)
 *
@@ -1136,10 +1136,10 @@ V = menu anterior
 HintTopic
 Hint
   
-Austin esta completamente tranquilo.
-Por alguma razao, Austin se assusta e salta para salvar a vida 
+Austin está completamente tranquilo.
+Por alguma razão, Austin se assusta e salta para salvar a vida 
 direto pela parede sul e para dentro de Alexandria!
-Voce sente seu cerebro se transformar em mingau de arroz.
+Você sente seu cérebro se transformar em mingau de arroz.
 (LibraryMessages)
 Release 
  / Serial number 
@@ -1254,140 +1254,140 @@ in ~
 )
 [Not an object.]
 Nothing is in scope.
-Um redemoinho de vento quase derruba voce, mas nada mais acontece.
-Uma brisa ondula a tela da pintura desprendida, mas so isso.
+Um redemoinho de vento quase derruba você, mas nada mais acontece.
+Uma brisa ondula a tela da pintura desprendida, mas só isso.
 Nada acontece! A magia dos druidas já está desaparecendo da terra, e você não consegue evitar a tristeza.
 Um redemoinho de vento sai de 
- e leva voce para...^
+ e leva você para...^
 LagachObj
-Rods
+Varas
 as Varas Superiores de 
 as Varas de 
 varas de mogno sem marcas
-Uma vara de mogno sem marcas, de proposito obscuro. Ou quase sem marcas: uma pequena placa de prata permanece em branco numa das pontas.
+Uma vara de mogno sem marcas, de propósito obscuro. Ou quase sem marcas: uma pequena placa de prata permanece em branco numa das pontas.
 A placa de prata nesta vara de mogno a identifica como 
 .
-  Ela esta completamente carregada.
+  Ela está completamente carregada.
 vara de mogno sem marcas
 Superior 
 Vara de 
 a
 a
 Rod
-Voce e derrubado pelo poder de uma das Varas Superiores, mas ela e poderosa demais para um mortal como voce.
-Ela esta incandescente! Mesmo com as luvas, voce nao pode tocar o adamantino.
-Ela esta incandescente, e voce nao pode tocar a superficie!
-Aviso (uma unica vez!): as tres Varas Superiores parecem estar equilibradas com extrema delicadeza na borda do poco.
+Você é derrubado pelo poder de uma das Varas Superiores, mas ela é poderosa demais para um mortal como você.
+Ela está incandescente! Mesmo com as luvas, você não pode tocar o adamantino.
+Ela está incandescente, e você não pode tocar a superfície!
+Aviso (uma única vez!): as três Varas Superiores parecem estar equilibradas com extrema delicadeza na borda do poço.
 Uma vara de adamantino, com uma 
-mao esculpida
-coracao esculpido
+mão esculpida
+coração esculpido
 caveira esculpida
- numa ponta, e com seu titulo inscrito.
-(Escolha interessante.)^^Ao pega-la, voce desequilibra tudo e as outras duas Varas Superiores chacoalham pelo corredor de cristal rumo ao submundo.
+ numa ponta, e com seu título inscrito.
+(Escolha interessante.)^^Ao pegá-la, você desequilibra tudo e as outras duas Varas Superiores chacoalham pelo corredor de cristal rumo ao submundo.
 HighRod
-Oh, nao. Como o Louco Isaac antes de voce, voce entrou em combustao espontanea!
-Voce realmente nao quer vaporizar Austin.
+Oh, não. Como o Louco Isaac antes de você, você entrou em combustão espontânea!
+Você realmente não quer vaporizar Austin.
 Os ossos se sacodem e chacoalham, mas parecem incapazes de se unir para formar vida.
-O cavaleiro de adamantino salta, revigorado pelo fogo em seus olhos esqueleticos, com uma nova faisca no ventre! Ele faz uma reverencia solene, no estilo elaborado de um artista de mimica.
-O adamantino e a prova de fogo.
-A madeira parece ter sido tratada de algum modo e e a prova de fogo.
-Pelo amor de Deus, voce so esta procurando um mapa velho. Assassinato parece um pouco extremo.
-A parede se contorce, incomodada, para evitar mais devastacao.
-O fogo salta da vara para o coracao da parede de espinhos, que grita enquanto queima, revelando um grande buraco entre as chamas selvagens. Voce vislumbra um grande Templo, antes que a parede se regenere. Mas ela nao consegue se recuperar totalmente, deixando uma abertura carbonizada ao sul. Voce provavelmente conseguiria passar por ela.
-O ponto de fusao deste vidro e muito alto e, incrivelmente, ele resiste ao raio de fogo.^
+O cavaleiro de adamantino salta, revigorado pelo fogo em seus olhos esqueléticos, com uma nova faísca no ventre! Ele faz uma reverência solene, no estilo elaborado de um artista de mímica.
+O adamantino é à prova de fogo.
+A madeira parece ter sido tratada de algum modo e é à prova de fogo.
+Pelo amor de Deus, você só está procurando um mapa velho. Assassinato parece um pouco extremo.
+A parede se contorce, incomodada, para evitar mais devastação.
+O fogo salta da vara para o coração da parede de espinhos, que grita enquanto queima, revelando um grande buraco entre as chamas selvagens. Você vislumbra um grande Templo, antes que a parede se regenere. Mas ela não consegue se recuperar totalmente, deixando uma abertura carbonizada ao sul. Você provavelmente conseguiria passar por ela.
+O ponto de fusão deste vidro é muito alto e, incrivelmente, ele resiste ao raio de fogo.^
 (Talvez previsivelmente) a bomba explode!
-Voce provoca um grande incendio e perece nele!
+Você provoca um grande incêndio e perece nele!
 Um raio de fogo salta da vara e consome 
  completamente!
-Isto e bastante perigoso, temo. Use apenas em materia vegetal.
-Fire
+Isto é bastante perigoso, temo. Use apenas em matéria vegetal.
+Fogo
 Nada evidente acontece.
-Embora nada pareca acontecer com voce, toda a esfera dourada se contrai graciosamente, comprimindo-se ate caber confortavelmente na palma da sua mao. Voce pisca.^
-Voce e envolvido por uma nuvem de luzes brancas giratorias, como insetos. Quando o enxame desaparece, voce se ve transportado...^
-Bem, isso nao e muito util, nao e? Eu faria greve se fosse voce.
-Returning
+Embora nada pareça acontecer com você, toda a esfera dourada se contrai graciosamente, comprimindo-se até caber confortavelmente na palma da sua mão. Você pisca.^
+Você é envolvido por uma nuvem de luzes brancas giratórias, como insetos. Quando o enxame desaparece, você se vê transportado...^
+Bem, isso não é muito útil, não é? Eu faria greve se fosse você.
+Retorno
 O cavaleiro salta no lugar (caindo ruidosamente).
-Um arbusto florido, alegre com flores vermelhas, e cuidado numa grande tina redonda sob a parede aqui.
+Um arbusto florido, alegre com flores vermelhas, é cuidado numa grande tina redonda sob a parede aqui.
 O arbusto explode em flores, coberto por dezenas de delicadas luas vermelhas.
-O marmore se sacode, como se tentasse crescer, mas cai de volta, morto.
-A arvore tentou muito, mas no fim nao conseguiu dar um figo.
-A arvore se esforca especialmente e consegue produzir outro figo, que amadurece e cai... voce salta para a frente e pega a fruta antes que ela se espatife no chao.
-Seu cabelo fica momentaneamente em pe, como se quisesse sair da sua cabeca, mas felizmente ele desiste.
-A arvore treme e estremece, mas felizmente permanece intacta.
-Vuuush!^^A parede de espinhos cresce mais seis metros e entao desaba sobre si mesma, acomodando-se como uma fera. Ela esta mais espessa e desagradavel do que nunca.
+O mármore se sacode, como se tentasse crescer, mas cai de volta, morto.
+A árvore tentou muito, mas no fim não conseguiu dar um figo.
+A árvore se esforça especialmente e consegue produzir outro figo, que amadurece e cai... você salta para a frente e pega a fruta antes que ela se espatife no chão.
+Seu cabelo fica momentaneamente em pé, como se quisesse sair da sua cabeça, mas felizmente ele desiste.
+A árvore treme e estremece, mas felizmente permanece intacta.
+Vuuush!^^A parede de espinhos cresce mais seis metros e então desaba sobre si mesma, acomodando-se como uma fera. Ela está mais espessa e desagradável do que nunca.
 Nada evidente acontece.
-^Aviso: algo extremamente previsivel esta prestes a acontecer. Quando achar que ja se recompos e conseguir suportar, pressione ENTER. 
-De repente, um enorme pe de feijao brota do chao, exatamente como num conto de fadas, subindo ate o alto do ceu! Voce boceja convulsivamente.
-Ele nao tem aplicacao horticultural.
-Stalking
-Oh, o cavaleiro ja esteve mais perto do infinito do que voce jamais poderia leva-lo.
-Voce nao adquire nenhum sentido especial do infinito.
+^Aviso: algo extremamente previsível está prestes a acontecer. Quando achar que já se recompôs e conseguir suportar, pressione ENTER. 
+De repente, um enorme pé de feijão brota do chão, exatamente como num conto de fadas, subindo até o alto do céu! Você boceja convulsivamente.
+Ele não tem aplicação horticultural.
+Perseguição
+Oh, o cavaleiro já esteve mais perto do infinito do que você jamais poderia levá-lo.
+Você não adquire nenhum sentido especial do infinito.
 Nada evidente acontece.
-Voce sente o ar se carregar de excitacao, e o simbolo brilha dourado por um instante, mas entao o poder escoa para uma das cavidades vazias do arco.
+Você sente o ar se carregar de excitação, e o símbolo brilha dourado por um instante, mas então o poder escoa para uma das cavidades vazias do arco.
 Nada acontece desta vez.
-O ar se carrega de excitacao, e o simbolo brilha dourado, entao comeca a girar, cada vez mais rapido, transformando-se numa luz dourada perolada que banha voce com magia pura. 
-Mas ainda esta fraco demais! Voce meio que ouve, meio que imagina um sussurro de druidas...
+O ar se carrega de excitação, e o símbolo brilha dourado, então começa a girar, cada vez mais rápido, transformando-se numa luz dourada perolada que banha você com magia pura. 
+Mas ainda está fraco demais! Você meio que ouve, meio que imagina um sussurro de druidas...
 Tudo fica enevoado e então você se encontra...^
-Bem, onde voce poderia ter visto o infinito antes?
-Infinity
-Voce se sente subitamente obediente e por um instante imagina um biscoito para caes.
-Pobre Austin, ele e indomesticavel demais. Isso nao faz efeito.
+Bem, onde você poderia ter visto o infinito antes?
+Infinito
+Você se sente subitamente obediente e por um instante imagina um biscoito para cães.
+Pobre Austin, ele é indomesticável demais. Isso não faz efeito.
 Guiado por algum sexto sentido animal, o esquilo salta graciosamente para fora do caminho.
 Nada evidente acontece.
-As cabras subitamente olham para voce com admiracao, embora logo retomem seu antigo interesse em comer a grama.
-Talvez voce devesse procurar ~criacao de animais~ num dicionario.
-Husbandry
-Voce adquire um bronzeado repentino, mas ele logo desaparece.
-Austin ja e ruivo, o que e bem proximo.
-Ele ignora o efeito. (O adamantino nao e impressionante o bastante para voce?)
-Imediatamente, o bronze se pole ate brilhar como um espelho.
+As cabras subitamente olham para você com admiração, embora logo retomem seu antigo interesse em comer a grama.
+Talvez você devesse procurar ~criação de animais~ num dicionário.
+Criação de animais
+Você adquire um bronzeado repentino, mas ele logo desaparece.
+Austin já é ruivo, o que é bem próximo.
+Ele ignora o efeito. (O adamantino não é impressionante o bastante para você?)
+Imediatamente, o bronze se pole até brilhar como um espelho.
 Nada evidente acontece.
 Nada mais acontece.
-Com um horrivel ruido de esforco e estalos, o mural desliza um pouco para o lado, abrindo uma passagem escura para baixo, que nao pode ter sido usada por seculos.
-O bronze e a chave aqui. Voce viu algum outro bronze em algum lugar?
+Com um horrível ruído de esforço e estalos, o mural desliza um pouco para o lado, abrindo uma passagem escura para baixo, que não pode ter sido usada por séculos.
+O bronze é a chave aqui. Você viu algum outro bronze em algum lugar?
 Bronze
-As cabras se aglomeram demais para que se possa mirar em uma delas com precisao.
-Ainda obedientes a sua vontade, as cabras se separam e uma fica sozinha. Usando esta Vara, voce a vaporiza instantaneamente, e as outras voltam satisfeitas.^^Voce acha que ha uma moral sobre o uso e o abuso do poder?
-Voce realmente nao quer sacrificar Austin.
+As cabras se aglomeram demais para que se possa mirar em uma delas com precisão.
+Ainda obedientes à sua vontade, as cabras se separam e uma fica sozinha. Usando esta Vara, você a vaporiza instantaneamente, e as outras voltam satisfeitas.^^Você acha que há uma moral sobre o uso e o abuso do poder?
+Você realmente não quer sacrificar Austin.
 Seria uma pena, depois de toda aquela cirurgia.
-Voce decide que consegue viver sem 
-, que voce aniquila com a Vara.
-As pecas pretas fazem uma ruptura precipitada em suas defesas, sacrificando uma peca em vao e sofrendo uma derrota rapida.^^A Rainha Branca se ergue do tabuleiro, com um sorriso de anjo vingador, e agita uma espada larga de luz ardente pelo seu corpo...
-Um tesouro em todos os sentidos, o orbe pulsa com radiancia dourada.
-As pecas brancas avancam: primeiro um bispo, depois um cavalo e sacrificado, limpando a parede de peoes que cerca o rei preto para permitir um xeque-mate deslumbrante!^^Voce desaparece do orbe tao estranhamente quanto entrou, impressionado por ele quase pulsar em sua palma.^
-Voce sente uma nobre onda de orgulho enquanto seu corpo e incinerado pela Vara. Ao menos morreu por uma causa terrivelmente importante, embora exatamente qual parece ter escapado da sua memoria.
+Você decide que consegue viver sem 
+, que você aniquila com a Vara.
+As peças pretas fazem uma ruptura precipitada em suas defesas, sacrificando uma peça em vão e sofrendo uma derrota rápida.^^A Rainha Branca se ergue do tabuleiro, com um sorriso de anjo vingador, e agita uma espada larga de luz ardente pelo seu corpo...
+Um tesouro em todos os sentidos, o orbe pulsa com radiância dourada.
+As peças brancas avançam: primeiro um bispo, depois um cavalo é sacrificado, limpando a parede de peões que cerca o rei preto para permitir um xeque-mate deslumbrante!^^Você desaparece do orbe tão estranhamente quanto entrou, impressionado por ele quase pulsar em sua palma.^
+Você sente uma nobre onda de orgulho enquanto seu corpo é incinerado pela Vara. Ao menos morreu por uma causa terrivelmente importante, embora exatamente qual parece ter escapado da sua memória.
 Nada evidente acontece.
-Perigoso demais. A era dos martires na igreja ja acabou ha muito tempo, sabia?
-Sacrifice
-Voce nao sente diferenca. Talvez a sorte nao exista.
-Voce se sente otimista e sortudo. Pensando bem, voce se sente assim na maior parte do tempo.
-Austin ja e sortudo demais.
+Perigoso demais. A era dos mártires na igreja já acabou há muito tempo, sabia?
+Sacrifício
+Você não sente diferença. Talvez a sorte não exista.
+Você se sente otimista e sortudo. Pensando bem, você se sente assim na maior parte do tempo.
+Austin já é sortudo demais.
 Reunido depois de todos esses anos... quanta sorte se pode ter?
 O marinheiro estremece de repente.
-O dado chacoalha um pouco e entao para.
+O dado chacoalha um pouco e então para.
 Nada evidente acontece.
-Bem, se e que existe algo chamado sorte, talvez isto ajude.
-Luck
-Voce sente um calafrio repentino.
+Bem, se é que existe algo chamado sorte, talvez isto ajude.
+Sorte
+Você sente um calafrio repentino.
 Por um breve instante, 
  congela.
-Ja esta frio.
-Ha um enorme silvo de vapor, criando nevoas que giram furiosamente; quando elas se dissipam, resta uma vara aparentemente fria.
+Já está frio.
+Há um enorme silvo de vapor, criando névoas que giram furiosamente; quando elas se dissipam, resta uma vara aparentemente fria.
 Nada evidente acontece.
 Use apenas em momentos acalorados, quando as coisas estiverem delicadamente equilibradas.
-Ice
-Nada evidente acontece. Voce xinga eloquentemente em celta.
-Boa ideia. Agora o quiosqueiro tambem sabe um pouco de celta. Infelizmente, seu orgulho nacional e forte demais. Voce tera de tentar outra coisa - tem carta branca para resolver este problema.
+Gelo
+Nada evidente acontece. Você xinga eloquentemente em celta.
+Boa ideia. Agora o quiosqueiro também sabe um pouco de celta. Infelizmente, seu orgulho nacional é forte demais. Você terá de tentar outra coisa - tem carta branca para resolver este problema.
 Nada evidente acontece.
-Language
-Returning
-As Varas Superiores da Vida, do Amor e da Morte se apoiam numa piramide no alto da encosta ingreme, equilibradas com delicadeza.
-Espantoso! Uma das tres Varas Superiores!
-Life
-Espantoso! Uma das tres Varas Superiores!
-Death
-Espantoso! Uma das tres Varas Superiores!
-Love
+Linguagem
+Retorno
+As Varas Superiores da Vida, do Amor e da Morte se apoiam numa pirâmide no alto da encosta íngreme, equilibradas com delicadeza.
+Espantoso! Uma das três Varas Superiores!
+Vida
+Espantoso! Uma das três Varas Superiores!
+Morte
+Espantoso! Uma das três Varas Superiores!
+Amor
 Uma imagem lindamente realista. 
 cartas de tarô
 o
@@ -1436,15 +1436,15 @@ Você fecha o alçapão outra vez. Mas não há mais caixas de joias.
 Há um alçapão fechado no meio do chão.
 Um alçapão articulado no chão está aberto, e a luz entra por baixo.
 alçapão articulado
-Esse foi o primeiro lugar que voce tentou, ha horas e horas
-, e nao ha nada ali alem daquele livro velho e enfadonho. Mesmo assim voce o pega, entediado como esta
+Esse foi o primeiro lugar que você tentou, há horas e horas
+, e não há nada ali além daquele livro velho e enfadonho. Mesmo assim você o pega, entediado como está
 .
-Aberto em cima. Voce poderia olhar dentro facilmente, se quisesse.
+Aberto em cima. Você poderia olhar dentro facilmente, se quisesse.
 alguns
-baus de cha
-Talvez um dia voce possa conquistar um lugar no vol. III.
+baús de chá
+Talvez um dia você possa conquistar um lugar no vol. III.
 Modestamente, o autor (morto por volta de 1940?) deixou a si mesmo de fora.
-Ela e recente demais para ser incluida.
+Ela é recente demais para ser incluída.
 Mad Isaac (1705-1792) dedicou-se a experimentos místicos de todo tipo e era um antiquário renomado. Ele acreditava que a família Meldrew sofria de uma maldição ancestral, condenando cada membro a empreender uma busca inútil. Pensava que a única maneira de quebrar a maldição era alguém realmente conseguir ter sucesso... infelizmente, morreu em circunstâncias peculiares antes de descobrir como.^^Além disso, acreditava que Merlin, o mago do rei Arthur, não estava enterrado numa caverna de Tintagel, como geralmente se afirma, mas em algum lugar no fundo do jardim (perto de onde hoje fica a rodovia), e que a Lua era um enorme par de discos pretos e brancos puxados pelo céu noturno por uma equipe de anjos.
 Parece que Ebenezer (1846-1908), o mais jovem de um par de gêmeos, abandonou certo dia uma carreira promissora na Companhia das Índias Orientais, tomou um navio a vapor para a Colônia do Cabo e simplesmente marchou para o mato em busca de um rio lendário. Seus mapas foram usados durante alguns anos, e uma província recebeu seu nome por algum tempo, mas hoje os moradores a chamam de outra coisa.
 Roger (1846-1913), o mais velho de um par de gêmeos, era muito vitoriano, sobretudo na desaprovação à carreira literária de sua bela esposa jovem. Achava seus romances tão imorais que se recusou a permitir que o nome da família aparecesse neles. Importante membro da administração paroquial local, limitou seus próprios escritos a numerosas monografias sobre problemas de drenagem municipal, mas morreu antes de concluir seu grandioso Plano Nacional de Esgotos.
@@ -1463,47 +1463,47 @@ Irritantemente, não há índice (haveria um índice consolidado no vol. I), e v
 Deveria ter sido a obra da vida do Honorável Peter Meldrew, uma edição em dois volumes com a história definitiva da família. Infelizmente, embora afirmasse ter procurado evidências nos confins da Terra, nunca encontrou um detalhe que desejava para o volume I, e ele jamais foi publicado. De algum modo, isso tipifica sua família, e consultar este respeitável livro sobre seus antepassados faz você perceber como eles tinham um talento extraordinário para nunca chegar a realizar nada.^^A menos, é claro, que se conte ter tido filhos demais. Há tantos Meldrews listados aqui que você terá de procurá-los individualmente.
 o
 Que livro velho e enfadonho! Não há ninguém que valha a pena consultar.
-Historia dos Meldrews (vol. II)
-Num canto ha uma caixa de joias, antes escondida pelo alçapao aberto.
+História dos Meldrews (vol. II)
+Num canto há uma caixa de joias, antes escondida pelo alçapão aberto.
 Uma elegante caixa feminina, com as iniciais A. M. e gravada com o desenho do que parece ser uma pata de coelho.
 uma
 Tente investigar o mundo do romance, nas varandas da vida.
 caixa de joias antiga
-Na verdade, um ramo de erva-de-paris (Paris Quadrifolia) de quatro folhas, no formato de um no do amor verdadeiro. Mas isso bastava para Alison.
-Nao serve para muita coisa assim, serve?
+Na verdade, um ramo de erva-de-paris (Paris Quadrifolia) de quatro folhas, no formato de um nó do amor verdadeiro. Mas isso bastava para Alison.
+Não serve para muita coisa assim, serve?
 trevo de quatro folhas
-Voce conseguiu se livrar da Maldicao dos Meldrews: pela primeira vez em sessenta geracoes, um Meldrew encontrou o objeto inutil que estava condenado a procurar! Infelizmente, a caminho do aeroporto, voce percebe que deixou o mapa na mesa da cozinha na correria, mas nao importa, agora voce esta de ferias.
-Sim, provavelmente e melhor desistir de procurar, e Deus sabe que ha bastante coisa para arrumar, com o resto da familia em alvoroço. Fazer o que.
+Você conseguiu se livrar da Maldição dos Meldrews: pela primeira vez em sessenta gerações, um Meldrew encontrou o objeto inútil que estava condenado a procurar! Infelizmente, a caminho do aeroporto, você percebe que deixou o mapa na mesa da cozinha na correria, mas não importa, agora você está de férias.
+Sim, provavelmente é melhor desistir de procurar, e Deus sabe que há bastante coisa para arrumar, com o resto da família em alvoroço. Fazer o quê.
 Casa
-Dominado pela culpa por sua linguagem indecente, voce nao consegue dormir.
+Dominado pela culpa por sua linguagem indecente, você não consegue dormir.
 Austin salta para a cama, pula um pouco e depois cai de volta no chão. Você não consegue dormir.
-Voce cochila por um tempo, mas e so isso.
+Você cochila por um tempo, mas é só isso.
 Você dorme inesperadamente bem, mas justamente quando acha que está começando a acordar, tem uma experiência súbita...^
 Antigamente, criados de grandes casas viviam em frestas terríveis e imitações de cômodos como este. Deviam estar sob perigo permanente de sufocamento, pois não há janelas, apenas uma porta a oeste. Uma cama ainda é mantida aqui, e sua visão provoca sonolência neste ar quente e abafado. Tudo o que você quer é se enroscar e dormir.
 Quarto dos criados
-~Bem, se voce vai trapacear, esqueca,~ diz Homero em voz alta enquanto adormece.^^
-Divindade menor dos tumulos, reencarnada de uma mosca que voou para dentro de ambar em solidificacao.
-General na Guerra de Troia e irmao de Agamemnon.
-General na Guerra de Troia e irmao de Menelau.
+~Bem, se você vai trapacear, esqueça,~ diz Homero em voz alta enquanto adormece.^^
+Divindade menor dos túmulos, reencarnada de uma mosca que voou para dentro de âmbar em solidificação.
+General na Guerra de Troia e irmão de Agamemnon.
+General na Guerra de Troia e irmão de Menelau.
 Deus grego da guerra.
 Manto (retangular) de um imperador.
-Nao neste dicionario!
-Mundo subterraneo dos espiritos.
+Não neste dicionário!
+Mundo subterrâneo dos espíritos.
 A pedra mais dura conhecida pelos antigos.
 Epopeia de Homero.
-Montanha mitica dos poetas e das musas.
+Montanha mítica dos poetas e das musas.
 Deus grego dos ferreiros e mestre dos metais.
 Deus grego dos pastos e pastores; toca a sirinx, ou flauta.
-Deusa grega da abundancia.
+Deusa grega da abundância.
 Deus grego do mar e dos cavalos.
-Deus grego das palavras, musica e poesia.
+Deus grego das palavras, música e poesia.
 Governante grego dos deuses.
 Mulher mortal seduzida por Zeus, que apareceu para ela na forma de um cisne.
 Esposa ciumenta de Zeus.
 Deusa grega da beleza.
 Deusa grega da sabedoria.
-Deusa da caca, do mundo subterraneo (com Pluto) e da lua.
-Ilha mitica, lar montanhoso de Diana.
+Deusa da caça, do mundo subterrâneo (com Pluto) e da lua.
+Ilha mítica, lar montanhoso de Diana.
 Faraó mítico do Egito, após o qual surgiu um culto curioso; às vezes confundido com Alexandre, o Grande.
 Personagem canino de Walt Disney, que deu nome ao planeta.
 Deus grego do vinho e da folia.
@@ -1511,92 +1511,92 @@ Deusas gregas que perseguiam eternamente e faziam cumprir as regras divinas puni
 Diz-se que e a pedra no centro (literalmente ~umbigo~) do mundo.
 Sacerdotisa de Apolo: suas previsões eram lendárias pela precisão e também pela dificuldade de interpretação.
 Torre-farol. O grande farol de Alexandria era uma das Sete Maravilhas do Mundo.
-O primeiro grande dramaturgo tragico (525 - c.456 a.C.).
+O primeiro grande dramaturgo trágico (525 - c.456 a.C.).
 Monstro marinho lendário de Poseidon (embora a palavra venha do norueguês; pouca gente sabe disso).
 Donzela sacrificada a um monstro marinho, salva por Perseu segundo a lenda.
-Heroi grego e matador de monstros.
+Herói grego e matador de monstros.
 Flauta de Pã: feita de canas cortadas.
 Primeiro poeta da tradição grega, lendariamente cego: nada se sabe sobre ele, exceto que (supostamente) escreveu a ~Ilíada~ e a ~Odisseia~.
 O Especial Ekmek é uma iguaria ainda servida pela Taverna Eraina, na Free School Lane, Cambridge, Inglaterra. Muito apreciada por matemáticos itinerantes.
-Catalogador da biblioteca de Alexandria, o mais famoso dos poetas epigramaticos, espirituosos e concisos.
+Catalogador da biblioteca de Alexandria, o mais famoso dos poetas epigramáticos, espirituosos e concisos.
 Bibliotecário, matemático, poeta épico e político.
-Alto rei dos britanos, meio mitico.
-Mago meio mitico da corte do rei Arthur.
+Alto rei dos britanos, meio mítico.
+Mago meio mítico da corte do rei Arthur.
 Cidade no delta do Nilo fundada por Alexandre, o Grande.
-Macedonio que conquistou o mundo conhecido aos vinte e poucos anos.
+Macedônio que conquistou o mundo conhecido aos vinte e poucos anos.
 General de Alexandre, o Grande, governou e depois herdou o Egito.
-Ele nao era marinheiro?
-Desculpe, nao ha nada sobre isso.
-Ha um livrinho sobre a mesinha ao lado da cama.
-~Hobson: Um Dicionario Classico de Escolhas~. Ele afirma ter numerosos verbetes.
+Ele não era marinheiro?
+Desculpe, não há nada sobre isso.
+Há um livrinho sobre a mesinha ao lado da cama.
+~Hobson: Um Dicionário Clássico de Escolhas~. Ele afirma ter numerosos verbetes.
 de Hobson
-Ha muitas palavras indecentes nesse.
-dicionario classico
+Há muitas palavras indecentes nesse.
+dicionário clássico
 cama de campanha
-Um cachecol listrado velho esta pendurado atras da porta.
+Um cachecol listrado velho está pendurado atrás da porta.
 Este é um velho cachecol do Biblioll College, feito pela Dunn and Co. (naturalmente). Tem quatro listras: azul-real, esmeralda, cinza-escuro e escarlate.
 um
-O auge da moda, se voce ignorar as cores e usa-lo mesmo assim.
+O auge da moda, se você ignorar as cores e usá-lo mesmo assim.
 cachecol listrado velho
-Uma porta estreita esta aberta na parede norte, dando para a escada dos criados.
+Uma porta estreita está aberta na parede norte, dando para a escada dos criados.
 porta estreita
 Móveis velhos e maltratados estão empilhados aqui: poltronas com molas saindo, suportes de guarda-chuva, um armário muito arranhado, uma mesa sem uma perna... Você tenta lembrar por que guarda toda essa tralha e falha. De todo modo, o sótão continua a sudeste.
-O sotao muda do norte para o sudeste aqui.
-Moveis velhos
-Nada ali, mas aquele armario parece interessante.
-moveis
+O sótão muda do norte para o sudeste aqui.
+Móveis velhos
+Nada ali, mas aquele armário parece interessante.
+móveis
 armario arranhado
-Com a mascara de gas?
+Com a máscara de gás?
 Fweep!  Fweep!^
-^Austin se assusta, mas e preguicoso demais para olhar para cima.^
+^Austin se assusta, mas é preguiçoso demais para olhar para cima.^
 ^Os pardais mergulham e voam ao seu redor, mas logo perdem o interesse.
-^Mas os pardais nao conseguem ouvir.
-^Mas os pardais ja conhecem esse truque.
+^Mas os pardais não conseguem ouvir.
+^Mas os pardais já conhecem esse truque.
 ^Os pardais mergulham no telhado, batendo contra o vidro. No processo, o relógio de ouro se solta e cai no chão com um baque desconcertante.^^Por pouco não atinge o esquilo, que foge assustado.^^O movimento súbito perturba outra vez os pardais inquietos, que levantam voo. De repente, você se sente bastante abandonado.
-^O falcao sagrado de Apolo circula alto no ceu sobre a entrada da caverna, mas depois voa para longe.
+^O falcão sagrado de Apolo circula alto no céu sobre a entrada da caverna, mas depois voa para longe.
 ^As aves de rapina descem, assustadas, sobre uma lápide sem graça que você não havia notado antes; mas, depois de um momento, relaxam e desaparecem na escuridão.
 Embora pareça distraível, o codornizão deve ser surdo como uma pedra. (Você se lembra vagamente de ter lido que os codornizões são as aves mais barulhentas da Irlanda, famosas por manter trabalhadores rurais acordados à noite.)
 Um apito de passarinho ~Harrison~, segundo o slogan em um dos lados.
 Ele tem um efeito calmo e tranquilizador.
 apito de passarinho
-Voce rasga o pacote e encontra uma caixa de chocolates e um cartao.
-Que pena que o papel de presente nao sai.
+Você rasga o pacote e encontra uma caixa de chocolates e um cartão.
+Que pena que o papel de presente não sai.
 pacote embrulhado para presente
 Você se torna extremamente violento na tentativa, mas o vidro resiste a todos os ataques. O que seria preciso para quebrar essa maldita coisa?
 Você tenta absolutamente tudo: empurrar a tampa para baixo, girá-la, puxá-la, colocá-la no chão e pular sobre ela. Tudo. Ela é decididamente à prova de adultos. O que seria preciso para quebrar essa maldita coisa?
-O gargalo e estreito demais para caber qualquer coisa alem do comprimido.
-~Somente antidoto: nenhum efeito preventivo.~
+O gargalo é estreito demais para caber qualquer coisa além do comprimido.
+~Somente antídoto: nenhum efeito preventivo.~
 frasco de remédio rachado
-frasco de remedio indestrutivel garantido com trava a prova de criancas
-Esses frascos sobrevivem ate a quedas longas, entao talvez voce deva tentar o fogo.
-frasco de remedio
-O gosto alarmante e de chocolate.
-Esta droga e para diversao, nao e um antidoto. E tem um sabor delicioso...
+frasco de remédio indestrutível garantido com trava à prova de crianças
+Esses frascos sobrevivem até a quedas longas, então talvez você deva tentar o fogo.
+frasco de remédio
+O gosto alarmante é de chocolate.
+Esta droga é para diversão, não é um antídoto. E tem um sabor delicioso...
 comprimido vermelho
 Bom demais para dar a qualquer outra pessoa. Na verdade...
 caixa de chocolates
 alguns
-As renas tem enorme importancia.
+As renas têm enorme importância.
 papel de presente com renas
 ^Não... espere. A luz sinistra da lâmpada revela uma mensagem em tinta invisível:^^   Hamburgo 1420^^   Bilhete 7.-^^O sete está riscado à maneira continental.
-E enderecado a casa e carimbado em 1963, mas nao tem mensagem. Estranho.
-Nao ha mensagem para ler.
+É endereçado à casa e carimbado em 1963, mas não tem mensagem. Estranho.
+Não há mensagem para ler.
 cartao-postal dos Campos Eliseos
 O ar é poeirento e quente, quase fazendo você engasgar nesta área bastante vazia. O sótão se estende do noroeste ao leste, e há também uma porta estreita levando a oeste. Um pequeno lance de degraus de madeira desce para o sul.
 Sobre a ala leste
-Austin se enrola implacavelmente em seu pe.
+Austin se enrola implacavelmente em seu pé.
 Austin se afasta ressentido, para fora do alcance, e depois arrota.
-Austin sibila e nao deixa que puxem seu rabo.
-Talvez voce deva dizer para que lado empurrar Austin.
+Austin sibila e não deixa que puxem seu rabo.
+Talvez você deva dizer para que lado empurrar Austin.
 Austin se recusa a ir por ali.
-Austin acompanha voce de ma vontade.
+Austin acompanha você de má vontade.
 É tão pateticamente fácil chutar Austin que você nunca tem coragem. Assim, ele o engana outra vez.
-Vejo que voce nunca teve um gato.
+Vejo que você nunca teve um gato.
 Austin arrota esplendidamente em resposta.
-Austin apenas tolera essa demonstracao de afeto.
-Alguns gatos gostam do cheiro de ossos de galinha, mas Austin nao.
-Austin derruba isso no chao com as garras, de modo irritadico.
-Pela primeira vez, Austin nao esta realmente com fome.
+Austin apenas tolera essa demonstração de afeto.
+Alguns gatos gostam do cheiro de ossos de galinha, mas Austin não.
+Austin derruba isso no chão com as garras, de modo irritadiço.
+Pela primeira vez, Austin não está realmente com fome.
 Austin nao se impressiona com 
 .
 Austin, seu gato ruivo incorrigivel, fica esparramado por aqui.
@@ -1614,11 +1614,11 @@ sibila
 Austin
 ^Jemima ve Austin e, sem aviso, pula no lugar, assustando-o. Ele salta para longe, sibilando.
 ^Austin entra da sala de jardinagem como um gato escaldado, mas logo reassume seu habitual jeito de ~folgado tranquilo~.
-^Austin brinca com o rato robo, chutando-o pelo assoalho. Ele apita lastimosamente, esperando ser resgatado.
+^Austin brinca com o rato robô, chutando-o pelo assoalho. Ele apita lastimosamente, esperando ser resgatado.
 ^Austin se atraca com os rolos de isolamento, como se tentasse enterrar algo.
 ^Austin pula na corda, mas cai de volta, rosnando.
 ^Austin boceja.
-^Austin rola de costas e se espreguica.
+^Austin rola de costas e se espreguiça.
 ^Austin parece inefável outra vez.
 ^Austin ronrona e lambe uma das patas.
 ^Há um leve ruído de arranhões no alçapão.
@@ -1657,7 +1657,7 @@ frio.
 ^A sala está cheia de uma luz avermelhada e sinistra. Você se sente sombrio e não consegue evitar pensar em estatísticas de acidentes aéreos.^
 Esta é uma câmara escura de fotógrafo, mobiliada de modo rudimentar e usada por seu avô anos atrás. Não há muita coisa agora, pois você jogou fora os produtos químicos para o caso de as crianças encontrá-los.
 A única porta fica de volta a leste.
-Camara escura
+Câmara escura
 Montada numa placa há uma velha fotografia sépia de um homem.
 A fotografia é uma das primeiras, com aparência de ter sido tirada no escuro porque os produtos químicos oxidaram aos poucos. O pobre homem no quadro (o Sr. Roger Meldrew) parece ter sido sustentado por uma grande presilha para ficar imóvel durante cinco minutos, e foi exatamente isso que aconteceu.
 a velha
@@ -1667,7 +1667,7 @@ A lâmpada se apaga.
 Uma lâmpada de revelação se acende, emitindo uma luz vermelha sinistra.
 Você bate a cabeça no cordão pendurado no teto pela enésima vez.
 Ele está preso ao teto.
-cordao pendurado
+cordão pendurado
 Já está brilhando!
 De modo desconcertante, a condensação dissolve sua mão, e a água sobe pelo seu corpo como se ele fosse papel absorvente. Você não sente nada além de desorientação, mas sua confusão logo se transforma em...^
 Sobre a grama, ao lado do poço, há um orbe dourado brilhante.
@@ -1679,7 +1679,7 @@ Já há uma bateria dentro, e agora só há espaço para um temporizador.
 Um flash fotográfico relativamente moderno está numa prateleira ao lado.
 O tipo de caixa preta que costuma ficar sobre uma câmera, usada para iluminar cenas escuras. Tem um compartimento lateral que pode ser aberto, com espaço para uma bateria e um mecanismo temporizador (aparentemente opcionais).
 Quando conseguir fazê-lo funcionar, talvez deva levá-lo a algum lugar de destaque.
-flash fotografico
+flash fotográfico
 As coisas parecem sutilmente diferentes sob esta luz.
 lampada vermelha
 ^Um feixe de luz branca entra na sala vindo do projetor de slides ao sul e atinge a 
@@ -2352,7 +2352,7 @@ Pendurada num gancho há uma ferramenta agrícola laminada.
 pá
 ferramenta agrícola laminada
 Você acha que há algum lugar do jardim especialmente adequado para uma ferramenta dessas?
-spade
+pá
 Você cai e quebra o pescoço!
 Uma vista magnífica dos jardins seria sua, não fossem os galhos e folhas que o cercam. Você distingue Tia Jemima numa das janelas da estufa, mas se esconde de sua vista. Lá embaixo, o traçado do labirinto de sebes de ligustro pode ser visto através dos galhos inferiores.
 Não, não vá se arriscar assim.
@@ -2424,13 +2424,13 @@ Há seis aros arqueados num conjunto de croqué, dispostos ao redor de uma estac
 estaca e seis aros
 Um baú realmente resistente, enterrado por dois séculos e agora desenterrado; traz uma bela fechadura gótica de ferro e um brasão de mau gosto (um javali rampante).
 Talvez você tenha lido sobre isso. Um de seus ancestrais é a chave, talvez?
-strongbox
+cofre
 Ele está inteiro.
 Você tem um vislumbre fascinante, mas breve demais, de algo cinzento, angular e alto... que sai do campo de visão quando sua mão trêmula se move.
 Pela ocular dourada você vê, não a lua (pois o astrolábio está inclinado baixo demais), mas um curioso triângulo cinzento iluminado pelo sol.^^Fascinado, você se aproxima mais da visão... mais...^
 Um instrumento muito antigo para medir altitudes, isto é tudo o que resta do tesouro de ouro roubado por Sir Joshua Meldrewe. Há uma ocular.
 Um instrumento magnífico, embora não seja muito útil na mão.
-golden astrolabe
+astrolábio dourado
 Uma ideia surreal, um tanto reminiscente do filme dos Beatles ~Yellow Submarine~.
 A terra rica, a prata das minhocas, a dignidade do trabalho... nenhum desses consolos pastorais é seu enquanto você remexe a sujeira.
 buraco cavado
@@ -2497,7 +2497,7 @@ Esta muralha de pedras na encosta dá para o vale e, infelizmente, para a rodovi
 A encosta é íngreme demais.
 Mirante
 ~Este mirante, um dos melhores do condado, foi construído por Capability Meldrew, famoso paisagista de sua época. Destinava-se a ser uma das recompensas do labirinto do jardim e foi construído por volta de 1808, depois que uma antiga torre no local desabou.~
-plaque
+placa
 Uma gravura plástica em miniatura repousa sobre a placa.
 Não maior que uma carta de baralho, ela representa a Torre que antes ficava na saliência da encosta.
 Qual é o sentido de um desenho tão pequeno que quase poderia ser uma carta de baralho?
@@ -2510,7 +2510,7 @@ torre
 Uma vara de feijão, do tipo usado para cultivar trepadeiras, está apoiada na lateral da torre.
 ^Há um grande estrondo e então uma avalanche trovejante de pedras desce pela encosta até o vale. A Torre desabou! Capability Meldrew e seus trabalhadores correm para investigar. Na confusão, eles encontram você e, naturalmente, culpam-no pela alvenaria incompetente. Você é levado perante o tribunal do condado...^
 Faça o que fizer, ela sempre será uma vara de feijão.
-bean pole
+vara de feijão
 O labirinto é apenas bidimensional.
 A cerca de madeira está no caminho.
 Você sente um puxão alarmante nas entranhas.
@@ -2881,7 +2881,7 @@ Consequentemente, você só consegue ouvir a plateia do cabaré aplaudindo o que
 Consequentemente, você só consegue ouvir enquanto a mancha no horizonte se ergue das ondas, transforma-se num enorme monstro marinho Kraken e avança contra a torre de pedra. (Considerando que isto deveria ser um mito grego, parece surpreendentemente um filme japonês de monstros dos anos 1960.) O Kraken golpeia você, exagera no movimento e cai para a frente, empalando-se de modo extremamente grotesco no farol. Seus olhos mal se recuperam a tempo de o resto do seu corpo ser esmagado pelo peso.^^No alto do Monte Olimpo, Zeus continua furioso. ~Leve-me até sua Leda~, você exige espirituosamente, mas isso não parece melhorar as coisas. Poseidon também parece bastante farto, mas felizmente um grupo considerável de deusas fica do seu lado e providencia sua ressurreição...^
 ^Austin salta assustado, depois volta a se esparramar em sua pose ~descolada~.
 ^O esquilo cobre os olhos com as patas por um momento.
-Time flies down here, you know. Eternity simply breezes by.
+O tempo voa por aqui, sabia? A eternidade simplesmente passa num sopro.
 Um bom equipamento fotográfico. Você não o conseguiu de uma... bem, de uma bomba, espero.
 temporizador-detonador
 Esse já foi puxado.
@@ -3017,7 +3017,7 @@ Templo de Zeus
 De um lado, o rosto de um homem; do outro, um símbolo, I. Um óbolo, ou um sexto de uma dracma.
 uma
 Esta moeda só é válida na Grécia antiga. Onde você esteve, afinal?
-copper coin
+moeda de cobre
 O claustro leste do Templo, que vai de noroeste a sudoeste, é vazio, exceto por um pequeno nicho.
 Claustro Leste
 No nicho repousa uma pedra-pomes inscrita, com sessenta centímetros de altura.
@@ -3030,7 +3030,7 @@ Ao longo do claustro oeste, que vai de nordeste a sudeste, há um amplo baixo-re
 Claustro Oeste
 Um símbolo curioso se repete no alto do relevo.
   j  c     k  b   s you gk 
-symbol
+símbolo
 Aqui, no coração escuro do templo, os claustros se bifurcam para nordeste e noroeste, enquanto uma escada estreita desce para o norte.
 Santuário Interior
 Homero está dormindo novamente, com a sirinx apertada nos braços.
@@ -3061,62 +3061,62 @@ partita para flauta desacompanhada
 dueto número quatro
 .
 . De repente, o grande deus Apolo aparece diante de você! Enquanto fala, a própria rocha reverbera.^^   ~Toda a sabedoria é minha, mortal!^   Embora você procure sua maldição^   por mil anos ou mais. Agora pergunte!~^^Apolo, ao desaparecer, ri daquele jeito popularizado mais recentemente por ditadores do Terceiro Mundo e cientistas loucos. Sua sacerdotisa, a Oráculo, sai das sombras.^
-Cuidadosamente cortadas de juncos de rio, estas flautas pertenceram ao proprio Homero, como voce deve se lembrar.
+Cuidadosamente cortadas de juncos de rio, estas flautas pertenceram ao próprio Homero, como você deve se lembrar.
 a
 Maravilhoso! Um som que acalma o espírito.
 flautas de Pã
-A abertura de sessenta centimetros esta livre novamente.
+A abertura de sessenta centímetros está livre novamente.
 O lendário Labirinto parece consistir apenas numa cruz larga. Seus braços seguem para nordeste, noroeste, sudeste e sudoeste, enquanto uma escada de pedra se alarga e sobe para o sul.
-^Voce ouve o som de pedra raspando contra pedra.
+^Você ouve o som de pedra raspando contra pedra.
 Centro da Cruz
  simplesmente cairia pela abertura.
-A abertura esta firmemente bloqueada pela pedra.
-A abertura esta firmemente bloqueada pela escora.
-Voce atravessa a abertura com 
+A abertura está firmemente bloqueada pela pedra.
+A abertura está firmemente bloqueada pela escora.
+Você atravessa a abertura com 
 .
-Ha inscricoes muito gastas e desbotadas no centro da cruz.
-Ao lado das inscricoes ha uma abertura no chao, com cerca de sessenta centimetros quadrados.
+Há inscrições muito gastas e desbotadas no centro da cruz.
+Ao lado das inscrições há uma abertura no chão, com cerca de sessenta centímetros quadrados.
 ~ka-i ur-a re-im ka an-ge~
 a
 inscrições
-Um poco de ossos fetido e mofado, sob a cruz, onde vitimas sacrificiais eram jogadas e ~esquecidas~.
-Oubliette
-Ocorre um guincho horrivel quando uma armadilha e acionada. 
-As paredes comecam a se fechar, mas estao firmemente bloqueadas e nao conseguem se mover...^^
-A abertura se fecha, e as paredes tambem! Em questao de segundos, elas reduzem voce a po de biscoito para caes.
-A vista, sobre ossos esmagados e quebrados, repousa uma gema de ambar reluzente.
+Um poço de ossos fétido e mofado, sob a cruz, onde vítimas sacrificiais eram jogadas e ~esquecidas~.
+Masmorra
+Ocorre um guincho horrível quando uma armadilha é acionada. 
+As paredes começam a se fechar, mas estão firmemente bloqueadas e não conseguem se mover...^^
+A abertura se fecha, e as paredes também! Em questão de segundos, elas reduzem você a pó de biscoito para cães.
+À vista, sobre ossos esmagados e quebrados, repousa uma gema de âmbar reluzente.
 Dentro dela está o corpo de uma mosca. Raspada numa das faces está a palavra ~GALITA~.
 Nao ha alguma lenda classica sobre ela?
 gema de âmbar reluzente
 Este canto da cruz é incrustado com entalhes de peixes, ondas e grandes redes varrendo a água.^^O Labirinto fica a sudoeste.
 Cruz Nordeste
-Talvez voce deva dizer em que direcao empurrar.
-A unica direcao para empurrar a estatua e o centro da cruz, mas ha um poco aberto no chao ali.
-Voce empurra a estatua junto com voce.
+Talvez você deva dizer em que direção empurrar.
+A única direção para empurrar a estátua é o centro da cruz, mas há um poço aberto no chão ali.
+Você empurra a estátua junto com você.
 Statue
-Uma bela estatua da deusa Demeter esta aqui.
+Uma bela estátua da deusa Deméter está aqui.
 estátua de Deméter
 Este canto da cruz é cercado por entalhes de trigo balançando ao vento, banhados pelo sol.^^O Labirinto fica a sudeste.
 Cruz Noroeste
-Uma bela estatua do deus Dionisio esta aqui.
+Uma bela estátua do deus Dionísio está aqui.
 estátua de Dionísio
 Este canto da cruz é decorado com entalhes de fileiras cerradas de guerreiros hoplitas avançando para a batalha.^^O Labirinto fica a noroeste.
 Cruz Sudeste
-Uma bela estatua do deus Ares esta aqui.
+Uma bela estátua do deus Ares está aqui.
 estátua de Ares
 Este canto da cruz é decorado com entalhes de videiras e barris.^^O Labirinto fica a nordeste.
 Cruz Sudoeste
-Uma bela estatua do deus Poseidon esta aqui.
+Uma bela estátua do deus Poseidon está aqui.
 estátua de Poseidon
 Uma caverna seca que começa numa fenda a nordeste, tornando-se uma gruta de bom tamanho, mobiliada com bronze e iluminada por lamparinas suspensas em correntes no teto.
 Boca da Caverna
-Talvez os deuses ja nao habitem lugares assim. Sua oferenda queima em vao.
-O deus Apolo age de maneiras misteriosas, pois outro figo apareceu na arvore.
-Voce agradou ao deus Apolo, Loxias, deus das palavras e dos conselhos, como ja foi chamado! Muito sabio.
-O deus Apolo nao se impressiona com sua oferenda, que alimenta a chama eterna.
-Voce nao deseja ser queimado.
+Talvez os deuses já não habitem lugares assim. Sua oferenda queima em vão.
+O deus Apolo age de maneiras misteriosas, pois outro figo apareceu na árvore.
+Você agradou ao deus Apolo, Loxias, deus das palavras e dos conselhos, como já foi chamado! Muito sábio.
+O deus Apolo não se impressiona com sua oferenda, que alimenta a chama eterna.
+Você não deseja ser queimado.
 No centro da caverna repousa uma pedra de altar de obsidiana com uma urna de bronze flamejante.
-A pedra do altar, as vezes chamada de ~Omphalos~ ou ~o umbigo~, traz uma estranha cruz ou sinal de mais e, segundo a lenda, marca o centro do mundo.^^Ao redor da urna ha relevos de banquetes, bois sendo perseguidos e sacrificados, colheitas de frutas e fabricacao de queijo.
+A pedra do altar, às vezes chamada de ~Omphalos~ ou ~o umbigo~, traz uma estranha cruz ou sinal de mais e, segundo a lenda, marca o centro do mundo.^^Ao redor da urna há relevos de banquetes, bois sendo perseguidos e sacrificados, colheitas de frutas e fabricação de queijo.
 a
 urna de bronze flamejante
 zero
@@ -3134,7 +3134,7 @@ A sacerdotisa, oráculo pítia de Loxias, mal parece ouvir ou entender: entra em
 Como você deveria saber, a Oráculo é inviolável.
 A Oráculo, sacerdotisa mascarada de Apolo, está aqui atrás de uma pedra de altar de obsidiana, com três côvados cúbicos; ao seu lado há uma urna de bronze com uma chama perpétua.
 a
-Oracle
+Oráculo
 (Pelo canto do olho, você percebe o flash cair do dispositivo.)^
 Você está no alto de um pináculo de pedra, num Faros antigo, ou farol. Atenciosamente, os construtores deixaram uma escada em espiral para baixo. 
 Os penhascos abaixo são familiares, mas é um pouco mais tarde do que quando você chegou à costa. 
@@ -3151,13 +3151,13 @@ Friso Grego
 A faixa decorada do entablamento entre a arquitrave e a cornija, no estilo ático do século V a.C.^^Bem, você perguntou.
 friso grego
 a
-port wall
+parede de bombordo
 a
-starboard wall
+parede de estibordo
 a
-fore wall
+parede dianteira
 a
-aft wall
+parede traseira
 Aqui a bordo, uma direção de quem não entende de navegação parece inadequada.
 some landlubber's direction
 Uma tempestade sacode o convés, mas não traz chuva: você cambaleia de um lado para o outro, agarrado ao corrimão, ao mastro ou ao cordame. Não parece haver mais ninguém a bordo. O barco não avança na estranha névoa vítrea.^^O mastro sobe vertiginosamente.^^Você nem consegue distinguir a água abaixo. Uma grande névoa rosa se espalha pelo céu. Com presságios assim, quem precisa de albatrozes?
@@ -3512,7 +3512,7 @@ Arriscado demais, demais.
 ^Tinha de acontecer mais cedo ou mais tarde. Um dos druidas olha ao redor, vê você e dá o alarme imediatamente. É absolutamente inútil resistir, e você é arrastado aos gritos para seu destino.
 Acampamento
 Uma rocha glacial irregular, que à luz febril do fogo parece formar um dólmen natural, pode ser vista a leste, do outro lado de uma fogueira quase extinta de brasas quentes.
-dolmen
+dólmen
 Você está ao lado do dólmen sinistro, cercado pelos ruídos terríveis e encantamentos de um rito druídico.
 Arriscado demais, demais.
 Sob o dólmen
@@ -3541,7 +3541,7 @@ Bem, talvez ~sarcófago~ seja um pouco melodramático, mas é esse tipo de momen
 Sarcófago
 Como num pesadelo, até o chão onde você se ajoelha é uma lápide caída.
 O essencial da inscrição é: ~Henri Maladreue, obiit mcdlvi.~
-tombstone
+lápide
 Uma caverna grande e horrenda, bem abaixo do jardim, mal iluminada e sinistra. A escuridão se enrola em torno dos pilares naturais de rocha como névoa, e há nela um odor peculiar e vagamente familiar. As únicas saídas óbvias são uma passagem irregular que sobe ao norte e um rastejo para oeste.
 Você esbarrou em algo desagradável ali.
 Catacumbas
@@ -3573,7 +3573,7 @@ parede norte
 parede sul
  é ocupada por um espelho de bronze que reflete a sala.
 Alguém bastante bonito, você não consegue deixar de pensar, está refletido na superfície metálica.
-metal wall
+parede metálica
 No meio da parede de vidro há um painel de ferro dividido numa grade de três por cinco.^^Atrás do vidro há uma espécie de gangorra com dois cestos de couro nas extremidades opostas de um pivô de carvalho. 
 Num canto do teto, acima da extremidade distante da gangorra, há um 
 buraco pelo qual emana uma luz natural fraca.^^
@@ -3585,7 +3585,7 @@ Há quatorze peças na grade e uma lacuna. As peças têm letras
 (em escrita refletida) 
 e estão dispostas assim:^^
 ^[Tente ~deslizar b~, por exemplo, para mover uma peça até a lacuna.]
-iron grid
+grade de ferro
 Está fora de alcance, além do vidro.
 Como ele parece tentadoramente valioso.
 orbe dourado brilhante
@@ -3914,7 +3914,7 @@ Minha nossa. ~Eu toco seu... e o seu aroma sobe de... seu belo...~ É melhor nã
 pergaminho com um poema curto
 Isso mal parece valer a pena.
 Você espalha óleo na cabeça, anotando mentalmente que deve lavar o cabelo pela manhã. É o ritual sagrado menos sagrado de que já participou.
-Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua tocha é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.
+Esta sala pequena e escura (à noite) é um depósito de suprimentos da Biblioteca, sobretudo de óleo para lâmpadas, armazenado em grandes calhas rasas de cerâmica. Ainda bem que sua lanterna é elétrica, pensando bem. De qualquer modo, uma passagem leva de volta ao norte.
 Sala do óleo
 Que ideia repugnante!
 o
@@ -4134,11 +4134,11 @@ você pisa em falso e atravessa um telhado fino de gesso, caindo felizmente sobr
 ~For foulmouths everywhere~.
 um pedaço de
 Esse é o espírito, continue assim!
-Really!  How disgraceful!
-carbolic soap
-, dando a voce o posto de 
-lendo o cartao-postal
-recarregando a tocha
+Francamente! Que vergonha!
+sabão carbolizado
+, dando a você o posto de 
+lendo o cartão-postal
+recarregando a lanterna
 exorcismo
 abrindo a porta secreta
 abrindo o garrafao
@@ -4157,7 +4157,7 @@ resolvendo a grade
 vencendo o orbe
 comprando o mapa de Paris
 preenchendo o arco
-entrando no poco
+entrando no poço
 adquirindo o mascote
 comendo entre as refeicoes
 detectando fumaca
@@ -4178,206 +4178,206 @@ lavando a pedra
 provocando os bibliotecarios
 torcendo o nariz da esfinge
 depositando o bordao
-subindo no alem-vida
+subindo no além-vida
 revivendo o cavaleiro
 encorajando o cavaleiro
 escolhendo uma Vara Superior
 ** Nameless task **
-Voce perdeu completamente o sentido da coisa
-Voce desincorporou o universo inteiro
-Voce foi transportado para a Australia
-Voce foi aniquilado por um paradoxo temporal
-Voce se tornou uma constelacao
-Voce foi preso como terrorista
-Voce sofreu xeque-mate
-Voce levou um susto
-Four be the things I'd been better without:
-Love, curiosity, freckles and doubt.
+Você perdeu completamente o sentido da coisa
+Você desincorporou o universo inteiro
+Você foi transportado para a Austrália
+Você foi aniquilado por um paradoxo temporal
+Você se tornou uma constelação
+Você foi preso como terrorista
+Você sofreu xeque-mate
+Você levou um susto
+Quatro são as coisas que eu estaria melhor sem:
+Amor, curiosidade, sardas e dúvida.
 -- Dorothy Parker, ~Inventory~
-It seemed that the next minute they would discover
-a solution. Yet it was clear to both of them that
-the end was still far, far off, and that the
-hardest part was just beginning.
+Parecia que no minuto seguinte descobririam
+uma solução. Mas estava claro para ambos que
+o fim ainda estava muito, muito distante, e que a
+parte mais difícil estava apenas começando.
 -- Anton Chekhov, ~The Lady with the Dog~
-                           The mouse
-Behind the mouldering wainscot shrieked.
+                           O rato
+Gritou atrás do lambril apodrecido.
 -- Alfred, Lord Tennyson, ~Mariana~
-Parturient montes, nascetur ridiculus mus.
+As montanhas estão em trabalho de parto, nascerá um rato ridículo.
 -- Horace, ~Ars Poetica~
-Zeus, whose will has marked for man
-A single way where wisdom lies
-Ordained one eternal plan:
-Man must suffer to be wise.
+Zeus, cuja vontade traçou para o homem
+Um único caminho onde reside a sabedoria,
+Ordenou um plano eterno:
+O homem deve sofrer para ser sábio.
 -- Aeschylus, ~Agamemnon~
-I might repeat to myself, slowly and soothingly,
-a list of quotations beautiful from minds profound;
-if I can remember any of the damn things.
+Eu poderia repetir para mim mesma, lenta e suavemente,
+uma lista de belas citações de mentes profundas;
+se conseguir lembrar de alguma dessas malditas coisas.
 -- Dorothy Parker
-More ways of killing a cat
-than choking her with cream.
+Há mais maneiras de matar um gato
+do que sufocá-lo com creme.
 -- Charles Kingsley
-I would like to be there,
-were it but to see how the cat jumps.
+Eu gostaria de estar lá,
+nem que fosse para ver como o gato pula.
 -- Sir Walter Scott
-Do not go gentle into that good night.
-Rage, rage against the dying of the light.
+Não entre mansamente nessa boa noite.
+Revolte-se, revolte-se contra o apagar da luz.
 -- Dylan Thomas
-No, 'tis not so deep as a well, nor so wide as
-a church door; but 'tis enough, 'twill serve.
+Não, não é tão profundo quanto um poço, nem tão largo quanto
+a porta de uma igreja; mas basta, servirá.
 -- Shakespeare, ~Romeo and Juliet~
-...I have just signed legislation that will outlaw
-Russia for ever. We begin bombing in five minutes.
--- President Reagan, mistakenly believing the TV
-   cameras were switched off
-What is a ship but a prison?
+...acabei de assinar uma lei que banirá
+a Rússia para sempre. Começamos a bombardear em cinco minutos.
+-- Presidente Reagan, acreditando por engano que as câmeras
+   de TV estavam desligadas
+O que é um navio senão uma prisão?
 -- Robert Burton (1577-1640)
-The remarkable fact is that the values of these
-numbers seem to have been very finely adjusted
-to make possible the development of life.
+O fato extraordinário é que os valores desses
+números foram ajustados com extrema precisão
+para permitir o desenvolvimento da vida.
 -- Stephen Hawking, ~A Brief History of Time~
-Remember that you are an Englishman, and have
-consequently won first prize in the lottery of life.
+Lembre-se de que você é inglês e, portanto,
+ganhou o primeiro prêmio na loteria da vida.
 -- Cecil Rhodes (1853-1902)
 Les plus desesperes sont les chants les plus beaux
 Et j'en sais d'immortels quit sont de purs songlots.
 -- Alfred de Musset, ~La Nuit de mai~
-There is no return game between a man and his stars.
+Não há partida de volta entre um homem e suas estrelas.
 -- Samuel Beckett, ~Murphy~
-Throw away thy rod,
-Throw away thy wrath:
-O my God.
-Take the gentle path.
+Joga fora tua vara,
+Joga fora tua ira:
+Ó meu Deus.
+Segue o caminho gentil.
 -- George Herbert, ~Discipline~
-Speak gently, she can hear
-The daisies grow.
+Fala suavemente, ela pode ouvir
+As margaridas crescem.
 -- Oscar Wilde, ~Requiescat~
-Too poor for a bribe, and too proud to importune
-He had not the method of making a fortune.
+Pobre demais para um suborno e orgulhoso demais para importunar,
+ele não tinha o método de fazer fortuna.
 -- Thomas Grey, ~Sketch of His own Character~
 Facilis descensus Averno:
 Noctes atque dies patet atri ianua Ditis;
 Sed revocare gradum superasque evadere ad auras,
 Hoc opus, hic labor est.
--- Virgil, ~The Aeneid~ Book VI:126
-We are the children of primeval night; we bear
-The name of Curses in our home deep under earth.
+-- Virgílio, ~A Eneida~, Livro VI:126
+Somos filhos da noite primeva; carregamos
+o nome de Maldições em nosso lar profundo sob a terra.
 -- Aeschylus, ~The Eumenides~
-Thou makest his beauty to consume away,
-Like as it were a moth fretting a garment:
-Every man therefore is but vanity.
+Fazes sua beleza desaparecer,
+como uma traça que rói uma vestimenta:
+portanto, todo homem é apenas vaidade.
 -- Psalms 39:12 (Book of Common Prayer version)
-White lilac bowed,
-Lost lanes of Queen Anne's lace
-And that high-builded cloud
-Moving at summer's pace.
+O lilás branco se curvou,
+As vielas perdidas da renda-da-rainha
+E aquela nuvem alta
+Movendo-se ao ritmo do verão.
 -- Philip Larkin, ~Cut Grass~
-At the end of the day victory belongs to the Curses,
-Who shout in shrill triumph
-Over the utter rout of the defeated house.
+Ao fim do dia, a vitória pertence às Maldições,
+que gritam em triunfo estridente
+sobre a derrota completa da casa vencida.
 -- Aeschylus, ~Seven Against Thebes~
-He shall separate them one from another,
-as a shepherd divideth his sheep from the goats.
+Ele os separará uns dos outros,
+como um pastor separa suas ovelhas dos bodes.
 -- Matthew 25:32
-Quickly now the amber
-  Takes the fly with knees deranged
-To be buried unseen, unfound
-  And irrevocably changed.
+Agora, rapidamente, o âmbar
+  captura a mosca de joelhos desordenados
+para ser enterrada sem ser vista, sem ser encontrada
+  e irrevogavelmente transformada.
 -- Dean Waynflete, ~Substance~
-Thus the devil played at chess with me, and yielding
-a pawn, thought to gain a queen of me, taking
-advantage of my honest endeavours.
+Assim o diabo jogou xadrez comigo e, cedendo
+um peão, pensou obter de mim uma rainha, aproveitando-se
+de meus esforços honestos.
 -- Sir Thomas Browne, ~Religio Medici~ pt I
-Art thou pale for weariness
-Of climbing heaven and gazing on the earth?
+Estás pálido de cansaço
+de subir ao céu e contemplar a terra?
 -- Shelley, ~To The Moon~
-A nice, - respectable, - middle class, middle-aged maiden
-lady, with time on her hands and the money to help her pass
-it... Let us call her Aunt Edna... Aunt Edna is universal,
-and to those who may feel that all the problems of the
-modern theatre might be solved by her liquidation, let me
-add that... she is also immortal.
+Uma donzela simpática, respeitável, de classe média e meia-idade,
+com tempo disponível e dinheiro para passá-lo,
+digamos... Tia Edna... Tia Edna é universal,
+e para aqueles que acham que todos os problemas do
+teatro moderno se resolveriam com sua liquidação, acrescento
+que... ela também é imortal.
 -- Terence Rattigan, preface to the ~Collected Plays~
-I seemed to move among a world of ghosts,
-And feel myself the shadow of a dream.
+Parecia mover-me entre um mundo de fantasmas,
+e sentir-me a sombra de um sonho.
 -- Alfred, Lord Tennyson, ~The Princess~
-If the doors of perception were cleansed,
-everything would appear to man as it is, infinite.
+Se as portas da percepção fossem purificadas,
+tudo apareceria ao homem como é, infinito.
 -- William Blake
-Follow the instructions,
-tell us what you think:
-they lose something in translation,
-they might as well be written in invisible ink.
+Siga as instruções,
+diga-nos o que pensa:
+elas perdem algo na tradução,
+poderiam muito bem estar escritas em tinta invisível.
 -- Peter Hammill, ~Invisible Ink~
-On a round ball
-A workman that hath copies by, can lay
-An Europe, Afrique and an Asia,
-And quickly make that, which was nothing, All.
+Numa esfera redonda
+Um artesão que tenha modelos pode desenhar
+Uma Europa, uma África e uma Ásia,
+e rapidamente tornar tudo aquilo que era nada.
 -- John Donne, ~Valediction: Of Weeping~
-What you don't know would make a great book.
+O que você não sabe daria um ótimo livro.
 -- The Rev. Sydney Smith
-Sir Walter Elliot, of Kellynch-hall, in Somersetshire,
-was a man who, for whose own amusement, never took up
-any book but the Baronetage; there he found occupation
-in an idle hour, and consolation in a distressed one
+Sir Walter Elliot, de Kellynch-hall, em Somersetshire,
+era um homem que, para seu próprio divertimento, jamais pegava
+outro livro senão o Baronetage; ali encontrava ocupação
+numa hora ociosa e consolo numa hora angustiada.
 -- Jane Austen, ~Persuasion~
-I am the Love that dare not speak its name.
+Sou o Amor que não ousa dizer seu nome.
 -- Lord Alfred Douglas, ~Two Loves~
-'I am inclined to think -' said I.
-'I should do so,' Sherlock Holmes remarked
-impatiently.
+'Inclino-me a pensar -' disse eu.
+'Eu faria isso', observou Sherlock Holmes
+impacientemente.
 -- Sir Arthur Conan Doyle, ~The Valley of Fear~
-Hell is a city much like London -
-A populous and a smoky city.
+O inferno é uma cidade muito parecida com Londres -
+Uma cidade populosa e enfumaçada.
 -- Shelley, ~Peter Bell the Third~
-I hope I shall never be deterred from detecting
-what I think a cheat, by the menaces of a ruffian.
+Espero nunca ser impedido de denunciar
+o que considero uma fraude pelas ameaças de um canalha.
 -- Dr Johnson (a letter from 1775)
-Expatiate free o'er all this scene of man;
-A mighty maze! but not without a plan.
+Passeia livremente por toda esta cena humana;
+Um labirinto imenso! mas não sem um plano.
 -- Alexander Pope, ~An Essay on Man~
-It's hard to be religious when certain people
-are never incinerated by bolts of lightning.
+É difícil ser religioso quando certas pessoas
+jamais são incineradas por raios.
 -- Bill Watterson, ~Calvin & Hobbes~
-Follow me, follow
-Down to the hollow
-And there let us wallow
-In glorious mud.
+Siga-me, siga
+até a depressão
+e ali vamos chafurdar
+na lama gloriosa.
 -- Flanders and Swann
-Zoe, logic merely enables one
-to be wrong with authority
+Zoe, a lógica apenas permite
+estar errado com autoridade
 -- Dr Who, aboard ~The Wheel In Space~
-Then for as moche as a philosofre saith,
-~he wrappith him in his frend, that condescendith
-to the rightfulle praiers of his frend,~
-therefore have I yeven the a suffisant Astrolabie
-as for oure orizonte, compowned after the
-latitude of Oxenforde;
+Pois, como diz um filósofo,
+~ele se envolve no amigo que se dispõe
+às justas preces de seu amigo,~
+por isso te dei um astrolábio suficiente
+para nosso horizonte, composto segundo a
+latitude de Oxford;
 -- Geoffrey Chaucer, ~A Treatise on the Astrolabe~
-Upon a nyght in sleep as he hym leyde,
-Hym thoughte how that the wynged god Mercurie
-Biforn hym stood and bad hym to be murie.
-His slepy yerde in hond he bar uprighte;
-An hat he werede upon his heris brighte.
+Certa noite, ao deitar-se para dormir,
+pareceu-lhe que o deus alado Mercúrio
+estava diante dele e o mandava alegrar-se.
+Trazia erguido na mão seu bastão sonolento;
+usava um chapéu sobre seus cabelos brilhantes.
 -- Geoffrey Chaucer, ~The Knight's Tale~
 Benedick:
-  To bind me or undo me, one of those.
+  Para me prender ou desfazer, uma dessas.
 -- Shakespeare, ~Much Ado About Nothing~
-In the central display case, there is a curious
-pottery model, either representing the Labyrinth
-of Minos or a water-cooling system.
+Na vitrine central há um curioso
+modelo de cerâmica, representando talvez o Labirinto
+de Minos ou um sistema de resfriamento de água.
 -- W. J. Murnane's ~Guide to Ancient Egypt~
-I don't know who was there before me:
-One person, several, none;
-It doesn't matter.
-There are marks on the slabs of rock,
-Some beautiful, all mysterious;
-Some certainly not made by human hands.
+Não sei quem esteve aqui antes de mim:
+Uma pessoa, várias, nenhuma;
+Isso não importa.
+Há marcas nas lajes de pedra,
+algumas belas, todas misteriosas;
+algumas certamente não feitas por mãos humanas.
 -- Primo Levi, ~A Valley~
-It has always seemed to me that I had to answer
-questions which fate had posed to my forefathers,
-and which had not yet been answered, or as if I
-had to complete, or perhaps continue, things which
-previous ages had left unfinished.
+Sempre me pareceu que eu tinha de responder
+às perguntas que o destino fizera a meus antepassados,
+e que ainda não haviam sido respondidas, como se eu
+tivesse de completar, ou talvez continuar, coisas que
+eras anteriores haviam deixado inacabadas.
 -- Carl Jung, ~Memories, Dreams, Reflections~
 ^^^^^^^^^^^^^
  
@@ -4385,18 +4385,18 @@ previous ages had left unfinished.
 ^^
  
          [Pressione ESPAÇO para começar.]^
-Nine times she waved the fluttering wimple round,
-And made a little plot of magic ground.
-And in that daisied circle, as men say,
-Is Merlin prisoner till the judgement day...
+Nove vezes ela agitou ao redor o véu esvoaçante,
+e fez um pequeno pedaço de chão mágico.
+E nesse círculo de margaridas, dizem os homens,
+Merlim é prisioneiro até o dia do julgamento...
 -- Matthew Arnold, Tristram and Iseult III (1852)
-Curses are like young chickens,
-they always come home to roost.
+Maldições são como galinhas jovens,
+sempre voltam para dormir no poleiro.
 -- Robert Southey (1774-1843),
    ~The Curse of Kehama~
-Let Rome in Tiber melt, and the wide arch
-Of the ranged empire fall! Here is my space.
-Kingdoms are clay.
+Que Roma derreta no Tibre, e caia o amplo arco
+do império disposto! Aqui está meu espaço.
+Reinos são barro.
 -- Shakespeare, ~Antony and Cleopatra~ I:1
 /
    
@@ -4414,7 +4414,7 @@ Turnos:
   Inverno de 275 a.C.
     3 de junho de 1993
                   
-(in Meldrew Hall)       
+(no Solar Meldrew)      
 (na Cidade Irreal)      
 (Hamburgo à noite)      
 (na caixa de Tarô)      
@@ -4423,7 +4423,7 @@ Turnos:
 (no Jogo Mestre)        
 (sonhando?)             
 (nas catacumbas)        
-(in Alexandria)         
+(em Alexandria)         
 (a nordeste do Solar)
                         
  
@@ -4434,76 +4434,76 @@ Turnos:
 ^  
 Você não vai a lugar algum até se redimir por esse palavrão horrível.
 Com a máscara de gás, você só sente cheiro de cortiça velha e borracha.
-Not with a gas mask on!
+Não com uma máscara de gás!
 A máscara de gás abafa sua fala até o silêncio.
-Nao e uma ferramenta muito adequada.
-Voce nao tem nenhuma ferramenta adequada a mao.
-Voce so consegue remexer ainda mais a terra.
-Arqueologia nao e para amadores!
-O cascalho e fino e esta sobre concreto.
+Não é uma ferramenta muito adequada.
+Você não tem nenhuma ferramenta adequada à mão.
+Você só consegue remexer ainda mais a terra.
+Arqueologia não é para amadores!
+O cascalho é fino e está sobre concreto.
 Surreal!
-O solo nao serve.
-Voce certamente nao quer cavar aqui, bem no meio de um gramado tao bonito. A estaca cairia, e isso nao pode acontecer.
-Ja existe um buraco exatamente neste ponto do gramado.
-Voce cava um pequeno buraco vigoroso na grama excelente
+O solo não serve.
+Você certamente não quer cavar aqui, bem no meio de um gramado tão bonito. A estaca cairia, e isso não pode acontecer.
+Já existe um buraco exatamente neste ponto do gramado.
+Você cava um pequeno buraco vigoroso na grama excelente
 , enchendo o anterior com a terra retirada
-, ate sua pa bater em algo solido
-, sem encontrar o que quer que voce tenha enterrado
+, até sua pá bater em algo sólido
+, sem encontrar o que quer que você tenha enterrado
 .
-Voce se deita no chao por um tempo e depois se levanta, sentindo-se tolo.
-Voce tera de dizer exatamente como fazer isso.
-Isso nao vai conseguir muita coisa.
-Isso nao parece precisar de apoio.
-Isso nao e um apoio particularmente bom.
+Você se deita no chão por um tempo e depois se levanta, sentindo-se tolo.
+Você terá de dizer exatamente como fazer isso.
+Isso não vai conseguir muita coisa.
+Isso não parece precisar de apoio.
+Isso não é um apoio particularmente bom.
 A escora de madeira se apoia na Torre instavel, sustentando-a.
-Voce apoia a escora de madeira na torre, sustentando-a. (E melhor torcer para nao precisar dela para outra coisa!)
-Espere um instante... sim, voce ainda esta respirando. Continue assim!
-Voce anda de um lado para o outro, a maneira de Holmes.
-Talvez voce deva dizer em que direcao andar.
+Você apoia a escora de madeira na torre, sustentando-a. (É melhor torcer para não precisar dela para outra coisa!)
+Espere um instante... sim, você ainda está respirando. Continue assim!
+Você anda de um lado para o outro, à maneira de Holmes.
+Talvez você deva dizer em que direção andar.
 O que?
 Nem pensar!
 Isso passaria da borda do gramado.
-A bola nao esta no chao.
-Voce bate na bola com o taco, produzindo um agradavel estalo.^
+A bola não está no chão.
+Você bate na bola com o taco, produzindo um agradável estalo.^
 ^A bola ricocheteia entre os ornamentos como numa maquina de pinball.
 ^A bola corre suavemente pelo gramado
  e cai no buraco.
 Ha caminhos apenas para oeste e noroeste.
-, ate a sebe noroeste e encontra um esquilo irritado. Com um subito farfalhar, ele salta, afasta um galho podre e revela uma pequena passagem pela sebe.
-Voce nao conseguiria nada com isso.
-Voce esta se sentindo bem?
-Voce tera de ser um pouco mais especifico.
+, até a sebe noroeste e encontra um esquilo irritado. Com um súbito farfalhar, ele salta, afasta um galho podre e revela uma pequena passagem pela sebe.
+Você não conseguiria nada com isso.
+Você está se sentindo bem?
+Você terá de ser um pouco mais específico.
 descobrindo varas^
 bonus por uma boa tentativa^
 destruindo o universo^
-^Infelizmente, voce perdeu o bonus de 50 pontos por resgatar Andromeda.
-Mas voce nao esta segurando isso.
-A luz pulsa ao redor da corrente de margaridas, entao salta para envolver 
+^Infelizmente, você perdeu o bônus de 50 pontos por resgatar Andrômeda.
+Mas você não está segurando isso.
+A luz pulsa ao redor da corrente de margaridas, então salta para envolver 
  que derrete e se transforma em 
 !
 A luz pulsa da margarida atras da sua orelha, saltando para envolver 
  que derrete e se transforma em 
 !
-Parece que nao e bem assim que elas funcionam...
-Voce nao pode agitar o que esta vestindo.
-Voce parece ridiculo agitando 
+Parece que não é bem assim que elas funcionam...
+Você não pode agitar o que está vestindo.
+Você parece ridículo agitando 
 .
-Voce faz um pedido.
-O osso da sorte ja foi puxado, e voce ficou com a parte que perdeu.
- nao quer dancar com voce.
+Você faz um pedido.
+O osso da sorte já foi puxado, e você ficou com a parte que perdeu.
+ não quer dançar com você.
 Grafite e grosseiro.
 A placa de prata e extremamente resistente e impede qualquer tentativa de marca-la.
- nao serve para girar coisas.
-(A chave parece desnecessaria, entao voce usa as maos.)^
-(Se voce insiste.)  
-Nao ha resposta.
-Isso nao serve para lavar.
-Voce nao tem sabao.
-Argh, o gosto e absolutamente horrivel. Mas voce se sente melhor por isso.
-Esse tipo de linguagem e uma desgraca absoluta, e voce vai ter de pagar o preco por ela.
-E bom que voce consiga expressar sua frustracao de maneira tao branda.
-Ah, nao se desculpe.
-Desculpa nao basta!
+ não serve para girar coisas.
+(A chave parece desnecessária, então você usa as mãos.)^
+(Se você insiste.)  
+Não há resposta.
+Isso não serve para lavar.
+Você não tem sabão.
+Argh, o gosto é absolutamente horrível. Mas você se sente melhor por isso.
+Esse tipo de linguagem é uma desgraça absoluta, e você vai ter de pagar o preço por ela.
+É bom que você consiga expressar sua frustração de maneira tão branda.
+Ah, não se desculpe.
+Desculpa não basta!
 Voce aponta para 
 .
 Aponte para alguma coisa.
@@ -4575,62 +4575,62 @@ Voce zarpa, e uma brisa leve impulsiona seu bote...^
 Austin esta completamente tranquilo.
 Por alguma razao, Austin se assusta e salta para salvar a vida 
 direto pela parede sul e para dentro de Alexandria!
-Escolha um assunto. Cada ENTER revela a proxima dica.
+Escolha um assunto. Cada ENTER revela a próxima dica.
 Dicas de Curses
-Preparacao no sotao
-Como preparar a tocha?
-Comece examinando os lençois e empurrando o radio para o norte.
-Ligue o radio e espere a musica começar; entao pegue e vista as luvas.
-Abra o garrafao, examine os rolos de isolamento e pegue a bateria nova.
-Abra a tocha, esvazie-a, coloque a bateria nova e feche-a.
-Pegue o rucksack antes de sair da area do sotao.
+Preparação no sótão
+Como preparar a lanterna?
+Comece examinando os lençóis e empurrando o rádio para o norte.
+Ligue o rádio e espere a música começar; então pegue e vista as luvas.
+Abra o garrafão, examine os rolos de isolamento e pegue a bateria nova.
+Abra a lanterna, esvazie-a, coloque a bateria nova e feche-a.
+Pegue a mochila antes de sair da área do sótão.
 Como resolver o labirinto do rato?
-Leve o rato ate os buracos e deixe-o no inicio do caminho.
-Digite mouse, w e depois hole, seguido das direcoes do mapa.
-O caminho completo e: W W W N W N S E S E E E E.
-No fim, pegue a attic key; depois use o dumbwaiter para voltar.
-Como chegar a premonicao?
-Vista a mascara de gas antes de atravessar a porta do sotao.
-No teachest, examine e olhe dentro; no quarto, deite e durma.
-A mascote e importante: pegue-a para descobrir a palavra magica.
-A palavra e lagach. Solte a mascote depois de memoriza-la.
+Leve o rato até os buracos e deixe-o no início do caminho.
+Digite mouse, w e depois hole, seguido das direções do mapa.
+O caminho completo é: W W W N W N S E S E E E E.
+No fim, pegue a chave do sótão; depois use o monta-cargas para voltar.
+Como chegar à premonição?
+Vista a máscara de gás antes de atravessar a porta do sótão.
+No baú de chá, examine e olhe dentro; no quarto, deite e durma.
+A mascote é importante: pegue-a para descobrir a palavra mágica.
+A palavra é lagach. Solte a mascote depois de memorizá-la.
 Jemima e a primeira volta
 O que responder a Jemima?
-Vire o calendario ate fevereiro e procure as margaridas de Merlyn.
-A cor pedida esta no calendario; nesta partida, a resposta e yellow.
-Tire a mascara, de a caixa de chocolates a Jemima e diga: say yellow.
+Vire o calendário até fevereiro e procure as margaridas de Merlyn.
+A cor pedida está no calendário; nesta partida, a resposta é amarela.
+Tire a máscara, dê a caixa de chocolates a Jemima e diga: diga amarelo.
 Como revelar a fotografia?
-Puxe o cordao no quarto escuro e examine o cartao-postal.
-Abra o flash e troque a bateria pela nasty red battery.
-Feche o flash, examine a photograph e leia Roger no history book.
+Puxe o cordão no quarto escuro e examine o cartão-postal.
+Abra o flash e troque a bateria pela bateria vermelha desagradável.
+Feche o flash, examine a fotografia e leia Roger no livro de história.
 Fantasma e chaminé
 Como lidar com o fantasma?
-Pegue a wishbone no dumbwaiter e leve-a ate o fantasma.
+Pegue o osso da sorte no monta-cargas e leve-o até o fantasma.
 Diga give wishbone to ghost; isso abre o caminho para o subsolo.
 Como descer pela lareira?
-A lanterna e a brass key precisam estar na lareira.
-Coloque as duas, solte o restante e entre na fireplace.
-No fundo, pegue tudo, abra a hatch e use o dumbwaiter.
-Como abrir a medicine bottle?
-Desligue e ligue a roda para posicionar o eixo do dumbwaiter.
-Coloque a medicine bottle no shaft e gire a roda novamente.
-Pegue a tablet ao sair do dumbwaiter.
-No glass ball, use a wrench para fixar o pipe; leia os dois livros.
+A lanterna e a chave de latão precisam estar na lareira.
+Coloque as duas, solte o restante e entre na lareira.
+No fundo, pegue tudo, abra a escotilha e use o monta-cargas.
+Como abrir o frasco de remédio?
+Desligue e ligue a roda para posicionar o eixo do monta-cargas.
+Coloque o frasco de remédio no eixo e gire a roda novamente.
+Pegue o comprimido ao sair do monta-cargas.
+Na esfera de vidro, use a chave inglesa para fixar o cano; leia os dois livros.
 Cidade irreal e o navio
 Como entrar na cidade irreal?
-Leia o poetry book; toque o sino e responda even.
-Pegue as tarot cards, examine o mural e pegue o handkerchief.
-Wave o handkerchief, embarque no barco e diga time.
+Leia o livro de poesia; toque o sino e responda par.
+Pegue as cartas de tarô, examine o mural e pegue o lenço.
+Agite o lenço, embarque no barco e diga tempo.
 Como atravessar o labirinto?
-Suba na arvore e examine o maze para memorizar o caminho.
-Pegue o roller, ligue-o e siga pelo trajeto ate a miniature.
-Pegue a miniature e refaça o trajeto de volta antes de desligar o roller.
+Suba na árvore e examine o labirinto para memorizar o caminho.
+Pegue o rolo, ligue-o e siga pelo trajeto até a miniatura.
+Pegue a miniatura e refaça o trajeto de volta antes de desligar o rolo.
 Como colocar o navio na garrafa?
-No projetor, gire o dial e coloque o Ace of Cups no slot.
-Procure nas crates a mounted bottle e puxe a anchor do navio.
-Coloque o stick ship na mounted bottle e examine o navio.
-Suba ao mastro, pegue a flag, va para port, fore e aft; pegue a branch.
-Alison e os bastoes
+No projetor, gire o seletor e coloque o Ás de Copas no compartimento.
+Procure nas caixas a garrafa montada e puxe a âncora do navio.
+Coloque o navio de madeira na garrafa montada e examine o navio.
+Suba ao mastro, pegue a bandeira, vá para bombordo, dianteira e traseira; pegue o galho.
+Alison e os bastões
 Como encontrar Alison?
 Coloque o Fool no slot e examine o cross.
 Leia Alison no history book; empurre a south wall no Dead End.
@@ -4639,11 +4639,11 @@ Como obter a gold key e o trevo?
 Use o stick no espelho, wave o timber spar e quebre a janela.
 Procure sob a janela e pegue a gold key.
 Abra a box com a gold key, pegue o four leaf clover e wave-o.
-Como identificar todos os bastoes?
+Como identificar todos os bastões?
 Pegue o charcoal sketch, quebre sua moldura e leia a letter.
 Leia a inscription do coffin e coloque nele um mahogany rod.
-Feche e abra o coffin; pegue o bastao nomeado.
-Repita o ciclo para cada bastao de mogno encontrado, agora e depois.
+Feche e abra o coffin; pegue o bastão nomeado.
+Repita o ciclo para cada bastão de mogno encontrado, agora e depois.
 Pendure a painting no hook e procure o sceptre no umbrella stand.
 Hamburgo e o retorno
 Como abrir o caminho de Hamburgo?
@@ -4655,27 +4655,27 @@ Como atravessar o passado com o weed killer?
 Use o Fool e a miniature no slot do souvenir e retorne com o bastao.
 No whitewashed area, squeeze a weed killer bottle no ponto indicado pelo maze.
 Pegue o bean pole e use o Rod of Returning para voltar a biblioteca.
-Manutencao do universo
+Manutenção do universo
 Como empilhar o baralho?
 Leia o poetry book e examine o mural da crypt.
 Coloque o 8 of wands, a maiden e a star no deck.
 Toque o sino, suba e pegue novamente as tarot cards.
-Como converter os bastoes?
+Como converter os bastões?
 No coffin, wave o quarterstaff, o crook, o bean pole e o 8 of wands.
-Feche e abra o coffin apos cada wave para obter Bronze, Husbandry, Stalking e Infinity.
+Feche e abra o coffin após cada wave para obter Bronze, Husbandry, Stalking e Infinity.
 Golpeie o Rod of Bronze e aponte-o para o mural bronze.
 Como resolver o painel?
 Leia o tombstone e cheire duas vezes a passagem.
-Desligue o switch para tornar o transporte deterministico.
+Desligue o switch para tornar o transporte determinístico.
 Examine panel e bronze wall; use o Rod of Bronze na parede.
 Deslize as letras nesta ordem: i k c a n e l o s t k k.
-Grecia antiga
+Grécia antiga
 Como vencer a prova do templo?
-Pegue o golden orb e use a maiden no slot da estatua.
-Use o Rod of Fire na parede e o Rod of Luck em voce.
+Pegue o golden orb e use a maiden no slot da estátua.
+Use o Rod of Fire na parede e o Rod of Luck em você.
 Pegue a copper coin, o inscribed stone e examine a pedra.
 Acorde Homer e responda: Agamemnon, Ptolemy, yellow.
-Como abrir a passagem das estatuas?
+Como abrir a passagem das estátuas?
 Empurre Dionysus SE e SW, Demeter SW e NW, e Poseidon NE.
 Coloque o inscribed stone na abertura e desça.
 Pegue o amber gem e coloque-o no socket quando chegar ao Egito.
@@ -4683,7 +4683,7 @@ Como libertar Andromeda?
 Use o Rod of Husbandry nos goats e pegue o fig.
 Entregue a copper coin ao bartender e pegue a sobremesa.
 Dê o dessert a Andromeda; toque os pan-pipes e coloque o fig na urn.
-Pergunte: priestess, tell me about fig. Anote os dois numeros recebidos.
+Pergunte: priestess, tell me about fig. Anote os dois números recebidos.
 Castelo, bomba e grade
 Como desarmar a bomba?
 Coloque o castle card no slot e examine a scarf sob a mesa.
@@ -4692,7 +4692,7 @@ Espere o timer terminar e retorne com o Rod of Returning.
 Como revelar a frieze?
 Coloque a star no projetor e examine a frieze.
 Coloque o timer no flash, feche-o e ponha o flash no device.
-Espere ate o disparo; use lagach nas imagens ate retornar a frieze.
+Espere até o disparo; use lagach nas imagens até retornar a frieze.
 Como fazer Austin saltar?
 Coloque o charcoal sketch no slot do projetor.
 Espere Austin aparecer, empurre Austin para o sul e use jump.
@@ -4701,13 +4701,13 @@ Como abrir a grade?
 Use o bird whistle, pegue e vista o cloak; depois diga anoint me.
 Troque os poemas entre os tubos Alpha e Kappa.
 Entregue Kappa a Callimachus e Alpha a Apollonius.
-Pegue o rusty key, abra a grating e desça ate o coração.
+Pegue o rusty key, abra a grating e desça até o coração.
 Jardim e o strongbox
 Como chegar ao strongbox?
 No Garden Stream, converta spindle e hairband no coffin.
 Wave a green branch, pegue nuts e o wooden ball perto do mosaic.
 Leve o wooden ball ao maze, pegue o croquet mallet e consulte a sacerdotisa.
-Caminhe X passos na primeira direcao e Y na segunda, conforme a resposta da sacerdotisa.
+Caminhe X passos na primeira direção e Y na segunda, conforme a resposta da sacerdotisa.
 Como terminar a prova do jardim?
 Com o gardening implement, cave e abra o strongbox com a gothic key.
 Pegue o astrolabe, preencha o buraco, solte a wooden ball e bata nela.
@@ -4715,15 +4715,15 @@ Coloque nuts na crack e use o bird whistle para obter o gold watch.
 Submundo e igreja
 Como atravessar o submundo?
 Coloque o amber gem no socket e durma quatro vezes no couch.
-Espere os soldados franceses sairem e avance para oeste, levantando-se a cada parada.
+Espere os soldados franceses saírem e avance para oeste, levantando-se a cada parada.
 Torça o nariz da sphinx e pegue o model e o greenish oak.
 Como restaurar o templo?
-Coloque o sceptre nos tres sockets e ajuste-os para si, huth e thu.
+Coloque o sceptre nos três sockets e ajuste-os para si, huth e thu.
 Entre no coffin, feche a tampa duas vezes e suba.
 Vire e vista o cloak para abrir a torre; coloque o oak na mesa.
 Vista o purple sash, diga anoppe e use o astrolabe no mounting.
 Como reviver o cavaleiro?
-Coloque hand, skull e heart na estatua; use o Rod of Fire nela.
+Coloque hand, skull e heart na estátua; use o Rod of Fire nela.
 Entregue a marble rose e mostre o keepsake ao knight.
 Abra o moonstone com o knight; use o Rod of Ice no Rod of Love.
 Pegue o Rod of Love e hipnotize Evans com o gold watch.
@@ -4731,24 +4731,24 @@ Orb e infinito
 Como vencer dentro do orb?
 Pegue e limpe o golden orb; use o Rod of Sacrifice apontado para black.
 Passe pela porta com a wrought iron key e entre no Lemniscus.
-Coloque no Lemniscus todos os bastoes, exceto o Rod of Eternity.
+Coloque no Lemniscus todos os bastões, exceto o Rod of Eternity.
 Coloque o orb na abertura; golpeie o Rod of Infinity e aponte-o ao Lemniscus.
 Master Game
 Como chegar a Britain?
-Pegue a torch, balance a rope e pegue a daisy; vista-a.
-Pegue e vista os sandals; coloque a torch no well aberto.
+Pegue a lanterna, balance a corda e pegue a margarida; vista-a.
+Pegue e vista as sandálias; coloque a lanterna no poço aberto.
 Use o horn e depois o Rod of Language apontado para si.
-Como concluir o dialogo dos druidas?
-Espere ate os druidas terminarem de falar e suba.
-Espere o espiao saxao ser jogado na tenda.
+Como concluir o diálogo dos druidas?
+Espere até os druidas terminarem de falar e suba.
+Espere o espião saxão ser jogado na tenda.
 Pegue o tent pole, wave-o, pegue a blue stone e use o Rod of Returning.
-Como obter os ultimos pontos?
+Como obter os últimos pontos?
 Leia o poetry book, wave a blue stone e entregue a fifty-franc note.
 Diga carte e retorne de barco dizendo time.
 Use o dumbwaiter para voltar ao corredor final.
-Beije Jemima antes de descer; isso preserva o bonus temporario.
+Beije Jemima antes de descer; isso preserva o bônus temporário.
 
-[Dictionary contains 1821 entries:]
+[Dictionary contains 1808 entries:]
 água         .            ,            ,a           ,b           
 ,c           ,d           ,e           -a           -as          
 -o           -os          a            aço          abaixo       
@@ -4782,179 +4782,178 @@ bank         bar          barco        bare         barrels
 barrier      bartender    basket       bata         bateau       
 bateria      bats         battery      battlemen    bau          
 baus         beach        bead         beam         bean         
-beanpole     bear         beba         beckon       bed          
-bedside      beep         beije        belisque     bell         
-bells        bet          big          bipe         bird         
-birds        biscoito     bishops      black        bladed       
-blankets     bleep        blind        blue         bluish       
-board        boat         bola         bomb         bone         
-bones        book         books        botão        botao        
-bote         bottle       box          brac         braided      
-branch       branco       brass        breve        bric         
-bricks       brilhante    british      broken       bronze       
-brushes      bunch        bunker       buraco       bust         
-by           círculo      cabeceira    cabinet      cachecol     
-café         cafe         caixão       caixa        caixao       
-calçad       calendár     calendar     calendari    callimach    
-cama         caminhe      camp         campanha     candelabr    
-candles      caneca       canecas      cannon       cannonbal    
-cano         canos        cante        canvas       capabilit    
-capstan      car          carbolic     card         cards        
-carregue     cartão       carta        cartao       carte        
-carvão       carvao       carved       carvings     case         
-castle       cat          catch        catwalk      cauda        
-causeway     cave         cavidade     cavity       ceifador     
-cell         center       central      centre       cerâmi       
-ceramica     cetro        chá          chão         cha          
-chain        chains       chaminé      chamine      change       
-changes      chao         charcoal     chave        cheire       
-cheque       chess        chest        chests       chicken      
-chimney      chirp        chlamys      chocolate    chocs        
-choice       church       chute        cima         cinco        
-circle       circular     clássico     clairvoya    clarabói     
-claraboia    classical    classico     clerestor    cloak        
-clock        cloud        clover       coaches      coal         
-coals        coat         cochile      coffee       coffin       
-coin         coloque      colour       colours      com          
-coma         comece       comfortab    comma,       commemora    
-compartim    compartme    compasses    completa     completo     
-completos    compre       comprido     comprimid    confortá     
-confortav    conserte     conservat    conspirat    consulte     
-conte        contorno     contrapti    copper       coraç        
-cord         cordão       corda        cordao       cordas       
-corn         corncrake    corra        corrente     corrimão     
-corrimao     corte        couch        couches      cover        
-crack        crake        crank        cranked      crates       
-crawl        crenellat    crescent     crook        croquet      
-cross        crushed      cruz         cruze        crystals     
-cube         cubra        cupboard     cups         curious      
-curse        curses       curta        curtain      curto        
-cylinder     dê           da           dados        daemons      
-daisies      daisy        daisychai    dance        dark         
-das          de           de den       de nov       deaf         
-death        debaixo      december     deck         decor        
-defaced      defences     defesas      degraus      deite        
-deite-se     delicada     delicate     delphic      demeter      
-demijohn     demon        demonic      dentro       depósito     
-deposite     deposito     desça        desagrad     desagrada    
-desative     desca        descarte     descreva     descubra     
-desculpa     desculpas    desculpe     deseje       desembrul    
-desfaç       desfaca      desk         desligada    desligado    
-desligue     deslize      desloque     desparafu    desperte     
-dessert      destranqu    destrua      detector     detonater    
-detonator    developin    device       devil        dez          
-dezenove     dezesseis    dezessete    dezoito      diário       
-diagnose     diagnosti    dial         dials        diana        
-diario       diary        dica         dicas        dice         
-dicionár     dicionari    dictionar    die          diga         
-dionysus     direct       disc         disco        dispa        
-disturbin    divã         do           dobbin       dois         
-doktor       dolmen       door         doorway      dos          
-dourado      down         doze         dragonfli    dream        
-droga        drowned      druid        druidess     duas         
-dug          dumb         dumbwaite    durma        dust         
-dusty        duto         e            earth        easels       
-east         ebenezer     egyptian     eight        eixo         
-ekmek        elétrica     ela          elas         ele          
-electrici    elefante     elephants    eles         eletrica     
-em           embrulho     emoldurad    empilhe      empurre      
-encaixe      encaixes     encerrar     encha        encontrad    
-enferruja    engraving    engula       ensign       então        
-entao        enthusias    entrance     entre        epa          
-epic         eppona       equipamen    eraina       esboço       
-esboco       escada       escale       escape       escolha      
-escultura    escuro       escute       esférica     esfarrapa    
-esferica     esfinge      esfinges     esfregue     esmague      
-espátula     espatulas    espelho      espere       esprema      
-essa         essas        esse         esses        estátua      
-estátuas     esta         estalacti    estas        este         
-esteira      estes        estreita     esvazie      etch         
-etching      eumenides    evans        even         examine      
-exceto       exhibit      exhibitio    exiba        expert       
-eyepiece     férias       face         fale         fallen       
-family       fantasma     fareje       farmlands    farol        
-faros        fatie        featurele    february     fechar       
-feche        feixe        ferias       ferro        fiaçã        
-fifty        fig          figurine     filigree     fire         
-fireplace    fires        first        fish         fixe         
-flag         flagpole     flagstone    flame        flaming      
-flash        flip         float        flock        flores       
-flower       flowers      flurries     foco         focus        
-foda         fogo         folhas       folly        fool         
-foot         for          fora         force        fore         
-former       forward      forwards     foto         fotográf     
-fotografi    fotos        four         fragment     frame        
-framed       franc        francs       frasco       fresta       
-friend       frieze       frisk        fuligem      fumaça       
-fumaca       furies       furniture    gótica       galho        
-galinha      galita       gamble       gambler      gambling     
-gancho       gap          garden       gardeners    garrafão     
-garrafa      garrafao     gas          gasmask      gates        
-gato         gauges       gear         gem          gemstone     
-gentleman    georgian     georgiano    gerard       gesture      
-ghost        gift         gilded       ginger       gire         
-glass        glasses      globe        gloves       glowing      
-gnome        gnomes       goat         goats        gods         
-gold         golden       golpe        golpeie      gonear       
-gothic       gothic-l     gotica       goto         grade        
-gradeadas    grape        grate        grating      gravaç       
-gravacao     grave        gravel       gravura      greek        
-green        grey         grid         grim         grite        
-grizzled     guarda-c     gurgling     hades        hair         
-hairband     hall         hamburg      hamburgo     hand         
-handkerch    handle       hanging      hankie       hanky        
-harbour      hard         harrison     hartley      hat          
-hatch        hatchway     hay          head         heart        
-heating      heaven       heavy        helene       helicon      
-hell         hemp         henri        hephaestu    hera         
-herd         herself      hexagonal    hides        hieroglyp    
-high         hills        hinged       hipnotize    história     
-historia     historica    history      hobson       hobsons      
-hole         holiday      hollow       homer        honourabl    
-hook         hoop         hoops        hoplite      horn         
-hot          house        husbandry    hypnotise    hypnotize    
-hypocaust    i            ice          icicle       idol         
-ilha         iliad        imagem       images       implement    
-impressio    in           incênd       incendio     infinito     
-infinity     inscreva     inscriê      inscribe     inscribed    
-inscricao    inscripti    insira       insulatio    interessa    
-interrupt    inv          inventár     inventari    inverta      
-irate        iron         ironbound    isaac        island       
-isolament    janela       janelas      january      jardim       
-jardinage    jardineir    jemima       jewellery    jogue        
-joia         joias        join         joint        joshua       
-july         junçã        juncao       juncos       june         
-junte        kappa        keepsake     key          killer       
-king         kings        knight       knights      knock        
-kraken       lâmpad       label        ladder       lady         
-lagach       lamp         lampada      lamps        language     
-lanterna     lanterns     lareira      large        largo        
-largue       latão        latao        lattice      latticed     
-lave         lawn         lay          layout       leafed       
-lean         leather      lectern      leda         leg          
-legs         leia         lembrang     lembranca    lemnisco     
-lemniscus    lençó        lençol       lencois      leste        
-letter       levante      librarian    library      lid          
-lie          life         ligada       ligadas      ligado       
-light        lighthous    ligue        limpe        limpeza      
-listrado     little       livro        lixo         loading      
-locket       log          logs         lona         long         
-longa        longo        looking      loose        louco        
-love         loxias       lua          luck         lucky        
-lugares      luminesce    lute         luvas        luz          
-mármore      máscara      móveis       machines     mad          
-madame       madeira      magdalena    mahogany     maiden       
-make         mallet       man          manchada     manivela     
-many         map          mapa         mar          marble       
-march        margarida    marie        marinheir    marmore      
-mascara      mascot       mask         masked       mast         
-master       match        matchbook    mate         matting      
-mattings     may          maze         me           medicine     
-meldrew      meldrewe     meldrews     memorial     men          
-mend         menelaus     menos        merchant     merda        
-mergulhe     merlin       merlyn       mermaid      mesa         
-mesinha      messages     metal        metro        meu          
-middle       milk         mim          miniature    mirror       
+beanpole     bear         beba         bed          bedside      
+beep         beije        belisque     bell         bells        
+bet          big          bipe         bird         birds        
+biscoito     bishops      black        bladed       blankets     
+bleep        blind        blue         bluish       board        
+boat         bola         bomb         bone         bones        
+book         books        botão        botao        bote         
+bottle       box          brac         braided      branch       
+branco       brass        breve        bric         bricks       
+brilhante    british      broken       bronze       brushes      
+bunch        bunker       buraco       bust         by           
+círculo      cabeceira    cabinet      cachecol     café         
+cafe         caixão       caixa        caixao       calçad       
+calendár     calendar     calendari    callimach    cama         
+caminhe      camp         campanha     candelabr    candles      
+caneca       canecas      cannon       cannonbal    cano         
+canos        cante        canvas       capabilit    capstan      
+car          carbolic     card         cards        carregue     
+cartão       carta        cartao       carte        carvão       
+carvao       carved       carvings     case         castle       
+cat          catch        catwalk      cauda        causeway     
+cave         cavidade     cavity       ceifador     cell         
+center       central      centre       cerâmi       ceramica     
+cetro        chá          chão         cha          chain        
+chains       chaminé      chamine      change       changes      
+chao         charcoal     chave        cheire       cheque       
+chess        chest        chests       chicken      chimney      
+chirp        chlamys      chocolate    chocs        choice       
+church       chute        cima         cinco        circle       
+circular     clássico     clairvoya    clarabói     claraboia    
+classical    classico     clerestor    cloak        clock        
+cloud        clover       coaches      coal         coals        
+coat         cochile      coffee       coffin       coin         
+coloque      colour       colours      com          coma         
+comece       comfortab    comma,       commemora    compartim    
+compartme    compasses    completa     completo     completos    
+compre       comprido     comprimid    confortá     confortav    
+conserte     conservat    conspirat    consulte     conte        
+contorno     contrapti    copper       coraç        cord         
+cordão       corda        cordao       cordas       corn         
+corncrake    corra        corrente     corrimão     corrimao     
+corte        couch        couches      cover        crack        
+crake        crank        cranked      crates       crawl        
+crenellat    crescent     crook        croquet      cross        
+crushed      cruz         cruze        crystals     cube         
+cubra        cupboard     cups         curious      curse        
+curses       curta        curtain      curto        cylinder     
+dê           da           dados        daemons      daisies      
+daisy        daisychai    dance        dark         das          
+de           de den       de nov       deaf         death        
+debaixo      december     deck         decor        defaced      
+defences     defesas      degraus      deite        deite-se     
+delicada     delicate     delphic      demeter      demijohn     
+demon        demonic      dentro       depósito     deposite     
+deposito     desça        desagrad     desagrada    desative     
+desca        descarte     descreva     descubra     desculpa     
+desculpas    desculpe     deseje       desembrul    desfaç       
+desfaca      desk         desligada    desligado    desligue     
+deslize      desloque     desparafu    desperte     dessert      
+destranqu    destrua      detector     detonater    detonator    
+developin    device       devil        dez          dezenove     
+dezesseis    dezessete    dezoito      diário       diagnose     
+diagnosti    dial         dials        diana        diario       
+diary        dica         dicas        dice         dicionár     
+dicionari    dictionar    die          diga         dionysus     
+disc         disco        dispa        disturbin    divã         
+do           dobbin       dois         doktor       dolmen       
+door         doorway      dos          dourado      down         
+doze         dragonfli    dream        droga        drowned      
+druid        druidess     duas         dug          dumb         
+dumbwaite    durma        dust         dusty        duto         
+e            earth        easels       east         ebenezer     
+egyptian     eight        eixo         ekmek        elétrica     
+ela          elas         ele          electrici    elefante     
+elephants    eles         eletrica     em           embrulho     
+emoldurad    empilhe      empurre      encaixe      encaixes     
+encerrar     encha        encontrad    enferruja    engraving    
+engula       ensign       então        entao        enthusias    
+entrance     entre        epa          epic         eppona       
+equipamen    eraina       esboço       esboco       escada       
+escale       escape       escolha      escultura    escuro       
+escute       esférica     esfarrapa    esferica     esfinge      
+esfinges     esfregue     esmague      espátula     espatulas    
+espelho      espere       esprema      essa         essas        
+esse         esses        estátua      estátuas     esta         
+estalacti    estas        este         esteira      estes        
+estreita     esvazie      etch         etching      eumenides    
+evans        even         examine      exceto       exhibit      
+exhibitio    exiba        expert       eyepiece     férias       
+face         fale         fallen       family       fantasma     
+fareje       farmlands    farol        faros        fatie        
+featurele    february     fechar       feche        feixe        
+ferias       ferro        fiaçã        fifty        fig          
+figurine     filigree     fire         fireplace    fires        
+first        fish         fixe         flag         flagpole     
+flagstone    flame        flaming      flash        flip         
+float        flock        flores       flower       flowers      
+flurries     foco         focus        foda         fogo         
+folhas       folly        fool         foot         for          
+fora         force        fore         former       forward      
+forwards     foto         fotográf     fotografi    fotos        
+four         fragment     frame        framed       franc        
+francs       frasco       fresta       friend       frieze       
+frisk        fuligem      fumaça       fumaca       furies       
+furniture    gótica       galho        galinha      galita       
+gamble       gambler      gambling     gancho       gap          
+garden       gardeners    garrafão     garrafa      garrafao     
+gas          gasmask      gates        gato         gauges       
+gear         gem          gemstone     gentleman    georgian     
+georgiano    gerard       ghost        gift         gilded       
+ginger       gire         glass        glasses      globe        
+gloves       glowing      gnome        gnomes       goat         
+goats        gods         gold         golden       golpe        
+golpeie      gonear       gothic       gothic-l     gotica       
+goto         grade        gradeadas    grape        grate        
+grating      gravaç       gravacao     grave        gravel       
+gravura      greek        green        grey         grid         
+grim         grite        grizzled     guarda-c     gurgling     
+hades        hair         hairband     hall         hamburg      
+hamburgo     hand         handkerch    handle       hanging      
+hankie       hanky        harbour      hard         harrison     
+hartley      hat          hatch        hatchway     hay          
+head         heart        heating      heaven       heavy        
+helene       helicon      hell         hemp         henri        
+hephaestu    hera         herd         herself      hexagonal    
+hides        hieroglyp    high         hills        hinged       
+hipnotize    história     historia     historica    history      
+hobson       hobsons      hole         holiday      hollow       
+homer        honourabl    hook         hoop         hoops        
+hoplite      horn         hot          house        husbandry    
+hypnotise    hypnotize    hypocaust    i            ice          
+icicle       idol         ilha         iliad        imagem       
+images       implement    impressio    in           incênd       
+incendio     infinito     infinity     inscreva     inscriê      
+inscribe     inscribed    inscricao    inscripti    insira       
+insulatio    interessa    interrupt    inv          inventár     
+inventari    inverta      irate        iron         ironbound    
+isaac        island       isolament    janela       janelas      
+january      jardim       jardinage    jardineir    jemima       
+jewellery    jogue        joia         joias        join         
+joint        joshua       july         junçã        juncao       
+juncos       june         junte        kappa        keepsake     
+key          killer       king         kings        knight       
+knights      kraken       lâmpad       label        ladder       
+lady         lagach       lamp         lampada      lamps        
+language     lanterna     lanterns     lareira      large        
+largo        largue       latão        latao        lattice      
+latticed     lave         lawn         lay          layout       
+leafed       lean         leather      lectern      leda         
+leg          legs         leia         lembran@{1c} lembranca    
+lemnisco     lemniscus    lençó        lençol       lencois      
+leste        letter       levante      librarian    library      
+lid          lie          life         ligada       ligadas      
+ligado       light        lighthous    ligue        limpe        
+limpeza      listrado     little       livro        lixo         
+loading      locket       log          logs         lona         
+long         longa        longo        looking      loose        
+louco        love         loxias       lua          luck         
+lucky        lugares      luminesce    lute         luvas        
+luz          mármore      máscara      móveis       machines     
+mad          madame       madeira      magdalena    mahogany     
+maiden       make         mallet       man          manchada     
+manivela     many         map          mapa         mar          
+marble       march        margarida    marie        marinheir    
+marmore      mascara      mascot       mask         masked       
+mast         master       match        matchbook    mate         
+matting      mattings     may          maze         me           
+medicine     meldrew      meldrewe     meldrews     memorial     
+men          mend         menelaus     menos        merchant     
+merda        mergulhe     merlin       merlyn       mermaid      
+mesa         mesinha      messages     metal        metro        
+meu          middle       mim          miniature    mirror       
 mirrored     mist         mochila      model        modelo       
 moldura      monkey       monta-ca     montacarg    moon         
 moonstone    morte        mosaic       mostre       motor        
@@ -5001,119 +5000,117 @@ placa        plain        plane        plant        planta
 plantas      plants       plaque       plaster      plastic      
 play         plover       plugh        pluto        poço         
 poços        poco         pocos        pode         poeira       
-poem         poesia       poet         poetry       point        
-pole         poltrona     poltronas    ponha        pontos       
-pontuaê      pontuacao    porcaria     porra        port         
-porta        portico      porto        poseidon     post         
-postal       postcard     poster       posters      pot          
-potted       pottery      power        prateleir    prayer       
-preencha     premoniti    prenda       presente     pretentio    
-prey         priest       priestess    princess     processio    
-procissã     procure      projector    projetor     pronomes     
-prop         prove        prow         ptolemy      pub          
-public       publicity    pule         pulley       pumice       
-purloin      purple       push         puxe         pythian      
-quadrado     quadrants    quadro       quarter      quarterst    
-quartet      quatorze     quatro       quebre       queen        
-queens       queime       quinquilh    quinquire    quinze       
-rádio        rótulo       rabo         rachadura    rache        
-racing       racks        radio        ragged       rail         
-rain         ram          random       rapina       rasgue       
-raso         rato         rats         reaper       recess       
-red          redor        reeds        regule       reindeer     
-reiniciar    relief       reliefs      remédio      remedio      
-remova       rena         renas        repair       repare       
-repita       replay       responda     rest         restaurar    
-resurrect    retire       retrato      returning    reveal       
-revelaê      revelacao    reverse      revestida    revise       
-revolve      revolving    reze         riacho       rickety      
-rigged       rigging      ring         rings        rip          
-river        road         robô         robo         robot        
-rock         rod          roda         rode         rodovia      
-rods         roger        roldana      role         roll         
-roller       rolls        rolo         rolos        românt       
-roman        romance      romantic     romantico    roof         
-rope         ropes        rose         rosetta      rotted       
-rotting      rotulo       rough        round        routines     
-rubber       rubbish      rucksack     ruivo        runner       
-rusted       rusty        s            sépia        símbolo      
-sótão        saboreie     sack         saco         sacrifice    
-safety       saia         sail         sailing      sailor       
-sair         sal          salt         salte        salvar       
-sand         sandals      sandstone    sandwells    sarcophag    
-sash         sashes       saxon        scarf        scenes       
-sceptre      scope        scratch      scratched    scribe       
-script       scripts      scroll       scrolls      sculpture    
-se           sea          seaweed      second       secret       
-secreta      seeds        seesaw       segurang     seguranca    
-segure       seis         selenae      self         sementes     
-senhor       sente        sente-se     sepia        september    
-sete         seu          seus         sevenbran    shadows      
-shaft        shallow      shantih      sheet        sheets       
-shepherds    ship         ships        shoes        shoot        
-shopkeepe    short        showobj      showverb     shrub        
-sign         signpost     silk         sill         silver       
-sim          simbolo      single       sinta        sir          
-sit          sixes        sketch       skiff        skull        
-skylight     slab         slap         slave        slide        
-slides       slot         small        smoke        smooth       
-smudge       smyslov      snaps        soap         sobre        
-socket       sockets      soldier      soldiers     solte        
-soot         sooty        sopre        soque        sorte        
-sosostris    sotao        south        souvenirs    spade        
-spar         sparrows     spears       special      spherical    
-sphinx       sphinxes     spindle      spy          square       
-squirrel     stack        staff        stained      stair        
-staircase    stairs       stalking     stand        star         
-starboard    start        statue       statues      statuette    
-steel        stein        step         steps        stern        
-stick        sticks       stile        still        stone        
-stop         storm        stream       stride       strides      
-strike       striped      stroke       strong       strongbox    
-suba         sudeste      sudoeste     sul          summer       
-summerhou    summoning    superbrev    suporte      support      
-surly        sw           sweeping     switch       symbol       
-symbols      syrinx       table        tablet       tablete      
-tail         tampa        tampe        tango        tank         
+poem         poesia       poet         poetry       pole         
+poltrona     poltronas    ponha        pontos       pontuaê      
+pontuacao    porcaria     porra        port         porta        
+portico      porto        poseidon     post         postal       
+postcard     poster       posters      pot          potted       
+pottery      power        prateleir    prayer       preencha     
+premoniti    prenda       presente     pretentio    prey         
+priest       priestess    princess     processio    procissã     
+procure      projector    projetor     pronomes     prop         
+prove        prow         ptolemy      pub          public       
+publicity    pule         pulley       pumice       purloin      
+purple       push         puxe         pythian      quadrado     
+quadrants    quadro       quarter      quarterst    quartet      
+quatorze     quatro       quebre       queen        queens       
+queime       quinquilh    quinquire    quinze       rádio        
+rótulo       rabo         rachadura    rache        racing       
+racks        radio        ragged       rail         rain         
+ram          random       rapina       rasgue       raso         
+rato         rats         reaper       recess       red          
+redor        reeds        regule       reindeer     reiniciar    
+relief       reliefs      remédio      remedio      remova       
+rena         renas        repair       repare       repita       
+replay       responda     rest         restaurar    resurrect    
+retire       retrato      returning    reveal       revelaê      
+revelacao    reverse      revestida    revise       revolve      
+revolving    reze         riacho       rickety      rigged       
+rigging      ring         rings        river        road         
+robô         robo         robot        rock         rod          
+roda         rode         rodovia      rods         roger        
+roldana      role         roll         roller       rolls        
+rolo         rolos        românt       roman        romance      
+romantic     romantico    roof         rope         ropes        
+rose         rosetta      rotted       rotting      rotulo       
+rough        round        routines     rubber       rubbish      
+rucksack     ruivo        runner       rusted       rusty        
+s            sépia        símbolo      sótão        saboreie     
+sack         saco         sacrifice    safety       saia         
+sail         sailing      sailor       sair         sal          
+salt         salte        salvar       sand         sandals      
+sandstone    sandwells    sarcophag    sash         sashes       
+saxon        scarf        scenes       sceptre      scope        
+scratch      scratched    scribe       script       scripts      
+scroll       scrolls      sculpture    se           sea          
+seaweed      second       secret       secreta      seeds        
+seesaw       seguran@{1c} seguranca    segure       seis         
+selenae      self         sementes     senhor       sente        
+sente-se     sepia        september    sete         seu          
+seus         sevenbran    shadows      shaft        shallow      
+shantih      sheet        sheets       shepherds    ship         
+ships        shoes        shoot        shopkeepe    short        
+showobj      showverb     shrub        sign         signpost     
+silk         sill         silver       sim          simbolo      
+single       sinta        sir          sit          sixes        
+sketch       skiff        skull        skylight     slab         
+slap         slave        slide        slides       slot         
+small        smoke        smooth       smudge       smyslov      
+snaps        soap         sobre        socket       sockets      
+soldier      soldiers     solte        soot         sooty        
+sopre        soque        sorte        sosostris    sotao        
+south        souvenirs    spade        spar         sparrows     
+spears       special      spherical    sphinx       sphinxes     
+spindle      spy          square       squirrel     staff        
+stained      stair        staircase    stairs       stalking     
+stand        star         starboard    start        statue       
+statues      statuette    steel        stein        step         
+steps        stern        stick        sticks       stile        
+still        stone        stop         storm        stream       
+stride       strides      striped      stroke       strong       
+strongbox    suba         sudeste      sudoeste     sul          
+summer       summerhou    summoning    superbrev    suporte      
+support      surly        sw           sweeping     switch       
+symbol       symbols      syrinx       table        tablet       
+tablete      tail         tampa        tampe        tank         
 tanque       tapestry     tarot        tassels      tatuzinho    
-tea          teachest     teachests    tear         teias        
-telhado      telhas       tender       tent         tera         
-the          third        thorns       thorny       tia          
-tickle       tight        tile         tiles        timber       
-time         timer        timers       times        tire         
-to           tobias       todas        todos        tomb         
-tombstone    tome         tomes        toque        torça        
-torch        torches      torre        torture      toss         
-tourist      tower        três         trace        trança       
-tranque      transcri     transcric    transfira    trava        
-trave        tree         tres         trestle      trevo        
-treze        trilho       tripod       trombe       trough       
-troughs      trouves      trowels      tub          tube         
-tubes        tudo         turístic     turistico    ugly         
-ulysses      um           uma          umas         umbrella     
-unexcitin    unja         uns          unsafe       up           
-urn          use          utensíli     utensilio    vá           
-va           valley       vane         vanity       vara         
-varanda      varra        vasculhe     vaso         veja         
-velha        velhas       velho        vent         ventilag     
-ventilaca    vents        verboso      verificar    vermelha     
-vermelho     versão       versao       vidro        vigas        
-village      vines        vinho        vinte        vista        
-volta        volte        volumes      w            wager        
-wain         waiter       wall         waltz        wands        
-war          warriors     wash         watch        water        
-weather      weatherva    weave        webs         weed         
-weedkille    well         wells        west         wheat        
-wheel        whisky       whistle      white        wicked       
-willard      windmill     windmills    window       window-v     
-windowed     windows      windowven    wine         winery       
-wire         wireless     wish         wishbone     wistaria     
-with         women        wood         wooden       woodlice     
-words        woven        wrapping     wrench       write        
-writing      writings     wrought      x            xyzzy        
-yacht        yellow       yellowish    yourself     z            
-zephyr       zeus         zodíaco      zodiac       zodiaco      
-zzzzzzzzz    
+tea          teachest     teachests    teias        telhado      
+telhas       tender       tent         tera         the          
+third        thorns       thorny       tia          tickle       
+tight        tile         tiles        timber       time         
+timer        timers       times        tire         to           
+tobias       todas        todos        tomb         tombstone    
+tome         tomes        toque        torça        torch        
+torches      torre        torture      toss         tourist      
+tower        três         trace        trança       tranque      
+transcri     transcric    transfira    trava        trave        
+tree         tres         trestle      trevo        treze        
+trilho       tripod       trombe       trough       troughs      
+trouves      trowels      tub          tube         tubes        
+tudo         turístic     turistico    ugly         ulysses      
+um           uma          umas         umbrella     unexcitin    
+unja         uns          unsafe       up           urn          
+use          utensíli     utensilio    vá           va           
+valley       vane         vanity       vara         varanda      
+varra        vasculhe     vaso         veja         velha        
+velhas       velho        vent         ventila@{1c} ventilaca    
+vents        verboso      verificar    vermelha     vermelho     
+versão       versao       vidro        vigas        village      
+vines        vinho        vinte        vista        volta        
+volte        volumes      w            wager        wain         
+waiter       wall         wands        war          warriors     
+watch        water        weather      weatherva    weave        
+webs         weed         weedkille    well         wells        
+west         wheat        wheel        whisky       whistle      
+white        wicked       willard      windmill     windmills    
+window       window-v     windowed     windows      windowven    
+wine         winery       wire         wireless     wish         
+wishbone     wistaria     with         women        wood         
+wooden       woodlice     words        woven        wrapping     
+wrench       write        writing      writings     wrought      
+x            xyzzy        yacht        yellow       yellowish    
+yourself     z            zephyr       zeus         zodíaco      
+zodiac       zodiaco      zzzzzzzzz    
 
 [Compiled Z-machine version 8]
 [End of transcript: release 17, serial 260916]

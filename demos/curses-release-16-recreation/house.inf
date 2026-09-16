@@ -144,24 +144,24 @@ Object  -> hinged_trapdoor "alçapão articulado"
          when_open "Um alçapão articulado no chão está aberto, e a luz entra por baixo.",
   has   door light open openable static;
 
-Object  -> teachests "baus de cha" 
+Object  -> teachests "baús de chá" 
   with  name 'tea' 'chests' 'teachests' 'chest' 'teachest' 'baus' 'baú' 'cha' 'chá' 'bau',
         before [;
             Search:
-                print "Esse foi o primeiro lugar que voce tentou, ha horas e horas";
+                print "Esse foi o primeiro lugar que você tentou, há horas e horas";
                 if( Meldrewes_History has concealed ) {
-                    print ", e nao ha nada ali alem daquele livro velho e enfadonho. Mesmo assim voce o pega, entediado como esta";
+                    print ", e não há nada ali além daquele livro velho e enfadonho. Mesmo assim você o pega, entediado como está";
                     trigger_quotation(33);
                     give Meldrewes_History ~concealed;
                     move Meldrewes_History to player;
                 }
                 ".";
         ],
-        description "Aberto em cima. Voce poderia olhar dentro facilmente, se quisesse.",
+        description "Aberto em cima. Você poderia olhar dentro facilmente, se quisesse.",
         article "alguns",
   has   container open scenery;
 
-Object  -> -> Meldrewes_History "Historia dos Meldrews (vol. II)"      
+Object  -> -> Meldrewes_History "História dos Meldrews (vol. II)"      
   with  name 'book' 'history' 'livro' 'historia' 'história' 'meldrews',
         parse_name BookParsename,
         before [ w ;
@@ -172,12 +172,12 @@ Object  -> -> Meldrewes_History "Historia dos Meldrews (vol. II)"
                     w = NextWord();
                 if( w == 'me' or 'myself' or 'self' ) {
                     trigger_quotation(48);
-                    "Talvez um dia voce possa conquistar um lugar no vol. III.";
+                    "Talvez um dia você possa conquistar um lugar no vol. III.";
                 }
                 if( w == 'peter' )
                     "Modestamente, o autor (morto por volta de 1940?) deixou a si mesmo de fora.";
                 if( w == 'jemima' )
-                    "Ela e recente demais para ser incluida.";
+                    "Ela é recente demais para ser incluída.";
                 if( w == 'isaac' )
                     "Mad Isaac (1705-1792) dedicou-se a experimentos místicos de todo tipo e era um antiquário renomado. Ele
                     acreditava que a família Meldrew sofria de uma maldição ancestral, condenando cada membro a empreender
@@ -265,7 +265,7 @@ Object  -> -> Meldrewes_History "Historia dos Meldrews (vol. II)"
 Object  antique_jewellery_box "caixa de joias antiga"    
   with  name 'antique' 'jewellery' 'box' 'antiga' 'joia' 'joias' 'caixa',
         with_key delicate_gold_key,
-        initial "Num canto ha uma caixa de joias, antes escondida pelo alçapao aberto.",
+         initial "Num canto há uma caixa de joias, antes escondida pelo alçapão aberto.",
         description "Uma elegante caixa feminina, com as iniciais A. M. e gravada com o desenho do que parece ser uma pata de coelho.",
         article "uma",
         angel_hint "Tente investigar o mundo do romance, nas varandas da vida.",
@@ -273,19 +273,19 @@ Object  antique_jewellery_box "caixa de joias antiga"
 
 Object  -> four_leafed_clover "trevo de quatro folhas"       
   with  name 'four' 'leafed' 'clover' 'quatro' 'folhas' 'trevo',
-        description "Na verdade, um ramo de erva-de-paris (Paris Quadrifolia) de quatro folhas, no formato de um no do amor verdadeiro. Mas isso bastava para Alison.",
+         description "Na verdade, um ramo de erva-de-paris (Paris Quadrifolia) de quatro folhas, no formato de um nó do amor verdadeiro. Mas isso bastava para Alison.",
         rod_assoc rod_of_luck,
-        angel_hint "Nao serve para muita coisa assim, serve?",
+         angel_hint "Não serve para muita coisa assim, serve?",
   has   hidden_rod;
 
 HRoom   House "Casa"    
   with  after [ ; 
             if( tourist_map_of_Paris in player || (tourist_map_of_Paris in rucksack && rucksack in player) ) {
                 deadflag = WON;
-                 "Voce conseguiu se livrar da Maldicao dos Meldrews: pela primeira vez em sessenta geracoes, um Meldrew encontrou o objeto inutil que estava condenado a procurar! Infelizmente, a caminho do aeroporto, voce percebe que deixou o mapa na mesa da cozinha na correria, mas nao importa, agora voce esta de ferias.";
+                  "Você conseguiu se livrar da Maldição dos Meldrews: pela primeira vez em sessenta gerações, um Meldrew encontrou o objeto inútil que estava condenado a procurar! Infelizmente, a caminho do aeroporto, você percebe que deixou o mapa na mesa da cozinha na correria, mas não importa, agora você está de férias.";
             }
             deadflag = FAILED;
-            "Sim, provavelmente e melhor desistir de procurar, e Deus sabe que ha bastante coisa para arrumar, com o resto da familia em alvoroço. Fazer o que.";
+            "Sim, provavelmente é melhor desistir de procurar, e Deus sabe que há bastante coisa para arrumar, com o resto da família em alvoroço. Fazer o quê.";
         ],
   has   light;
 
@@ -294,13 +294,13 @@ HRoom   Servants_Room "Quarto dos criados"
         before [;
             Sleep:
                 if( carbolic_soap hasnt concealed ) 
-                    "Dominado pela culpa por sua linguagem indecente, voce nao consegue dormir.";
+                    "Dominado pela culpa por sua linguagem indecente, você não consegue dormir.";
                 if( player notin servants_bed ) 
                     rfalse;
                 if( Austin in location ) 
                     "Austin salta para a cama, pula um pouco e depois cai de volta no chão. Você não consegue dormir.";
                 if( servants_bed has general ) 
-                    "Voce cochila por um tempo, mas e so isso.";
+                    "Você cochila por um tempo, mas é só isso.";
                 give servants_bed general;
                 print "Você dorme inesperadamente bem, mas justamente quando acha que está começando a acordar, tem uma
                     experiência súbita...^";
@@ -315,7 +315,7 @@ HRoom   Servants_Room "Quarto dos criados"
             é mantida aqui, e sua visão provoca sonolência neste ar quente e abafado. Tudo o que você quer é se enroscar e dormir.",
   has   ;
 
-Object  -> classical_dictionary "dicionario classico"   
+Object  -> classical_dictionary "dicionário clássico"   
   with  name 'hobsons' 'choice' 'classical' 'dictionary' 'book' 'hobson' 'escolha' 'classico' 'clássico' 'dicionario' 'dicionário' 'livro',
         parse_name BookParsename,
         before [ w;
@@ -324,30 +324,30 @@ Object  -> classical_dictionary "dicionario classico"
                 w = NextWord();
                 if( Homer has general && Homer.number < 3 && Homer in location ) {
                     HomerSleeps();
-                    print "~Bem, se voce vai trapacear, esqueca,~ diz Homero em voz alta enquanto adormece.^^";
+                     print "~Bem, se você vai trapacear, esqueça,~ diz Homero em voz alta enquanto adormece.^^";
                 }
-                if( w == 'galita' ) "Divindade menor dos tumulos, reencarnada de uma mosca que voou para dentro de ambar em solidificacao.";
-                if( w == 'menelaus' ) "General na Guerra de Troia e irmao de Agamemnon.";
-                if( w == 'agamemnon' ) "General na Guerra de Troia e irmao de Menelau.";
+                 if( w == 'galita' ) "Divindade menor dos túmulos, reencarnada de uma mosca que voou para dentro de âmbar em solidificação.";
+                 if( w == 'menelaus' ) "General na Guerra de Troia e irmão de Agamemnon.";
+                 if( w == 'agamemnon' ) "General na Guerra de Troia e irmão de Menelau.";
                 if( w == 'ares' ) "Deus grego da guerra.";
                  if( w == 'chlamys' ) "Manto (retangular) de um imperador.";
-                if( w == 'husbandry' ) "Nao neste dicionario!";
-                if( w == 'hades' ) "Mundo subterraneo dos espiritos.";
+                 if( w == 'husbandry' ) "Não neste dicionário!";
+                 if( w == 'hades' ) "Mundo subterrâneo dos espíritos.";
                 if( w == 'adamantine' ) "A pedra mais dura conhecida pelos antigos.";
                  if( w == 'iliad' or 'odyssey' ) "Epopeia de Homero.";
-                if( w == 'helicon' ) "Montanha mitica dos poetas e das musas.";
+                 if( w == 'helicon' ) "Montanha mítica dos poetas e das musas.";
                 if( w == 'hephaestus' ) "Deus grego dos ferreiros e mestre dos metais.";
                 if( w == 'pan' ) "Deus grego dos pastos e pastores; toca a sirinx, ou flauta.";
-                if( w == 'demeter' ) "Deusa grega da abundancia.";
+                 if( w == 'demeter' ) "Deusa grega da abundância.";
                 if( w == 'poseidon' ) "Deus grego do mar e dos cavalos.";
-                if( w == 'apollo' or 'loxias' ) "Deus grego das palavras, musica e poesia.";
+                 if( w == 'apollo' or 'loxias' ) "Deus grego das palavras, música e poesia.";
                 if( w == 'zeus' ) "Governante grego dos deuses.";
                 if( w == 'leda' ) "Mulher mortal seduzida por Zeus, que apareceu para ela na forma de um cisne.";
                 if( w == 'hera' ) "Esposa ciumenta de Zeus.";
                 if( w == 'aphrodite' ) "Deusa grega da beleza.";
                 if( w == 'athene' ) "Deusa grega da sabedoria.";
-                if( w == 'diana' ) "Deusa da caca, do mundo subterraneo (com Pluto) e da lua.";
-                if( w == 'selenae' ) "Ilha mitica, lar montanhoso de Diana.";
+                 if( w == 'diana' ) "Deusa da caça, do mundo subterrâneo (com Pluto) e da lua.";
+                 if( w == 'selenae' ) "Ilha mítica, lar montanhoso de Diana.";
                  if( w == 'sosostris' ) 
                      "Faraó mítico do Egito, após o qual surgiu um culto curioso; às vezes confundido com Alexandre, o Grande.";
                 if( w == 'pluto' ) "Personagem canino de Walt Disney, que deu nome ao planeta.";
@@ -359,12 +359,12 @@ Object  -> classical_dictionary "dicionario classico"
                      "Sacerdotisa de Apolo: suas previsões eram lendárias pela precisão e também pela dificuldade de interpretação.";
                 if( w == 'pharos' ) 
                     "Torre-farol. O grande farol de Alexandria era uma das Sete Maravilhas do Mundo.";
-                if( w == 'aeschylus' ) "O primeiro grande dramaturgo tragico (525 - c.456 a.C.).";
+                 if( w == 'aeschylus' ) "O primeiro grande dramaturgo trágico (525 - c.456 a.C.).";
                  if( w == 'kraken' ) 
                      "Monstro marinho lendário de Poseidon (embora a palavra venha do norueguês; pouca gente sabe disso).";
                 if( w == 'andromeda' ) 
                     "Donzela sacrificada a um monstro marinho, salva por Perseu segundo a lenda.";
-                if( w == 'perseus' ) "Heroi grego e matador de monstros.";
+                 if( w == 'perseus' ) "Herói grego e matador de monstros.";
                  if( w == 'syrinx' ) "Flauta de Pã: feita de canas cortadas.";
                  if( w == 'homer' ) 
                      "Primeiro poeta da tradição grega, lendariamente cego: nada se sabe sobre ele, exceto que (supostamente)
@@ -373,21 +373,21 @@ Object  -> classical_dictionary "dicionario classico"
                      "O Especial Ekmek é uma iguaria ainda servida pela Taverna Eraina, na Free School Lane, Cambridge, Inglaterra.
                       Muito apreciada por matemáticos itinerantes.";
                 if( w == 'callimachus' ) 
-                    "Catalogador da biblioteca de Alexandria, o mais famoso dos poetas epigramaticos, espirituosos e concisos.";
+                     "Catalogador da biblioteca de Alexandria, o mais famoso dos poetas epigramáticos, espirituosos e concisos.";
                  if( w == 'apollonius' ) "Bibliotecário, matemático, poeta épico e político.";
-                if( w == 'arthur' ) "Alto rei dos britanos, meio mitico.";
-                if( w == 'merlin' or 'merlyn' ) "Mago meio mitico da corte do rei Arthur.";
+                 if( w == 'arthur' ) "Alto rei dos britanos, meio mítico.";
+                 if( w == 'merlin' or 'merlyn' ) "Mago meio mítico da corte do rei Arthur.";
                 if( w == 'alexandria' ) "Cidade no delta do Nilo fundada por Alexandre, o Grande.";
-                if( w == 'alexander' ) "Macedonio que conquistou o mundo conhecido aos vinte e poucos anos.";
+                 if( w == 'alexander' ) "Macedônio que conquistou o mundo conhecido aos vinte e poucos anos.";
                 if( w == 'ptolemy' ) "General de Alexandre, o Grande, governou e depois herdou o Egito.";
-                if( w == 'odysseus' or 'ulysses' ) "Ele nao era marinheiro?";
-                "Desculpe, nao ha nada sobre isso.";
+                 if( w == 'odysseus' or 'ulysses' ) "Ele não era marinheiro?";
+                 "Desculpe, não há nada sobre isso.";
         ],
         list_together n_obj,
-        initial "Ha um livrinho sobre a mesinha ao lado da cama.",
-        description "~Hobson: Um Dicionario Classico de Escolhas~. Ele afirma ter numerosos verbetes.",
+         initial "Há um livrinho sobre a mesinha ao lado da cama.",
+         description "~Hobson: Um Dicionário Clássico de Escolhas~. Ele afirma ter numerosos verbetes.",
         article "de Hobson",
-        devil_hint "Ha muitas palavras indecentes nesse.",
+         devil_hint "Há muitas palavras indecentes nesse.",
   has   consultable;
 
 Object  -> servants_bed "cama de campanha"       
@@ -396,31 +396,31 @@ Object  -> servants_bed "cama de campanha"
 
 Object  -> old_striped_scarf "cachecol listrado velho" 
   with  name 'old' 'striped' 'scarf' 'velho' 'listrado' 'cachecol',
-        initial "Um cachecol listrado velho esta pendurado atras da porta.",
+         initial "Um cachecol listrado velho está pendurado atrás da porta.",
          description "Este é um velho cachecol do Biblioll College, feito pela Dunn and Co. (naturalmente). Tem quatro listras:
              azul-real, esmeralda, cinza-escuro e escarlate.",
         article "um",
-        devil_hint "O auge da moda, se voce ignorar as cores e usa-lo mesmo assim.",
+         devil_hint "O auge da moda, se você ignorar as cores e usá-lo mesmo assim.",
   has   clothing;
 
 Object  tight_door "porta estreita"  
   with  name 'tight' 'door' 'estreita' 'porta',
-        initial "Uma porta estreita esta aberta na parede norte, dando para a escada dos criados.",
+         initial "Uma porta estreita está aberta na parede norte, dando para a escada dos criados.",
   has   static;
 
-HRoom   Old_Furniture "Moveis velhos"    
+         HRoom   Old_Furniture "Móveis velhos"    
   with  name 'armchairs' 'umbrella' 'table' 'stand' 'rubbish' 'armchair' 'poltronas' 'poltrona' 'guarda-chuva' 'mesa' 'suporte' 'lixo' 'moveis' 'móveis',
         n_to Attic,
         se_to Over_the_East_Wing,
         description "Móveis velhos e maltratados estão empilhados aqui: poltronas com molas saindo, suportes de guarda-chuva,
             um armário muito arranhado, uma mesa sem uma perna... Você tenta lembrar por que guarda toda essa tralha e falha.
             De todo modo, o sótão continua a sudeste.",
-        cant_go "O sotao muda do norte para o sudeste aqui.",
+         cant_go "O sótão muda do norte para o sudeste aqui.",
   has   ;
 
-Object  -> furniture "moveis" 
+Object  -> furniture "móveis" 
   with  name 'furniture' 'moveis' 'móveis',
-        description "Nada ali, mas aquele armario parece interessante.",
+         description "Nada ali, mas aquele armário parece interessante.",
   has   scenery;
 
 Object  -> scratched_cupboard "armario arranhado"       
@@ -431,17 +431,17 @@ Object  -> -> bird_whistle "apito de passarinho"
   with  name 'bird' 'whistle' 'harrison' 'passaro' 'pássaro' 'apito',
         before [;
             Blow:
-                if( gas_mask has worn ) "Com a mascara de gas?";
+                 if( gas_mask has worn ) "Com a máscara de gás?";
                  print "Fweep!  Fweep!^";
                 if( Austin in location ) 
-                    print "^Austin se assusta, mas e preguicoso demais para olhar para cima.^";
+                     print "^Austin se assusta, mas é preguiçoso demais para olhar para cima.^";
                 if( location == Hedgery ) 
                     "^Os pardais mergulham e voam ao seu redor, mas logo perdem o interesse.";
                  if( location == Summer_House ) {
                     if( flock_of_sparrows has general ) 
-                        "^Mas os pardais nao conseguem ouvir.";
+                        "^Mas os pardais não conseguem ouvir.";
                     if( gold_watch_on_a_chain has moved ) 
-                        "^Mas os pardais ja conhecem esse truque.";
+                        "^Mas os pardais já conhecem esse truque.";
                     give gold_watch_on_a_chain moved;
                     give flock_of_sparrows general;
                     remove irate_squirrel_friend;
@@ -451,7 +451,7 @@ Object  -> -> bird_whistle "apito de passarinho"
                       movimento súbito perturba outra vez os pardais inquietos, que levantam voo. De repente, você se sente bastante abandonado.";
                 }
                 if( location == Cliffs or Cave_Mouth ) 
-                    "^O falcao sagrado de Apolo circula alto no ceu sobre a entrada da caverna, mas depois voa para longe.";
+                     "^O falcão sagrado de Apolo circula alto no céu sobre a entrada da caverna, mas depois voa para longe.";
                 if( location == Necropolis && unexciting_tombstone in nothing )  {
                     move cloak_of_many_colours to Necropolis;
                     move unexciting_tombstone to Necropolis;
@@ -477,12 +477,12 @@ Object  -> -> gift_wrapped_parcel "pacote embrulhado para presente"
                 move postcard_of_the_Champs_Elysees to player;
                 move box_of_chocolates to player;
                 move wrapping_paper to location;
-                "Voce rasga o pacote e encontra uma caixa de chocolates e um cartao.";
+                 "Você rasga o pacote e encontra uma caixa de chocolates e um cartão.";
         ],
-        devil_hint "Que pena que o papel de presente nao sai.",
+         devil_hint "Que pena que o papel de presente não sai.",
   has   ;
 
-Object  -> -> medicine_bottle "frasco de remedio"       
+Object  -> -> medicine_bottle "frasco de remédio"       
   with  name 'medicine' 'bottle' 'remedio' 'remédio' 'frasco',
         before [;
             Attack:
@@ -494,20 +494,20 @@ Object  -> -> medicine_bottle "frasco de remedio"
                   sobre ela. Tudo. Ela é decididamente à prova de adultos. O que seria preciso para quebrar essa maldita coisa?";
             Receive:
                 if( self has open && noun ~= red_tablet )
-                    "O gargalo e estreito demais para caber qualquer coisa alem do comprimido.";
+                     "O gargalo é estreito demais para caber qualquer coisa além do comprimido.";
                 rfalse;
         ],
         initial nothing,
-        description "~Somente antidoto: nenhum efeito preventivo.~",
+         description "~Somente antídoto: nenhum efeito preventivo.~",
         short_name [;
             if( self hasnt locked ) {
                  print "frasco de remédio rachado";
             } else {
-                print "frasco de remedio indestrutivel garantido com trava a prova de criancas";
+                 print "frasco de remédio indestrutível garantido com trava à prova de crianças";
             }
             rtrue;
         ],
-        devil_hint "Esses frascos sobrevivem ate a quedas longas, entao talvez voce deva tentar o fogo.",
+         devil_hint "Esses frascos sobrevivem até a quedas longas, então talvez você deva tentar o fogo.",
   has   container locked openable;
 
 Object  -> -> -> red_tablet "comprimido vermelho" 
@@ -516,9 +516,9 @@ Object  -> -> -> red_tablet "comprimido vermelho"
             Eat:
                 give player ~general;
                 tablet_eaten = true;
-                "O gosto alarmante e de chocolate.";
+                 "O gosto alarmante é de chocolate.";
         ],
-        devil_hint "Esta droga e para diversao, nao e um antidoto. E tem um sabor delicioso...",
+         devil_hint "Esta droga é para diversão, não é um antídoto. E tem um sabor delicioso...",
   has   edible scored;
 
 Object  box_of_chocolates "caixa de chocolates"    
@@ -529,7 +529,7 @@ Object  box_of_chocolates "caixa de chocolates"
 Object  wrapping_paper "papel de presente com renas" 
   with  name 'wrapping' 'paper' 'reindeer' 'embrulho' 'papel' 'rena' 'renas',
         article "alguns",
-        devil_hint "As renas tem enorme importancia.",
+         devil_hint "As renas têm enorme importância.",
   has   ;
 
 Object  postcard_of_the_Champs_Elysees "cartao-postal dos Campos Eliseos"  
@@ -544,8 +544,8 @@ Object  postcard_of_the_Champs_Elysees "cartao-postal dos Campos Eliseos"
                 }
         ],
         list_together n_obj,
-        description "E enderecado a casa e carimbado em 1963, mas nao tem mensagem. Estranho.",
-        devil_hint "Nao ha mensagem para ler.",
+         description "É endereçado à casa e carimbado em 1963, mas não tem mensagem. Estranho.",
+         devil_hint "Não há mensagem para ler.",
   has   ;
 
 HRoom   Over_the_East_Wing "Sobre a ala leste"  
@@ -569,13 +569,13 @@ Object  -> Austin "Austin"
   with  name 'austin' 'cat' 'ginger' 'tail' 'gato' 'ruivo' 'rabo' 'cauda',
         before [;
             Rub, Touch, Squeeze:
-                "Austin se enrola implacavelmente em seu pe.";
+                 "Austin se enrola implacavelmente em seu pé.";
             Take:
                 "Austin se afasta ressentido, para fora do alcance, e depois arrota.";
             Pull:
-                "Austin sibila e nao deixa que puxem seu rabo.";
+                 "Austin sibila e não deixa que puxem seu rabo.";
             Push:
-                "Talvez voce deva dizer para que lado empurrar Austin.";
+                 "Talvez você deva dizer para que lado empurrar Austin.";
             PushDir:
                 if( ( location == Attic && second == n_obj or e_obj or s_obj ) ||
                     ( location == Old_Winery && second == w_obj or s_obj ) ||
@@ -594,25 +594,25 @@ Object  -> Austin "Austin"
                 "Austin se recusa a ir por ali.";
         ],
         after [;
-            PushDir: "Austin acompanha voce de ma vontade.";
+             PushDir: "Austin acompanha você de má vontade.";
         ],
         life [;
             Attack: 
                  "É tão pateticamente fácil chutar Austin que você nunca tem coragem. Assim, ele o engana outra vez.";
-            Order, Answer: "Vejo que voce nunca teve um gato.";
+             Order, Answer: "Vejo que você nunca teve um gato.";
             Ask: "Austin arrota esplendidamente em resposta.";
-            Kiss: "Austin apenas tolera essa demonstracao de afeto.";
+             Kiss: "Austin apenas tolera essa demonstração de afeto.";
             Give:
                 if( noun == chicken_wishbone ) {
                     GoodTry();
-                    "Alguns gatos gostam do cheiro de ossos de galinha, mas Austin nao.";
+                     "Alguns gatos gostam do cheiro de ossos de galinha, mas Austin não.";
                 }
                 if( noun == robot_mouse ) {
                     move robot_mouse to location;
-                    "Austin derruba isso no chao com as garras, de modo irritadico.";
+                     "Austin derruba isso no chão com as garras, de modo irritadiço.";
                 }
                 if( noun has edible )
-                    "Pela primeira vez, Austin nao esta realmente com fome.";
+                    "Pela primeira vez, Austin não está realmente com fome.";
                 print_ret "Austin nao se impressiona com ", (the) noun, ".";
         ],
         initial "Austin, seu gato ruivo incorrigivel, fica esparramado por aqui.",
@@ -670,7 +670,7 @@ Object  -> Austin "Austin"
                 rfalse;
             }
             if( robot_mouse in location ) {
-                "^Austin brinca com o rato robo, chutando-o pelo assoalho. Ele apita lastimosamente, esperando ser resgatado.";
+                 "^Austin brinca com o rato robô, chutando-o pelo assoalho. Ele apita lastimosamente, esperando ser resgatado.";
             }
             if( location == East_Annexe && random(2) == 1 ) {
                 "^Austin se atraca com os rolos de isolamento, como se tentasse enterrar algo.";
@@ -682,7 +682,7 @@ Object  -> Austin "Austin"
                  "^Austin boceja.";
             }
             if( i == 2 ) {
-                "^Austin rola de costas e se espreguica.";
+                 "^Austin rola de costas e se espreguiça.";
             }
             if( i == 3 ) {
                  "^Austin parece inefável outra vez.";
@@ -857,7 +857,7 @@ Object  -> Austin "Austin"
     rtrue;
 ];
 
-HRoom   Dark_Room "Camara escura"    
+HRoom   Dark_Room "Câmara escura"    
   with  after [;
             Look:
                 if( self has light )
@@ -879,7 +879,7 @@ Object  -> sepia_photograph "fotografia em sepia"
         article "a velha",
   has   static;
 
-Object  -> hanging_cord "cordao pendurado"   
+Object  -> hanging_cord "cordão pendurado"   
   with  name 'hanging' 'cord' 'pendurado' 'cordao' 'cordão',
         before [;
             Pull:
@@ -915,7 +915,7 @@ Object  -> -> golden_orb "orbe dourado brilhante"
             visíveis através da névoa: a cabeça de um cavalo, muralhas de castelo, o báculo de um sacerdote.",
   has   scored;
 
-Object  -> photographers_flash "flash fotografico"    
+Object  -> photographers_flash "flash fotográfico"    
   with  name 'photograp' 'flash' 'compartment' 'fotografico' 'fotográfico' 'compartimento',
         before [ i j;
             Receive:

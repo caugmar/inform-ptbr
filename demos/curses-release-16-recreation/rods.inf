@@ -1,7 +1,7 @@
 [ discover_rod r ;
     give r ~unidentifed_rod;
     r.&name-->3 = r.rod_word;
-    r.list_together = "Rods";
+    r.list_together = "Varas";
     rtrue;
 ];
 
@@ -33,12 +33,12 @@ Class   Rod
         before [;
             Examine:
                 if( self has unidentifed_rod )
-                    "Uma vara de mogno sem marcas, de proposito obscuro. Ou quase sem marcas: uma pequena placa de prata 
+                    "Uma vara de mogno sem marcas, de propósito obscuro. Ou quase sem marcas: uma pequena placa de prata 
                      permanece em branco numa das pontas.";
                 if( self has high_rod )
                     rfalse;
                 print "A placa de prata nesta vara de mogno a identifica como ", (the) self, ".";
-                if( noun has charged ) "  Ela esta completamente carregada.";
+                if( noun has charged ) "  Ela está completamente carregada.";
                 new_line;
                 rtrue;
         ],
@@ -93,31 +93,31 @@ Class   Rod
 Class HighRod
   class Rod
   with  rod_action [;
-            "Voce e derrubado pelo poder de uma das Varas Superiores, mas ela e poderosa demais 
-             para um mortal como voce.";
+            "Você é derrubado pelo poder de uma das Varas Superiores, mas ela é poderosa demais
+             para um mortal como você.";
         ],
         before [;
             Take:
                 if( noun has moved ) rfalse;
                 if( noun hasnt general ) {
                     if( old_gardeners__gloves has worn ) {
-                        "Ela esta incandescente! Mesmo com as luvas, voce nao pode tocar o adamantino.";
+                        "Ela está incandescente! Mesmo com as luvas, você não pode tocar o adamantino.";
                     }
-                    "Ela esta incandescente, e voce nao pode tocar a superficie!";
+                    "Ela está incandescente, e você não pode tocar a superfície!";
                 }
                 if( HighRodWarn == 0 ) {
                     HighRodWarn = 1;
-                    "Aviso (uma unica vez!): as tres Varas Superiores parecem estar equilibradas com extrema delicadeza na borda do poco.";
+                    "Aviso (uma única vez!): as três Varas Superiores parecem estar equilibradas com extrema delicadeza na borda do poço.";
                 }
                 Achieved(SCORE_HIGHROD);
         ],
 
         description [;
             print "Uma vara de adamantino, com uma ";
-            if( self == rod_of_life ) print "mao esculpida";
-            if( self == rod_of_love ) print "coracao esculpido";
+            if( self == rod_of_life ) print "mão esculpida";
+            if( self == rod_of_love ) print "coração esculpido";
             if( self == rod_of_death ) print "caveira esculpida";
-            " numa ponta, e com seu titulo inscrito.";
+            " numa ponta, e com seu título inscrito.";
         ],
         after [;
             Take:
@@ -140,53 +140,53 @@ Class HighRod
                 !! Likely a bug: prevents it from being scored
                 give noun ~scored;
                 HighRodBalance = true;
-                 "(Escolha interessante.)^^Ao pega-la, voce desequilibra tudo e as outras duas Varas Superiores chacoalham 
+                  "(Escolha interessante.)^^Ao pegá-la, você desequilibra tudo e as outras duas Varas Superiores chacoalham 
                   pelo corredor de cristal rumo ao submundo.";
         ],
         list_together ListingHRods,
   has   high_rod;
             
 
-Rod     rod_of_fire "Fire"
+Rod     rod_of_fire "Fogo"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'fire',
         rod_action [;
             if( second == player ) {
                 deadflag = DIED;
-                 "Oh, nao. Como o Louco Isaac antes de voce, voce entrou em combustao espontanea!";
+                 "Oh, não. Como o Louco Isaac antes de você, você entrou em combustão espontânea!";
             }
             if( second == Austin ) {
                 trigger_quotation(6);
-                "Voce realmente nao quer vaporizar Austin.";
+                "Você realmente não quer vaporizar Austin.";
             }
             if( second == adamantine_statue ) {
                 if( adamantine_skull hasnt general || adamantine_heart hasnt general || adamantine_hand hasnt general ) {
-                    "Os ossos se sacodem e chacoalham, mas parecem incapazes de se unir para formar vida.";
+                "Os ossos se sacodem e chacoalham, mas parecem incapazes de se unir para formar vida.";
                 }
                 remove adamantine_statue;
                 move adamantine_knight to West_Side_Chapel;
                 Achieved(SCORE_KNIGHT);
                 himobj = adamantine_knight;
-                "O cavaleiro de adamantino salta, revigorado pelo fogo em seus olhos esqueleticos, com uma nova faisca no 
-                 ventre! Ele faz uma reverencia solene, no estilo elaborado de um artista de mimica.";
+                "O cavaleiro de adamantino salta, revigorado pelo fogo em seus olhos esqueléticos, com uma nova faísca no
+                 ventre! Ele faz uma reverência solene, no estilo elaborado de um artista de mímica.";
             }
             if( second == adamantine_knight )
-                "O adamantino e a prova de fogo.";
+                "O adamantino é à prova de fogo.";
             if( second == loose_board )
-                "A madeira parece ter sido tratada de algum modo e e a prova de fogo.";
+                "A madeira parece ter sido tratada de algum modo e é à prova de fogo.";
             if( second has animate )
-                "Pelo amor de Deus, voce so esta procurando um mapa velho. Assassinato parece um pouco extremo.";
+                "Pelo amor de Deus, você só está procurando um mapa velho. Assassinato parece um pouco extremo.";
             if( second == wall_of_thorns_object ) {
                 if( wall_of_thorns_object has open ) 
-                    "A parede se contorce, incomodada, para evitar mais devastacao.";
+                    "A parede se contorce, incomodada, para evitar mais devastação.";
                 give wall_of_thorns_object open;
-                  "O fogo salta da vara para o coracao da parede de espinhos, que grita enquanto queima, 
-                  revelando um grande buraco entre as chamas selvagens. Voce vislumbra um grande Templo,
-                  antes que a parede se regenere. Mas ela nao consegue se recuperar totalmente, deixando uma abertura
-                  carbonizada ao sul. Voce provavelmente conseguiria passar por ela.";
+                  "O fogo salta da vara para o coração da parede de espinhos, que grita enquanto queima,
+                  revelando um grande buraco entre as chamas selvagens. Você vislumbra um grande Templo,
+                  antes que a parede se regenere. Mas ela não consegue se recuperar totalmente, deixando uma abertura
+                  carbonizada ao sul. Você provavelmente conseguiria passar por ela.";
             }
             if( second == medicine_bottle ) {
-                print "O ponto de fusao deste vidro e muito alto e, incrivelmente, ele resiste ao raio de fogo.^";
+                print "O ponto de fusão deste vidro é muito alto e, incrivelmente, ele resiste ao raio de fogo.^";
                 GoodTry();
                 rfalse;
             }
@@ -196,27 +196,27 @@ Rod     rod_of_fire "Fire"
             }
             if( second has scenery || second has static ) {
                 deadflag = DIED;
-                "Voce provoca um grande incendio e perece nele!";
+                 "Você provoca um grande incêndio e perece nele!";
             }
             remove second;
             print "Um raio de fogo salta da vara e consome ", (the) second, " completamente!";
         ],
-        angel_hint "Isto e bastante perigoso, temo. Use apenas em materia vegetal.",
+         angel_hint "Isto é bastante perigoso, temo. Use apenas em matéria vegetal.",
   has   unidentifed_rod;
 
 [  RodOfReturningAction i loc ;
     if( second ~= player ) "Nada evidente acontece.";
     if( location == Inside_the_Orb ) {
         move golden_orb to player;
-        print "Embora nada pareca acontecer com voce, toda a esfera dourada se contrai graciosamente, comprimindo-se 
-            ate caber confortavelmente na palma da sua mao. Voce pisca.^";
+        print "Embora nada pareça acontecer com você, toda a esfera dourada se contrai graciosamente, comprimindo-se
+            até caber confortavelmente na palma da sua mão. Você pisca.^";
         location = LocationSave;
         move player to ContainerSave;
         <<Look>>;
     }
     FlashFallsOut();
-    print "Voce e envolvido por uma nuvem de luzes brancas giratorias, como insetos. Quando o enxame desaparece, 
-        voce se ve transportado...^";
+    print "Você é envolvido por uma nuvem de luzes brancas giratórias, como insetos. Quando o enxame desaparece,
+        você se vê transportado...^";
     if( game_section == T_ANCIENT_BRITAIN ) {
         loc = Infinity_Symbol;
         remove rod_of_returning2;
@@ -240,188 +240,188 @@ Rod     rod_of_fire "Fire"
     rtrue;
 ];
 
-Rod     rod_of_returning "Returning"
+Rod     rod_of_returning "Retorno"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'returning',
         rod_action RodOfReturningAction,
-        devil_hint "Bem, isso nao e muito util, nao e? Eu faria greve se fosse voce.",
+         devil_hint "Bem, isso não é muito útil, não é? Eu faria greve se fosse você.",
   has   unidentifed_rod;
 
-Rod     rod_of_stalking "Stalking"
+Rod     rod_of_stalking "Perseguição"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'stalking',
         rod_action [ i;
             if( second == adamantine_knight ) 
                 "O cavaleiro salta no lugar (caindo ruidosamente).";
             if( second == potted_shrub ) {
-                potted_shrub.initial = "Um arbusto florido, alegre com flores vermelhas, e cuidado numa grande tina 
+                potted_shrub.initial = "Um arbusto florido, alegre com flores vermelhas, é cuidado numa grande tina
                     redonda sob a parede aqui.";
                 "O arbusto explode em flores, coberto por dezenas de delicadas luas vermelhas.";
             }
             if( second == marble_rose ) 
-                "O marmore se sacode, como se tentasse crescer, mas cai de volta, morto.";
+                "O mármore se sacode, como se tentasse crescer, mas cai de volta, morto.";
             if( second == small_thorny_tree ) {
                 if( parent(fig) ~= nothing ) {
-                    "A arvore tentou muito, mas no fim nao conseguiu dar um figo.";
+                    "A árvore tentou muito, mas no fim não conseguiu dar um figo.";
                 }
                 move fig to player;
-                "A arvore se esforca especialmente e consegue produzir outro figo, que amadurece e cai... 
-                 voce salta para a frente e pega a fruta antes que ela se espatife no chao.";
+                "A árvore se esforça especialmente e consegue produzir outro figo, que amadurece e cai...
+                 você salta para a frente e pega a fruta antes que ela se espatife no chão.";
             }
             if( second == player ) 
-                "Seu cabelo fica momentaneamente em pe, como se quisesse sair da sua cabeca, mas felizmente 
+                "Seu cabelo fica momentaneamente em pé, como se quisesse sair da sua cabeça, mas felizmente
                  ele desiste.";
             if( second == plane_tree && location == Family_Tree ) 
-                "A arvore treme e estremece, mas felizmente permanece intacta.";
+                "A árvore treme e estremece, mas felizmente permanece intacta.";
             if( second == wall_of_thorns_object ) 
-                "Vuuush!^^A parede de espinhos cresce mais seis metros e entao desaba sobre si mesma, acomodando-se 
-                 como uma fera. Ela esta mais espessa e desagradavel do que nunca.";
+                "Vuuush!^^A parede de espinhos cresce mais seis metros e então desaba sobre si mesma, acomodando-se
+                 como uma fera. Ela está mais espessa e desagradável do que nunca.";
             if( second ~= runner_bean_plant || runner_bean_plant has open ) 
                 "Nada evidente acontece.";
 
             give runner_bean_plant open;
-            print "^Aviso: algo extremamente previsivel esta prestes a acontecer. Quando achar que ja se recompos 
+            print "^Aviso: algo extremamente previsível está prestes a acontecer. Quando achar que já se recompôs
                  e conseguir suportar, pressione ENTER. ", '>';
             buffer->1 = 0;
             DrawStatusLine();
             @aread buffer parse -> i;
             new_line;
-            "De repente, um enorme pe de feijao brota do chao, exatamente como num conto de fadas, subindo
-             ate o alto do ceu! Voce boceja convulsivamente.";
+            "De repente, um enorme pé de feijão brota do chão, exatamente como num conto de fadas, subindo
+             até o alto do céu! Você boceja convulsivamente.";
         ],
-        devil_hint "Ele nao tem aplicacao horticultural.",
+        devil_hint "Ele não tem aplicação horticultural.",
   has   unidentifed_rod;
 
-Rod     rod_of_infinity "Infinity"
+Rod     rod_of_infinity "Infinito"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque' 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'infinity',
         rod_action [ t;
             if( second == adamantine_knight ) 
-                "Oh, o cavaleiro ja esteve mais perto do infinito do que voce jamais poderia leva-lo.";
+                "Oh, o cavaleiro já esteve mais perto do infinito do que você jamais poderia levá-lo.";
             if( second == player ) 
-                "Voce nao adquire nenhum sentido especial do infinito.";
+                "Você não adquire nenhum sentido especial do infinito.";
             if( location ~= Infinity_Symbol || second ~= lemniscus ) 
                 "Nada evidente acontece.";
             t = circular_arc.number;
             trigger_quotation(30);
             if( t < 9 ) 
-                "Voce sente o ar se carregar de excitacao, e o simbolo brilha dourado por um instante, mas 
-                 entao o poder escoa para uma das cavidades vazias do arco.";
+                "Você sente o ar se carregar de excitação, e o símbolo brilha dourado por um instante, mas
+                 então o poder escoa para uma das cavidades vazias do arco.";
             if (noun has general) 
                 "Nada acontece desta vez.";
-            print "O ar se carrega de excitacao, e o simbolo brilha dourado, entao comeca a girar, cada vez mais 
-                 rapido, transformando-se numa luz dourada perolada que banha voce com magia pura. ";
+            print "O ar se carrega de excitação, e o símbolo brilha dourado, então começa a girar, cada vez mais
+                 rápido, transformando-se numa luz dourada perolada que banha você com magia pura. ";
             if (spherical_opening hasnt general)
-                "Mas ainda esta fraco demais! Voce meio que ouve, meio que imagina um sussurro de druidas...";
+                "Mas ainda está fraco demais! Você meio que ouve, meio que imagina um sussurro de druidas...";
             print "Tudo fica enevoado e então você se encontra...^";
             give noun general;
             StartMasterGame();
             rtrue;
         ],
-        angel_hint "Bem, onde voce poderia ter visto o infinito antes?",
+        angel_hint "Bem, onde você poderia ter visto o infinito antes?",
   has   unidentifed_rod;
 
-Rod     rod_of_husbandry "Husbandry"
+Rod     rod_of_husbandry "Criação de animais"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'husbandry',
         rod_action [;
-            if( second == player ) "Voce se sente subitamente obediente e por um instante imagina um biscoito para caes.";
-            if( second == Austin ) "Pobre Austin, ele e indomesticavel demais. Isso nao faz efeito.";
+            if( second == player ) "Você se sente subitamente obediente e por um instante imagina um biscoito para cães.";
+            if( second == Austin ) "Pobre Austin, ele é indomesticável demais. Isso não faz efeito.";
             if( second == irate_squirrel_friend ) 
                 "Guiado por algum sexto sentido animal, o esquilo salta graciosamente para fora do caminho.";
             if( second ~= herd_of_goats ) "Nada evidente acontece.";
 
             give herd_of_goats general;
             trigger_quotation(24);
-            "As cabras subitamente olham para voce com admiracao, embora logo retomem seu antigo interesse em comer 
+            "As cabras subitamente olham para você com admiração, embora logo retomem seu antigo interesse em comer
              a grama.";
         ],
-        angel_hint "Talvez voce devesse procurar ~criacao de animais~ num dicionario.",
+        angel_hint "Talvez você devesse procurar ~criação de animais~ num dicionário.",
   has   unidentifed_rod;
 
 Rod     rod_of_bronze "Bronze"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'bronze',
         rod_action [;
-            if( second == player ) "Voce adquire um bronzeado repentino, mas ele logo desaparece.";
-            if( second == Austin ) "Austin ja e ruivo, o que e bem proximo.";
-            if( second == adamantine_knight ) "Ele ignora o efeito. (O adamantino nao e impressionante o bastante para voce?)";
+            if( second == player ) "Você adquire um bronzeado repentino, mas ele logo desaparece.";
+            if( second == Austin ) "Austin já é ruivo, o que é bem próximo.";
+            if( second == adamantine_knight ) "Ele ignora o efeito. (O adamantino não é impressionante o bastante para você?)";
             if( second == metal_wall ) {
                 give metal_wall open;
-                "Imediatamente, o bronze se pole ate brilhar como um espelho.";
+                "Imediatamente, o bronze se pole até brilhar como um espelho.";
             }
             if( second ~= bronze_mural ) "Nada evidente acontece.";
             if( bronze_mural has open ) "Nada mais acontece.";
 
             give bronze_mural open;
-            "Com um horrivel ruido de esforco e estalos, o mural desliza um pouco para o lado, abrindo uma passagem 
-             escura para baixo, que nao pode ter sido usada por seculos.";
+            "Com um horrível ruído de esforço e estalos, o mural desliza um pouco para o lado, abrindo uma passagem
+             escura para baixo, que não pode ter sido usada por séculos.";
         ],
-        angel_hint "O bronze e a chave aqui. Voce viu algum outro bronze em algum lugar?",
+        angel_hint "O bronze é a chave aqui. Você viu algum outro bronze em algum lugar?",
   has   unidentifed_rod;
 
-Rod     rod_of_sacrifice "Sacrifice"
+Rod     rod_of_sacrifice "Sacrifício"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'sacrifice',
         rod_action [;
             if( second == herd_of_goats ) {
                 if( herd_of_goats hasnt general ) {
-                    "As cabras se aglomeram demais para que se possa mirar em uma delas com precisao.";
+                    "As cabras se aglomeram demais para que se possa mirar em uma delas com precisão.";
                 }
-                "Ainda obedientes a sua vontade, as cabras se separam e uma fica sozinha. Usando esta Vara, voce a 
-                 vaporiza instantaneamente, e as outras voltam satisfeitas.^^Voce acha que ha uma
+                "Ainda obedientes à sua vontade, as cabras se separam e uma fica sozinha. Usando esta Vara, você a
+                 vaporiza instantaneamente, e as outras voltam satisfeitas.^^Você acha que há uma
                  moral sobre o uso e o abuso do poder?";
             }
             if( second == Austin ) {
                 trigger_quotation(6);
-                "Voce realmente nao quer sacrificar Austin.";
+                "Você realmente não quer sacrificar Austin.";
             }
             if( second == adamantine_knight ) 
                 "Seria uma pena, depois de toda aquela cirurgia.";
             if( second has moved ) {
                 remove second;
-                print_ret "Voce decide que consegue viver sem ", (the) second, ", que voce aniquila com a Vara.";
+                print_ret "Você decide que consegue viver sem ", (the) second, ", que você aniquila com a Vara.";
             }
             if( location == Inside_the_Orb && second == array_of_oblong_crystals ) {
                 if( Inside_the_Orb hasnt general ) {
                     deadflag = CHECKMATED;
-                     "As pecas pretas fazem uma ruptura precipitada em suas defesas, sacrificando uma peca em vao e sofrendo 
-                      uma derrota rapida.^^A Rainha Branca se ergue do tabuleiro, com um sorriso de anjo vingador,
+                     "As peças pretas fazem uma ruptura precipitada em suas defesas, sacrificando uma peça em vão e sofrendo
+                      uma derrota rápida.^^A Rainha Branca se ergue do tabuleiro, com um sorriso de anjo vingador,
                       e agita uma espada larga de luz ardente pelo seu corpo...";
                 }
                 move golden_orb to player;
                 give golden_orb general;
                 Achieved(SCORE_ORB);
-                 golden_orb.description = "Um tesouro em todos os sentidos, o orbe pulsa com radiancia dourada.";
-                 print "As pecas brancas avancam: primeiro um bispo, depois um cavalo e sacrificado, limpando a 
-                     parede de peoes que cerca o rei preto para permitir um xeque-mate deslumbrante!^^Voce
-                     desaparece do orbe tao estranhamente quanto entrou, impressionado por ele quase pulsar em sua palma.^";
+                 golden_orb.description = "Um tesouro em todos os sentidos, o orbe pulsa com radiância dourada.";
+                 print "As peças brancas avançam: primeiro um bispo, depois um cavalo é sacrificado, limpando a
+                     parede de peões que cerca o rei preto para permitir um xeque-mate deslumbrante!^^Você
+                     desaparece do orbe tão estranhamente quanto entrou, impressionado por ele quase pulsar em sua palma.^";
                 move player to ContainerSave;
                 location = LocationSave;
                 << Look >>;
             }
             if( second == player ) {
                 deadflag = DIED;
-                 "Voce sente uma nobre onda de orgulho enquanto seu corpo e incinerado pela Vara. Ao menos morreu por uma 
-                  causa terrivelmente importante, embora exatamente qual parece ter escapado da sua memoria.";
+                  "Você sente uma nobre onda de orgulho enquanto seu corpo é incinerado pela Vara. Ao menos morreu por uma
+                   causa terrivelmente importante, embora exatamente qual parece ter escapado da sua memória.";
             }
             "Nada evidente acontece.";
         ],
-        angel_hint "Perigoso demais. A era dos martires na igreja ja acabou ha muito tempo, sabia?",
+        angel_hint "Perigoso demais. A era dos mártires na igreja já acabou há muito tempo, sabia?",
   has   unidentifed_rod;
 
-Rod     rod_of_luck "Luck"
+Rod     rod_of_luck "Sorte"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'luck',
         rod_action [;
             if( second == player ) {
                 if( big_electricians_switch has on ) {
-                    "Voce nao sente diferenca. Talvez a sorte nao exista.";
+                    "Você não sente diferença. Talvez a sorte não exista.";
                 }
                 give noun general;
-                "Voce se sente otimista e sortudo. Pensando bem, voce se sente assim na maior parte do tempo.";
+                "Você se sente otimista e sortudo. Pensando bem, você se sente assim na maior parte do tempo.";
             }
-            if( second == Austin ) "Austin ja e sortudo demais.";
+            if( second == Austin ) "Austin já é sortudo demais.";
             if( second == adamantine_knight ) "Reunido depois de todos esses anos... quanta sorte se pode ter?";
             if( second == gambling_sailor ) {
                 give gambling_sailor lucky;
@@ -429,66 +429,66 @@ Rod     rod_of_luck "Luck"
             }
             if( second == inscribed_die ) {
                 give inscribed_die lucky;
-                "O dado chacoalha um pouco e entao para.";
+                "O dado chacoalha um pouco e então para.";
             }
             "Nada evidente acontece.";
         ],
-        angel_hint "Bem, se e que existe algo chamado sorte, talvez isto ajude.",
+        angel_hint "Bem, se é que existe algo chamado sorte, talvez isto ajude.",
   has   unidentifed_rod;
 
-Rod     rod_of_ice "Ice"
+Rod     rod_of_ice "Gelo"
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque' 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         rod_word 'ice',
         rod_action [;
             if( second == player )
-                "Voce sente um calafrio repentino.";
+                "Você sente um calafrio repentino.";
             if( second has animate ) 
                 print_ret "Por um breve instante, ", (the) second, " congela.";
             if( second has high_rod ) {
                 if( second has general ) {
-                    "Ja esta frio.";
+                    "Já está frio.";
                 }
                 give second general;
-                "Ha um enorme silvo de vapor, criando nevoas que giram furiosamente; quando elas se dissipam, resta uma vara aparentemente fria.";
+                "Há um enorme silvo de vapor, criando névoas que giram furiosamente; quando elas se dissipam, resta uma vara aparentemente fria.";
             }
             "Nada evidente acontece.";
         ],
         angel_hint "Use apenas em momentos acalorados, quando as coisas estiverem delicadamente equilibradas.",
   has   unidentifed_rod;
 
-Rod     rod_of_language "Language"
+Rod     rod_of_language "Linguagem"
   with  name 'rod' 'of' 'language',
         list_together ListingRods,
         rod_action [;
             if( second == player ) {
                 KnowLanguages = true;
-                "Nada evidente acontece. Voce xinga eloquentemente em celta.";
+                "Nada evidente acontece. Você xinga eloquentemente em celta.";
             }
             if( second == surly_shopkeeper ) 
-                "Boa ideia. Agora o quiosqueiro tambem sabe um pouco de celta. Infelizmente, seu orgulho nacional 
-                 e forte demais. Voce tera de tentar outra coisa - tem carta branca para resolver este 
+                "Boa ideia. Agora o quiosqueiro também sabe um pouco de celta. Infelizmente, seu orgulho nacional
+                 é forte demais. Você terá de tentar outra coisa - tem carta branca para resolver este
                  problema.";
             "Nada evidente acontece.";
         ],
   has   ;
 
-Rod     rod_of_returning2 "Returning"
+Rod     rod_of_returning2 "Retorno"
   with  name 'rod' 'of' 'returning',
         list_together ListingRods,
         rod_action RodOfReturningAction,
   has   ;
 
-HighRod     rod_of_life "Life"
+HighRod     rod_of_life "Vida"
   with  name 'life' 'high' 'rod' 'of',
-         initial "As Varas Superiores da Vida, do Amor e da Morte se apoiam numa piramide no alto da encosta ingreme, equilibradas com delicadeza.",
-         angel_hint "Espantoso! Uma das tres Varas Superiores!";
+         initial "As Varas Superiores da Vida, do Amor e da Morte se apoiam numa pirâmide no alto da encosta íngreme, equilibradas com delicadeza.",
+         angel_hint "Espantoso! Uma das três Varas Superiores!";
 
-HighRod     rod_of_death "Death"
+HighRod     rod_of_death "Morte"
   with  name 'death' 'high' 'rod' 'of',
-         angel_hint "Espantoso! Uma das tres Varas Superiores!",
+         angel_hint "Espantoso! Uma das três Varas Superiores!",
   has   concealed;
 
-HighRod     rod_of_love "Love"
+HighRod     rod_of_love "Amor"
   with  name 'love' 'high' 'rod' 'of',
-         angel_hint "Espantoso! Uma das tres Varas Superiores!",
+         angel_hint "Espantoso! Uma das três Varas Superiores!",
   has   concealed;

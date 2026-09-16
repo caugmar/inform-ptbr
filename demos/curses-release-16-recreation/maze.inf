@@ -343,7 +343,7 @@ GRoom   Viewpoint_Ledge "Mirante"
         cant_go "A encosta é íngreme demais.",
   has   light scored;
 
-Object  -> plaque "plaque"       
+Object  -> plaque "placa"       
   with  name 'plaque',
         description "~Este mirante, um dos melhores do condado, foi construído por Capability Meldrew, famoso paisagista
             de sua época. Destinava-se a ser uma das recompensas do labirinto do jardim e foi construído por volta de
@@ -375,7 +375,7 @@ Object -> Folly_tower "torre"
         description "Decididamente instável.",
   has   scenery;
 
-Object -> bean_pole "bean pole" 
+Object -> bean_pole "vara de feijão" 
   with  name 'bean' 'pole' 'beanpole',
         after [;
             Take:
