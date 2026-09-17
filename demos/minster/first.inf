@@ -9,32 +9,30 @@
 ! 3.1 FIRST COURT AND THE PORTER
 !--------------------------------------------------------------------------
 
-Object  FirstCourt "First Court"
+Object  FirstCourt "Primeiro Pátio"
  has    light
  with   name "tall" "building" "buildings" "gargoyle" "gargoyles"
             "quadrangle" "first" "court" "gloomy" "gingham" "pinafore"
             "apron" "centuries-old" "stonework" "centuries" "old" "chapel"
             "street",
         description [;
-            print "An immaculate lawn graces the centre of a gloomy \
-                quadrangle surrounded on all four sides by tall \
-                buildings. ";
+             print "Um gramado impecável ocupa o centro de um pátio sombrio \
+                 cercado por prédios altos nos quatro lados. ";
             if (ClockTower.number > 19)
-                print "Wistaria covers the college buildings, and in the \
-                    white moonlight the gnarled branches seem to grip the \
-                    old stonework jealously.";
+                 print "A glicínia cobre os prédios do college e, sob o luar \
+                     branco, os galhos nodosos parecem agarrar-se \
+                     ciumentamente à velha cantaria.";
             else
-                print "Purple-flowering wistaria covers the centuries-old \
-                    stonework, and gargoyles peer down from above.";
-            "^^You can leave the court \
-            in many directions:^^    \
-            West: a great wooden gate leads out to Chapel Street^    \
-            Northwest: the porters' lodge^    \
-            North: ~A~ staircase^    \
-            Northeast: the door to the Master's Lodgings^    \
-            East: a low archway through to another court^    \
-            Southeast: ~B~ staircase^    \
-            South: an archway through to the library";
+                 print "A glicínia de flores roxas cobre a cantaria secular, \
+                     e gárgulas observam lá de cima.";
+             "^^Você pode sair do pátio em várias direções:^^    \
+             Oeste: um grande portão de madeira leva à Chapel Street^    \
+             Noroeste: o alojamento do porteiro^    \
+             Norte: escadaria ~A~^    \
+             Nordeste: a porta dos Alojamentos do Reitor^    \
+             Leste: um arco baixo leva a outro pátio^    \
+             Sudeste: escadaria ~B~^    \
+             Sul: um arco leva à biblioteca";
         ],
         w_to GreatGate,
         nw_to PortersLodgeObject,
@@ -47,25 +45,24 @@ Object  FirstCourt "First Court"
             if (HouseKeeper in self && DoorMaster has open)
                 return DoorMaster;
             if (EM == 1) rtrue;
-            "There are many places you could go into from here. Try a \
-            compass direction.";
+             "Há muitos lugares onde você poderia entrar daqui. Tente uma \
+             direção da bússola.";
         ],
         out_to GreatGate,
         u_to [;
             if (EM == 1) return Wistaria;
             if (ClockTower.number < 20)
-                "The wistaria is sturdy and certainly capable of \
-                supporting your weight, but before you can get more than \
-                two feet off the ground, the porter emerges from his \
-                lodge and shouts at you: ~Come down off there!~ \
-                Reluctantly, you obey, and the porter goes back inside.";
+                 "A glicínia é resistente e certamente suportaria seu peso, \
+                 mas, antes que você suba mais de meio metro, o porteiro sai \
+                 de seu alojamento e grita: ~Desça daí!~ Você obedece a \
+                 contragosto, e o porteiro volta para dentro.";
             Achieved("climbing the wistaria");
-            print "Under cover of darkness, you may be able to avoid the \
-                watchful eye of the porter.^";
+             print "Sob a proteção da escuridão, talvez você consiga evitar o \
+                 olhar atento do porteiro.^";
             return Wistaria;
         ],
         before [;
-         Smell: "The flowers on the wistaria are pungent with scent.";
+          Smell: "As flores da glicínia têm um perfume intenso.";
         ],
         each_turn [;
             Achieved("getting into Biblioll college");
@@ -74,51 +71,51 @@ Object  FirstCourt "First Court"
             DoneHint(WhatNextPuzzle,1);
             AdvanceTime(self);
             if (DoorMaster has open && Telephone.state == 1)
-                "^You can hear a telephone ringing to the northeast.";
+                 "^Você ouve um telefone tocando a nordeste.";
         ],
         edward_dirs e_obj w_obj nw_obj;
 
-Nearby  Lawn "immaculate lawn"
+Nearby  Lawn "gramado impecável"
  has    scenery enterable container open
  with   name "immaculate" "lawn" "freshly-mown",
         article "an",
-        description "The work of several hundreds of years of careful \
-            attention by generations of gardeners.",
+         description "O resultado de centenas de anos de cuidado por várias \
+             gerações de jardineiros.",
         before [;
-         SmellThing: "Freshly-mown.";
+          SmellThing: "Recém-aparado.";
          Enter:
             if (ClockTower.number < 20)
-                "The porter emerges from his lodge and shouts at you: \
-                ~Get off that lawn! Fellows of the college only!~ \
-                Reluctantly, you obey, and the porter goes back inside.";
-         Receive: "The porter emerges from his lodge and shouts at you: \
-            ~Leave the lawn alone! Fellows of the college only!~ \
-            Reluctantly, you obey, and the porter goes back inside.";
+                 "O porteiro sai de seu alojamento e grita: ~Saia do gramado! \
+                 Somente membros do college!~ Você obedece a contragosto, e \
+                 o porteiro volta para dentro.";
+          Receive: "O porteiro sai do alojamento e grita para você: \
+             ~Deixe o gramado em paz! Somente membros do college!~ \
+             A contragosto, você obedece, e o porteiro volta para dentro.";
         ];
 
-Nearby  Wisteria "wisteria"
+Nearby  Wisteria "glicínia"
  has    scenery
- with   name "wisteria",
+  with   name "glicinia" "glicínia" "wisteria",
         before [;
             remove self;
-            "Wistaria was named after the American anatomist Caspar \
-            Wistar (1761-1818). The spelling ~wisteria~, though used by \
-            Thomas Nuttall, who named the genus, is wrong.";
+             "A glicínia recebeu seu nome do anatomista americano Caspar \
+             Wistar (1761-1818). A grafia ~wisteria~, embora usada por \
+             Thomas Nuttall, que nomeou o gênero, está errada.";
         ];
 
-Nearby  PortersLodgeObject "Porters' Lodge"
+Nearby  PortersLodgeObject "Alojamento do Porteiro"
  has    door scenery open
  with   name "porters" "porters^" "lodge" "porter" "porter^s",
         door_to PortersLodge,
         door_dir nw_to;
 
-Object  Wistaria "wistaria"
+Object  Wistaria "glicínia"
  has    door scenery open
- with   name "purple" "flowering" "wistaria" "root" "roots" "branch"
+ with   name "glicinia" "glicínia" "purple" "flowering" "wistaria" "root" "roots" "branch"
             "gnarled" "branches",
-        description "The wistaria has embedded its roots into the fabric \
-            of the college for decades, and its gnarled branches are \
-            thicker than your arms.",
+         description "A glicínia fincou suas raízes na estrutura do college \
+             há décadas, e seus galhos nodosos são mais grossos que seus \
+             braços.",
         found_in FirstCourt RoofA,
         door_to [;
             if (self in RoofA) return FirstCourt;
@@ -131,32 +128,32 @@ Object  Wistaria "wistaria"
         article "some",
         before [;
          Climb: <<Enter self>>;
-         SmellThing: "The flowers are pungent with scent.";
+          SmellThing: "As flores têm um perfume intenso.";
         ];
 
-Object  PortersLodge "Porters' lodge"
+Object  PortersLodge "Alojamento do Porteiro"
  has    light
  with   name "paper" "papers" "chapel" "newsletter" "door" "doorway" 
             "courtyard" "court" "yard",
-        description "Hundreds of pigeonholes line the walls of this large \
-            room. A doorway to the southeast leads out to a courtyard.",
+         description "Centenas de escaninhos cobrem as paredes desta grande \
+             sala. Uma porta a sudeste leva a um pátio.",
         se_to FirstCourt,
         out_to FirstCourt,
-        cant_go "The porter grins at you. ~Having trouble, love?~ he asks \
-            you. ~The only way out's the way you came in.~",
+         cant_go "O porteiro sorri para você. ~Está com problemas, querida?~ \
+             pergunta. ~A única saída é por onde você entrou.~",
         edward_dirs se_obj,
         before [;
          Smell: <<SmellThing Pigeonholes>>;
         ];
 
-Nearby  Porter "porter"
+Nearby  Porter "porteiro"
  class  CarryingClass TalkableClass
         ! general if you've shown him the telegram
  with   name "porter" "ancient" "wrinkled" "gnarled" "chap" "hand" "deaf" 
             "man",
-        description "The porter is an ancient chap, wrinkled of face \
-            and gnarled of hand.",
-        initial "A porter stands here, idly sorting through some papers.",
+         description "O porteiro é um homem muito velho, de rosto enrugado e \
+             mãos nodosas.",
+         initial "Um porteiro está aqui, separando alguns papéis sem pressa.",
         life [;
          Show,Give:
             switch(noun) {
@@ -164,21 +161,19 @@ Nearby  Porter "porter"
                 if (self hasnt general) {
                     DoneHint(MalcolmsRoomPuzzle,6);
                     give self general;
-                    "The porter looks at your telegram. ~You're Malcolm's \
-                    sister, aye?~ he asks you. ~I've not seen yer brother \
-                    in the last couple of days, he must be hard at work \
-                    at those experiments of his.~";
+                     "O porteiro olha seu telegrama. ~Você é irmã do Malcolm, \
+                     não é?~ ele pergunta. ~Não vejo seu irmão há alguns dias; \
+                     ele deve estar muito ocupado com aqueles experimentos.~";
                 }
-                "~Aye, you've shown me that,~ he says.";
+                 "~Sim, você já me mostrou isso,~ ele diz.";
              KeyToA5:
                 give KeyToA5 ~general;
                 move KeyToA5 to GivenAway;
-                "~Ta very much,~ says the porter, returning the key to \
-                his key-ring.";
+                 "~Muito obrigado,~ diz o porteiro, devolvendo a chave ao \
+                 chaveiro.";
              Map:
-                "~Lost, are you?~ says the Porter. ~You're right here, \
-                where it says Porter's Lodge.~ He helpfully points it out \
-                to you.";
+                 "~Está perdido?~ diz o porteiro. ~Você está aqui, onde está \
+                 escrito Alojamento do Porteiro.~ Ele aponta o local para você.";
             }
         ],
         before [;
@@ -222,11 +217,10 @@ Nearby  Pigeonholes "pigeonholes"
             } until (ok == 0);
             return j;
         ],
-        description "There are hundreds of pigeonholes, one for each \
-            fellow and student of the college, labelled by surname \
-            only. You'll have to be specific about which one you want. To \
-            refer to a particular person's pigeonhole, use his surname; \
-            for example, ~Johnson's pigeonhole~.",
+         description "Há centenas de escaninhos, um para cada membro e \
+             estudante do college, identificados apenas pelo sobrenome. Você \
+             terá de especificar qual quer. Para se referir ao escaninho de \
+             alguém, use o sobrenome; por exemplo, ~escaninho de Johnson~.",
         short_name [;
             switch (self.number) {
              -1: print "Johnson";
@@ -241,9 +235,9 @@ Nearby  Pigeonholes "pigeonholes"
         number 0,
         before [ i;
             if (self.number == -2)
-                "Alas, the pigeonholes are labelled by surname only.";
+             "Infelizmente, os escaninhos trazem apenas sobrenomes.";
             if (self.number == -1)
-                "Johnson was only an example. There's no such person.";
+             "Johnson era apenas um exemplo. Não existe tal pessoa.";
             if (self.number == 0) rfalse;
          Examine, Search:
             if (Edward in location) {
@@ -283,10 +277,10 @@ Nearby  Pigeonholes "pigeonholes"
 Nearby  GateList "gate list"
  has    static
  with   name "college" "gate" "list",
-        description "It's a list of fellows and students of Biblioll \
-            college, together with their room numbers. You can try \
-            looking up surnames or room numbers.",
-        initial "Tacked up on the wall is the college gate list.",
+         description "É uma lista dos membros e estudantes do college \
+             Biblioll, com os números de seus quartos. Você pode procurar \
+             sobrenomes ou números de quarto.",
+         initial "A lista do portão do college está pregada na parede.",
         before [ i w n;
          Consult:
             DoneHint(MalcolmsRoomPuzzle,1);
@@ -317,7 +311,7 @@ Nearby  GateList "gate list"
                     }
                 }
             }
-            "You can't find what you want in the gate list.";
+             "Você não encontra o que procura na lista do portão.";
         ];
 
 Object  KeyToA5 "iron key"
@@ -330,7 +324,7 @@ Object  KeyToA5 "iron key"
             else print "an";
         ];
 
-Object  KeyRing "ring of keys" Porter
+Object  KeyRing "chaveiro" Porter
  with   name "ring" "of" "keys" "spare" "key",
         description [;
             print "A big metal ring, with perhaps thirty keys dangling \
@@ -366,13 +360,12 @@ Object  KeyRing "ring of keys" Porter
 ! 3.2 "A" STAIRCASE
 !--------------------------------------------------------------------------
 
-Object  AStairGround "~A~ Staircase, Ground Floor"
+Object  AStairGround "Escadaria ~A~, Térreo"
  has    light
  with   name "stair" "stairs" "first" "court" "doorway",
-        description "This hallway smells of ancient varnish and carbolic \
-            soap. To the east is the door to A1; to the west is the door \
-            to A2; stairs lead up; and a doorway leads south onto First \
-            Court.",
+         description "Este corredor cheira a verniz antigo e sabão carbólico. \
+             A leste fica a porta de A1; a oeste, a porta de A2; escadas \
+             levam para cima, e uma porta leva ao sul, ao Primeiro Pátio.",
         u_to AStairFirst,
         n_to AStairFirst,
         s_to FirstCourt,
@@ -387,15 +380,14 @@ Nearby  DoorA2 "x" class DoorClass
  with   name "A2" "Pidduck" "Pidduck^s",
         room "A2", occupant "Pidduck", door_dir w_to;
 
-Object  AStairFirst "~A~ Staircase, First Floor"
+Object  AStairFirst "Escadaria ~A~, Primeiro Andar"
  has    light
  with   name "stair" "stairs" "placard",
-        description "A placard on the wall of this narrow landing reads, \
-            ~Entertaining of females in undergraduate rooms is strictly \
-            prohibited on pain of rustication. By order of the Bursar.~ \
-            You feel distinctly unwelcome. To the east is the door to A3; \
-            to the west is the door to A4; creaky wooden stairs lead up \
-            to the second floor and down to the ground floor.",
+         description "Um cartaz na parede deste patamar estreito diz: \
+             ~É estritamente proibido receber mulheres em quartos de \
+             estudantes, sob pena de expulsão. Por ordem do tesoureiro.~ \
+             Você se sente claramente indesejada. A leste fica A3; a oeste, \
+             A4; escadas rangentes levam ao segundo andar e descem ao térreo.",
         u_to AStairSecond,
         d_to AStairGround,
         e_to DoorA3,
@@ -408,13 +400,12 @@ Nearby  DoorA4 "x" class DoorClass
  with   name "A4" "Trembath" "Trembath^s",
         room "A4", occupant "Trembath", door_dir w_to;
 
-Object  AStairSecond "~A~ Staircase, Second Floor"
+Object  AStairSecond "Escadaria ~A~, Segundo Andar"
  has    light
  with   name "stair" "stairs" "skylight",
-        description "A dirty skylight admits a little light into this \
-            second floor landing. To the east is the door to A5; to the \
-            west is the door to A6; and creaky wooden stairs lead down to \
-            the first floor.",
+         description "Uma claraboia suja deixa entrar um pouco de luz neste \
+             patamar do segundo andar. A leste fica A5; a oeste, A6; e escadas \
+             rangentes descem ao primeiro andar.",
         d_to AStairFirst,
         e_to DoorA5,
         w_to DoorA6,
@@ -450,100 +441,96 @@ Object  DoorA5 "x"
 ! 3.3 MALCOLM'S ROOMS
 !------------------------------------------------------------------------------
 
-Object  MalcolmsRoom "Malcolm's Study"
+Object  MalcolmsRoom "Escritório de Malcolm"
  has    light no_edward proper
         ! general if player heard about Malcolm in Edinburgh
- with   description "Your heart sinks as you look around this room. It has \
-            been thoroughly ransacked: the furniture has been turned \
-            upside down and Malcolm's papers torn and scattered all over \
-            the floor. You could go back out to the second-floor landing \
-            to the west, or you could go through to another room to the \
-            south.",
+  with   description "Seu coração afunda quando você olha ao redor. O quarto \
+             foi completamente revirado: os móveis foram virados de cabeça \
+             para baixo e os papéis de Malcolm estão rasgados e espalhados \
+             pelo chão. Você pode voltar ao patamar do segundo andar, a oeste, \
+             ou passar para outro quarto ao sul.",
         initial [;
             if (self has visited) rfalse;
             Achieved("entering Malcolm's room");
             PuzzleSolved(MalcolmsRoomPuzzle);
             DoneHint(WhatNextPuzzle,2);
             if (self has general)
-                "You walk through the door, expecting Malcolm to have \
-                left a note for you explaining his absence, or perhaps \
-                left a notebook describing those mysterious researches of \
-                his, but nothing prepares you for the sight inside.";
-            "You walk through the door, expecting to catch your brother \
-            hard at work and intending to amaze him with your story of \
-            how difficult it was to find him, but he is not here.";
+                 "Você atravessa a porta, esperando que Malcolm tenha deixado \
+                 um bilhete explicando sua ausência, ou talvez um caderno \
+                 descrevendo suas pesquisas misteriosas, mas nada prepara \
+                 você para o que vê lá dentro.";
+             "Você atravessa a porta, esperando encontrar seu irmão \
+             trabalhando e pronta para impressioná-lo com a história de como \
+             foi difícil encontrá-lo, mas ele não está aqui.";
         ],
         w_to AStairSecond,
         out_to AStairSecond,
         s_to DoorwayA5,
         in_to DoorwayA5;
 
-Object  MalcolmsBedroom "Malcolm's Bedroom"
+Object  MalcolmsBedroom "Quarto de Malcolm"
  has    light no_edward
  with   name "bedroom" "study" "burglar" "burglars",
-        description "Like Malcolm's study, his bedroom has been \
-            thoroughly searched. The bed has been broken up as if for \
-            firewood, the mattress and pillows torn apart and feathers \
-            scattered everywhere. Whatever the burglars were looking for, \
-            they wanted it a lot. A doorway leads back north into the \
-            study.",
+         description "Assim como o escritório, o quarto de Malcolm foi \
+             completamente revistado. A cama foi desmontada como lenha, o \
+             colchão e os travesseiros foram rasgados, e há penas por toda \
+             parte. Fosse o que fosse que os ladrões procuravam, queriam muito. \
+             Uma porta leva de volta ao escritório, ao norte.",
         n_to [;
             if (Jarboe in MalcolmsRoom && Jarboe hasnt general) {
               Jarboe.state = 7;
-                "You peer around the corner, hoping to spy on Jarboe and \
+                 "Você espia pela esquina, esperando observar Jarboe e \
                 Bungay while remaining unobserved, but just as you poke \
-                your head through the doorway Bungay looks up. ~What's \
-                this?~ he shouts. ~A spy!~^^You shrink back into the \
-                bedroom as the two men walk towards you.";
+                 sua cabeça pela porta, Bungay olha para cima. ~O que é isso?~ \
+                 ele grita. ~Uma espiã!~^^Você recua para o quarto enquanto os \
+                 dois homens caminham até você.";
             }
             if (Jarboe in self) {
                 if (Jarboe.state < 10)
-                    "You try to dart around the two men, but Bungay \
-                    blocks your way with his considerable bulk. ~Not so \
-                    fast,~ he says. ~We haven't finished with you yet.~";
-                "Jarboe shoves you back as you attempt to get past the \
-                two men. ~Remember what we said,~ he snarls.";
+                    "Você tenta passar pelos dois homens, mas Bungay bloqueia \
+                     seu caminho com seu corpanzil. ~Devagar,~ ele diz. ~Ainda \
+                     não terminamos com você.~";
+                "Jarboe empurra você para trás quando tenta passar pelos dois \
+                 homens. ~Lembre-se do que dissemos,~ ele rosna.";
             }
             return DoorwayA5;
         ],
         s_to [;
             if (WindowA5 has open)
-                "Don't do it! It would be suicidal!";
+             "Não faça isso! Seria suicídio!";
             return WindowA5;
         ],
         before [;
          Sing:
             if (Jarboe in MalcolmsRoom)
-                "Now is no time for singing: the men in the next room \
-                will hear you!";
+                 "Não é hora de cantar: os homens no quarto ao lado vão ouvir você!";
         ];
 
 ! Hide one or two useful things in the junk?
 ! name doesn't include "lab" or "laboratory" because of the lab book
-Object  Junk "junk"
+Object  Junk "entulho"
  has    scenery
  with   name "junk" "furniture" "paper" "papers" "feathers" "bed" 
             "mattress" "pillow" "firewood" "wood" "rubbish",
-        description "You search carefully through the junk, but it has \
-            been thoroughly and completely ruined by whoever ransacked \
-            the room.",
+         description "Você vasculha cuidadosamente os entulhos, mas quem \
+             revirou o quarto os destruiu por completo.",
         article "some",
         before [;
          Search: <<Examine self>>;
          Enter:
-            "All the furnishings have been broken into pieces and there's \
-            no way you could hide in them.";
+             "Todos os móveis foram quebrados em pedaços, e não há como você \
+             se esconder neles.";
          Examine: rfalse;
          default:
-            "There's no point. Everything's been ruined.";
+             "Não adianta. Tudo foi destruído.";
         ],
         found_in MalcolmsRoom MalcolmsBedroom;
 
-Object  DoorwayA5 "doorway"
+Object  DoorwayA5 "porta"
  has    scenery door open
  with   name "doorway",
-        description "An ordinary doorway. It's positioned so that you \
-            can't easily see from room to room.",
+         description "Uma porta comum, posicionada de modo que não seja fácil \
+             enxergar de um quarto para o outro.",
         found_in MalcolmsRoom MalcolmsBedroom,
         door_to [;
             if (self in MalcolmsRoom) return MalcolmsBedroom;
@@ -556,27 +543,26 @@ Object  DoorwayA5 "doorway"
          Search: <<Enter self>>;
         ];          
 
-Object  WindowA5 "window" MalcolmsBedroom
+Object  WindowA5 "janela" MalcolmsBedroom
  has    openable static door
  with   name "window" "sash",
-        description "An ordinary sash window. It reminds you of the \
-            window in your brother's bedroom at home.",
-        when_closed "A closed window looks out south onto First Court.",
-        when_open "An open window looks out south onto First Court.",
+         description "Uma janela comum de guilhotina. Ela lembra a janela do \
+             quarto de seu irmão em casa.",
+         when_closed "Uma janela fechada dá para o sul, para o Primeiro Pátio.",
+         when_open "Uma janela aberta dá para o sul, para o Primeiro Pátio.",
         before [;
          Examine:
             print (string) self.description, " ";
             <<Search self>>;
          Search:
-            print "Looking through the window, you can see the \
-                courtyard below";
+             print "Olhando pela janela, você vê o pátio abaixo";
             if (self has open)
-                print ". You lean out of the window and notice ivy \
-                    clustering around the frame";
+                 print ". Você se inclina pela janela e nota hera agrupada \
+                     ao redor da moldura";
             ".";
          ThrownAt,Receive:
-            if (self hasnt open) "You've broken enough windows for one \
-                day.";
+             if (self hasnt open) "Você já quebrou janelas o bastante por um \
+                 dia.";
             move noun to FirstCourt;
             print_ret (The) noun, " flies through the open window.";
         ],
@@ -587,10 +573,10 @@ Object  WindowA5 "window" MalcolmsBedroom
         door_dir s_to,
         door_to FirstCourt;
 
-Object  Ivy "ivy"
+Object  Ivy "hera"
  has    static concealed
         ! general if you've found the concealed book
- with   name "ivy" "creeper" "vine",
+  with   name "hera" "trepadeira" "ivy" "creeper" "vine",
         article "some",
         before [;
          Climb: <<Enter WindowA5>>;
@@ -609,10 +595,10 @@ Object  Ivy "ivy"
                 DoneHint(WhatNextPuzzle,3);
                 AdvanceTime(self);
                 StartDaemon(Jarboe);
-                "When you were children, Malcolm could never hide his \
-                toys from you for long... Leaning precariously out of the \
-                window, you search around in the ivy, and sure enough, \
-                your hand lights upon a book hidden among the leaves!";
+                 "Quando eram crianças, Malcolm nunca conseguia esconder os \
+                 brinquedos de você por muito tempo... Inclinada perigosamente \
+                 pela janela, você procura na hera e, como esperava, sua mão \
+                 encontra um livro escondido entre as folhas!";
             }
         ];
 
@@ -620,7 +606,7 @@ Object  Ivy "ivy"
 ! ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 ! CHRISTABELDFGJKMNOPQUVWXYZchristabeldfgjkmnopquvwxyz
 
-Object  BookLab "lab book"
+Object  BookLab "livro de laboratório"
  class  BookClass
  with   name "lab" "laboratory" "wet" "damaged",
         description "The lab book is considerably the worse for wear, \
@@ -645,32 +631,32 @@ Object  BookLab "lab book"
          SmellThing: "It's very damp and musty.";
         ];
 
-Object  CodeBookNote "note" DoorA5
+Object  CodeBookNote "bilhete" DoorA5
  class  FlimsyClass
  with   name "note",
         size 0,
-        description "The note reads, ~Dear Malcolm, Thanks for returning \
-            Zinovic, much obliged, Mr Baskeyfield.~";
+         description "O bilhete diz: ~Caro Malcolm, obrigado por devolver \
+             Zinovic, fico muito grato, Sr. Baskeyfield.~";
 
 
 !--------------------------------------------------------------------------
 ! 3.4 DOCTOR JARBOE AND PROFESSOR BUNGAY
 !--------------------------------------------------------------------------
 
-Object  Jarboe "Doctor Jarboe"
+Object  Jarboe "Doutor Jarboe"
  class  FollowClass CarryingClass TalkableClass
  has    proper
- with   name "doctor" "dr" "jarboe" "fellow",
-        description "Jarboe is a tall, gaunt man, with thin, ungainly \
-            limbs and a long sharp nose. His suit hangs loosely from his \
-            narrow shoulders.",
+  with   name "doutor" "doctor" "dr" "jarboe" "fellow",
+         description "Jarboe é um homem alto e esquálido, com membros finos e \
+             desajeitados e um nariz longo e pontudo. Seu terno pende dos \
+             ombros estreitos.",
         state 0,
         life [;
-         Kiss: "Yuck! What a horrible suggestion.";
+          Kiss: "Eca! Que sugestão horrível.";
          Attack:
-            print "Jarboe slaps you in the face, and you stagger \
-                back. ~Cut it out, you pathetic girl!~ he shouts. You \
-                start to cry, and the tears run down your cheeks.^";
+             print "Jarboe dá um tapa no seu rosto, e você cambaleia para trás. \
+                 ~Pare com isso, menina patética!~ ele grita. Você começa a \
+                 chorar, e as lágrimas escorrem pelo seu rosto.^";
             move TearsA to player;
             StartTimer(TearsA,3);
             if (Edward in location)
@@ -678,7 +664,7 @@ Object  Jarboe "Doctor Jarboe"
                 Jarboe snarls at him. ~Keep out of this, Forbes, it's \
                 none of your business.~^";
             rtrue;
-         Show, Give: "Jarboe knocks your offering aside contemptuously.";
+          Show, Give: "Jarboe afasta sua oferta com desprezo.";
         ],
         orders [;
          Give: 
@@ -686,7 +672,7 @@ Object  Jarboe "Doctor Jarboe"
                 <<Take BookLab>>;
         ],
         before [;
-         Speak: "~Shut up!~ growls Jarboe.";
+          Speak: "~Cale a boca!~ rosna Jarboe.";
          Invoke:
             if (BookLab notin self && LineOfSight(self, BookLab) == 1) {
                 move BookLab to self;
@@ -862,32 +848,31 @@ Object  Bungay "Professor Bungay"
  has    proper
         ! general if spoken to Edward Forbes
  with   name "professor" "prof" "bungay" "fellow",
-        description "Bungay is a short man, at five feet and two inches a \
-            little shorter than yourself, but his vast bulk more than \
-            makes up for his lack of height. His clothes are all but \
-            bursting at the seams.",
+         description "Bungay é um homem baixo, pouco mais de um metro e meio, \
+             um pouco mais baixo que você, mas seu enorme corpanzil compensa \
+             de sobra a falta de altura. Suas roupas quase arrebentam nas \
+             costuras.",
         life [;
-         Kiss: "Yuck! What a horrible suggestion.";
+          Kiss: "Eca! Que sugestão horrível.";
          Show,Give:
-            "~I'm not interested in that, whatever it is,~ says Bungay \
-            without looking at your offer. ~I'm a busy man and I don't \
-            have time for trifles.~";
-         Attack: "Bungay probably weighs four or five times as much as \
-             you do. It would be madness to attack him.";
+             "~Não tenho interesse nisso, seja lá o que for,~ diz Bungay sem \
+             olhar para sua oferta. ~Sou um homem ocupado e não tenho tempo \
+             para ninharias.~";
+          Attack: "Bungay provavelmente pesa quatro ou cinco vezes mais que \
+              você. Seria loucura atacá-lo.";
         ],
         before [;
-         Speak: "~Be quiet, little girl,~ says Bungay with some \
-            distaste.";
+          Speak: "~Fique quieta, menina,~ diz Bungay com algum desgosto.";
         ];
 
-Object  JarboesSanctum "Jarboe's Study";
-Object  BungaysSanctum "Bungay's Living Room";
+Object  JarboesSanctum "Escritório de Jarboe";
+Object  BungaysSanctum "Sala de estar de Bungay";
 
 !--------------------------------------------------------------------------
 ! 3.5 THE MASTER'S LODGE
 !--------------------------------------------------------------------------
 
-Object  DoorMaster "door to the Master's Lodgings"
+Object  DoorMaster "porta dos Alojamentos do Reitor"
  has    door lockable openable locked scenery autoopen
  with   description [;
             print "The door to the Master's Lodgings is made of thick, \
@@ -921,7 +906,7 @@ Object  DoorMaster "door to the Master's Lodgings"
                 "Not with the housekeeper in the way.";
         ];
 
-Object  BellPull "bell pull" FirstCourt
+Object  BellPull "cordão da campainha" FirstCourt
  has    static concealed
         ! general if rung before
  with   name "bell" "pull" "bell-pull" "doorbell" "door-bell",
@@ -961,7 +946,7 @@ Object  BellPull "bell pull" FirstCourt
             }
         ];
 
-Object  HouseKeeper "housekeeper"
+Object  HouseKeeper "governanta"
  class  FollowClass CarryingClass TalkableClass
  has    female
         ! general if told you about dinner
@@ -1012,7 +997,7 @@ Object  HouseKeeper "housekeeper"
                 the door and you can hear her locking it.";
         ];
 
-Object  MastersLodge "Master's Lodgings"
+Object  MastersLodge "Alojamentos do Reitor"
  has    light no_edward
         ! general if visited
  with   name "gingham" "pinafore" "apron" "thick" "carpet" "wooden"
@@ -1052,17 +1037,17 @@ Object  MastersLodge "Master's Lodgings"
             }
         ];
 
-Object  Mantelpiece "mantelpiece" MastersLodge
+Object  Mantelpiece "lareira" MastersLodge
  has    scenery supporter
  with   name "mantel" "piece" "mantelpiece",
         capacity 5;
 
-Nearby  SilverPlate "silver plate"
+Nearby  SilverPlate "prataria"
  has    scenery
  with   name "goblet" "goblets" "silver" "plate" "plates" "silverware" 
             "ware" "antique" "old" "ancient",
-        description "The goblets, plates and other silverware are very \
-            old and, you are sure, are immensely valuable.",
+         description "As taças, pratos e outras peças de prata são muito \
+             antigas e, você tem certeza, imensamente valiosas.",
         before [;
          Take,Remove: "Remember the fuss when your mother accused the \
             maid of stealing a knife from the silver drawer and only \
@@ -1071,16 +1056,16 @@ Nearby  SilverPlate "silver plate"
             housekeeper.";
         ];
 
-Object  MastersStudy "The Master's Study"
+Object  MastersStudy "Estudo do Reitor"
  has    light no_edward
         ! general if just visisted
  with   name "leather" "armchair" "stairs" "goatee" "beard" "chair" 
             "bindings",
-        description "Like the reception room below, the Master's study is \
-            a luxurious place. You've seen more expensively decorated \
-            rooms, but none with such an air of permanence. The walls are \
-            lined with hundreds of books, and in the centre is a large \
-            leather armchair. Stairs lead down.",
+         description "Como a sala de recepção abaixo, o estudo do Reitor é \
+             luxuoso. Você já viu salas mais caras, mas nenhuma com tamanha \
+             sensação de permanência. As paredes estão cobertas por centenas \
+             de livros, e no centro há uma grande poltrona de couro. Escadas \
+             levam para baixo.",
         initial [;
             StartTimer(Master,0);
             Achieved("visiting the Master of Biblioll College");
@@ -1112,14 +1097,13 @@ Object  MastersStudy "The Master's Study"
          Smell: <<SmellThing MastersBooks>>;
         ];
 
-Nearby  MastersBooks "Master's library"
+Nearby  MastersBooks "biblioteca do Reitor"
  has    scenery
         ! general if given you a book
  with   name "book" "books" "hundreds" "of" "master^s" "library",
-        description "There are hundreds of them, their leather bindings \
-            cracked with age. Obviously a collection built up over the \
-            centuries. The names on the spines don't mean very much to \
-            you.",
+         description "Há centenas deles, com as encadernações de couro \
+             rachadas pela idade. Evidentemente, uma coleção acumulada ao longo \
+             dos séculos. Os nomes nas lombadas não significam muito para você.",
         article "the",
         state 0,
         before [;
@@ -1144,16 +1128,16 @@ Nearby  MastersBooks "Master's library"
             college. Which one would you like?~";
         ];
 
-Nearby  Master "Master of Biblioll College"
+Nearby  Master "Reitor do college Biblioll"
  class  FollowClass CarryingClass TalkableClass
         ! general if he's told you to wander around
  with   name "Master" "of" "biblioll" "college" "man",
         article "the",
         state 0,
-        description "The Master is an old man, but sprightly and still \
-            handsome. His goatee beard is black.",
-        initial "The Master of Biblioll College is sitting in the \
-            armchair, reading a newspaper.",
+         description "O Reitor é um homem velho, mas vivaz e ainda bonito. Sua \
+             barba cavanhaque é preta.",
+         initial "O Reitor do college Biblioll está sentado na poltrona, lendo \
+             um jornal.",
         life [;
          Kiss:
             "You give the Master a peck on the cheek. He accepts it as \
@@ -1353,14 +1337,13 @@ Nearby  Master "Master of Biblioll College"
             }
         ];
 
-Object  Newspaper "newspaper" Master
+Object  Newspaper "jornal" Master
  with   name "newspaper" "paper" "news" "financial" "page" "pages"
             "headline",
-        description "The Master has folded it to the financial pages. \
-            You can make out the headline, ~230,000 unemployment figure \
-            shocks City!~";
+         description "O Reitor o dobrou nas páginas financeiras. Você consegue \
+             ler a manchete: ~Número de desempregados, 230.000, choca a City!~";
 
-Object  DinnerTicket "dinner ticket"
+Object  DinnerTicket "convite para jantar"
  class  FlimsyClass
  with   name "dinner" "ticket" "invitation",
         size 0,

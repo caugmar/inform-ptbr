@@ -106,10 +106,9 @@ Abbreviate ". " ", " " the " "Wilderspin" "Bungay"
     "                  ";
 Release 4;
 Constant Story "CHRISTMINSTER";
-Constant Headline "^An Interactive Conspiracy by Gareth Rees.^^Please \
-    type ~help licence~ for details about the absence of warranty and \
-    about how you may distribute ~Christminster~. Type ~help~ for \
-    instructions.^";
+Constant Headline "^Uma conspiração interativa, por Gareth Rees.^^Digite \
+    ~ajuda licença~ para conhecer a ausência de garantia e saber como \
+    distribuir ~Christminster~. Digite ~ajuda~ para obter instruções.^";
 Statusline score;
 Constant MAX_CARRIED 5;
 Constant MAX_SCORE 50;
@@ -152,7 +151,7 @@ Array TitlePage table [;
     "An interactive conspiracy";
     " Gareth Rees, August 1995";
     " ";
-    "  [press a key to begin]";
+    "  [pressione uma tecla para começar]";
 ];
 
 [ Initialise width height start lm tm i;
@@ -199,11 +198,11 @@ Array TitlePage table [;
         font on;
     }
 
-    "^^^You haven't seen your brother Malcolm since he received his \
-    fellowship at Biblioll College - pressure of work was his excuse not \
-    to come down to London. So when you received that telegram from him \
-    you leapt at the excuse to come up to the university town of \
-    Christminster for the day and visit him.^";
+    "^^^Você não vê seu irmão Malcolm desde que ele recebeu sua bolsa no \
+     Biblioll College: o excesso de trabalho foi sua desculpa para não \
+     descer a Londres. Quando recebeu o telegrama dele, você aproveitou a \
+     oportunidade para passar o dia na cidade universitária de Christminster \
+     e visitá-lo.^";
 ];
 
 [ PrintRank;
@@ -1341,9 +1340,9 @@ ENDIF;
 ! 1.9 THE SACK OBJECT AND POSSESSIONS
 !--------------------------------------------------------------------------
 
-Object  Handbag "handbag" selfobj
+Object  Handbag "bolsa" selfobj
  has    container openable
- with   name "handbag" "purse" "bag" "crocodile" "crocodile-skin",
+ with   name "handbag" "purse" "bag" "bolsa" "sacola" "crocodile" "crocodile-skin",
         description "A gift from your grandmother, who seems to have \
             thought that no respectable young woman should be seen about \
             town without her crocodile-skin handbag.",
@@ -1357,20 +1356,20 @@ Object  Handbag "handbag" selfobj
                     handbag.";
         ];
 
-Nearby  Telegram "telegram"
+Nearby  Telegram "telegrama"
  class  FlimsyClass
         ! general if it's been used for a magic trick
- with   name "telegram",
+ with   name "telegram" "telegrama",
         size 0,
         description "The telegram reads, ~Dearest Christabel. Work goes \
             well. Amazing discovery in prospect. Come at once. Will tell \
             all when you arrive on Sunday. Your dearest brother, \
             Malcolm Spencer.~";
 
-Nearby  Map "map of Biblioll College"
+Nearby  Map "mapa do Biblioll College"
  class  FlimsyClass
         ! general if it's been used for a magic trick
- with   name "map" "of" "Biblioll" "College",
+ with   name "map" "mapa" "of" "de" "Biblioll" "College" "faculdade",
         description [;
             if ((0->33) < 63)
                 "[Your screen is too narrow for the map to come out \
@@ -1448,7 +1447,9 @@ Include "VerbLib";
 [ ConTopicOn; return ConTopicPrep('on'); ];
 [ ConTopicOf; return ConTopicPrep('of'); ];
 
-Include "Grammar";
+! A gramática original é necessária para as extensões abaixo. PortuguesG é
+! incluída depois delas para acrescentar os verbos portugueses da biblioteca.
+Include "PortuguesG";
 
 Verb "dummy," *                         -> Question;
 
@@ -1464,57 +1465,57 @@ Verb meta "xgo"
     * Anything                          -> Xgo;
 ENDIF;
 
-Verb "arrest"
+Verb "prender" "detenha" "arrest"
     * noun                              -> Arrest;
 
-Verb "ascend" "descend"
+Verb "subir" "descer" "ascend" "descend"
     * noun                              -> Climb;
 
-Extend "ask" replace
-    * creature "about" ConTopic         -> Speak
-    * creature "for" noun               -> AskFor
-    * creature "for" ConTopic           -> Speak
-    * creature ConTopic                 -> Speak;
+Verb "perguntar" "ask"
+     * creature "about" topic            -> Speak
+     * creature "for" noun               -> AskFor
+     * creature "for" topic              -> Speak
+     * creature topic                    -> Speak;
 
-Extend "attack"
+Verb "atacar" "attack"
     * noun "with" held                  -> AttackWith;
 
-Extend "check"
-    * noun "for" ConTopic		-> Consult;
+Verb "consultar" "check"
+     * noun "for" topic		-> Consult;
 
-Extend "climb"
+Verb "escalar" "climb"
     * "on" noun                         -> Climb
     * "through" noun                    -> Enter;
 
-Extend "cut"
+Verb "cortar" "cut"
     * noun "with" held                  -> AttackWith;
 
-Verb "cry" "weep" *                     -> Cry;
+Verb "chorar" "chore" "cry" "weep" *       -> Cry;
 
-Verb "dial"
+Verb "discar" "ligar" "dial"
     * number "on" is_telephone          -> Dial;
 
-Extend "eat" replace
+Verb "comer" "eat"
     * noun                              -> Eat;
 
 Verb "extinguish"
     * noun                              -> SwitchOff;
 
-Extend "get"
+Verb "pegar" "get"
     * "into" noun                       -> Enter;
 
 Verb "find"
     * multi "in" noun		-> Consult
     * multi "on" noun		-> Consult;
 
-Extend "give" replace
+Verb "dar" "give"
     * is_liquid "to" creature           -> Give
     * held "to" creature                -> Give
     * "over" held "to" creature         -> Give
     * creature is_liquid                -> GiveR
     * creature held                     -> GiveR;
 
-Verb "follow" "chase" "pursue" "trail"
+Verb "seguir" "perseguir" "follow" "chase" "pursue" "trail"
     * scope=FollowScope                 -> Follow
     * "after" scope=FollowScope         -> Follow
     * noun                              -> NoFollow
@@ -1528,13 +1529,13 @@ Verb "hide"
     * "under" noun                      -> Enter
     * "behind" noun                     -> Enter;
 
-Verb "hello" "hi" *                     -> DefaultTalk;
+Verb "olá" "oi" "hello" "hi" *            -> DefaultTalk;
 
 Verb "kick" "strike" "slap"
     * noun                              -> Attack
     * noun "with" held                  -> AttackWith;
 
-Verb "knock" "bang"
+Verb "bater" "knock" "bang"
     * "at" noun                         -> Knock
     * noun                              -> Knock
     * "on" noun                         -> Knock
@@ -1548,10 +1549,10 @@ Verb "lift"
     * "up" noun                         -> Take
     * noun "up"                         -> Take;
 
-Extend "listen"
+Verb "escutar" "listen"
     * "at" noun                         -> Listen;
 
-Extend "look"
+Verb "olhar" "look"
     * "out" "of" noun                   -> Search
     * "out" noun                        -> Search
     * "up" multi "on" noun         -> Consult
@@ -1560,8 +1561,6 @@ Extend "look"
 Verb "lookup"
     * multi "on" noun		-> Consult
     * multi "in" noun		-> Consult;
-
-Extend "no" replace *                   -> DefaultTalk;
 
 Verb "pass"
     * held "to" animate                 -> Give
@@ -1577,7 +1576,7 @@ Verb "point"
     * "out" noun                        -> Point
     * noun                              -> Point;
 
-Extend "pull"
+Verb "puxar" "pull"
     * "on" noun                         -> Pull
     * noun noun                         -> PushDir;
 
@@ -1589,18 +1588,18 @@ Verb "prick"
     * noun                              -> Attack
     * noun "with" held                  -> AttackWith;
 
-Extend "push"
+Verb "empurrar" "push"
     * "on" noun                         -> Push
     * "at" noun                         -> Push
     * held "under" noun                 -> Insert
     * held "into" noun                  -> Insert
     * held "through" noun               -> Insert;
 
-Extend "put"
+Verb "colocar" "put"
     * held "under" noun                 -> Insert
     * held "on"                         -> Wear;
 
-Extend "read"
+Verb "ler" "read"
     * "about" multi "in" noun       -> Consult
     * multi "in" noun               -> Consult
     * multi "of" noun              -> Consult;
@@ -1609,7 +1608,7 @@ Verb meta "quotes"
     * "on"                              -> QuotesOn
     * "off"                             -> QuotesOff;
 
-Extend "remove" replace
+Verb "remover" "remove"
     * worn                              -> Disrobe
     * multi                             -> Take
     * multiinside "from" noun           -> Remove;
@@ -1626,23 +1625,23 @@ Verb "ring"
 Verb "rip"
     * noun				-> Cut;
 
-Extend "say" replace
-    * ConTopicTo "to" creature          -> Speak
-    * ConTopicTo "to" is_telephone      -> Speak
-    * ConTopicAt "at" creature          -> Speak
-    * ConTopic                          -> Say;
+Verb "dizer" "say"
+     * ConTopicTo "to" creature          -> Speak
+     * ConTopicTo "to" is_telephone      -> Speak
+     * ConTopicAt "at" creature          -> Speak
+     * topic                             -> Say;
 
 Verb "scream"
     *                                   -> Scream;
 
-Extend "screw"
+Verb "rosquear" "screw"
     * held "into" noun                  -> Insert
     * held "in" noun                    -> Insert;
 
-Extend "search"
-    * noun "for" ConTopic		-> Consult;
+Verb "procurar" "search"
+     * noun "for" topic		-> Consult;
 
-Extend "set"
+Verb "acender" "set"
     * "fire" "to" noun                  -> Burn;
 
 Verb "shake"
@@ -1654,11 +1653,11 @@ Verb "slide"
     * held "into" noun                  -> Insert
     * held "through" noun               -> Insert;
 
-Extend "smell" replace
+Verb "cheirar" "smell"
     *                                   -> Smell
     * noun                              -> SmellThing;
 
-Extend "stand"
+Verb "ficar" "stand"
     * "in" noun                         -> Enter;
 
 Verb "stroke" "pet"
@@ -1673,16 +1672,16 @@ Verb "tavia"
 Verb "tear"
     * noun                              -> Cut;
 
-Extend "tell" replace
-    * creature "about" ConTopic         -> Speak
-    * creature ConTopic                 -> Speak;
+Verb "contar" "tell"
+     * creature "about" topic            -> Speak
+     * creature topic                    -> Speak;
 
-Extend "think" replace
-    * "of" ConTopic                     -> Think
-    * "about" ConTopic                  -> Think
-    * ConTopic                          -> Think;
+Verb "pensar" "think"
+     * "of" topic                        -> Think
+     * "about" topic                     -> Think
+     * topic                             -> Think;
 
-Extend "throw"
+Verb "arremessar" "throw"
     * held "through" noun               -> ThrowAt
     * held "over" noun                  -> ThrowAt
     * held "out" noun                   -> ThrowAt
@@ -1691,18 +1690,19 @@ Extend "throw"
 Verb "tickle" "brush"
     * noun "with" held                  -> Tickle;
 
-Extend "tie" replace
+Verb "amarrar" "tie"
     * noun "to" noun                    -> Tie;
 
 Verb "time" *                           -> Time;
 
-Extend "turn"
+Verb "virar" "turn"
     * noun "over"                       -> Turn
     * noun "upside" "down"              -> Turn
     * "over" noun                       -> Turn
-    * "to" multi "in" noun		-> Consult
-    * "to" multi "of" noun		-> Consult
-    * noun "to" "page" ConTopic		-> Consult;
+     * "to" multi "in" noun		-> Consult
+     * "to" multi "of" noun		-> Consult
+     * noun "to" "page" topic		-> Consult
+     * noun "with" held                  -> Unscrew;
 
 Verb "uncork"
     * noun                              -> Open;
@@ -1710,18 +1710,13 @@ Verb "uncork"
 Verb "untie" "detach" "unplug"
     * multi                             -> Untie;
 
-Extend "touch"
+Verb "tocar" "touch"
     * noun "with" held                  -> Tickle;
 
-Extend "turn"
-    * noun "with" held                  -> Unscrew;
-
-Extend "walk"
+Verb "caminhar" "walk"
     * "on" noun                         -> Enter;
 
 Verb "xyzzy" "plugh" "plover" *         -> ZorkMagic;
-
-Extend "yes" replace *                  -> DefaultTalk;
 
 
 

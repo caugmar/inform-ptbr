@@ -18,12 +18,11 @@ Class   KeepBritainTidyClass
          Drop:
             if (Constable notin location || noun notin player) rfalse;
             Constable.state = Constable.state + 1;
-            print_ret "The constable picks up ", (the) noun, " and \
-                returns it to your hand. ~You seem to have dropped this, \
-                ma'am,~ he says.";
+             print_ret "O policial pega ", (the) noun, " e o devolve à sua \
+                 mão. ~Parece que você deixou isto cair, madame,~ diz ele.";
         ];
 
-Object  ChapelStreet "Chapel Street"
+Object  ChapelStreet "Rua da Capela"
  class  KeepBritainTidyClass
  has    light
         ! general if you've tripped on the cobbles.
@@ -31,27 +30,27 @@ Object  ChapelStreet "Chapel Street"
             "archway",
         description [;
             if (ClockTower.number < 20) {
-                print "It is a hot summer's day in Christminster, the \
-                    kind of day that makes you think of strawberries and \
-                    cream and punting on the river. The ";
-                if (ClockTower.number < 13) print "morning";
-                else print "afternoon";
-                print " sunlight";
+                 print "É um dia quente de verão em Christminster, o tipo de \
+                     dia que faz pensar em morangos com creme e em passeios \
+                     de barco no rio. A ";
+                 if (ClockTower.number < 13) print "manhã";
+                else print "tarde";
+                print " luz do sol";
             }
             else
-                print "It is a cool summer's night in Christminster. The \
-                    moonlight";
-            " beams down on the cobbles and on the great wooden gate of \
-            Biblioll College to the east.";
+                 print "É uma noite fresca de verão em Christminster. O \
+                     luar";
+            " ilumina as pedras da rua e o grande portão de madeira do \
+             Biblioll College, a leste.";
         ],
         e_to GreatGate,
         in_to GreatGate,
         n_to [;
-            if (EM == 0) print "You turn right into Bridge Street.^";
+             if (EM == 0) print "Você vira à direita na Rua da Ponte.^";
             return BridgeStreet;
         ],
         s_to [;
-            if (EM == 0) print "You turn left into Biblioll Street.^";
+             if (EM == 0) print "Você vira à esquerda na Rua Biblioll.^";
             return BibliollStreet;
         ],
         before [;
@@ -71,8 +70,8 @@ Object  ChapelStreet "Chapel Street"
                     cobbles, which are uneven and in poor repair.^";
             }
         ],
-        cant_go "You could head north to Bridge Street, south to Biblioll \
-            Street, or try to enter the college to the east.",
+         cant_go "Você pode seguir ao norte para a Rua da Ponte, ao sul para \
+             a Rua Biblioll, ou tentar entrar no college a leste.",
         edward_dirs e_obj n_obj;
 
 Object  GreatGate "gate"
@@ -80,14 +79,12 @@ Object  GreatGate "gate"
         ! general if you've tried knocking at the gate
  with   name "great" "wooden" "gate" "wicket" "oak" "timbers",
         found_in ChapelStreet FirstCourt,
-        description "The gate is vast and sturdy. Built of solid oak \
-            timbers and weathered by the centuries, it has witnessed the \
-            comings and goings of many generations of scholars. Above the \
-            gate is displayed Biblioll College's coat of arms, and a \
-            wicket gate is set into the bottom of the gate.",
-        when_closed "The gate is closed.",
-        when_open "The gate is closed, but a little wicket gate stands \
-            open.",
+         description "O portão é enorme e resistente. Feito de carvalho maciço \
+             e castigado pelos séculos, testemunhou a passagem de muitas \
+             gerações de estudiosos. O brasão do Biblioll College está acima \
+             dele, e um postigo foi instalado em sua parte inferior.",
+         when_closed "O portão está fechado.",
+         when_open "O portão está fechado, mas um pequeno postigo está aberto.",
         add_to_scope CoatOfArms,
         door_to [;
             if (self in FirstCourt) return ChapelStreet;
@@ -99,7 +96,7 @@ Object  GreatGate "gate"
         ],
         with_key BrassKey,
         before [;
-         LookUnder: "The gap is too narrow for you to see anything.";
+          LookUnder: "A fresta é estreita demais para você enxergar algo.";
          Knock,Attack:
             if (location == FirstCourt) rfalse;
             print "The gate is so large that you're not sure if your \
@@ -123,8 +120,8 @@ Object  GreatGate "gate"
             give self ~open locked general;
             ".";
          Climb:
-            "The gate fits snugly into the archway. Even if you were able \
-            to climb it, you still wouldn't be able to get past it.";
+             "O portão se encaixa perfeitamente no arco. Mesmo que você \
+                 conseguisse escalá-lo, ainda não conseguiria passar.";
         ],
         after [;
          Unlock: quote = 3;
@@ -133,8 +130,8 @@ Object  GreatGate "gate"
 Object  CoatOfArms "coat of arms"
  has    scenery
  with   name "coat" "of" "arms",
-        description "Three gold lions rampant on a white field, a red \
-            virgule and a silver cup on a green field.";
+         description "Três leões dourados rampantes sobre campo branco, uma \
+             faixa vermelha e uma taça de prata sobre campo verde.";
 
 Object  Cobbles "cobbles" ChapelStreet
  has    static concealed
@@ -147,10 +144,10 @@ Object  Cobbles "cobbles" ChapelStreet
                 give Cobblestone general;
                 ResetVagueWords(Cobblestone);
                 DoneHint(EnterCollegePuzzle,1);
-                "On close inspection, one of the stones is loose.";
+                 "Ao examinar de perto, você nota que uma das pedras está solta.";
             }
-            "Try as you might, you can't dislodge any more of the \
-             cobblestones.";
+             "Por mais que tente, você não consegue soltar nenhuma outra \
+              pedra.";
         ];
 
 Object  Cobblestone "stone"
@@ -184,7 +181,7 @@ Object  Cobblestone "stone"
 ! looked under (the object is always under the third one she looks under).
 !--------------------------------------------------------------------------
 
-Object  BridgeStreet "Bridge Street"
+Object  BridgeStreet "Rua da Ponte"
  class  KeepBritainTidyClass
  has    light
  with   name "square" "street" "bridge",
@@ -236,59 +233,56 @@ Class   CupClass
         list_together "cups",
         describe [; rtrue;],
         before [;
-         Receive: "~Leave the trick to me,~ says the busker.";
+          Receive: "~Deixe o truque comigo,~ diz o artista de rua.";
          Take, Remove:
             switch (busker.state) {
              0,1,2,3,4,5,6,7,100,101,102,103,104,105,14,15:
                 Busker.time_left = Busker.time_left + 1;
-                "~I don't mind if you look under the cups,~ says the \
-                busker, ~but I'd be grateful if you didn't walk away with \
-                them.~";
+                 "~Não me incomoda que olhe sob as xícaras,~ diz o artista de \
+                 rua, ~mas eu agradeceria se você não saísse com elas.~";
              default: <<Search self>>;
             }
          LookUnder, Search:
             switch (busker.state) {
              0 to 7:
                 give self general;
-                "There's nothing under the cup.";
+                 "Não há nada sob a xícara.";
              100 to 105:
                 if (self == Busker.trickcup) {
                     move Busker.trickobject to player;
                     ResetVagueWords(Busker.trickobject);
                     Busker.state = 105;
-                    print_ret "Under ", (the) self, " is a piece of \
-                        folded paper. You take it and unfold it. It's \
-                        your ", (name) Busker.trickobject, "!";
+                     print_ret "Sob ", (the) self, " há um pedaço de papel \
+                         dobrado. Você o pega e desdobra. É seu ", (name)
+                         Busker.trickobject, "!";
                 }
                 Busker.time_left = Busker.time_left + 1;
-                print_ret "There's nothing under ", (the) noun, ". ~No,~ \
-                    says the busker. ~Look under ", (the) Busker.trickcup,
-                    "!~";
+                 print_ret "Não há nada sob ", (the) noun, ". ~Não,~ diz o \
+                     artista de rua. ~Olhe sob ", (the) Busker.trickcup, "!~";
              14,15:
                 if (self has general)
-                    "It's empty. ~You've already looked under that one,~ \
-                    says the busker.";
+                     "Está vazia. ~Você já olhou sob essa,~ diz o artista de rua.";
                 give self general;
                 Busker.trickcount = Busker.trickcount + 1;
-                print "You lift ", (the) noun;
+                 print "Você levanta ", (the) noun;
                 if (Busker.trickcount == 3) {
                     Busker.state = 16;
-                    print " and discover ", (the) Busker.trickobject;
+                     print " e descobre ", (the) Busker.trickobject;
                     if (Busker.trickobject  == Marble)
-                        print ", which the busker retrieves. ";
+                         print ", que o artista de rua recupera. ";
                     else {
                         move Busker.trickobject to player;
                         ResetVagueWords(Busker.trickobject);
-                        print ", which you take. ";
+                         print ", que você pega. ";
                     }
                     if (self == Busker.trickcup) {
-                        print "~See! It was under ", (the) noun, " all \
-                            along,~ says the busker.";
+                         print "~Viu? Estava sob ", (the) noun, " o tempo \
+                             todo,~ diz o artista de rua.";
                     }
-                    else print "~At last!~ says the busker. ~I thought \
-                        you'd never find it.~";
+                     else print "~Finalmente!~ diz o artista de rua. ~Pensei \
+                         que você nunca encontraria.~";
                     if (Busker.trickobject  == BrassKey) {
-                        print " He winks at you. ~Take care, now.~";
+                         print " Ele pisca para você. ~Tenha cuidado.~";
                         Achieved("successfully hiding the key from the \
                             don");
                         Busker.state = 300;
@@ -296,15 +290,14 @@ Class   CupClass
                     }
                     new_line; rtrue;
                 }
-                " but it's empty. ~No, it's not there,~ says the \
-                busker. ~Perhaps you could try looking under another \
-                cup.~";
+                 " mas está vazia. ~Não, não está aí,~ diz o artista de rua. \
+                 ~Talvez você possa tentar olhar sob outra xícara.~";
              22,23,24:
-                "~Let me do it,~ says the constable.";
+                 "~Deixe que eu faça,~ diz o policial.";
              default:
                 Busker.time_left = Busker.time_left + 1;
-                "As you reach for the cup, the busker taps the back of \
-                your hand. ~Tut tut,~ he says. ~You'll spoil the trick.~";
+                 "Quando você alcança a xícara, o artista de rua bate no dorso \
+                 de sua mão. ~Ora, ora,~ diz ele. ~Você vai estragar o truque.~";
             }
         ];
 
@@ -325,12 +318,11 @@ Object  Busker "busker" BridgeStreet
         ! general if he's been arrested
  with   name "busker" "magician" "wizard" "man" "purple" "finger" 
             "fingers",
-        description "He's a tall gangling man, with long and nimble \
-            fingers.",
-        initial "A busking magician stands behind a folding trestle \
-            table, exhorting passers-by to come and watch his tricks. On \
-            the table are three inverted cups (one red, one green and one \
-            blue).",
+         description "Ele é um homem alto e desengonçado, de dedos longos e \
+             ágeis.",
+         initial "Um mágico de rua está atrás de uma mesa dobrável, convidando \
+             os transeuntes a assistir a seus truques. Sobre a mesa há três \
+             xícaras viradas (uma vermelha, uma verde e uma azul).",
         state 0,
         time_left 0,
         trickobject 0,
@@ -343,16 +335,15 @@ Object  Busker "busker" BridgeStreet
              QZork:
                 if (BlackRod hasnt general) {
                     give BlackRod general;
-                    "The busker looks at you in surprise, but then quickly \
-                    recovers himself and rearranges his features into a \
-                    smile.";
+                     "O artista de rua olha para você surpreso, mas logo se \
+                     recompõe e transforma o rosto num sorriso.";
                 }
              QHello: 
-                "~Hello,~ says the busker. ~How pleasant it is to have a \
-                lady as beautiful as you in my audience.~";
+                 "~Olá,~ diz o artista de rua. ~Que prazer ter uma moça tão \
+                 bonita quanto você na plateia.~";
              QMalcolm:
-                "~I've never met him,~ says the busker, ~but I'm told he \
-                has a very beautiful sister.~";
+                 "~Nunca o conheci,~ diz o artista de rua, ~mas me disseram que \
+                 ele tem uma irmã muito bonita.~";
              QCollege:
                 "~You want to know how to get into Biblioll College on a \
                 Sunday? I suppose you'll have to beg, borrow, or steal a \
@@ -374,7 +365,7 @@ Object  Busker "busker" BridgeStreet
                     the busker.";
                 }
             }
-            "The busker doesn't quite understand what you want.";
+             "O artista de rua não entende bem o que você quer.";
         ],
         life [;
          Give:
@@ -427,9 +418,8 @@ Object  Busker "busker" BridgeStreet
             self.state = 12;
             switch (noun) {
              Cobblestone:
-                "The busker takes the cobblestone and brushes some \
-                grit off it. ~It's not pretty, but it'll do,~ he \
-                says.";
+                 "O artista de rua pega a pedra e tira um pouco da sujeira. \
+                 ~Não é bonita, mas serve,~ diz ele.";
              Toffee:
                 "~Why,~ says the busker, ~what a scrumptious-looking \
                 piece of toffee! This is a perfect choice.~ He accepts \
@@ -622,7 +612,7 @@ Nearby  BlackRod "black rod"
             it before, but it has a strange air of deja vu about it.",
         before [;
          Take, Remove:
-            "The busker whisks the black rod out of your reach.";
+                 "O artista de rua tira rapidamente a vara preta do seu alcance.";
         ];
 
 Nearby  PurpleCape "purple cape"
@@ -669,7 +659,7 @@ Object  BrickWall "brick wall"
 ! 2.3 LADY MARGARET GREEN
 !--------------------------------------------------------------------------
 
-Object  MargaretGreen "Lady Margaret Green"
+Object  MargaretGreen "Campo de Lady Margaret"
  class  KeepBritainTidyClass
  has    light
  with   name "meadow" "hairline" "moustache" "nose" "handlebar" "grass"
@@ -697,9 +687,9 @@ Object  MargaretGreen "Lady Margaret Green"
         before [;
          Listen:
             if (SleepingDon in self)
-                "You can hear a gentle snoring sound.";
-            "The meadow is quiet but for a gentle breeze ruffling the \
-            grass.";
+                 "Você ouve um ronco suave.";
+            "O campo está silencioso, exceto pela brisa suave que agita a \
+            grama.";
         ],
         cant_go "You can head north to Bridge Street or south to Biblioll \
             Street.",
@@ -732,7 +722,7 @@ Nearby  SleepingDon "don"
         ],
         before [;
          Speak, Show, Give:
-            "He's fast asleep and takes no notice of you.";
+             "Ele está profundamente adormecido e não nota você.";
          Tickle:
             if (second == Feather) {
                 give self general;
@@ -741,11 +731,11 @@ Nearby  SleepingDon "don"
                 sneezes! His sleep is uninterrupted, but he grunts and \
                 rolls over.";
             }
-            "Your tickling has no effect.";
+             "Suas cócegas não produzem efeito algum.";
          Enter: Futile(); rtrue;
          Push,Pull,Turn,PushDir:
-            "The don is a heavy man, and try as you might, you can't move \
-            him.";
+             "O professor é um homem pesado e, por mais que você tente, não \
+             consegue movê-lo.";
          WakeOther:
             print "You shake the sleeping man, but your efforts fail to \
                 wake him";
@@ -901,7 +891,7 @@ Object  BrassKey "brass key" SleepingDon
                 StartTimer(SleepingDon, 3);
                 move self to player;
                 Achieved("stealing a key from the sleeping don");
-                "Taken.";
+             "Pegou.";
             }
         ],
         state 0,
@@ -931,7 +921,7 @@ Object  BrassKey "brass key" SleepingDon
 ! 2.4 BIBLIOLL STREET
 !--------------------------------------------------------------------------
 
-Object  BibliollStreet "Biblioll Street"
+Object  BibliollStreet "Rua Biblioll"
  class  KeepBritainTidyClass
  has    light
  with   name "street" "looming" "bulk" "biblioll" "college" "sill"
@@ -976,7 +966,7 @@ Class   WindowClass
              4: "Persisting in this stupidity won't help you.";
              default: 
                 self.state = 4;
-                "It is much too high up.";
+                 "Está alto demais.";
             }
         ];
 
@@ -989,8 +979,8 @@ Nearby  Window "window"
          ThrownAt,Receive:
             if (Constable in location) {
                 DoneHint(EnterCollegePuzzle,2);
-                "You lack the nerve, especially with the constable \
-                watching you.";
+                 "Você não tem coragem, especialmente com o policial \
+                 observando.";
             }
             if (noun ~= Cobblestone) {
                 move noun to BibliollStreet;
@@ -1027,8 +1017,8 @@ Nearby  Parrot "parrot"
          ThrownAt: <<ThrowAt noun Window>>;
         ],
         life [;
-            "The parrot is thirty feet above your head and behind a pane \
-            of glass. Otherwise, a good attempt.";
+             "O papagaio está a nove metros acima de sua cabeça, atrás de uma \
+             vidraça. Fora isso, uma boa tentativa.";
         ];
 
 Object  Feather "feather"
@@ -1180,7 +1170,7 @@ Object  Constable "police constable"
                  all the same to you,~ says the constable.";
             if (second == player) {
                 move noun to player;
-                "The constable hands it to you.";
+             "O policial entrega isso a você.";
             }
             if (second == Busker) {
                 if (Busker.state >=8 && Busker.state <=12) {

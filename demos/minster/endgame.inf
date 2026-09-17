@@ -9,17 +9,16 @@
 ! 8.1 DINNER
 !--------------------------------------------------------------------------
 
-Object  DiningHall "Great Hall"
+Object  DiningHall "Grande Salão"
  has    light
  with   name "great" "hall" "high" "table" "low" "fellow" "fellows"
             "student" "students",
-        description "A grand room with a vaulted ceiling far above your \
-            head, echoing with the loud conversation of twenty fellows \
-            sitting around the high table and maybe sixty students on the \
-            low table.^^Sitting near you around the high table you can \
-            see Wilderspin (to your left), the Master (to your right), \
-            Jarboe, Bungay, and Halfhide.",
-        cant_go "It would be impolite to leave until dinner is over.",
+         description "Uma sala grandiosa, com um teto abobadado muito acima \
+             da cabeça, ecoando a conversa ruidosa de vinte membros sentados \
+             à mesa principal e talvez sessenta estudantes à mesa baixa.^^Ao \
+             seu lado, à mesa principal, estão Wilderspin (à esquerda), o \
+             Reitor (à direita), Jarboe, Bungay e Halfhide.",
+         cant_go "Seria indelicado sair antes de o jantar terminar.",
         state 0,
 	before [;
 	 PutOn,ThrowAt:
@@ -305,15 +304,15 @@ Nearby  CollegePlate "collection of gold plate"
  has    static
  with   name "collection" "gold" "silver" "plate" "of" "treasure"
             "treasures",
-        initial "Displayed prominently on High Table is the College's \
-            collection of plate.",
-        description "This collection of tableware is meant for admiring \
-            rather than eating off: here we have Henry II's gold \
-            christening cup, Charles I's mead horn, the Bishop of \
-            Gloucester's silver communion cup, and many other treasures.",
+         initial "A coleção de prataria do College está exposta com destaque \
+             na mesa principal.",
+         description "Esta coleção de utensílios serve para ser admirada, não \
+             para comer: aqui estão a taça dourada de batismo de Henrique II, \
+             o corno de hidromel de Carlos I, a taça de prata do bispo de \
+             Gloucester e muitos outros tesouros.",
         before [;
-         Take,Remove: "You're a guest here, and it isn't polite to steal \
-            your host's valuables.";
+          Take,Remove: "Você é uma convidada, e não é educado roubar os \
+             objetos de valor do anfitrião.";
         ];
 
 Class   DinerClass
@@ -324,7 +323,7 @@ Class   DinerClass
             print "Your words are lost in the hubbub of the ";
             if (location == DiningHall) print "dinner";
             else print "common room";
-            ", and he doesn't seem to hear you.";
+             ", e ele parece não ouvir você.";
         ];
 
 Nearby  MasterD "Master of Biblioll College"
@@ -369,7 +368,7 @@ Nearby  HalfhideD "Doctor Halfhide"
 
 Class   FoodClass
  with   before [;
-         Take,Remove: "It's rude to pick up your food.";
+          Take,Remove: "É rude pegar a própria comida.";
         ];
 
 Object  Lobster "lobster"
@@ -377,9 +376,9 @@ Object  Lobster "lobster"
  has    edible
         ! general once you've opened it
  with   name "lobster" "fish" "crayfish" "shellfish",
-        description "You look at the lobster. It stares back \
-            unnervingly. It looks like it will be a tough battle, and you \
-            are not altogether sanguine of the outcome.",
+         description "Você olha para a lagosta. Ela retribui o olhar de modo \
+             inquietante. Parece que será uma batalha difícil, e você não está \
+             nada confiante no resultado.",
         before [;
          Open,AttackWith,Cut:
             "You'll have to say precisely how you intend to go about \
@@ -397,13 +396,13 @@ Object  Lobster "lobster"
             remove self;
             if (Widget.state > 1) Widget.state = Widget.state - 2;
             Achieved("eating the lobster");
-            "To your surprise, the lobster is excellent.";
+             "Para sua surpresa, a lagosta está excelente.";
         ];
 
 Object  Widget "widget"
  with   name "widget" "implement" "screw" "metal" "u-shaped" "piece",
-        description "It is a U-shaped piece of metal. A screw runs \
-            through holes in the ends, connecting them together.",
+         description "É uma peça de metal em forma de U. Um parafuso atravessa \
+             furos nas pontas, unindo-as.",
         state 0, ! 0 open
                  ! 1 closed, not attached to lobster
                  ! 2 attached to lobster, open
@@ -448,7 +447,7 @@ Object  WineGlass "glass"
  class  VesselClass
  has    open
  with   name "glass" "cup",
-        description "An ordinary wine glass.",
+         description "Uma taça de vinho comum.",
         before [;
          Attack,Knock: "You don't want to get broken glass everywhere.";
          EmptyT:
@@ -466,7 +465,7 @@ Nearby  Wine "wine"
  with   name "wine" "white",
         number 10,
         after [;
-         SmellThing: "A pleasant bouquet.";
+          SmellThing: "Um aroma agradável.";
          Drink,Eat:
             if (Intoxicated > 10)
                 "You've already drunk too much wine, and you have a \

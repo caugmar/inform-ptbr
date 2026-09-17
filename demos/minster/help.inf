@@ -15,67 +15,67 @@ Array quotes_used -> 22;
     if (quotes_used->q == 1) rfalse;
     quotes_used->q = 1;
     switch(q) {
-     1: box "And the veil of the temple was rent in twain from"
-            "the top to the bottom." " "
+      1: box "E o véu do templo se rasgou em dois, de cima"
+             "até embaixo." " "
             "  -- Mark 15:38";
 
-     2: box "Hush, beating heart of Christabel!" " "
+      2: box "Silêncio, coração palpitante de Christabel!" " "
             "  -- Samuel Taylor Coleridge, ~Christabel~";
 
-     3: box "They crossed the moat and Christabel"
-            "Took the key that fitted well;"
-            "A little door she opened straight,"
-            "All in the middle of the gate" " "
+      3: box "Atravessaram o fosso, e Christabel"
+             "Pegou a chave que bem servia;"
+             "Abriu logo uma portinha,"
+             "Bem no meio do portão" " "
             "  -- Samuel Taylor Coleridge, ~Christabel~";
 
-     4: box "Sweet Christabel her feet doth bare,"
-            "And jealous of the listening air"
-            "They steal their way from stair to stair" " "
+      4: box "A doce Christabel pisa descalça,"
+             "E, zelosos do ar que escuta,"
+             "Eles deslizam de escada em escada" " "
             "  -- Samuel Taylor Coleridge, ~Christabel~";
 
-     5: box "A sight to dream of, not to tell!"
-            "O shield her! shield sweet Christabel!" " "
+      5: box "Uma visão para sonhar, não contar!"
+             "Ó, proteja-a! Proteja a doce Christabel!" " "
             "  -- Samuel Taylor Coleridge, ~Christabel~";
 
-     6: box "All alchemical books abound with obscure enigmas"
-            "or sophisticated operations." " "
+      6: box "Todos os livros de alquimia abundam em enigmas obscuros"
+             "e operações sofisticadas." " "
             "  -- ~The Shut Palace Opened~";
 
-     7: box "The first key is that which opens the dark"
-            "prisons, in which the sulphur is shut up." " "
+      7: box "A primeira chave é a que abre as prisões escuras"
+             "onde o enxofre está encerrado." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-     8: box "The second key dissolves the compound, or the"
-            "stone, and begins the separation of the elements"
-            "in a philosophical manner." " "
+      8: box "A segunda chave dissolve o composto, ou a"
+             "pedra, e começa a separação dos elementos"
+             "de maneira filosófica." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-     9: box "The third key comprehends of itself alone a longer"
-            "train of operations, than all the rest together." " "
+      9: box "A terceira chave, sozinha, compreende uma sequência"
+             "de operações mais longa que todas as outras juntas." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-    10: box "The fourth key of the art, is the entrance of the"
-            "second work; it is that which reduces our water"
-            "into earth." " "
+     10: box "A quarta chave da arte é a entrada da"
+             "segunda obra; é ela que reduz nossa água"
+             "a terra." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-    11: box "The fifth key of our work is the fermentation of"
-            "the stone with the perfect body, to make thereof"
-            "the medicine of the third order." " "
+     11: box "A quinta chave de nossa obra é a fermentação da"
+             "pedra com o corpo perfeito, para fazer dela"
+             "o remédio da terceira ordem." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-    12: box "The sixth key teaches the multiplication of the"
-            "stone, by the reiteration of the same operation,"
-            "which consists but in opening and shutting,"
-            "imbibing and drying; whereby the virtues of the"
-            "stone are infinitely multiplied." " "
+     12: box "A sexta chave ensina a multiplicação da"
+             "pedra pela repetição da mesma operação,"
+             "que consiste apenas em abrir e fechar,"
+             "embeber e secar; assim as virtudes da"
+             "pedra são multiplicadas infinitamente." " "
             "  -- ~Six Principal Keys of the Secret Philosophy~";
 
-    13: box "Now they are giving me a fashionable white straw hat"
-            "And a black veil that molds to my face,"
-            "  they are making me one of them."
-            "They are leading me to the shorn grove,"
-            "  the circle of hives." " "
+      13: box "Agora me dão um elegante chapéu branco de palha"
+             "E um véu negro que se molda ao meu rosto,"
+             "  estão me tornando uma delas."
+             "Estão me levando ao bosque tosquiado,"
+             "  o círculo de colmeias." " "
             "  -- Sylvia Plath, ~The Bee Meeting~";
 
     14: box "dixitque Deus fiat lux et facta est lux"
@@ -83,47 +83,47 @@ Array quotes_used -> 22;
             "et divisit lucem ac tenebras." " "
             "  -- liber Genesis 1:3-4";
 
-    15: box "If this furious serpent, after it has been"
-            "dissolved by the universal menstruum, does not"
-            "turn into our virgin milk, invisibly devouring"
-            "away every thing that comes near it, it is"
-            "plainly to be seen that you err in the notion of"
-            "the universal menstruum." " "
+     15: box "Se esta serpente furiosa, depois de ser"
+             "dissolvida pelo menstruum universal, não"
+             "se transformar em nosso leite virginal, devorando"
+             "invisivelmente tudo que dela se aproxima, é"
+             "evidente que você está equivocado quanto à noção do"
+             "menstruum universal." " "
             "  -- Urbigens, ~100 Aphorisms~";
 
-    16: box "Take of aqua vitae, and put into this vegetable"
-            "humidity a third part of a honey-comb, ferment or"
-            "digest it in a gentle heat, and repeat the"
-            "distillation nine times, renewing the comb every"
-            "second distillation." " "
+     16: box "Tome água da vida e ponha nesta umidade"
+             "vegetal uma terça parte de um favo de mel; fermente ou"
+             "digira-o em fogo brando e repita a"
+             "destilação nove vezes, renovando o favo a cada"
+             "segunda destilação." " "
             "  -- Raymond Lully, ~The Hermetic Mercuries~";
 
-    17: box "I have gathered my myrrh with my spice; I have"
-            "eaten my honeycomb with my honey; I have drunk my"
-            "wine with my milk." " "
+     17: box "Colhi minha mirra com minhas especiarias; comi"
+             "meu favo de mel com meu mel; bebi meu"
+             "vinho com meu leite." " "
             "  -- Song of Songs 5:1";
 
-    18: box "Now this our second and living water is called"
-            "azoth: it is also called the soul of the"
-            "dissolved bodies, which souls we have even now"
-            "tied together for the use of the wise philosopher." " "
+     18: box "Agora, esta nossa segunda água viva é chamada"
+             "azoth: também é chamada a alma dos"
+             "corpos dissolvidos, almas que já"
+             "atamos para uso do filósofo sábio." " "
             "  -- ~The Secret Book of Artephius~";
 
-    19: box "The position [of Master] still had glamour,"
-            "repute, a good deal of personal power. It carried"
-            "a certain amount of patronage. But its duties had"
-            "faded away. Anyone who filled it had to create"
-            "for himself the work to do." " "
+     19: box "O cargo [de Mestre] ainda tinha prestígio,"
+             "reputação e bastante poder pessoal. Trazia"
+             "certa proteção. Mas seus deveres haviam"
+             "desaparecido. Quem o ocupasse teria de criar"
+             "para si o trabalho a fazer." " "
             "  -- C P Snow, ~The Masters~";
 
-    20: box "Few human institutions had a history so"
-            "continuous, so personal, so day-to-day." " "
+     20: box "Poucas instituições humanas tiveram uma história tão"
+             "contínua, tão pessoal, tão cotidiana." " "
             "  -- C P Snow, ~The Masters~";
 
-    21: box "The job of the writer is to describe the rose;"
-            "that of the poet to sing its virtues; that of the"
-            "artist to convey its beauty; that of the lawyer"
-            "to convince us that it's not a rose at all." " "
+     21: box "O trabalho do escritor é descrever a rosa;"
+             "o do poeta, cantar suas virtudes; o do"
+             "artista, transmitir sua beleza; o do advogado,"
+             "convencer-nos de que ela nem sequer é uma rosa." " "
             "  -- Barnabas Kubiak";
 
      default: print "** Error: no such quote, ", q, " **";
@@ -155,95 +155,90 @@ Object  Puzzles "all the puzzles";
 Nearby  EnterCollegePuzzle "entering the college"
  with   puzzle_width 14,
         puzzle_state 1,
-        puzzle_name "How do I enter the college?",
+         puzzle_name "Como entro na faculdade?",
         puzzle_hints
-            "The cobbles in Chapel Street are in poor repair. Perhaps you \
-            should examine them more closely?"
-            "The window in Biblioll Street is a tempting target. Have you \
-            tried to throw the cobble at it?"
-            "The busker asks for an object from the audience. Perhaps you \
-            should oblige him."
-            "Have you tried giving your handbag to the busker?"
-            "Have you examined the police constable carefully while he's \
-            standing in Bridge Street? Is there anything different about \
-            him in that location?"
-            "Have you tried giving something to the police constable?"
-            "The police constable seems to want to take part in the magic \
-            trick, but he needs a bit of encouragement. Have you tried \
-            instructing him in what to do?"
-            "Have you tried breaking the window in Biblioll Street while \
-            the police constable is distracted?"
-            "Have you tried tickling the sleeping don with the feather?"
-            "You need to find a place to hide the key where no-one would \
-            think of looking. What about getting the busker to use it as \
-            part of his trick?",
+             "As pedras da Chapel Street estão mal conservadas. Talvez você \
+             devesse examiná-las mais de perto?"
+             "A janela da Biblioll Street é um alvo tentador. Você já tentou \
+             atirar a pedra nela?"
+             "O artista de rua pede um objeto da plateia. Talvez você devesse \
+             atendê-lo."
+             "Você já tentou dar sua bolsa ao artista de rua?"
+             "Você já examinou cuidadosamente o policial enquanto ele está \
+             parado na Bridge Street? Há algo diferente nele nesse lugar?"
+             "Você já tentou dar alguma coisa ao policial?"
+             "O policial parece querer participar do truque de mágica, mas \
+             precisa de um pouco de incentivo. Você já tentou instruí-lo \
+             sobre o que fazer?"
+             "Você já tentou quebrar a janela na Biblioll Street enquanto \
+             o policial está distraído?"
+             "Você já tentou fazer cócegas no don adormecido com a pena?"
+             "Você precisa encontrar um lugar para esconder a chave onde \
+             ninguém pensaria em procurar. Que tal fazer o artista de rua \
+             usá-la como parte de seu truque?",
         puzzle_done 0 0 0 0 0;
 
 Nearby  MalcolmsRoomPuzzle "entering Malcolm's room"
  with   puzzle_width 17,
         puzzle_state 0,
-        puzzle_name "How do I enter Malcolm's room?",
+         puzzle_name "Como entro no quarto de Malcolm?",
         puzzle_hints 
-            "Most colleges in Christminster have a gate list; try finding \
-            your brother's room on that."
-            "Have you tried visiting Malcolm's room yet?"
-            "Have you examined the porter closely?"
-            "Have you spoken to the porter yet?"
-            "The porter is deaf. Is there any way you might signal that \
-            you want one of his keys?"
-            "The porter doesn't want to give you a key until he know who \
-            you are. Is there any way you could convince him of your \
-            identity (remember that he's deaf, so you can't speak to \
-            him)?",
+             "A maioria das faculdades de Christminster tem uma lista no \
+             portão; tente encontrar nela o quarto de seu irmão."
+             "Você já tentou visitar o quarto de Malcolm?"
+             "Você já examinou o porteiro com atenção?"
+             "Você já falou com o porteiro?"
+             "O porteiro é surdo. Há alguma maneira de sinalizar que você \
+             quer uma de suas chaves?"
+             "O porteiro não quer lhe dar uma chave até saber quem você é. \
+             Há alguma maneira de convencê-lo de sua identidade (lembre-se \
+             de que ele é surdo, portanto você não pode falar com ele)?",
         puzzle_done 0 0 0;
 
 Nearby  WhatNextPuzzle "what now?"
  with   puzzle_width 17,
         puzzle_state 1,
-        puzzle_name "Help! I'm stuck! What do I do now?",
+         puzzle_name "Socorro! Estou presa! O que faço agora?",
         puzzle_hints
-            "Try to enter the college." !1
-            "Try visiting Malcolm." !2
-            "Malcolm's room has clearly been ransacked for something \
-            important. Perhaps you can succeed where the burglars \
-            failed." !3
-            "Try getting into the library and reading some of the books \
-            there." !4
-            "Try visiting the Master in his lodgings." !5
-            "When you've decoded the lab book, you'll realise that you \
-            need to look things up. Try borrowing the relevant texts." !6?
-            "Try asking the Master about the things you now know about." !7?
-            "Pay a visit to Wilderspin." !8
-            "Try investigating Wilderspin's fireplace more closely." !9
-            "Try to escape from the secret passage. You'll need \
-            Wilderspin's help, of course." !10
-            "Pay a visit to the cellars and see what you can find there." !11
-            "Have you met Edward Forbes yet?" !12
-            "Can you persuade Edward to go to his supervision with \
-            Bungay?" !13
-            "Try getting into the college gardens?" !14
-            "The gardeners must have a key to the garden gate. Perhaps \
-            you can find where they have left it." !15
-            "Try crossing the river on the punt." !16?
-            "You may need to convince Edward to help you cross the river, \
-            since he can punt and you can't." !17
-            "Now you should be close to reuniting Edward and his parrot." !18
-            "Have you visited Edward in his room?" !19
-            "You should now be at a point where you can put to use all \
-            the knowledge you've gathered and all the things you've \
-            found." !20
-            "Are you sure you can't get back into the Master's Lodgings?" !21
-            "Is there any way you can eavesdrop on Jarboe and Bungay's \
-            telephone conversation?" !22
-            "Try to persuade the Master to invite you to tonight's \
-            commemoration dinner." !23
-            "Attend tonight's commemoration dinner." !24
-            "Eat up your food!" !25
-            "Don't keep good things to yourself." !26
-            "Now's the time to put the knowledge you gained from the \
-            telephone conversation to use." !27
-            "Try to get through the crumbling door." !28
-            "Now all you have to do is save Malcolm and escape.", !29
+             "Tente entrar na faculdade." !1
+             "Tente visitar Malcolm." !2
+             "O quarto de Malcolm foi claramente vasculhado em busca de algo \
+             importante. Talvez você consiga fazer o que os ladrões não \
+             conseguiram." !3
+             "Tente entrar na biblioteca e ler alguns dos livros de lá." !4
+             "Tente visitar o Mestre em seus aposentos." !5
+             "Quando decifrar o livro do laboratório, você perceberá que \
+             precisa consultar algumas coisas. Tente pegar os textos \
+             relevantes emprestados." !6?
+             "Tente perguntar ao Mestre sobre o que você já descobriu." !7?
+             "Faça uma visita a Wilderspin." !8
+             "Tente investigar mais de perto a lareira de Wilderspin." !9
+             "Tente escapar da passagem secreta. Você precisará da ajuda de \
+             Wilderspin, é claro." !10
+             "Faça uma visita às adegas e veja o que encontra lá." !11
+             "Você já conheceu Edward Forbes?" !12
+             "Você consegue convencer Edward a ir à supervisão com Bungay?" !13
+             "Tente entrar nos jardins da faculdade." !14
+             "Os jardineiros devem ter uma chave do portão do jardim. Talvez \
+             você consiga descobrir onde a deixaram." !15
+             "Tente atravessar o rio na balsa." !16?
+             "Talvez você precise convencer Edward a ajudá-la a atravessar o \
+             rio, pois ele sabe conduzir a balsa e você não." !17
+             "Agora você deve estar perto de reunir Edward e seu papagaio." !18
+             "Você já visitou Edward em seu quarto?" !19
+             "Agora você deve estar em condições de usar todo o conhecimento \
+             que reuniu e tudo que encontrou." !20
+             "Tem certeza de que não consegue voltar aos Aposentos do Mestre?" !21
+             "Há alguma maneira de escutar às escondidas a conversa telefônica \
+             de Jarboe e Bungay?" !22
+             "Tente convencer o Mestre a convidá-la para o jantar comemorativo \
+             desta noite." !23
+             "Compareça ao jantar comemorativo desta noite." !24
+             "Coma sua comida!" !25
+             "Não guarde coisas boas só para você." !26
+             "Agora é hora de usar o conhecimento obtido na conversa telefônica." !27
+             "Tente passar pela porta em ruínas." !28
+             "Agora basta salvar Malcolm e escapar.", !29
         puzzle_done 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 
 
@@ -270,8 +265,8 @@ Global help_word;
      'save','restore','restart','quit', 'miscellaneous','script',
      'oops','score': i = 16;
      default:
-        "I'm sorry, I don't know anything about that. Type ~help~ on its \
-        own for a menu of subjects I can help you with.";
+         "Desculpe, não sei nada sobre isso. Digite ~help~ sozinho para ver \
+         um menu de assuntos sobre os quais posso ajudar.";
     }
     if (i > 10) { menu_item = i - 10; InstructionsInfo(); rtrue; }
     menu_item = i;
@@ -319,18 +314,18 @@ Global ShowHints = 0;
 ];
 
 Array TopMenuChoices table [;
-    "Instructions for playing adventure games";
-    "Summary of commands";
-    "Abbreviations for common commands";
-    "Game credits and thanks to all the people who helped";
-    "Copyright and other legal necessities";
-    "How to pay for ~Christminster~";
-    "Adverts for the IF-Archive and Inform";
-    "What to do if you're stuck";
+     "Instruções para jogar aventuras";
+     "Resumo dos comandos";
+     "Abreviações para comandos comuns";
+     "Créditos do jogo e agradecimentos a todos que ajudaram";
+     "Direitos autorais e outras questões legais";
+     "Como pagar por ~Christminster~";
+     "Anúncios do IF-Archive e do Inform";
+     "O que fazer quando você estiver sem saída";
 ];
 
 [ HelpPrint i;
-    print "There is information on the following:^";
+     print "Há informações sobre os seguintes assuntos:^";
     PrintChoices(TopMenuChoices);
     for (i = 0: i < NumberUnsolved: i++) {
         if (pretty_flag == 1)
@@ -347,16 +342,16 @@ Array TopMenuChoices table [;
 
 [ HelpMenu;
     switch (menu_item) {
-     0: item_width=10; item_name="About Christminster"; 
+      0: item_width=10; item_name="Sobre Christminster"; 
         return 8 + NumberUnsolved;
-     1: item_width= 6; item_name="Instructions";
-     2: item_width= 8; item_name="Command summary";
-     3: item_width= 7; item_name="Abbreviations";
-     4: item_width= 4; item_name="Credits";
-     5: item_width=16; item_name="Copyright, licence and warranty";
-     6: item_width=15; item_name="How to pay for ~Christminster~";
-     7: item_width= 4; item_name="Adverts";
-     8: item_width= 9; item_name="When you're stuck";
+      1: item_width= 6; item_name="Instruções";
+      2: item_width= 8; item_name="Resumo dos comandos";
+      3: item_width= 7; item_name="Abreviações";
+      4: item_width= 4; item_name="Créditos";
+      5: item_width=16; item_name="Direitos autorais, licença e garantia";
+      6: item_width=15; item_name="Como pagar por ~Christminster~";
+      7: item_width= 4; item_name="Anúncios";
+      8: item_width= 9; item_name="Quando estiver sem saída";
      default:
         item_width = (PuzzleArray-->(menu_item-9)).puzzle_width;
         item_name = (PuzzleArray-->(menu_item-9)).puzzle_name;
@@ -365,27 +360,27 @@ Array TopMenuChoices table [;
 
 [ InstructionsMenu;
     switch (menu_item) {
-     0: item_width= 6; item_name="Instructions"; return 6;
-     1: item_width= 8; item_name="Adventure games";
-     2: item_width= 7; item_name="Moving around";
-     3: item_width=10; item_name="Manipulating things";
-     4: item_width= 9; item_name="Talking to people";
-     5: item_width= 9; item_name="Looking things up";
-     6: item_width=11; item_name="Miscellaneous commands";
+      0: item_width= 6; item_name="Instruções"; return 6;
+      1: item_width= 8; item_name="Aventuras";
+      2: item_width= 7; item_name="Movimentação";
+      3: item_width=10; item_name="Manipulação de objetos";
+      4: item_width= 9; item_name="Conversar com pessoas";
+      5: item_width= 9; item_name="Consultar livros";
+      6: item_width=11; item_name="Comandos diversos";
     }
 ];
 
 Array InstructionsChoices table [;
-    "An introduction to adventure games";
-    "Moving around";
-    "Manipulating things";
-    "Talking to people";
-    "Looking things up in books";
-    "Miscellaneous commands";
+     "Uma introdução às aventuras";
+     "Movimentação";
+     "Manipulação de objetos";
+     "Conversar com pessoas";
+     "Consultar informações em livros";
+     "Comandos diversos";
 ];
 
 [ InstructionsPrint;
-    print_ret "There are instructions on the following subjects:^",
+     print_ret "Há instruções sobre os seguintes assuntos:^",
         (PrintChoices) InstructionsChoices;
 ];
 
@@ -396,92 +391,91 @@ Array InstructionsChoices table [;
             InstructionsInfo);
         return 2;
      2:
-        print "These commands typically do nothing in the world of the \
-            game, but control how it is presented to you:^";
+         print "Estes comandos normalmente não fazem nada no mundo do jogo, \
+             mas controlam como ele é apresentado a você:^";
 
         font off;
         print "\
-            ^brief            use long and short room descriptions\
-            ^die              quit the game\
-            ^fullscore        show how your score was achieved\
-            ^inventory        list your possessions\
-            ^inventory wide   paragraphed inventory lists\
-            ^inventory tall   one item per line inventory lists\
-            ^long             always use long room descriptions\
-            ^normal           use long and short room descriptions\
-            ^noscript         turn transcripting off\
-            ^notify on/off    turn score notification on and off\
-            ^nouns            show current settings of ~it~, ~him~, ~her~\
-            ^objects          list the objects you have held\
-            ^oops <word>      correct mistake in previous input\
-            ^places           list the places you have been\
-            ^pronouns         show current settings of ~it~, ~him~, ~her~\
-            ^quit             quit the game\
-            ^quotes on/off    turn the display of quotations on and off\
-            ^restart          start the game again from the beginning\
-            ^restore          restore a saved game from a file\
-            ^save             save the game to a file\
-            ^score            show your current score\
-            ^script on/off    start and stop transcription to a file\
-            ^short            always use short room descriptions\
-            ^superbrief       always use short room descriptions\
-            ^undo             undo last command, if possible\
-            ^unscript         turn transcripting off\
-            ^verbose          always use long room descriptions\
-            ^verify           check that the story file is undamaged\
-            ^version          give version and release numbers^";
+             ^brief            usar descrições longas e curtas\
+             ^die              sair do jogo\
+             ^fullscore        mostrar como sua pontuação foi obtida\
+             ^inventory        listar seus pertences\
+             ^inventory wide   listar inventário em parágrafos\
+             ^inventory tall   listar um item por linha\
+             ^long             sempre usar descrições longas\
+             ^normal           usar descrições longas e curtas\
+             ^noscript         desligar a transcrição\
+             ^notify on/off    ligar ou desligar avisos de pontuação\
+             ^nouns            mostrar configurações atuais de ~it~, ~him~, ~her~\
+             ^objects          listar os objetos que você carregou\
+             ^oops <word>      corrigir erro na entrada anterior\
+             ^places           listar os lugares que você visitou\
+             ^pronouns         mostrar configurações atuais de ~it~, ~him~, ~her~\
+             ^quit             sair do jogo\
+             ^quotes on/off    ligar ou desligar a exibição de citações\
+             ^restart          reiniciar o jogo\
+             ^restore          restaurar um jogo salvo de um arquivo\
+             ^save             salvar o jogo em um arquivo\
+             ^score            mostrar sua pontuação atual\
+             ^script on/off    iniciar ou parar a transcrição em arquivo\
+             ^short            sempre usar descrições curtas\
+             ^superbrief       sempre usar descrições curtas\
+             ^undo             desfazer o último comando, se possível\
+             ^unscript         desligar a transcrição\
+             ^verbose          sempre usar descrições longas\
+             ^verify           verificar se o arquivo da história está intacto\
+             ^version          informar versão e número do lançamento^";
 
         font on;
-        print "^These are useful commands that affect the world of the \
-            game:^";
+         print "^Estes são comandos úteis que afetam o mundo do jogo:^";
 
         font off;
         print "\
-            ^again            repeat the last command\
-            ^close <thing>    shut a container or a door\
-            ^drop <thing>     let go of an object\
-            ^enter <thing>    enter an object\
-            ^examine <thing>  inspect something closely\
-            ^get <thing>      pick up an object\
-            ^give x to y      offer a gift to someone\
-            ^go <direction>   travel in a compass direction\
-            ^in               go in (if this is unambiguous)\
-            ^look             describe your surroundings\
-	    ^look up x in y   look up something in a book\
-            ^open <thing>     open a container or a door\
-            ^out              go out (if this is unambiguous)\
-            ^put x in y       put an object in a container\
-            ^take <thing>     pick up an object\
-            ^unlock x with y  unlock something with a key\
-            ^wait             do nothing for a turn^";
+             ^again            repetir o último comando\
+             ^close <thing>    fechar um recipiente ou uma porta\
+             ^drop <thing>     largar um objeto\
+             ^enter <thing>    entrar em um objeto\
+             ^examine <thing>  examinar algo de perto\
+             ^get <thing>      pegar um objeto\
+             ^give x to y      oferecer um presente a alguém\
+             ^go <direction>   viajar em uma direção da bússola\
+             ^in               entrar (se não houver ambiguidade)\
+             ^look             descrever o que está ao redor\
+             ^look up x in y   procurar algo em um livro\
+             ^open <thing>     abrir um recipiente ou uma porta\
+             ^out              sair (se não houver ambiguidade)\
+             ^put x in y       pôr um objeto em um recipiente\
+             ^take <thing>     pegar um objeto\
+             ^unlock x with y  destrancar algo com uma chave\
+             ^wait             não fazer nada por um turno^";
 
         font on;
-        print "^There are, of course, many more.^";
+         print "^É claro que há muitos outros.^";
      3:
-        print "The game knows several useful abbreviations:^\
-            ^    g for again\
-            ^    i for inventory\
-            ^    l for look\
-            ^    n for north (and so on)\
-            ^    o for oops\
-            ^    q for quit\
-            ^    x for examine\
-            ^    z for wait (short for ~zzz~).^";
+         print "O jogo conhece várias abreviações úteis:^\
+             ^    g para again\
+             ^    i para inventory\
+             ^    l para look\
+             ^    n para north (e assim por diante)\
+             ^    o para oops\
+             ^    q para quit\
+             ^    x para examine\
+             ^    z para wait (abreviação de ~zzz~).^";
      4:
         style bold; print "CHRISTMINSTER"; style roman;
 
-        print "^release 4 (November 1996)^by Gareth Rees^";
+         print "^lançamento 4 (novembro de 1996)^por Gareth Rees^";
 
-        style bold; print "^Credits^"; style roman;
+         style bold; print "^Créditos^"; style roman;
 
-        print "^This story could never have been written without the \
+         print "^Esta história jamais poderia ter sido escrita sem a \
 	    assistance of Graham Nelson, who wrote ~Inform~, the \
 	    adventure game compiler, whose game ~Curses~ rekindled my \
 	    enthusiasm for interactive fiction, who sent me 163 bugs \
 	    and suggestions during play-testing, and who patiently \
 	    answered each of my many queries.^";
 
-        print "^Special thanks to: Tavia Chalcraft, Robert Dickau and \
+         print "^Agradecimentos especiais a: Tavia Chalcraft, Robert Dickau e \
 	    Michael Kinyon.^";
 
         print "^Many, many bugs found by: Jouni Alkio, Torbj|rn \
@@ -505,89 +499,88 @@ Array InstructionsChoices table [;
 	    be contacted by electronic mail at the address \
 	    ~gdr11@@64cl.cam.ac.uk~.^";
 
-        style bold; print "^Release notes^"; style roman;
+         style bold; print "^Notas de lançamento^"; style roman;
 
-        print "^Release 1 (1st August 1995) was a very buggy first \
-	    release.^Release 2 (4th August 1995) corrects about thirty \
-	    bugs, including some serious ones in Edward's movement \
-	    code.^Release 3 (8th November 1995) corrects another \
-	    eighty bugs and adds some hints for some early and \
-	    difficult puzzles.^Release 4 (17th November 1996) tidies \
-	    up a further thirty problems, some introduced during \
-	    earlier attempt to ~improve~ the source code.^";
+         print "^O lançamento 1 (primeiro de agosto de 1995) foi uma primeira \
+	    versão bastante bugada.^O lançamento 2 (4 de agosto de 1995) corrige cerca de trinta \
+	    erros, incluindo alguns graves no código de movimento de Edward.\
+	    ^O lançamento 3 (8 de novembro de 1995) corrige mais oitenta \
+	    erros e acrescenta dicas para alguns quebra-cabeças iniciais e \
+	    difíceis.^O lançamento 4 (17 de novembro de 1996) corrige \
+	    outros trinta problemas, alguns introduzidos durante uma \
+	    tentativa anterior de ~melhorar~ o código-fonte.^";
      5:
-        style bold; print "Copyright^"; style roman;
+         style bold; print "Direitos autorais^"; style roman;
 
-        print "^This story file (referred to herein as ~Christminster~) \
+         print "^Este arquivo da história (chamado aqui de ~Christminster~) \
             is copyright (c) Gareth Rees, August 1995 - November 1996.^";
 
-        style bold; print "^Licence^"; style roman;
+         style bold; print "^Licença^"; style roman;
 
-        print "^Terms and conditions for copying and distribution.^";
+         print "^Termos e condições para cópia e distribuição.^";
 
-        print "^1. The terms and conditions in this licence applying to \
-            ~Christminster~ apply equally to any output produced by \
-            ~Christminster~. Each licensee is addressed as ~you~.^";
+         print "^1. Os termos e condições desta licença aplicáveis a \
+             ~Christminster~ aplicam-se igualmente a qualquer saída produzida por \
+             ~Christminster~. Cada licenciado é tratado como ~você~.^";
 
-        print "^2. You may copy and distribute verbatim copies of \
+         print "^2. Você pode copiar e distribuir cópias literais de \
             ~Christminster~ in any medium.^";
 
-        print "^3. You may charge a fee for the act of transferring a \
-            copy.^";
+         print "^3. Você pode cobrar uma taxa pelo ato de transferir uma \
+             cópia.^";
 
-        print "^4. You may not copy, modify, or distribute \
+         print "^4. Você não pode copiar, modificar ou distribuir \
             ~Christminster~ except as expressly provided under this \
             licence.^";
 
-        print "^5. You are not required to accept this licence. However, \
+         print "^5. Você não é obrigado a aceitar esta licença. Contudo, \
             nothing else grants you permission to distribute \
-            ~Christminster~. This action is prohibited by law if you do \
-            not accept this Licence. Therefore, by distributing \
-            ~Christminster~ you indicate your acceptance of this licence \
-            and all its terms and conditions.^";
+             ~Christminster~. Essa ação é proibida por lei se você não \
+             aceitar esta licença. Portanto, ao distribuir \
+             ~Christminster~, você indica que aceita esta licença \
+             e todos os seus termos e condições.^";
 
-        print "^6. NO WARRANTY. Because ~Christminster~ is made available \
-            free of charge, there is no warranty for ~Christminster~.^";
+         print "^6. SEM GARANTIA. Como ~Christminster~ é disponibilizado \
+             gratuitamente, não há garantia para ~Christminster~.^";
 
      6:
-        print "~Christminster~ is free of charge! Use it, copy it and \
-            distribute it, and don't pay me a penny (but do read the \
-            licence first).^";
+         print "~Christminster~ é gratuito! Use-o, copie-o e distribua-o, \
+             sem me pagar um centavo (mas leia primeiro a licença).^";
 
-        print "^If you've written an adventure game which is shareware or \
+         print "^Se você escreveu uma aventura que seja shareware ou \
             commercial, and if you enjoyed ~Christminster~ sufficiently \
             that you think you would have paid for it if it weren't free \
             of charge, then why not express your appreciation by sending \
             me a registered copy of your own game?^";
      7:
-        print "There is an archive of interactive fiction and adventure \
+         print "Há um arquivo de ficção interativa e aventuras \
             games at the German National Research Centre for Computer \
-            Science, maintained by Volker Blasius. You can get files from \
-            the archive using anonymous FTP from the address \
+             Ciência, mantido por Volker Blasius. Você pode obter arquivos \
+             do arquivo por FTP anônimo no endereço \
             ~ftp.gmd.de~, in the directory ~/if-archive~.^";
 
-        print "^The archive contains many free and shareware adventure \
+         print "^O arquivo contém muitas aventuras gratuitas e shareware, \
             games, a number of adventure game compilers, and lots of \
             miscellaneous material relating to the genre.^";
 
-        print "^~Christminster~ was compiled using ~Inform~, Graham \
+         print "^~Christminster~ foi compilado usando ~Inform~, o compilador \
             Nelson's compiler for adventure games. ~Inform~ takes a \
             C-like source (the source for ~Christminster~, excepting the \
             libraries that come with the compiler, is about 13,000 lines, \
             or 440k) and outputs a ~story file~ that can be played on any \
             of the public domain Infocom interpreters.^";
 
-        print "^~Inform~ can be fetched by anonymous FTP from the \
+         print "^~Inform~ pode ser obtido por FTP anônimo no arquivo de \
             interactive fiction archive, in the directory \
             ~/if-archive/infocom/compilers/inform~^";
      8:
-        print "^If you're completely stuck and can make no more progress, \
+         print "^Se você estiver completamente sem saída e não conseguir avançar, \
             then type ~help please~, which gives access to the hints \
             system. There are explicit hints for the first two puzzles in \
             the game, to get you started, and vague but helpful nudges in \
             the right direction for the remainder of the game.^";
 
-        print "^If you're still getting nowhere, try asking for help on \
+         print "^Se ainda não conseguir avançar, peça ajuda no grupo de notícias \
             the Usenet newsgroup rec.games.int-fiction.^";
      default:
         new_line;
@@ -595,38 +588,37 @@ Array InstructionsChoices table [;
         for (j = 0: j < (i.#puzzle_hints / 2): j++)
             if ((i.&puzzle_done)->j == 0)
                 print_ret (string) ((i.&puzzle_hints)-->j);
-        print "No more hints.^";
+         print "Não há mais dicas.^";
     }
 ];
 
 [ InstructionsInfo;
     switch (menu_item) {
      1:
-        print "Adventure games (sometimes dignified with the name \
-            ~interactive fiction~) are a combination of second-person \
-            story and puzzle-solving game. An adventure game presents you \
-            with text that puts you in the position of protagonist, and \
-            invites you to type in commands.^";
+         print "Aventuras (às vezes dignificadas pelo nome de \
+             ~ficção interativa~) combinam uma história em segunda pessoa \
+             com um jogo de quebra-cabeças. Uma aventura apresenta um texto \
+             que coloca você no papel de protagonista e convida você a \
+             digitar comandos.^";
 
-        print "^For example, a game might start like this:^";
+         print "^Por exemplo, um jogo pode começar assim:^";
 
-        print "^    You are standing in the street outside a college.\
-            ^    The gate is closed.\
+         print "^    Você está na rua, diante de uma faculdade.\
+             ^    O portão está fechado.\
             ^    >^";
 
-        print "^The prompt invites you to type something. You respond \
-            with an imperative sentence and the game tries to understand \
-            your command and to carry it out. For example, you might \
-            type^";
+         print "^O prompt convida você a digitar algo. Você responde com uma \
+             frase imperativa, e o jogo tenta entender e executar seu comando. \
+             Por exemplo, você pode digitar^";
 
         print "^    > open the gate^";
 
-        print "^and the game might respond^";
+         print "^e o jogo pode responder^";
 
         print "^    Unfortunately, the gate is locked.\
             ^    >^";
 
-        print "^Not to be defeated, you try something else:^";
+         print "^Sem se deixar vencer, você tenta outra coisa:^";
 
         print "^    > knock at gate\
             ^    ~Come in!~ shouts a voice from inside.\
@@ -634,16 +626,14 @@ Array InstructionsChoices table [;
             ^    > go in\
             ^    You enter the college ...^";
 
-        print "^and the game continues. Not all puzzles will be so easy, \
-            though!^";
+         print "^e o jogo continua. Mas nem todos os quebra-cabeças serão tão \
+             fáceis!^";
 
-        print "^No game can hope to understand every possible input. If \
-            you try something and the game doesn't understand, then you \
-            should try rephrasing your command or substituting synonyms \
-            for some of the words. If you've made several obvious \
-            attempts and none of them have worked, then the likelihood is \
-            that you can't do what you wanted to, and you'll have to \
-            solve your problem in a different way.^";
+         print "^Nenhum jogo pode esperar entender toda entrada possível. Se você \
+             tentar algo que o jogo não entende, tente reformular o comando ou \
+             substituir algumas palavras por sinônimos. Se várias tentativas \
+             óbvias não funcionarem, provavelmente você não pode fazer o que \
+             queria e terá de resolver o problema de outra maneira.^";
      2:
         print "The landscape of an adventure game is notionally divided \
             into ~rooms~; often these really are rooms, but they can be \
@@ -896,20 +886,20 @@ Array InstructionsChoices table [;
 ];
 
 Array AmusingChoices table [;
-    "How many wrong ways are there to hide the brass key?";
-    "What is the police constable's hobby?";
-    "How many ways are there to acquire the tears?";
-    "In how many ways can the game come to an end?";
-    "Which puzzles are optional?";
-    "What names may be looked up in ~Men of Biblioll~?";
-    "What are the secret debugging commands?";
-    "How much of the background is real?";
+     "De quantas maneiras erradas é possível esconder a chave de latão?";
+     "Qual é o passatempo do policial?";
+     "De quantas maneiras é possível obter as lágrimas?";
+     "De quantas maneiras o jogo pode terminar?";
+     "Quais quebra-cabeças são opcionais?";
+     "Quais nomes podem ser consultados em ~Men of Biblioll~?";
+     "Quais são os comandos secretos de depuração?";
+     "Quanto do contexto é real?";
 ];
 
 [ AmusingPrint;
-    print_ret "Can you answer these questions?^", (PrintChoices)
-        AmusingChoices, "^^ If you can, then you have probably played \
-        ~Christminster~^ rather more than you ought.";
+     print_ret "Você consegue responder a estas perguntas?^", (PrintChoices)
+         AmusingChoices, "^^ Se consegue, provavelmente jogou \
+         ~Christminster~^ mais do que deveria.";
 ];
 
 [ HelpAmusing;
@@ -919,40 +909,39 @@ Array AmusingChoices table [;
 [ AmusingMenu;
     if (menu_item==0) { 
         item_width=13;
-        item_name="Christminster trivia quiz";
+         item_name="Quiz de curiosidades de Christminster";
         return 8;
     }
     item_width = 3;
-    item_name = "Answer";
+     item_name = "Resposta";
 ];
 
 [ AmusingInfo;
     switch (menu_item) {
      1:
-        "Five. Christabel can carry the brass key, leave it on the \
-        ground, hide it in her handbag (and possibly drop the handbag), \
-        or give it to the police constable.";
+         "Cinco. Christabel pode carregar a chave de latão, deixá-la no \
+         chão, escondê-la na bolsa (e talvez deixar a bolsa cair), \
+         ou entregá-la ao policial.";
      2:
-        "The police constable is clearly an ornithologist. The busker is \
-        able to distract him at a crucial moment by pointing at an \
-        imaginary bird. Try also ~show the feather to the constable~ and \
-        ~constable, arrest the busker~.";
+         "O policial é claramente um ornitólogo. O artista de rua consegue \
+         distraí-lo num momento crucial apontando para um pássaro imaginário. \
+         Tente também ~show the feather to the constable~ e \
+         ~constable, arrest the busker~.";
      3:
-        "Three. Christabel cries if she is hit by Jarboe (try ~attack \
-        Jarboe~); Edward cries if he thinks his parrot may be dead (try \
-        ~show feather to Edward~); or Christabel can attack herself with \
-        the pin.";
+         "Três. Christabel chora se Jarboe a atingir (tente ~attack Jarboe~); \
+         Edward chora se pensar que seu papagaio morreu (tente \
+         ~show feather to Edward~); ou Christabel pode atacar a si mesma \
+         com o alfinete.";
      4:
-        "Eight. Christabel can be arrested by the police constable (for \
-        attacking him or the sleeping don, or for being caught in \
-        possession of the stolen key); she can be knocked unconscious by \
-        Professor Bungay (either in his study or in his hallway); she can \
-        be invalided by drinking the elixir; she can be caught spying on \
-        the cultists in the crypt; she can be murdered by Jarboe; she can \
-        burn to death in the fire; she can rescue her brother but fail to \
-        resuscitate him; or she can win!";
+         "Oito. Christabel pode ser presa pelo policial (por atacá-lo ou ao \
+         don adormecido, ou por ser pega com a chave roubada); pode ser \
+         deixada inconsciente pelo Professor Bungay (no escritório ou no \
+         corredor); pode ficar inválida ao beber o elixir; pode ser pega \
+         espionando os cultistas na cripta; pode ser assassinada por Jarboe; \
+         pode morrer queimada no incêndio; pode salvar o irmão mas não \
+         conseguir reanimá-lo; ou pode vencer!";
      5:
-        "Finding the chapbook in Bungay's study; acquiring the Bible \
+         "Encontrar o livrinho no escritório de Bungay; obter a Bíblia \
 	and the books by Raymond Lully, Eugenius Philalethes and \
 	Dmitri Zinovic; hiding Malcolm's lab book from Doctor Jarboe; \
 	attending Evensong; climbing the Wistaria; and finding both \
@@ -965,7 +954,7 @@ Array AmusingChoices table [;
             Bernard Starkey, Francis Tausend, Elias Tymme, Thomas Vaughan \
             and ", (PrintOMN) 0, ".";
      7:
-        "Secret debugging commands? What secret debugging commands?";
+         "Comandos secretos de depuração? Que comandos secretos de depuração?";
      8:
         print "~Christminster~ is the counterpart to Oxford in Thomas \
 	    Hardy's ~Wessex~ novels, and Biblioll College is the \

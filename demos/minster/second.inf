@@ -9,40 +9,41 @@
 ! 5.1 SECOND COURT
 !-------------------------------------------------------------------------
 
-Object  SecondCourtArchwayObject "low archway" FirstCourt
+Object  SecondCourtArchwayObject "arco baixo" FirstCourt
  has    door scenery open
  with   name "low" "arch" "archway" "second" "court" "another",
-        description "A low archway leading east to second court.",
+         description "Um arco baixo que leva ao leste, para o Segundo Pátio.",
         door_to SecondCourtArchway,
         door_dir e_to;
 
-Object  SecondCourtArchway "Archway between the Courts"
+Object  SecondCourtArchway "Arco entre os Pátios"
  has    light cat_allowed
  with   name "first" "second" "court" "staples" "staple" "stone" "memorial"
             "slate" "tablet" "tablets",
-        description "A long, low stone archway with First Court to the \
-            west, and a door to Second Court to the east. On the north \
-            wall is a war memorial, a series of simple slate tablets \
-            listing the names of the members of Biblioll College, \
-            undergraduate and graduate, who died in the First World War \
-            of 1914-1918. You bow your head for a moment in memory of \
-            these young men and what they might have become.",
+         description "Um arco de pedra longo e baixo, com o Primeiro Pátio a \
+             oeste e uma porta para o Segundo Pátio a leste. Na parede norte \
+             há um memorial de guerra: uma série de placas simples de ardósia \
+             com os nomes dos membros do Biblioll College, graduandos e \
+             formados, mortos na Primeira Guerra Mundial de 1914-1918. Você \
+             baixa a cabeça por um instante, lembrando esses jovens e tudo o \
+             que poderiam ter se tornado.",
         w_to FirstCourt,
         e_to DoorArchway,
-        cant_go "You can go west to First Court or east to Second Court.",
+         cant_go "Você pode ir para oeste, ao Primeiro Pátio, ou para leste, \
+             ao Segundo Pátio.",
         edward_dirs e_obj w_obj;
 
-Nearby  ArchwayNotice "announcement"
+Nearby  ArchwayNotice "anúncio"
  has    static
  with   name "notice" "announcement",
-        initial "An announcement is stapled to the south wall.",
-        description "It is an announcement of a dinner in honour of some \
-            long-deceased benefactor of the College, to be held this \
-            evening at seven o'clock in the Great Hall. Fellows wishing \
-            to attend should apply to the Master for an invitation.",
+         initial "Um anúncio está preso à parede sul.",
+         description "É um anúncio de um jantar em homenagem a um benfeitor \
+             do College falecido há muito tempo, marcado para esta noite, às \
+             sete horas, no Grande Salão. Membros que desejarem comparecer \
+             devem pedir um convite ao Reitor.",
         before [;
-         Take: "You'd break your nails trying to get those staples out of \
-            the wood. Better leave it in place.";
+          Take: "Você quebraria as unhas tentando tirar os grampos da madeira. \
+             É melhor deixá-los no lugar.";
         ];
 
 Object  DoorArchway "old wooden door"
@@ -150,7 +151,7 @@ Object  SecondCourt "Second Court"
 Object  Crowd "crowd of people"
  has    animate
  with   name "crowd" "of" "people" "student" "students" "congregation",
-        initial "A crowd of people is streaming out of the chapel.",
+         initial "Uma multidão de pessoas sai da capela.",
         description "The crowd consists of students, bright young things, \
             animatedly talking to each other.",
         life [;
@@ -538,7 +539,7 @@ Nearby  StainedGlassWindow "stained glass window"
 Nearby  Lectern "lectern"
  has    supporter static
  with   name "dusty" "lectern",
-        initial "A dusty lectern stands in one corner.",
+         initial "Um púlpito empoeirado está num canto.",
         description "On closer examination, the lectern is a beautiful \
             work of art, sadly neglected. It is made of solid brass, and \
             is in the form of an eagle: wings spread and talons poised as \

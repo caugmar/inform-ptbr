@@ -43,10 +43,10 @@ Verb "add" "mix"
     * noun "to" noun        -> Insert
     * noun "with" noun      -> Insert;
 
-Extend "empty"
+Verb "esvaziar" "empty"
     * noun "over" noun      -> EmptyT;
 
-Extend "fill"
+Verb "encher" "fill"
     * noun "with" noun      -> FillWith
     * noun "from" noun      -> FillWith;
 
@@ -379,75 +379,75 @@ Object  TearsA "tears"
 Object  TearsB "tears"
  class  LiquidClass
  with   name "tear" "tears" "crystal" "clear" "liquid" "drop",
-        description "A tiny drop of crystal clear liquid.",
+         description "Uma pequena gota de líquido cristalino.",
         number 3,
         after [;
-         SmellThing: "The tears are odourless.";
+          SmellThing: "As lágrimas não têm cheiro.";
          Drink,Eat,Taste: 
             remove self;
-            "The tears are salty on your tongue.";
+             "As lágrimas são salgadas na sua língua.";
         ];
 
 Object  Honey "honey"
  class  LiquidClass
         ! general if from the correct hive
  with   name "honey",
-        description "A couple of drops of a viscous sweet-smelling cloudy \
-            brown liquid.",
+         description "Algumas gotas de um líquido marrom, turvo, viscoso e \
+             adocicado.",
         number 2,
         after [;
-         SmellThing: "It smells rich and pungent.";
+          SmellThing: "O cheiro é intenso e marcante.";
          Eat,Drink,Taste:
             remove self;
-            "The honey is sweet on your lips, but you barely have enough \
-            to whet your appetite.";
+             "O mel é doce em seus lábios, mas há tão pouco que mal serve para \
+             abrir o apetite.";
         ];
 
 Object  PaleLiquid "pale liquid"
  class  LiquidClass
         ! general if suffering from its effects
  with   name "pale" "liquid",
-        description "It's a pale liquid, with the consistency of wine.",
+         description "É um líquido pálido, com a consistência de vinho.",
         number 4,
         after [;
          Taste,Drink,Eat:
             if (self has general)
-                "You feel rather nauseous after your earlier sip and \
-                can't bring yourself to drink any more.";
+                 "Você se sente enjoada depois do gole anterior e não consegue \
+                 beber mais.";
             give self general;
-            "You take a sip of the pale liquid. It tastes like a very \
-            vinegary wine, but with a disturbing, rotten aftertaste. You \
-            can't bring yourself to drink very much.";
+             "Você prova o líquido pálido. Tem gosto de vinho muito avinagrado, \
+             com um retrogosto perturbador de podridão. Você não consegue beber \
+             muito.";
          SmellThing:
-            "It smells like a very vinegary wine, but with a hint of \
-            rotten eggs. The effect isn't very pleasant.";
+             "Cheira a vinho muito avinagrado, com um toque de ovos podres. O \
+             efeito não é agradável.";
         ];
 
 Object  Myrrh "transparent gum"
  class  LiquidClass
  with   name "transparent" "gum" "myrrh" "viscous" "oil" "perfume" "oily",
-        description "The gum is very viscous and oily, and gives off a \
-            powerful, bitter scent.",
+          description "A goma é muito viscosa e oleosa, e exala um perfume \
+             forte e amargo.",
         number 5,
         after [;
          SmellThing: 
-            "The smell is very heady, made up of a strongly bitter aroma, \
-            but also a powerfully aromatic and refreshing perfume.";
+             "O cheiro é muito intenso, com um aroma fortemente amargo, mas \
+             também um perfume refrescante e aromático.";
          Taste,Drink,Eat:
-            "The gum tastes oily and very unpleasant, and you can't bring \
-            yourself to consume more than a drop.";
+             "A goma tem gosto oleoso e muito desagradável; você não consegue \
+             consumir mais que uma gota.";
         ];
 
 Object  StickyGunk "sticky gunk"
  class  LiquidClass
  with   name "sticky" "gunk" "mess" "brown" "thick" "liquid",
-        description "The sticky gunk is a thick brown liquid. It looks \
-            and smells very unpleasant.",
+         description "A meleca é um líquido marrom e espesso. Sua aparência e \
+             seu cheiro são muito desagradáveis.",
         number 6,
         after [;
-         SmellThing: "It smells very odd and unpleasant.";
-         Taste,Drink,Eat: "Yuck! Your gorge rises at the thought of \
-            tasting such an unpleasant compound.";
+          SmellThing: "Tem um cheiro muito estranho e desagradável.";
+          Taste,Drink,Eat: "Eca! Seu estômago revira só de pensar em provar \
+             um composto tão desagradável.";
         ];
 
 Object  ElixirA "bubbling mixture"
@@ -455,13 +455,11 @@ Object  ElixirA "bubbling mixture"
         ! general if tasted
  with   name "bubbling" "bubble" "bubbles" "mix" "mixture" "liquid"
             "elixir" "potion",
-        description "The mixture is a hot liquid, bubbling and \
-            fermenting, and giving rise to unpleasant vapours and \
-            smokes.",
+         description "A mistura é um líquido quente, borbulhante e fermentado, \
+             que libera vapores e fumaça desagradáveis.",
         number 7,
         after [;
-         SmellThing: "It gives rise to unpleasant vapours that make you \
-             cough.";
+          SmellThing: "Ela libera vapores desagradáveis que fazem você tossir.";
          Taste,Eat,Drink: 
             if (self has general)
                 "You feel too sick to drink any more of the bubbling \

@@ -1,15 +1,20 @@
-all : minster.z8
+INFORM ?= inform
+INCLUDES ?= +./ ++../../lib ++../../includes
+COMPILEROPTS ?= -Cu +language_name=Portugues $(INCLUDES)
 
-minster.z8 : minster.inf prologue.inf first.inf library.inf edward.inf gardens.inf second.inf alchemy.inf endgame.inf help.inf
-	inform -v8 -xr minster minster.z8
+.PHONY: all run clean
+
+all: minster.z8
+
+minster.z8: minster.inf $(wildcard *.inf) ../../includes/Portugues.h ../../includes/PortuguesG.h $(wildcard ../../lib/*.h)
+	$(INFORM) -v8 -xr $(COMPILEROPTS) minster.inf minster.z8
 
 run: minster.z8
-	if [ -n "$(DISPLAY)" ]; then \
+	if [ -n "$(DISPLAY)" ] && command -v gargoyle-free >/dev/null 2>&1; then \
 		gargoyle-free minster.z8 ; \
 	else \
 		fizmo-ncursesw -lm 1 -rm 1 -dh -xt minster.z8 ; \
 	fi
 
 clean:
-	rm *.z8
-
+	rm -f *.z8

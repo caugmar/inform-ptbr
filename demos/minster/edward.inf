@@ -11,7 +11,7 @@
 
 Object  DoorB5 "x"
  class  DoorClass
- with   name "B5" "Forbes" "Forbes^s",
+  with   name "B5" "Forbes" "Forbes^s" "porta" "quarto",
         room "B5",
         occupant "Forbes",
         found_in BStairSecond EdwardsRoom,
@@ -27,43 +27,33 @@ Object  DoorB5 "x"
          Knock:
             if (Edward in BStairSecond)
                 "~I don't think that will do you much good,~ says \
-                Edward. ~That's my room, and I'm out here.~";
+                Edward. ~Esse é o meu quarto, e estou aqui fora.~";
             if (Edward in EdwardsRoom) {
                 if (location == BStairSecond)
-                    "~Come in,~ says Edward from inside.";
-                "~Come in,~ says Edward, not looking up.";
+                 "~Entre,~ diz Edward lá de dentro.";
+                 "~Entre,~ diz Edward, sem levantar os olhos.";
             }
          Close:
             if (self has open && Edward in EdwardsRoom)
-                "~Don't close the door,~ calls Edward. ~It's bad form for \
-                me not to be sporting the oak, even if I do have two \
-                essays to finish by tomorrow morning.~^^You're not quite \
-                sure you get his meaning, but you leave the door open \
-                anyway.";
+                 "~Não feche a porta,~ chama Edward. ~É falta de educação não \
+                 deixar a porta externa aberta, mesmo que eu tenha dois \
+                 ensaios para terminar até amanhã de manhã.~^^Você não tem \
+                 certeza de ter entendido, mas deixa a porta aberta mesmo assim.";
         ],
         each_turn [;
             move Edward to BStairSecond;
             self.each_turn = $ffff;
             StartDaemon(Edward);
             DoneHint(WhatNextPuzzle,12);
-            "^The door to B5 opens, and a young man emerges in some \
-            consternation (he must be the Mr Forbes who inhabits that \
-            room). ~Have you seen my parrot?~ he asks. ~I just came back, \
-            and the window was broken and Polly was gone. Tell me where I \
-            should go to find it.~ He shuts the door and then pauses, \
-            then seems to notice you for the first time. ~I'm Edward,~ he \
-            says, as if by way of explanation.";
+             "^A porta de B5 se abre, e um rapaz surge bastante consternado (deve ser o Sr. Forbes que mora nesse quarto). ~Você viu meu papagaio?~ ele pergunta. ~Acabei de voltar, e a janela estava quebrada e Polly sumiu. Diga-me onde devo ir para encontrá-la.~ Ele fecha a porta e então hesita, parecendo notar você pela primeira vez. ~Sou Edward,~ diz, como se isso fosse uma explicação.";
         ];
 
-Object  EdwardsRoom "Edward Forbes's Room"
+Object  EdwardsRoom "Quarto de Edward Forbes"
  has    light
         ! general if Edward's commented on entertaining women
  with   name "table" "bed" "unstable" "unmade" "window" "broken" "tiny" 
             "desk" "vapour" "vapours",
-        description "A poky and unbeautiful attic room, not improved by \
-            the broken glass all over the floor from the broken \
-            window. There is an unmade bed jammed up against a tiny desk, \
-            and a door leads out to the west.",
+         description "Um sótão apertado e sem beleza, que não melhora com os cacos de vidro espalhados pelo chão, vindos da janela quebrada. Há uma cama desfeita encostada a uma escrivaninha minúscula, e uma porta leva para oeste.",
         w_to DoorB5,
         out_to DoorB5,
         each_turn [;
@@ -73,28 +63,24 @@ Object  EdwardsRoom "Edward Forbes's Room"
             DoneHint(WhatNextPuzzle,19);
         ];
 
-Nearby  GasRing "gas ring"
+Nearby  GasRing "fogareiro a gás"
  has    static switchable supporter
  with   name "gas" "ring" "burner" "flame" "tap",
-        when_on "The gas ring is lit, and produces an erratic blue \
-            flame.",
-        when_off "An unstable table supports a gas ring that must be a \
-            terrible fire hazard.",
+         when_on "O fogareiro a gás está aceso e produz uma chama azul irregular.",
+         when_off "Uma mesa instável sustenta um fogareiro a gás que deve ser um terrível risco de incêndio.",
         capacity 1,
         before [;
          Burn: <<Switchon self>>;
          Switchon:
             if (self hasnt on && FlameAvailable() == 0)
-                "You turn on the gas, but realise that you have no means \
-                of lighting it, so you turn it off again.";
+                    "Você abre o gás, mas percebe que não tem como acendê-lo, então o fecha novamente.";
          Receive:
             if (self has on) {
                 if (noun hasnt is_vessel)
-                    "If you want to set fire to that, then say so.";
+                    "Se quer pôr fogo nisso, então diga.";
                 if (noun ~= Retort)
                     print_ret (The) noun, " doesn't have an appropriate \
-                        base for standing on the gas ring while it's \
-                        lit.";
+                         base adequada para ficar sobre o fogareiro aceso.";
             }
         ],
         each_turn [;
@@ -104,23 +90,12 @@ Nearby  GasRing "gas ring"
             }
         ];
 
-Nearby  Essay "essay"
+Nearby  Essay "ensaio"
  has    scenery
- with   name "essay",
-        description "Edward's handwriting is too atrocious to make out \
-            any more than the subject, which appears to be the cultural \
-            impact of the Fourth Crusade, and the opening \
-            paragraph:^^~The destruction of Constantinople by the \
-            soldiers of the Fourth Crusade (1200-1204) was instrumental \
-            in the bringing of Byzantine art to the houses of Western \
-            Europe, a legacy that surely inspired the greatest artists of \
-            the Renaissance. Who has not marvelled at the magnificent \
-            bronze horses in Saint Mark's square in Venice, or the great \
-            marble columns of the Venetian ducal palace? But these are \
-            the merest fraction of the treasure brought from \
-            Constantinople.~",
+  with   name "essay" "ensaio",
+         description "A letra de Edward é horrível demais para decifrar mais que o tema, que parece ser o impacto cultural da Quarta Cruzada, e o parágrafo inicial:^^~A destruição de Constantinopla pelos soldados da Quarta Cruzada (1200-1204) foi fundamental para levar a arte bizantina às casas da Europa Ocidental, um legado que certamente inspirou os maiores artistas do Renascimento. Quem não se maravilhou com os magníficos cavalos de bronze na praça de São Marcos, em Veneza, ou com as grandes colunas de mármore do palácio ducal veneziano? Mas estes são apenas uma pequena fração do tesouro trazido de Constantinopla.~",
 	before [;
-	 Take,Remove: "I don't think Edward would appreciate that.";
+	 Take,Remove: "Não acho que Edward apreciaria isso.";
 	];
 
 Object  Edward "Edward Forbes"
@@ -129,22 +104,19 @@ Object  Edward "Edward Forbes"
         ! general if doesn't talk rubbish this turn
  with   name "edward" "forbes" "tall" "slender" "young" "man" "mr"
             "mister" "student" "undergraduate" "ed" "ned",
-        description "Edward Forbes is a tall and slender young man, \
-            carrying with him an air of otherworldly introspection, as if \
-            he sees the concrete world through a veil of deep thought on \
-            some complex matter.",
+         description "Edward Forbes é um jovem alto e esguio, carregando consigo um ar de introspecção distante, como se visse o mundo concreto através de um véu de pensamentos profundos sobre algum assunto complexo.",
         describe [;
             if (self.state >= 31)
-                "^Edward Forbes sits at his desk, furiously writing.";
+                "^Edward Forbes está sentado à escrivaninha, escrevendo furiosamente.";
             if (self in Punt)
-                "^Edward stands here in the punt.";
-            print "^Edward Forbes stands here";
+                "^Edward está aqui na bateira.";
+             print "^Edward Forbes está aqui";
             if (self.state >= 20) ".";
             if (TearsA in Edward) " crying.";
             switch (random(3)) {
-             1: " dejectedly.";
-             2: " forlornly.";
-             3: " unhappily.";
+              1: " desanimado.";
+              2: " desolado.";
+              3: " infeliz.";
             }
         ],
         time_left 0,
@@ -159,10 +131,9 @@ Object  Edward "Edward Forbes"
             give self general;
          ShakeHands:
             if (self.state >= 31)
-                "He's hard at work on his essay, and doesn't notice you.";
-            "~Hello,~ says Edward. ~Pleased to meet you.~";
-         Kiss: "I wouldn't, if I were you. The shock might be too much \
-            for him.";
+                "Ele está concentrado no ensaio e não nota você.";
+            "~Olá,~ diz Edward. ~Prazer em conhecê-la.~";
+         Kiss: "Eu não faria isso se fosse você. O choque pode ser demais para ele.";
          Give,Show:
             if (noun == BookCollege)
                 "~I wonder if my father's in there,~ says Edward, looking \
@@ -176,46 +147,28 @@ Object  Edward "Edward Forbes"
                     move TearsA to self;
                     StartTimer(TearsA,4);
                     "Edward takes the feather from you, and looks at it \
-                    with horror. ~Oh, my poor Polly, what have they done \
-                    to you?~ he says, and he starts to cry, big tears \
-                    rolling down from his eyes.";
+                     horrorizado. ~Oh, minha pobre Polly, o que fizeram com você?~ diz ele, começando a chorar, com grandes lágrimas escorrendo dos olhos.";
                 }
                 if (self.state == 20) 
-                    "Edward takes the feather from you. ~This is one of \
-                    Polly's tail feathers. I do hope she isn't badly \
-                    hurt,~ he says.";
-                "Edward takes the feather from you. ~Yes, this is one of \
-                Polly's tail feathers. But I don't think she's been badly \
-                hurt. More scared than injured.~";
+                     "Edward pega a pena. ~Esta é uma das penas da cauda de Polly. Espero que ela não esteja muito machucada,~ diz ele.";
+                 "Edward pega a pena. ~Sim, esta é uma das penas da cauda de Polly. Mas não acho que ela tenha se machucado muito. Está mais assustada que ferida.~";
             }
             if ((noun.&plural_name)-->0 == 'books' or 'bibles')
-                "~Very interesting, I'm sure,~ says Edward, ~but if it \
-                doesn't have anything to do with the cultural impact of \
-                the Fourth Crusade or the Moorish conquest of Spain I \
-                don't think I should read it. My mind only has room for \
-                so many facts, and if I learn a new one I forget an old \
-                one.~";
+                 "~Muito interessante, tenho certeza,~ diz Edward, ~mas se não tiver relação com o impacto cultural da Quarta Cruzada ou com a conquista moura da Espanha, não acho que deva lê-lo. Minha mente só comporta tantos fatos, e se aprendo um novo esqueço um antigo.~";
             if (noun.plural == Peanut1.plural) {
                 if (self.state > 20) {
                     remove noun;
-                    "~Thanks,~ says Edward, taking the peanut and passing \
-                    it on to the parrot, who snaps it up greedily.";
+                     "~Obrigado,~ diz Edward, pegando o amendoim e passando-o ao papagaio, que o abocanha avidamente.";
                 }
                 if (ParrotB notin location)
-                    "~That's an excellent idea,~ says Edward. ~Peanuts \
-                    are Polly's favourite food! But wait until we find \
-                    her again, and then give it to me.~";
+                     "~Excelente ideia,~ diz Edward. ~Amendoins são a comida favorita de Polly! Mas espere até encontrarmos Polly novamente e então me dê.~";
                 if (Edward in Punt)
-                    "~Hold on,~ says Edward. ~Let me get out of the punt \
-                    first.~";
+                     "~Espere,~ diz Edward. ~Deixe-me sair da bateira primeiro.~";
                 if (location == EastBank) {
                     ParrotB.state = 9;
                     StartDaemon(ParrotB);
                     move ParrotB to Arboretum;
-                    "~That's an excellent idea,~ says Edward, reaching \
-                    for the peanut. But just at that moment, something \
-                    seems to disturb the parrot, and it takes wing, \
-                    flying away to the northwest.";
+                     "~Excelente ideia,~ diz Edward, estendendo a mão para o amendoim. Mas nesse instante algo parece perturbar o papagaio, que alça voo para noroeste.";
                 }
                 remove noun;
                 remove ParrotB;
@@ -226,82 +179,60 @@ Object  Edward "Edward Forbes"
                 Achieved("recapturing the parrot");
                 AdvanceTime(self);
                 DoneHint(WhatNextPuzzle,18);
-                "Edward takes the peanut from your hand and waves it at \
-                the parrot, which peers down at the morsel suspiciously. \
-                ~Come here, Polly,~ he calls, and the parrot hops up and \
-                down a little on its perch, as though the choice between \
-                freedom and food is a tricky one. Then it spreads its \
-                wings and glides down to land on Edward's shoulder, where \
-                it greedily pecks at the peanut.^^Edward beams \
-                triumphantly.";
+                 "Edward pega o amendoim da sua mão e o acena para o papagaio, que observa o petisco com desconfiança. ~Venha aqui, Polly,~ chama, e o papagaio pula para cima e para baixo no poleiro, como se a escolha entre liberdade e comida fosse difícil. Então abre as asas e plana até pousar no ombro de Edward, onde bica avidamente o amendoim.^^Edward sorri triunfante.";
             }
         ],
         orders [;
          SwitchOn,Burn:
             if (noun == GasRing) {
                 if (GasRing has on)
-                    "~I've already done that for you,~ says Edward. He \
-                    doesn't stir from his essay.";
+                    "~Já fiz isso por você,~ diz Edward. Ele não se move do ensaio.";
                 give GasRing on;
                 Achieved("lighting the gas ring");
-                print "~I don't know about that,~ says Edward \
-		    absent-mindedly, ~but I can certainly light the \
-		    gas ring for you. However, I'm afraid I have no \
-		    tea left, not even floor-sweepings.~ He ";
+                 print "~Não sei quanto a isso,~ diz Edward distraidamente, ~mas certamente posso acender o fogareiro para você. Porém, receio que não tenha mais chá, nem mesmo restos de varrição.~ Ele ";
                 if (child(GasRing) ~= 0) {
                     print "moves ", (the) child(GasRing), " to the floor, \
                         and then ";
                     move child(GasRing) to EdwardsRoom;
                 }
-                "extracts a match from his back pocket and lights the gas \
-                ring. ~There you go,~ he says, and returns to his essay.";
+                 "tira um fósforo do bolso traseiro e acende o fogareiro. ~Pronto,~ diz ele, e volta ao ensaio.";
             }
          Stop,Wait:
             if (self.number~=0 && self.state<20) {
                 self.number = 0;
                 self.time_left = 4;
-                "~OK, I'll stop following you,~ says Edward, ~but I can't \
-                see my parrot anywhere around here.~";
+                 "~Está bem, vou parar de seguir você,~ diz Edward, ~mas não consigo ver meu papagaio em lugar algum por aqui.~";
             }
          Knock,Attack:
             switch(noun) {
              DoorA5:
-                "~No, you do it,~ says Edward. ~He's your brother.~";
+                 "~Não, faça você,~ diz Edward. ~Ele é seu irmão.~";
              DoorC3:
-                "Edward goes pale. ~I'm not sure about that,~ he says in \
-                a very small voice. ~Bungay's always beastly to me.~";
+                 "Edward empalidece. ~Não tenho certeza disso,~ diz numa voz muito baixa. ~Bungay é sempre cruel comigo.~";
              DoorB2:
-                "~No thanks,~ says Edward. ~If he sees me he'll want \
-                to know how my essay is going.~";
+                 "~Não, obrigado,~ diz Edward. ~Se ele me vir, vai querer saber como está meu ensaio.~";
              DoorB5:
                 if (self in BStairSecond)
-                    "~That's my door you're asking me to knock at,~ says \
-                    Edward. ~Have you gone stark raving bonkers?~";
+                     "~Você está me pedindo para bater na minha própria porta,~ diz Edward. ~Enlouqueceu de vez?~";
              DoorMaster:
-                "~No-one will hear if I knock on the door,~ says Edward. \
-                ~That's what the bell-pull is for.~";
+                 "~Ninguém ouvirá se eu bater na porta,~ diz Edward. ~É para isso que serve a cordinha da campainha.~";
             }
             if (noun has animate)
-                "~I will do no such thing,~ says Edward. ~I am a man of \
-                peace.~";
+                "~Não farei uma coisa dessas,~ diz Edward. ~Sou um homem de paz.~";
             if (noun.describe == DoorA1.describe)
-                "~I don't think that's a good idea,~ says Edward. ~The \
-                fellows don't like to be disturbed on a Sunday.~";
+                 "~Não acho que seja uma boa ideia,~ diz Edward. ~Os professores não gostam de ser incomodados aos domingos.~";
          Follow:
             if (noun == player && self.state <= 20) {
                 if (self.state == 20)
-                    "~Shh!~ says Edward. ~I've nearly caught Polly, \
-                    don't distract me now!~";
+                    "~Psiu!~ diz Edward. ~Estou quase pegando Polly, não me distraia agora!~";
                 if (self.number ~= 0)
-                    "~I'm following as fast as I can,~ says Edward.";
+                    "~Estou seguindo o mais rápido que posso,~ diz Edward.";
                 self.number = 1;
-                "~I'll do that,~ says Edward. ~Just take me to Polly, \
-                that's all I ask.~";
+                "~Farei isso,~ diz Edward. ~Apenas me leve até Polly, é tudo o que peço.~";
             }
          Pull:
             if (noun == BellPull)
-                "~I don't want to bother the Master,~ says Edward. ~Not \
-                even about something as important as my parrot.~";
+                "~Não quero incomodar o Reitor,~ diz Edward. ~Nem mesmo por algo tão importante quanto meu papagaio.~";
          Go,Enter:
             if (self.state <= 20) {
                 if (self.state == 20) 
@@ -319,40 +250,24 @@ Object  Edward "Edward Forbes"
                 "~Shh!~ says Edward. ~I've nearly caught Polly, don't \
                 distract me now!~";
             switch (second) {
-             QHello:
-                "~Hello,~ says Edward.";
+              QHello:
+                 "~Olá,~ diz Edward.";
              QTime:
-                "~Whatever time it is,~ says Edward, ~it's probably too \
-                late for me to finish my essay.~";
+                 "~Seja que horas forem,~ diz Edward, ~provavelmente já é tarde demais para terminar meu ensaio.~";
              QMalcolm:
-                "~I can't say I know Doctor Spencer,~ says Edward. ~Since \
-                he teaches chemistry and I'm studying history.~";
+                 "~Não posso dizer que conheço o doutor Spencer,~ diz Edward. ~Ele ensina química e eu estudo história.~";
              QDinner:
-                "~Tonight's dinner?~ says Edward bitterly. ~Oh, you mean \
-                the commemoration of benefactors. I haven't been \
-                invited. Only scholars get invited, the Master and \
-                Fellows don't want hoi-polloi like me sitting in on their \
-                revels.~";
+                 "~O jantar desta noite?~ diz Edward amargamente. ~Ah, você quer dizer a homenagem aos benfeitores. Não fui convidado. Só estudiosos são convidados; o Reitor e os professores não querem gente comum como eu participando de suas festas.~";
              QWilderspin:
-                "~I have to write him an essay for him on the Islamic \
-                conquest of Spain for tomorrow,~ says Edward, ~and I \
-                haven't started it yet. It's so boring, I just can't \
-                bring myself to open my textbooks.~";
+                 "~Tenho que escrever para ele um ensaio sobre a conquista islâmica da Espanha para amanhã,~ diz Edward, ~e ainda nem comecei. É tão entediante que não consigo abrir meus livros.~";
              QMaster:
-                "~I can't say I know the Master,~ says Edward. ~He holds \
-                himself very aloof, never talks to undergraduates, only \
-                to Fellows.~";
+                 "~Não posso dizer que conheço o Reitor,~ diz Edward. ~Ele se mantém muito distante, nunca fala com universitários, apenas com os professores.~";
              QBungay:
-                "~Don't mention that name,~ says Edward in horror. ~He's \
-                the bane of the life of every history student at this \
-                college and I'm in trouble with him again.~";
+                 "~Não mencione esse nome,~ diz Edward horrorizado. ~Ele é o tormento de todo estudante de história desta faculdade, e estou encrencado com ele novamente.~";
              QEssay:
                 if (DoorC3 hasnt general)
-                    "~Don't talk to me about my essays,~ says Edward \
-                    miserably. ~I have to see Professor Bungay this \
-                    afternoon for a supervision, and I haven't written my \
-                    essay yet. He's going to kill me, I know it.~";
-                "~Don't ask, don't ask,~ says Edward.";
+                     "~Não fale dos meus ensaios,~ diz Edward miseravelmente. ~Tenho que ver o professor Bungay esta tarde para uma orientação, e ainda não escrevi meu ensaio. Ele vai me matar, eu sei.~";
+                 "~Não pergunte, não pergunte,~ diz Edward.";
              QFrance:
                 "~I wouldn't ask me about that,~ says Edward. ~Professor \
                 Bungay gave me a gamma minus on my last essay on the \
@@ -395,13 +310,10 @@ Object  Edward "Edward Forbes"
                 }
              default:
                 if (self.state < 20)
-                    "Edward doesn't seem to notice you. He's obviously \
-                    very distressed at the loss of his parrot.";
+                     "Edward parece não notar você. Está evidentemente muito angustiado com a perda do papagaio.";
                 if (self.state < 31)
-                    "Edward doesn't seem to hear you. He's obviously \
-                    overcome by the recovery of his parrot.";
-                "Edward is so deeply buried in the writing of his essay \
-                that he doesn't hear you.";
+                     "Edward parece não ouvir você. Está evidentemente dominado pela recuperação do papagaio.";
+                 "Edward está tão absorto escrevendo o ensaio que não ouve você.";
             }
 
         ! This code is so complicated because it can be called in two
@@ -418,45 +330,26 @@ Object  Edward "Edward Forbes"
             }
             if (z ~= 1 || i == 0 or 1) {
                 if (self has is_moving) rtrue;
-                "~I don't think there's much likelihood of finding my \
-                parrot there,~ says Edward.";
+                 "~Não acho muito provável encontrar meu papagaio ali,~ diz Edward.";
             }
             if (i == Wistaria)
-                "~You might be right,~ says Edward mournfully. ~My \
-                parrot might have flown up there. But climbing the \
-                wistaria is against the rules.~";
+                 "~Você pode ter razão,~ diz Edward melancolicamente. ~Meu papagaio pode ter voado para lá. Mas subir na glicínia é contra as regras.~";
             if (i == Punt)
-                "~I don't think I had better do that,~ says Edward, \
-                ~Professor Bungay might see me from his window, and then \
-                I'd be in terrible trouble because I said I'd do my essay \
-                this afternoon.~";
+                 "~Não acho que seja melhor fazer isso,~ diz Edward. ~O professor Bungay pode me ver da janela e então eu teria sérios problemas, pois disse que faria meu ensaio esta tarde.~";
             if (i == DoorB5)
-                "~I've just looked there,~ says Edward sadly, ~and \
-                Polly is not to be found. And in any case, I'm not \
-                allowed to entertain women in my room.~";
+                 "~Acabei de olhar ali,~ diz Edward tristemente, ~e Polly não está lá. De qualquer modo, não tenho permissão para receber mulheres no meu quarto.~";
             if (i has door || i == Hatch) {
                 switch(i) {
                  DoorMaster:
-                    "~If it's all right with you, I don't think I had \
-                    better enter the Master's Lodge,~ says Edward. ~I \
-                    always find him a bit scary. In any case, I doubt \
-                    he's got my parrot.~";
+                     "~Se estiver tudo bem para você, não acho melhor entrar na casa do Reitor,~ diz Edward. ~Sempre o achei um pouco assustador. De qualquer modo, duvido que ele esteja com meu papagaio.~";
                  DoorA5:
-                    "~I don't think Doctor Spencer would approve of my \
-                    entering his private room,~ says Edward. ~But perhaps \
-                    you could go in and look for me.~";
+                     "~Não acho que o doutor Spencer aprovaria minha entrada em seu quarto particular,~ diz Edward. ~Mas talvez você pudesse entrar e procurar por mim.~";
                  DoorB2:
-                    "~If Professor Wilderspin had my parrot, I'm sure \
-                    he'd let me know about it,~ says Edward, ~and anyway, \
-                    he's sure to ask me when I'm going to hand in my \
-                    Ancient History essay.~";
+                     "~Se o professor Wilderspin estivesse com meu papagaio, tenho certeza de que me avisaria,~ diz Edward, ~e de qualquer forma ele certamente perguntará quando entregarei meu ensaio de História Antiga.~";
                  DoorC3:
-                    "Edward goes pale. ~I'm not sure about that,~ he says \
-                    in a very small voice. ~Bungay's always beastly to \
-                    me.~";
+                     "Edward empalidece. ~Não tenho certeza disso,~ diz numa voz muito baixa. ~Bungay é sempre cruel comigo.~";
                  Hatch:
-                    "~I think my Polly would have had more sense than to \
-                    go down there,~ says Edward.";
+                     "~Acho que minha Polly teria juízo suficiente para não descer ali,~ diz Edward.";
                 }
                 if (i has locked || (i == DoorArchway && i hasnt open)) {
                     if (self notin location) rtrue;
@@ -584,13 +477,12 @@ Object  Edward "Edward Forbes"
                 print "^~Ah, there you are,~ says Edward, catching sight \
                     of you. ~I've been waiting here for you since ";
                 if (i == 2)
-                    "you met Professor Wilderspin.~";
+                     "você encontrou o professor Wilderspin.~";
                 if (i == 4)
-                    "I came out of my supervision. What a nightmare that \
-                    was.~";
+                     "saí da minha orientação. Que pesadelo foi aquilo.~";
                 if (i == Well or AlchemistsRoom)
-                    "you vanished into the library book-stacks.~";
-                print_ret "you went into ", (the) i, ".~";
+                     "você desapareceu nas estantes da biblioteca.~";
+                 print_ret "você entrou em ", (the) i, ".~";
             }
             if (self.number > 1) rtrue;
             if (location has no_edward) {
@@ -602,19 +494,12 @@ Object  Edward "Edward Forbes"
         each_turn [;
             if (self.state == 31 && ClockTower.number > 19) {
                 self.state = 32;
-                "^~Did you have a nice dinner, then?~ says Edward without \
-                looking up. ~I still haven't finished my essay and I \
-                shall probably be at it all night.~ He sighs deeply and \
-                goes back to his writing.";
+                 "^~Então, teve um bom jantar?~ diz Edward sem levantar os olhos. ~Ainda não terminei meu ensaio e provavelmente passarei a noite inteira nele.~ Ele suspira profundamente e volta a escrever.";
             }
             if (LineOfSight(ParrotB,self) == 1 && self.state < 20) {
                 self.state = 20;
                 Achieved("leading Edward Forbes to his parrot");
-                "^Edward catches sight of the parrot in the tree. ~Polly, \
-                my Polly,~ he calls. ~How can I express my gratitude at \
-                seeing you again?~ He seems overjoyed at the reunion, but \
-                the parrot is distinctly unmoved, and sits motionless in \
-                the tree.";
+                 "^Edward avista o papagaio na árvore. ~Polly, minha Polly,~ chama. ~Como posso expressar minha gratidão por vê-la novamente?~ Ele parece radiante com o reencontro, mas o papagaio permanece impassível e imóvel na árvore.";
             }
             if (LineOfSight(Wilderspin,self) == 1) {
                 print "^~Hello, Forbes,~ says Wilderspin, noticing Edward \
@@ -710,28 +595,26 @@ Object  Edward "Edward Forbes"
             }
         ];
 
-Object  ParrotC "parrot"
+Object  ParrotC "papagaio"
  has    animate
- with   name "grey" "parrot" "bird" "polly",
-        description "A grey bird, sitting contentedly on Edward Forbes' \
-            shoulder.",
-        initial "A grey parrot perches on Edward Forbes' shoulder.",
+  with   name "grey" "cinzento" "parrot" "papagaio" "bird" "ave" "polly",
+         description "Uma ave cinzenta, pousada contente no ombro de Edward Forbes.",
+         initial "Um papagaio cinzento pousa no ombro de Edward Forbes.",
         life [;
          Give,ThrowAt:
             if (noun.plural == Peanut1.plural) {
                 remove noun;
-                "The parrot gobbles down the peanut.";
+             "O papagaio engole o amendoim.";
             }
         ],
         before [;
-         Question: "The parrot takes no notice of you.";
-         Take,Remove: "The parrot pecks viciously at your hand, and you \
-            desist quickly.";
+          Question: "O papagaio não dá atenção a você.";
+          Take,Remove: "O papagaio bica sua mão ferozmente, e você desiste depressa.";
         ],
         each_turn [;
             switch (random(10)) {
-             1: "^~Awk!~ squawks the parrot.";
-             2: "^~Ark!~ screeches the parrot.";
+              1: "^~Auc!~ grasna o papagaio.";
+              2: "^~Arque!~ guincha o papagaio.";
             }
         ];
 
@@ -740,15 +623,10 @@ Object  ParrotC "parrot"
 ! 6.2 "C" STAIRCASE
 !------------------------------------------------------------------------------
 
-Object  CStairGround "~C~ Staircase, Ground Floor"
+Object  CStairGround "Escadaria ~C~, térreo"
  has    light cat_allowed
  with   name "stairs" "stair" "second" "court",
-        description "~C~ staircase is grander than the staircases in \
-            First Court, with larger rooms and higher ceilings; you \
-            imagine that the most senior and eminent fellows battle over \
-            who gets to occupy these rooms. To the north is the door to \
-            C1; to the south is the door to C2; a wide flight of wooden \
-            stairs leads up; and a door leads west onto Second Court.",
+         description "A escadaria ~C~ é mais grandiosa que as escadarias do Primeiro Pátio, com salas maiores e tetos mais altos; você imagina que os membros mais antigos e eminentes disputam quem ocupará essas salas. Ao norte fica a porta de C1; ao sul, a porta de C2; uma larga escada de madeira sobe; e uma porta leva para oeste, ao Segundo Pátio.",
         u_to CStairFirst,
         e_to CStairFirst,
         w_to SecondCourt,
@@ -766,27 +644,12 @@ Nearby  DoorC1 "x" class DoorClass
             if (ClockTower.number < 19) {
                 self.state = self.state + 1;
                 switch (self.state) {
-                 1: "The door opens a crack and a grey-haired gentleman \
-                    contrives to glower at you while adjusting his \
-                    spectacles. ~Don't you know when office hours are?~ \
-                    Baskeyfield says, evidently mistaking you for an \
-                    undergraduate. ~See me on Monday morning at half-past \
-                    eight.~ He shuts the door.";
-                 2: "Baskeyfield opens the door again. ~I will not make \
-                    an exception for you, no matter how often you knock,~ \
-                    he says. ~If I were to let myself be persuaded into \
-                    consulting with an undergraduate on a Sunday just \
-                    once, then before I knew it everyone would be round \
-                    here, and I'd get no peace. Good-bye.~ He slams the \
-                    door.";
-                 3: "Baskeyfield flings open the door and looks daggers \
-                     at you. ~How dare you persist in disturbing my \
-                     rest?~ he thunders. ~The library key's in my \
-                     pigeonhole. Now go away and risk not my wrath \
-                     again!~";
+                  1: "A porta se abre uma fresta e um cavalheiro de cabelos grisalhos consegue encarar você enquanto ajusta os óculos. ~Você não sabe quando são os horários de atendimento?~ diz Baskeyfield, evidentemente confundindo você com um universitário. ~Venha me ver na segunda-feira de manhã, às oito e meia.~ Ele fecha a porta.";
+                  2: "Baskeyfield abre a porta novamente. ~Não farei uma exceção para você, não importa quantas vezes bata,~ diz ele. ~Se eu me deixasse convencer a atender um universitário num domingo só uma vez, logo todos estariam aqui e eu não teria paz. Adeus.~ Ele bate a porta.";
+                  3: "Baskeyfield escancara a porta e lança um olhar furioso para você. ~Como ousa continuar perturbando meu descanso?~ troveja. ~A chave da biblioteca está no meu escaninho. Agora vá embora e não arrisque minha ira novamente!~";
                  default: 
                     self.state = 3;
-                    "You decide not to risk Baskeyfield's wrath again.";
+                     "Você decide não arriscar novamente a ira de Baskeyfield.";
                 }
             }
         ];
@@ -803,11 +666,7 @@ Object  CStairFirst "~C~ Staircase, First Floor"
  has    light cat_allowed
         ! general if a knock is in progress
  with   name "stair" "stairs" "river" "trees" "grass" "tree",
-        description "To the north is the door to C3; to the south is the \
-            door to C4 and a wide flight of wooden stairs leads down to \
-            the ground floor. A window to the east overlooks a river \
-            running past the base of the building, with trees and grass \
-            beyond.",
+         description "Ao norte fica a porta de C3; ao sul, a porta de C4 e uma larga escada de madeira desce ao térreo. Uma janela a leste dá para um rio que passa pela base do edifício, com árvores e grama além dele.",
         d_to CStairGround,
         out_to CStairGround,
         n_to DoorC3,
@@ -817,11 +676,10 @@ Object  CStairFirst "~C~ Staircase, First Floor"
 Nearby  CStairFirstWindow "window"
  has    scenery
  with   name "window",
-        description "The window overlooks a river running past the base \
-            of the building, with trees and grass beyond.",
+         description "A janela dá para um rio que passa pela base do edifício, com árvores e grama além dele.",
         before [;
          Search: <<Examine self>>;
-         Open: "There appears to be no way to open the window.";
+          Open: "Parece não haver como abrir a janela.";
         ];
 
 Nearby  DoorC4 "x" class DoorClass
@@ -905,22 +763,17 @@ Object  DoorC3 "x"
 ! 6.3 PROFESSOR BUNGAY'S ROOMS
 !------------------------------------------------------------------------------
 
-Object  BungaysHallway "Professor Bungay's Hallway"
+Object  BungaysHallway "Corredor do professor Bungay"
  has    light
  with   name "study" "gown" "gowns" "hall" "hallway" "stairs" "study"
             "doorway",
-        description "A narrow hallway for Bungay's visitors to hang up \
-            their gowns and for his students to stand around nervously in \
-            as they await their supervisions. The door to C3 leads out to \
-            the stairs to the south, there's a white-painted door to the \
-            east, and an open doorway leads north into a study. A coat of \
-            arms hangs on the wall.",
+         description "Um corredor estreito onde os visitantes de Bungay penduram suas vestes e seus alunos ficam nervosos enquanto aguardam suas orientações. A porta de C3 leva às escadas ao sul, há uma porta pintada de branco a leste, e uma passagem aberta leva ao norte, para um escritório. Um brasão está pendurado na parede.",
         e_to WhiteDoor,
         s_to DoorC3,
         n_to BungaysStudy,
         before [;
          Speak,Sing,Scream,Mild,Strong:
-            "Shh! Bungay would surely notice!";
+             "Psiu! Bungay certamente notaria!";
         ],
         state 0,
         each_turn [;
@@ -976,7 +829,7 @@ Object  BungaysHallway "Professor Bungay's Hallway"
             }
         ];
 
-Nearby  WhiteDoor "white-painted door"
+Nearby  WhiteDoor "porta pintada de branco"
  has    door lockable openable scenery autoopen
  with   name "door" "doors" "white" "painted" "white-painted",
         door_dir e_to,
@@ -988,13 +841,13 @@ Nearby  WhiteDoor "white-painted door"
             undisturbed for the moment.";
         ];
 
-Nearby  TemplarArms "coat of arms"
+Nearby  TemplarArms "brasão"
  has    scenery
  with   name "coat" "of" "arms",
         description "A red Maltese cross on a white shield, with some \
             kind of building - a church, perhaps - above it.";
 
-Object  BungaysStudy "Professor Bungay's Study"
+Object  BungaysStudy "Escritório do professor Bungay"
  has    light no_edward
         ! general once entering it becomes a trap!
  with   name "furnishing" "garden" "gardens" "college" "decoration"
@@ -1047,7 +900,7 @@ Object  BungaysStudy "Professor Bungay's Study"
         ],
         s_to BungaysHallway,
         state 0,
-        cant_go "The only exit is south, back to the entrance hallway.",
+         cant_go "A única saída é ao sul, de volta ao corredor de entrada.",
         before [;
          Speak,Sing,Scream,Mild,Strong:
             "Shh! Bungay would surely notice!";
@@ -1111,48 +964,44 @@ Object  BungaysStudy "Professor Bungay's Study"
             precipitated from the scene, but by then it is too late.";
         ];
 
-Nearby  WindowC3 "window"
+Nearby  WindowC3 "janela"
  has    openable scenery door
  with   name "window" "windows",
         description "Through the window you can see a delightful view of \
             the college gardens.",
-        when_closed "A window to the north looks out over the college \
-            gardens.",
-        when_open "An open window to the north looks out over the college \
-            gardens.",
+         when_closed "Uma janela ao norte dá para os jardins da faculdade.",
+         when_open "Uma janela aberta ao norte dá para os jardins da faculdade.",
         door_dir n_to,
         door_to Gardens,
         before [;
          Search,Examine:
             PrintOrRun(self,description,1);
-            if (self has open) " It is a long way down.";
+             if (self has open) " É uma queda muito alta.";
             new_line; rtrue;
          ThrownAt,Receive:
-            if (self hasnt open) "You've broken enough windows for one \
-                day.";
+             if (self hasnt open) "Você já quebrou janelas o bastante por um dia.";
             move noun to Gardens;
             print_ret (The) noun, " flies through the open window.";
         ];
 
-Nearby  SilkRug "silk rug"
+Nearby  SilkRug "tapete de seda"
  has    concealed static enterable supporter
  with   name "persian" "silk" "silken" "rug" "carpet" "thread" "threads"
             "threadbare",
-        description "Once a beautiful work of art, but now an unkind \
-            person might describe it as a little threadbare.",
+         description "Antes uma bela obra de arte, mas hoje uma pessoa cruel poderia descrevê-lo como um tanto gasto.",
         before [;
          Pull,Push,LookUnder: "There's nothing underneath the rug. For \
             some unaccountable reason, you had half expected to find a \
             trapdoor there.";
         ];
 
-Nearby  DeskDrawer "drawer"
+Nearby  DeskDrawer "gaveta"
  has    lockable container static concealed locked openable
  with   name "drawer",
         capacity 5,
         description [;
             if (self hasnt open)
-                "The desk drawer is closed.";
+                 "A gaveta da escrivaninha está fechada.";
             "From this side, you notice that the desk drawer isn't a snug \
             fit into the desk, and there is enough space at the top to \
             get at the contents.";
@@ -1162,7 +1011,7 @@ Nearby  DeskDrawer "drawer"
             else give self ~open;
         ];
 
-Nearby  MahoganyDesk "mahogany desk"
+Nearby  MahoganyDesk "escrivaninha de mogno"
  has    concealed static supporter
         ! general if pulled away from the wall
  with   name "mahogany" "desk" "siamese" "antique" "queen" "anne" "solid"
@@ -1181,7 +1030,7 @@ Nearby  MahoganyDesk "mahogany desk"
         ],
         capacity 5,
         before [;
-         LookUnder: "There's nothing hidden under the desk.";
+          LookUnder: "Não há nada escondido sob a escrivaninha.";
          Climb,Enter:
             if (self has general) {
                 print "You climb over the desk and jump down into the \
@@ -1208,13 +1057,13 @@ Nearby  MahoganyDesk "mahogany desk"
             and carefully return the desk to its original position.";
         ];
 
-Object  NarrowGap "narrow gap"
+Object  NarrowGap "fresta estreita"
  has    scenery enterable container open
  with   name "narrow" "gap" "space" "alcove",
         description "You've made about a foot of room behind the desk, \
             just about enough to stand in.";
 
-Object  LacquerBox "lacquer box" MahoganyDesk
+Object  LacquerBox "caixa laqueada" MahoganyDesk
  class  VesselClass DelicateClass
  has    openable
         ! general once it's started the timer
@@ -1227,7 +1076,7 @@ Object  LacquerBox "lacquer box" MahoganyDesk
             pictures of Chinese men and women walking in ornamental \
             gardens.",
         before [;
-         SmellThing: "The box gives off an oily, bitter aroma.";
+          SmellThing: "A caixa exala um aroma oleoso e amargo.";
          Take,Remove:
             if (self hasnt general) {
                 give self general;
@@ -1239,46 +1088,15 @@ Object  LacquerBox "lacquer box" MahoganyDesk
             give BungaysStudy general;
         ];
 
-Object  BookTemplar "chapbook" DeskDrawer
+Object  BookTemplar "livreto" DeskDrawer
  class  BookClass
  with   name "chapbook",
         description [;
-            print "The chapbook records the meetings of some society or \
-                perhaps religious order. The entries are cryptic and \
-                meaningless to you, but near the beginning there is this \
-                piece of translation:^";
-            print "^~We five of the Order set forth from Paris on the \
-                sixteenth of November of the year of our Lord 1307. We \
-                were disguised as Dominicans, and Jacques kept his hood \
-                pulled over his face, although the rain was gentle, lest \
-                anyone should recognise him. We went with great fear of \
-                pursuit, for at that time seemingly the whole of the \
-                country was raised against us. But horsemen we saw none, \
-                and we came without danger to Calais, where we took ship \
-                to England, the Work safe in our hands. Friends took us \
-                in at Christminster, and there we sheltered while our \
-                brothers confessed under torture to fantastic heresies \
-                and languished in French prisons, and our fastnesses were \
-                laid open, and our treasures thieved from us.^";
-            print "^~For ten years we have waited for a word, a sign, but \
-                nothing has come to us out of France. Surely one Adept \
-                has escaped the hand of King Philip? But we have waited \
-                in vain, and finally we have faced the truth. The Work we \
-                brought from France is all we have, for though we study \
-                it night and day unceasing, none now can master the \
-                Qabbala and thus become Adept.^";
-            print "^~Henri quarrelled with Jacques and was expelled from \
-                the Order. Four may last a little longer than five, but \
-                now I can see in each of our faces, the thought that \
-                three - or two - or just one - could last longer \
-                still. There is a wariness about our meetings now, and I \
-                fear that I may not be long for this world. In readiness \
-                for the end, if God so wills it, I have written my last \
-                will and testament. My Bible I will give to Edmund Lilly \
-                of the scholars of de Biblioll, who has treated us with \
-                such kindness.^";
-            "^~(Here the fragment breaks off. Translated from the French \
-            by PDT, June 1864.)~";
+             print "O livreto registra as reuniões de alguma sociedade ou talvez ordem religiosa. As anotações são enigmáticas e sem sentido para você, mas perto do início há este trecho traduzido:^";
+             print "^~Nós cinco da Ordem partimos de Paris no dia dezesseis de novembro do ano de Nosso Senhor de 1307. Estávamos disfarçados de dominicanos, e Jacques mantinha o capuz sobre o rosto, embora a chuva fosse fraca, para que ninguém o reconhecesse. Partimos com grande medo de sermos perseguidos, pois naquele tempo parecia que todo o país se levantara contra nós. Mas não vimos cavaleiros e chegamos sem perigo a Calais, onde embarcamos para a Inglaterra, com a Obra segura em nossas mãos. Amigos nos acolheram em Christminster, e ali nos abrigamos enquanto nossos irmãos confessavam sob tortura heresias fantásticas e definhavam nas prisões francesas, nossas fortalezas eram abertas e nossos tesouros roubados.^";
+             print "^~Por dez anos esperamos uma palavra, um sinal, mas nada nos chegou da França. Será que algum Adepto escapou das mãos do rei Filipe? Esperamos em vão e finalmente encaramos a verdade. A Obra que trouxemos da França é tudo o que temos, pois embora a estudemos noite e dia sem cessar, ninguém consegue agora dominar a Cabala e tornar-se Adepto.^";
+             print "^~Henri brigou com Jacques e foi expulso da Ordem. Quatro talvez durem um pouco mais que cinco, mas agora vejo no rosto de cada um o pensamento de que três, ou dois, ou apenas um, poderiam durar ainda mais. Há cautela em nossas reuniões, e temo que não permaneça muito tempo neste mundo. Preparando-me para o fim, se Deus assim quiser, escrevi meu último testamento. Darei minha Bíblia a Edmund Lilly, dos estudiosos de Biblioll, que nos tratou com tanta bondade.^";
+             "^~(Aqui o fragmento termina. Traduzido do francês por PDT, junho de 1864.)~";
         ],
         after [;
          Take,Remove:

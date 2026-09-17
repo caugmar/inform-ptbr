@@ -9,22 +9,21 @@
 ! 4.1 THE LIBRARY
 !--------------------------------------------------------------------------
 
-Object  LibraryArchwayObject "library archway" FirstCourt
+Object  LibraryArchwayObject "arco da biblioteca" FirstCourt
  has    door scenery open
  with   name "library" "arch" "archway",
-        description "An archway leading south to the library.",
+         description "Um arco que leva ao sul, para a biblioteca.",
         door_to LibraryArchway,
         door_dir s_to;
 
-Object  LibraryArchway "Library Archway"
+Object  LibraryArchway "Arco da Biblioteca"
  has    light
  with   name "archway" "first" "court" "mortar" "bricks" "dust" "wood"
             "brick" "brickwork" "crumbling" "sagging",
-        description "A poorly lit archway just south of First Court. This \
-            must be one of the oldest parts of the college; the brickwork \
-            is crumbling and sagging, and perhaps in a hundred years' \
-            time it will have to be knocked down and rebuilt. The door to \
-            the library is to the south.",
+         description "Um arco mal iluminado logo ao sul do Primeiro Pátio. \
+             Deve ser uma das partes mais antigas do college; os tijolos estão \
+             desmoronando e cedendo, e talvez daqui a cem anos seja preciso \
+             derrubá-lo e reconstruí-lo. A porta da biblioteca fica ao sul.",
         n_to FirstCourt,
         out_to FirstCourt,
         s_to DoorLibrary,
@@ -37,9 +36,9 @@ Nearby  DoorLibrary "door to the library"
  has    door openable lockable locked scenery autoopen
  with   name "door" "library" "wooden",
         description [;
-            print "An ordinary wooden door";
+             print "Uma porta comum de madeira";
             if (location == LibraryArchway && Notice hasnt moved)
-                print ". Someone has pinned a notice to it";
+                 print ". Alguém pregou um aviso nela";
             ".";
         ],
         article "the",
@@ -60,16 +59,16 @@ Nearby  DoorLibrary "door to the library"
 Nearby  Notice "notice"
  class  FlimsyClass
  with   name "notice",
-        initial "A notice is pinned to the door.",
+         initial "Um aviso está pregado na porta.",
         description "The notice is from the librarian, Mr Baskeyfield, \
             and contains boring details like the opening times: closed on \
             Sundays, of course. There is a handwritten addendum: ~If \
             anyone needs access outside these times, see me during office \
             hours and I will tell you where I hide the spare key.~",
         before [;
-         Take,Remove:   
-            if (self hasnt moved)
-                "You'll have to remove the pin first.";
+          Take,Remove:
+             if (self hasnt moved)
+                 "Você terá de remover o alfinete primeiro.";
         ];
 
 Nearby  Pin "pin"
@@ -88,11 +87,11 @@ Nearby  Pin "pin"
          Take,Remove:
             if (self has general) {
                 give self ~general;
-                "Taken. The notice falls to the ground.";
+                 "Pegou. O aviso cai no chão.";
             }
         ];
 
-Object  Library "Library"
+Object  Library "Biblioteca"
  has    light
  with   name "row" "rows",
         description "A vast room, filled with bookshelves from floor to \
@@ -101,7 +100,7 @@ Object  Library "Library"
             which leads out to the north.",
         n_to DoorLibrary,
         out_to DoorLibrary,
-        cant_go "The only exit is the door to the north.",
+         cant_go "A única saída é a porta ao norte.",
         each_turn [;
             Achieved("visiting the library");
             DoneHint(WhatNextPuzzle,4);
@@ -112,10 +111,9 @@ Nearby  LibraryBooks "books"
  has    scenery
  with   name "books" "bookshelves" "shelves" "shelf" "stack" "stacks"
             "bookstack" "book-stack",
-        description "There must be a hundred thousand books in the \
-            library, and the cataloguing system predates Dewey decimal by \
-            some hundreds of years. You would do best to look for what \
-            you want in the card index.",
+         description "Deve haver cem mil livros na biblioteca, e o sistema de \
+             catalogação é centenas de anos anterior à classificação decimal \
+             de Dewey. É melhor procurar o que deseja no fichário.",
         before [;
          Take: <<Examine self>>;
         ];
@@ -123,15 +121,14 @@ Nearby  LibraryBooks "books"
 Object  CardIndex "card index" Library
  has    static concealed
  with   name "card" "index" "catalogue" "stack" "of" "drawers" "cards",
-        description "The card index is a stack of drawers lined with \
-            3-by-5 index cards. The older cards are yellow with age, and \
-            lettered in neat copperplate; the newer ones are \
-            typewritten. Annoyingly, you can only look up authors' \
-            surnames in the index.",
+         description "O fichário é um conjunto de gavetas cheias de cartões de \
+             7 por 12 centímetros. Os mais antigos estão amarelados pelo tempo \
+             e escritos em bela caligrafia; os novos foram datilografados. \
+             Irritantemente, só é possível consultar sobrenomes de autores.",
         before [ w i;
          Consult:
             if (consult_words ~= 1)
-                "Try looking up a surname in the card index.";
+                 "Tente consultar um sobrenome no fichário.";
             wn = consult_from;
             w = NextWord();
             switch (w) {
