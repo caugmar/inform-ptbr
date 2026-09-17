@@ -46,24 +46,24 @@ Nearby  ArchwayNotice "anúncio"
              É melhor deixá-los no lugar.";
         ];
 
-Object  DoorArchway "old wooden door"
+Object  DoorArchway "porta velha de madeira"
  has    door static openable
- with   name "old" "wooden" "door" "arch" "archway",
+ with   name "old" "wooden" "door" "arch" "archway" "velha" "madeira" "porta" "arco",
         article "an",
         found_in SecondCourtArchway SecondCourt,
         add_to_scope BlackIronBands Planks,
         describe [;
             if (self in SecondCourtArchway && self hasnt open) 
-                "^The wooden door blocks your way to the east.";
+                "^A porta de madeira bloqueia seu caminho para leste.";
             rtrue;
         ],
         description [;
-            print "The door is very old, a heavy wooden affair, made of \
-                thick planks held together by black iron bands";
+            print "A porta é muito velha, uma estrutura pesada de madeira, feita de \
+                tábuas grossas unidas por faixas de ferro preto";
             if (self hasnt open)
-                print ". It fits tightly into the end of the archway so \
-                    that you can only see a few chinks of light from \
-                    Second Court";
+                print ". Ela se encaixa firmemente na extremidade do arco, de modo \
+                    que você só consegue ver algumas frestas de luz do \
+                    Segundo Pátio";
             ".";
         ],
         door_dir [;
@@ -76,38 +76,37 @@ Object  DoorArchway "old wooden door"
         before [;
          Search,LookUnder:
             if (self hasnt open)
-                "You can make out glimpses of another courtyard, much \
-                like the one you have just left.";
+                "Você consegue distinguir vislumbres de outro pátio, muito \
+                parecido com aquele que acabou de deixar.";
          Open, Close, Push, Pull:
-            print "You grab hold of the handle and heave on the door with \
-                all your strength, but you are unable to budge it an \
-                inch.^";
+             print "Você segura a maçaneta e força a porta com toda a sua \
+                 força, mas não consegue movê-la nem um centímetro.^";
             if (Edward in SecondCourtArchway)
-                print "^Edward says, ~No, I can never move that door \
-                    either.~^";
+                 print "^Edward diz: ~Não, eu também nunca consigo mover essa \
+                     porta.~^";
             rtrue;
          Lock, Unlock:
-            "The door does not appear to have a keyhole.";
+             "A porta não parece ter fechadura.";
         ];
 
-Object  BlackIronBands "black iron bands"
+Object  BlackIronBands "faixas de ferro preto"
  has    static concealed
- with   name "black" "iron" "band" "bands" "rust" "rusty",
+ with   name "black" "iron" "band" "bands" "rust" "rusty" "preto" "ferro" "faixa" "faixas" "ferrugem" "enferrujado",
         article "some",
-        description "The black iron bands hold the planks of the door \
-            together. They are very rusty.",
+         description "As faixas de ferro preto mantêm as tábuas da porta \
+             unidas. Elas estão muito enferrujadas.",
         before [;
-         Rub: "The hundreds of years of rust are immune to your attempts \
-             to remove them.";
+          Rub: "As centenas de anos de ferrugem resistem às suas tentativas \
+              de removê-la.";
         ];
 
-Object  Planks "planks"
+Object  Planks "tábuas"
  has    static concealed
- with   name "plank" "planks" "wood" "thick",
-        description "Thick planks, varnished and heavily weathered. They \
-            are held together by black iron bands.";
+ with   name "plank" "planks" "wood" "thick" "tábua" "tábuas" "madeira" "grossa",
+         description "Tábuas grossas, envernizadas e muito desgastadas. Elas \
+             são mantidas unidas por faixas de ferro preto.";
 
-Object  SecondCourt "Second Court"
+Object  SecondCourt "Segundo Pátio"
  has    light cat_allowed
  with   name "second" "court" "archway" "college" "buttresses" "buttress"
             "chapel" "antechapel" "great" "hall" "staircase",
@@ -123,87 +122,85 @@ Object  SecondCourt "Second Court"
         ],
         description [;
             if (ClockTower.number < 20) 
-                print "Second Court is a wide rectangular expanse of \
-                    cobbles, surrounded on all four sides by tall \
-                    buildings. ";
+                 print "O Segundo Pátio é uma ampla extensão retangular de \
+                     paralelepípedos, cercada pelos quatro lados por \
+                     prédios altos. ";
             else
-                print "Moonlight glints on the cobbles of Second Court, \
-                    and gloomy buildings lurk in the shadows on all four \
-                    sides.";
-            "There are many exits: to the west, a low wooden door opens \
-            onto an archway; to the north, the sweeping buttresses of the \
-            chapel block your way, but you can enter an antechapel to the \
-            northwest; you can see greenery through the bars of a wrought \
-            iron gate to the northeast; to the east a grand building \
-            houses ~C~ staircase; and to the southwest you can enter the \
-            Great Hall.";
+                 print "A luz da lua cintila nos paralelepípedos do Segundo \
+                     Pátio, e prédios sombrios espreitam nas sombras dos \
+                     quatro lados.";
+             "Há muitas saídas: a oeste, uma porta baixa de madeira se abre \
+             para um arco; ao norte, os contrafortes imponentes da capela \
+             bloqueiam seu caminho, mas você pode entrar numa antessala a \
+             noroeste; a nordeste, é possível ver vegetação através das barras \
+             de um portão de ferro forjado; a leste, um prédio grandioso \
+             abriga a escadaria ~C~; e a sudoeste você pode entrar no Grande \
+             Salão.";
         ],
         ne_to GardenGate,
         e_to CStairGround,
         w_to DoorArchway,
         sw_to GreatHall,
-        nw_to "You're unable to force your way through the crowd.",
-        cant_go "West to First Court, northwest to the antechapel, \
-            northeast to the gardens, east to ~C~ staircase, southwest to \
-            the Great Hall.",
+         nw_to "Você não consegue abrir caminho pela multidão.",
+         cant_go "Oeste, ao Primeiro Pátio; noroeste, à antessala; \
+             nordeste, aos jardins; leste, à escadaria ~C~; sudoeste, ao \
+             Grande Salão.",
         edward_dirs ne_obj w_obj e_obj sw_obj;
 
-Object  Crowd "crowd of people"
+Object  Crowd "multidão de pessoas"
  has    animate
- with   name "crowd" "of" "people" "student" "students" "congregation",
+ with   name "crowd" "of" "people" "student" "students" "congregation" "multidão" "pessoas" "estudante" "estudantes" "congregação",
          initial "Uma multidão de pessoas sai da capela.",
-        description "The crowd consists of students, bright young things, \
-            animatedly talking to each other.",
+         description "A multidão é formada por estudantes, jovens brilhantes \
+             conversando animadamente entre si.",
         life [;
             <<Speak self>>;
         ],
         before [;
-         Speak: "The people are too much of a hurry to pay any attention \
-            to you.";
-         Follow: "There are so many people that you can't figure out whom \
-             to follow.";
+          Speak: "As pessoas estão ocupadas demais para prestar atenção \
+             em você.";
+          Follow: "Há tantas pessoas que você não consegue descobrir quem \
+              seguir.";
         ],
         state 4,
         daemon [;
             self.state = self.state - 1;
             if (self.state > 0) {
                 if (player in SecondCourt && self.state < 3)
-                    "^The congregation continue to stream out of the \
-                    chapel.";
+                     "^A congregação continua a sair da capela.";
                 rtrue;
             }
             remove self;
             StopDaemon(self);
             SecondCourt.nw_to = ChapelObject;
             if (player in SecondCourt)
-                "^The last of the congregation emerges out of the chapel \
-                and the crowd quickly disperses to its various \
-                businesses.";
+                 "^Os últimos membros da congregação saem da capela e a \
+                 multidão logo se dispersa, cada um cuidando de seus afazeres.";
         ];
 
-Nearby  SecondCourtCobbles "cobbles"
+Nearby  SecondCourtCobbles "paralelepípedos"
  has    scenery
  with   name "cobbles" "cobblestones" "cobble" "cobblestone" "stone" 
-            "stones",
+             "stones" "paralelepípedos" "pedra" "pedras",
         article "the",
-        description "Unlike the cobbles in Chapel Street, these cobbles \
-            are in perfect repair.";
+         description "Ao contrário dos paralelepípedos da Rua da Capela, estes \
+             estão em perfeito estado.";
 
-Nearby  ChapelObject "chapel"
+Nearby  ChapelObject "capela"
  has    scenery door open
  with   name "chapel" "church" "antechapel",
         door_to Antechapel,
         door_dir nw_to,
-        description "A magnificent example of Renaissance architecture.";
+         description "Um magnífico exemplo de arquitetura renascentista.";
 
-Object  ClockTower "clock tower"
+Object  ClockTower "torre do relógio"
  has    static
         ! general on the half-hour
- with   name "clock" "tower" "spire" "tall" "elegant",
+ with   name "clock" "tower" "spire" "tall" "elegant" "relógio" "torre" "agulha" "alta" "elegante",
         found_in FirstCourt SecondCourt Gardens EastBank RoofA,
         describe [;
-            print "^The elegant clock tower above the college chapel \
-                dominates the skyline to the ";
+             print "^A elegante torre do relógio acima da capela do College \
+                 domina o horizonte a ";
             if (location == FirstCourt) "northeast.";
             if (location == SecondCourt) "northwest.";
             if (location == RoofA) "north.";
@@ -211,15 +208,15 @@ Object  ClockTower "clock tower"
         ],
         number 10,
         state 1, ! number of time advances which are pending
-        description [;
-            print_ret "The clock tower is a tall and elegant spire above \
-                the college chapel. The clock only has an hour hand, so \
-                you cannot be completely certain of the time, but it \
-                appears to be a little after ", (PrintTime) 1, ".";
+         description [;
+             print_ret "A torre do relógio é uma espira alta e elegante acima \
+                 da capela do College. O relógio só tem um ponteiro de horas, \
+                 então não é possível ter certeza completa do horário, mas \
+                 parece ser um pouco depois de ", (PrintTime) 1, ".";
         ],
         before [;
          Examine: rfalse;
-         default: "The clock tower is too far away.";
+          default: "A torre do relógio está longe demais.";
         ],
         time_left 0,
         daemon [;
@@ -234,25 +231,25 @@ Object  ClockTower "clock tower"
             self.time_left = TimeIncrement + random(TimeIncrement+1);
             self.state = self.state - 1;
             if (location == AnteChapel or Chapel)
-                print "^Directly above you, the";
+                print "^Diretamente acima de você, o";
             else {
-                if (self in location) print "^The";
-                else print "^Somewhere in the distance, the";
+                if (self in location) print "^O";
+                else print "^Em algum lugar distante, o";
             }
-            print " clock of Biblioll College ";
+            print " relógio do Biblioll College ";
             if (self has general) {
                 give self ~general;
                 self.number = self.number + 1;
-                print "strikes ", (PrintTime) 0, ".^";
+                 print "bate ", (PrintTime) 0, ".^";
                 if (Edward in location && Edward.state <= 20)
-                    print "^~Oh my,~ says Edward. ~How late it is! If I \
-                        don't recover my parrot soon, I shan't have time \
-                        to finish my essay.~^";
+                     print "^~Ora essa,~ diz Edward. ~Como está tarde! Se eu \
+                         não recuperar logo meu papagaio, não terei tempo \
+                         de terminar meu ensaio.~^";
                 if (self.number == 17 && TelephoneDaemon hasnt general)
-                    print "^You vaguely recall that Bungay had said that \
-                        he would telephone Jarboe after five o'clock. If \
-                        only you had some way of listening to their \
-                        conversation!^";
+                     print "^Você se lembra vagamente de que Bungay dissera \
+                         que telefonaria para Jarboe depois das cinco. Quem \
+                         dera você tivesse uma maneira de ouvir a conversa \
+                         deles!^";
                 if (self.number == 18) {
                     give Chapel general ~visited;
                     move Choir to Chapel;
@@ -264,18 +261,18 @@ Object  ClockTower "clock tower"
                             choristers and choir-boys stream in from ";
                     switch (location) {
                      Chapel:
-                        "the west and take their seats for Evensong.";
+                         "oeste e tomam seus lugares para a oração vespertina.";
                      AnteChapel: 
-                        "the southeast and enter the Chapel to the east.";
+                         "sudeste e entram na Capela a leste.";
                      SecondCourt:
-                        "all directions and enter the Chapel to the \
-                        northwest.";
+                         "todas as direções e entram na Capela a \
+                         noroeste.";
                     }
                 }
                 rtrue;
             }
             give self general;
-            print "chimes the half-hour.^";
+             print "soa a meia hora.^";
             if (self.number == 18) {
                 StartDaemon(GreatHall);
                 AdvanceTime(GreatHall);
@@ -290,15 +287,14 @@ Object  ClockTower "clock tower"
                         leave this for another day.~ ";
                     if (Hole notin AlchemistsRoom) {
                         move Hole to AlchemistsRoom;
-                        print "He crawls under the bench and pulls the \
-                            lever. With a ~thunk~, a section of the wall \
-                            underneath the bench moves aside, revealing a \
-                            small hole leading downwards. ";
+                        print "Ele rasteja sob o banco e puxa a alavanca. Com \
+                            um ~clanc~, uma parte da parede sob o banco se \
+                            move para o lado, revelando um pequeno buraco que \
+                            leva para baixo. ";
                     }
-                    print " Wilderspin climbs down through the hole, \
-                        calling to you, ~I hope I shall see you at \
-                        dinner. Seven o'clock in the Great Hall, \
-                        remember!~ And then he is gone.";
+                     print " Wilderspin desce pelo buraco, chamando você: \
+                         ~Espero vê-lo no jantar. Às sete horas no Grande \
+                         Salão, não se esqueça!~ E então desaparece.";
                 }
             }
         ];
@@ -308,37 +304,37 @@ Object  ClockTower "clock tower"
 ! 5.2 TURMERIC THE CAT
 !--------------------------------------------------------------------------
 
-Array CatMove table "slips" "darts" "stalks" "walks" "slinks";
+Array CatMove table "desliza" "dispara" "espreita" "caminha" "se esgueira";
 
-Object  Turmeric "cat" SecondCourt
+Object  Turmeric "gato" SecondCourt
  class  FollowClass
  has    animate
         ! proper if you know his name
         ! general if petted by Edward
- with   name "cat" "kitten" "kitty" "moggy" "turmeric" "ginger" "tom"
+ with   name "cat" "kitten" "kitty" "moggy" "turmeric" "ginger" "tom" "gato" "gatinho" "macho" "ruivo"
             "old" "fat" "contented" "feline",
         describe [;
             if (self hasnt proper) print "^An old moggy ";
             else print "^Turmeric ";
-            if (self in InsideShed) "is sitting on a bee-keeper's veil.";
-            "sits here.";
+             if (self in InsideShed) "está sentado sobre um véu de apicultor.";
+             "está sentado aqui.";
         ],
         description [;
-            print "This is a fat and contented ginger tom. A portion of \
-                his left ear is missing and he has a scar on his nose";
+             print "Este é um gato ruivo gordo e satisfeito. Falta uma parte \
+                 de sua orelha esquerda e ele tem uma cicatriz no focinho";
             if (self in InsideShed)
-                print ". He is sitting on a bee-keeper's veil";
+                 print ". Ele está sentado sobre um véu de apicultor";
             ".";
         ],
         orders [;
-            print_ret "It's probably safe to say that ", (the) self,
-                " does not intend to obey you.";
+             print_ret "Pode-se dizer com segurança que ", (the) self,
+                 " não pretende obedecer a você.";
         ],
         life [ i j;
          Attack,Kiss:
             self.state = 1;
-            print_ret (The) self, " hisses at you, and you decide that \
-                inaction is the best course of action.";
+            print_ret (The) self, " sibila para você, e você decide que \
+                não fazer nada é a melhor opção.";
          Give: 
             self.state = 1;
             if (noun has is_vessel && noun has open && 
@@ -348,24 +344,23 @@ Object  Turmeric "cat" SecondCourt
                 if (self in SecondCourt) j = Gardens;
                 else j = SecondCourt;
                 MoveNPC(self,j,0);
-                print_ret "You hurl ", (the) i, " at ", (the) self, ", \
-                    who howls in horror and flees like lightning.";
+                 print_ret "Você arremessa ", (the) i, " contra ", (the) self,
+                     ", que uiva horrorizado e foge como um raio.";
             }
-            print_ret (The) self, " sniffs at ", (the) noun, ", then \
-                turns up his nose at your offering.";
+             print_ret (The) self, " cheira ", (the) noun, " e depois \
+                 torce o focinho para sua oferenda.";
         ],
         before [;
          Take: self.state = 1; 
-            print_ret (The) self, " refuses to let you pick him up.";
+             print_ret (The) self, " se recusa a deixar você pegá-lo.";
          Touch,Pull,Push,PushDir,Rub,Tickle:
             self.state = 1;
-            print_ret (The) self, " swipes at you angrily with his \
-                claw. This is clearly not a cat who takes kindly to being \
-                fussed over.";
+             print_ret (The) self, " golpeia você furiosamente com a garra. \
+                 Está claro que este gato não gosta de receber atenção.";
         ],
         short_name [;
-            if (self has proper) print "Turmeric";
-            else print "cat";
+             if (self has proper) print "Turmeric";
+             else print "gato";
             rtrue;
         ],
         state 0,  ! 0 if each_turn can run, 1 if it can't
@@ -401,16 +396,16 @@ Object  Turmeric "cat" SecondCourt
             if (location ~= p or dest) rfalse;
             print "^", (The) self, " ", (Message) CatMove, " ";
             if (gate == 1 && GardenGate hasnt open)
-                print "through the gate";
+                 print "pelo portão";
             else {
-                if (p == location) print "away";
-                else print "in";
+                 if (p == location) print "para longe";
+                 else print "para dentro";
             }
             if (p == location) {
-                print " to the ";
+                print " para ";
                 PrintDirection(dir);
             } else {
-                print " from the ";
+                print " de ";
                 PrintDirection(Opposite(dir));
             }
             ".";
@@ -422,19 +417,19 @@ Object  Turmeric "cat" SecondCourt
                 rtrue;
             }
             if (LineOfSight(Parrot,self) == 1)
-                print_ret "^", (The) self, " hisses at the parrot, which \
-                    squawks loudly in return, knowing that it is safe on \
-                    its perch.";
+                print_ret "^", (The) self, " sibila para o papagaio, que \
+                    grasna alto em resposta, sabendo que está seguro em seu \
+                    poleiro.";
             if (random(3) ~= 1) rtrue;
             print "^", (The) self;
             switch (random(7)) {
-             1: " meows.";
-             2: " stretches lazily.";
-             3: " washes himself.";
-             4: " purrs loudly.";
-             5: " rubs his head against your legs.";
-             6: " scratches his ears.";
-             7: " rolls around in the dust.";
+             1: " mia.";
+             2: " se espreguiça preguiçosamente.";
+             3: " se lambe.";
+             4: " ronrona alto.";
+             5: " esfrega a cabeça nas suas pernas.";
+             6: " coça as orelhas.";
+             7: " rola na poeira.";
             }
         ];
 
@@ -443,124 +438,122 @@ Object  Turmeric "cat" SecondCourt
 ! 5.3 THE CHAPEL
 !--------------------------------------------------------------------------
 
-Object  Antechapel "Antechapel"
+Object  Antechapel "Antessala da Capela"
  has    light cat_allowed
- with   name "chapel" "antechapel",
+ with   name "chapel" "antechapel" "capela" "antessala",
         description [;
-            print "An octagonal room with marble flagstones \
-                underfoot. You can go southeast to second court or east \
-                into the chapel proper";
+             print "Uma sala octogonal com lajes de mármore sob os pés. Você \
+                 pode ir a sudeste para o Segundo Pátio ou a leste, para a \
+                 capela propriamente dita";
             if (Chapel has general)
-                print ". You can hear the sound of Evensong to the east";
+                 print ". Você pode ouvir a oração vespertina a leste";
             ".";
         ],
         se_to SecondCourt,
         e_to [;
             if (EM == 0 && Chapel has general && Hat hasnt worn)
-                "You can't go into chapel with your head uncovered!";
+                 "Você não pode entrar na capela com a cabeça descoberta!";
             return Chapel;
         ],
         out_to SecondCourt,
-        u_to "The clock tower isn't accessible from here.",
-        cant_go "You can go southeast to second court or east into the \
-            chapel proper.",
+         u_to "A torre do relógio não é acessível daqui.",
+         cant_go "Você pode ir a sudeste para o Segundo Pátio ou a leste, \
+             para a capela propriamente dita.",
         before [;
          Listen:
             if (Chapel has general)
-                "You can hear the sound of Evensong to the east.";
+                 "Você pode ouvir a oração vespertina a leste.";
         ],
         edward_dirs se_obj;
 
-Nearby  MarbleFlagstones "marble flagstones"
+Nearby  MarbleFlagstones "lajes de mármore"
  has    scenery
  with   name "marble" "flagstones" "flag" "flags" "stones",
-        description "Each flagstone is a memorial to some old member of \
-            the college. The passage of students and fellows to their \
-            devotions is wearing a path into the marble, slowly erasing \
-            this record of the past.";
+         description "Cada laje é um memorial a algum antigo membro do \
+             College. A passagem de estudantes e professores em suas devoções \
+             desgasta um caminho no mármore, apagando lentamente esse registro \
+             do passado.";
 
-Object  Chapel "Chapel"
+Object  Chapel "Capela"
  has    light
         ! general if Evensong in progress
  with   name "chapel" "chain" "altar",
         description [;
-            print "The chapel is a marvellous piece of seventeenth \
-                century architecture, its gracious lines giving it an \
-                elegance that's more effective (in your opinion, at \
-                least) than the Gothic complications of later, larger \
-                chapels in other colleges. There's a magnificent \
-                stained-glass window at the east end";
+             print "A capela é uma magnífica obra de arquitetura do século \
+                 XVII; suas linhas graciosas lhe dão uma elegância mais \
+                 eficaz (na sua opinião, pelo menos) que as complicações \
+                 góticas de capelas posteriores e maiores de outros Colleges. \
+                 Há uma magnífica janela de vitral na extremidade leste";
             if (self has general)
-                print ". A large congregation is listening to the chapel \
-                    choir singing Evensong";
+                 print ". Uma grande congregação ouve o coro da capela cantar \
+                     a oração vespertina";
             ".";
         ],
         w_to Antechapel,
         out_to Antechapel,
-        u_to "The clock tower doesn't appear to be accessible from here.",
-        cant_go "The antechapel is to the west.",
+         u_to "A torre do relógio não parece ser acessível daqui.",
+         cant_go "A antessala fica a oeste.",
         before [;
-         Smell: "You smell the heavy odour of incense.";
-         Pray: "You kneel and pray. If your prayer is answered, there is \
-            no sign.";
-	 Mild,Strong: "Ladies do not use such language, and especially \
-	    not in church.";
+          Smell: "Você sente o forte cheiro de incenso.";
+          Pray: "Você se ajoelha e reza. Não há sinal de que sua prece seja \
+             atendida.";
+ 	 Mild,Strong: "Moças não usam esse tipo de linguagem, especialmente \
+ 	    numa igreja.";
          Sing,Speak,Scream:
             if (self has general)
-                "Shh! You don't want to disturb the singing.";
+                 "Psiu! Você não quer perturbar o canto.";
          Disrobe:
             if (self has general && noun == Hat && Hat has worn)
-                "You mustn't remove your hat in chapel.";
+                 "Você não deve tirar o chapéu na capela.";
          Listen:
             if (noun == 0 && Choir in self) <<Listen Choir>>;
         ],
         edward_dirs w_obj;
 
-Nearby  StainedGlassWindow "stained glass window"
+Nearby  StainedGlassWindow "janela de vitral"
  has    scenery
- with   name "stained" "glass" "window" "figures" "saints" "work"
+ with   name "stained" "glass" "window" "figures" "saints" "work" "vitral" "vidro" "janela" "figuras" "santos" "obra"
             "glasswork" "scene" "scenes" "miracle" "madieval" "mediaeval"
             "stained-glass",
         description [;
-            print "The window is a miracle of mediaeval glasswork. There \
-                are many scenes depicted, some from the bible, others of \
-                saints";
+             print "A janela é um milagre da vidraria medieval. Há muitas \
+                 cenas representadas, algumas da Bíblia, outras de santos";
             if (ClockTower.number < 13)
-                print ". The morning sun streams in through the window, \
-                    making the colours radiant with light";
+                 print ". O sol da manhã entra pela janela, tornando as cores \
+                     radiantes de luz";
             ".";
         ],
         before [;
-         Consult: "The scenes in the stained-glass window are so rich \
-            with detail that you'd need to spend hours going over them \
-            with a guidebook. Best to leave that for another day.";
+          Consult: "As cenas da janela de vitral são tão ricas em detalhes \
+             que você precisaria passar horas examinando-as com um guia. \
+             É melhor deixar isso para outro dia.";
         ];
 
 Nearby  Lectern "lectern"
  has    supporter static
  with   name "dusty" "lectern",
          initial "Um púlpito empoeirado está num canto.",
-        description "On closer examination, the lectern is a beautiful \
-            work of art, sadly neglected. It is made of solid brass, and \
-            is in the form of an eagle: wings spread and talons poised as \
-            if to strike.",
+         description "Ao examiná-lo de perto, o púlpito revela ser uma bela \
+             obra de arte, infelizmente negligenciada. É feito de latão maciço \
+             e tem a forma de uma águia: asas abertas e garras prontas para \
+             atacar.",
         capacity 1,
         before [;
-         Take,Remove: "The lectern is made of solid brass, and is much \
-            too heavy to move.";
-         Rub: "The dust and corrosion would take more time and effort to \
-            remove than you are probably willing to devote to the task.";
+          Take,Remove: "O púlpito é feito de latão maciço e pesado demais \
+             para ser movido.";
+          Rub: "Remover a poeira e a corrosão exigiria mais tempo e esforço \
+             do que você provavelmente está disposto a dedicar à tarefa.";
         ];
 
-Object  LatinBible "Latin Bible" Lectern
+Object  LatinBible "Bíblia latina" Lectern
  class  BibleClass
         ! general if Edward's commented
  with   name "latin" "vulgate" "heretical",
-        description "The Bible is a beautiful illuminated manuscript, \
-            probably mediaeval. The text is in Latin.",
+         description "A Bíblia é um belo manuscrito iluminado, provavelmente \
+             medieval. O texto está em latim.",
         before [;
-         Take,Remove: "The Bible has been fixed to the lectern with a \
-            short chain, just in case anyone should try to steal it.";
+          Take,Remove: "A Bíblia foi presa ao púlpito com uma corrente curta, \
+             para o caso de alguém tentar roubá-la.";
          Invoke:
             if (self.state == 1 && self.number == 'john')
                 "John 11:43 reads, ~Et haec cum dixisset, posuit vinum \
@@ -570,72 +563,70 @@ Object  LatinBible "Latin Bible" Lectern
 		could Malcolm possibly have meant by referring you to \
 		this verse?";
             quote = 14;
-            "It's all Latin to you.";
+             "Para você, é tudo latim.";
         ],
         after [;
          Examine:
             if (self hasnt general && Edward in location) {
                 give self general;
-                print "^Edward says, ~That Bible is French, fourteenth \
-                    century apparently. I'm afraid that I can't read a \
-                    word of Latin, unless it's `veni, vidi, vici'.~^";
+                 print "^Edward diz: ~Essa Bíblia é francesa, aparentemente do \
+                     século XIV. Receio não conseguir ler uma palavra de latim, \
+                     exceto `veni, vidi, vici'.~^";
             }
         ];
 
-Object  Congregation "congregation"
+Object  Congregation "congregação"
  has    animate concealed
  with   name "congregation" "worshipper" "worshiper" "crowd",
-        description "A sombre crowd of worshippers, mostly undergraduates \
-            dressed in dinner suits and gowns.",
-        life [; "You don't want to disturb the service."; ],
+         description "Uma multidão solene de fiéis, em sua maioria estudantes \
+             usando ternos de jantar e becas.",
+         life [; "Você não quer perturbar o serviço religioso."; ],
         before [; 
          Examine: ; 
-         default:"You don't want to disturb the service.";
+          default:"Você não quer perturbar o serviço religioso.";
         ];
 
-Object  Chaplain "chaplain"
+Object  Chaplain "capelão"
  has    animate concealed
  with   name "chaplain" "nudd" "reverend" "priest" "vicar",
-        description "An old man, whose last trace of hair vanished some \
-            decades ago, wearing half-moon spectacles and a cross on a \
-            chain.", 
-        life [; "You don't want to disturb the service."; ],
+         description "Um homem velho, cujo último fio de cabelo desapareceu \
+             há décadas, usando óculos de meia-lua e uma cruz numa corrente.", 
+         life [; "Você não quer perturbar o serviço religioso."; ],
         before [; 
          Examine: ; 
-         default:"You don't want to disturb the service."; 
+          default:"Você não quer perturbar o serviço religioso."; 
         ];
 
 Array TableChoir table [;
-    "The choir sings a plainsong chant.";
-    "The choirs sings an introit.";
-    "The choir sings some responses.";
-    "The choir sings a psalm.";
-    "The choir sings a hymn.";
-    "The chaplain reads from the Old Testament.";
-    "The chaplain reads from the New Testament.";
-    "The choir sings the Nunc Dimittis.";
-    "The choir sings an anthem.";
-    "The choir sings the magnificat.";
+    "O coro canta um cantochão.";
+    "O coro canta um intróito.";
+    "O coro canta algumas respostas.";
+    "O coro canta um salmo.";
+    "O coro canta um hino.";
+    "O capelão lê o Antigo Testamento.";
+    "O capelão lê o Novo Testamento.";
+    "O coro canta o Nunc Dimittis.";
+    "O coro canta um hino solene.";
+    "O coro canta o magnificat.";
 ];
 
-Object  Choir "choir"
+Object  Choir "coro"
  has    animate concealed
  with   name "choir" "chorus" "singer" "choirboy" "choirboys" "choir-boy"
             "singers",
-        description "The male-voice choir is a picturesque sight in the \
-            evening gloom of the chapel: young choir-boys dressed in white \
-            gowns and their older colleagues from the College singing the \
-            lower parts.",
+         description "O coro masculino é uma visão pitoresca na penumbra \
+             vespertina da capela: jovens coristas vestidos de branco e seus \
+             colegas mais velhos do College cantando as partes graves.",
         life [;
-            "You don't want to disturb the singing.";
+             "Você não quer perturbar o canto.";
         ],
         before [;
          Listen: print_ret (Message) TableChoir;
          Examine: ;
-         default: "You don't want to disturb the singing.";
+          default: "Você não quer perturbar o canto.";
         ],
         each_turn [;
-            Achieved("attending Evensong in Chapel");
+             Achieved("assistindo à oração vespertina na Capela");
             print_ret (Message) TableChoir;
         ];
 
@@ -644,46 +635,45 @@ Object  Choir "choir"
 ! 5.4 THE TELEPHONE SWITCHBOARD
 !--------------------------------------------------------------------------
 
-Object  BStairBasement "~B~ Staircase, Basement"
+Object  BStairBasement "Escadaria ~B~, subsolo"
  has    light
         ! general if two wires have been plugged into one socket, or if
         ! Edward has commented on same.
  with   name "basement" "stair" "stairs",
-        description "The bottom of the staircase is unlit, but enough \
-            light filters down from above to see by. It's a grimy place, \
-            smelling of cigarette smoke and drains. Stairs go up to the \
-            ground floor.",
+         description "A parte inferior da escadaria não é iluminada, mas \
+             entra luz suficiente de cima para enxergar. É um lugar imundo, \
+             com cheiro de fumaça de cigarro e ralos. A escada sobe ao térreo.",
         u_to BStairGround,
         out_to BStairGround,
-        cant_go "The only way out is up.",
+         cant_go "A única saída é para cima.",
         before [;
-         Smell: "The odour of cigarette smoke is strong. You imagine that \
-            the dusties congregate here to smoke and chat.";
+          Smell: "O cheiro de fumaça de cigarro é forte. Você imagina que os \
+             estudantes se reúnem aqui para fumar e conversar.";
         ],
         edward_dirs u_obj;
 
-Object  Switchboard "cabinet" BStairBasement
+Object  Switchboard "armário" BStairBasement
  has    container openable static
         ! general if Edward's commented on it
  with   name "cabinet" "cupboard",
         capacity 8,
-        description "The cabinet looks quite new compared with the dingy \
-            surroundings. It's mounted on the wall close to the floor.",
+         description "O armário parece bastante novo em comparação com o \
+             ambiente sujo. Está montado na parede, perto do chão.",
         before [ i j;
          Examine,Search:
             if (self hasnt open) rfalse;
-            print (The) self, " contains three pairs of coloured wires \
-                and three corresponding pairs of coloured sockets. ";
+             print (The) self, " contém três pares de fios coloridos e três \
+                 pares correspondentes de tomadas coloridas. ";
             for (i = GreenWire: i ~= 0: i = i.other_obj) {
                 switch (i) {
-                 GreenWire: print "The ";
-                 RedWire: print ", the ";
-                 BlueWire: print ", and the ";
+                 GreenWire: print "Os ";
+                 RedWire: print ", os ";
+                 BlueWire: print " e os ";
                 }
-                print (address) (i.&name)-->0, " wires ";
-                if (i.number == 0) print "hang free";
-                else print "are plugged into the ", (address)
-                    ((i.number).&name)-->0, " sockets";
+                 print (address) (i.&name)-->0, " fios ";
+                 if (i.number == 0) print "estão soltos";
+                 else print "estão ligados às tomadas ", (address)
+                     ((i.number).&name)-->0;
             }
             objectloop (i in self) {
                 if (i ~= RedWire or GreenWire or BlueWire &&
@@ -694,7 +684,7 @@ Object  Switchboard "cabinet" BStairBasement
                     give i ~workflag;
             }
             if (j > 0) {
-                print ". In addition, ", (the) self, " contains ";
+                 print ". Além disso, ", (the) self, " contém ";
                 WriteListFrom(child(self), ENGLISH_BIT + TERSE_BIT + 
                     WORKFLAG_BIT);
             }
@@ -704,11 +694,11 @@ Object  Switchboard "cabinet" BStairBasement
          Open:
             if (self hasnt general && Edward in location) {
                 give self general;
-                print "~Are you sure that you should be fiddling about \
-                    with that?~ asks Edward. ~You might give yourself a \
-                    nasty electric shock, and then what would I do?~^^";
+                 print "~Você tem certeza de que deveria mexer nisso?~ \
+                     pergunta Edward. ~Você pode levar um choque elétrico \
+                     terrível, e o que eu faria depois?~^^";
             }
-            print "You open ", (the) self, ". ";
+             print "Você abre ", (the) self, ". ";
             <<Search self>>;
         ];
 
@@ -718,46 +708,45 @@ Class   SwitchWireClass
  with   name "insulation" "bare" "wire" "pair" "of" "wires",
         list_together "pairs of wires",
         description [;
-            print (The) self, " emerges from the wall and ";
+             print (The) self, " sai da parede e ";
             if (self.number == 0)
-                print "hangs loose";
+                 print "fica solto";
             else
-                print "plugs into ", (the) self.number;
-            print ". The pair is covered in ", (address) (self.&name)-->0,
-                " insulation, but a section at the end is bare";
+                 print "se liga a ", (the) self.number;
+             print ". O par tem isolamento ", (address) (self.&name)-->0,
+                 ", mas uma parte da extremidade está desencapada";
             if (self == Voltmeter.number)
-                print ". A voltmeter is attached to them";
+                 print ". Há um voltímetro ligado a eles";
             if (self == PowerPack.number)
-                print ". A power pack is attached to them";
+                 print ". Há uma bateria ligada a eles";
             ".";
         ],
         before [;
          Untie,Remove,Take,Pull,Push:
             if (self.number == 0) {
-                print_ret (The) self, " is already hanging loose.";
+                 print_ret (The) self, " já está solto.";
             }
             self.number = 0;
-            print "You unplug ", (the) self;
+             print "Você desliga ", (the) self;
             if (sw__var == ##Take) ", but you are unable to dislodge the \
                 wires from the cabinet.";
             ".";
          Insert:
             if (second == GreenSocket or RedSocket or BlueSocket) {
                 if (self.number ~= 0)
-                    print "(unplugging ", (the) self, " from ", (the)
-                        self.number, " first)^";
+                 print "(desligando primeiro ", (the) self, " de ", (the)
+                         self.number, ")^";
                 self.number = 0;
                 if (second == GreenWire.number || second == RedWire.number ||
                     second == BlueWire.number)
                     give BStairBasement general;
                 self.number = second;
-                print "You plug ", (the) self, " into ", (the) second, 
+                 print "Você liga ", (the) self, " a ", (the) second, 
                     ".^";
                 if (BStairBasement hasnt general && Edward in BStairBasement
                     && random(3) == 1)
-                    print "^Edward says, ~I wonder what happens if you \
-                        try plugging two pairs of wires into the same \
-                        socket?~^";
+                     print "^Edward diz: ~O que será que acontece se você \
+                         tentar ligar dois pares de fios à mesma tomada?~^";
                 rtrue;
             }
         ];
@@ -773,15 +762,15 @@ Class   SwitchSocketClass
                 else give i ~workflag;
             }
             if (j == 0)
-                print_ret (The) self, " is empty.";
-            print "You observe that ";
+                 print_ret (The) self, " está vazia.";
+             print "Você observa que ";
             WriteListFrom(child(SwitchBoard), WORKFLAG_BIT + ENGLISH_BIT);
-            if (j > 1) print " are plugged into ";
-            else print " is plugged into ";
+             if (j > 1) print " estão ligadas a ";
+             else print " está ligada a ";
             print_ret (the) self, ".";
         ],
         before [;
-         Push,Pull,Turn: "They are fixed in place.";
+          Push,Pull,Turn: "Elas estão fixas no lugar.";
         ];
 
 Nearby  GreenWire "pair of green wires"
@@ -819,10 +808,10 @@ Class   ClipClass
         number 0,
         describe [;
             if (self.number ~= 0) {
-                print "^", (The) self, " is attached to ", (the)
+                 print "^", (The) self, " está ligado a ", (the)
                     self.number;
                 if (self == Voltmeter) {
-                    print " and is reading ";
+                     print " e marca ";
                     VoltmeterReading();
                 }
                 ".";
@@ -831,14 +820,13 @@ Class   ClipClass
         before [;
          Drop:
             if (self in Handbag) {
-                print "(Taking ", (the) self, " out of the handbag \
-                    first)^";
+                 print "(tirando primeiro ", (the) self, " da bolsa)^";
                 keep_silent = 1; <Take self>; keep_silent = 0;
             }
          Take:
             if (self.number ~= 0) {
-                print "(Detaching the crocodile clips from ", 
-                    (the) self.number, " first.)^";
+                 print "(soltando primeiro as garras jacaré de ", 
+                     (the) self.number, ".)^";
                 self.number = 0;
             }
          Insert,PutOn:
@@ -846,69 +834,67 @@ Class   ClipClass
                 <<Tie self second>>;
          Tie:
             if (self.number == second)
-                print_ret (The) self, " is already attached to ",
+                 print_ret (The) self, " já está ligado a ",
                     (the) self.number, ".";
             if (second hasnt is_wire && second ~= self.other_obj)
-                "You're unable to attach the crocodile clips to that.";
+                 "Você não consegue prender as garras jacaré nisso.";
             if (self.number ~= 0) {
-                print "(Detaching ", (the) self, " from ", (the)
-                    self.number, " first.)^";
+                 print "(soltando primeiro ", (the) self, " de ", (the)
+                     self.number, ".)^";
                 self.number = 0;
             }
             if (second == self.other_obj) {
-                print "You briefly touch ", (the) self, " to ", (the) 
+                 print "Você encosta brevemente ", (the) self, " em ", (the) 
                     self.other_obj;
-                if (location == thedark) ". Nothing happens.";
-                print " and the ";
-                if (self == PowerPack) print "latter"; 
-                else print "former";
-                " reads 5.0 volts, as you would expect.";
+                 if (location == thedark) ". Nada acontece.";
+                 print " e a ";
+                 if (self == PowerPack) print "segunda"; 
+                 else print "primeira";
+                 " marca 5,0 volts, como seria de esperar.";
             }
             if (self notin location) {
-                print "(Putting ", (the) self, " on the floor first.)^";
+                 print "(colocando primeiro ", (the) self, " no chão.)^";
                 move self to location;
             }
             self.number = second;
-            print "You attach the crocodile clips to ", (the) second;
+             print "Você prende as garras jacaré a ", (the) second;
             if (self == Voltmeter && location ~= thedark) {
-                print ", and the dial reads ";
+                 print ", e o mostrador marca ";
                 VoltmeterReading();
             }
             ".";
          Disrobe,Untie:
             if (self.number == 0)
-                print_ret (The) self, " isn't attached to anything.";
+                 print_ret (The) self, " não está ligado a nada.";
             self.number = 0;
-            "You detach the crocodile clips.";
+             "Você solta as garras jacaré.";
         ];
 
-Object  PowerPack "power pack" SwitchBoard
+Object  PowerPack "bateria" SwitchBoard
  class  ClipClass
  with   name "power" "pack" "powerpack" "battery" "cell" "cells"
             "batteries",
         other_obj Voltmeter,
         description [;
-            print "You're not much of an electrician, but this pack is \
-                labelled ~5.0V~. It certainly seems heavy enough to \
-                contain several electric cells. It sports a pair of \
-                crocodile clips";
+             print "Você não é exatamente um eletricista, mas esta bateria \
+                 está marcada ~5,0 V~. Ela parece pesada o bastante para conter \
+                 várias células elétricas. Tem um par de garras jacaré";
             if (self.number ~= 0)
                 print ", attached to ", (the) self.number;
             ".";
         ];
 
-Object  Voltmeter "voltmeter" SwitchBoard
+Object  Voltmeter "voltímetro" SwitchBoard
  class  ClipClass
  with   name "volt" "voltmeter" "meter" "device" "dial" "scale",
         other_obj PowerPack,
         description [;
-            print "The voltmeter is a small device sporting a pair of \
-                crocodile clips, a dial and a scale that runs from 0.0V \
-                to 10.0V. The ";
+             print "O voltímetro é um pequeno aparelho com um par de garras \
+                 jacaré, um mostrador e uma escala de 0,0 V a 10,0 V. As ";
             if (self.number ~= 0)
-                print "clips are attached to ", (the) self.number,
-                    " and the ";
-            print "dial reads ";
+                 print "garras estão ligadas a ", (the) self.number,
+                     " e o ";
+             print "mostrador marca ";
             VoltmeterReading();
             ".";
         ];
@@ -929,8 +915,8 @@ Object  Voltmeter "voltmeter" SwitchBoard
     if (p.number == v.number) jump VoltFive;
     if (p.number == 1 && (v.number).number == p) jump VoltFive;
     
-    .VoltZero; print "0.0 volts"; rtrue;
-    .VoltFive; print "5.0 volts"; rtrue;
+    .VoltZero; print "0,0 volts"; rtrue;
+    .VoltFive; print "5,0 volts"; rtrue;
 ];
 
 Class   PhoneBoxClass
@@ -941,17 +927,17 @@ Class   PhoneBoxClass
                 (the) self.near_to, ".";
         ],
         capacity 3,
-        description "The box is about four inches square and two inches \
-            deep.";
+         description "A caixa tem cerca de dez centímetros quadrados e cinco \
+             centímetros de profundidade.";
 
 Class   PhoneWireClass
  has    static is_wire
  with   name "bare" "wire" "wires" "pair" "of",
         number 1,
         description [;
-            print "The pair of wires emerges from the wall and disappears \
-                into some part of the white box that isn't accessible to \
-                you. They are bare of insulation";
+             print "O par de fios sai da parede e desaparece em alguma parte \
+                 da caixa branca que não é acessível a você. Eles estão sem \
+                 isolamento";
             if (self == Voltmeter.number)
                 print ". A voltmeter is attached to them";
             if (self == PowerPack.number)
@@ -959,7 +945,7 @@ Class   PhoneWireClass
             ".";
         ],
         before [;
-         Push,Pull,Turn: "They are fixed in place.";
+          Push,Pull,Turn: "Eles estão fixos no lugar.";
         ];
 
 Object  PhoneBoxJarboe "white box" BStairFirst,
@@ -980,8 +966,8 @@ Object  PhoneBoxMaster "white box" MastersLodge
         before [;
          Open:
             if (HouseKeeper in location)
-                "You decide not to go poking about in the box with the \
-                housekeeper watching you.";
+                 "Você decide não ficar mexendo na caixa com a governanta \
+                 observando.";
         ];
 Nearby  PhoneWireMaster "pair of wires"
  class  PhoneWireClass;
@@ -1010,33 +996,33 @@ Nearby  PhoneWireMaster "pair of wires"
 !--------------------------------------------------------------------------
 
 Array TableTelephone table [;
-    "The telephone is not ringing.";
-    "The telephone is ringing.";
-    "You hear a dialling tone.";
-    "You can hear ringing.";
-    "Ok.";
-    "You can hear an engaged tone.";
-    "The handset is silent.";
+    "O telefone não está tocando.";
+    "O telefone está tocando.";
+    "Você ouve o tom de discagem.";
+    "Você ouve o telefone tocar.";
+    "Certo.";
+    "Você ouve o sinal de ocupado.";
+    "O fone está silencioso.";
 ];
 
-Object  Telephone "telephone" Mantelpiece
+Object  Telephone "telefone" Mantelpiece
  class  TalkableClass
  has    is_telephone
         ! general if ringing last turn
  with   name "telephone" "phone",
-        description "It's an ordinary black telephone with a handset. A \
-            label reads, ~Number: 212. Dial 1 for an outside line.~",
+         description "É um telefone preto comum com um fone. Uma etiqueta diz: \
+             ~Número: 212. Disque 1 para uma linha externa.~",
         state 0,
         number 0,
         before [ i;
             if (HouseKeeper in location)
-                "~Like the telephone, do you?~ asks the housekeeper. \
-                ~It's brand new, they just put them in this week.~";
+                 "~Gostou do telefone?~ pergunta a governanta. ~É novinho, \
+                 acabaram de instalá-lo esta semana.~";
          Give,Show,Kiss,Attack: Futile();
          Speak:
             if (self.state ~= 4)
-                "There is no one on the other end of the telephone line \
-                to talk to.";
+                 "Não há ninguém do outro lado da linha telefônica para \
+                 conversar.";
             <<Speak TelephoneDaemon>>;
          Take,Remove: <<Take TelephoneHandset>>;
          Drop: <<Drop TelephoneHandset>>;
@@ -1056,7 +1042,7 @@ Object  Telephone "telephone" Mantelpiece
             if (i ~= GreenWire.number && i ~= RedWire.number && i ~= 
                 BlueWire.number) {
                 self.state = 6;
-                "The telephone goes dead.";
+                 "O telefone fica mudo.";
             }
             if (GreenWire.number == i) {
                 self.state = 5;
@@ -1078,7 +1064,7 @@ Object  Telephone "telephone" Mantelpiece
             }
             if (self.state == 0 && self has general) {
                 give self ~general;
-                "^The telephone has stopped ringing.";
+                 "^O telefone parou de tocar.";
             }
             if (self.state == 1) give self general;
             if (self.state == 1 or 3 or 5) {
@@ -1088,15 +1074,15 @@ Object  Telephone "telephone" Mantelpiece
             }
         ];
 
-Object  TelephoneHandset "handset"
+Object  TelephoneHandset "fone"
  class  TalkableClass
  has    concealed
  with   name "handset" "receiver" "bungay" "jarboe" "dr" "doctor" "prof"
             "professor",
         number 0,
         before [;
-         Insert,Untie: "You can't do that; the handset is attached to the \
-             telephone.";
+          Insert,Untie: "Você não pode fazer isso; o fone está preso ao \
+              telefone.";
          PutOn:
             if (second == Telephone) <<Drop self>>;
             <<Insert self 0>>;
@@ -1104,18 +1090,18 @@ Object  TelephoneHandset "handset"
         ],
         after [;
          Take,Remove:
-            print "You lift the telephone handset. ";
+             print "Você levanta o fone do telefone. ";
             if (Telephone.state == 1) {
                 give Telephone ~general;
                 Telephone.state = 4;
-                print "The telephone stops ringing. ";
+                 print "O telefone para de tocar. ";
             }
             else Telephone.state = 2;
             <Listen Telephone>;
             rtrue;
          Drop:
             Telephone.state = 0;
-            "You put the handset back on the telephone.";
+             "Você recoloca o fone no telefone.";
         ];
 
 Object  TelephoneDaemon "telephone daemon"
@@ -1132,15 +1118,15 @@ Object  TelephoneDaemon "telephone daemon"
             self.state = 0;
             Telephone.state = 6;
             switch (i) {
-             1: "~I can't talk to you at the moment,~ Bungay says. ~I'm \
-                very busy.~ He puts the phone down.";
-             2: "~Ah, it's you,~ Jarboe says. ~Well, whatever you have to \
-                say, I'm not interested. You might as well go home now.~ \
-                He puts the phone down.";
-             3: "~Did you hear that?~ says Jarboe. ~We must have a \
-                crossed line again.~^^~We can't have anyone listening in \
-                on us,~ says Bungay. ~I'll ring you back later.~ They \
-                both put the phone down.";
+              1: "~Não posso falar com você agora,~ diz Bungay. ~Estou muito \
+                 ocupado.~ Ele desliga o telefone.";
+              2: "~Ah, é você,~ diz Jarboe. ~Bem, não me interessa o que você \
+                 tem a dizer. É melhor ir para casa agora.~ Ele desliga o \
+                 telefone.";
+              3: "~Você ouviu isso?~ diz Jarboe. ~Devemos ter uma \
+                 linha cruzada de novo.~^^~Não podemos deixar ninguém nos \
+                 escutando,~ diz Bungay. ~Ligo de volta mais tarde.~ Ambos \
+                 desligam o telefone.";
              default:
                 "** Error: telephone daemon should have number 1-3 **";
             }
@@ -1157,54 +1143,51 @@ Object  TelephoneDaemon "telephone daemon"
              1: switch (self.state) {
                  1,2: return; ! leave it to ring twice
                  3: Telephone.state = 4;
-                    "^Someone picks up the phone at the other end, and a \
-                    voice says, ~Bungay here.~";
-                 4: "The voice on the phone says, ~Is that you, Jarboe?~";
+                     "^Alguém atende o telefone do outro lado, e uma voz diz: \
+                     ~Bungay falando.~";
+                  4: "A voz ao telefone diz: ~É você, Jarboe?~";
                  5: self.number = 0;
                     Telephone.state = 6;
-                    print "^The voice on the phone says, ~Goodbye,~ and \
-                        puts the phone down.^";
+                     print "^A voz ao telefone diz ~Adeus~ e desliga.^";
                 }
 
              2: switch (self.state) {
                  1: return; ! leave it to ring for a turn
                  2: Telephone.state = 4;
-                    "^Someone picks up the phone at the other end, and a \
-                    voice says, ~Hello, Jarboe speaking, how can I help \
-                    you?~";
-                 3: "The voice on the phone says, ~Hello, who is that \
-                    please?~";
+                     "^Alguém atende o telefone do outro lado, e uma voz diz: \
+                     ~Olá, Jarboe falando, como posso ajudar?~";
+                  3: "A voz ao telefone diz: ~Olá, quem fala, por favor?~";
                  4: self.number = 0;
                     Telephone.state = 6;
-                    print "^The voice on the phone mutters, ~Must be a \
-                        crossed line. Bloody phones, why can't they get \
-                        them working?~ and puts the phone down.^";
+                     print "^A voz ao telefone resmunga: ~Deve ser uma linha \
+                         cruzada. Malditos telefones, por que não conseguem \
+                         fazê-los funcionar?~ e desliga.^";
                 }
 
              3: switch (self.state) {
                  1: return; ! leave it to ring for a turn
                  2: Telephone.state = 4;
-                    "^Someone picks up the phone at the other end, and a \
-                    voice says, ~Hello, Jarboe speaking.~";
-                 3: "^There is a tinkle, and a second voice says, ~Bungay \
-                    here.~";
+                     "^Alguém atende o telefone do outro lado e uma voz diz: \
+                     ~Olá, Jarboe falando.~";
+                  3: "^Há um tilintar, e uma segunda voz diz: ~Bungay \
+                     falando.~";
                  4: if (self has general) {
                         self.number = 0;
                         Telephone.state = 6;
-                        print "^~Bloody hell,~ says Jarboe. ~Not \
-                            again. Why can't they get the damn telephones \
-                            working?~^^They both put the phone down.^";
+                         print "^~Santo Deus,~ diz Jarboe. ~De novo não. Por \
+                             que não conseguem fazer esses malditos telefones \
+                             funcionar?~^^Ambos desligam o telefone.^";
                     }
-                    else "^~You were going to ring me about the details \
-                        for this evening, yes?~ says Jarboe.";
-                 5: "^~I didn't ring you, you rang me,~ says Bungay.";
-                 6: "^~I say,~ says Jarboe. ~These damn-fool phones are \
-                    playing up again. Still, now that we're here, what \
-                    was it you were going to say?~";
+                     else "^~Você ia me telefonar sobre os detalhes desta \
+                         noite, não?~ diz Jarboe.";
+                  5: "^~Eu não liguei para você, você ligou para mim,~ diz Bungay.";
+                  6: "^~Veja bem,~ diz Jarboe. ~Esses telefones idiotas estão \
+                     falhando de novo. Mas, já que estamos aqui, o que você \
+                     ia dizer?~";
                  7: self.number = 0;
                     Telephone.state = 6;
                     give self general;
-                    Achieved("eavesdropping on a telephone conversation");
+                     Achieved("escutando uma conversa telefônica");
                     AdvanceTime(self);
                     DoneHint(WhatNextPuzzle,22);
                     print "^~Very well,~ says Bungay. ~After the Master's \
@@ -1228,29 +1211,28 @@ Object  TelephoneDaemon "telephone daemon"
 ! 5.6 GREAT HALL AND CELLARS
 !--------------------------------------------------------------------------
 
-Object  CloakRoom "Cloak Room (no entry)";
+Object  CloakRoom "Vestiário (sem entrada)";
 
-Object  GreatHall "Great Hall"
+Object  GreatHall "Grande Salão"
  has    light cat_allowed
  with   name "window" "windows" "great" "hall" "portrait" "portraits"
             "stair" "stairs" "vaulted" "ceiling" "latticed" "doleful"
             "masters" "door" "senior" "common" "room",
         state 0,
         description [;
-            print "A grand echoey room with a vaulted ceiling far above \
-                your head, intended to seat and feed more than a hundred \
-                hungry fellows and scholars. Small latticed windows \
-                around the top of the hall allow narrow shafts of ";
-            if (ClockTower.number < 20) print "sun";
-            else print "moon";
-            print "light to illuminate doleful portraits of past Masters \
-                of the college.^^Second Court lies to the northeast, the \
-                kitchens to the south, and stairs lead up to the senior \
-                common room.^";
+            print "Uma grande sala ecoante, com um teto abobadado muito acima \
+                da cabeça, destinada a acomodar e alimentar mais de cem \
+                professores e estudiosos famintos. Pequenas janelas gradeadas \
+                no alto do salão deixam entrar estreitos feixes de ";
+            if (ClockTower.number < 20) print "luz solar";
+            else print "luz lunar";
+            print ", que iluminam retratos tristes de antigos Reitores do \
+                College.^^O Segundo Pátio fica a nordeste, as cozinhas ao sul \
+                e uma escada sobe para a sala comum dos veteranos.^";
             if (ClockTower.number == 19)
-                print "^The room echoes with the loud conversation of \
-                    fellows sitting around the high table and students on \
-                    the low table.^";
+                print "^A sala ecoa com a conversa ruidosa de \
+                    professores sentados à mesa alta e estudantes à mesa \
+                    baixa.^";
             rtrue;
         ],
         ne_to SecondCourt,
@@ -1267,7 +1249,7 @@ Object  GreatHall "Great Hall"
             if (self.state == 0) {
                 self.state = 1;
                 move ServingStaff to self;
-                self.s_to = "The serving staff won't let you pass.";
+                 self.s_to = "Os funcionários não deixarão você passar.";
             }
             if (ClockTower.number >= 19 && self.state == 1) {
                 self.state = 2;
@@ -1282,24 +1264,20 @@ Object  GreatHall "Great Hall"
                 give DoorMaster ~open locked;
                 switch (location) {
                  GreatHall:
-                    print "^The serving staff finish laying the tables, \
-                        and not a minute too soon, because hardly has the \
-                        echo of the last bell died away when the doors \
-                        fly open, and crowds of fellows and \
-                        undergraduates pour in, talking animatedly among \
-                        themselves as they go to their places.^";
+                    print "^Os funcionários terminam de arrumar as mesas, e \
+                        não foi um minuto cedo demais: mal o eco do último \
+                        sino desaparece, as portas se abrem e grupos de \
+                        professores e estudantes entram, conversando \
+                        animadamente enquanto ocupam seus lugares.^";
                  Chapel:
-                    print "^Evensong comes to an end, and the \
-                        congregation and choir stream out to the west, \
-                        talking excitedly.^";
+                    print "^A oração vespertina chega ao fim, e a congregação \
+                        e o coro saem para oeste, conversando animadamente.^";
                  AnteChapel:
-                    print "^A stream of undergraduates, fellows, \
-                        choir-boys and choristers pours out of the chapel \
-                        and heads southeast to Second Court.^";
+                    print "^Uma corrente de estudantes, professores e coristas \
+                        sai da capela e segue a sudeste para o Segundo Pátio.^";
                  SecondCourt:
-                    print "^A stream of undergraduates, fellows and \
-                        choristers pours out of the chapel and heads \
-                        southwest into Hall.^";
+                    print "^Uma corrente de estudantes, professores e coristas \
+                        sai da capela e segue a sudoeste para o Salão.^";
                 }
 
                 if (TelephoneDaemon hasnt general) i = 1;
@@ -1322,10 +1300,9 @@ Object  GreatHall "Great Hall"
             }
             if (self.state == 2 && location == self) {
                 if (Inside(DinnerTicket,player) == 0) {
-                    print "^One of the serving staff comes up to you and \
-                        asks to see your invitation. When he discovers \
-                        that you don't possess one, he politely but \
-                        firmly ushers you out of the Hall.^";
+                    print "^Um dos funcionários vem até você e pede para ver \
+                        seu convite. Ao descobrir que você não tem um, ele o \
+                        conduz para fora do Salão, com educação mas firmeza.^";
                     PlayerTo(SecondCourt,1);
                     LookSub(1);
                     rtrue;
@@ -1334,19 +1311,19 @@ Object  GreatHall "Great Hall"
                 self.state = 3;
                 StopDaemon(self);
                 remove ServingStaff;
-                print "^You quickly leave your possessions in the \
-                    cloakroom and find your seat. You are surprised to \
-                    discover that you have been placed on the high table \
-                    with the Master and Fellows of the college...^";
+                print "^Você deixa rapidamente seus pertences no vestiário e \
+                    encontra seu lugar. Surpreende-se ao descobrir que foi \
+                    colocado à mesa alta com o Reitor e os professores do \
+                    College...^";
                 PlayerTo(DiningHall);
                 rtrue;
             }
             if (self.state == 2) {
                 if (self.time_left == 0) {
                     self.time_left = 6;
-                    "^Tonight's dinner in Great Hall started at seven \
-                    o'clock, and if you don't hurry to get there, you're \
-                    going to be even later than you already are!";
+                    "^O jantar desta noite no Grande Salão começou às sete, e, \
+                    se você não se apressar, chegará ainda mais atrasado do \
+                    que já está!";
                 }
                 self.time_left = self.time_left - 1;
             }
@@ -1357,15 +1334,15 @@ Nearby  HighTable "high table"
  has    static supporter enterable
         ! general if found corkscrew
  with   name "high" "table",
-        initial "One end of the hall is occupied by the high table.",
+         initial "Uma extremidade do salão é ocupada pela mesa alta.",
         article "the",
         before [;
          Search, LookUnder:
             if (self hasnt general) {
                 move Corkscrew to GreatHall;
                 give self general;
-                "There's a corkscrew under the high table. The revellers \
-                must have dropped it at the last meal.";
+                 "Há um saca-rolhas sob a mesa alta. Os festeiros devem tê-lo \
+                 deixado cair na última refeição.";
             }
         ];
 
@@ -1373,38 +1350,38 @@ Nearby  Tables "low table"
  has    static supporter enterable
  with   name "long" "low" "table",
         article "the",
-        initial "A long table extends across the remainder of the room.";
+         initial "Uma mesa comprida atravessa o restante da sala.";
 
 Object  ServingStaff "serving staff"
  has    animate
  with   name "serving" "staff" "waiter" "waiters" "waitress" "waitresses",
         article "the",
-        initial "Serving staff bustle here and there, arranging furniture \
-            and laying tables.",
+         initial "Os funcionários andam de um lado para outro, arrumando os \
+             móveis e preparando as mesas.",
         life [;
-            "They are far too busy to pay any attention to you.";
+             "Eles estão ocupados demais para prestar atenção em você.";
         ];
 
-Object  KitchenLobby "Outside the Kitchens"
+Object  KitchenLobby "Fora das Cozinhas"
  has    light
         ! general if cook routine in progress
  with   name "kitchen" "kitchens" "great" "hall",
-        description "A small area between the bustling kitchens (to the \
-            south) and the Great Hall (to the north), used for collecting \
-            dishes while a feast is proceeding in the hall.",
+         description "Uma pequena área entre as cozinhas movimentadas (ao \
+             sul) e o Grande Salão (ao norte), usada para recolher pratos \
+             enquanto um banquete acontece no salão.",
         n_to GreatHall,
         out_to GreatHall,
-        s_to "You walk into the bustling kitchens, but the angry stare \
-            and brandished cleaver of one of the cooks tells you that you \
-            are not welcome here, and you quickly make your exit.",
+         s_to "Você entra nas cozinhas movimentadas, mas o olhar furioso e o \
+             cutelo brandido de um dos cozinheiros deixam claro que você não é \
+             bem-vindo, e você sai rapidamente.",
         d_to [;
             if (EM == 1) return Hatch;
             if (Hatch hasnt door || Hatch hasnt open)
-                "The hatch is closed.";
+                 "A escotilha está fechada.";
             quote = 4;
             AdvanceTime(Cellars);
-            print "You climb quietly down the ladder, anxious not to \
-                reveal your presence to the cook.^";
+             print "Você desce silenciosamente pela escada, ansioso para não \
+                 revelar sua presença ao cozinheiro.^";
             return Hatch;
         ],
         time_left 0,
@@ -1421,8 +1398,7 @@ Object  KitchenLobby "Outside the Kitchens"
                     print " and approaches you. ~Get off that hatch!~ he \
                         orders angrily, and you obey. He ";
                 }
-                print "unlocks the hatch, opens it and descends into the \
-                    cellars.^";
+                 print "destranca a escotilha, abre-a e desce às adegas.^";
             }
             <Invoke Hatch 1>;
         ],
@@ -1441,17 +1417,17 @@ Object  Hatch "hatch"
         found_in Cellars KitchenLobby,
 	description [;
 	    if (self has locked)
-		"The hatch is a sturdy wooden structure; it looks very \
-		much as though no blows that you are capable of \
-		inflicting on it could shift it an inch.";
+            "A escotilha é uma estrutura robusta de madeira; parece que \
+		nenhum golpe que você seja capaz de desferir nela a moveria um \
+		centímetro.";
 	],
         describe [;
-            print "^There is ";
-            if (self has open) print "an open";
-            else print "a closed";
-            print " hatch in the ";
-            if (self in KitchenLobby) "middle of the floor.";
-            else "ceiling, accessible by a ladder.";
+            print "^Há ";
+            if (self has open) print "uma escotilha aberta";
+            else print "uma escotilha fechada";
+            print " no ";
+            if (self in KitchenLobby) "meio do chão.";
+            else "teto, acessível por uma escada.";
         ],
         door_to [;
             if (self in Cellars) return KitchenLobby; else return Cellars;
@@ -1470,10 +1446,10 @@ Object  Hatch "hatch"
             }
          Receive:
             if (self has open && self in KitchenLobby)
-                "That would fall through into the cellars.";
+                 "Isso cairia nas adegas.";
          Open:
             if (player in self)
-                "Not while you're standing on it!";
+                 "Não enquanto você estiver sobre ela!";
          Invoke:
             switch (second) {
              0: give self locked ~open enterable supporter ~door;
@@ -1496,14 +1472,13 @@ Object  Hatch "hatch"
             give KitchenLobby ~general;
             give Cellars ~light;
             give LightSwitch ~on;
-            print "^The hatch opens, and a woman peers in. ~Come out, you \
-                silly girl! How stupid of you to get trapped down there, \
-                you should be more careful with your wandering around, I \
-                don't know, and me with work to do...~ You emerge rather \
-                shamefully from the cellars, and she closes and locks the \
-                hatch, before going back into the kitchens.^";
+             print "^A escotilha se abre e uma mulher espreita. ~Saia daí, sua \
+                 menina boba! Que tolice ficar presa aí embaixo. Você deveria \
+                 tomar mais cuidado ao andar por aí, sabe, e eu tenho trabalho \
+                 a fazer...~ Você sai das adegas bastante envergonhada, e ela \
+                 fecha e tranca a escotilha antes de voltar às cozinhas.^";
             PlayerTo(KitchenLobby,1);
-            Achieved("hiding from the cook");
+             Achieved("escondendo-se do cozinheiro");
             LookSub(1);
             if (Edward in KitchenLobby) {
                 print "^Edward says, ~Lucky for you that I was here to \
@@ -1519,7 +1494,7 @@ Array TableWine table [;
     "the Moet grand cru";
     "the 1931 Haut Medoc";
     "the 1936 Cotes de Brouillard de Plessy-Frais";
-    "I want the Orvieto Classico Secco";
+    "Quero o Orvieto Classico Secco";
     "a ruby port. No, vintage. No, ruby";
     "a Veuve Cliquot champagne";
     "a subtle Loire white";
@@ -1533,16 +1508,16 @@ Object  Cook "cook"
         ! general if you stood on the hatch
  with   name "cook",
         article "the",
-        initial "The cook stands before the bins, considering which \
-            bottle he should take.",
-        description "He looks rather sinister down here in the gloom.",
+         initial "O cozinheiro está diante dos tonéis, pensando em qual \
+             garrafa deve pegar.",
+         description "Ele parece bastante sinistro aqui embaixo, na penumbra.",
         before [;
          Examine: rfalse;
          default:
-            print "~What are you doing here?~ shouts the cook. ~Get out! \
-                get out of my cellar! How dare you!~ He comes out, \
-                ushering you before him, and quickly closes and locks the \
-                hatch, before going south into the kitchen.^";
+             print "~O que você está fazendo aqui?~ grita o cozinheiro. ~Saia! \
+                 Saia da minha adega! Como ousa!~ Ele vem até você, conduzindo-o \
+                 à frente, e fecha e tranca rapidamente a escotilha antes de \
+                 seguir para o sul, rumo à cozinha.^";
             PlayerTo(KitchenLobby,1);
             <Invoke Hatch 0>;
             LookSub(1);
@@ -1566,12 +1541,11 @@ Object  Cook "cook"
         time_out [;
             if (player in Hatch) {
                 give self general;
-                print "^There is a furious banging on the underside of \
-                    the hatch. ~Let me out, you stupid fool!~ shouts the \
-                    cook.^";
+                 print "^Há uma batida furiosa na parte inferior da escotilha. \
+                     ~Deixe-me sair, seu idiota!~ grita o cozinheiro.^";
                 if (Edward in KitchenLobby)
-                    print "^~I really think you should let him out,~ says \
-                        Edward urgently.^";
+                     print "^~Acho mesmo que você deveria deixá-lo sair,~ diz \
+                         Edward com urgência.^";
                 StartTimer(self,0);
                 rtrue;
             }
@@ -1579,11 +1553,10 @@ Object  Cook "cook"
             give LightSwitch ~on;
             give KitchenLobby ~general;
             if (location == Cellars) {
-                print "^The cook finally makes his decision, muttering to \
-                    himself. ~Perhaps ", (Message) TableWine,
-                    "...~ He selects a bottle from the shelves, and \
-                    walks back to the ladder, looking around himself \
-                    suspiciously.^";
+                 print "^O cozinheiro finalmente toma sua decisão, resmungando \
+                     consigo mesmo. ~Talvez ", (Message) TableWine,
+                     "...~ Ele escolhe uma garrafa das prateleiras e volta à \
+                     escada, olhando ao redor com desconfiança.^";
                 if (player notin Alcove) {
                     print "^Suddenly he catches sight of you. ";
                     <<Invoke self>>;
@@ -1591,23 +1564,22 @@ Object  Cook "cook"
                 <Invoke Hatch 2>;
                 MoveNPC(self,0,u_obj);
                 DoneHint(WhatNextPuzzle,11);
-                "^You shrink back into the shadows, and he doesn't notice \
-                you. He turns out the light, climbs the ladder, and you \
-                can hear him closing and locking the hatch. Instead of \
-                breathing a sigh of relief, you suddenly feel very \
-                scared. What if he doesn't come back? What if you're \
-                trapped in here?";
+                 "^Você recua para as sombras, e ele não percebe você. Ele \
+                 apaga a luz, sobe a escada, e você o ouve fechando e trancando \
+                 a escotilha. Em vez de suspirar aliviada, você de repente fica \
+                 muito assustada. E se ele não voltar? E se você ficar presa \
+                 aqui?";
             }
             if (location == KitchenLobby) {
                 if (Hatch hasnt open)
-                    print "^The hatch opens and the cook emerges";
-                else print "^The cook emerges from the cellars";
-                print " carrying a dusty bottle. He quickly closes and \
-                    locks the hatch before going south into the kitchen";
+                     print "^A escotilha se abre e o cozinheiro surge";
+                 else print "^O cozinheiro surge das adegas";
+                 print " carregando uma garrafa empoeirada. Ele fecha e \
+                     tranca rapidamente a escotilha antes de seguir para a \
+                     cozinha";
                 if (self has general) {
                     give self ~general;
-                    print ", all the while glaring at you and cursing \
-                        under his breath";
+                     print ", olhando para você e praguejando entre dentes";
                 }
                 print ".^";
             }
@@ -1615,29 +1587,28 @@ Object  Cook "cook"
             <Invoke Hatch 0>;
         ];
 
-Object  Cellars "Cellars"
+Object  Cellars "Adegas"
  has    light no_edward
         ! general if climbed down ladder
  with   name "cellar" "cellars" "spider" "spiders" "cobweb" "web" "webs"
             "cobwebs",
-        description "The cellar is a cool refuge from the heat of the \
-            summer day outside. There are seven storage bins placed \
-            against the walls of the cellar, the shelves of each stacked \
-            from floor to ceiling with dusty bottles, and a gathering of \
-            dark shadows in one corner signifies an alcove.",
+         description "A adega é um refúgio fresco do calor do dia de verão lá \
+             fora. Há sete tonéis de armazenamento junto às paredes, com as \
+             prateleiras de cada um cheias de garrafas empoeiradas do chão ao \
+             teto; um conjunto de sombras escuras num canto indica uma alcova.",
         u_to [;
-            if (Hatch hasnt open) "The hatch is closed.";
+             if (Hatch hasnt open) "A escotilha está fechada.";
             return Hatch;
         ],
-        cant_go "The only way out is back up.",
+         cant_go "A única saída é voltar para cima.",
         before [;
-         Smell: "The cellars give off a musty odour, not unpleasant, \
-             compounded of sour wine and old cork.";
-         Listen: "There is an occasional rustle, as of mice.";
+          Smell: "As adegas exalam um cheiro mofado, não desagradável, \
+              composto de vinho azedo e cortiça velha.";
+          Listen: "Ocasionalmente há um ruído, como de camundongos.";
          Exit:
             if (player in Alcove) {
                 keep_silent = 1; ExitSub(); keep_silent = 0;
-                "You emerge from the alcove.";
+                 "Você sai da alcova.";
             }
         ];
 
@@ -1645,22 +1616,22 @@ Nearby  Alcove "alcove"
  has    scenery enterable container open
  with   name "alcove" "shadowy" "shadow" "shadows",
         article "an",
-        description "The shadows are deep and dark. Perhaps spiders lurk \
-            in the corners.";
+         description "As sombras são profundas e escuras. Talvez aranhas se \
+             escondam nos cantos.";
 
 Nearby  FakeBottles "bottles"
  has    scenery
         ! general if you found the matching bottle
  with   name "wine" "dusty" "bottle" "bottles",
         article "the",
-        description "There are many hundreds, if not thousands of bottles \
-            in the storage bins, imported from all over Europe and laid \
-            down among the dust and cobwebs to work their magic.",
+         description "Há muitas centenas, senão milhares de garrafas nos \
+             tonéis, importadas de toda a Europa e deixadas entre poeira e \
+             teias de aranha para fazer sua mágica.",
         before [;
          Examine: rfalse;
-         default: "There are so many bottles here, you don't know which \
-            to choose. Perhaps if you're looking for a specific bottle \
-            you should search the bin in which you think you'll find it.";
+          default: "Há tantas garrafas aqui que você não sabe qual escolher. \
+             Talvez, se estiver procurando uma garrafa específica, deva \
+             procurar no tonel onde acha que vai encontrá-la.";
         ];
 
 Nearby  LightSwitch "light switch"
@@ -1668,7 +1639,7 @@ Nearby  LightSwitch "light switch"
  with   name "light" "switch",
         before [;
             if (action ~= ##Examine && Cook in Cellars)
-                "The cook would surely notice if you tried that!";
+                 "O cozinheiro certamente perceberia se você tentasse fazer isso!";
         ],
         after [;
          SwitchOn: give Cellars light;
@@ -1679,15 +1650,15 @@ Nearby  FakeBins "bins"
  has    scenery
  with   name "bins",
         before [;
-            "You should say precisely which of the seven bins you mean.";
+             "Você deve dizer precisamente qual dos sete tonéis quer dizer.";
         ];
 
 Class   BinClass
  has    scenery
  with   description [;
-            print_ret "Its shelves are stacked from floor to ceiling with \
-                dusty bottles. A plaque above the bin is engraved with \
-                the name ~", (string) self.cellarer, "~.";
+             print_ret "Suas prateleiras estão cheias de garrafas empoeiradas \
+                 do chão ao teto. Uma placa acima do tonel está gravada com o \
+                 nome ~", (string) self.cellarer, "~.";
         ],
         parse_name [ w n ok i;
             do {
@@ -1703,27 +1674,25 @@ Class   BinClass
         ],
         before [;
             if (action ~= ##Examine && Cook in Cellars)
-                "The cook would surely notice if you tried that!";
+                 "O cozinheiro certamente perceberia se você tentasse fazer isso!";
          Consult,Search:
             if (MakersStamp has general && self == BinC &&
                 Cellars hasnt general) {
                 give Cellars general;
                 move BottleB to player;
                 ResetVagueWords(BottleB);
-                Achieved("finding the old bottle in the wine cellar");
+                 Achieved("encontrando a garrafa velha na adega");
                 AdvanceTime(BinC);
-                "Looking at the bottles, all lined up in their rows, and \
-                comparing them to the bottle you found in the secret \
-                room, you notice one that has a mark on its cork that \
-                resembles the maker's stamp. You pick up the bottle, and \
-                sure enough, it is there too, a raised stamp on the \
-                base.";
+                 "Olhando para as garrafas, todas enfileiradas, e comparando-as \
+                 com a garrafa encontrada na sala secreta, você nota uma marca \
+                 na rolha que se parece com o selo do fabricante. Você pega a \
+                 garrafa e, com certeza, ele também está ali, em relevo na \
+                 base.";
             }
-            "You search among the bottles, but there are hundreds, \
-            perhaps thousands of them, all very much alike (though all \
-            exquisitely different, no doubt, once on the table). You stop \
-            searching, dispirited. Maybe if you knew what you were \
-            supposed to be looking for you would have more success.";
+             "Você procura entre as garrafas, mas há centenas, talvez milhares, \
+             todas muito parecidas (embora, sem dúvida, primorosamente \
+             diferentes quando sobre a mesa). Você para de procurar, desanimada. \
+             Talvez tivesse mais sucesso se soubesse o que deveria procurar.";
         ];
 
 Nearby BinA "first bin" class BinClass

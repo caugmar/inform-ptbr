@@ -26,8 +26,7 @@ Object  DoorB5 "x"
         before [;
          Knock:
             if (Edward in BStairSecond)
-                "~I don't think that will do you much good,~ says \
-                Edward. ~Esse é o meu quarto, e estou aqui fora.~";
+                "~Não acho que isso vá ajudar muito,~ diz Edward. ~Esse é o meu quarto, e estou aqui fora.~";
             if (Edward in EdwardsRoom) {
                 if (location == BStairSecond)
                  "~Entre,~ diz Edward lá de dentro.";
@@ -79,8 +78,7 @@ Nearby  GasRing "fogareiro a gás"
                 if (noun hasnt is_vessel)
                     "Se quer pôr fogo nisso, então diga.";
                 if (noun ~= Retort)
-                    print_ret (The) noun, " doesn't have an appropriate \
-                         base adequada para ficar sobre o fogareiro aceso.";
+                     print_ret (The) noun, " não tem uma base adequada para ficar sobre o fogareiro aceso.";
             }
         ],
         each_turn [;
@@ -112,7 +110,7 @@ Object  Edward "Edward Forbes"
                 "^Edward está aqui na bateira.";
              print "^Edward Forbes está aqui";
             if (self.state >= 20) ".";
-            if (TearsA in Edward) " crying.";
+            if (TearsA in Edward) " chorando.";
             switch (random(3)) {
               1: " desanimado.";
               2: " desolado.";
@@ -136,18 +134,14 @@ Object  Edward "Edward Forbes"
          Kiss: "Eu não faria isso se fosse você. O choque pode ser demais para ele.";
          Give,Show:
             if (noun == BookCollege)
-                "~I wonder if my father's in there,~ says Edward, looking \
-                through the pages. ~No, no mention of him. Perhaps it \
-                should be called `Rich and Well-connected Men of \
-                Biblioll'.~";
+                 "~Será que meu pai está aí dentro?~ diz Edward, olhando as páginas. ~Não, não há menção a ele. Talvez devesse se chamar `Homens Ricos e Bem-relacionados de Biblioll'.~";
             if (noun == DinnerTicket) <<Question self QDinner>>;
             if (noun == Feather) {
                 move Feather to self;
                 if (self.state < 20) {
                     move TearsA to self;
                     StartTimer(TearsA,4);
-                    "Edward takes the feather from you, and looks at it \
-                     horrorizado. ~Oh, minha pobre Polly, o que fizeram com você?~ diz ele, começando a chorar, com grandes lágrimas escorrendo dos olhos.";
+                    "Edward pega a pena de você e olha para ela horrorizado. ~Oh, minha pobre Polly, o que fizeram com você?~ diz ele, começando a chorar, com grandes lágrimas escorrendo dos olhos.";
                 }
                 if (self.state == 20) 
                      "Edward pega a pena. ~Esta é uma das penas da cauda de Polly. Espero que ela não esteja muito machucada,~ diz ele.";
@@ -191,8 +185,7 @@ Object  Edward "Edward Forbes"
                 Achieved("lighting the gas ring");
                  print "~Não sei quanto a isso,~ diz Edward distraidamente, ~mas certamente posso acender o fogareiro para você. Porém, receio que não tenha mais chá, nem mesmo restos de varrição.~ Ele ";
                 if (child(GasRing) ~= 0) {
-                    print "moves ", (the) child(GasRing), " to the floor, \
-                        and then ";
+                    print "move ", (the) child(GasRing), " para o chão e então ";
                     move child(GasRing) to EdwardsRoom;
                 }
                  "tira um fósforo do bolso traseiro e acende o fogareiro. ~Pronto,~ diz ele, e volta ao ensaio.";
@@ -236,19 +229,16 @@ Object  Edward "Edward Forbes"
          Go,Enter:
             if (self.state <= 20) {
                 if (self.state == 20) 
-                    "~Shh!~ says Edward. ~I've nearly caught Polly, \
-                    don't distract me now!~";
+                     "~Psiu!~ diz Edward. ~Estou quase pegando Polly, não me distraia agora!~";
                 if (noun notin compass)
-                    "~I'm not at all sure I understand you,~ says Edward. \
-                    ~Maybe you can point me in a compass direction?~";
+                     "~Não tenho certeza de que entendi você,~ diz Edward. ~Talvez possa indicar uma direção da bússola?~";
                 <<Invoke self noun>>;
             }
         ],
         before [ d i p z n o po;
          Question:
             if (self.state == 20) 
-                "~Shh!~ says Edward. ~I've nearly caught Polly, don't \
-                distract me now!~";
+                 "~Psiu!~ diz Edward. ~Estou quase pegando Polly, não me distraia agora!~";
             switch (second) {
               QHello:
                  "~Olá,~ diz Edward.";
@@ -269,44 +259,30 @@ Object  Edward "Edward Forbes"
                      "~Não fale dos meus ensaios,~ diz Edward miseravelmente. ~Tenho que ver o professor Bungay esta tarde para uma orientação, e ainda não escrevi meu ensaio. Ele vai me matar, eu sei.~";
                  "~Não pergunte, não pergunte,~ diz Edward.";
              QFrance:
-                "~I wouldn't ask me about that,~ says Edward. ~Professor \
-                Bungay gave me a gamma minus on my last essay on the \
-                subject.~";
+                 "~Eu não perguntaria isso a mim,~ diz Edward. ~O professor Bungay me deu um gama menos no meu último ensaio sobre o assunto.~";
              QAkhenaten,QEgypt:
-                "~I can't help you,~ says Edward. ~If only I'd listened \
-                harder in lectures.~";
+                 "~Não posso ajudar você,~ diz Edward. ~Se ao menos eu tivesse prestado mais atenção às aulas.~";
              QParrot:
                 if (ParrotC in self)
-                    "~A gorgeous creature, isn't it,~ says Edward, \
-                    ruffling the bird's feathers.";
-                "~I must find my parrot, I must,~ says Edward, ~and you \
-                will help me find it.~";
+                     "~Uma criatura magnífica, não acha?~ diz Edward, afofando as penas da ave.";
+                 "~Preciso encontrar meu papagaio, preciso mesmo,~ diz Edward, ~e você vai me ajudar a encontrá-lo.~";
              QPunting:
                 if (self.state < 20)
-                    "~I adore punting,~ says Edward, ~but I don't suppose \
-                    I shall have any chance to do any today.~";
+                     "~Adoro andar de bateira,~ diz Edward, ~mas não creio que terei alguma chance de fazer isso hoje.~";
              QMe:
                 if (self.state == 1)
-                    "~Ha ha!~ says Edward, amused at your joke. ~Of \
-                    course it wasn't you, my window is at least forty \
-                    feet from the ground, and you couldn't possible have \
-                    thrown anything as high as that.~";
+                     "~Ha ha!~ diz Edward, divertido com sua piada. ~É claro que não foi você: minha janela fica a pelo menos doze metros do chão, e você não conseguiria jogar nada tão alto.~";
              QSupervision:
                 if (DoorC3 has general)
-                    "~Don't ask,~ says Edward. ~It was horrible. Worse \
-                    than you can possibly imagine.~ He shudders.";
-                "~I'm dreading it,~ says Edward, ~Professor Bungay is \
-                always more unpleasant than can possibly be imagined.~";
+                     "~Não pergunte,~ diz Edward. ~Foi horrível. Pior do que você pode imaginar.~ Ele estremece.";
+                 "~Estou apavorado,~ diz Edward, ~o professor Bungay é sempre mais desagradável do que se pode imaginar.~";
              QGasRing:
                 if (self in EdwardsRoom) {
                     if (GasRing hasnt on) {
                         DoOrder(self,##Burn,GasRing);
                         rtrue;
                     }
-                    "~I know it looks unsafe,~ says Edward, ~but it's \
-                    fine, really. There's no need to worry, I haven't set \
-                    the room on fire yet.~ He doesn't sound very \
-                    convincing.";
+                    "~Eu sei que parece inseguro,~ diz Edward, ~mas está tudo bem, de verdade. Não precisa se preocupar, ainda não pus fogo no quarto.~ Ele não parece muito convincente.";
                 }
              default:
                 if (self.state < 20)
@@ -354,26 +330,20 @@ Object  Edward "Edward Forbes"
                 if (i has locked || (i == DoorArchway && i hasnt open)) {
                     if (self notin location) rtrue;
                     if (self has is_moving) { n = 1; new_line; }
-                    print "Edward tries to open ", (the) i;
+                    print "Edward tenta abrir ", (the) i;
                     if (i == DoorArchway)
-                        ", but he is utterly unable to move the door \
-                        an inch, and gives up. ~The door's stuck \
-                        again,~ he says. ~I suppose we'll just have \
-                        to wait for someone to open it for us.~";
+                        ", mas é totalmente incapaz de mover a porta um centímetro e desiste. ~A porta emperrou de novo,~ diz ele. ~Acho que teremos de esperar alguém abri-la para nós.~";
                     if (i == GardenGate)
-                        ", but it is locked. ~The gate is always locked \
-                        on Sundays,~ he says.";
+                        ", mas ela está trancada. ~O portão está sempre trancado aos domingos,~ diz ele.";
                     if (self has is_moving)
-                        ", but it is locked.";
+                        ", mas ela está trancada.";
                     else
-                        ", but it is locked. ~Do you really think that my \
-                        parrot could have got through a locked door?~ \
-                        Edward asks you.";
+                        ", mas ela está trancada. ~Você realmente acha que meu papagaio poderia ter passado por uma porta trancada?~ pergunta Edward.";
                 }
                 if (i hasnt open) {
                     if (self in location) {
                         if (self has is_moving) { n = 1; new_line; }
-                        print "Edward opens ", (the) i, ". ";
+                        print "Edward abre ", (the) i, ". ";
                     }
                     give i open;
                 }
@@ -386,8 +356,7 @@ Object  Edward "Edward Forbes"
                 }
                 else i = i.door_to;
                 if (i == 0)
-                    "~I don't think there's much likelihood of \
-                    finding my parrot there,~ says Edward.";
+                     "~Não acho muito provável encontrar meu papagaio ali,~ diz Edward.";
             }
             if (self hasnt is_moving || n == 1)
                 no_new_line_flag = 1;
@@ -397,7 +366,7 @@ Object  Edward "Edward Forbes"
                 if (n == 1) new_line;
                 rtrue;
             }
-            print " You follow him.^";
+             print " Você o segue.^";
             <<Enter second>>;
         ],
         ! this is getting too complex!
@@ -407,19 +376,14 @@ Object  Edward "Edward Forbes"
                 switch (self.state) {
                  22: ! he waits for a turn
                  23:
-                    if (location == Arboretum)
-                        print "^~My goodness, the time,~ says Edward \
-                            agitatedly. ~I must, I must, get back and \
-                            write my essay, otherwise my life will not be \
-                            worth a farthing.~ He sets off as fast as he \
-                            can walk, the parrot wobbling on his \
-                            shoulder.^";
+                     if (location == Arboretum)
+                         print "^~Meu Deus, que horas são,~ diz Edward agitado. ~Preciso, preciso voltar e escrever meu ensaio, senão minha vida não valerá um vintém.~ Ele parte o mais rápido que consegue andar, com o papagaio cambaleando em seu ombro.^";
                     MovePrintNPC(self,Gardens,sw_obj);
                  24:
                     if (GardenGate hasnt open) {
                         give GardenGate open;
                         if (location == Gardens)
-                            print "^Edward opens the garden gate.^";
+                             print "^Edward abre o portão do jardim.^";
                     }
                     MovePrintNPC(self,SecondCourt,sw_obj);
                  25: MovePrintNPC(self,SecondCourtArchway,w_obj);
@@ -430,38 +394,35 @@ Object  Edward "Edward Forbes"
                  30:
                     give DoorB5 ~locked open;
                     if (location == BStairSecond)
-                        print "^Edward unlocks and opens the door to \
-                            B5.^";
+                         print "^Edward destranca e abre a porta de B5.^";
                     MovePrintNPC(self,EdwardsRoom,e_obj);
                  default:
                     StopDaemon(self);
                     if (location == EdwardsRoom)
-                        print "^Edward sits down at his desk and starts \
-                            work on his essay.^";
+                         print "^Edward senta-se à escrivaninha e começa a trabalhar no ensaio.^";
                 }
                 rtrue;
             }
             if (parent(self) == BungaysSanctum or BungaysHallway)
                 rtrue;
             if (parent(self) has no_edward)
-                "** Error: Edward is in a place where he's not allowed to \
-                be **";
+                 "** Erro: Edward está em um lugar onde não deveria estar **";
             if (self.number == 3) rtrue;
             if (self.state >= 20) {
                 StopDaemon(self);
                 rtrue;
             }
             if (self.number == 0) {
-                ! Don't move if the timer is running.
+                 ! Não mover se o cronômetro estiver ativo.
                 if (self.time_left > 0) {
                     self.time_left = self.time_left - 1;
                     rtrue;
                 }
-                ! Only move 1/3 of turns anyway.
+                 ! Mover apenas um terço dos turnos de qualquer modo.
                 if (random(3) > 1) rtrue;
                 i = ((parent(self)).#edward_dirs)/2;
                 if (i == 0)
-                    "** Error: Edward in location where he can't move **";
+                     "** Erro: Edward está em um local onde não pode se mover **";
                 j = ((parent(self)).&edward_dirs)-->(random(i) - 1);
                 give self is_moving;
                 <Invoke self j>;
@@ -474,8 +435,7 @@ Object  Edward "Edward Forbes"
                 self.number = 1;
                 give self general;
                 if (i == Cellars or thedark) rtrue;
-                print "^~Ah, there you are,~ says Edward, catching sight \
-                    of you. ~I've been waiting here for you since ";
+                 print "^~Ah, aí está você,~ diz Edward ao avistá-lo. ~Estou esperando você aqui desde ";
                 if (i == 2)
                      "você encontrou o professor Wilderspin.~";
                 if (i == 4)
@@ -502,12 +462,7 @@ Object  Edward "Edward Forbes"
                  "^Edward avista o papagaio na árvore. ~Polly, minha Polly,~ chama. ~Como posso expressar minha gratidão por vê-la novamente?~ Ele parece radiante com o reencontro, mas o papagaio permanece impassível e imóvel na árvore.";
             }
             if (LineOfSight(Wilderspin,self) == 1) {
-                print "^~Hello, Forbes,~ says Wilderspin, noticing Edward \
-                    loitering nearby. ~How nice to see you! How's your \
-                    essay on the Moors' conquest of Spain coming along? I \
-                    expect it will be in my pigeonhole tomorrow morning, \
-                    yes?~^^Edward mumbles something non-committal and \
-                    says that he can't stop now, he has to get on.^";
+                print "^~Olá, Forbes,~ diz Wilderspin ao notar Edward parado por perto. ~Que bom vê-lo! Como está indo seu ensaio sobre a conquista moura da Espanha? Espero encontrá-lo no meu escaninho amanhã de manhã, sim?~^^Edward resmunga algo evasivo e diz que não pode parar agora, precisa continuar.^";
                 if (self.state < 20) {
                     if (self.number == 1) self.number = 2;
                     MovePrintNPC(self, FirstCourt, nw_obj);
@@ -516,49 +471,28 @@ Object  Edward "Edward Forbes"
             }
             if (LineOfSight(Bungay,self) == 1 && Bungay hasnt general) {
                 give Bungay general;
-                "^~Well, what a surprise,~ says Bungay. ~If it isn't \
-                Edward Forbes! A man with an essay on the cultural impact \
-                of the Fourth Crusade to write by last Friday, if my \
-                memory does not fail me.~ His voice turns sour as he \
-                says, ~If you recall, we agreed that you would see me \
-                this afternoon in my room and we will have a little chat \
-                about it.~^^~Yes, sir,~ says Edward, who has suddenly \
-                turned very white.";
+                "^~Ora, que surpresa,~ diz Bungay. ~Se não é Edward Forbes! Um homem que deveria ter escrito até a última sexta-feira um ensaio sobre o impacto cultural da Quarta Cruzada, se minha memória não falha.~ Sua voz fica azeda ao dizer: ~Se bem se lembra, combinamos que você me procuraria esta tarde em meu quarto para conversarmos um pouco sobre isso.~^^~Sim, senhor,~ diz Edward, que de repente fica muito pálido.";
             }
             if (LineOfSight(Turmeric,self) == 1 && Turmeric hasnt general) {
                 give Turmeric general proper;
-                "^Edward bends down to pet the cat, which obligingly \
-                rolls onto its back and purrs. ~Hallo Turmeric,~ he \
-                says.";
+                "^Edward se abaixa para acariciar o gato, que obedientemente rola de costas e ronrona. ~Olá, Turmeric,~ diz ele.";
             }
             if (LineOfSight(BrokenWindow,self) == 1 && BrokenWindow hasnt
               general) {
                 give BrokenWindow general;
-                "^~Look at that!~ says Edward angrily, pointing up at the \
-                broken window. ~Look what some cretin did to my window! \
-                Broken glass all over the floor, and my parrot gone. I \
-                don't suppose you saw the miscreant who did it, did you? \
-                No, I guess you wouldn't have done, or you would have \
-                said.~";
+                "^~Veja só!~ diz Edward furioso, apontando para a janela quebrada. ~Veja o que algum cretino fez com minha janela! Vidros quebrados por todo o chão, e meu papagaio sumiu. Não viu por acaso o canalha que fez isso, viu? Não, imagino que não, ou você teria dito.~";
             }
             if (self in EdwardsRoom && EdwardsRoom hasnt general) {
                 give EdwardsRoom general;
-                "^~Hey!~ says Edward, seeing you enter. ~You can't come \
-                in here, I'm not supposed to have women in here at all.~ \
-                When he sees that you're not about to move, he goes on: \
-                ~Well, you can come in then, but be quiet and don't tell \
-                anyone or else I shall be in terrible trouble.~";
+                "^~Ei!~ diz Edward ao vê-lo entrar. ~Você não pode entrar aqui, não devo receber mulheres aqui de jeito nenhum.~ Ao ver que você não pretende sair, continua: ~Bem, então pode entrar, mas fique quieta e não conte a ninguém, senão terei problemas terríveis.~";
             }
             if (self in EdwardsRoom && LineOfSight(self,ElixirC) == 1 &&
               parent(ElixirC) has open && ElixirC.state < 2) {
                 ElixirC.state = ElixirC.state + 1;
-                print "^~Please take that perfume away,~ begs Edward.";
+                print "^~Por favor, tire esse perfume daqui,~ implora Edward.";
                 switch (ElixirC.state) {
-                 1: print " ~My dusty, she has the nose of a bloodhound, \
-                        I tell you, she can smell alcohol or perfume from \
-                        a mile off.~";
-                 2: print "^^~I wouldn't worry,~ you reply, ~At least \
-                        your window will be open all night.~";
+                  1: print " ~Minha patroa tem faro de cão de caça, digo a você, ela sente cheiro de álcool ou perfume a um quilômetro de distância.~";
+                  2: print "^^~Eu não me preocuparia,~ você responde. ~Pelo menos sua janela ficará aberta a noite toda.~";
                 }
                 new_line; rtrue;
             }
@@ -567,29 +501,14 @@ Object  Edward "Edward Forbes"
             if (random(3) == 1) {
                 self.state = self.state + 1;
                 switch (self.state) {
-                 1: "^~It was terrible,~ says Edward. ~I came back from \
-                    breakfast and there was glass all over the floor and \
-                    my parrot had vanished. I can't imagine who could \
-                    have done such a terrible thing.~";
-                 2: "^~You must help me to find my parrot,~ pleads \
-                    Edward. ~Just tell me which way I should go.~";
-                 3: "^~This is the worst thing that could have happened,~ \
-                    says Edward, ~because I have to do an essay for \
-                    Professor Wilderspin for tomorrow and another essay \
-                    for Professor Bungay that's overdue and I haven't \
-                    started either one.~";
-                 4: "^Edward says, ~Professor Bungay said that I have to \
-                    go and see him this afternoon, and he terrifies me.~";
-                 5: "^Edward says, ~Professor Bungay is always beastly to \
-                    me. He never ever gives me an alpha on any of my \
-                    essays, and he always gives me bad reports so that I \
-                    get into trouble with my tutor.~";
-                 6: "^Edward says, ~I was going to do my essay this \
-                    afternoon and then I was going to go punting on the \
-                    river, but now I have to find my parrot.~";
-                 7: if (random(3) == 1)
-                    "^Edward looks all around him for signs of his \
-                    parrot, but to no avail.";
+                  1: "^~Foi terrível,~ diz Edward. ~Voltei do café da manhã e havia vidro por todo o chão, e meu papagaio tinha desaparecido. Não consigo imaginar quem poderia ter feito uma coisa tão terrível.~";
+                  2: "^~Você precisa me ajudar a encontrar meu papagaio,~ implora Edward. ~Apenas me diga para que lado devo ir.~";
+                  3: "^~Esta é a pior coisa que poderia ter acontecido,~ diz Edward, ~pois tenho de fazer um ensaio para o professor Wilderspin para amanhã e outro para o professor Bungay, que está atrasado, e não comecei nenhum dos dois.~";
+                  4: "^Edward diz: ~O professor Bungay disse que preciso vê-lo esta tarde, e ele me aterroriza.~";
+                  5: "^Edward diz: ~O professor Bungay é sempre cruel comigo. Ele nunca me dá um alfa em nenhum dos meus ensaios e sempre faz relatórios ruins, para que eu me meta em problemas com meu tutor.~";
+                  6: "^Edward diz: ~Eu ia fazer meu ensaio esta tarde e depois andar de bateira no rio, mas agora preciso encontrar meu papagaio.~";
+                  7: if (random(3) == 1)
+                     "^Edward olha ao redor em busca de sinais do papagaio, mas não encontra nada.";
                  default: self.state = 6;
                 }
             }
@@ -658,11 +577,11 @@ Nearby  DoorC2 "x" class DoorClass
  with   name "C2" "Middlemann" "Middlemann's", honorific doctor,
         room "C2", occupant "Middlemann", door_dir s_to;
 
-Object  KeyLibrary "copper key" DoorC1
+Object  KeyLibrary "chave de cobre" DoorC1
  class  KeyClass
  with   name "copper";
 
-Object  CStairFirst "~C~ Staircase, First Floor"
+Object  CStairFirst "Escadaria ~C~, primeiro andar"
  has    light cat_allowed
         ! general if a knock is in progress
  with   name "stair" "stairs" "river" "trees" "grass" "tree",
@@ -673,7 +592,7 @@ Object  CStairFirst "~C~ Staircase, First Floor"
         s_to DoorC4,
         edward_dirs d_obj;
 
-Nearby  CStairFirstWindow "window"
+Nearby  CStairFirstWindow "janela"
  has    scenery
  with   name "window",
          description "A janela dá para um rio que passa pela base do edifício, com árvores e grama além dele.",
@@ -708,39 +627,29 @@ Object  DoorC3 "x"
          Knock:
             if (ClockTower.number > 18) rfalse;
             if (Edward in BungaysSanctum || self has open)
-                "~Go away, I'm supervising!~ comes an angry shout from \
-                inside.";
+                 "~Vá embora, estou dando orientação!~ grita uma voz zangada lá de dentro.";
             if (self has general)
-                "~Go away!~ comes an angry shout from inside.";
+                 "~Vá embora!~ grita uma voz zangada lá de dentro.";
             if (CStairFirst has general)
-                "You knock again. You can hear footsteps approaching the \
-                door from inside.";
+                 "Você bate novamente. É possível ouvir passos se aproximando da porta por dentro.";
             give CStairFirst general;
             StartTimer(self, 1);
-            print "You rap sharply at the door, and hear a distant grumpy \
-                ~I'm coming!~^";
+             print "Você bate com força na porta e ouve um mal-humorado ~Já vou!~ distante.^";
             if (LineOfSight(Edward,self) == 1) {
                 if (Edward.number == 1) Edward.number = 3;
-                print "^~Oh dear, oh dear,~ murmurs Edward.^";
+                 print "^~Oh, céus, oh, céus,~ murmura Edward.^";
             }
             rtrue;
         ],
         time_out [;
             give CStairFirst ~general;
             if (location == CStairFirst) {
-                print "^The door to C3 opens a crack and Bungay peers \
-                    out. ";
+                 print "^A porta de C3 se abre uma fresta e Bungay espia para fora. ";
                 if (LineOfSight(Edward,self) == 1) {
                     if (Edward.number == 3) Edward.number = 1;
-                    "He looks at Edward and then catches sight of \
-                    you. ~Edward Forbes, associating with a woman! Who'd \
-                    have thought it? Anyway, I don't have time to talk to \
-                    you love-birds.~ He slams the door shut.^^~Now look \
-                    what you've done,~ says Edward.";
+                     "Ele olha para Edward e então avista você. ~Edward Forbes, na companhia de uma mulher! Quem diria? Enfim, não tenho tempo para falar com vocês, pombinhos.~ Ele bate a porta.^^~Veja só o que você fez,~ diz Edward.";
                 }
-                "~You again!~ he snarls. ~Haven't I told you to keep your \
-                nose out of business that doesn't concern you?~ He slams \
-                the door in your face.";
+                "~Você de novo!~ rosna ele. ~Já não lhe disse para não se intrometer em assuntos que não lhe dizem respeito?~ Ele bate a porta na sua cara.";
             }
             if (LineOfSight(Edward,self) == 1) {
                 give self ~locked;
@@ -750,11 +659,7 @@ Object  DoorC3 "x"
                 if (Edward.number == 3) Edward.number = 4;
                 else Edward.number = 0;
                 if (player in CStairGround)
-                    "^From above you can hear Edward mumbling something, \
-                    and Bungay's loud reply, ~Yes, I suppose I can spare \
-                    a minute or two of my valuable time to talk to you \
-                    about your essay.~^^Then you hear footsteps and a \
-                    door closing.";
+                     "^Lá de cima, você ouve Edward resmungar alguma coisa e a resposta alta de Bungay: ~Sim, suponho que possa reservar um ou dois minutos do meu precioso tempo para falar sobre seu ensaio.~^^Então você ouve passos e uma porta se fechando.";
             }
         ];
 
@@ -781,51 +686,30 @@ Object  BungaysHallway "Corredor do professor Bungay"
             AdvanceTime(self);
             if (Bungay in self) {
                 deadflag = 3;
-                "^You try to creep through the hallway as quietly as you \
-                can, but Bungay is looking your way and you have no \
-                chance of avoiding him.^^~My God!~ he bellows, ~You \
-                little sneak!~^^You dart for the door, and he lunges \
-                after you with surprising speed, and as you get out onto \
-                the landing he catches you about the head with a swing of \
-                his fist, sending you tumbling down the stairs.^^You hear \
-                as if from far away a cracking sound that you realise \
-                only belatedly to be your head hitting the polished \
-                wooden floor at the bottom, and then everything goes \
-                black.^^You wake to find yourself in hospital with your \
-                head bandaged and Edward sitting solicitously by your \
-                bedside.^^Later, when you learn of your brother Malcolm's \
-                disappearance from Biblioll college never to be seen \
-                again, you wish that you hadn't been so unceremoniously \
-                precipitated from the scene, but by then it is too late.";
+                "^Você tenta atravessar o corredor silenciosamente, mas Bungay olha em sua direção e não há como evitá-lo.^^~Meu Deus!~ ele berra. ~Seu pequeno espião!~^^Você corre para a porta, e ele avança atrás de você com velocidade surpreendente. Quando você chega ao patamar, ele acerta sua cabeça com um golpe do punho, fazendo-o rolar escada abaixo.^^Você ouve, como se viesse de muito longe, um estalo que só percebe tarde demais ser sua cabeça batendo no chão de madeira polida, e então tudo fica escuro.^^Você acorda no hospital, com a cabeça enfaixada e Edward sentado solícito ao lado da cama.^^Mais tarde, ao saber que seu irmão Malcolm desapareceu da faculdade de Biblioll para nunca mais ser visto, você deseja não ter sido expulso da cena de modo tão abrupto, mas então já é tarde demais.";
             }
-            print "^From behind the white-painted door you can hear ";
+             print "^Por trás da porta pintada de branco, você ouve ";
             self.state = self.state + 1;
             if (self.state == 20) self.state = 0;
             switch (self.state) {
-             0,19: "Edward sobbing quietly.";
-             4,17: "Edward mumbling contritely.";
-             6,14: "nervous shuffling sounds.";
-             8,10,12: "Edward mumbling something indistinct.";
+             0,19: "Edward soluçando baixinho.";
+             4,17: "Edward resmungando contrito.";
+             6,14: "sons nervosos de passos arrastados.";
+             8,10,12: "Edward resmungando algo indistinto.";
             }
-            print "Bungay saying, ~";
+             print "Bungay dizendo: ~";
             switch (self.state) {
-             1: "Failing to hand in an essay once may be considered \
-                carelessness.~";
-             2: "Failing to hand in an essay twice may perhaps be \
-                excused.~";
-             3: "You have failed to hand in this essay for the third time \
-                and I must consider your recidivism to be evidence of \
-                laziness and failure.~";
-             5: "I'm sorry, I didn't quite hear that.~";
-             7: "Exactly which of the references that I asked you to \
-                consult have you read?~";
-             9: "How many was that?~";
-             11: "And what exactly have you learned about the Fourth \
-                Crusade? Perhaps you could enlighten me.~";
-             13: "I'm sorry, I didn't quite hear that.~";
-             15: "An extension, did I hear you say?~";
-             16: "And why exactly should I do that, pray?~";
-             18: "Have you considered changing to Land Economy?~";
+              1: "Não entregar um ensaio uma vez pode ser considerado descuido.~";
+              2: "Não entregar um ensaio duas vezes talvez possa ser perdoado.~";
+              3: "Você deixou de entregar este ensaio pela terceira vez, e devo considerar sua reincidência uma prova de preguiça e fracasso.~";
+              5: "Desculpe, não ouvi muito bem.~";
+              7: "Quais exatamente das referências que pedi que consultasse você leu?~";
+              9: "Quantos foram mesmo?~";
+              11: "E o que exatamente aprendeu sobre a Quarta Cruzada? Talvez possa me esclarecer.~";
+              13: "Desculpe, não ouvi muito bem.~";
+              15: "Uma prorrogação, foi isso que ouvi você dizer?~";
+              16: "E por que exatamente eu deveria fazer isso, diga-me?~";
+              18: "Já considerou mudar para Economia Agrária?~";
             }
         ];
 
@@ -836,16 +720,13 @@ Nearby  WhiteDoor "porta pintada de branco"
         door_to BungaysSanctum,
         before [;
          Open,Knock,Attack: 
-            "Bungay would surely notice, and he wouldn't be at all happy \
-            to find you in here. It might be safest to leave him \
-            undisturbed for the moment.";
+             "Bungay certamente notaria e não ficaria nada feliz ao encontrá-lo aqui. Talvez seja mais seguro deixá-lo sem ser incomodado por enquanto.";
         ];
 
 Nearby  TemplarArms "brasão"
  has    scenery
  with   name "coat" "of" "arms",
-        description "A red Maltese cross on a white shield, with some \
-            kind of building - a church, perhaps - above it.";
+         description "Uma cruz maltesa vermelha sobre um escudo branco, com algum tipo de edifício, talvez uma igreja, acima dela.";
 
 Object  BungaysStudy "Escritório do professor Bungay"
  has    light no_edward
@@ -853,16 +734,10 @@ Object  BungaysStudy "Escritório do professor Bungay"
  with   name "furnishing" "garden" "gardens" "college" "decoration"
             "alcove" "ostentation" "globe" "trapdoor",
         description [;
-            print "What an ostentatious room this is! Rich furnishings \
-                from every corner of the globe: a silk rug from Persia, a \
-                mahogany desk from Siam, ";
+             print "Que sala ostentosa! Móveis ricos de todos os cantos do globo: um tapete de seda da Pérsia, uma escrivaninha de mogno do Sião, ";
             if (LacquerBox hasnt moved)
-                print "on which sits a lacquer box from China, ";
-            "and so on. But you probably have little time to attend to \
-            these decorations before Bungay finishes dealing with Edward \
-            and you have to make a quick getaway. There is an exit to the \
-            south, and a window looks out over some gardens to the \
-            north.";
+                 print "sobre a qual repousa uma caixa laqueada da China, ";
+             "e assim por diante. Mas você provavelmente tem pouco tempo para observar essas decorações antes que Bungay termine de lidar com Edward e você precise fugir depressa. Há uma saída ao sul e uma janela dá para alguns jardins ao norte.";
         ],
         out_to [;
             if (WindowC3 has open) <<Go n_obj>>;
@@ -873,26 +748,16 @@ Object  BungaysStudy "Escritório do professor Bungay"
         n_to [;
             if (WindowC3 hasnt open) return WindowC3;
             if (Bungay in BungaysHallway)
-                print "You clamber as quietly as you can up onto the \
-                    windowsill, and for a few seconds you consider the \
-                    dreadful prospect. But you must jump, and there is no \
-                    time left to delay.";
+                 print "Você sobe o mais silenciosamente possível até o parapeito da janela e por alguns segundos contempla a perspectiva terrível. Mas precisa pular, e não resta tempo para hesitar.";
             else
-                print "As you clamber up onto the windowsill, you hear \
-                    voices and realise that Bungay and Edward are \
-                    emerging from their conference, and that you are \
-                    taking your leave only just in time!";
+                 print "Enquanto você sobe até o parapeito da janela, ouve vozes e percebe que Bungay e Edward estão saindo da conversa, e que você parte bem a tempo!";
             StopDaemon(BungaysStudy);
             move Edward to SecondCourt;
             move Turmeric to InsideShed;
             if (Edward.state < 6) Edward.state = 6;
             move Bungay to BungaysSanctum;
             give DoorC3 ~open locked general;
-            print "^^Gingerly you let yourself down, until you are \
-                hanging from the window ledge by your fingertips. \
-                Stifling a scream, you let go. The lawn rushes up at you, \
-                and with a sudden bone-jarring thud you find yourself, \
-                bruised but (thank God!) not broken, in the...^";
+             print "^^Cuidadosamente, você se deixa descer até ficar pendurado pelas pontas dos dedos no parapeito da janela. Abafando um grito, solta-se. O gramado vem rapidamente ao seu encontro e, com um baque repentino que faz seus ossos tremerem, você se vê, machucado mas, graças a Deus, não quebrado, no...^";
             Achieved("escaping from Professor Bungay");
             AdvanceTime(self);
             DoneHint(WhatNextPuzzle,14);
@@ -903,7 +768,7 @@ Object  BungaysStudy "Escritório do professor Bungay"
          cant_go "A única saída é ao sul, de volta ao corredor de entrada.",
         before [;
          Speak,Sing,Scream,Mild,Strong:
-            "Shh! Bungay would surely notice!";
+             "Psiu! Bungay certamente notaria!";
         ],
         each_turn [;
             if (self has general) {
@@ -911,64 +776,37 @@ Object  BungaysStudy "Escritório do professor Bungay"
                 move Bungay to BungaysHallway;
                 move Edward to BungaysHallway;
                 StartDaemon(self);
-                "^You hear voices from the south and the opening and \
-                closing of a door, and you realise that you have lingered \
-                here too long, and that Bungay has finished dealing with \
-                Edward. You are now trapped in here!";
+                 "^Você ouve vozes ao sul e uma porta se abrindo e fechando, e percebe que demorou demais aqui e que Bungay terminou de lidar com Edward. Agora você está preso aqui!";
             }
         ],
         daemon [;
             self.state = self.state + 1;
             if (location ~= BungaysStudy) rtrue;
             if (self.state < 7)
-                print "^You can hear ";
+                 print "^Você ouve ";
             if (self.state == 1 or 3 or 4 || self.state == 6)
-                print "Bungay to the south, saying ~";
+                 print "Bungay ao sul, dizendo: ~";
             switch (self.state) {
-             1: "I hope I make myself clear?~";
-             2: "Edward mumbling his agreement.";
-             3: "I shall expect to see the essay in my pigeonhole at nine \
-                on Monday morning.~^^How long will the ghastly man keep \
-                talking? You must get out of here!";
-             4: "Not a minute later, or else I shall have no choice but \
-                to institute rustication proceedings.~^^He is obviously \
-                coming to the end of his admonishment, and you cannot \
-                hope to evade detection for much longer.";
-             5: "Edward gasp with shock.^^You are getting desperate! You \
-                must escape!";
-             6: "Some would say that I'm being exceptionally lenient in \
-                this matter, so you should be grateful. Now begone with \
-                you, get out of my sight!~^^Any moment now, he will find \
-                you!";
+              1: "Espero ter deixado isso claro?~";
+              2: "Edward resmungando em concordância.";
+              3: "Espero ver o ensaio no meu escaninho às nove de segunda-feira de manhã.~^^Por quanto tempo esse homem horrível continuará falando? Você precisa sair daqui!";
+              4: "Nem um minuto depois, ou não terei escolha senão iniciar um processo de expulsão.~^^Ele obviamente está chegando ao fim de sua reprimenda, e você não conseguirá evitar ser descoberto por muito mais tempo.";
+              5: "Edward suspira chocado.^^Você está ficando desesperado! Precisa escapar!";
+              6: "Alguns diriam que estou sendo excepcionalmente indulgente neste assunto, portanto deveria estar agradecido. Agora suma, saia da minha frente!~^^A qualquer momento ele encontrará você!";
             }
             deadflag = 3;
-            print "^Bungay comes to the doorway of his study, and ";
+            print "^Bungay chega à porta de seu escritório e ";
             if (player in NarrowGap)
-                print "looks around suspiciously, his eyes lighting on \
-                    the displaced desk. Trembling with fear, you crouch \
-                    as low as you can as his heavy footsteps approach the \
-                    desk and he peers over it. ~Caught in the act!~ he \
-                    cries. ~You little sneak!~ H";
+                print "olha ao redor desconfiado, seus olhos pousando sobre a escrivaninha deslocada. Tremendo de medo, você se agacha o máximo possível enquanto seus passos pesados se aproximam da escrivaninha e ele espia por cima dela. ~Peguei você no ato!~ grita. ~Seu pequeno espião!~ E";
             else
-                print "his eyes light on you. ~Caught in the act!~ he \
-                    cries. ~You little sneak!~ h";
-            "e lunges at you with surprising speed and catches you a \
-            heavy blow to the head with his great fist.^^You hear as if \
-            from far away a cracking sound that you realise only \
-            belatedly to be your head hitting the wall, and then \
-            everything goes black.^^You wake to find yourself in hospital \
-            with your head bandaged and Edward sitting solicitously by \
-            your bedside.^^Later, when you learn of your brother \
-            Malcolm's disappearance from Biblioll college never to be \
-            seen again, you wish that you hadn't be so unceremoniously \
-            precipitated from the scene, but by then it is too late.";
+                print "seus olhos pousam em você. ~Peguei você no ato!~ grita. ~Seu pequeno espião!~ e";
+            "le avança com velocidade surpreendente e acerta sua cabeça com um golpe pesado de seu grande punho.^^Você ouve, como se viesse de muito longe, um estalo que só percebe tarde demais ser sua cabeça batendo na parede, e então tudo fica escuro.^^Você acorda no hospital, com a cabeça enfaixada e Edward sentado solícito ao lado da cama.^^Mais tarde, ao saber que seu irmão Malcolm desapareceu da faculdade de Biblioll para nunca mais ser visto, você deseja não ter sido expulso da cena de modo tão abrupto, mas então já é tarde demais.";
         ];
 
 Nearby  WindowC3 "janela"
  has    openable scenery door
  with   name "window" "windows",
-        description "Through the window you can see a delightful view of \
-            the college gardens.",
+         description "Pela janela, você pode ver uma vista encantadora dos jardins da faculdade.",
          when_closed "Uma janela ao norte dá para os jardins da faculdade.",
          when_open "Uma janela aberta ao norte dá para os jardins da faculdade.",
         door_dir n_to,
@@ -981,7 +819,7 @@ Nearby  WindowC3 "janela"
          ThrownAt,Receive:
              if (self hasnt open) "Você já quebrou janelas o bastante por um dia.";
             move noun to Gardens;
-            print_ret (The) noun, " flies through the open window.";
+             print_ret (The) noun, " voa pela janela aberta.";
         ];
 
 Nearby  SilkRug "tapete de seda"
@@ -990,9 +828,7 @@ Nearby  SilkRug "tapete de seda"
             "threadbare",
          description "Antes uma bela obra de arte, mas hoje uma pessoa cruel poderia descrevê-lo como um tanto gasto.",
         before [;
-         Pull,Push,LookUnder: "There's nothing underneath the rug. For \
-            some unaccountable reason, you had half expected to find a \
-            trapdoor there.";
+          Pull,Push,LookUnder: "Não há nada sob o tapete. Por alguma razão inexplicável, você esperava encontrar um alçapão ali.";
         ];
 
 Nearby  DeskDrawer "gaveta"
@@ -1002,9 +838,7 @@ Nearby  DeskDrawer "gaveta"
         description [;
             if (self hasnt open)
                  "A gaveta da escrivaninha está fechada.";
-            "From this side, you notice that the desk drawer isn't a snug \
-            fit into the desk, and there is enough space at the top to \
-            get at the contents.";
+             "Deste lado, você percebe que a gaveta não se encaixa perfeitamente na escrivaninha e que há espaço suficiente no alto para alcançar o conteúdo.";
         ],
         each_turn [;
             if (player in NarrowGap) give self open;
@@ -1017,51 +851,36 @@ Nearby  MahoganyDesk "escrivaninha de mogno"
  with   name "mahogany" "desk" "siamese" "antique" "queen" "anne" "solid"
             "asian",
         description [;
-            print "You're no expert on antique furniture, but you would \
-                guess that it is a Queen Anne, in excellent condition, \
-                made from solid mahogany imported by ship from the \
-                south-east of Asia. There is a single drawer. ";
+             print "Você não é especialista em móveis antigos, mas diria que esta é uma Queen Anne, em excelente estado, feita de mogno maciço importado de navio do sudeste da Ásia. Há uma única gaveta. ";
             if (self has general)
-                "The desk has been pulled a foot or so out of its alcove \
-                into the room, leaving a narrow gap between it and the \
-                back wall of the alcove.";
-            "The desk fits snugly into an alcove in one side of the \
-            room.";
+                 "A escrivaninha foi puxada cerca de trinta centímetros para fora do nicho, deixando uma fresta estreita entre ela e a parede do fundo.";
+             "A escrivaninha se encaixa perfeitamente em um nicho na lateral da sala.";
         ],
         capacity 5,
         before [;
           LookUnder: "Não há nada escondido sob a escrivaninha.";
          Climb,Enter:
             if (self has general) {
-                print "You climb over the desk and jump down into the \
-                    narrow gap behind it.^";
+                 print "Você sobe pela escrivaninha e pula na fresta estreita atrás dela.^";
                  <<Enter NarrowGap>>;
             }
          Pull,Push:
             if (self hasnt general) {
                 give self general;
                 move NarrowGap to BungaysStudy;
-                "You hardly dare to move the desk, for fear that it would \
-                squeak on the polished floor and alert Bungay to your \
-                presence, but it's lighter than it looks, and you manage \
-                to move it by about a foot before your nerve gives \
-                out. Still, you've created a narrow gap between the desk \
-                and the back wall of the alcove.";
+                "Você mal ousa mover a escrivaninha, temendo que ela range no chão polido e alerte Bungay sobre sua presença, mas ela é mais leve do que parece e você consegue movê-la cerca de trinta centímetros antes de perder a coragem. Ainda assim, criou uma fresta estreita entre a escrivaninha e a parede do fundo do nicho.";
             }
             if (player in NarrowGap)
-                "You can't move the desk back to where it was, because \
-                you're in the way.";
+                "Você não pode devolver a escrivaninha ao lugar, pois está no caminho.";
             give self ~general;
             remove NarrowGap;
-            "Anxious not to leave any traces of your search, you slowly \
-            and carefully return the desk to its original position.";
+            "Ansioso para não deixar vestígios de sua busca, você devolve lenta e cuidadosamente a escrivaninha à posição original.";
         ];
 
 Object  NarrowGap "fresta estreita"
  has    scenery enterable container open
  with   name "narrow" "gap" "space" "alcove",
-        description "You've made about a foot of room behind the desk, \
-            just about enough to stand in.";
+         description "Você criou cerca de trinta centímetros de espaço atrás da escrivaninha, apenas o suficiente para ficar de pé.";
 
 Object  LacquerBox "caixa laqueada" MahoganyDesk
  class  VesselClass DelicateClass
@@ -1071,10 +890,7 @@ Object  LacquerBox "caixa laqueada" MahoganyDesk
         describe [;
             if (self hasnt moved) rtrue;
         ],
-        description "A beautiful work of craftsmanship, this Chinese \
-            lacquer box is about two inches cubed, and decorated with \
-            pictures of Chinese men and women walking in ornamental \
-            gardens.",
+         description "Uma bela obra artesanal, esta caixa chinesa de laca tem cerca de cinco centímetros cúbicos e é decorada com imagens de homens e mulheres chineses caminhando por jardins ornamentais.",
         before [;
           SmellThing: "A caixa exala um aroma oleoso e amargo.";
          Take,Remove:

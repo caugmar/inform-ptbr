@@ -11,10 +11,9 @@
 
 Object  FirstCourt "Primeiro Pátio"
  has    light
- with   name "tall" "building" "buildings" "gargoyle" "gargoyles"
-            "quadrangle" "first" "court" "gloomy" "gingham" "pinafore"
-            "apron" "centuries-old" "stonework" "centuries" "old" "chapel"
-            "street",
+  with   name "alto" "prédio" "prédios" "gárgula" "gárgulas" "tall" "building" "buildings" "gargoyle" "gargoyles"
+             "quadrilátero" "primeiro" "pátio" "sombrio" "quadrangle" "first" "court" "gloomy" "gingham" "pinafore"
+             "avental" "secular" "cantaria" "séculos" "antigo" "capela" "rua" "apron" "centuries-old" "stonework" "centuries" "old",
         description [;
              print "Um gramado impecável ocupa o centro de um pátio sombrio \
                  cercado por prédios altos nos quatro lados. ";
@@ -77,8 +76,8 @@ Object  FirstCourt "Primeiro Pátio"
 
 Nearby  Lawn "gramado impecável"
  has    scenery enterable container open
- with   name "immaculate" "lawn" "freshly-mown",
-        article "an",
+         with   name "impecável" "gramado" "recém-aparado" "immaculate" "lawn" "freshly-mown",
+         article "um",
          description "O resultado de centenas de anos de cuidado por várias \
              gerações de jardineiros.",
         before [;
@@ -111,8 +110,8 @@ Nearby  PortersLodgeObject "Alojamento do Porteiro"
 
 Object  Wistaria "glicínia"
  has    door scenery open
- with   name "glicinia" "glicínia" "purple" "flowering" "wistaria" "root" "roots" "branch"
-            "gnarled" "branches",
+  with   name "glicinia" "glicínia" "roxa" "florida" "purple" "flowering" "wistaria" "raiz" "raízes" "galho" "root" "roots" "branch"
+             "nodosos" "galhos" "gnarled" "branches",
          description "A glicínia fincou suas raízes na estrutura do college \
              há décadas, e seus galhos nodosos são mais grossos que seus \
              braços.",
@@ -126,7 +125,7 @@ Object  Wistaria "glicínia"
             return u_to;
         ],
         article "some",
-        before [;
+         before [;
          Climb: <<Enter self>>;
           SmellThing: "As flores têm um perfume intenso.";
         ];
@@ -177,16 +176,16 @@ Nearby  Porter "porteiro"
             }
         ],
         before [;
-         Speak:
-            DoneHint(MalcolmsRoomPuzzle,4);
-            "~Eh?~ asks the porter, cupping his hand to his ear.";
-         SmellThing: "He smells faintly of pipe-tobacco.";
+          Speak:
+             DoneHint(MalcolmsRoomPuzzle,4);
+             "~Hã?~ pergunta o porteiro, levando a mão ao ouvido.";
+          SmellThing: "Ele cheira levemente a fumo de cachimbo.";
         ],
         after [;
          Examine: DoneHint(MalcolmsRoomPuzzle,3);
         ];
 
-Nearby  Pigeonholes "pigeonholes"
+Nearby  Pigeonholes "escaninhos"
  has    proper static concealed
  with   parse_name [ w i j ok flag;
             do {
@@ -225,10 +224,10 @@ Nearby  Pigeonholes "pigeonholes"
             switch (self.number) {
              -1: print "Johnson";
              -2: print "Malcolm";
-              0: print "the pigeonholes"; rtrue;
+              0: print "os escaninhos"; rtrue;
              default: RoomOccupant(self.number);
             }
-            print "'s pigeonhole";
+             print " de ";
             rtrue;
         ],
         capacity 2,
@@ -240,24 +239,22 @@ Nearby  Pigeonholes "pigeonholes"
              "Johnson era apenas um exemplo. Não existe tal pessoa.";
             if (self.number == 0) rfalse;
          Examine, Search:
-            if (Edward in location) {
-                if (self.number == DoorB5)
-                    print "Edward says, ~I don't think you'll find \
-                        anything in my pigeonhole. No-one ever sends me \
-                        letters.~^^";
+                if (Edward in location) {
+                 if (self.number == DoorB5)
+                     print "Edward diz: ~Não acho que você encontre algo no \
+                         meu escaninho. Ninguém jamais me envia cartas.~^^";
                 else
-                    print "Edward whispers, ~Are you sure that's right? \
-                        Going looking in other peoples' pigeonholes \
-                        without their permission?~^^";
+                     print "Edward sussurra: ~Você tem certeza? Vasculhar os \
+                         escaninhos dos outros sem permissão?~^^";
             }
             else
-                print "You check to make sure that the porter is not \
-                    looking in your direction, then quickly rifle ",
+                 print "Você verifica se o porteiro não está olhando para você \
+                     e vasculha rapidamente ",
                     (name) self, ". ";
             if (child(self.number) == nothing)
-                "All you find is the chapel newsletter and other useless \
-                pieces of paper. You leave them be.";
-            print "You extract ";
+                "Você só encontra o boletim da capela e outros papéis inúteis. \
+                 Você os deixa onde estão.";
+            print "Você retira ";
             WriteListFrom(child(self.number), PARTINV_BIT + ENGLISH_BIT);
             while (child(self.number) ~= nothing) {
                 i = child(self.number);
@@ -267,14 +264,14 @@ Nearby  Pigeonholes "pigeonholes"
             ".";
          Receive:
             if (children(self.number) >= self.capacity)
-                print_ret (name) self, " is full.";
+                 print_ret (name) self, " está cheio.";
             move noun to self.number;
-            print_ret "You put ", (the) noun, " in ", (the) self, ".";
-         SmellThing: "The pigeonholes smell of varnished wood and damp paper.";
+            print_ret "Você coloca ", (the) noun, " em ", (the) self, ".";
+         SmellThing: "Os escaninhos cheiram a madeira envernizada e papel úmido.";
         ],
         each_turn [; self.number = 0; ];
 
-Nearby  GateList "gate list"
+Nearby  GateList "lista do portão"
  has    static
  with   name "college" "gate" "list",
          description "É uma lista dos membros e estudantes do college \
@@ -297,16 +294,16 @@ Nearby  GateList "gate list"
             if (consult_words == 1) {
                 w = NextWord();
                 if (w == 'malcolm')
-                    "Alas, the gate list consists of surnames only.";
+                    "Infelizmente, a lista do portão contém apenas sobrenomes.";
                 for (i = player + 1: i <= top_object: i++) {
                     if (i has is_door) {
                         if (n == 0 && w == (i.&name)-->0)
-                            print_ret "According to the gate list, room ",
-                                (string) i.room, " is occupied by ",
+                            print_ret "Segundo a lista do portão, o quarto ",
+                                (string) i.room, " é ocupado por ",
                                 (RoomOccupant) i, ".";
                         if (w == (i.&name)-->1)
-                            print_ret "According to the gate list, ",
-                                (RoomOccupant) i, " lives in room ",
+                            print_ret "Segundo a lista do portão, ",
+                                (RoomOccupant) i, " mora no quarto ",
                                 (string) i.room, ".";
                     }
                 }
@@ -314,25 +311,25 @@ Nearby  GateList "gate list"
              "Você não encontra o que procura na lista do portão.";
         ];
 
-Object  KeyToA5 "iron key"
+Object  KeyToA5 "chave de ferro"
  class  KeyClass
         ! general if given to player
- with   name "iron",
+         with   name "ferro" "chave" "iron",
         article [;
             if (listing_together.list_together == self.list_together)
-                print "one";
-            else print "an";
+                print "uma";
+            else print "uma";
         ];
 
 Object  KeyRing "chaveiro" Porter
- with   name "ring" "of" "keys" "spare" "key",
+         with   name "anel" "de" "chaves" "reserva" "chave" "ring" "of" "keys" "spare" "key",
         description [;
-            print "A big metal ring, with perhaps thirty keys dangling \
-                from it";
+            print "Um grande anel de metal, com talvez trinta chaves penduradas \
+                 nele";
             if (KeyToA5 hasnt general) 
-                print ". No doubt there's a spare key to your brother's \
-                    room among them. If only you knew how to persuade the \
-                    porter to give it to you";
+                print ". Sem dúvida há entre elas uma chave reserva do quarto \
+                     de seu irmão. Se ao menos você soubesse como convencer o \
+                     porteiro a entregá-la";
             ".";
         ],
         before [;
@@ -340,19 +337,18 @@ Object  KeyRing "chaveiro" Porter
             DoneHint(MalcolmsRoomPuzzle,3,4,5);
             if (Porter has general) {
                 if (KeyToA5 has general)
-                    "~Didn't I just give you the key to Malcolm's room?~ \
-                    the porter asks you.";
+                    "~Eu não acabei de lhe dar a chave do quarto de Malcolm?~ \
+                     pergunta o porteiro.";
                 give KeyToA5 general;
                 move KeyToA5 to player;
                 ResetVagueWords(KeyToA5);
                 Achieved("acquiring the key to Malcolm's room");
-                "~Oh aye, is Malcolm out somewhere?~ says the porter. \
-                ~Here, take his key and go wait for him.~ The porter \
-                removes a key from his ring of keys and hands it to you.";
+                "~Ah, Malcolm está por aí?~ diz o porteiro. ~Aqui, pegue a \
+                chave dele e espere por ele.~ O porteiro tira uma chave do \
+                molho e a entrega a você.";
             }
-            "The porter puts a hand over his keys to protect them from \
-            you. ~Get away from those!~ he snaps. ~Who do you think you \
-            are?~";
+            "O porteiro protege as chaves com a mão. ~Afaste-se delas!~ rosna. \
+             ~Quem você pensa que é?~";
         ];
 
 
@@ -470,7 +466,7 @@ Object  MalcolmsRoom "Escritório de Malcolm"
 
 Object  MalcolmsBedroom "Quarto de Malcolm"
  has    light no_edward
- with   name "bedroom" "study" "burglar" "burglars",
+         with   name "quarto" "escritório" "ladrão" "ladrões" "bedroom" "study" "burglar" "burglars",
          description "Assim como o escritório, o quarto de Malcolm foi \
              completamente revistado. A cama foi desmontada como lenha, o \
              colchão e os travesseiros foram rasgados, e há penas por toda \
@@ -479,9 +475,9 @@ Object  MalcolmsBedroom "Quarto de Malcolm"
         n_to [;
             if (Jarboe in MalcolmsRoom && Jarboe hasnt general) {
               Jarboe.state = 7;
-                 "Você espia pela esquina, esperando observar Jarboe e \
-                Bungay while remaining unobserved, but just as you poke \
-                 sua cabeça pela porta, Bungay olha para cima. ~O que é isso?~ \
+                  "Você espia pela esquina, esperando observar Jarboe e \
+                 Bungay sem ser vista, mas, assim que põe a cabeça pela porta, \
+                  Bungay olha para cima. ~O que é isso?~ \
                  ele grita. ~Uma espiã!~^^Você recua para o quarto enquanto os \
                  dois homens caminham até você.";
             }
@@ -564,7 +560,7 @@ Object  WindowA5 "janela" MalcolmsBedroom
              if (self hasnt open) "Você já quebrou janelas o bastante por um \
                  dia.";
             move noun to FirstCourt;
-            print_ret (The) noun, " flies through the open window.";
+             print_ret (The) noun, " voa pela janela aberta.";
         ],
         after [;
          Open: move Ivy to MalcolmsBedroom;
@@ -582,10 +578,9 @@ Object  Ivy "hera"
          Climb: <<Enter WindowA5>>;
          Receive:
             move noun to FirstCourt;
-            print_ret "You're not as good at this sort of thing as your \
-                brother. Leaning out of the window two stories above \
-                First Court, you feel rather dizzy and lose hold of ",
-                (the) noun, " which falls to the ground.";
+             print_ret "Você não é tão boa nesse tipo de coisa quanto seu irmão. \
+                 Inclinada para fora da janela, dois andares acima do Primeiro \
+                 Pátio, você fica tonta e solta ", (the) noun, ", que cai no chão.";
          Examine, Search:
             if (self hasnt general) {
                 give self general;
@@ -608,12 +603,11 @@ Object  Ivy "hera"
 
 Object  BookLab "livro de laboratório"
  class  BookClass
- with   name "lab" "laboratory" "wet" "damaged",
-        description "The lab book is considerably the worse for wear, \
-            having been left out in the rain, and Malcolm's handwriting \
-            was atrocious at the best of times. In fact, the only page \
-            that is remotely readable appears to be full of nonsense \
-            words and numbers:^\
+         with   name "laboratório" "livro" "molhado" "danificado" "lab" "laboratory" "wet" "damaged",
+         description "O livro de laboratório está bastante deteriorado, pois \
+             ficou exposto à chuva, e a caligrafia de Malcolm era péssima mesmo \
+             nas melhores condições. Na verdade, a única página minimamente \
+             legível parece cheia de palavras e números sem sentido:^\
             ^    Fuffy 364^\
             ^Qbs teopq qwk cos rfsco:^\
             ^    Codwoeabq 143 (bkjsy kt Saymq?)\
@@ -626,9 +620,9 @@ Object  BookLab "livro de laboratório"
         before [;
          Take, Remove, Examine:
             if (self in Jarboe)
-                "Jarboe holds the lab book so that you can't reach \
-                it. ~Did you want something?~ he sniggers.";
-         SmellThing: "It's very damp and musty.";
+                 "Jarboe segura o livro de laboratório fora do seu alcance. \
+                 ~Você queria alguma coisa?~ ele zomba.";
+          SmellThing: "Está muito úmido e mofado.";
         ];
 
 Object  CodeBookNote "bilhete" DoorA5
@@ -660,9 +654,8 @@ Object  Jarboe "Doutor Jarboe"
             move TearsA to player;
             StartTimer(TearsA,3);
             if (Edward in location)
-                "^Edward runs to your side, looking belligerent, but \
-                Jarboe snarls at him. ~Keep out of this, Forbes, it's \
-                none of your business.~^";
+                 "^Edward corre para o seu lado, com ar ameaçador, mas Jarboe rosna \
+                 para ele. ~Não se meta nisso, Forbes, não é da sua conta.~^";
             rtrue;
           Show, Give: "Jarboe afasta sua oferta com desprezo.";
         ],
@@ -678,12 +671,11 @@ Object  Jarboe "Doutor Jarboe"
                 move BookLab to self;
                 if (self in location || (self in FirstCourt &&
                     location == AStairGround)) {
-                    print "^~Aha! What have we here, then?~ Jarboe shouts \
-                        exultantly";
-                    if (self in location)
-                        print ", grabbing the lab book";
-                    print ". ~This looks like Spencer's lab book! Just \
-                        what we were looking for! Oh, excellent!~^";
+                 print "^~Ahá! O que temos aqui?~ grita Jarboe, exultante";
+                     if (self in location)
+                         print ", pegando o livro de laboratório";
+                     print ". ~Parece o livro de laboratório de Spencer! É \
+                         exatamente o que procurávamos! Excelente!~^";
                 }
             }
             rtrue;
@@ -707,8 +699,8 @@ Object  Jarboe "Doutor Jarboe"
             ! Actually move them
             if (dest ~= 0) {
                 if (self in location) {
-                    print "^Jarboe and Bungay go ";
-                    if (dir ~= u_obj or d_obj) print "to the ";
+                     print "^Jarboe e Bungay seguem ";
+                     if (dir ~= u_obj or d_obj) print "para o ";
                     PrintDirection(dir);
                     print ".^";
                 }
@@ -726,46 +718,39 @@ Object  Jarboe "Doutor Jarboe"
                 move Bungay to MalcolmsRoom;
                 new_line;
                 if (DoorA5 has locked)
-                    print "You hear the sound of a key turning in the \
-                        door to Malcolm's room, and then the sound of the \
-                        door opening.^^";
+                     print "Você ouve uma chave girar na porta do quarto de \
+                         Malcolm, e depois a porta se abrir.^^";
                 if (DoorA5 hasnt locked && DoorA5 hasnt open)
-                    print "You hear the sound of the door to Malcolm's \
-                        room opening.^^";
+                     print "Você ouve a porta do quarto de Malcolm se abrir.^^";
                 give DoorA5 open ~locked;
-                "Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~Well, Jarboe, I suppose we should have \
-                one more look,~ comes a deep voice. ~I am sure that he \
-                has hidden it somewhere in here.~^^~After you, Bungay,~ \
-                replies a thin reedy voice that you suppose must be \
-                Jarboe's.";
+                 "Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~Bem, Jarboe, acho que devemos olhar mais uma vez,~ diz uma \
+                 voz grave. ~Tenho certeza de que ele o escondeu em algum \
+                 lugar por aqui.~^^~Depois de você, Bungay,~ responde uma voz \
+                 fina e estridente, que você supõe ser a de Jarboe.";
              2:
-                "^Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~What I don't understand,~ says Bungay, \
-                ~is how that confounded man managed to discover the \
-                formula. I mean, he's a blasted chemist, he should be \
-                playing with his test tubes and whatnot. He shouldn't \
-                know anything about historical research.~^^You can hear \
-                the two of them scrabbling around in the debris.";
+                 "^Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~O que não entendo,~ diz Bungay, ~é como aquele homem danado \
+                 conseguiu descobrir a fórmula. Ele é químico, deveria estar \
+                 brincando com seus tubos de ensaio e coisas do tipo. Não \
+                 deveria saber nada de pesquisa histórica.~^^Você ouve os dois \
+                 remexendo nos escombros.";
              3:
-                "^Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~He's a confounded nuisance,~ says \
-                Jarboe, ~you're right about that. But don't make the \
-                mistake of underestimating scientists.~";
+                 "^Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~Ele é um tremendo incômodo,~ diz Jarboe, ~você tem razão. \
+                 Mas não cometa o erro de subestimar os cientistas.~";
              4:
-                "^Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~Just because scientists are concerned \
-                with the physical and the concrete,~ continues Jarboe, \
-                ~it doesn't mean they're stupid.~";
+                 "^Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~Só porque os cientistas lidam com o físico e o concreto,~ \
+                 continua Jarboe, ~isso não significa que sejam estúpidos.~";
              5:
-                "^Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~Hmm, not in my experience,~ mutters \
-                Bungay.";
+                 "^Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~Hmm, não pela minha experiência,~ murmura Bungay.";
              6:
-                "^Through the doorway, you can hear voices coming from \
-                Malcolm's study. ~Nothing here at all,~ says Jarboe. ~The \
-                sod was too cunning for us. Let's try the bedroom.~^^You \
-                hear footsteps approaching the doorway.";
+                 "^Pela porta, você ouve vozes vindas do escritório de Malcolm. \
+                 ~Nada aqui,~ diz Jarboe. ~O sujeito foi esperto demais para \
+                 nós. Vamos tentar o quarto.~^^Você ouve passos se aproximando \
+                 da porta.";
              7,8:
                 self.state = 8;
                 if (self notin MalcolmsBedroom) {
@@ -773,41 +758,36 @@ Object  Jarboe "Doutor Jarboe"
                     MoveNPC(Bungay, MalcolmsBedroom, s_obj);
                 }
                 give self general;
-                "^~Well, well, well,~ says Jarboe to Bungay. ~What do we \
-                see here? A little girl skulking in Malcolm Spencer's \
-                bedroom. Who is she, then? Spencer's floozie, come \
-                to look for him? Is that what she is? She looks just \
-                like his type.~";
+                 "^~Veja, veja, veja,~ diz Jarboe a Bungay. ~O que temos aqui? \
+                 Uma garotinha se esgueirando pelo quarto de Malcolm Spencer. \
+                 Quem é ela? A namoradinha de Spencer, veio procurá-lo? É isso? \
+                 Ela parece exatamente o tipo dele.~";
              9:
-                "^~No, I rather think she's his sister,~ says Bungay, \
-                ~Look at the family resemblance. I rather think she's \
-                come up hoping for a nice day out on the river. Well,~ \
-                and this latter is directed at you, ~he's not here. He's \
-                gone, scarpered, away.~";
+                 "^~Não, acho que ela é irmã dele,~ diz Bungay. ~Veja a semelhança \
+                 familiar. Acho que veio esperando passar um dia agradável no rio. \
+                 Bem,~ continua, dirigindo-se a você, ~ele não está aqui. Foi \
+                 embora, escapou.~";
              10:
-                "^Jarboe waggles his finger and points it at you. ~Just \
-                go home and forget all about your little holiday. Did you \
-                hear that?~ he asks you. ~Did it penetrate your stupid \
-                little head? Go home, keep your nose out of this.~";
+                 "^Jarboe agita o dedo e aponta para você. ~Vá para casa e esqueça \
+                 esse seu passeio. Ouviu?~ pergunta. ~Isso entrou nessa sua cabecinha \
+                 estúpida? Vá para casa e não se meta nisso.~";
              11:
-                print "^Bungay turns to his colleague. ~We've wasted \
-                    enough time here, there's a lot to be done before \
-                    this evening. I will ring you after five o'clock with \
-                    the details.";
+                 print "^Bungay se vira para o colega. ~Já perdemos tempo demais \
+                     aqui, e há muito a fazer antes desta noite. Telefonarei depois \
+                     das cinco com os detalhes.";
                 if (BookLab in self)
-                    print " Let me know what you discover from the lab \
-                        book.";
+                     print " Avise-me o que descobrir no livro de laboratório.";
                 "~";
              18:
                 if (self in location) {
                     if (BookLab in self)
-                        print "^Jarboe leafs through the lab book. ~What \
-                            a shame,~ he says. ~Someone was careless \
-                            enough to leave this out in the rain. Still, \
-                            we have other avenues to pursue.~^";
-                    "^~Look, she's following us,~ says Bungay, noticing \
-                    you.^^Jarboe turns. ~Didn't you get the message? \
-                    Leave well alone what you can't understand.~";
+                         print "^Jarboe folheia o livro de laboratório. ~Que \
+                             pena,~ diz ele. ~Alguém foi descuidado o bastante para \
+                             deixá-lo na chuva. Ainda assim, temos outros caminhos \
+                             a seguir.~^";
+                     "^~Olhe, ela está nos seguindo,~ diz Bungay ao notar você.^^Jarboe \
+                     se vira. ~Você não entendeu o recado? Deixe em paz aquilo que \
+                     não consegue compreender.~";
                 }
              19:
                 MovePrintNPC(self, BStairGround, se_obj);
@@ -815,15 +795,14 @@ Object  Jarboe "Doutor Jarboe"
              21:
                 MovePrintNPC(self, BStairFirst, u_obj);
                 if (Bungay in location)
-                    print "^Bungay takes hold of the big wooden door at \
-                        the east end of the archway and heaves. With a \
-                        loud creaking sound, it opens.^";
+                     print "^Bungay segura a grande porta de madeira na extremidade \
+                         leste do arco e empurra. Ela se abre com um rangido alto.^";
                 give DoorArchway open;
                 MovePrintNPC(Bungay, SecondCourt, e_obj);
              22:
                 if (self in location)
-                    print "^Jarboe unlocks the door to B4, walks through \
-                        it, and shuts it. You hear him locking it.^";
+                     print "^Jarboe destranca a porta de B4, atravessa-a e a fecha. \
+                         Você o ouve trancá-la.^";
                 if (BookLab notin self)
                     Achieved("hiding Malcolm's lab book from Doctor \
                         Jarboe");
@@ -833,8 +812,8 @@ Object  Jarboe "Doutor Jarboe"
                 MovePrintNPC(Bungay, CStairFirst, u_obj);
              24:
                 if (Bungay in location)
-                    print "^Bungay unlocks the door to C3, walks through \
-                        it, and shuts it. You hear him locking it.^";
+                     print "^Bungay destranca a porta de C3, atravessa-a e a fecha. \
+                         Você o ouve trancá-la.^";
                 MoveNPC(Bungay, BungaysSanctum, w_obj);
                 StopDaemon(self);
             }
@@ -875,13 +854,13 @@ Object  BungaysSanctum "Sala de estar de Bungay";
 Object  DoorMaster "porta dos Alojamentos do Reitor"
  has    door lockable openable locked scenery autoopen
  with   description [;
-            print "The door to the Master's Lodgings is made of thick, \
-                heavy wood";
+             print "A porta dos Alojamentos do Reitor é feita de madeira \
+                 espessa e pesada";
             if (location == FirstCourt)
-                print ". There is a bell-pull to one side";
+                 print ". Há um cordão de campainha de um lado";
             ".";
         ],
-        name "door" "master^s" "lodge" "lodgings" "lodging" "masters",
+        name "porta" "reitor" "alojamentos" "door" "master^s" "lodge" "lodgings" "lodging" "masters",
         found_in FirstCourt MastersLodge,
         article "the",
         door_dir [;
@@ -893,56 +872,52 @@ Object  DoorMaster "porta dos Alojamentos do Reitor"
         ],
         with_key 0,
         before [;
-         LookUnder: "The gap is too narrow for you to see anything.";
+          LookUnder: "A fresta é estreita demais para você enxergar algo.";
          Knock,Attack:
             if (Edward in FirstCourt && self in FirstCourt)
-                "Edward says, ~Don't knock, use the bell-pull instead.~";
+                 "Edward diz: ~Não bata, use o cordão da campainha.~";
             if (self in FirstCourt)
-                "There's no reply. Perhaps you should try the bell-pull.";
+                 "Ninguém responde. Talvez você deva tentar o cordão da campainha.";
             else
-                "There's no need to knock to get out!";
+                 "Não há motivo para bater para sair!";
          Close:
             if (HouseKeeper in FirstCourt)
-                "Not with the housekeeper in the way.";
+                 "Não com a governanta bloqueando a passagem.";
         ];
 
 Object  BellPull "cordão da campainha" FirstCourt
  has    static concealed
         ! general if rung before
- with   name "bell" "pull" "bell-pull" "doorbell" "door-bell",
+         with   name "campainha" "cordão" "bell" "pull" "bell-pull" "doorbell" "door-bell",
         before [;
-         Push: "Perhaps you should try pulling it instead.";
+          Push: "Talvez você devesse tentar puxá-lo.";
          Ring, Pull:
             if (HouseKeeper in location)
-                "~The Master won't come down, no matter how often you \
-                ring the bell.~ says the housekeeper. ~You'll have to \
-                come in yourself.~";
-            print "You pull on the bell, and you can hear a distant \
-                 ringing";
+                 "~O Reitor não vai descer, não importa quantas vezes você toque \
+                 a campainha,~ diz a governanta. ~Você terá de entrar sozinha.~";
+             print "Você puxa o cordão e ouve uma campainha distante";
             if (ClockTower.number > 19)
-                ", but no-one comes to answer the door.";
-            print ". Then you can hear footsteps coming down some stairs, ";
+                 ", mas ninguém vem atender à porta.";
+             print ". Então você ouve passos descendo uma escada, ";
             if (DoorMaster hasnt open)
-                print "and the fumbling of a key in the lock. ";
+                 print "e o ruído de uma chave na fechadura. ";
             if (self hasnt general) {
                 give DoorMaster ~locked open;
                 give self general;
                 MoveNPC(HouseKeeper, FirstCourt, 0);
                 StartTimer(HouseKeeper, 3);
-                "The door opens, and you find yourself facing \
-                a young woman wearing the apron and gingham pinafore of \
-                a housekeeper. ~Do come in,~ she says.";
+                 "A porta se abre, e você se vê diante de uma jovem usando o avental \
+                 e o vestido xadrez de uma governanta. ~Entre, por favor,~ diz ela.";
             } else {
                 if (DoorMaster has open)
-                    print "and the housekeeper comes to the door. ~Silly \
-                        me,~ she says. ~I must have left it open. ";
+                     print "e a governanta vem até a porta. ~Que cabeça a minha,~ \
+                         diz ela. ~Devo tê-la deixado aberta. ";
                 else
-                    print "and the door opens, revealing the housekeeper \
-                        again. ~";
+                     print "e a porta se abre, revelando novamente a governanta. ~";
                 give DoorMaster ~open;
-                "I'm afraid the Master's busy and can't see anyone at \
-                the moment. Perhaps some day next week.~ She shuts the \
-                door and you can hear her footsteps going away.";
+                 "Receio que o Reitor esteja ocupado e não possa receber ninguém \
+                 agora. Talvez algum dia na próxima semana.~ Ela fecha a porta e \
+                 você ouve seus passos se afastando.";
             }
         ];
 
@@ -950,21 +925,20 @@ Object  HouseKeeper "governanta"
  class  FollowClass CarryingClass TalkableClass
  has    female
         ! general if told you about dinner
- with   name "house" "keeper" "housekeeper" "pretty" "young" "woman",
+  with   name "casa" "governanta" "house" "keeper" "housekeeper" "bonita" "jovem" "mulher" "pretty" "young" "woman",
         description [;
-            print "The housekeeper is a pretty young woman, perhaps five \
-                years older than yourself (but it's impolite to inquire \
-                too deeply into a woman's age, so you don't pursue that \
-                train of thought). She is wearing a gingham dress and an \
-                apron";
+             print "A governanta é uma jovem bonita, talvez cinco anos mais velha \
+                 que você (mas é indelicado investigar demais a idade de uma mulher, \
+                 então você não segue essa linha de pensamento). Ela usa um vestido \
+                 xadrez e um avental";
             if (self in MastersLodge)
-                print ". She is busy polishing a silver goblet";
+                 print ". Ela está ocupada polindo uma taça de prata";
             print ".";
         ],
         describe [;
-            print "^The housekeeper stands ";
-            if (self in FirstCourt) "by the door to the Master's Lodgings.";
-            "here, polishing a silver goblet.";
+             print "^A governanta está ";
+             if (self in FirstCourt) "junto à porta dos Alojamentos do Reitor.";
+             "aqui, polindo uma taça de prata.";
         ],
         life [;
             <<Question self>>;
@@ -972,29 +946,27 @@ Object  HouseKeeper "governanta"
         before [;
          Question: 
             if (second == QHello)
-                "~And a good morning to you,~ she says.";
+                 "~Bom dia para você também,~ diz ela.";
             if (self hasnt general || random(2) == 1) {
                 give self general;
-                print "~I haven't got time for that,~ says the \
-                    housekeeper. ~I'm very busy today, all the \
-                    silverware's got to be polished for the dinner \
-                    tonight. ";
+                 print "~Não tenho tempo para isso,~ diz a governanta. ~Estou muito \
+                     ocupada hoje: toda a prataria precisa ser polida para o jantar \
+                     desta noite. ";
             }
             else
-                print "~I wouldn't know anything about that,~ says the \
-                    housekeeper. ~But I'm sure the Master'll be able to \
-                    help you, he's a very clever man. ";
-            if (self in FirstCourt) "Do come inside.~";
-            "Do go up.~";
+                 print "~Não sei nada sobre isso,~ diz a governanta. ~Mas tenho \
+                     certeza de que o Reitor poderá ajudá-la; ele é muito inteligente. ";
+             if (self in FirstCourt) "Entre, por favor.~";
+             "Suba, por favor.~";
         ],
         time_left 0,
         time_out [;
             give DoorMaster ~open locked;
             MoveNPC(self, 0, ne_obj);
             if (player in FirstCourt)
-                "^~I can't stand here nattering all day,~ says the \
-                housekeeper. ~I've got the polishing to do.~ She shuts \
-                the door and you can hear her locking it.";
+                 "^~Não posso ficar aqui tagarelando o dia todo,~ diz a governanta. \
+                 ~Tenho prataria para polir.~ Ela fecha a porta, e você a ouve \
+                 trancar.";
         ];
 
 Object  MastersLodge "Alojamentos do Reitor"
@@ -1002,21 +974,20 @@ Object  MastersLodge "Alojamentos do Reitor"
         ! general if visited
  with   name "gingham" "pinafore" "apron" "thick" "carpet" "wooden"
             "stairs",
-        description "A richly decorated entrance hall, with thick carpet \
-            that deadens your footsteps, and a mantelpiece covered with \
-            antique silver plate. Biblioll College must have accumulated \
-            a great deal of money in its nearly seven-hundred-year \
-            history to allow its Master to live in such luxury. Wooden \
-            stairs lead up, and a large door leads southwest.",
+         description "Um saguão de entrada ricamente decorado, com um tapete espesso \
+             que abafa seus passos e uma lareira coberta de prataria antiga. O \
+             Biblioll College deve ter acumulado muito dinheiro em seus quase \
+             setecentos anos de história para permitir que o Reitor viva com tanto \
+             luxo. Uma escada sobe, e uma grande porta leva ao sudoeste.",
         initial [;
             if (self has general) rfalse;
             give self general;
             give DoorMaster ~open;
             MoveNPC(HouseKeeper, self, ne_obj);
             StopTimer(HouseKeeper);
-            "The housekeeper follows you in and shuts the door. ~The \
-            Master's in his office upstairs, do go up.~ She picks up a \
-            large silver goblet and starts polishing it.";
+             "A governanta entra atrás de você e fecha a porta. ~O Reitor está em \
+             seu escritório no andar de cima, suba.~ Ela pega uma grande taça de \
+             prata e começa a poli-la.";
         ],
         sw_to DoorMaster,
         out_to DoorMaster,
@@ -1027,7 +998,7 @@ Object  MastersLodge "Alojamentos do Reitor"
             if (parent(TelephoneHandset) ~= nothing or location) {
                 move TelephoneHandset to location;
                 Telephone.state = 0;
-                print "(putting the telephone handset down first)^";
+                 print "(colocando primeiro o fone do telefone no lugar)^";
             }
         ],
         each_turn [;
@@ -1049,11 +1020,10 @@ Nearby  SilverPlate "prataria"
          description "As taças, pratos e outras peças de prata são muito \
              antigas e, você tem certeza, imensamente valiosas.",
         before [;
-         Take,Remove: "Remember the fuss when your mother accused the \
-            maid of stealing a knife from the silver drawer and only \
-            after the poor girl had been sacked it was found in the \
-            potting-shed? You've no wish to cause such trouble for the \
-            housekeeper.";
+          Take,Remove: "Lembre-se do escândalo quando sua mãe acusou a criada de \
+             roubar uma faca da gaveta de prata e, somente depois de a pobre moça \
+             ser demitida, ela foi encontrada no galpão de jardinagem. Você não \
+             quer causar esse tipo de problema para a governanta.";
         ];
 
 Object  MastersStudy "Estudo do Reitor"
@@ -1081,13 +1051,12 @@ Object  MastersStudy "Estudo do Reitor"
             StopTimer(Master);
             give DoorMaster ~open ~locked;
             if (HouseKeeper in MastersLodge)
-                print "~Goodbye, then. Nice to have met you";
+                 print "~Adeus, então. Foi um prazer conhecê-la";
             else
-                print "~Goodbye, then. Always good to see you";
-            print ",~ says the Master as you depart. ~The housekeeper \
-                will show you out.~^^She ushers you briskly out into the \
-                court, and shuts the door. You hear her footsteps going \
-                away.^";
+                 print "~Adeus, então. É sempre bom vê-la";
+             print ",~ diz o Reitor quando você parte. ~A governanta a \
+                 acompanhará até a saída.~^^Ela a conduz rapidamente ao pátio e \
+                 fecha a porta. Você ouve seus passos se afastando.^";
             PlayerTo(FirstCourt,1);
             LookSub(1);
             move HouseKeeper to FirstCourt;
@@ -1107,25 +1076,22 @@ Nearby  MastersBooks "biblioteca do Reitor"
         article "the",
         state 0,
         before [;
-         SmellThing: "Mmmm... you breathe in the glorious scent of \
-            crumbling paper and cracked leather and are reminded of long \
-            summer afternoons in the library at home, lazily reading the \
-            latest Evelyn Waugh.";
+          SmellThing: "Mmmm... você respira o glorioso aroma de papel se \
+             desfazendo e couro rachado, e se lembra das longas tardes de verão \
+             na biblioteca de casa, lendo preguiçosamente o último Evelyn Waugh.";
          Take:
             Master.time_left = Master.time_left + 1;
             if (Master.state <= 4)
-                "~Desist!~ commands the Master. ~I don't know who you \
-                are, so why should I let you look at my books?~ You \
-                desist.";
+                 "~Desista!~ ordena o Reitor. ~Não sei quem você é; por que \
+                 deveria deixá-la olhar meus livros?~ Você desiste.";
             if (self has general)
-                "The Master's already lent you a book. You decide not to \
-                push your luck.";
+                 "O Reitor já lhe emprestou um livro. Você decide não abusar da \
+                 sorte.";
             if (Master.state == 6 or 7 or 8)
-                "~Yes, I know,~ says the Master, ~but which one?~";
+            "~Sim, eu sei,~ diz o Reitor, ~mas qual?~";
             Master.state = 6;
-            "~You want one of my books?~ asks the Master. ~Well, I \
-            suppose I can lend you one while you're staying at the \
-            college. Which one would you like?~";
+             "~Você quer um dos meus livros?~ pergunta o Reitor. ~Bem, suponho que \
+             possa lhe emprestar um enquanto estiver no college. Qual você gostaria?~";
         ];
 
 Nearby  Master "Reitor do college Biblioll"
@@ -1140,142 +1106,135 @@ Nearby  Master "Reitor do college Biblioll"
              um jornal.",
         life [;
          Kiss:
-            "You give the Master a peck on the cheek. He accepts it as \
-            though it is his privilege as Master of the college to be \
-            kissed by every young female visitor.";
+             "Você dá um beijo na bochecha do Reitor. Ele o aceita como se fosse \
+             seu privilégio, enquanto Reitor do college, ser beijado por toda jovem \
+             visitante.";
          Show,Give:
             self.time_left = self.time_left + 1;
             if (noun == BookArkwright or BookBarker) {
                 give MastersBooks ~general;
                 remove noun;
-                "~I hoped you enjoyed it,~ says the Master, returning the \
-                book to his shelves.";
+                 "~Espero que tenha gostado,~ diz o Reitor, devolvendo o livro às \
+                 prateleiras.";
             }
             if (self.state > 4)
-                "~Very interesting,~ says the Master.";
+                 "~Muito interessante,~ diz o Reitor.";
             if (noun == Telegram) {
                 self.state = 5;
-                "The Master examines the telegram closely. ~Ah,~ he \
-                says. ~You're Spencer's sister! Welcome to Biblioll \
-                College. Now what can I do for you?~";
+            "O Reitor examina o telegrama atentamente. ~Ah,~ diz ele. ~Você é \
+                 irmã de Spencer! Bem-vinda ao Biblioll College. Em que posso \
+                 ajudá-la?~";
             }
-            print_ret "The Master examines ", (the) noun, ". ~This is all \
-                very well,~ he says, ~but it doesn't help me know who you \
-                are.~";
+            print_ret "O Reitor examina ", (the) noun, ". ~Muito bem,~ diz ele, \
+                 ~mas isso não me ajuda a saber quem você é.~";
         ],
         before [;
          Examine: quote = 19;
          Question:
             Master.time_left = Master.time_left + 1;
             if (self.state <= 4)
-                "~Much as I would enjoy talking to you,~ says the Master, \
-                ~I can't really do so unless I know who you are. Can't \
-                you show me some proof of identity?~";
+                 "~Por mais que eu gostasse de conversar com você,~ diz o Reitor, \
+                 ~não posso fazê-lo sem saber quem você é. Não poderia mostrar \
+                 alguma prova de identidade?~";
             if (second == QBooks)
                 <<Take MastersBooks>>;
             if (self.state == 6 or 7 or 8) {
                 self.state = 5;
                 if (MastersBooks.state > 1)
-                    print "~I'm not sure I want my private book \
-                        collection to be treated like a public library,~ \
-                        says the Master, ~but just for you...~ ";
+                     print "~Não tenho certeza de que quero que minha coleção \
+                         particular seja tratada como uma biblioteca pública,~ diz o \
+                         Reitor, ~mas, só para você...~ ";
                 MastersBooks.state = MastersBooks.state + 1;
                 give MastersBooks general;
-                print "The Master searches along his shelves. ";
+                 print "O Reitor procura nas prateleiras. ";
                 if (second == QArkwright or QEgypt or QAkhenaten) {
                     move BookArkwright to player;
                     ResetVagueWords(BookArkwright);
                     Achieved("borrowing a copy of Arkwright from the \
                         Master");
                     DoneHint(WhatNextPuzzle,6);
-                    "~Here we are,~ he says. ~The Amarna period. A \
-                    strange choice, for a woman.~ He hands it to \
-                    you. ~Wilderspin was always interested in Egyptian \
-                    history, you might want to see him.~";
+                     "~Aqui está,~ diz ele. ~O período de Amarna. Uma escolha \
+                     estranha para uma mulher.~ Ele entrega o livro a você. \
+                     ~Wilderspin sempre se interessou por história egípcia; talvez \
+                     você queira procurá-lo.~";
                 }
                 move BookBarker to player;
                 ResetVagueWords(BookBarker);
-                "~I can't seem to find that here,~ he says, ~but perhaps \
-                you'd prefer this instead.~ He fetches a slim volume and \
-                hands it to you.";
+                 "~Não consigo encontrar isso aqui,~ diz ele, ~mas talvez prefira \
+                 este.~ Ele busca um volume fino e o entrega a você.";
             }
             switch(second) {
              QDinner:
                 if (DinnerTicket has general)
-                    "~I do hope you'll come to the dinner, and grace us \
-                    with your presence at High Table,~ says the Master.";
+                     "~Espero que venha ao jantar e nos honre com sua presença na \
+                     Mesa Principal,~ diz o Reitor.";
                 give DinnerTicket general;
                 move DinnerTicket to player;
                 ResetVagueWords(DinnerTicket);
                 Achieved("getting invited to a dinner");
                 DoneHint(WhatNextPuzzle,23);
-                "~Ah yes, tonight's feast for the commemoration of \
-                benefactors,~ says the Master. ~Should be a spectacular \
-                bash. Perhaps you'd like to come and sit on High Table \
-                with us.~ He reaches inside his jacket, and extracts a \
-                ticket, which he gives to you.";
+                 "~Ah, sim, o banquete desta noite em comemoração aos benfeitores,~ \
+                 diz o Reitor. ~Deve ser uma festa espetacular. Talvez queira vir \
+                 sentar-se à Mesa Principal conosco.~ Ele enfia a mão no paletó, \
+                 tira um convite e o entrega a você.";
              QHello:
-                "~Hello,~ says the Master. ~Welcome to Biblioll College!~ \
-                He beams at you.";
+                 "~Olá,~ diz o Reitor. ~Bem-vinda ao Biblioll College!~ Ele sorri \
+                 radiante para você.";
              QMalcolm:
                 give MalcolmsRoom general;
-                "~I can help you there,~ says the Master. ~It's a bit \
-                unfortunate that you've come today, because your brother \
-                got called away at very short notice to give a seminar in \
-                Edinburgh. Jarboe told me about it yesterday. But I do \
-                hope you enjoy your stay anyway.~";
+                 "~Posso ajudá-la com isso,~ diz o Reitor. ~É um pouco \
+                 infeliz que tenha vindo hoje, pois seu irmão foi chamado às pressas \
+                 para dar um seminário em Edimburgo. Jarboe me contou ontem. Mas \
+                 espero que aproveite sua estadia mesmo assim.~";
              QCollege:
-                "~It's a lovely college, isn't it? Founded in 1275 by \
-                John de Biblioll, the Lord of Branham Castle, after a \
-                dispute with the Bishop of Durham...~ He rambles on in \
-                this manner for several minutes, finishing off by telling \
-                you that all manner of fascinating material about the \
-                College can be found in MacLane's definitive treatise on \
-                the subject.";
+                 "~É um belo college, não acha? Fundado em 1275 por John de \
+                 Biblioll, Lorde do Castelo de Branham, após uma disputa com o \
+                 Bispo de Durham...~ Ele divaga por vários minutos e termina \
+                 dizendo que todo tipo de material fascinante sobre o College pode \
+                 ser encontrado no tratado definitivo de MacLane sobre o assunto.";
              QHistory:
-                "You decide not to set the Master off on his favourite \
-                topic, as you're not in the mood for a ten-minute \
-                lecture.";
+                 "Você decide não fazer o Reitor começar a falar sobre seu assunto \
+                 favorito, pois não está com disposição para uma palestra de dez \
+                 minutos.";
              QArkwright, QEgypt, QAkhenaten:
                 if (MastersBooks hasnt general) {
                     self.state = 6;
                     self.time_left = self.time_left - 1;
                     <<Question self QArkwright>>;
                 }
-                "~Wilderspin was always interested in Egyptian history,~ \
-                says the Master. ~You might want to see him about that.~";
+                 "~Wilderspin sempre se interessou por história egípcia,~ diz o \
+                 Reitor. ~Talvez queira procurá-lo sobre isso.~";
              QEdward:
-                "~Never heard of the man,~ says the Master.";
+                 "~Nunca ouvi falar desse homem,~ diz o Reitor.";
              QWilderspin:
                 DoneHint(WhatNextPuzzle,7);
-                "~He's a grumpy old sod,~ says the Master. ~If you do \
-                want to see him, try showing him something he's \
-                interested in, such as, say, a book of Egyptology.~";
+                 "~Ele é um velho rabugento,~ diz o Reitor. ~Se quiser vê-lo, tente \
+                 mostrar algo de seu interesse, como, por exemplo, um livro de \
+                 egiptologia.~";
              QJarboe:
-                "~Have you met Jarboe?~ asks the Master. ~He's our \
-                mathematics fellow, a frightfully clever chap, knows all \
-                about Riemannian manifolds and all that kind of thing. A \
-                credit to the college.~";
+                 "~Você conheceu Jarboe?~ pergunta o Reitor. ~Ele é nosso professor \
+                 de matemática, um sujeito assustadoramente inteligente, que sabe \
+                 tudo sobre variedades riemannianas e coisas desse tipo. Um orgulho \
+                 do college.~";
              QBungay:
-                "~Have you met Bungay?~ asks the Master, ~Rather alarming \
-                exterior, but he knows his history. Specialised in the \
-                reign of King Philip IV of France, I think.~";
+                 "~Você conheceu Bungay?~ pergunta o Reitor. ~A aparência é um pouco \
+                 assustadora, mas ele conhece história. Acho que se especializou no \
+                 reinado do rei Filipe IV da França.~";
              QMaths,QFrance:
-                "~I wouldn't know anything about that,~ says the Master, \
-                ~It's all right over my head.~";
+                 "~Não saberia nada sobre isso,~ diz o Reitor. ~Está muito além da \
+                 minha compreensão.~";
              QBaskeyfield:
-                "The Master laughs at your question. ~The librarians of \
-                Biblioll College have always been a queer bunch,~ he \
-                says. ~They've always insisted they know best which books \
-                should go in the library, no matter what the Master or \
-                Fellows of the College have to say.~";
+                 "O Reitor ri da sua pergunta. ~Os bibliotecários do Biblioll College \
+                 sempre foram um grupo peculiar,~ diz ele. ~Sempre insistiram que \
+                 sabem melhor quais livros devem ir para a biblioteca, não importa o \
+                 que o Reitor ou os professores do College tenham a dizer.~";
              QThanks:
-                "~My pleasure,~ says the Master.";
+                 "~O prazer é meu,~ diz o Reitor.";
              QChapel:
-                "~It's a beautiful building, isn't it?~ says the \
-                Master. ~One of the treasures of the college.~";
+                 "~É um prédio lindo, não acha?~ diz o Reitor. ~Um dos tesouros do \
+                 college.~";
              default:
-                "~Mmmm, that's very interesting,~ says the Master.";
+                 "~Hmm, isso é muito interessante,~ diz o Reitor.";
             }
         ],
         orders [;
@@ -1290,47 +1249,42 @@ Nearby  Master "Reitor do college Biblioll"
             if (MastersStudy has general) {
                 give MastersStudy ~general;
                 if (self.state <= 4)
-                    "^The Master looks up as you enter. ~Hello,~ he says, \
-                    ~Who are you and why do you want to see me?~";
-                "^The Master looks up. ~You again?~ he says. ~I'm very \
-                busy at the moment, but perhaps I can squeeze you in for \
-                five minutes. What was it you wanted?~";
+                     "^O Reitor olha para cima quando você entra. ~Olá,~ diz ele. \
+                     ~Quem é você e por que quer me ver?~";
+                 "^O Reitor olha para cima. ~Você de novo?~ diz ele. ~Estou muito \
+                 ocupado no momento, mas talvez possa lhe conceder cinco minutos. \
+                 O que você queria?~";
             }
             self.state = self.state + 1;
             switch (self.state) {
-             1: "^~I still don't know who you are,~ grumbles the Master."; 
-             2: "^~It would only be politeness to introduce yourself \
-                properly,~ says the Master.";
-             3: "^~Perhaps you have an identification card you can show \
-                me?~ says the Master.";
-             4: "^~I don't suppose you have a letter of introduction?~ \
-                says the Master.";
+              1: "^~Ainda não sei quem você é,~ resmunga o Reitor.";
+              2: "^~Seria apenas educado apresentar-se adequadamente,~ diz o Reitor.";
+              3: "^~Talvez tenha uma carteira de identidade para me mostrar?~ diz o Reitor.";
+              4: "^~Suponho que não tenha uma carta de apresentação?~ diz o Reitor.";
              5: self.state = 0;
-                "^~I know it's rude of me, but I'm a stickler for these \
-                things,~ says the Master.";
+                 "^~Sei que é indelicado da minha parte, mas sou exigente com essas \
+                 coisas,~ diz o Reitor.";
              6: self.state = 5;
                 if (self hasnt general) {
                     give self general;
-                    "^~Well, be my guest, wander round, take a look at \
-                    the books,~ says the Master. ~I'd offer you some tea, \
-                    but the housekeeper's busy with the polishing \
-                    today. If you want to find out about the history of \
-                    the college, pop along to the library and take a look \
-                    at MacLane.~ He lifts up his newspaper and continues \
-                    to read the business pages.";
+                     "^~Bem, fique à vontade, passeie e dê uma olhada nos livros,~ \
+                     diz o Reitor. ~Eu lhe ofereceria chá, mas a governanta está \
+                     ocupada polindo a prataria hoje. Se quiser saber sobre a \
+                     história do college, vá à biblioteca e dê uma olhada em \
+                     MacLane.~ Ele ergue o jornal e continua lendo as páginas de \
+                     negócios.";
                 }
                 return;
-             7: "^~Which book do you want?~ asks the Master.";
-             8: "^~I thought you wanted to look at one of my books,~ says \
-                the Master. ~Which one was it?~";
+              7: "^~Qual livro você quer?~ pergunta o Reitor.";
+              8: "^~Pensei que quisesse olhar um dos meus livros,~ diz o Reitor. \
+                 ~Qual era mesmo?~";
              9: self.state = 5;
                 MastersBooks.state = MastersBooks.state + 1;
                 give MastersBooks general;
                 move BookBarker to player;
                 ResetVagueWords(BookBarker);
-                "^~Well, if you're not sure what you want,~ says the \
-                Master, ~maybe you'd enjoy this.~ He fetches a slim \
-                volume and hands it to you.";
+                 "^~Bem, se não tem certeza do que quer,~ diz o Reitor, ~talvez \
+                 goste deste.~ Ele busca um volume fino e o entrega a você.";
              default:
                 print_ret "** Error: the Master is in the incorrect \
                     state ", self.state, " **";
@@ -1348,11 +1302,11 @@ Object  DinnerTicket "convite para jantar"
  with   name "dinner" "ticket" "invitation",
         size 0,
         description [;
-            print "You are invited to dine at High Table with the Master \
-                and Fellows of Biblioll College at 7.00pm sharp. Dress \
-                will be formal";
+             print "Você está convidada para jantar na Mesa Principal com o Reitor \
+                 e os professores do Biblioll College às 19h em ponto. O traje será \
+                 formal";
             if (location == MastersStudy)
-                print ".^^~But I'm sure you can come as you are,~ says the \
-                    Master";
+                 print ".^^~Mas tenho certeza de que pode vir como está,~ diz o \
+                     Reitor";
             ".";
         ];

@@ -14,7 +14,8 @@ Object  Gardens "Jardins da Faculdade"
  with   name "sward" "emerald" "emerald-green" "green" "grass" "lawn"
             "river" "line" "tall" "trees" "honeysuckle" "bee" "bees"
              "tree" "path" "window" "jardim" "jardins" "grama" "gramado"
-             "rio" "árvore" "árvores" "trilha" "janela",
+              "relva" "esmeralda" "verde" "rio" "linha" "alto" "alta"
+              "árvore" "árvores" "trilha" "caminho" "janela",
         description [;
             if (ClockTower.number < 20) 
                  "Uma longa extensão de grama verde-esmeralda se estende a \
@@ -63,7 +64,7 @@ Nearby  Bushes "arbustos"
 Object  GardenGate "portão de ferro forjado"
  has    door scenery locked lockable openable autoopen
   with   name "gate" "garden" "gardens" "wrought" "iron" "spikes"
-             "portão" "jardim" "jardins" "ferro" "forjado" "espigões",
+              "portão" "jardim" "jardins" "ferro" "forjado" "espigões" "pontas",
          description "O portão dos jardins é alto, feito de barras de ferro \
              forjado. No centro há um baixo-relevo de uma cabeça de leão.",
         found_in Gardens SecondCourt,
@@ -81,7 +82,7 @@ Object  GardenGate "portão de ferro forjado"
          Search: 
             if (self in SecondCourt)
                  "Através do portão você distingue o verde dos jardins do \
-                 college.";
+                  faculdade.";
              "Através do portão você distingue as pedras do Segundo Pátio.";
           Climb: "Os espigões no alto do portão fazem você desistir.";
         ],
@@ -106,7 +107,7 @@ Object  LionsHead "cabeça de leão"
 Object  OutsideShed "Do lado de fora do galpão de jardim"
  has    light is_garden cat_allowed
   with   name "path" "bush" "bushes" "latch" "caminho" "arbusto" "arbustos"
-             "trava",
+              "trava" "galpão" "abrigo",
          description "É um caminho estreito ao sul de um pequeno galpão de \
              jardim. Uma fileira de arbustos o esconde do restante dos jardins, \
              mas você poderia passar por eles de volta a sudeste.",
@@ -167,7 +168,7 @@ Nearby  Crack "fresta"
 Object  InsideShed "Galpão de jardim"
  has    light is_garden cat_allowed
   with   name "shed" "wood" "garden" "door" "peg" "galpão" "madeira"
-             "jardim" "porta" "gancho",
+              "jardim" "porta" "gancho" "abrigo",
          description "Este galpão de madeira é onde os jardineiros da faculdade \
              fazem pausas para o chá e se abrigam da chuva. Agora está vazio. \
              Uma porta leva ao sul.",
@@ -191,7 +192,7 @@ Nearby  Veil "véu de apicultor"
  class  FlimsyClass
  has    clothing
   with   name "bee-keeper" "beekeeper" "veil" "net" "hat" "apicultor"
-             "véu" "rede" "chapéu",
+              "apicultora" "véu" "rede" "chapéu" "tela",
          description "O véu consiste num chapéu de lona de abas largas, do qual \
              pende uma rede fechada que se ajusta ao pescoço de quem o usa.",
         describe [;
@@ -258,7 +259,7 @@ Object  WestBank "Pelo rio, na margem oeste"
 
 Nearby  Punt "barco chato"
  has    static enterable transparent container open
-  with   name "punt" "boat" "barco" "canoa",
+   with   name "punt" "boat" "barco" "canoa" "embarcação",
          initial "Um barco chato flutua junto à margem.",
          description "Um barco chato de madeira, com cerca de cinco metros \
              de comprimento e um metro de largura. Ele é impulsionado em rios \
@@ -307,7 +308,7 @@ Nearby  Punt "barco chato"
         ];          
 
 Object  PuntPole "vara" Punt
-  with   name "pole" "vara",
+   with   name "pole" "vara" "bastão",
          description "A vara é enorme, talvez com quatro metros, e muito pesada. \
              Você sempre acha surpreendente que alguém escolha um objeto tão \
              bizarro como meio de propulsão.",
@@ -341,7 +342,7 @@ Object  PuntPole "vara" Punt
 
 Object  River "rio"
  has    scenery
-  with   name "river" "water" "rio" "água",
+   with   name "river" "water" "rio" "água" "correnteza",
         description [;
              print "O rio tem talvez vinte e cinco metros de uma margem à \
                  outra e flui suavemente de sul para norte. Você passa a mão \
@@ -373,7 +374,7 @@ Object  River "rio"
  Object  Arboretum "Arboreto"
  has    light is_garden cat_allowed
   with   name "arboretum" "arbor" "blossom" "petal" "petals" "path"
-             "arboreto" "flor" "flores" "pétala" "pétalas" "trilha",
+              "arboreto" "arborizado" "flor" "flores" "pétala" "pétalas" "trilha" "caminho",
         description [;
             if (ClockTower.number < 20) 
                  print "Esta fileira de árvores oferece alívio ao brilho do sol. \
@@ -405,7 +406,7 @@ Class   TreeClass
 
 Nearby  ElmTree "olmo"
  class  TreeClass
-  with   name "elm" "olmo",
+   with   name "elm" "olmo" "ulmeiro",
          cant_go "Os galhos mais baixos estão muito acima do seu alcance.";
 
 Nearby  ParrotB "papagaio"

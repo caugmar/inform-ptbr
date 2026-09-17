@@ -148,8 +148,8 @@ Array TitlePage table [;
     " ";
     " ";
     "C H R I S T M I N S T E R";
-    "An interactive conspiracy";
-    " Gareth Rees, August 1995";
+    "Uma conspiracao interativa";
+    " Gareth Rees, agosto de 1995";
     " ";
     "  [pressione uma tecla para começar]";
 ];
@@ -219,7 +219,7 @@ Replace Achieved;
 [ Achieved m i;
     for (i = 0: i < CompletedTasks: i++)
         if (Tasks-->i == m) rfalse;
-    if (CompletedTasks >= NTASKS) "** Error: too many tasks **";
+    if (CompletedTasks >= NTASKS) "** Erro: tarefas demais **";
     Tasks-->CompletedTasks = m;
     CompletedTasks ++;
     score = score + 1;
@@ -239,16 +239,16 @@ Replace Achieved;
     }
     if (things_score > 0) {
         PANum(things_score);
-        print "finding various books^";
+        print "encontrando varios livros^";
     }
 ];
 
 [ DeathMessage;
-    if (deadflag == 3) print "You failed to save your brother.";
+    if (deadflag == 3) print "Voce nao conseguiu salvar seu irmao.";
 ];
 
 [ ParserError e;
-    if (e == SCENERY_PE) "You don't need to refer to that.";
+    if (e == SCENERY_PE) "Voce nao precisa se referir a isso.";
     rfalse;
 ];
 
@@ -269,21 +269,20 @@ Replace Achieved;
     if (action == ##AttackWith && noun == player && second == Pin) {
         move TearsA to player;
         StartTimer(TearsA,3);
-        "You screw up your courage, and shove the pin deep into your \
-        thumb. The pain is excruciating, and you immediately burst into \
-        floods of tears.";
+        "Voce cria coragem e enfia o alfinete fundo no polegar. A dor e \
+         lancinante, e voce imediatamente irrompe em lagrimas.";
     }
     if (Intoxicated > 5 && action == ##Climb)
-        "You're too drunk to think about attempting that.";
+        "Voce esta bebada demais para pensar em tentar isso.";
     if (action == ##Burn && FlameAvailable() == 1 && 
         noun ~= Candle or GasRing or Tapestries)
-        "Didn't your mother ever tell you not to play with fire?";
+        "Sua mae nunca lhe disse para nao brincar com fogo?";
     rfalse;
 ];
 
 [ ChooseObjects o c;
     if (parser_trace >= 1)
-        print "[ ChooseObjects called with o = ", (the) o, ", c = ", c, "]^";
+        print "[Escolha de objeto chamada com o = ", (the) o, ", c = ", c, "]^";
     if (c < 2) {
         if (o has scenery || o has concealed)
             return 2;
@@ -305,11 +304,11 @@ Replace Achieved;
     @set_cursor 1 2;  PrintShortName(location);
     ! longest location name is 30 characters
     if (width > 61) {
-        @set_cursor 1 posa; print "Score: ", sline1;
-        @set_cursor 1 posb; print "Moves: ", sline2;
+        @set_cursor 1 posa; print "Pontos: ", sline1;
+        @set_cursor 1 posb; print "Turnos: ", sline2;
     }
     if (width > 48 && width <= 61) {
-        @set_cursor 1 posb; print "Score: ", sline1;
+        @set_cursor 1 posb; print "Pontos: ", sline1;
     }
     @set_cursor 1 1; style roman; @set_window 0;
 ];
@@ -333,16 +332,16 @@ Object  LibraryMessages "lm"
                 rtrue;
             }
          Listen: 
-            print "Christminster is restful and quiet on a Sunday";
+             print "Christminster e tranquila e silenciosa aos domingos";
             if (ClockTower.number > 19)
-                print " night";
+                 print " a noite";
             ".";
-         Pray: "Prayer doesn't seem very appropriate here.";
-	 Mild,Strong: "Ladies do not use such language.";
+          Pray: "Orar nao parece muito apropriado aqui.";
+ 	 Mild,Strong: "Senhoras nao usam esse tipo de linguagem.";
          Search:
             if (lm_n == 4 && noun has animate)
-                print_ret (The) noun, " probably wouldn't appreciate \
-                    that.";
+                 print_ret (The) noun, " provavelmente nao apreciaria \
+                    isso.";
         ];
 
 
@@ -353,9 +352,9 @@ Object  LibraryMessages "lm"
 IFDEF DEBUG;
 [ XgoSub;
     if (turns > 1)
-        "** Error: you must use ~xgo~ on the first turn of the game **";
-    print "You experience a brief sickening lurch as the world spins \
-        around you...^";
+        "** Erro: voce deve usar ~xgo~ no primeiro turno do jogo **";
+    print "Voce sente um breve e nauseante solavanco enquanto o mundo gira \
+        ao seu redor...^";
     if (noun >= 1) {
         turns ++;
         move Toffee to player;
@@ -455,14 +454,14 @@ IFDEF DEBUG;
         move RustyKey to player;
     }
     if (noun == 8) { PlayerTo(Library); rtrue; }
-    "1 (get into college)^\
-    2 (key to Malcolm's room)^\
-    3 (Jarboe and Bungay)^\
-    4 (enter the gardens)^\
-    5 (ready for alchemy)^\
-    6 (dinner time)^\
-    7 (end of dinner)^\
-    8 (endgame)";
+    "1 (entrar na faculdade)^\
+    2 (chave do quarto de Malcolm)^\
+    3 (Jarboe e Bungay)^\
+    4 (entrar nos jardins)^\
+    5 (pronta para a alquimia)^\
+    6 (hora do jantar)^\
+    7 (fim do jantar)^\
+    8 (final)";
 ];
 ENDIF;
 
@@ -481,7 +480,7 @@ ENDIF;
 ];
 
 ! This is so that output from the "objects" command works!
-Object GivenAway "(given away)" has animate;
+Object GivenAway "(entregue)" has animate;
 
 [ Message array i;
     if (parser_trace >= 1)
@@ -489,34 +488,34 @@ Object GivenAway "(given away)" has animate;
     if (i == 0)
         i = random(array-->0);
     if (i < 1 || i > array-->0)
-        print "** Error: no such message: ", i, " **^";
+        print "** Erro: mensagem inexistente: ", i, " **^";
     print (string) array-->i;
 ];
 
 [ PronounAcc i;
-    if (i hasnt animate) print "it";
-    else { if (i has female) print "her"; else print "him"; } ];
+    if (i hasnt animate) print "isso";
+    else { if (i has female) print "dela"; else print "dele"; } ];
 
 [ CPronounAcc i;
-    if (i hasnt animate) print "It";
-    else { if (i has female) print "Her"; else print "Him"; } ];
+    if (i hasnt animate) print "Isso";
+    else { if (i has female) print "Dela"; else print "Dele"; } ];
 
 [ PronounNom i;
-    if (i hasnt animate) print "it";
-    else { if (i has female) print "she"; else print "he"; } ];
+    if (i hasnt animate) print "isso";
+    else { if (i has female) print "ela"; else print "ele"; } ];
 
 [ CPronounNom i;
-    if (i hasnt animate) print "It";
-    else { if (i has female) print "She"; else print "He"; } ];
+    if (i hasnt animate) print "Isso";
+    else { if (i has female) print "Ela"; else print "Ele"; } ];
 
 [ PrintDirection d;
     switch(d) {
-        u_obj: print "upstairs";
-        d_obj: print "downstairs";
+        u_obj: print "para cima";
+        d_obj: print "para baixo";
         default: print (address) (d.&name)-->1;
     }
     if (d notin compass)
-        print "** Error: not a direction: ", (the) d, " **";
+        print "** Erro: nao e uma direcao: ", (the) d, " **";
 ];
 
 [ Opposite d;
@@ -533,7 +532,7 @@ Object GivenAway "(given away)" has animate;
         sw_obj: return ne_obj;
         w_obj: return e_obj;
         nw_obj: return se_obj;
-        default: print_ret "** Error: not a direction: ", (the) d, " **";
+        default: print_ret "** Erro: nao e uma direcao: ", (the) d, " **";
     }
 ];
 
@@ -596,16 +595,16 @@ Object GivenAway "(given away)" has animate;
 [ PrintTime i j;
     j = ClockTower.number;
     if (ClockTower hasnt general && j == 12 && i == 1) {
-        print "mid-day"; rtrue;
+        print "meio-dia"; rtrue;
     }
-    if (ClockTower has general) print "half past ";
+    if (ClockTower has general) print "e meia ";
     EnglishNumber((j - 1) % 12 + 1);
-    if (ClockTower hasnt general) print " o'clock";
+    if (ClockTower hasnt general) print " horas";
     if (i == 1) {
-        if (j < 12) print " in the morning";
-        if (j >= 12 && j < 18) print " in the afternoon";
-        if (j >= 18 && j < 21) print " in the evening";
-        if (j >= 21) print " at night";
+        if (j < 12) print " da manha";
+        if (j >= 12 && j < 18) print " da tarde";
+        if (j >= 18 && j < 21) print " da noite";
+        if (j >= 21) print " a noite";
     }
 ];
 
@@ -618,14 +617,14 @@ Object GivenAway "(given away)" has animate;
 ];
 
 Array TableFutile table [;
-    "Don't be silly!";
-    "Futile.";
-    "What a concept!";
-    "A valiant attempt.";
-    "You can't be serious.";
-    "Not likely.";
-    "An interesting idea.";
-    "No chance.";
+    "Nao seja boba!";
+    "Inutil.";
+    "Que ideia!";
+    "Uma tentativa corajosa.";
+    "Voce so pode estar brincando.";
+    "Improvavel.";
+    "Uma ideia interessante.";
+    "Sem chance.";
 ];
 
 [ Futile w; Message(TableFutile,w); new_line; ];
@@ -773,8 +772,8 @@ Class   ListTogetherClass
         ],
         article [;
             if (listing_together.list_together == self.list_together)
-                print "one";
-            else print "a";
+                print "um";
+            else print "um";
         ];
 
 
@@ -798,7 +797,7 @@ Class   CarryingClass
                 else give k ~workflag;
             }
             if (i > 0) {
-                print " ", (CPronounNom) self, " is carrying ";
+                print " ", (CPronounNom) self, " esta carregando ";
                 WriteListFrom(child(self), FULLINV_BIT + ENGLISH_BIT +
                     WORKFLAG_BIT + CONCEAL_BIT);
             }
@@ -811,10 +810,10 @@ Class   CarryingClass
             }
             if (j > 0) {
                 if (i == 0) {
-                    print " ", (CPronounNom) self, " is";
+                    print " ", (CPronounNom) self, " esta";
                 }
-                else print ", and";
-                print " wearing ";
+                else print " e";
+                print " usando ";
                 WriteListFrom(child(self), ENGLISH_BIT + WORKFLAG_BIT);
             }
             if (i > 0 || j > 0) print ".";
@@ -861,22 +860,22 @@ Class   FollowClass
         }
         rfalse;
     }
-    "You've no idea where that is.";
+    "Voce nao faz ideia de onde isso fica.";
 ];
 
 [ FollowSub;
-    if (noun == player) "You can't follow yourself.";
-    if (noun in location) "No need!";
+    if (noun == player) "Voce nao pode seguir a si mesma.";
+    if (noun in location) "Nao e necessario!";
     if (noun.follow_dir == 0)
-        print_ret "You start after ", (the) noun, " but you can't find ",
-            (PronounAcc) noun, ". As far as you're concerned, ",
-            (PronounNom) noun, " has vanished into thin air.";
+        print_ret "Voce vai atras de ", (the) noun, ", mas nao consegue encontrar ",
+            (PronounAcc) noun, ". Pelo que voce sabe, ",
+            (PronounNom) noun, " desapareceu no ar.";
     <Enter noun.follow_dir>;
 ];
 
 [ NoFollowSub;
-    if (noun == player) "You can't follow yourself.";
-    print_ret (The) noun, " is right here.";    
+    if (noun == player) "Voce nao pode seguir a si mesma.";
+    print_ret (The) noun, " esta bem aqui.";    
 ];
 
 [ MoveNPC n dest dir;
@@ -893,8 +892,8 @@ Global no_new_line_flag = 0;
 [ MovePrintNPC n dest dir;
     if (n in location) {
         if (no_new_line_flag == 0) new_line;
-        print (The) n, " goes ";
-        if (dir ~= u_obj or d_obj) print "to the ";
+        print (The) n, " vai ";
+        if (dir ~= u_obj or d_obj) print "para o ";
         PrintDirection(dir);
         print ".";
         if (no_new_line_flag == 0) new_line;
@@ -903,13 +902,13 @@ Global no_new_line_flag = 0;
     if (n in location) {
         if (no_new_line_flag == 0) new_line;
         print (The) n;
-        if (dir == 0) print " arrives";
+        if (dir == 0) print " chega";
         if (dir == u_obj or d_obj) {
-            print " comes "; 
+            print " vem "; 
             PrintDirection(dir); 
         }
         if (dir ~= 0 or u_obj or d_obj) {
-            print " enters from the ";
+            print " entra pelo ";
             PrintDirection(Opposite(dir));
         }
         print ".";
@@ -943,17 +942,17 @@ Global no_new_line_flag = 0;
 Class   DoorClass
  has    door static lockable locked is_door openable autoopen
  with   description [;
-            print_ret "The door is sturdy and thick to keep out the chill \
-                Christminster winters. Above the door someone has painted \
-                ~", (string) self.room, ". ", (RoomOccupant) self, "~.";
+             print_ret "A porta e solida e espessa para afastar o frio dos \
+                 invernos de Christminster. Acima da porta alguem pintou \
+                 ~", (string) self.room, ". ", (RoomOccupant) self, "~.";
         ],
         describe [;
             if (self has open)
-                print_ret "^", (The) self, " stands open.";
+                 print_ret "^", (The) self, " esta aberta.";
             rtrue;
         ],
         short_name [;
-            print "door to ", (string) self.room;
+             print "porta para ", (string) self.room;
             rtrue;
         ],
         parse_name [ s n w j k ok;
@@ -973,19 +972,19 @@ Class   DoorClass
             } until (ok == 0 || s == 2);
             return j;
         ],
-        article "the",
+         article "a",
         door_to nothing,
         before [;
-         LookUnder: "The gap is too narrow for you to see anything.";
-         Knock,Attack: "You knock loudly, but you hear no-one stir inside \
-            the room.";
+         LookUnder: "A fresta e estreita demais para voce enxergar algo.";
+         Knock,Attack: "Voce bate com forca, mas nao ouve ninguem se mover \
+            dentro do quarto.";
         ];
 
 [ RoomOccupant r;
     switch (r.honorific) {
-        reverend: print "Reverend ";
+        reverend: print "Reverendo ";
         professor: print "Professor ";
-        doctor: print "Doctor ";
+        doctor: print "Doutor ";
     }
     print (string) r.occupant;
 ];
@@ -998,10 +997,10 @@ Global  key_quote = 7;
 
 Class   KeyClass
  class  PluralClass ListTogetherClass
- with   name "key",
+         with   name "key" "chave",
         size 1,
-        plural_name 'keys',
-        list_together "keys",
+         plural_name 'keys' 'chaves',
+         list_together "keys",
         each_turn [;
             if (self in player) {
                 self.each_turn = -1;
@@ -1019,27 +1018,27 @@ Class   KeyClass
 Class   BookClass
  class  PluralClass
  has    scored
- with   name "book",
-        plural_name 'books',
+         with   name "book" "livro",
+         plural_name 'books' 'livros',
         list_together "books",
         before [;
          Open: <<Examine self>>;
-	 Close: "Ok.";
+ 	 Close: "Certo.";
          Examine:
             return (CheckUnReadable(self));
         ];
 
 [ CheckUnReadable o i;
     if (location == thedark)
-	"Darkness, noun. An absence of light to read by.";
+ 	"Escuridao, substantivo. Ausencia de luz para ler.";
     i = parent(o);
     if (player in i || i hasnt container) rfalse;
-    print "Since ";
-    if (self has proper) print "the book";
+    print "Como ";
+    if (self has proper) print "o livro";
     else print (the) self;
-    print " is in ", (the) i, ", you are unable to ";
-    if (self has proper) "make out more than the title.";
-    "read it.";
+    print " esta em ", (the) i, ", voce nao consegue ";
+    if (self has proper) "decifrar mais que o titulo.";
+    "le-lo.";
 ];
 
 ! BIBLES
@@ -1105,14 +1104,14 @@ Class   BibleClass
 Class   DelicateClass
  with   before [;
          ThrowAt:
-            print_ret "Be careful! ", (the) self, " might break.";
+             print_ret "Cuidado! ", (the) self, " pode quebrar.";
         ];
 
 Class   FlimsyClass
  with   before [;
          ThrowAt:
-            print_ret (The) self, " is too flimsy to make a good \
-                missile.";
+             print_ret (The) self, " e fragil demais para servir de \
+                 projetil.";
         ];
 
 
@@ -1135,18 +1134,18 @@ Class   FlimsyClass
 ! Hello,Yes,No:    DefaultTalk -> TalkTo -> Speak -> Question -> "No reply"
 
 Object Topics "questions";
-Nearby QHello "q" with name "hello" "hi" "good" "morning" "afternoon";
-Nearby QConstable "q" with name "constable" "cop" "police" "policeman" "pc"
+Nearby QHello "q" with name "hello" "hi" "ola" "oi" "bom" "manha" "tarde";
+Nearby QConstable "q" with name "constable" "cop" "police" "policeman" "pc" "policial" "policia"
     "bobby";
-Nearby QBusker "q" with name "busker" "busking" "magician" "wizard";
-Nearby QDon "q" with name "sleeping" "don" "man";
+Nearby QBusker "q" with name "busker" "busking" "magician" "wizard" "artista" "magico";
+Nearby QDon "q" with name "sleeping" "don" "man" "adormecido" "homem";
 Nearby QZork "q" with name "zork" "xyzzy" "plugh" "plover";
-Nearby QTime "q" with name "time" "hour" "watch";
-Nearby QCollege "q" with name "biblioll" "college";
-Nearby QMalcolm "q" with name "malcolm" "brother" "spencer";
+Nearby QTime "q" with name "time" "hour" "watch" "hora" "horas" "relogio";
+Nearby QCollege "q" with name "biblioll" "college" "faculdade";
+Nearby QMalcolm "q" with name "malcolm" "brother" "spencer" "irmao";
 Nearby QDinner "q" with name "dinner" "ticket" "invitation" "tonight"
     "banquet" "feast" "commemoration" "benefactor";
-Nearby QBooks "q" with name "book" "books";
+Nearby QBooks "q" with name "book" "books" "livro" "livros";
 Nearby QArkwright "q" with name "arkwright";
 Nearby QAkhenaten "q" with name "reign" "akhenaten" "akhnaten" "ikhnaton";
 Nearby QEgypt "q" with name "amarna" "egypt" "akhetaten" "egyptology";
@@ -1165,20 +1164,20 @@ Nearby QGarton "q" with name "henry" "garton";
 Nearby QGriffins "q" with name "brass" "griffin" "griffins" "fireplace";
 Nearby QOsiris "q" with name "osiris" "sethos" "ritual" "isis" "set";
 Nearby QSkeleton "q" with name "skeleton" "body" "corpse" "bones" "alchemist";
-Nearby QYes "q" with name "yes" "y" "certainly";
-Nearby QNo "q" with name "no" "n" "never";
+Nearby QYes "q" with name "yes" "y" "certainly" "sim" "s";
+Nearby QNo "q" with name "no" "n" "never" "nao" "nunca";
 Nearby QStrawberries "q" with name "strawberries" "cream";
 Nearby QPunting "q" with name "punting" "punt" "river";
 Nearby QArchaeology "q" with name "archaeology" "neferneferuaten" "stelae" 
     "slave" "slaves";
-Nearby QMaster "q" with name "master";
-Nearby QMe "q" with name "Christabel" "I" "me";
+Nearby QMaster "q" with name "master" "mestre";
+Nearby QMe "q" with name "Christabel" "I" "me" "eu" "mim";
 Nearby QSupervision "q" with name "supervision" "tutorial" "class";
-Nearby QThanks "q" with name "thank" "thanks" "thankyou";
+Nearby QThanks "q" with name "thank" "thanks" "thankyou" "obrigado" "obrigada";
 Nearby QBaskeyfield "q" with name "baskeyfield" "library" "librarian";
 Nearby QVastang "q" with name "pierre" "vastang";
-Nearby QHoney "q" with name "honey";
-Nearby QChapel "q" with name "chapel" "church";
+Nearby QHoney "q" with name "honey" "mel";
+Nearby QChapel "q" with name "chapel" "church" "capela" "igreja";
 Nearby QMagic "q" with name "magic" "trick" "toffee";
 Nearby QCups "q" with name "red" "green" "blue" "cup" "cups";
 Nearby QGasRing "q" with name "gas" "ring";
@@ -1216,29 +1215,29 @@ Nearby QDefault "default topic";
 Global gFlagArrest = 0;
 
 [ ArrestSub;
-    if (noun has animate)
-        "You don't have the relevant powers of arrest.";
+     if (noun has animate)
+         "Voce nao tem autoridade para prender.";
     if (gFlagArrest == 1) { Futile(); rtrue; }
     gFlagArrest = 1;
-    print_ret "Imagine the scene in court: ~M'lud, the prosecution will \
-        show that ", (the) noun, ", a vile, recidivist and maladjusted \
-        example of its kind, did lewdly and wilfully exist in a most \
-        provocative manner. I demand no less than a death sentence!~^^So \
-        maybe better not.";
+     print_ret "Imagine a cena no tribunal: ~Meritissimo, a acusacao mostrara \
+         que ", (the) noun, ", exemplo vil, reincidente e desajustado de sua \
+         especie, existiu de modo indecente e deliberado, da maneira mais \
+         provocadora. Exijo nada menos que a pena de morte!~^^Talvez seja \
+         melhor nao.";
 ];
 
 [ AttackWithSub; <Attack noun>; ];
 
-[ CrySub; "You're not the kind of woman who can produce tears on demand \
-    like that.";
+[ CrySub; "Voce nao e o tipo de mulher que consegue produzir lagrimas sob \
+    demanda desse jeito.";
 ];
 
 [ DefaultTalkSub i a;
     objectloop (i in location)
         if (i has animate && i ~= player or Parrot) a = i;
     if (a == 0) {
-        if (verb_word == 'hello' or 'hi') "Hello to you too.";
-        "That was a rhetorical question.";
+        if (verb_word == 'hello' or 'hi') "Ola para voce tambem.";
+        "Isso foi uma pergunta retorica.";
     }
     print "(to ", (the) a, ")^";
     TalkTo(a);
@@ -1246,58 +1245,56 @@ Global gFlagArrest = 0;
 
 [ DialSub; <Dial second noun>; ];
 
-[ InvokeSub; "** Error: Invoke subroutine should never be run **"; ];
+[ InvokeSub; "** Erro: a rotina Invoke nunca deveria ser executada **"; ];
 
 [ KnockSub;
-    if (noun has animate) "Keep your hands to yourself!";
-    "You knock, but no-one answers you.";
+    if (noun has animate) "Tire as maos dai!";
+    "Voce bate, mas ninguem responde.";
 ];
 
-[ PointSub; "Nothing happens."; ];
+[ PointSub; "Nada acontece."; ];
 
-[ QuestionSub; "No reply."; ];
+[ QuestionSub; "Nenhuma resposta."; ];
 
 [ QuotesOnSub;
     quotes_on = 1;
-    "[Quotations are now on.]";
+    "[As citacoes estao ligadas.]";
 ];
 
 [ QuotesOffSub;
     quotes_on = 0;
-    "[Quotations are now off.]";
+    "[As citacoes estao desligadas.]";
 ];
 
 [ ResuscitateSub;
     if (noun hasnt animate)
-        "You can't resuscitate an inanimate object.";
-    "You can't resuscitate someone who's alive.";
+        "Voce nao pode reanimar um objeto inanimado.";
+    "Voce nao pode reanimar alguem que esta vivo.";
 ];
 
 [ RingSub; Futile(); ];
 
-[ SaySub; "Nothing happens."; ];
+[ SaySub; "Nada acontece."; ];
 
 [ ScreamSub;
-    "Pull yourself together! Now is no time for behaving like a silly \
-    girl!";
+    "Controle-se! Nao e hora de se comportar como uma garota tola!";
 ];
 
 [ ShakeHandsSub;
     if (RunLife(noun,##ShakeHands)~=0) rfalse;
-    print_ret (The) noun, " doesn't seem to want to shake hands with \
-        you.";
+    print_ret (The) noun, " nao parece querer apertar sua mao.";
 ];
 
-[ SmellThingSub; "You smell nothing unusual."; ];
+[ SmellThingSub; "Voce nao sente nenhum cheiro incomum."; ];
 
-[ StopSub; "OK."; ];
+[ StopSub; "Certo."; ];
 
 [ SpeakSub t; t = DecodeTopic(); <Question noun t>; ];
 
 [ TaviaSub;
-    if (noun ~= 96) "I didn't understand that sentence.";
-    "A sweet black-and-white kitten scampers into sight, looks at you \
-    quizzically for a second, then scampers off again.";
+    if (noun ~= 96) "Nao entendi essa frase.";
+    "Um gatinho preto e branco entra correndo em cena, olha para voce com \
+    curiosidade por um instante e sai correndo novamente.";
 ];
 
 Replace ThinkSub;
@@ -1309,27 +1306,27 @@ Replace ThinkSub;
 
 [ TickleSub;
     if (noun == player && second == Feather) {
-        print "The feather is very ticklish. You barely brush your nose \
-            with it, and you burst out sneezing";
+        print "A pena faz muita cocega. Voce mal roça o nariz nela e comeca a \
+            espirrar";
         if (Constable in location)
-            print ". ~Bless you,~ says the constable";
+            print ". ~Saude~, diz o policial";
         ".";
     }
-    if (noun has animate) "Keep your hands to yourself!";
+    if (noun has animate) "Tire as maos dai!";
     Futile();
 ];
 
 [ TimeSub;
     if (ClockTower in location) <<Examine ClockTower>>;
     if (Constable in location) <<Question Constable QTime>>;
-    "You have no means of telling the time.";
+    "Voce nao tem como saber as horas.";
 ];
 
 [ UnscrewSub; <Turn noun>; ];
 
-[ UntieSub; "That isn't tied to anything."; ];
+[ UntieSub; "Isso nao esta amarrado a nada."; ];
 
-[ ZorkMagicSub; "Nothing happens."; ];
+[ ZorkMagicSub; "Nada acontece."; ];
 
 IFDEF TEST_VERSION;
 [ BugSub; "** Bug! **"; ];
@@ -1343,17 +1340,17 @@ ENDIF;
 Object  Handbag "bolsa" selfobj
  has    container openable
  with   name "handbag" "purse" "bag" "bolsa" "sacola" "crocodile" "crocodile-skin",
-        description "A gift from your grandmother, who seems to have \
-            thought that no respectable young woman should be seen about \
-            town without her crocodile-skin handbag.",
+         description "Um presente de sua avo, que parece pensar que nenhuma \
+             jovem respeitavel deveria ser vista na cidade sem sua bolsa de \
+             pele de crocodilo.",
         capacity 100,
         size 3,
-        article "your",
+         article "sua",
         before [;
          Receive:
             if (noun.size > 2)
-                print_ret (The) noun, " is too large to fit in the \
-                    handbag.";
+                 print_ret (The) noun, " e grande demais para caber na \
+                     bolsa.";
         ];
 
 Nearby  Telegram "telegrama"
@@ -1361,20 +1358,19 @@ Nearby  Telegram "telegrama"
         ! general if it's been used for a magic trick
  with   name "telegram" "telegrama",
         size 0,
-        description "The telegram reads, ~Dearest Christabel. Work goes \
-            well. Amazing discovery in prospect. Come at once. Will tell \
-            all when you arrive on Sunday. Your dearest brother, \
-            Malcolm Spencer.~";
+         description "O telegrama diz: ~Querida Christabel. O trabalho vai \
+             bem. Uma descoberta extraordinaria se aproxima. Venha logo. \
+             Contarei tudo quando chegar no domingo. Seu querido irmao, \
+             Malcolm Spencer.~";
 
 Nearby  Map "mapa do Biblioll College"
  class  FlimsyClass
         ! general if it's been used for a magic trick
  with   name "map" "mapa" "of" "de" "Biblioll" "College" "faculdade",
         description [;
-            if ((0->33) < 63)
-                "[Your screen is too narrow for the map to come out \
-                correctly. Try finding one which can print at least 63 \
-                characters on a line.]";
+             if ((0->33) < 63)
+                 "[Sua tela e estreita demais para exibir o mapa corretamente. \
+                 Tente usar uma tela que mostre pelo menos 63 caracteres por linha.]";
             font off;
             print
 "                         Bridge Street^\
@@ -1415,13 +1411,13 @@ Include "VerbLib";
             if (j ~= SACK_OBJECT && j hasnt worn && j hasnt light)
                 k = j;
         if (k ~= 0) {
-            print "^You're having trouble hanging onto all your \
-                possessions. ";
+             print "^Voce esta com dificuldade para segurar todos os seus \
+                pertences. ";
             if (SACK_OBJECT in self && SACK_OBJECT has open) {
-                print "You put ", (the) k, " into ", (the) SACK_OBJECT, ".^";
+                 print "Voce coloca ", (the) k, " em ", (the) SACK_OBJECT, ".^";
                 keep_silent=1; <Insert k SACK_OBJECT>; keep_silent=0;
             } else {
-                print "You let go of ", (the) k, ".^";
+                 print "Voce solta ", (the) k, ".^";
                 keep_silent=1; <Drop k>; keep_silent=0;
             }
         }
@@ -1439,7 +1435,10 @@ Include "VerbLib";
 [ Anything w; do { w = NextWordStopped(); } until (w == -1); return 0; ];
 
 [ ConTopicPrep prep w; consult_from = wn;
-  do w=NextWordStopped(); until (w==prep or -1); if (w==-1) return -1;
+  do w=NextWordStopped(); until (w==prep ||
+      (prep=='to' && w=='para') || (prep=='at' && w=='em') ||
+      (prep=='on' && w=='sobre') || (prep=='of' && w=='de') || w==-1);
+  if (w==-1) return -1;
   wn--; consult_words = wn-consult_from;
   if (consult_words==0) return -1; return 0; ];
 [ ConTopicTo; return ConTopicPrep('to'); ];
@@ -1473,227 +1472,276 @@ Verb "subir" "descer" "ascend" "descend"
 
 Verb "perguntar" "ask"
      * creature "about" topic            -> Speak
+     * creature "sobre" topic            -> Speak
      * creature "for" noun               -> AskFor
+     * creature "por" noun               -> AskFor
      * creature "for" topic              -> Speak
+     * creature "por" topic              -> Speak
      * creature topic                    -> Speak;
 
 Verb "atacar" "attack"
-    * noun "with" held                  -> AttackWith;
+    * noun "with" held                  -> AttackWith
+    * noun "com" held                   -> AttackWith;
 
 Verb "consultar" "check"
-     * noun "for" topic		-> Consult;
+     * noun "for" topic		-> Consult
+     * noun "por" topic		-> Consult
+     * multi "on" noun		-> Consult
+     * multi "in" noun		-> Consult;
 
 Verb "escalar" "climb"
     * "on" noun                         -> Climb
-    * "through" noun                    -> Enter;
+    * "em" noun                         -> Climb
+    * "through" noun                    -> Enter
+    * "por" noun                        -> Enter;
 
 Verb "cortar" "cut"
-    * noun "with" held                  -> AttackWith;
+    * noun "with" held                  -> AttackWith
+    * noun "com" held                   -> AttackWith;
 
 Verb "chorar" "chore" "cry" "weep" *       -> Cry;
 
 Verb "discar" "ligar" "dial"
-    * number "on" is_telephone          -> Dial;
+    * number "on" is_telephone          -> Dial
+    * number "em" is_telephone          -> Dial;
 
 Verb "comer" "eat"
     * noun                              -> Eat;
 
-Verb "extinguish"
+Verb "extinguir" "extinguish"
     * noun                              -> SwitchOff;
 
 Verb "pegar" "get"
-    * "into" noun                       -> Enter;
+    * "into" noun                       -> Enter
+    * "em" noun                         -> Enter;
 
-Verb "find"
-    * multi "in" noun		-> Consult
-    * multi "on" noun		-> Consult;
+Verb "encontrar" "find"
+     * multi "in" noun		-> Consult
+     * multi "em" noun		-> Consult
+     * multi "on" noun		-> Consult;
 
 Verb "dar" "give"
-    * is_liquid "to" creature           -> Give
-    * held "to" creature                -> Give
-    * "over" held "to" creature         -> Give
+     * is_liquid "to" creature           -> Give
+     * is_liquid "para" creature         -> Give
+     * held "to" creature                -> Give
+     * held "para" creature              -> Give
+     * "over" held "to" creature         -> Give
+     * held "para" creature              -> Give
     * creature is_liquid                -> GiveR
     * creature held                     -> GiveR;
 
 Verb "seguir" "perseguir" "follow" "chase" "pursue" "trail"
     * scope=FollowScope                 -> Follow
-    * "after" scope=FollowScope         -> Follow
+      * "after" scope=FollowScope        -> Follow
+      * "depois" scope=FollowScope       -> Follow
     * noun                              -> NoFollow
-    * "after" noun                      -> NoFollow;
+      * "after" noun                     -> NoFollow
+      * "depois" noun                    -> NoFollow;
 
-Verb "hang"
-    * "up" is_telephone                 -> Drop;
+Verb "pendurar" "hang"
+     * "up" is_telephone                 -> Drop
+     * "acima" is_telephone              -> Drop;
 
-Verb "hide"
-    * "in" noun                         -> Enter
-    * "under" noun                      -> Enter
-    * "behind" noun                     -> Enter;
+Verb "esconder" "hide"
+     * "in" noun                         -> Enter
+     * "em" noun                         -> Enter
+     * "under" noun                      -> Enter
+     * "sob" noun                        -> Enter
+     * "behind" noun                     -> Enter;
 
 Verb "olá" "oi" "hello" "hi" *            -> DefaultTalk;
 
-Verb "kick" "strike" "slap"
+Verb "chutar" "kick" "strike" "slap"
     * noun                              -> Attack
     * noun "with" held                  -> AttackWith;
 
 Verb "bater" "knock" "bang"
-    * "at" noun                         -> Knock
+     * "at" noun                         -> Knock
+     * "em" noun                         -> Knock
     * noun                              -> Knock
-    * "on" noun                         -> Knock
+     * "on" noun                         -> Knock
+     * "em" noun                         -> Knock
     * noun "over"                       -> Attack
     * "over" noun                       -> Attack
     * "down" noun                       -> Attack
     * noun "down"                       -> Attack;
 
-Verb "lift"
+Verb "levantar" "lift"
     * noun                              -> Take
     * "up" noun                         -> Take
     * noun "up"                         -> Take;
 
 Verb "escutar" "listen"
-    * "at" noun                         -> Listen;
+     * "at" noun                         -> Listen
+     * "para" noun                       -> Listen;
 
 Verb "olhar" "look"
-    * "out" "of" noun                   -> Search
+     * "out" "of" noun                   -> Search
+     * "fora" "de" noun                  -> Search
     * "out" noun                        -> Search
-    * "up" multi "on" noun         -> Consult
-    * "in" noun "for" multi          -> Consult;
+     * "up" multi "on" noun              -> Consult
+     * "consulte" multi "em" noun        -> Consult
+     * "in" noun "for" multi             -> Consult
+     * "em" noun "por" multi             -> Consult;
 
 Verb "lookup"
     * multi "on" noun		-> Consult
     * multi "in" noun		-> Consult;
 
-Verb "pass"
-    * held "to" animate                 -> Give
+Verb "passar" "pass"
+     * held "to" animate                 -> Give
+     * held "para" animate               -> Give
     * animate held                      -> GiveR;
 
-Verb "plug"
-    * multiexcept "into" noun           -> Insert
-    * multiexcept "in" noun             -> Insert;
+Verb "conectar" "plug"
+     * multiexcept "into" noun           -> Insert
+     * multiexcept "em" noun             -> Insert
+     * multiexcept "in" noun             -> Insert;
 
-Verb "point"
-    * "at" noun                         -> Point
-    * "to" noun                         -> Point
+Verb "apontar" "point"
+     * "at" noun                         -> Point
+     * "em" noun                         -> Point
+     * "to" noun                         -> Point
+     * "para" noun                       -> Point
     * "out" noun                        -> Point
     * noun                              -> Point;
 
 Verb "puxar" "pull"
-    * "on" noun                         -> Pull
+     * "on" noun                         -> Pull
+     * "em" noun                         -> Pull
     * noun noun                         -> PushDir;
 
-Verb "punt"
+Verb "remar" "punt"
     *                                   -> VagueGo
     * noun                              -> Enter;
 
-Verb "prick"
+Verb "furar" "prick"
     * noun                              -> Attack
     * noun "with" held                  -> AttackWith;
 
 Verb "empurrar" "push"
-    * "on" noun                         -> Push
-    * "at" noun                         -> Push
-    * held "under" noun                 -> Insert
-    * held "into" noun                  -> Insert
-    * held "through" noun               -> Insert;
+     * "on" noun                         -> Push
+     * "em" noun                         -> Push
+     * "at" noun                         -> Push
+     * held "under" noun                 -> Insert
+     * held "sob" noun                   -> Insert
+     * held "into" noun                  -> Insert
+     * held "em" noun                    -> Insert
+     * held "through" noun               -> Insert
+     * held "por" noun                   -> Insert;
 
 Verb "colocar" "put"
-    * held "under" noun                 -> Insert
-    * held "on"                         -> Wear;
+     * held "under" noun                 -> Insert
+     * held "sob" noun                   -> Insert
+     * held "on"                         -> Wear
+     * held "em"                         -> Wear;
 
 Verb "ler" "read"
-    * "about" multi "in" noun       -> Consult
-    * multi "in" noun               -> Consult
-    * multi "of" noun              -> Consult;
+     * "about" multi "in" noun       -> Consult
+     * "sobre" multi "em" noun       -> Consult
+     * multi "in" noun               -> Consult
+     * multi "em" noun               -> Consult
+     * multi "of" noun               -> Consult
+     * multi "de" noun               -> Consult;
 
-Verb meta "quotes"
-    * "on"                              -> QuotesOn
-    * "off"                             -> QuotesOff;
+Verb meta "citacoes" "quotes"
+     * "ligadas" "ligada" "on"         -> QuotesOn
+     * "desligadas" "desligada" "off"  -> QuotesOff;
 
 Verb "remover" "remove"
     * worn                              -> Disrobe
     * multi                             -> Take
-    * multiinside "from" noun           -> Remove;
+     * multiinside "from" noun           -> Remove
+     * multiinside "de" noun             -> Remove;
 
-Verb "replace"
+Verb "substituir" "replace"
     * noun                              -> Drop;
 
-Verb "resuscitate" "revive"
+Verb "reanimar" "resuscitate" "revive"
     * noun                              -> Resuscitate;
 
-Verb "ring"
+Verb "telefonar" "ring"
     * noun                              -> Ring;
 
-Verb "rip"
+Verb "rasgar" "rip" "tear"
     * noun				-> Cut;
 
 Verb "dizer" "say"
      * ConTopicTo "to" creature          -> Speak
      * ConTopicTo "to" is_telephone      -> Speak
-     * ConTopicAt "at" creature          -> Speak
+      * ConTopicAt "at" creature          -> Speak
      * topic                             -> Say;
 
-Verb "scream"
+Verb "gritar" "scream"
     *                                   -> Scream;
 
 Verb "rosquear" "screw"
-    * held "into" noun                  -> Insert
-    * held "in" noun                    -> Insert;
+     * held "into" noun                  -> Insert
+     * held "em" noun                    -> Insert
+     * held "in" noun                    -> Insert;
 
 Verb "procurar" "search"
-     * noun "for" topic		-> Consult;
+     * noun "for" topic		-> Consult
+     * noun "por" topic		-> Consult;
 
 Verb "acender" "set"
-    * "fire" "to" noun                  -> Burn;
+     * "fire" "to" noun                  -> Burn
+     * "fogo" "em" noun                  -> Burn;
 
-Verb "shake"
-    * "hands" "with" noun               -> ShakeHands
+Verb "apertar" "shake"
+     * "hands" "with" noun               -> ShakeHands
+     * "maos" "com" noun                 -> ShakeHands
     * noun                              -> Push;
 
-Verb "slide"
-    * noun                              -> Push
-    * held "into" noun                  -> Insert
-    * held "through" noun               -> Insert;
+Verb "deslizar" "slide"
+     * noun                              -> Push
+     * held "into" noun                  -> Insert
+     * held "em" noun                    -> Insert
+     * held "through" noun               -> Insert;
 
 Verb "cheirar" "smell"
     *                                   -> Smell
     * noun                              -> SmellThing;
 
 Verb "ficar" "stand"
-    * "in" noun                         -> Enter;
+     * "in" noun                         -> Enter
+     * "em" noun                         -> Enter;
 
-Verb "stroke" "pet"
+Verb "acariciar" "stroke" "pet"
     * noun                              -> Touch;
 
-Verb "stop" "don^t" "stay"
+Verb "parar" "stop" "don^t" "stay"
     * Anything                          -> Stop;
 
 Verb "tavia"
     * number                            -> Tavia;
 
-Verb "tear"
-    * noun                              -> Cut;
-
 Verb "contar" "tell"
      * creature "about" topic            -> Speak
+     * creature "sobre" topic            -> Speak
      * creature topic                    -> Speak;
 
 Verb "pensar" "think"
      * "of" topic                        -> Think
      * "about" topic                     -> Think
+     * "sobre" topic                     -> Think
      * topic                             -> Think;
 
 Verb "arremessar" "throw"
     * held "through" noun               -> ThrowAt
     * held "over" noun                  -> ThrowAt
     * held "out" noun                   -> ThrowAt
-    * held "out" "of" noun              -> ThrowAt;
+     * held "out" "of" noun              -> ThrowAt;
 
-Verb "tickle" "brush"
-    * noun "with" held                  -> Tickle;
+Verb "fazer_cocegas" "tickle" "brush"
+     * noun "with" held                  -> Tickle
+     * noun "com" held                   -> Tickle;
 
 Verb "amarrar" "tie"
-    * noun "to" noun                    -> Tie;
+     * noun "to" noun                    -> Tie
+     * noun "a" noun                     -> Tie;
 
-Verb "time" *                           -> Time;
+Verb "hora" "time" *                    -> Time;
 
 Verb "virar" "turn"
     * noun "over"                       -> Turn
@@ -1702,12 +1750,13 @@ Verb "virar" "turn"
      * "to" multi "in" noun		-> Consult
      * "to" multi "of" noun		-> Consult
      * noun "to" "page" topic		-> Consult
-     * noun "with" held                  -> Unscrew;
+     * noun "with" held                  -> Unscrew
+     * noun "com" held                   -> Unscrew;
 
-Verb "uncork"
+Verb "desarrolhar" "uncork"
     * noun                              -> Open;
 
-Verb "untie" "detach" "unplug"
+Verb "desamarrar" "untie" "detach" "unplug"
     * multi                             -> Untie;
 
 Verb "tocar" "touch"

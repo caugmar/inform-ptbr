@@ -28,7 +28,7 @@ Fake_Action LiquidMove;     ! move a liquid into an open vessel
 
 [ FillWithSub; <<Insert second noun>>; ];
 
-Verb "pour"
+Verb "pour" "derramar" "verter"
     * "out" noun            -> Empty
     * "away" noun           -> Empty
     * noun "away"           -> Empty
@@ -39,7 +39,7 @@ Verb "pour"
     * noun "into" noun      -> EmptyT
     * noun "over" noun      -> EmptyT;
 
-Verb "add" "mix"
+Verb "add" "mix" "adicionar" "misturar"
     * noun "to" noun        -> Insert
     * noun "with" noun      -> Insert;
 
@@ -58,19 +58,19 @@ Class   VesselClass
             if (location == thedark) return L__M(##Examine,1);
             PrintOrRun(self,description,1);
             if (child(self) ~= 0 && (self has open || self has transparent))
-                print " It contains ", (a) child(self), ".";
+                print " Contém ", (a) child(self), ".";
             new_line;
             rtrue;
          Drink,Taste,Eat:
-            if (children(self) == 0) print_ret (The) self, " is empty.";
+            if (children(self) == 0) print_ret (The) self, " está vazio.";
             <<Drink (child(self))>>;
          Fill:
             if (location hasnt is_water)
-                print_ret "You can't see anything from which to fill ",
+                print_ret "Você não vê nada com que possa encher ",
                     (the) self, ".";
-            if (self hasnt open) print_ret (The) self, " is closed.";
+            if (self hasnt open) print_ret (The) self, " está fechado.";
             if (child(self) ~= 0 && child(self) hasnt is_liquid)
-                print_ret "But ", (the) self, " already contains ",
+                print_ret "Mas ", (the) self, " já contém ",
                     (a) child(self), ".";
             <Invoke WaterStore>;
             if (child(WaterStore) ~= 0)
@@ -82,38 +82,37 @@ Class   VesselClass
             if (noun == River) <<Fill self>>;
             if (noun hasnt is_liquid) {
                 if (noun.size ~= 0)
-                    "That's too large to fit.";
+                    "É grande demais para caber.";
                 rfalse;
             }
-            if (self hasnt open) print_ret (The) self, " is closed.";
+            if (self hasnt open) print_ret (The) self, " está fechado.";
             if (child(self) ~= 0 && child(self) hasnt is_liquid)
-                print_ret (The) self, " already contains ",
+                print_ret (The) self, " já contém ",
                     (a) child(self), ".";
             <<LiquidMove noun self>>;
          Empty:
-            if (self hasnt open) print_ret (The) self, " is closed.";
-            if (child(self) == 0) print_ret (The) self, " is empty.";
+            if (self hasnt open) print_ret (The) self, " está fechado.";
+            if (child(self) == 0) print_ret (The) self, " está vazio.";
             if (child(self) hasnt is_water)
-                print_ret "Nothing would be gained by pouring out ",
+                print_ret "Não adianta derramar ",
                     (the) child(self), ".";
             remove child(self);
-            print_ret "You empty ", (the) self, ".";
+            print_ret "Você esvazia ", (the) self, ".";
          EmptyT:
-            if (second == self) "You can't empty something into itself!";
+            if (second == self) "Você não pode esvaziar algo dentro de si mesmo!";
             if (second has is_liquid) second = parent(second);
             if (second has animate || second == Skeleton or Gargoyle)
                 <<Give self second>>;
             if (second hasnt is_vessel) <<Empty self>>;
-            if (self hasnt open) print_ret (The) self, " is closed.";
-            if (child(self) == 0) print_ret (The) self, " is empty.";
+            if (self hasnt open) print_ret (The) self, " está fechado.";
+            if (child(self) == 0) print_ret (The) self, " está vazio.";
             if (second == Fire) {
                 remove child(self);
-                "Your pitiful effort at fire-fighting accomplishes \
-                nothing.";
+                "Seu esforço patético para apagar o fogo não surte efeito.";
             }
-            if (second hasnt open) print_ret (The) second, " is closed.";
+            if (second hasnt open) print_ret (The) second, " está fechado.";
             if (child(second) ~= 0 && child(second) hasnt is_liquid)
-                print_ret "But ", (the) second, " already contains ",
+                print_ret "Mas ", (the) second, " já contém ",
                     (a) child(second), ".";
             <<LiquidMove (child(self)) second>>;
         ];
@@ -132,14 +131,14 @@ Class   LiquidClass
             if (i has is_vessel) <<Show i second>>;
          Drink,Taste,Eat,SmellThing,Touch:
             if (i has is_vessel && i hasnt open)
-                print_ret (The) i, " is closed.";
+                print_ret (The) i, " está fechado.";
             if (AfterRoutines() == 1) rtrue;
          Take,Remove:
             if (i has is_vessel)
-                print_ret "Try ~empty ", (the) i, " into thing~, or ~pour \
-                    ", (the) self, " over thing~ instead.";
+                print_ret "Tente ~esvaziar ", (the) i, " em algo~, ou ~derramar \
+                    ", (the) self, " sobre algo~.";
             j = FindOpenEmptyVessel();
-            if (j == 0) "You'll have to say what you want to fill.";
+            if (j == 0) "Você terá de dizer o que quer encher.";
             <<LiquidMove self j>>;
          Insert,PutOn,Transfer,Empty,EmptyT:
             j = parent(second);
@@ -149,29 +148,29 @@ Class   LiquidClass
                 <<EmptyT i second>>;
             }
             if (second hasnt is_vessel) { Futile(); rtrue; }
-            if (second hasnt open) print_ret (The) second, " is closed.";
+            if (second hasnt open) print_ret (The) second, " está fechado.";
             <<LiquidMove self second>>;
          Receive:
             if (noun has is_liquid)
-                "** Error: Receive action called with noun and second \
-                both liquids **";
+                "** Erro: a ação Receive foi chamada com noun e second \
+                 both liquids **";
             Futile();
             rtrue;
          LiquidMove:
             if (second hasnt is_vessel || second hasnt open)
-                "** Error: Liquid move failed necessary condition(s) **";
+                "** Erro: o movimento do líquido falhou em condição(ões) necessária(s) **";
             if (self in second)
-                "You can't pour something into itself!";
+                "Você não pode derramar algo dentro de si mesmo!";
             if (self has is_water)
-                print "You fill ", (the) second, " with water";
+                print "Você enche ", (the) second, " com água";
             else
-                print "You pour ", (the) self, " into ", (the) second;
+                print "Você derrama ", (the) self, " em ", (the) second;
             if (child(second) == 0) {
                 move self to second;
                 ".";
             }
             if (child(second) hasnt is_liquid)
-                "** Error: Liquid move failed a necessary condition **";
+                "** Erro: o movimento do líquido falhou em uma condição necessária **";
             i = MixLiquids(self,child(second));
             if (i has is_liquid_store) {
                 <Invoke i>;
@@ -180,7 +179,7 @@ Class   LiquidClass
             if (i == 0) rtrue;
             if (keep_silent == 0) {
                 if (i.number~=self.number || i.number~=(child(second)).number)
-                    print ", resulting in ", (a) i;
+                    print ", resultando em ", (a) i;
                 print ".^";
             }
             keep_silent = 0;
@@ -207,78 +206,78 @@ Class   LiquidStoreClass
                 if (parent(i) == 0)
                     move i to self;
             if (child(self) == 0)
-                print "** Error: a liquid store is empty **^";
+                print "** Erro: um reservatório de líquido está vazio **^";
             rtrue;
         ];
             
 Class   WaterClass
  class  LiquidClass
  has    is_water
- with   name "water",
+  with   name "water" "água",
         article "some",
         number 1,
         after [;
-         SmellThing: "Water is an odourless liquid.";
+          SmellThing: "A água é um líquido inodoro.";
          Taste,Drink,Eat:
             if (WaterStore hasnt general || Hiccups has general) {
                 remove self;
                 give WaterStore general;
                 if (Hiccups has general) {
                     StopDaemon(Hiccups);
-                    "You drink the water, curing your hiccups.";
+                    "Você bebe a água, curando seus soluços.";
                 }
-                "You drink the water, quenching your thirst.";
+                "Você bebe a água, matando a sede.";
             }
-            "You're not feeling thirsty at the moment.";
+            "Você não está com sede no momento.";
         ];
 
-Object  WaterStore "water store"
+Object  WaterStore "reservatório de água"
  class  LiquidStoreClass
         ! general if you've drunk some water
  with   other_obj WaterA;
 
-Nearby  WaterA "water" class WaterClass with other_obj WaterB;
-Nearby  WaterB "water" class WaterClass with other_obj WaterC;
-Nearby  WaterC "water" class WaterClass with other_obj WaterD;
-Nearby  WaterD "water" class WaterClass with other_obj WaterE;
-Nearby  WaterE "water" class WaterClass with other_obj 0;
+Nearby  WaterA "água" class WaterClass with other_obj WaterB;
+Nearby  WaterB "água" class WaterClass with other_obj WaterC;
+Nearby  WaterC "água" class WaterClass with other_obj WaterD;
+Nearby  WaterD "água" class WaterClass with other_obj WaterE;
+Nearby  WaterE "água" class WaterClass with other_obj 0;
 
 Class   CWaterClass
  class  LiquidClass
  has    is_water
- with   name "cloudy" "water",
+  with   name "cloudy" "water" "turva" "água",
         article "some",
         number 0,
         after [;
-         SmellThing: "It doesn't smell of anything.";
+          SmellThing: "Ela não tem cheiro algum.";
          Taste,Drink,Eat:
-            "You take a sip, but it tastes very unpleasant.";
+            "Você toma um gole, mas o sabor é muito desagradável.";
         ];
 
-Object  CWaterStore "cloudy water store"
+Object  CWaterStore "reservatório de água turva"
  class  LiquidStoreClass
  with   other_obj CWaterA;
 
-Nearby  CWaterA "cloudy water" class CWaterClass with other_obj CWaterB;
-Nearby  CWaterB "cloudy water" class CWaterClass with other_obj CWaterC;
-Nearby  CWaterC "cloudy water" class CWaterClass with other_obj CWaterD;
-Nearby  CWaterD "cloudy water" class CWaterClass with other_obj CWaterE;
-Nearby  CWaterE "cloudy water" class CWaterClass with other_obj 0;
+Nearby  CWaterA "água turva" class CWaterClass with other_obj CWaterB;
+Nearby  CWaterB "água turva" class CWaterClass with other_obj CWaterC;
+Nearby  CWaterC "água turva" class CWaterClass with other_obj CWaterD;
+Nearby  CWaterD "água turva" class CWaterClass with other_obj CWaterE;
+Nearby  CWaterE "água turva" class CWaterClass with other_obj 0;
 
 
 !--------------------------------------------------------------------------
 ! 7.2 TEARS
 !--------------------------------------------------------------------------
 
-Object  TearsA "tears"
+Object  TearsA "lágrimas"
  class  LiquidClass
  has    concealed
- with   name "tears" "tear",
+  with   name "tears" "tear" "lágrimas" "lágrima",
         number 3,
         after [;
          Drink,Taste,Eat:
             remove self;
-            "The tears are salty on your tongue.";
+             "As lágrimas são salgadas na sua língua.";
         ],
         before [;
          LiquidMove:
@@ -344,39 +343,38 @@ Object  TearsA "tears"
     keep_silent = 1;
     if (a == Honey && b == PaleLiquid && Honey has general) {
         quote = 16;
-        print ". The mixture starts to bubble furiously, and you cough \
-            from the vapours.^^Edward coughs too. ~Whatever kind of \
-            chemistry you're doing, I wish you would do it somewhere \
-            else,~ he says.^";
+         print ". A mistura começa a borbulhar furiosamente, e você tosse \
+             com os vapores.^^Edward também tosse. ~Seja qual for a \
+             química que está fazendo, gostaria que fizesse isso em outro \
+             lugar,~ diz ele.^";
         return ElixirA;
     }
     if (a == Myrrh && b == ElixirA) {
         quote = 17;
-        print ". The ingredients combine into a sticky mass, which slowly \
-            melts and clarifies, like molten wax. The smell is bitter and \
-            putrid.^";
+         print ". Os ingredientes se combinam numa massa pegajosa, que \
+             lentamente derrete e se torna límpida, como cera derretida. O \
+             cheiro é amargo e pútrido.^";
         return ElixirB;
     }
     if (a == TearsB && b == ElixirB) {
-        print ". There is a loud crackle from the liquid, accompanied by \
-            sparks and flying droplets. When the reaction subsides, you \
-            see that what little is left of the mixture has become \
-            completely clear, and a wonderful perfume starts to pervade \
-            the room. Could this be it, the Elixir?^^~Oh no!~ says \
-            Edward. ~What are you doing? When the dusty comes in on \
-            Monday she'll accuse me of having some trollop in here, and \
-            if she tells the Bursar I shall be in terrible trouble! \
-            Please, take it away!~^";
+        print ". O líquido estala ruidosamente, acompanhado de faíscas e \
+            gotas voadoras. Quando a reação cessa, você vê que o pouco que \
+            restou da mistura se tornou completamente límpido, e um perfume \
+            maravilhoso começa a se espalhar pela sala. Será este o Elixir?^^
+            ~Ah, não!~ diz Edward. ~O que você está fazendo? Quando a faxineira \
+            vier na segunda-feira, vai me acusar de ter alguma vagabunda aqui, \
+            e, se contar ao tesoureiro, terei problemas terríveis! Por favor, \
+            tire isso daqui!~^";
         Achieved("brewing an elixir");
         AdvanceTime(ElixirC);
         DoneHint(WhatNextPuzzle,20);
         return ElixirC;
     }
-    print "** Error: impossible mixture of liquids occurred! **^";
+    print "** Erro: ocorreu uma mistura impossível de líquidos! **^";
     return 0;
 ];
 
-Object  TearsB "tears"
+Object  TearsB "lágrimas"
  class  LiquidClass
  with   name "tear" "tears" "crystal" "clear" "liquid" "drop",
          description "Uma pequena gota de líquido cristalino.",
@@ -388,10 +386,10 @@ Object  TearsB "tears"
              "As lágrimas são salgadas na sua língua.";
         ];
 
-Object  Honey "honey"
+Object  Honey "mel"
  class  LiquidClass
         ! general if from the correct hive
- with   name "honey",
+  with   name "honey" "mel",
          description "Algumas gotas de um líquido marrom, turvo, viscoso e \
              adocicado.",
         number 2,
@@ -403,10 +401,10 @@ Object  Honey "honey"
              abrir o apetite.";
         ];
 
-Object  PaleLiquid "pale liquid"
+Object  PaleLiquid "líquido pálido"
  class  LiquidClass
         ! general if suffering from its effects
- with   name "pale" "liquid",
+  with   name "pale" "liquid" "pálido" "líquido",
          description "É um líquido pálido, com a consistência de vinho.",
         number 4,
         after [;
@@ -423,9 +421,9 @@ Object  PaleLiquid "pale liquid"
              efeito não é agradável.";
         ];
 
-Object  Myrrh "transparent gum"
+Object  Myrrh "goma transparente"
  class  LiquidClass
- with   name "transparent" "gum" "myrrh" "viscous" "oil" "perfume" "oily",
+  with   name "transparent" "gum" "myrrh" "viscous" "oil" "perfume" "oily" "transparente" "goma" "mirra" "viscoso" "óleo" "perfume" "oleoso",
           description "A goma é muito viscosa e oleosa, e exala um perfume \
              forte e amargo.",
         number 5,
@@ -438,9 +436,9 @@ Object  Myrrh "transparent gum"
              consumir mais que uma gota.";
         ];
 
-Object  StickyGunk "sticky gunk"
+Object  StickyGunk "meleca pegajosa"
  class  LiquidClass
- with   name "sticky" "gunk" "mess" "brown" "thick" "liquid",
+  with   name "sticky" "gunk" "mess" "brown" "thick" "liquid" "pegajosa" "meleca" "sujeira" "marrom" "espessa" "líquido",
          description "A meleca é um líquido marrom e espesso. Sua aparência e \
              seu cheiro são muito desagradáveis.",
         number 6,
@@ -450,11 +448,11 @@ Object  StickyGunk "sticky gunk"
              um composto tão desagradável.";
         ];
 
-Object  ElixirA "bubbling mixture"
+Object  ElixirA "mistura borbulhante"
  class  LiquidClass
         ! general if tasted
- with   name "bubbling" "bubble" "bubbles" "mix" "mixture" "liquid"
-            "elixir" "potion",
+  with   name "bubbling" "bubble" "bubbles" "mix" "mixture" "liquid"
+             "elixir" "potion" "borbulhante" "bolha" "mistura" "poção",
          description "A mistura é um líquido quente, borbulhante e fermentado, \
              que libera vapores e fumaça desagradáveis.",
         number 7,
@@ -462,39 +460,38 @@ Object  ElixirA "bubbling mixture"
           SmellThing: "Ela libera vapores desagradáveis que fazem você tossir.";
          Taste,Eat,Drink: 
             if (self has general)
-                "You feel too sick to drink any more of the bubbling \
-                mixture.";
+                 "Você se sente mal demais para beber mais da mistura \
+                 borbulhante.";
             give self general;
-            "You take a sip, and the hot liquid bubbles and its way into \
-            your stomach and continues to ferment there. You feel \
-            distinctly sick.";
+             "Você toma um gole; o líquido quente borbulha até chegar ao \
+                 estômago e continua fermentando ali. Você se sente bastante \
+                 mal.";
         ];
 
-Object  ElixirB "waxy liquid"
+Object  ElixirB "líquido ceroso"
  class  LiquidClass
         ! general if tasted
- with   name "sticky" "molten" "wax" "waxy" "liquid" "mass" "elixir"
-            "potion",
+  with   name "sticky" "molten" "wax" "waxy" "liquid" "mass" "elixir"
+             "potion" "pegajoso" "derretido" "cera" "ceroso" "líquido" "massa" "poção",
         number 8,
-        description "It is a translucent liquid, with the thickness and \
-            consistency of molten wax. It smells very unpleasant.",
+         description "É um líquido translúcido, com a espessura e a \
+             consistência de cera derretida. Seu cheiro é muito desagradável.",
         after [;
-         SmellThing: "It smells bitter and putrid, like rotting cabbage.";
+          SmellThing: "Cheira a algo amargo e pútrido, como repolho podre.";
          Taste,Drink,Eat: 
             if (self has general)
-                "The liquid is much too disgusting to contemplate \
-                drinking any more.";
+                 "O líquido é repugnante demais para pensar em beber mais.";
             give self general;
-            "You take the smallest of sips of the hot liquid and spit it \
-            out, retching. Rotting vegetables fermented with mouse \
-            droppings would not be so disgusting as this foul liquid.";
+             "Você toma o menor dos goles do líquido quente e o cospe, \
+             nauseada. Nem vegetais podres fermentados com fezes de rato \
+             seriam tão repugnantes quanto esse líquido imundo.";
         ];
 
 Object  ElixirC "elixir"
  class  LiquidClass
- with   name "elixir" "clear" "liquid" "perfume" "potion",
-        description "A pellucid liquid with the consistency of the finest \
-            sherry.",
+  with   name "elixir" "clear" "liquid" "perfume" "potion" "límpido" "líquido" "perfume" "poção",
+         description "Um líquido límpido com a consistência do melhor \
+             xerez.",
         number 9,
         state 0,
         after [;
@@ -502,81 +499,79 @@ Object  ElixirC "elixir"
             quote = 18;
          SmellThing:
             quote = 18;
-            "Its perfume is compounded of rose petals, violets, musk, \
-            peaches, cinnamon and other ingredients you cannot \
-            distinguish.";
+            "Seu perfume combina pétalas de rosa, violetas, almíscar, \
+            pêssegos, canela e outros ingredientes que você não consegue \
+            distinguir.";
          Taste,Eat,Drink:
-            print "You swallow the elixir, and suddenly your body seems to \
-                be pervaded by an inner energy. You feel better than you \
-                have ever felt before in your life. You can see light \
-                pouring from yourself, brilliant light, piercing the \
-                darkness of the world. All around you, material forms are \
-                starting to dissolve, and you strain to see the essence \
-                behind them, the form of God...^";
+             print "Você engole o elixir e de repente seu corpo parece \
+                 tomado por uma energia interior. Você se sente melhor do que \
+                 jamais se sentiu. Vê luz emanando de si, uma luz brilhante \
+                 que atravessa a escuridão do mundo. Ao seu redor, as formas \
+                 materiais começam a se dissolver, e você se esforça para ver \
+                 a essência por trás delas, a forma de Deus...^";
             if (location == TunnelA or TunnelB or Crypt ||
                 location == CryptStairGround or CryptStairTop ||
                 location == AlchemistsRoom or Ledge) {
                 deadflag = 1;
-                "^It is a vision from which you do not wake.";
+                "^É uma visão da qual você não desperta.";
             }
-            print "^Then you wake to find yourself in a hospital bed, \
-                with Edward sitting solicitously by your bedside. ";
+            print "^Então você desperta numa cama de hospital, com Edward \
+                sentado solícito ao seu lado. ";
             if (location == EdwardsRoom)
-                print "~You drank that potion,~ he tells you, ~and then \
-                    you passed out and lay so still I thought you were \
-                    dead, so I called the porter and he called out an \
-                    ambulance and we brought you here.";
+                print "~Você bebeu aquela poção~, ele lhe diz, ~e depois \
+                    desmaiou e ficou tão imóvel que pensei que estivesse \
+                    morta. Chamei o porteiro, ele chamou uma ambulância e \
+                    trouxemos você para cá.";
             else
-                print "~You were found lying unconscious on the ground,~ \
-                    he tells you, and the porter called for an ambulance \
-                    and I thought I had better come along to look after \
-                    you.";
+                print "~Encontraram você inconsciente no chão~, ele lhe diz, \
+                    ~e o porteiro chamou uma ambulância. Achei melhor vir \
+                    junto para cuidar de você.";
             deadflag = 3;
-            " The doctor says he thinks you were poisoned, but you're \
-            going to be fine...~^^Later, when you learn of your brother \
-            Malcolm's disappearance from Biblioll college never to be \
-            seen again, you wish that you hadn't drunk the elixir and \
-            incapacitated yourself, but by then it is too late.";
+            " O médico diz que acha que você foi envenenada, mas ficará bem...~
+            ^^Mais tarde, quando você descobre que seu irmão Malcolm \
+            desapareceu do College Biblioll sem nunca mais ser visto, \
+            deseja não ter bebido o elixir e se incapacitado, mas então já \
+            é tarde demais.";
         ];
 
-Object  BottleA "brown glass bottle"
+Object  BottleA "garrafa de vidro marrom"
  class  VesselClass DelicateClass
  has    open transparent is_vessel
- with   name "brown" "glass" "bottle",
+  with   name "brown" "glass" "bottle" "marrom" "vidro" "garrafa",
         add_to_scope MakersStamp,
-        description "The bottle is made of translucent brown glass, and \
-            on the bottom you can see the stamp of the maker.";
+         description "A garrafa é feita de vidro marrom translúcido; no fundo \
+             você vê a marca do fabricante.";
 
-Object  BottleB "green glass bottle"
+Object  BottleB "garrafa de vidro verde"
  class  VesselClass DelicateClass
  has    transparent
- with   name "green" "glass" "bottle" "cork",
+  with   name "green" "glass" "bottle" "cork" "verde" "vidro" "garrafa" "rolha",
         add_to_scope MakersStamp,
         description [;
-            print "The bottle is made of translucent green glass, and on \
-                the bottom you can see the stamp of the maker.";
-            if (self hasnt open) print " It is sealed shut with a cork.";
+             print "A garrafa é feita de vidro verde translúcido; no fundo \
+                 você vê a marca do fabricante.";
+            if (self hasnt open) print " Está vedada com uma rolha.";
         ],
         before [;
          Open,Unlock:
             if (self hasnt open && second == 0 or Corkscrew) {
                 if (Corkscrew notin player)
-                    "You're not carrying a corkscrew.";
+                    "Você não está carregando um saca-rolhas.";
                 give self open;
-                "You remove the cork, which crumbles into pieces (it must \
-                have been very old). Luckily, not much of the cork has \
-                ended up in the bottle.";
+                     "Você remove a rolha, que se desfaz em pedaços (deve ter \
+                 sido muito antiga). Felizmente, quase nada da rolha caiu na \
+                 garrafa.";
             }
          Close:
-            "You have nothing with which to close the bottle.";
+             "Você não tem nada com que fechar a garrafa.";
         ];
 
-Object  MakersStamp "maker's stamp"
+Object  MakersStamp "marca do fabricante"
  has    scenery
         ! general once you've examined it
- with   name "maker" "maker^s" "stamp",
-        description "It's the word ~vau~ and below it, the word ~han~, \
-            fashioned from raised glass.",
+  with   name "maker" "maker^s" "stamp" "fabricante" "marca",
+        description "É a palavra ~vau~ e, abaixo dela, a palavra ~han~, \
+            moldadas em vidro em relevo.",
         after [;
          Examine: give self general;
         ];
@@ -586,29 +581,29 @@ Object  Retort "retort"
  has    open transparent is_vessel
         ! general if contents are hot (hence bubbling)
  with   name "glass" "flask" "narrow" "neck" "retort" "stained" "soot",
-        description "The retort is made of glass, stained with chemicals \
-            and soot. It's a round flask with a narrow neck and a flat \
-            base, suitable for standing on a ring or stand above a \
-            flame.",
+         description "A retorta é feita de vidro manchado por produtos químicos \
+             e fuligem. É um frasco redondo, de gargalo estreito e base \
+             plana, adequado para ficar sobre um anel ou suporte acima de \
+             uma chama.",
         each_turn [;
             if (children(self) > 0 && child(self) has is_liquid) {
                 if (self has general && (self notin GasRing || GasRing
                     hasnt on)) {
                     give self ~general;
                     if (child(self) == ElixirA or ElixirB) {
-                        print "^", (The) child(self), " starts to cool, \
-                            and in a few seconds it has congealed into a \
-                            sticky mass.^";
+                        print "^", (The) child(self), " começa a esfriar e, \
+                            em poucos segundos, se transforma numa massa \
+                            pegajosa.^";
                         remove child(self);
                         move StickyGunk to self;
                     } else {
-                        print_ret "^", (The) child(self), " cools and \
-                            stops bubbling.";
+                        print_ret "^", (The) child(self), " esfria e para \
+                            de borbulhar.";
                     }
                 }
                 if (self hasnt general && self in GasRing && GasRing has on) {
                     give self general;
-                    print_ret "^", (The) child(self), " begins to bubble.";
+                    print_ret "^", (The) child(self), " começa a borbulhar.";
                 }
             }
         ];

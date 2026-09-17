@@ -23,8 +23,8 @@ Object  DiningHall "Grande Salão"
 	before [;
 	 PutOn,ThrowAt:
 	    if (second == d_obj)
-		"Guests at college feasts are expected not to throw \
-		things on the floor.";
+        "Não se espera que convidados de banquetes universitários joguem \
+		coisas no chão.";
 	],
         each_turn [ i;
             self.state = self.state + 1;
@@ -33,62 +33,55 @@ Object  DiningHall "Grande Salão"
             switch (self.state) {
              1:
                 DoneHint(WhatNextPuzzle,24);
-                "^~How good that you could join us,~ says the Master to \
-                you. ~Wilderspin tells me that you've already met, but \
-                here are Jarboe and Halfhide, and that's Bungay. Should \
-                be a good bash, eh? There will be a little do afterwards \
-                in the senior common room, and we'll be delighted if \
-                you'll tag along.~";
+                "^~Que bom que você pôde se juntar a nós~, diz o Reitor. \
+                ~Wilderspin me disse que vocês já se conheceram, mas aqui \
+                estão Jarboe e Halfhide, e aquele é Bungay. Será uma boa \
+                festa, hein? Depois haverá uma pequena reunião na sala comum \
+                dos professores, e ficaremos encantados se você nos acompanhar.~";
              2:
                 move Lobster to self;
                 move Widget to self;
-                "^Waiters come past the high table, depositing dishes at \
-                high speed in front of everyone. You end up with a large \
-                lobster and a strange widget.";
+                "^Garçons passam pela mesa principal, depositando pratos em \
+                alta velocidade diante de todos. Você fica com uma grande \
+                lagosta e um dispositivo estranho.";
              3:
-                "^There is quiet for a while as everyone tucks in, and \
-                then the pitch of the conversation rises again.";
+                "^Por algum tempo há silêncio enquanto todos comem, e então o \
+                tom da conversa volta a subir.";
              4:
-                "^~I had the most horrible of experiences this morning,~ \
-                says Halfhide. ~I was thinking about some particularly \
-                knotty problem while sunning myself on the Green, and I \
-                suppose I must have dropped off to sleep.~";
+                "^~Tive a experiência mais horrível esta manhã~, diz Halfhide. \
+                ~Eu pensava num problema particularmente difícil enquanto \
+                tomava sol no Green, e suponho que devo ter cochilado.~";
              5:
-                "^Halfhide continues, ~I woke up to discover that a young \
-                woman had stolen my key to the great gate, but when I \
-                challenged her, she denied everything and called for help \
-                from a police officer, who of course believed every word \
-                of her story.~";
+                "^Halfhide continua: ~Acordei e descobri que uma jovem havia \
+                roubado minha chave do portão principal, mas, quando a \
+                confrontei, ela negou tudo e pediu ajuda a um policial, que, \
+                naturalmente, acreditou em cada palavra da história dela.~";
              6:
-                "^Halfhide harrumphs and continues, ~The police officer \
-                insisted on taking me to the police station and \
-                questioning me for an hour. What is the world coming to \
-                when a fellow of the college can't have a decent and \
-                peaceful nap of a Sunday morning?~";
+                "^Halfhide bufa e continua: ~O policial insistiu em me levar à \
+                delegacia e me interrogar por uma hora. A que ponto o mundo \
+                chegou, quando um membro do College não pode tirar uma sesta \
+                decente e tranquila numa manhã de domingo?~";
              7:
-                "^There are general murmurs of sympathy from the \
-                assembled fellows about the over-zealousness of the local \
-                constabulary and how scholars aren't treated with enough \
-                respect.";
+                "^Há murmúrios gerais de solidariedade dos membros reunidos \
+                sobre o excesso de zelo da polícia local e sobre como os \
+                estudiosos não são tratados com respeito suficiente.";
              8:
-                "^~You!~ says Halfhide, suddenly turning and looking at \
-                you closely for the first time. ~It was you who took my \
-                key this morning. How could you?~";
+                "^~Você!~ diz Halfhide, virando-se de repente e olhando para \
+                você atentamente pela primeira vez. ~Foi você quem pegou minha \
+                chave esta manhã. Como pôde?~";
              9:
-                "^~But I didn't do it,~ you insist, glad that you're not \
-                still carrying the brass key. You smile sweetly and \
-                innocently at Halfhide, and gradually he calms down and \
-                harrumphs, and finally admits that he might have been \
-                wrong, and he might have lost his key in the long \
-                grass. You breathe a silent sigh of relief.";
+                "^~Mas não fui eu~, você insiste, feliz por não estar mais \
+                carregando a chave de latão. Você sorri doce e inocentemente \
+                para Halfhide, que aos poucos se acalma e finalmente admite \
+                que pode ter se enganado e perdido a chave na grama alta. \
+                Você suspira silenciosamente, aliviada.";
              10:
                 if (Lobster in self) {
                     self.state = 9;
                     if (random(3) == 1)
-                        "^Everyone is politely not looking at you, but \
-                        you can tell that they're waiting for you to \
-                        finish your lobster before the next course can \
-                        start.";
+                        "^Todos educadamente evitam olhar para você, mas dá \
+                        para perceber que esperam que termine sua lagosta \
+                        antes de começar o próximo prato.";
                 } else {
                     remove Lobster;
                     remove Widget;
@@ -96,77 +89,69 @@ Object  DiningHall "Grande Salão"
                     move WineGlass to self;
                     move Knife to self;
                     move Fork to self;
-                    "^A waiter arrives and clears away the detritus from \
-                    the first course, and other waiters arrive and \
-                    deposit the second course in front of you.";
+                    "^Um garçom chega e retira os restos do primeiro prato, e \
+                    outros garçons chegam e depositam o segundo diante de você.";
                 }
              11:
-                "^~I hope you like it,~ the Master confides in you. ~Our \
-                new French chef is very gung-ho about the traditional \
-                French cuisine.~";
+                "^~Espero que goste~, confidencia o Reitor. ~Nosso novo chef \
+                francês é muito entusiasmado com a culinária francesa tradicional.~";
              12:
-                "^Wilderspin says, ~Let me tell you about a discovery I \
-                made today. That is, I should say, a discovery that Miss \
-                Spencer made today, for it was she who discovered the \
-                entrance from my study into the secret passage.~";
+                "^Wilderspin diz: ~Deixe-me contar sobre uma descoberta que fiz \
+                hoje. Ou melhor, uma descoberta que a Srta. Spencer fez hoje, \
+                pois foi ela quem descobriu a entrada do meu gabinete para a \
+                passagem secreta.~";
              13:
-                "^~That's right,~ continues Wilderspin. ~the old \
-                rumours are true, Henry Garton did put secret passages \
-                into B staircase and the library when he built them. I \
-                think it's a wonder that nobody ever surveyed the \
-                buildings and noticed the extra three or four feet of \
-                width.~";
+                "^~É isso mesmo~, continua Wilderspin. ~Os velhos rumores são \
+                verdadeiros: Henry Garton colocou passagens secretas na \
+                escadaria B e na biblioteca quando as construiu. É um milagre \
+                que ninguém tenha examinado os edifícios e notado os três ou \
+                quatro pés extras de largura.~";
              14:
-                "^Wilderspin says, ~I think the secret chamber was \
-                probably intended as a priest-hole; Biblioll College was \
-                at that time staunchly Catholic in despite of the \
-                prevailing religious feeling in England.~";
+                 "^Wilderspin diz: ~Acho que a câmara secreta provavelmente foi \
+                 planejada como esconderijo de um padre; naquela época, o \
+                 Biblioll College era firmemente católico, apesar do sentimento \
+                 religioso predominante na Inglaterra.~";
              15:
-                "^~I don't know if it was ever put to its purpose,~ muses \
-                Wilderspin, ~because the body we found there, which I am \
-                sure must date from the late seventeenth century, \
-                although I won't know until I go back with the experts \
-                and do a proper dating, is not a Catholic priest hiding \
-                from Puritan religious persecution, but an alchemist!~";
+                 "^~Não sei se chegou a cumprir sua finalidade~, pondera \
+                 Wilderspin, ~pois o corpo que encontramos ali, que tenho certeza \
+                 de que data do fim do século XVII, embora só possa confirmar ao \
+                 voltar com especialistas para uma datação adequada, não é de um \
+                 padre católico escondido da perseguição religiosa puritana, mas \
+                 de um alquimista!~";
              16:
-                "^Wilderspin says, ~Perhaps he was afraid of being \
-                denounced as a witch, or perhaps he just wanted to keep \
-                his researches secret from his rivals. He probably died \
-                from mercury poisoning, no doubt exacerbated by the lack \
-                of ventilation in that tiny laboratory.~";
+                 "^Wilderspin diz: ~Talvez ele temesse ser denunciado como \
+                 bruxo, ou talvez quisesse apenas manter suas pesquisas em segredo \
+                 dos rivais. Provavelmente morreu envenenado por mercúrio, sem \
+                 dúvida agravado pela falta de ventilação naquele minúsculo \
+                 laboratório.~";
              17:
-                "^~That's amazing,~ says the Master. ~Stuck there between \
-                B staircase and the library for hundreds of years, and \
-                no-one noticed. I wonder what other secret passages there \
-                might be hidden in those old buildings?~";
+                 "^~Isso é incrível~, diz o Reitor. ~Preso ali entre a escadaria B \
+                 e a biblioteca durante centenas de anos, e ninguém percebeu. \
+                 Gostaria de saber que outras passagens secretas podem estar \
+                 escondidas naqueles prédios antigos.~";
              18:
-                print_ret "^~I wonder if I might inquire as to whether \
-                    anyone here has read the latest University Journal?~ \
-                    interrupts Bungay, but the Master is not so easily \
-                    distracted from his line of thought.^^~Secret \
-                    passages, ha!~ he laughs. ~That sounds like something \
-                    that what's his name, the seventeenth-century Master, \
-                    Lancaster's cousin, might have easily been involved \
-                    in.~";
+                 print_ret "^~Posso perguntar se alguém aqui leu a última edição do \
+                     Jornal da Universidade?~ interrompe Bungay, mas o Reitor não se \
+                     distrai tão facilmente de sua linha de pensamento.^^~Passagens \
+                     secretas, ha!~, ele ri. ~Isso parece algo em que aquele cujo nome \
+                     me escapa, o Reitor do século XVII, primo de Lancaster, poderia \
+                     facilmente estar envolvido.~";
              19:
-                "^~Now the Journal -~ tries Bungay again, but the Master \
-                continues as though he hasn't heard. ~Conspiring against \
-                his own Fellows, persistent rumours of being a witch and \
-                a heretic - secret passages would have been all in a \
-                day's work to him!";
+                 "^~Agora, o Jornal...~, tenta Bungay novamente, mas o Reitor continua \
+                 como se não tivesse ouvido. ~Conspirar contra os próprios membros, \
+                 rumores persistentes de ser bruxo e herege: passagens secretas seriam \
+                 coisa corriqueira para ele!~";
              20:
-                "^~What was it you were about to say about the Journal?~ \
-                the Master asks Bungay, but the later mutters that it \
-                wasn't important and everyone present had probably read \
-                it anyway.";
+                 "^~O que você ia dizer sobre o Jornal?~, pergunta o Reitor a Bungay, \
+                 mas este resmunga que não era importante e que provavelmente todos os \
+                 presentes já o tinham lido.";
              21:
                 if (DeadSnail notin Plate) {
                     self.state = 20;
                     if (random(3) == 1)
-                        "^Everyone is politely not looking at you, but \
-                        you can tell that they're waiting for you to \
-                        finish with your food before the next course can \
-                        start.";
+                         "^Todos evitam educadamente olhar para você, mas dá para perceber \
+                         que estão esperando você terminar a comida antes de começar o \
+                         próximo prato.";
                 } else {
                     remove Snail;
                     remove Wine;
@@ -179,50 +164,43 @@ Object  DiningHall "Grande Salão"
                     move PortDecanter to self;
                     move PortA to PortDecanter;
                     DoneHint(WhatNextPuzzle,25);
-                    "^A waiter arrives and clears away the detritus from \
-                    the second course (thankfully). Another waiter turns \
-                    up with a tray of small glasses and a decanter. He \
-                    places the latter in front of you.";
+                     "^Um garçom chega e retira os restos do segundo prato (felizmente). \
+                     Outro garçom aparece com uma bandeja de copos pequenos e um \
+                     decantador. Ele coloca o último diante de você.";
                 }
              22:
-                "^~So what has Malcolm been up to?~ Wilderspin asks \
-                you. ~I haven't seen the fellow for a couple of days, and \
-                I thought he'd be here for the dinner.~^^You reply that \
-                you don't know where he is, and that you're very worried \
-                about what might have happened to him.";
+                 "^~Então, o que Malcolm tem feito?~, pergunta Wilderspin. ~Não vejo o \
+                 rapaz há alguns dias e pensei que ele estaria no jantar.~^^Você responde \
+                 que não sabe onde ele está e que está muito preocupada com o que pode ter \
+                 acontecido com ele.";
              23:
-                "^~I spoke to Spencer on Friday,~ says Jarboe, ~and he \
-                told me that he had been summoned at very short notice to \
-                a conference in Edinburgh to speak about his work, and \
-                that he was very sorry that he had to rush off before he \
-                could get in touch with Miss Spencer.~";
+                 "^~Falei com Spencer na sexta-feira~, diz Jarboe, ~e ele me disse que \
+                 fora convocado em cima da hora para uma conferência em Edimburgo, para \
+                 falar sobre seu trabalho, e que lamentava muito ter de sair às pressas \
+                 antes de conseguir falar com a senhorita Spencer.~";
              24:
-                "^~But what were you doing in his rooms today?~ you ask, \
-                ~And who ransacked them?~^^~Good grief, how terrible!~ \
-                exclaims the Master. ~What happened?~^^~I didn't have a \
-                chance to tell you this,~ says Bungay. ~Spencer's rooms \
-                appear to have been burgled. We discovered this only this \
-                morning and of course we telephoned the police.~";
+                 "^~Mas o que você fazia nos quartos dele hoje?~, você pergunta, ~E quem \
+                 os revirou?~^^~Meu Deus, que horror!~, exclama o Reitor. ~O que houve?~^^
+                 ~Não tive oportunidade de contar isto a você~, diz Bungay. ~Parece que os \
+                 quartos de Spencer foram arrombados. Só descobrimos isso esta manhã e, é \
+                 claro, telefonamos para a polícia.~";
              25:
-                "^You are about to protest at Bungay's blatant untruth \
-                when you catch Jarboe's eye and shrink under his baleful \
-                and hostile glare. It doesn't seem as though anything you \
-                might say could dent the plausibility of this pair of \
-                liars.";
+                 "^Você está prestes a protestar contra a mentira descarada de Bungay \
+                 quando cruza o olhar de Jarboe e se encolhe sob sua expressão hostil e \
+                 ameaçadora. Parece que nada do que você diga conseguirá abalar a \
+                 credibilidade dessa dupla de mentirosos.";
              26:
-                "^~When will Spencer be back, Jarboe?~ asks the \
-                Master. ~I don't think he'll be very happy at the \
-                news.~^^~I don't know,~ says Jarboe. ~He didn't say how \
-                long the conference would be.~";
+                 "^~Quando Spencer volta, Jarboe?~, pergunta o Reitor. ~Não acho que ele \
+                 ficará muito feliz com a notícia.~^^~Não sei~, diz Jarboe. ~Ele não disse \
+                 quanto duraria a conferência.~";
              27:
                 if (PortDecanter notin GivenAway) {
                     self.state = 26;
                     switch (random(4)) {
-                     1: "^~Ahem,~ says the Master, looking at you \
-                        meaningfully. You gather that something is \
-                        expected of you.";
-                     2: "^~Tell me, Miss Spencer,~ says Halfhide, ~Do you \
-                        know the Bishop of Bath and Wells?~";
+                      1: "^~Ahem~, diz o Reitor, olhando para você significativamente. \
+                         Você entende que esperam algo de você.";
+                      2: "^~Diga-me, senhorita Spencer~, diz Halfhide, ~você conhece o \
+                         Bispo de Bath e Wells?~";
                     }
                 } else {
                     remove PortGlass;
@@ -231,12 +209,11 @@ Object  DiningHall "Grande Salão"
                     while (child(CloakRoom) ~= 0)
                         move child(CloakRoom) to player;
                     move Candles to SeniorCommonRoom;
-                    SeniorCommonRoom.description = "This plush room is \
-                        crowded with the fellows of the college, talking \
-                        loudly and drunkenly. None of them affect any \
-                        interest in you.";
+                     SeniorCommonRoom.description = "Esta sala luxuosa está cheia \
+                         de professores da faculdade, falando alto e bêbados. \
+                         Nenhum deles demonstra interesse em você.";
                     SeniorCommonRoom.each_turn = SCREachTurn;
-                    GreatHall.s_to = "The door to the kitchens is now shut.";
+                     GreatHall.s_to = "A porta para as cozinhas agora está fechada.";
                     StopDaemon(self);
                     ClockTower.number = 21;
                     give ClockTower general;
@@ -245,15 +222,12 @@ Object  DiningHall "Grande Salão"
                     DoneHint(WhatNextPuzzle,26);
                     if (Intoxicated > 5)
                         StartDaemon(Hiccups);
-                    print "^The Master stands up, and that seems to be \
-                        the signal for the dinner to end, because \
-                        everyone else gets up too, and makes for the \
-                        various exits. You fetch your possessions from \
-                        the cloakroom and return to see the last of the \
-                        fellows climbing the stairs to the senior common \
-                        room.^^~We're off up for a few drinks,~ the \
-                        Master says to you before he goes. ~I do hope \
-                        you'll join us.~^";
+                     print "^O Reitor se levanta, o que parece ser o sinal para o fim do \
+                         jantar, pois todos os outros também se levantam e vão para as \
+                         várias saídas. Você busca seus pertences no vestiário e volta a \
+                         tempo de ver os últimos membros subindo as escadas para a sala \
+                         comum dos professores.^^~Vamos subir para tomar alguns drinques~, \
+                         diz o Reitor antes de partir. ~Espero que você se junte a nós.~^";
                     PlayerTo(GreatHall);
                     for (i = MasterD: i ~= 0: i = i.other_obj) {
                         move i to GreatHall;
@@ -263,44 +237,36 @@ Object  DiningHall "Grande Salão"
                 }
             }
             switch (random(17)) {
-             1: "^Jarboe whispers something to Bungay, but you are unable \
-                to catch his words.";
-             2: "^Bungay mutters something to Jarboe, but you are unable \
-                to catch what he says.";
-             3: "^Halfhide and the Master speculate about the candidates \
-                for the Provost of Saint Stephen's College.";
-             4: "^The Master complains about the declining standard of \
-                undergraduate entrants to the college.";
-             5: "^Wilderspin speculates about the likelihood of Biblioll \
-                College ever going co-educational. Halfhide is sceptical, \
-                and the Master says that it will never happen while he is \
-                Master. ~Excepting present company, of course,~ he says, \
-                ~women are not capable of the academic workload that \
-                Christminster demands of them.~";
-             6: "^Wilderspin and Bungay discuss the latest candidates for \
-                election to Fellowships at the British Academy, and their \
-                chances of success.";
-             7: "^The Master ruminates on the long history of these \
-                 Commemoration dinners.";
-             8: "^Jarboe talks about the plans to expand the mathematical \
-                syllabus.";
-             9: "^Halfhide compliments the Master on the excellent \
-                 quality of the food.";
-            10: "^The Master talks about the necessity of attracting more \
-                undergraduates to Biblioll College. Jarboe thinks that \
-                this must be done by improving academic standards, but \
-                Halfhide suggests that a good result from the rowing team \
-                would be more successful.";
-            11: "^Halfhide reminisces about his exploits in North Africa \
-                with Monty.";
-            12: "^Wilderspin talks about his plans to put together \
-                funding for an expedition to Aswan. The Master wonders if \
-                that wouldn't be a bit dangerous at the moment, given the \
-                international situation.";
+              1: "^Jarboe sussurra algo para Bungay, mas você não consegue entender suas \
+                 palavras.";
+              2: "^Bungay resmunga algo para Jarboe, mas você não consegue entender o que \
+                 ele diz.";
+              3: "^Halfhide e o Reitor especulam sobre os candidatos a reitor da Faculdade \
+                 de Saint Stephen.";
+              4: "^O Reitor reclama da queda no nível dos calouros que entram na \
+                 faculdade.";
+              5: "^Wilderspin especula sobre a possibilidade de a Faculdade Biblioll \
+                 algum dia se tornar mista. Halfhide é cético, e o Reitor diz que isso \
+                 nunca acontecerá enquanto ele for Reitor. ~Sem contar as presentes, é \
+                 claro~, diz ele, ~as mulheres não são capazes da carga acadêmica que \
+                 Christminster exige.~";
+              6: "^Wilderspin e Bungay discutem os candidatos mais recentes às bolsas da \
+                 Academia Britânica e suas chances de sucesso.";
+              7: "^O Reitor medita sobre a longa história desses jantares comemorativos.";
+              8: "^Jarboe fala sobre os planos de ampliar o currículo de matemática.";
+              9: "^Halfhide elogia o Reitor pela excelente qualidade da comida.";
+             10: "^O Reitor fala da necessidade de atrair mais alunos para a Faculdade \
+                 Biblioll. Jarboe acha que isso deve ser feito melhorando os padrões \
+                 acadêmicos, mas Halfhide sugere que um bom resultado da equipe de remo \
+                 seria mais eficaz.";
+             11: "^Halfhide recorda suas aventuras no norte da África com Monty.";
+             12: "^Wilderspin fala de seus planos para obter financiamento para uma \
+                 expedição a Assuã. O Reitor se pergunta se isso não seria um pouco \
+                 perigoso no momento, dada a situação internacional.";
             }
         ];
 
-Nearby  CollegePlate "collection of gold plate"
+Nearby  CollegePlate "coleção de prataria"
  has    static
  with   name "collection" "gold" "silver" "plate" "of" "treasure"
             "treasures",
@@ -320,58 +286,57 @@ Class   DinerClass
  has    proper concealed animate
  with   before [;
          Speak: 
-            print "Your words are lost in the hubbub of the ";
-            if (location == DiningHall) print "dinner";
-            else print "common room";
+             print "Suas palavras se perdem no tumulto do ";
+             if (location == DiningHall) print "jantar";
+             else print "salão comum";
              ", e ele parece não ouvir você.";
         ];
 
-Nearby  MasterD "Master of Biblioll College"
+Nearby  MasterD "Reitor do Biblioll College"
  class  DinerClass
  has    ~proper
  with   name "Master" "of" "biblioll" "college" "man",
         article "the",
         other_obj JarboeD,
-        description "The Master is an old man, but sprightly and still \
-            handsome. His goatee beard is black.";
+         description "O Reitor é um homem velho, mas vivaz e ainda \
+             elegante. Sua barba cavanhaque é preta.";
 
-Nearby  JarboeD "Doctor Jarboe"
+Nearby  JarboeD "Doutor Jarboe"
  class  DinerClass
  with   name "doctor" "dr" "jarboe" "fellow",
         other_obj BungayD,
-        description "Jarboe is a tall, gaunt man, with thin, ungainly \
-            limbs and a long sharp nose. His suit hangs loosely from his \
-            narrow shoulders.";
+         description "Jarboe é um homem alto e esquelético, de membros finos \
+             e desajeitados e nariz longo e pontudo. Seu terno pende dos \
+             ombros estreitos.";
 
 Nearby  BungayD "Professor Bungay"
  class  DinerClass
  with   name "professor" "prof" "bungay" "fellow",
         other_obj WilderspinD,
-        description "Bungay is a short man, at five feet and two inches a \
-            little shorter than yourself, but his vast bulk more than \
-            makes up for his lack of height. His clothes are all but \
-            bursting at the seams.";
+         description "Bungay é um homem baixo, com pouco mais de um metro e \
+             meio, um pouco mais baixo que você, mas sua enorme corpulência \
+             compensa a falta de altura. Suas roupas quase estouram nas costuras.";
 
 Nearby  WilderspinD "Professor Wilderspin"
  class  DinerClass
  with   name "professor" "wilderspin" "prof" "fellow",
         other_obj HalfhideD,
-        description "Wilderspin is tall and bewhiskered, and you might \
-            guess his age to be about fifty.";
+         description "Wilderspin é alto e barbudo, e você estimaria sua idade \
+             em cerca de cinquenta anos.";
 
-Nearby  HalfhideD "Doctor Halfhide"
+Nearby  HalfhideD "Doutor Halfhide"
  class  DinerClass
  with   name "doctor" "dr" "halfhide" "don" "donnish" "fellow",
         other_obj 0,
-        description "He's a donnish sort of chap, with a receding \
-            hairline and a handlebar moustache.";
+          description "Ele é um sujeito com jeito de professor, com entradas no \
+              cabelo e bigode de guidão.";
 
 Class   FoodClass
  with   before [;
           Take,Remove: "É rude pegar a própria comida.";
         ];
 
-Object  Lobster "lobster"
+Object  Lobster "lagosta"
  class  FoodClass
  has    edible
         ! general once you've opened it
@@ -381,25 +346,23 @@ Object  Lobster "lobster"
              nada confiante no resultado.",
         before [;
          Open,AttackWith,Cut:
-            "You'll have to say precisely how you intend to go about \
-            that.";
+             "Você terá de dizer precisamente como pretende fazer isso.";
          SmellThing:
             if (self has general)
-                "A rich fishy smell emanates from the lobster's innards.";
+                 "Um forte cheiro de peixe vem das entranhas da lagosta.";
          Insert:
             if (second == Widget) <<Tie Widget self>>;
          Eat:
             if (self hasnt general)
-                "Alas, the thick shell of the lobster is perfectly \
-                adequate to protect it from your feeble attempts to eat \
-                it.";
+                 "A espessa casca da lagosta é perfeitamente capaz de protegê-la \
+                 de suas débeis tentativas de comê-la.";
             remove self;
             if (Widget.state > 1) Widget.state = Widget.state - 2;
             Achieved("eating the lobster");
              "Para sua surpresa, a lagosta está excelente.";
         ];
 
-Object  Widget "widget"
+Object  Widget "dispositivo"
  with   name "widget" "implement" "screw" "metal" "u-shaped" "piece",
          description "É uma peça de metal em forma de U. Um parafuso atravessa \
              furos nas pontas, unindo-as.",
@@ -410,57 +373,55 @@ Object  Widget "widget"
         before [;
          Take,Remove:
             if (self.state == 3)
-                "You'll have to turn the screw before you can remove the \
-                widget from the lobster.";
+                 "Você terá de girar o parafuso antes de remover o dispositivo \
+                 da lagosta.";
          Turn:
             if (self.state == 1 or 3) {
                 self.state = self.state - 1;
-                "You turn the screw, and the ends of the widget \
-                separate.";
+                 "Você gira o parafuso, e as pontas do dispositivo se separam.";
             }
             if (self.state == 2 && Lobster hasnt general) {
                 self.state = 3;
                 give Lobster general;
-                "You turn the screw, and the widget clamps onto the \
-                lobster. Relentlessly, you keep on turning until the \
-                lobster's shell snaps with a loud crack. A rich smell \
-                comes from the lobster's innards. Success!";
+                 "Você gira o parafuso, e o dispositivo se prende à lagosta. \
+                 Sem parar, você continua girando até a casca da lagosta se \
+                 partir com um estalo. Um cheiro intenso sai das entranhas. \
+                 Sucesso!";
             }
             self.state = self.state + 1;
-            "You turn the screw, bringing the ends of the widget \
-            together.";
+             "Você gira o parafuso, aproximando as pontas do dispositivo.";
          Tie,PutOn:
             if (self.state > 1)
-                "The widget is already attached to the lobster.";
+                 "O dispositivo já está preso à lagosta.";
             if (second ~= Lobster) rfalse;
             if (self.state == 1)
-                "The widget won't fit around the lobster.";
+                 "O dispositivo não cabe ao redor da lagosta.";
             self.state = 2;
-            "You slide the widget until it encircles the lobster.";
+             "Você desliza o dispositivo até ele envolver a lagosta.";
         ],
         after [;
          Take,Remove:
             if (self.state == 2) self.state = 0;
         ];
 
-Object  WineGlass "glass"
+Object  WineGlass "taça"
  class  VesselClass
  has    open
  with   name "glass" "cup",
          description "Uma taça de vinho comum.",
         before [;
-         Attack,Knock: "You don't want to get broken glass everywhere.";
+          Attack,Knock: "Você não quer espalhar cacos de vidro por toda parte.";
          EmptyT:
             if (second == Plate or Snail && Snail in plate && 
               Snail.state < 2) {
                 Snail.state = 1;
-                "You pour a little of the wine onto your plate, in \
-                the path of the snail. It's hard to tell, but you could \
-                swear that the snail went right ahead and lapped it up!";
+                 "Você derrama um pouco do vinho no prato, no caminho do \
+                 caracol. É difícil dizer, mas você juraria que ele avançou e \
+                 lambeu tudo!";
             }
         ];
 
-Nearby  Wine "wine"
+Nearby  Wine "vinho"
  class  LiquidClass
  with   name "wine" "white",
         number 10,
@@ -468,118 +429,110 @@ Nearby  Wine "wine"
           SmellThing: "Um aroma agradável.";
          Drink,Eat:
             if (Intoxicated > 10)
-                "You've already drunk too much wine, and you have a \
-                distinct feeling that if you drink any more, you'll be \
-                sick.";
+                "Você já bebeu vinho demais e tem a nítida sensação de que, \
+                se beber mais, ficará doente.";
             Intoxicated ++;
-            "You drink a little of the white wine, and it is very \
-            pleasant. But no sooner have you put your glass down than it \
-            is re-filled.";
+            "Você bebe um pouco do vinho branco, que é muito agradável. Mas, \
+            assim que pousa a taça, ela é novamente preenchida.";
          Insert,PutOn,Transfer,Empty,EmptyT:
             <<EmptyT WineGlass second>>;
         ];
 
-Object  Plate "china plate"
+Object  Plate "prato de porcelana"
  has    supporter
  with   name "plate" "china",
         capacity 3,
         before [;
-         Take,Remove: "It is rude to pick up your plate.";
+          Take,Remove: "É rude pegar seu prato.";
         ];
 
-Nearby  Snail "snail"
+Nearby  Snail "caracol"
  class  FoodClass
  with   name "snail" "mollusk" "mollusc" "shell",
         description [;
-            print "It is a large and unappetising mollusc, with a shell \
-                perhaps two inches in diameter. ";
+            print "É um molusco grande e pouco apetitoso, com uma concha de \
+                cerca de cinco centímetros de diâmetro. ";
             switch (self.state) {
-             0: "Something about the way it oozes across your plate tells \
-                you that it is not dead yet.";
-             1: "It oozes across your plate in a haphazard and drunken \
-                manner.";
-             2: "It lies helpless on its back, its soft innards exposed \
-                to you.";
+              0: "O modo como ele se arrasta pelo prato indica que ainda não \
+                está morto.";
+              1: "Ele se arrasta pelo prato de maneira desajeitada e ébria.";
+              2: "Ele jaz indefeso de costas, com as entranhas macias expostas.";
             }
         ],
         state 0,
         before [;
          Take,Remove:
             if (self.state == 0)
-                "The snail glues itself firmly to the plate and you \
-                cannot budge it.";
-            "It is rude to pick up your food.";
+                "O caracol se prende firmemente ao prato e você não consegue \
+                movê-lo.";
+            "É rude pegar a própria comida.";
          Eat,Taste:
-            if (self.state < 2)
-                "The snail retreats into its shell and grips the plate \
-                firmly, and you are unable to get at it. Now if you could \
-                turn it over so that its soft parts were exposed, maybe \
-                the odds would be more in your favour.";
-            "Somehow, the idea of eating a live animal doesn't appeal to \
-            you.";
+             if (self.state < 2)
+                 "O caracol se recolhe na concha e se agarra firmemente ao prato, \
+                 e você não consegue alcançá-lo. Se pudesse virá-lo para expor \
+                 as partes moles, talvez tivesse mais chance.";
+             "De algum modo, a ideia de comer um animal vivo não lhe agrada.";
          Attack,Cut: 
             if (self.state < 2)
-                "The snail's shell is proof against your feeble attack \
-                Now if you could turn it over so that its soft parts were \
-                exposed, maybe the odds would be more in your favour.";
-            "A better weapon might help you.";
+                 "A concha do caracol é resistente demais para seu ataque débil. \
+                 Se pudesse virá-lo para expor as partes moles, talvez tivesse \
+                 mais chance.";
+             "Uma arma melhor talvez ajudasse.";
          AttackWith:
             if (second == Knife or Fork && self.state == 2) {
                 remove self;
                 move DeadSnail to Plate;
                 Achieved("killing the snail");
-                print_ret "You plunge ", (the) second,
-                    " into the snail, and it perishes messily.";
+                 print_ret "Você enfia ", (the) second,
+                     " no caracol, que morre de modo repulsivo.";
             }
          Turn,Push,Pull:
             if (self.state == 0)
-                "The snail grips the plate firmly and you are unable to \
-                budge it.";
+                 "O caracol se agarra firmemente ao prato, e você não consegue \
+                 movê-lo.";
             if (self.state == 1) self.state = 2;
             else self.state = 1;
-            "Using the knife and fork, you turn the unresisting snail \
-            onto its back.";
+             "Usando a faca e o garfo, você vira o caracol indefeso de costas.";
         ];
 
-Object  DeadSnail "dead snail"
+Object  DeadSnail "caracol morto"
  class  FoodClass
  with   name "dead" "snail" "mollusk" "mollusc" "shell",
-        description "The snail lies dead on your plate. You appear to \
-            have made rather a mess of its innards, and the result is not \
-            a beautiful sight.",
+         description "O caracol jaz morto em seu prato. Parece que você fez uma \
+             grande bagunça com suas entranhas, e o resultado não é bonito de ver.",
         before [;
-         Taste,Eat: "The prospect is too disgusting for you to proceed.";
+          Taste,Eat: "A perspectiva é repugnante demais para você prosseguir.";
         ];
 
-Object  Knife "knife"
+Object  Knife "faca"
  with   name "knife";
 
-Object  Fork "fork"
+Object  Fork "garfo"
  with   name "fork";
 
-Object  PortGlass "glass"
+Object  PortGlass "taça"
  class  VesselClass
  has    open
  with   name "glass" "cup",
-        description "A small glass, for dessert wine or spirits.";
+         description "Um copo pequeno, para vinho de sobremesa ou bebidas fortes.";
 
-Object  PortDecanter "decanter"
+Object  PortDecanter "decantador"
  class  VesselClass DelicateClass
  has    open
  with   name "decanter",
-        description "A beautiful glass decanter.",
+         description "Um belo decantador de vidro.",
         before [;
          Give:
             if (second == WilderspinD) {
                 move self to GivenAway;
                 Achieved("passing the port");
-                "Wilderspin accepts the decanter from you and pours \
-                himself some, before passing it on around the table.";
+                "Wilderspin aceita o decantador de você, serve-se um pouco e o passa pela \
+                mesa.";
             }
             if (second has animate)
-                print_ret "~Ahem,~ says ", (the) second,
-                    " pointedly, refusing the port. You gather that you \
-                    haven't quite done the correct thing.";
+                print_ret "~Ahem~, diz ", (the) second,
+                    " incisivamente, recusando o vinho do Porto. Você entende que não fez \
+                    exatamente a coisa certa.";
         ],
         each_turn [;
             if (children(self) == 0) {
@@ -598,18 +551,18 @@ Class   PortClass
         article "some",
         number 11,
         after [;
-         SmellThing: "The port wine smells very sweet and very strong.";
+          SmellThing: "O vinho do Porto tem um cheiro muito doce e muito forte.";
          Eat,Drink,Taste:
             if (Intoxicated > 10)
-                "You've already drunk too much, and you have a distinct \
-                feeling that if you drink any more, you'll be sick.";
+                 "Você já bebeu demais e tem a nítida sensação de que, se beber \
+                 mais, ficará doente.";
             if (children(PortGlass) == 0)
-                "It's the worst of bad manners to drink from the \
-                decanter!";
+                 "É de uma falta de educação terrível beber diretamente do \
+                 decantador!";
             Intoxicated ++;
             remove child(PortGlass);
-            "You drink the syrupy liquid. It's really too sweet and \
-            cloying to have more than a little.";
+             "Você bebe o líquido xaroposo. Ele é doce e enjoativo demais para \
+             que você tome mais que um pouco.";
         ];
 
 Nearby  PortA "port" class PortClass with other_obj PortB;
@@ -621,15 +574,14 @@ Nearby  PortC "port" class PortClass with other_obj 0;
 ! 8.2 AFTER THE DINNER
 !--------------------------------------------------------------------------
 
-Object  SeniorCommonRoom "Senior Common Room"
+Object  SeniorCommonRoom "Sala Comum dos Professores"
  has    light
         ! general once Jarboe, Bungay gone
  with   name "senior" "common" "room" "fellow" "fellows" "furnishing" 
             "furnishings",
-        description "Here the fellows of the college will gather after \
-            dinner to drink and talk. In their absence, the expensive \
-            furnishings are dull and lustreless, and there's nothing to \
-            do except return to the hall.",
+         description "Aqui os membros da faculdade se reúnem depois do jantar para \
+             beber e conversar. Na ausência deles, os móveis caros parecem opacos e \
+             sem brilho, e não há nada a fazer além de voltar ao salão.",
         d_to GreatHall,
         each_turn NULL,
 	edward_dirs d_obj;
@@ -638,43 +590,41 @@ Object  SeniorCommonRoom "Senior Common Room"
     MoveNPC(JarboeD,0,d_obj);
     MoveNPC(BungayD,0,d_obj);
     self.each_turn = NULL;
-    "^You notice Jarboe and Bungay slipping away quietly from the \
-    reception.";
+     "^Você nota Jarboe e Bungay afastando-se silenciosamente da recepção.";
 ];
 
-Object  Candles "candles"
+Object  Candles "velas"
  has    light static
         ! general if taken the candle
  with   name "candles" "candle" "wax",
-        initial "Wax candles provide flickery light.",
+         initial "Velas de cera fornecem uma luz trêmula.",
         before [;
          Take:
             if (self has general)
-                "You've already stolen as many candles as it is prudent \
-                to steal.";
+                 "Você já roubou tantas velas quanto seria prudente roubar.";
             give self general;
             move Candle to player;
             ResetVagueWords(Candle);
             StartDaemon(Candle);
-            "You pick up one of the candles.";
+             "Você pega uma das velas.";
         ];
 
-Object  Candle "candle"
+Object  Candle "vela"
  has    light
  with   name "candle",
         before [;
          SwitchOn,Burn:
-            if (self has light) "The candle is already burning.";
+             if (self has light) "A vela já está acesa.";
             if (FlameAvailable() == 1) {
                 give self light;
                 StartDaemon(self);
-                "You light the candle.";
+                 "Você acende a vela.";
             }
-            "You have no source of flame.";
+             "Você não tem uma fonte de fogo.";
          SwitchOff:
-            if (self hasnt light) "The candle is not burning.";
+             if (self hasnt light) "A vela não está acesa.";
             give self ~light;
-            "You extinguish the candle flame.";
+             "Você apaga a chama da vela.";
         ],
         daemon [;
             ! It goes out if put into a container.
@@ -682,11 +632,11 @@ Object  Candle "candle"
                 give self ~light;
                 StopDaemon(self);
                 if (LineOfSight(self,player) == 1)
-                    "^The candle goes out.";
+                     "^A vela se apaga.";
             }
         ];
 
-Object  Hiccups "hiccups"
+Object  Hiccups "soluços"
         ! general if told you about drinking too much
  with   time_left 2,
         number 1,
@@ -695,8 +645,7 @@ Object  Hiccups "hiccups"
             if (self.time_left > 0) rfalse;
             if (self hasnt general) {
                 give self general;
-                print "^Hic! You must have drunk too much wine at \
-                    dinner.^";
+                 print "^Hic! Você deve ter bebido vinho demais no jantar.^";
             }
             else print "^Hic!^";
             self.time_left = self.number;
@@ -711,78 +660,73 @@ Object  Hiccups "hiccups"
 ! 8.3 ENTERING THE ENDGAME
 !--------------------------------------------------------------------------
 
-Object  RoofA "Roof of the Master's Lodgings"
+Object  RoofA "Telhado da Casa do Reitor"
  has    light no_edward
  with   name "roof" "gutter" "tile" "tiles" "first" "court" "narrow"
             "ledge" "great" "gate" "initials",
-        description "It's cool and breezy up here on the tiles of the \
-            college, and you have an excellent but somewhat alarming view \
-            of First Court, and of the college flag flying above the \
-            Great Gate. You could attempt to descend the wistaria, or \
-            follow a narrow ledge to the south.",
+         description "Aqui em cima, nas telhas da faculdade, está fresco e venta, e \
+             você tem uma vista excelente, embora um tanto alarmante, do Primeiro Pátio \
+             e da bandeira da faculdade tremulando sobre o Grande Portão. Você pode \
+             tentar descer pela glicínia ou seguir uma saliência estreita para o sul.",
         d_to Wistaria,
         s_to RoofB,
-        n_to "A precipitous drop prevents you from getting closer to the \
-            clock tower.",
-        cant_go "The only safe way out of here to follow the ledge to the \
-            south, but you could also try descending the wistaria.",
+         n_to "Uma queda vertiginosa impede que você se aproxime mais da torre do relógio.",
+         cant_go "A única saída segura é seguir a saliência para o sul, mas você também \
+             poderia tentar descer pela glicínia.",
         before [;
-         Jump: "Surely you still have something to live for?";
+          Jump: "Certamente você ainda tem motivos para viver?";
         ];
 
-Nearby  Gargoyle "gargoyle"
+Nearby  Gargoyle "gárgula"
  has    static
  with   name "gargoyle" "ugly",
-        initial "A fearsome stone gargoyle crouches by the gutter.",
-        description "It's an ugly creature, its face perhaps a \
-            caricature of a past Fellow of the college. The initials ~JF~ \
-            have been carved neatly into its hindquarters.",
+         initial "Uma gárgula de pedra assustadora agacha-se junto à calha.",
+         description "É uma criatura feia, cujo rosto talvez seja uma caricatura de um \
+             antigo membro da faculdade. As iniciais ~JF~ foram gravadas cuidadosamente \
+             em seus quartos traseiros.",
         life [ i;
          Give:
             if (noun has is_vessel && noun has open && 
               children(noun) > 0 && child(noun) has is_liquid) {
                 i = child(noun);
-                print "The gargoyle's gaping mouth points down, so it's \
-                    hard to see how to pour ", (the) i, " into it.";
+                 print "A boca escancarada da gárgula aponta para baixo, então é difícil \
+                     ver como despejar ", (the) i, " nela.";
                 if (i == ElixirC)
-                    print " That's probably just as well; the gargoyle \
-                        doesn't look as though it would be very \
-                        friendly.";
+                     print " Talvez seja melhor assim; a gárgula não parece muito \
+                         amigável.";
                 new_line; rtrue;
             }
         ],
         before [;
-         Attack,Tickle: "The gargoyle stoically endures your attack.";
+          Attack,Tickle: "A gárgula suporta seu ataque estoicamente.";
         ];
 
-Nearby  Flag "flag"
+Nearby  Flag "bandeira"
  has    scenery
  with   name "flag" "flagpole" "pole" "banner" "coat" "of" "arms",
-        description "The flag flutters in the breeze, and you can make \
-            out the college coat of arms: three lions rampant and a \
-            silver cup.",
+         description "A bandeira tremula ao vento, e você consegue distinguir o brasão \
+             da faculdade: três leões rampantes e uma taça de prata.",
         before [;
          Examine: rfalse;
-         default: "You can't reach the flag from here.";
+          default: "Você não consegue alcançar a bandeira daqui.";
         ];
 
-Object  RoofB "The Roof of ~B~ Staircase"
+Object  RoofB "Telhado da Escadaria ~B~"
  has    light no_edward
  with   name "roof" "staircase" "stair" "b" "tile" "tiles" "tiled" "roofs",
-        description "You are on a narrow ledge on the roof of Biblioll \
-            College. Tiled roofs slope up to the east and west, and the \
-            ledge runs to the north. To the south, a metal ladder \
-            descends into an enclosed space between the college \
-            buildings.",
-        cant_go "The roofs are too steep to climb.",
+         description "Você está numa saliência estreita no telhado da Faculdade \
+             Biblioll. Telhados de telha sobem para leste e oeste, e a saliência segue \
+             para o norte. Ao sul, uma escada de metal desce até um espaço fechado entre \
+             os prédios da faculdade.",
+         cant_go "Os telhados são íngremes demais para subir.",
         n_to RoofA,
         s_to [;
-            print "You climb down the ladder.^";
+             print "Você desce pela escada.^";
             return Ladder;
         ],
         d_to Ladder;
 
-Object  Ladder "ladder"
+Object  Ladder "escada"
  has    scenery door open
  with   name "ladder",
         found_in RoofB Well,
@@ -798,25 +742,24 @@ Object  Ladder "ladder"
          Climb: <<Enter self>>;
         ];
 
-Object  Well "Small Courtyard"
+Object  Well "Pátio Pequeno"
  has    light proper no_edward
  with   name "weed" "weeds" "stair" "staircase" "library" "college" "ugly"
             "kitchen" "kitchens",
-        description "A small space enclosed on all sides: a college \
-            staircase to the north, the kitchens to the east, the library \
-            to the west, and a tall brick wall to the south. A rickety \
-            metal ladder ascends the building to the north, and ugly \
-            weeds grow all around.",
+         description "Um pequeno espaço fechado por todos os lados: uma escadaria da \
+             faculdade ao norte, as cozinhas a leste, a biblioteca a oeste e um alto muro \
+             de tijolos ao sul. Uma escada metálica precária sobe pelo prédio ao norte, e \
+             ervas daninhas feias crescem por toda parte.",
         u_to Ladder,
         n_to Ladder,
         d_to [;
             if (Manhole has open) return Manhole;
-            "The manhole is closed.";
+             "O bueiro está fechado.";
         ],
         w_to [;
             if (HoleB notin self) rfalse;
-            print "You crawl on hands and knees back into the library, \
-                and shut the secret entrance behind you.^";
+             print "Você volta de mãos e joelhos para a biblioteca e fecha a entrada \
+                 secreta atrás de si.^";
             return Library;
         ],
         before [;
@@ -825,15 +768,15 @@ Object  Well "Small Courtyard"
                 <<Climb BrickWall>>;
         ];
 
-Nearby  Manhole "manhole"
+Nearby  Manhole "bueiro"
  has    locked openable lockable static enterable supporter
  with   name "manhole" "hole" "rust" "keyhole",
-        description "The cover is metal, and so old that its surface is \
-            peeling with rust. There is a keyhole to one side.",
+         description "A tampa é de metal e tão velha que sua superfície descasca com a \
+             ferrugem. Há uma fechadura de um lado.",
         describe [;
             if (self has open)
-                "^An open manhole leads down into darkness.";
-            "^There is a closed manhole in the centre of the courtyard.";
+                 "^Um bueiro aberto leva para baixo, à escuridão.";
+             "^Há um bueiro fechado no centro do pátio.";
         ],
         door_to TunnelA,
         door_dir d_to,
@@ -841,10 +784,10 @@ Nearby  Manhole "manhole"
         before [;
          Receive:
             if (self has open)
-                "That would fall through into the tunnel.";
+                "Isso cairia no túnel.";
          Open:
             if (player in self)
-                "Not while you're standing on it!";
+                "Não enquanto você estiver sobre ele!";
          Invoke:
             switch (second) {
              0: give self ~open enterable supporter ~door;
@@ -861,58 +804,55 @@ Nearby  Manhole "manhole"
          Close: <Invoke self 0>;
         ];
 
-Object  RustyKey "rusty key"
+Object  RustyKey "chave enferrujada"
  class  KeyClass
  with   name "rusty";
 
-Object  HoleB "secret library entrance"
+Object  HoleB "entrada secreta da biblioteca"
  has    door static open
  with   name "secret" "library" "entrance",
         article "the",
-        initial "A secret entrance to the library leads west.",
-        description "The secret entrance is very low, perhaps a foot and \
-            a half high, but you crawled through it one way, so you're \
-            sure that you can crawl back.",
+         initial "Uma entrada secreta para a biblioteca leva para oeste.",
+         description "A entrada secreta é muito baixa, talvez com meio metro de altura, \
+             mas você rastejou por ela numa direção, então tem certeza de que pode voltar \
+             rastejando.",
         door_dir w_to,
         door_to Library;
 
-Object  TunnelA "Tunnel"
+Object  TunnelA "Túnel"
  has    light no_edward
  with   name "tunnel" "uneven" "wood" "wooden" "board" "floorboard"
             "boards" "hole",
-        description "You are standing on uneven wooden floorboards in a \
-            dark tunnel. A little light enters from a hole in the roof \
-            and the tunnel leads into darkness to the east.",
+         description "Você está sobre tábuas de madeira irregulares num túnel escuro. Um \
+             pouco de luz entra por um buraco no teto, e o túnel leva para leste, à \
+             escuridão.",
         each_turn [;
             self.each_turn = NULL;
             DoneHint(WhatNextPuzzle,27);
         ],
         e_to [;
-            print "The tunnel goes on for a long way, perhaps fifty \
-                yards, and you grope your way carefully through the \
-                gloom.^";
+             print "O túnel continua por uma longa distância, talvez cinquenta metros, e \
+                 você tateia cuidadosamente pela escuridão.^";
             return TunnelB;
         ],
         u_to Well; ! can't have manhole closed while in tunnel
 
-Object  TunnelB "Tunnel"
+Object  TunnelB "Túnel"
  has    no_edward
  with   name "tunnel" "moisture" "drip" "rotting" "rot" "mould" "rotten"
             "flakes" "flake",
-        description "The rotting wooden walls of this gloomy tunnel drip \
-            with moisture. It continues to the west, but to the east \
-            there's a door.",
+         description "As paredes de madeira apodrecida deste túnel sombrio gotejam \
+             umidade. Ele continua para oeste, mas há uma porta a leste.",
         w_to [;
-            print "You grope your way back along the long tunnel.^";
+            print "Você tateia de volta pelo longo túnel.^";
             return TunnelA;
         ],
         e_to [;
             if (TunnelDoor has open) {
                 give TunnelDoor ~open locked;
-                print "The door swings shut behind you. You grope your \
-                    way along a dark passage, before finding your way \
-                    blocked by a curtain, on the other side of which you \
-                    can hear voices.^";
+                 print "A porta se fecha atrás de você. Você tateia por uma passagem \
+                     escura até encontrar o caminho bloqueado por uma cortina; do outro \
+                     lado, ouve vozes.^";
                 PlayerTo(Tapestries,-1);
                 StartDaemon(Crypt);
                 AdvanceTime(Crypt);
@@ -920,8 +860,7 @@ Object  TunnelB "Tunnel"
                 <<Look>>;
             }
             if (OffersLight(self) == 0)
-                "You encounter a barrier of some kind that blocks your \
-                passage further east.";
+                 "Você encontra algum tipo de barreira bloqueando sua passagem para leste.";
             return TunnelDoor;
         ],
         before [;
@@ -930,12 +869,12 @@ Object  TunnelB "Tunnel"
                 <<Insert noun second>>;
         ];
 
-Nearby  TunnelDoor "door"
+Nearby  TunnelDoor "porta"
  has    door openable lockable locked scenery autoopen
         ! general if the handle has broken
  with   name "door" "wooden" "wood",
-        description "The door is made of the same wood as the tunnel \
-            walls, and has been going slowly rotten for a long time.",
+         description "A porta é feita da mesma madeira que as paredes do túnel e vem \
+             apodrecendo lentamente há muito tempo.",
         door_dir e_to,
         door_to Crypt,
         with_key RustyKey,
@@ -944,45 +883,44 @@ Nearby  TunnelDoor "door"
             if (noun == Corkscrew) {
                 give Corkscrew general;
                 move Corkscrew to TunnelB;
-                "The rotten wood is soft enough that you are able to \
-                screw the corkscrew deep into the door.";
+                 "A madeira podre é macia o bastante para você conseguir enfiar o \
+                 saca-rolhas profundamente na porta.";
             }
          Open:
             if (self has general)
-                "There's no handle.";
+                "Não há maçaneta.";
             give self general;
-            "The handle comes off in your hand and disintegrates into \
-            flakes of wood.";
+            "A maçaneta se solta em sua mão e se desfaz em lascas de madeira.";
         ];
 
-Object  Corkscrew "corkscrew"
+Object  Corkscrew "saca-rolhas"
         ! general if its in the door
  with   name "corkscrew" "cork" "screw",
         describe [;
             if (self has general) {
                 if (location ~= TunnelB)
-                    "^** Error: corkscrew in wrong place **";
-                "^A corkscrew is embedded in the wooden door.";
+                    "^** Erro: saca-rolhas no lugar errado **";
+                "^Um saca-rolhas está cravado na porta de madeira.";
             }
         ],
         before [;
          Pull:
             if (self has general) {
                 if (TunnelDoor has locked)
-                    "The door is locked.";
+                    "A porta está trancada.";
                 if (TunnelDoor has open)
-                    "The door is already open.";
+                    "A porta já está aberta.";
                 give TunnelDoor open;
                 Achieved("opening the door in the tunnel");
-                "You pull on the corkscrew with all your weight, and like \
-                a reluctant bottle of wine, the door opens.";
+                "Você puxa o saca-rolhas com todo o seu peso e, como uma garrafa de vinho \
+                relutante, a porta se abre.";
             }
         ],
         after [;
          Take,Remove:
             if (self has general) {
                 give self ~general;
-                "You remove the corkscrew from the door.";
+                "Você remove o saca-rolhas da porta.";
             }
         ];
 
@@ -991,19 +929,17 @@ Object  Corkscrew "corkscrew"
 ! 8.4 THE CRYPT
 !--------------------------------------------------------------------------
 
-Object  Crypt "Crypt"
+Object  Crypt "Cripta"
  has    light no_edward
  with   name "crypt" "white" "robe" "robes" "hood" "hoods" "chair" "noose"
             "rope" "rafter" "rafters",
-        description "From behind a thick curtain, you look upon a dark \
-            underground room, dimly lit by arrays of flickering \
-            candles. Thick tapestries cover all four walls, apart from an \
-            open doorway to the east.^^In the centre of the room, your \
-            brother Malcolm stands on a chair, his feet and hands tied, \
-            and a tight noose around his neck is attached to the ceiling. \
-            Jarboe and Bungay are here, dressed in long white robes. The \
-            scene fills you with horror, but you dare not move or protest \
-            lest you be heard.^^A dark hole leads west.",
+         description "Atrás de uma cortina espessa, você vê uma sala subterrânea escura, \
+             iluminada fracamente por fileiras de velas trêmulas. Tapeçarias espessas \
+             cobrem as quatro paredes, exceto por uma porta aberta a leste.^^No centro \
+             da sala, seu irmão Malcolm está sobre uma cadeira, com mãos e pés amarrados, \
+             e uma corda apertada em seu pescoço presa ao teto. Jarboe e Bungay estão aqui, \
+             vestidos com longos mantos brancos. A cena a enche de horror, mas você não ousa \
+             mover-se ou protestar, para não ser ouvida.^^Um buraco escuro leva para oeste.",
         state 0,
         e_to [;
             if (self.state < 8) <<Take DoorCryptC>>;
@@ -1013,19 +949,17 @@ Object  Crypt "Crypt"
          Go,Enter:
             if (noun ~= w_obj) rfalse;
             if (self.state >= 8)
-                "The tapestries are burning so fiercely that you cannot \
-                leave that way. You must use the door to the east, or \
-                perish!";
-            "Anxious to escape the dreadful scene, you make your way back \
-            along the passage, but to your horror the rotting door is \
-            locked! There is no escape that way.";
+                "As tapeçarias estão queimando com tanta força que você não pode sair por \
+                 ali. Deve usar a porta a leste ou morrerá!";
+            "Ansiosa para escapar da cena terrível, você volta pela passagem, mas, para seu \
+             horror, a porta podre está trancada! Não há saída por ali.";
          Speak,Sing,Scream,Mild,Strong:
             if (self.state < 8)
-                "Shh! Jarboe and Bungay would surely hear you!";
+                "Psiu! Jarboe e Bungay certamente ouviriam você!";
         ],
         daemon [ i;
             if (self.state < 8 && location ~= Crypt)
-                print "^** Error: player escaped from the crypt **^";
+                print "^** Erro: a jogadora escapou da cripta **^";
             if (self.state < 8 && location == Crypt &&
               player notin Tapestries) {
                 new_line;
@@ -1034,37 +968,32 @@ Object  Crypt "Crypt"
             self.state = self.state + 1;
             switch (self.state) {
              1:
-                "^Jarboe pulls a dagger from his robes and waves it in \
-                Malcolm's face. ~Tell us the truth,~ he hisses.";
+                "^Jarboe tira uma adaga do manto e a agita diante do rosto de Malcolm. \
+                 ~Conte-nos a verdade~, sibila.";
              2:
-                "^~I've told you,~ Malcolm says hoarsely, ~I don't know \
-                what you mean. It was just a game ... a silly idea \
-                ... there's no elixir.~ He is clearly having difficulty \
-                talking.";
+                "^~Já contei~, diz Malcolm roucamente. ~Não sei o que querem dizer. Era \
+                 apenas um jogo... uma ideia boba... não existe elixir.~ Ele claramente \
+                 tem dificuldade para falar.";
              3:
-                "^~You're lying,~ shouts Bungay. ~You're trying to keep \
-                the secret for yourself! We tried your so-called recipe \
-                and it did not work. This is your last chance to tell us \
-                the truth.~";
+                "^~Você está mentindo~, grita Bungay. ~Está tentando guardar o segredo para \
+                 si! Tentamos sua suposta receita e ela não funcionou. Esta é sua última \
+                 chance de nos contar a verdade.~";
              4:
-                "^~My God!~ croaks Malcolm. ~You really believe it ... you \
-                are insane, both of you ... what is this farce? Who are \
-                you?~";
+                "^~Meu Deus!~, grasna Malcolm. ~Vocês realmente acreditam nisso... estão \
+                 loucos, os dois... que farsa é essa? Quem são vocês?~";
              5:
-                "^~We are Knights of the Holy Temple,~ intones Bungay \
-                solemnly. ~The guardians of the Qabbala and the wisdom of \
-                Jerusalem!~";
+                "^~Somos Cavaleiros do Templo Sagrado~, entoa Bungay solenemente. ~Os \
+                 guardiões da Cabala e da sabedoria de Jerusalém!~";
              6:
-                "^Malcolm laughs feebly. ~Knights Templar! Elixir of life! \
-                Ha ha! What a pair of clowns you are!~";
+                "^Malcolm ri fracamente. ~Cavaleiros Templários! Elixir da vida! Ha ha! \
+                 Que dupla de palhaços vocês são!~";
              7:
                 ! Just in case the player types 'examine malcolm' on the
                 ! next turn (only!). What we do for realism!
                 MalcolmC.description = MalcolmsBody.description;
-                "^~How dare you?~ screams Jarboe, and with a vicious \
-                kick, he knocks the chair away from under Malcolm, who \
-                gives a strangled cry and then falls silent, slowly \
-                swinging from the ceiling.";
+                 "^~Como ousa?~, grita Jarboe e, com um chute violento, derruba a cadeira \
+                 debaixo de Malcolm, que solta um grito sufocado e depois fica em silêncio, \
+                 balançando lentamente no teto.";
              8:
                 MoveNPC(JarboeC,0,e_obj);
                 remove BungayC;
@@ -1081,45 +1010,36 @@ Object  Crypt "Crypt"
                 move Fire to self;
                 PlayerTo(self,1);
                 give Tapestries ~enterable ~container ~open;
-                Tapestries.description = "Bone-dry from years in this \
-                    underground room, the tapestries have gone up in \
-                    flame like kindling.";
-                self.description = "This underground chamber is lined \
-                    with thick tapestries, now all ablaze. Fire runs up \
-                    the walls and across the ceiling. The heat is \
-                    oppressive, and the smoke stifling. If you don't \
-                    escape soon, you will surely perish!";
-                "^Jarboe stares aghast at what he has done. ~I didn't \
-                mean...~ he begins.^^~You fool,~ cries Bungay. ~You utter \
-                utter fool! What have you done?~ and in a rage he rushes \
-                at Jarboe, fists swinging. The two of them fall clumsily \
-                together onto the floor, knocking the candles over onto \
-                the tapestry, which quickly catches fire.^^Suddenly there \
-                is a terrible high-pitched scream from the brawling men, \
-                and then Jarboe stands up, blood dripping from his \
-                dagger. He stares at it, as though he cannot believe that \
-                he has just killed two men, and then he flings it aside \
-                and runs out through the doorway to the east.";
+                 Tapestries.description = "Ressecadas por anos nesta sala subterrânea, as \
+                     tapeçarias pegaram fogo como palha seca.";
+                 self.description = "Esta câmara subterrânea é revestida de tapeçarias \
+                     espessas, agora em chamas. O fogo sobe pelas paredes e atravessa o \
+                     teto. O calor é opressivo e a fumaça sufocante. Se você não escapar \
+                     logo, certamente morrerá!";
+                "^Jarboe olha horrorizado para o que fez. ~Eu não quis...~, começa.^^~Seu \
+                 idiota~, grita Bungay. ~Seu completo idiota! O que você fez?~ Furioso, ele \
+                 avança contra Jarboe com os punhos cerrados. Os dois caem desajeitados no \
+                 chão, derrubando as velas sobre a tapeçaria, que rapidamente pega fogo.^^De \
+                  repente, ouve-se um grito terrível e agudo dos homens em luta, e então Jarboe se \
+                 levanta, com sangue pingando da adaga. Ele olha para ela, como se não \
+                 acreditasse ter acabado de matar dois homens, depois a joga de lado e \
+                 corre pela porta para leste.";
             }
             if (location == Crypt) {
                 switch (self.state) {
-                 9: "^The fire quickly takes hold of the bone-dry \
-                    tapestries, and spreads around the room.";
-                 10: "^The fire continues to spread.";
-                 11: "^The rafters have caught fire, and the flames are \
-                    creeping across the ceiling.";
-                 12: "^The heat is oppressive.";
-                 13: "^The flames continue to creep across the ceiling.";
-                 14: "^The roaring of the fire is very loud now, as the \
-                    flames attack the rafters above your head.";
-                 15: "^The heat is agony now. You must escape!";
-                 16: "^There is a crack! and a burning rafter falls from \
-                    the ceiling, narrowly missing you.";
+                  9: "^O fogo rapidamente toma as tapeçarias ressecadas e se espalha pela sala.";
+                  10: "^O fogo continua a se espalhar.";
+                  11: "^As vigas pegaram fogo, e as chamas avançam pelo teto.";
+                  12: "^O calor é opressivo.";
+                  13: "^As chamas continuam a avançar pelo teto.";
+                  14: "^O rugido do fogo está muito alto agora, enquanto as chamas atacam as \
+                     vigas acima de sua cabeça.";
+                  15: "^O calor agora é uma agonia. Você precisa escapar!";
+                  16: "^Há um estalo! Uma viga em chamas cai do teto, por pouco não atingindo você.";
                  default:
                     deadflag = 1;
-                    "^There is a crack! and a burning rafter falls from \
-                    the ceiling, striking you on the head. You fall \
-                    unconscious into the flames...";
+                     "^Há um estalo! Uma viga em chamas cai do teto e atinge sua cabeça. Você \
+                     cai inconsciente nas chamas...";
                 }
             }
             if (location == CryptStairGround or CryptStairTop) {
@@ -1127,21 +1047,17 @@ Object  Crypt "Crypt"
                 if (location == CryptStairTop) i = i - 4;
                 if (i < 14) rfalse;
                 switch(i) {
-                 14: "^The flames are spreading from the crypt.";
-                 15: "^The wooden treads under your feet are starting to \
-                     smoke.";
-                 16: "^The heat is oppressive.";
-                 17: "^No matter how quickly you stamp on each new tongue \
-                     of flame, the fire is quicker. Soon the whole \
-                     staircase will be ablaze.";
-                 18: "^The roaring of the fire is very loud now, as the \
-                    flames attack the treads under your feet and the \
-                    rafters above your head.";
-                 19: "^The heat is agony now. You must escape!";
+                  14: "^As chamas estão se espalhando pela cripta.";
+                  15: "^Os degraus de madeira sob seus pés começam a soltar fumaça.";
+                  16: "^O calor é opressivo.";
+                  17: "^Por mais rápido que você pise em cada nova língua de fogo, o fogo é \
+                      mais rápido. Logo toda a escadaria estará em chamas.";
+                  18: "^O rugido do fogo está muito alto agora, enquanto as chamas atacam os \
+                     degraus sob seus pés e as vigas acima de sua cabeça.";
+                  19: "^O calor agora é uma agonia. Você precisa escapar!";
                  default: 
                     deadflag = 1;
-                    "^There is a crack! and the treads collapse under \
-                     your feet, plunging you down into the inferno.";
+                     "^Há um estalo! Os degraus cedem sob seus pés, lançando você no inferno.";
                 }
             }
         ];
@@ -1153,12 +1069,11 @@ Class   DangerClass
          default:
             if (Crypt.state < 8) {
                 deadflag = 1;
-                "~What's that?~ says Bungay, hearing the movement. Before \
-                you can react, he pulls the tapestry aside and grabs you \
-                roughly. ~My God!~ he shouts. ~What have we here? A spy!~ \
-                and his crazed face is the last thing you see before you \
-                faint mercifully into unconsciousness, never to \
-                awaken...";
+                "~O que foi isso?~, diz Bungay, ouvindo o movimento. Antes que você possa \
+                reagir, ele afasta a tapeçaria e a agarra com brutalidade. ~Meu Deus!~, \
+                grita. ~O que temos aqui? Uma espiã!~ Seu rosto enlouquecido é a última \
+                coisa que você vê antes de desmaiar misericordiosamente, para nunca mais \
+                acordar...";
             }
         ];
 
@@ -1167,23 +1082,21 @@ Class   CultistClass
  has    proper animate concealed
  with   name "cultist",
         description [;
-            print_ret (The) self, " is dressed in a long white robe, and \
-                a hood obscures most of his face, but from his build and \
-                demeanour you are certain of his identity.";
+             print_ret (The) self, " veste um longo manto branco, e um capuz esconde a \
+                 maior parte de seu rosto, mas, por seu porte e comportamento, você tem \
+                 certeza de sua identidade.";
         ];
 
 Nearby  Tapestries "tapestries"
  has    static enterable open container concealed
  with   name "curtain" "tapestry" "drape" "curtains" "tapestries" "drapes"
             "wall-hanging" "arras",
-        description "They are enormously old, and bone-dry. They look \
-            almost ready to crumble away.",
+         description "São muito antigas e ressecadas. Parecem prestes a desmoronar.",
         before [;
          Burn:
             if (Crypt.state >= 8)
-                "The tapestries are already burning very nicely.";
-            print "You set fire to the tapestries, which quickly burst \
-                into flame. ";
+                "As tapeçarias já estão queimando muito bem.";
+            print "Você incendeia as tapeçarias, que rapidamente explodem em chamas. ";
             <<Take BungayC>>;
         ];
 
@@ -1204,10 +1117,10 @@ Nearby  MalcolmC "Malcolm"
  class  DangerClass
  has    animate proper concealed
  with   name "malcolm" "spencer" "brother" "fellow",
-        description "He stands on tiptoes on the chair, his hands and \
-            feet tied, the noose biting into his neck and pulling him \
-            upwards. He is clearly in much pain and having trouble \
-            breathing. If only you could rescue him!";
+         description "Ele está na ponta dos pés sobre a cadeira, com mãos e pés \
+             amarrados, a corda apertando seu pescoço e puxando-o para cima. \
+             Está claramente sofrendo muito e com dificuldade para respirar. \
+             Se ao menos você pudesse resgatá-lo!";
 
 Nearby  DoorCryptC "doorway"
  class  DangerClass
@@ -1233,94 +1146,90 @@ Object  Noose "noose"
  has    static concealed
  with   name "noose" "rope",
         before [;
-         Attack,Cut,Untie: "The noose is too tight to undo with your hands.";
+          Attack,Cut,Untie: "A corda está apertada demais para ser desfeita com as mãos.";
          AttackWith:
             if (second ~= Dagger)
-                "Your efforts are in vain.";
+                 "Seus esforços são inúteis.";
             remove self;
             remove MalcolmsBody;
             move MalcolmsBodyB to Crypt;
             Achieved("cutting the noose");
-            "Supporting Malcolm's limp body as best you can, you cut the \
-            rope and lower him to the floor.";
+             "Sustentando o corpo inerte de Malcolm da melhor maneira possível, você corta \
+             a corda e o abaixa até o chão.";
         ];
 
 Object  Dagger "dagger"
  with   name "dagger" "knife" "sword" "blood" "bloody",
-        description "It is a horrible sight, covered in Bungay's blood.";
+         description "É uma visão horrível, coberta pelo sangue de Bungay.";
 
 Object  MalcolmsBody "Malcolm's body"
  has    animate static proper
  with   name "malcolm" "spencer" "brother" "body" "malcolm^s" "brother^s",
-        initial "Malcolm's body hangs by a noose from the ceiling.",
-        description "He hangs motionless from the ceiling, the noose \
-            biting cruelly into his neck. His eyes are lifeless and his \
-            face is blue.",
+         initial "O corpo de Malcolm pende do teto por uma corda.",
+         description "Ele pende imóvel do teto, a corda apertando cruelmente seu \
+             pescoço. Seus olhos estão sem vida e seu rosto está azul.",
         life [;
             if (action == ##Give && noun has is_liquid)
-                "The noose is so tight about his neck that you are unable \
-                to open his mouth.";
-            "He makes no movement.";
+                 "A corda está tão apertada em seu pescoço que você não consegue \
+             abrir sua boca.";
+             "Ele não se move.";
         ],
         before [;
-	 Search: "You find nothing of interest in his pockets.";
-         Attack,Resuscitate,Kiss: "There's no hope of resuscitating him \
-            while he's still being throttled by the noose.";
-         Take,Remove: "It would be better to cut him down.";
-         PushDir,Push,Pull,Touch: "He swings limply on the rope.";
+          Search: "Você não encontra nada de interessante nos bolsos dele.";
+          Attack,Resuscitate,Kiss: "Não há esperança de ressuscitá-lo enquanto ele \
+             continuar sendo estrangulado pela corda.";
+          Take,Remove: "Seria melhor cortar a corda e baixá-lo.";
+          PushDir,Push,Pull,Touch: "Ele balança inerte na corda.";
         ];
 
 Object  MalcolmsBodyB "Malcolm's body"
  has    animate static proper
  with   name "malcolm" "spencer" "brother" "body" "malcolm^s" "brother^s",
-        initial "Malcolm lies motionless on the ground.",
-        description "He lies motionless on the ground. You can hear no \
-            heartbeat nor feel any breath. His eyes are lifeless and his \
-            face is blue.",
+         initial "Malcolm jaz imóvel no chão.",
+         description "Ele jaz imóvel no chão. Você não ouve batimentos nem sente sua \
+             respiração. Seus olhos estão sem vida e seu rosto está azul.",
         life [ i;
             if (action == ##Give && noun has is_vessel && noun has open &&
               children(noun) > 0 && child(noun) has is_liquid) {
                 i = child(noun);
-                print "You open Malcolm's mouth and pour ", (the) i,
-                    " into it. ";
+                 print "Você abre a boca de Malcolm e derrama ", (the) i,
+                     " nela. ";
                 remove i;
                 if (i == ElixirC) {
                     move Malcolm to parent(self);
                     remove self;
                     Achieved("giving Malcolm the elixir");
-                    "He gives a sudden convulsive movement and then his \
-                    chest begins to rise and fall. He is alive!";
+                    "Ele faz um movimento convulsivo repentino, e então seu peito \
+                    começa a subir e descer. Está vivo!";
                 }
             }
-            "He makes no movement.";
+            "Ele não se move.";
         ],
         before [;
-	 Search: "You find nothing of interest in his pockets.";
-         Attack,Resuscitate,Kiss: "You pummel Malcolm's chest and breathe \
-            air into him until you are dizzy, but in vain. There is no \
-            flicker of life.";
-         Take,Remove: "He's too heavy for you to lift, but perhaps you \
-            could pull him.";
-         Push,Pull: "You'll have to say in which direction to you want to \
-             pull Malcolm's body.";
+	 Search: "Você não encontra nada de interessante nos bolsos dele.";
+          Attack,Resuscitate,Kiss: "Você golpeia o peito de Malcolm e sopra ar \
+             nele até ficar tonta, mas em vão. Não há qualquer sinal de vida.";
+          Take,Remove: "Ele é pesado demais para você levantá-lo, mas talvez \
+             possa puxá-lo.";
+          Push,Pull: "Você terá de dizer em que direção quer puxar o corpo de \
+              Malcolm.";
          PushDir: AllowPushDir(); rtrue;
         ];
 
 Object  Malcolm "Malcolm"
  has    animate static proper
  with   name "malcolm" "spencer" "brother",
-        initial "Malcolm lies unconscious on the ground.",
-        description "He lies unconscious on the ground, and there is \
-            terrible bruising around his neck, but at least he is alive!",
+         initial "Malcolm jaz inconsciente no chão.",
+         description "Ele jaz inconsciente no chão, com hematomas terríveis ao \
+             redor do pescoço, mas pelo menos está vivo!",
         life [;
-            "There is no response.";
+             "Ele não responde.";
         ],
         before [;
-	 Search: "You find nothing of interest in his pockets.";
-         Take,Remove: "He's too heavy for you to lift, but perhaps you \
-            could pull him.";
-         Push,Pull: "You'll have to say in which direction to you want to \
-             pull Malcolm.";
+	 Search: "Você não encontra nada de interessante nos bolsos dele.";
+          Take,Remove: "Ele é pesado demais para você levantá-lo, mas talvez \
+             possa puxá-lo.";
+          Push,Pull: "Você terá de dizer em que direção quer puxar Malcolm.";
          PushDir: AllowPushDir(); rtrue;
         ];
 
@@ -1328,40 +1237,40 @@ Object  DeadBungay "Professor Bungay's body"
  has    animate static
         ! general if found the key
  with   name "prof" "professor" "bungay" "bungay^s" "body",
-        initial "Bungay lies dead on the ground.",
-        description "He lies quite dead on the ground, blood pouring from \
-            a wound at his throat and flames licking at his robes.",
+         initial "Bungay jaz morto no chão.",
+         description "Ele jaz morto no chão, com sangue escorrendo de um ferimento \
+             na garganta e chamas lambendo suas vestes.",
         life [;
-         Give: "Why are you wasting time with him?";
-         default: "He is quite dead and makes no response.";
+          Give: "Por que você está perdendo tempo com ele?";
+          default: "Ele está morto e não responde.";
         ],
         before [;
-         Push,Pull: "He is quite immovable.";
-         Resuscitate: "That gaping wound at his throat needs more \
-            attention than you can provide. And it may be cruel to say \
-            so, but you're glad that the horrible man is dead.";
+          Push,Pull: "Ele não pode ser movido.";
+          Resuscitate: "Aquele ferimento enorme na garganta precisa de mais \
+             cuidados do que você pode oferecer. Pode ser cruel dizer isso, mas \
+             você está contente que o homem horrível esteja morto.";
          Search:
             if (self hasnt general) {
                 give self general;
                 move SilverKey to player;
                 ResetVagueWords(SilverKey);
-                "You beat at Bungay's burning robes, and manage to quell \
-                the flames for long enough to pick his pocket. You \
-                retrieve a silver key which is almost too hot to hold. You \
-                briefly wonder if Jarboe knows about this key.";
+                 "Você golpeia as vestes em chamas de Bungay e consegue apagar o \
+                 fogo tempo suficiente para revistar seu bolso. Encontra uma chave \
+                 de prata quase quente demais para segurar. Por um instante, você \
+                 se pergunta se Jarboe sabe dessa chave.";
             }
-            "There's nothing else to find in Bungay's pockets.";
+             "Não há mais nada para encontrar nos bolsos de Bungay.";
         ];
 
-Object  SilverKey "silver key"
+Object  SilverKey "chave de prata"
  class  KeyClass
  with   name "silver";
 
 Object  Fire "fire"
  has    scenery light absent
  with   name "fire" "flame" "flames" "burning" "smoke",
-        description "It is out of control. If you don't get out of here \
-            soon, then you will surely die!",
+         description "Está fora de controle. Se você não sair daqui logo, \
+             certamente morrerá!",
         found_in [;
             if (location == Crypt && Crypt.state >= 8 ||
                 location == CryptStairGround && Crypt.state >= 14 ||
@@ -1373,13 +1282,13 @@ Object  Fire "fire"
          ThrownAt:
             if (noun has is_liquid) {
                 remove noun;
-                "Your fire-fighting has no effect.";
+                 "Seu esforço para apagar o fogo não surte efeito.";
             }
          SwitchOff:
-            "You have no hope of putting out the fire. It would be better \
-            to escape while you can.";
+             "Você não tem esperança de apagar o fogo. Seria melhor escapar \
+             enquanto pode.";
          default:
-            "The fire is too hot to approach closely.";
+             "O fogo está quente demais para você se aproximar.";
         ];
 
 
@@ -1387,23 +1296,21 @@ Object  Fire "fire"
 ! 8.5 THE LAST BATTLE
 !--------------------------------------------------------------------------
 
-Object  CryptStairGround "Bottom of the Secret Staircase"
+Object  CryptStairGround "Parte inferior da Escadaria Secreta"
  has    no_edward light
  with   name "stair" "staircase" "wood" "wooden" "tread" "treads",
         description [;
-            print "The bottom of an ancient cramped staircase. The wooden \
-                treads creak under your feet. The staircase ascends to \
-                the north, and a large room to the west is ablaze with \
-                flame.";
+             print "A parte inferior de uma escadaria antiga e apertada. Os degraus de \
+                 madeira rangem sob seus pés. A escadaria sobe para o norte, e uma grande \
+                 sala a oeste está em chamas.";
             if (Jarboe in CryptStairTop)
-                print " You can hear a banging from above, as if someone \
-                    is trying to break down a door.";
+                 print " Você ouve pancadas acima, como se alguém tentasse arrombar uma porta.";
             if (Crypt.state >= 14 && Crypt.state < 17)
-                print " The fire is spreading, and the treads under your \
-                    feet are starting to smoke. You must escape!";
+                 print " O fogo está se espalhando, e os degraus sob seus pés começam a \
+                     soltar fumaça. Você precisa escapar!";
             if (Crypt.state >= 17)
-                print " The flames are around you, and the heat is \
-                    intolerable. You will surely die soon if you remain!";
+                 print " As chamas estão ao seu redor, e o calor é intolerável. Você \
+                     certamente morrerá em breve se ficar!";
             new_line; rtrue;
         ],
         w_to DoorCrypt,
@@ -1412,86 +1319,77 @@ Object  CryptStairGround "Bottom of the Secret Staircase"
         before [;
          Listen:
             if (JarboeE in CryptStairTop)
-                print "You can hear knocking from above. ";
-            "The roaring of flames is very loud.";
+                 print "Você ouve batidas acima. ";
+             "O rugido das chamas é muito alto.";
         ];
 
-Object  CryptStairTop "Top of the Secret Staircase"
+Object  CryptStairTop "Parte superior da Escadaria Secreta"
  has    no_edward light
  with   name "stair" "staircase" "white" "robe" "hood",
         initial [;
             if (Crypt.state < 17) Crypt.state = 17;
         ],
         description [;
-            print "The top of an ancient staircase, which descends to the \
-                south. There is a door to the north.";
+             print "A parte superior de uma escadaria antiga, que desce para o sul. Há uma \
+                 porta ao norte.";
             if (Crypt.state >= 18)
-                print " The fire is spreading, and the treads under your \
-                    feet are starting to smoke. You must escape!";
+                 print " O fogo está se espalhando, e os degraus sob seus pés começam a \
+                    soltar fumaça. Você precisa escapar!";
             if (Crypt.state >= 21)
-                print " The flames are around you, and the heat is \
-                    intolerable. You will surely die soon if you remain!";
+                 print " As chamas estão ao seu redor, e o calor é intolerável. Você \
+                    certamente morrerá em breve se ficar!";
             new_line; rtrue;
         ],
         d_to CryptStairGround,
         s_to CryptStairGround,
         n_to [ i j;
-            if (Jarboe in self) "Jarboe blocks your way.";
+             if (Jarboe in self) "Jarboe bloqueia seu caminho.";
             if (DoorSecret hasnt open) return DoorSecret;
             if (pushed_object == Malcolm) i = 1;
             if (pushed_object == MalcolmsBodyB) j = 1;
-            print "You struggle through the door into a dim room strewn \
-                with expensive furniture. Your strength is failing and \
-                your lungs are full of smoke, and you are so dizzy you \
-                doubt you can move another foot. You are on the verge of \
-                blacking out when a pair of dark helmeted shapes loom \
-                over you. It is the police constable and a fireman with \
-                him! Never has such a sight been so welcome!";
+             print "Você atravessa a porta com dificuldade e entra numa sala escura cheia de \
+                 móveis caros. Suas forças estão acabando, seus pulmões estão cheios de \
+                 fumaça e você está tão tonta que duvida conseguir andar mais. Está prestes \
+                 a desmaiar quando duas figuras de capacete escuro se erguem diante de você. \
+                 É o policial e um bombeiro! Nunca uma visão foi tão bem-vinda!";
             if (1 == i or j)
-                print " You manage to retain consciousness long enough to \
-                    say, ~My brother! Help him!~";
-            print " Then the fire and the smoke and the shock are \
-                suddenly all too much for you, and you pass out...^^You \
-                awake a long time later in hospital, recovering from \
-                third-degree burns";
+                 print " Você consegue manter a consciência tempo suficiente para dizer: \
+                     ~Meu irmão! Ajudem-no!~";
+             print " Então o fogo, a fumaça e o choque se tornam demais para você, e você \
+                 desmaia...^^Muito tempo depois, acorda no hospital, recuperando-se de \
+                 queimaduras de terceiro grau";
             if (i == 1) {
                 deadflag = 2;
                 Achieved("saving Malcolm from the fire");
-                print ". Malcolm is sitting by your bedside. \
-                    ~Christabel!~ he says. ~How glad I am to see you! I \
-                    could hug you for joy, but the doctor says I mustn't \
-                    touch you yet.~^";
+                 print ". Malcolm está sentado ao lado da sua cama. ~Christabel!~, diz ele. \
+                     ~Que alegria ver você! Eu a abraçaria de felicidade, mas o médico diz \
+                     que ainda não posso tocá-la.~^";
             } else {
                 deadflag = 3;
-                print ", with Edward sitting solicitously by your \
-                    bedside. You ask him what happened to Malcolm, and he \
-                    is very reluctant to answer. Finally you force him to \
-                    admit that ";
+                 print ", com Edward sentado solícito ao lado da sua cama. Você pergunta \
+                     o que aconteceu a Malcolm, e ele reluta muito em responder. Por fim, \
+                     você o força a admitir que ";
                 if (j == 1)
-                    print "although everything was tried to resuscitate \
-                        him, Malcolm is dead.^";
+                     print "embora tudo tenha sido tentado para ressuscitá-lo, Malcolm está \
+                         morto.^";
                 else
-                    print "Malcolm's body was recovered from the wreck of \
-                        the college, almost too badly burned to \
-                        identify.^";
+                     print "o corpo de Malcolm foi recuperado dos destroços da faculdade, \
+                         quase queimado demais para ser identificado.^";
             }
-            print "^Later, you learn that Edward had gone to Bungay's \
-                room that night to hand in his essay. Smelling smoke, he \
-                raised the alarm, and the porter rang for the fire \
-                brigade, who smashed down the door of Bungay's room just \
-                in time to save you.^^The fire destroyed almost the whole \
-                of ~C~ staircase before they were able to put it \
-                out. Jarboe's charred bones were found in the wreckage of \
-                the secret staircase, and nothing at all was found of \
-                Bungay";
+             print "^Mais tarde, você descobre que Edward fora ao quarto de Bungay naquela \
+                 noite para entregar sua redação. Sentindo cheiro de fumaça, ele deu o \
+                 alarme, e o porteiro chamou os bombeiros, que arrombaram a porta do quarto \
+                 de Bungay a tempo de salvar você.^^O fogo destruiu quase toda a escadaria \
+                 ~C~ antes que conseguissem apagá-lo. Os ossos carbonizados de Jarboe foram \
+                 encontrados nos destroços da escadaria secreta, e nada foi encontrado de \
+                 Bungay";
             if (i == 0)
-                ", but this is no consolation to you.";
-            ". No-one has any explanation for the bizarre behaviour of \
-            Jarboe and Bungay; if such explanation ever existed, then it \
-            has surely now gone up in flames.";
+                 ", mas isso não é consolo para você.";
+             ". Ninguém tem explicação para o comportamento bizarro de Jarboe e Bungay; se \
+             tal explicação algum dia existiu, certamente virou fumaça nas chamas.";
         ],
         before [;
-         Listen: "The roaring of flames is very loud.";
+          Listen: "O rugido das chamas é muito alto.";
         ];
 
 Nearby  JarboeE "Doctor Jarboe"
@@ -1499,10 +1397,10 @@ Nearby  JarboeE "Doctor Jarboe"
  has    proper
         ! general if no new-line at start of each_turn routine
  with   name "doctor" "dr" "jarboe" "fellow",
-        initial "Doctor Jarboe stands here.",
-        description "Jarboe is a tall, gaunt man, with thin, ungainly \
-            limbs and a long sharp nose. He is dressed in a long white \
-            robe, and his eyes stare madly at you.",
+         initial "O Doutor Jarboe está aqui.",
+         description "Jarboe é um homem alto e esquelético, com membros finos e \
+             desajeitados e nariz longo e pontudo. Veste um longo manto branco, e seus \
+             olhos encaram você com loucura.",
         life [;
          Give:
             if (noun == SilverKey or Dagger) {
@@ -1512,28 +1410,25 @@ Nearby  JarboeE "Doctor Jarboe"
             }
          Show:
             if (noun == SilverKey or Dagger)
-                "~Give me that,~ says Jarboe.";
+                 "~Dê-me isso~, diz Jarboe.";
         ],
         before [;
          Speak:
-            "Jarboe ignores you. He looks so crazy now that you are not \
-            even sure that he hears you.";
+             "Jarboe ignora você. Ele parece tão louco agora que você nem tem certeza de \
+             que a ouve.";
          Attack,AttackWith:
             if (Dagger notin player) {
                 deadflag = 1;
-                "^Jarboe rushes at you, knocking you head-first down the \
-                stairs. The last thing you see is his boot descending \
-                onto your face.";
+                 "^Jarboe avança contra você e a derruba de cabeça escada abaixo. A última \
+                 coisa que vê é a bota dele descendo sobre seu rosto.";
 	    }
-            print "Jarboe reaches for your dagger, trying to disarm you, \
-                but you slash at him. He screams, and clutches at his \
-                injured wrist";
+             print "Jarboe tenta tomar sua adaga para desarmá-la, mas você o golpeia. Ele \
+                grita e segura o pulso ferido";
             if (self.state == 2) ".";
             MoveNPC(self, Crypt, d_obj);
-            ". ~Let me by,~ he yells. ~Let me by, I must fetch the key, \
-            or we'll die in here.~ You stand aside, still pointing the \
-            knife at him, and he runs past you down the stairs into the \
-            blazing crypt.";
+             ". ~Deixe-me passar~, grita. ~Deixe-me passar, preciso buscar a chave ou \
+             morreremos aqui.~ Você se afasta, ainda apontando a faca para ele, e ele passa \
+             correndo por você escada abaixo, para a cripta em chamas.";
         ],
         state 0,
         each_turn [ i;
@@ -1542,59 +1437,45 @@ Nearby  JarboeE "Doctor Jarboe"
             if (Dagger in location) {
                 deadflag = 1;
                 if (i == 0) new_line;
-                "Jarboe grabs the dagger. ~Fool!~ he shouts exultantly, \
-                and stabs you in the chest. The last thing you hear is \
-                his insane laughter.";
+                "Jarboe agarra a adaga. ~Tola!~, grita exultante, e a crava no seu peito. A \
+                última coisa que você ouve é sua risada insana.";
             }
             if (SilverKey in location) {
                 remove SilverKey;
                 MoveNPC(self, 0, n_obj);
                 if (i == 0) new_line;
-                "~Aha, the key!~ shouts Jarboe exultantly, grabbing \
-                it. He unlocks the door and slips through it. You start \
-                after him, but he shoves you back and starts to shut the \
-                door. You put every ounce of energy you have left into \
-                trying to hold the door open, but Jarboe is too strong \
-                for you, and with a dreadful cackle he shoves the door \
-                closed and locks it. You can hear his laughter on the \
-                other side of the door disappearing into the distance \
-                until you are alone with the crackling flames.";
+                "~Aha, a chave!~, grita Jarboe exultante, agarrando-a. Ele destranca a porta \
+                e passa por ela. Você vai atrás, mas ele a empurra e começa a fechar a porta. \
+                Você emprega toda a energia restante para mantê-la aberta, mas Jarboe é forte \
+                demais e, com uma gargalhada horrível, fecha e tranca a porta. Você ouve sua \
+                risada desaparecer do outro lado, até ficar sozinha com as chamas crepitantes.";
             }
             if (self.state == 0)
-                print "^Jarboe throws his weight against the door in an \
-                    attempt to break it down, but without success. ~The \
-                    cretin!~ he shouts, ~He locked the door on me!~ Then \
-                    he hears your footsteps and whirls around. ~You \
-                    again!~ he screams, ~This is all your fault!~^";
+                print "^Jarboe joga o peso contra a porta numa tentativa de arrombá-la, mas sem \
+                    sucesso. ~O cretino!~, grita. ~Ele me trancou aqui!~ Então ouve seus \
+                    passos e se vira. ~Você de novo!~, berra. ~Tudo isso é culpa sua!~^";
             if (Dagger notin player) {
                 deadflag = 1;
-                "^Jarboe rushes at you, knocking you head-first down the \
-                stairs. The last thing you see is his boot descending \
-                onto your face.";
+                "^Jarboe avança contra você e a derruba de cabeça escada abaixo. A última \
+                coisa que vê é a bota dele descendo sobre seu rosto.";
             }
             if (self.state == 0) {
                 if (LineOfSight(self,SilverKey) == 1) {
                     self.state = 2;
-                    "^He looks as though he is about to attack you, but \
-                    then he stops. ~I see you have the key to the door,~ \
-                    he says. ~Give it to me!~";
+                    "^Ele parece prestes a atacá-la, mas para. ~Vejo que você tem a chave da \
+                    porta~, diz ele. ~Dê-a para mim!~";
                 }
                 self.state = 1;
-                "^He looks as though he is about to attack you, but \
-                then he stops. ~Give me the knife, little girl,~ he says \
-                softly. ~You shouldn't be carrying such a dangerous \
-                thing.~";
+                "^Ele parece prestes a atacá-la, mas para. ~Dê-me a faca, menina~, diz \
+                suavemente. ~Você não deveria carregar uma coisa tão perigosa.~";
             }
             if (self.state == 2) {
                 if (LineOfSight(self,SilverKey) == 0)
-                    "^You don't fool me,~ says Jarboe. ~I know you have \
-                    the key. Give it to me so I can unlock the door. It \
-                    wouldn't do for us both to die here.~";
-                "^~Give me the key,~ Jarboe says again, ~I won't hurt \
-                you.~";
+                    "^Você não me engana~, diz Jarboe. ~Sei que você tem a chave. Dê-a para \
+                    que eu possa destrancar a porta. Não seria bom nós dois morrermos aqui.~";
+                "^~Dê-me a chave~, repete Jarboe. ~Não vou machucá-la.~";
             }
-            "^~Give me the knife, little girl,~ Jarboe says again. ~I \
-            won't hurt you.~";
+            "^~Dê-me a faca, menina~, repete Jarboe. ~Não vou machucá-la.~";
         ];
 
 Nearby  DoorSecret "door"
@@ -1607,5 +1488,5 @@ Nearby  DoorSecret "door"
          Examine: rfalse;
          default:
             if (JarboeE in CryptStairTop)
-                "Jarboe blocks your way.";
+                "Jarboe bloqueia seu caminho.";
         ];

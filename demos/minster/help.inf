@@ -126,7 +126,7 @@ Array quotes_used -> 22;
              "convencer-nos de que ela nem sequer é uma rosa." " "
             "  -- Barnabas Kubiak";
 
-     default: print "** Error: no such quote, ", q, " **";
+      default: print "** Erro: citacao inexistente, ", q, " **";
     }
 ];
 
@@ -150,9 +150,9 @@ Property puzzle_name alias nw_to;
     if (h3 ~= 0) (p.&puzzle_done)->(h3-1) = 1;
 ];
 
-Object  Puzzles "all the puzzles";
+Object  Puzzles "todos os quebra-cabecas";
 
-Nearby  EnterCollegePuzzle "entering the college"
+ Nearby  EnterCollegePuzzle "entrando na faculdade"
  with   puzzle_width 14,
         puzzle_state 1,
          puzzle_name "Como entro na faculdade?",
@@ -178,7 +178,7 @@ Nearby  EnterCollegePuzzle "entering the college"
              usá-la como parte de seu truque?",
         puzzle_done 0 0 0 0 0;
 
-Nearby  MalcolmsRoomPuzzle "entering Malcolm's room"
+ Nearby  MalcolmsRoomPuzzle "entrando no quarto de Malcolm"
  with   puzzle_width 17,
         puzzle_state 0,
          puzzle_name "Como entro no quarto de Malcolm?",
@@ -195,7 +195,7 @@ Nearby  MalcolmsRoomPuzzle "entering Malcolm's room"
              de que ele é surdo, portanto você não pode falar com ele)?",
         puzzle_done 0 0 0;
 
-Nearby  WhatNextPuzzle "what now?"
+ Nearby  WhatNextPuzzle "e agora?"
  with   puzzle_width 17,
         puzzle_state 1,
          puzzle_name "Socorro! Estou presa! O que faço agora?",
@@ -250,23 +250,24 @@ Global help_word;
 
 [ HelpThingSub i;
     switch (help_word) {
-     'instructions': i = 1;
-     'command','commands','summary': i = 2;
-     'abbrev','abbreviation': i = 3;
-     'credits','credit','thanks': i = 4;
-     'copyright','licence','license','warranty', 'copy', 'copying': i = 5;
-     'pay', 'payment': i = 6;
-     'advert','adverts','archive','inform','if-archive': i = 7;
-     'adventure','game','games','introduction','intro': i = 11;
-     'rooms','room','moving','travel','go','enter': i = 12;
-     'object','objects','thing','take','drop': i = 13;
-     'talking','speech','characters','people','conversation': i = 14;
-     'book','books','reference','bible','consult','consulting': i = 15;
-     'save','restore','restart','quit', 'miscellaneous','script',
-     'oops','score': i = 16;
+      'instructions','instrucoes': i = 1;
+      'command','commands','summary','comando','comandos','resumo': i = 2;
+      'abbrev','abbreviation','abreviacao','abreviacoes': i = 3;
+      'credits','credit','thanks','creditos','agradecimentos': i = 4;
+      'copyright','licence','license','warranty','copyright','licenca','garantia',
+      'copy','copying','copiar','copia': i = 5;
+      'pay','payment','pagar','pagamento': i = 6;
+      'advert','adverts','archive','inform','if-archive','anuncios','arquivo': i = 7;
+      'adventure','game','games','introduction','intro','aventura','jogo','introducao': i = 11;
+      'rooms','room','moving','travel','go','enter','salas','sala','movimentacao','viajar': i = 12;
+      'object','objects','thing','take','drop','objeto','objetos','coisa','pegar','largar': i = 13;
+      'talking','speech','characters','people','conversation','conversar','fala','personagens','pessoas': i = 14;
+      'book','books','reference','bible','consult','consulting','livro','livros','referencia','biblia': i = 15;
+      'save','restore','restart','quit', 'miscellaneous','script',
+      'oops','score','salvar','restaurar','reiniciar','sair','diversos','transcricao','ops','pontuacao': i = 16;
      default:
-         "Desculpe, não sei nada sobre isso. Digite ~help~ sozinho para ver \
-         um menu de assuntos sobre os quais posso ajudar.";
+         "Desculpe, não sei nada sobre isso. Digite ~ajuda~ sozinho (ou ~help~, \
+         alias em inglês) para ver um menu de assuntos sobre os quais posso ajudar.";
     }
     if (i > 10) { menu_item = i - 10; InstructionsInfo(); rtrue; }
     menu_item = i;
@@ -391,76 +392,75 @@ Array InstructionsChoices table [;
             InstructionsInfo);
         return 2;
      2:
-         print "Estes comandos normalmente não fazem nada no mundo do jogo, \
+         print "Estes comandos normalmente nao fazem nada no mundo do jogo, \
              mas controlam como ele é apresentado a você:^";
 
         font off;
         print "\
-             ^brief            usar descrições longas e curtas\
-             ^die              sair do jogo\
-             ^fullscore        mostrar como sua pontuação foi obtida\
-             ^inventory        listar seus pertences\
-             ^inventory wide   listar inventário em parágrafos\
-             ^inventory tall   listar um item por linha\
-             ^long             sempre usar descrições longas\
-             ^normal           usar descrições longas e curtas\
-             ^noscript         desligar a transcrição\
-             ^notify on/off    ligar ou desligar avisos de pontuação\
-             ^nouns            mostrar configurações atuais de ~it~, ~him~, ~her~\
-             ^objects          listar os objetos que você carregou\
-             ^oops <word>      corrigir erro na entrada anterior\
-             ^places           listar os lugares que você visitou\
-             ^pronouns         mostrar configurações atuais de ~it~, ~him~, ~her~\
-             ^quit             sair do jogo\
-             ^quotes on/off    ligar ou desligar a exibição de citações\
-             ^restart          reiniciar o jogo\
-             ^restore          restaurar um jogo salvo de um arquivo\
-             ^save             salvar o jogo em um arquivo\
-             ^score            mostrar sua pontuação atual\
-             ^script on/off    iniciar ou parar a transcrição em arquivo\
-             ^short            sempre usar descrições curtas\
-             ^superbrief       sempre usar descrições curtas\
-             ^undo             desfazer o último comando, se possível\
-             ^unscript         desligar a transcrição\
-             ^verbose          sempre usar descrições longas\
-             ^verify           verificar se o arquivo da história está intacto\
-             ^version          informar versão e número do lançamento^";
+              ^breve            usar descricoes longas e curtas\
+              ^morrer           sair do jogo\
+              ^pontuacao        mostrar como sua pontuacao foi obtida\
+              ^inventario       listar seus pertences\
+              ^inventario largo listar inventario em paragrafos\
+              ^inventario alto  listar um item por linha\
+              ^longo             sempre usar descricoes longas\
+              ^normal            usar descricoes longas e curtas\
+              ^semtranscricao    desligar a transcricao\
+              ^notifica ligada/desligada ligar ou desligar avisos\
+              ^nomes             mostrar os pronomes atuais\
+              ^objetos           listar os objetos carregados\
+              ^ops <palavra>     corrigir erro na entrada anterior\
+              ^lugares            listar lugares visitados\
+              ^pronomes           mostrar os pronomes atuais\
+              ^sair               sair do jogo\
+              ^citacoes ligada/desligada ligar ou desligar citacoes\
+              ^reiniciar          reiniciar o jogo\
+              ^restaurar          restaurar um jogo salvo\
+              ^salvar             salvar o jogo em um arquivo\
+              ^pontos             mostrar sua pontuacao atual\
+              ^transcricao ligada/desligada iniciar ou parar a transcricao\
+              ^curto               sempre usar descricoes curtas\
+              ^superbreve          sempre usar descricoes curtas\
+              ^desfazer            desfazer o ultimo comando\
+              ^verboso             sempre usar descricoes longas\
+              ^verificar           verificar o arquivo da historia\
+              ^versao              informar versao e lancamento^";
 
         font on;
-         print "^Estes são comandos úteis que afetam o mundo do jogo:^";
+          print "^Estes sao comandos uteis que afetam o mundo do jogo:^";
 
         font off;
         print "\
-             ^again            repetir o último comando\
-             ^close <thing>    fechar um recipiente ou uma porta\
-             ^drop <thing>     largar um objeto\
-             ^enter <thing>    entrar em um objeto\
-             ^examine <thing>  examinar algo de perto\
-             ^get <thing>      pegar um objeto\
-             ^give x to y      oferecer um presente a alguém\
-             ^go <direction>   viajar em uma direção da bússola\
-             ^in               entrar (se não houver ambiguidade)\
-             ^look             descrever o que está ao redor\
-             ^look up x in y   procurar algo em um livro\
-             ^open <thing>     abrir um recipiente ou uma porta\
-             ^out              sair (se não houver ambiguidade)\
-             ^put x in y       pôr um objeto em um recipiente\
-             ^take <thing>     pegar um objeto\
-             ^unlock x with y  destrancar algo com uma chave\
-             ^wait             não fazer nada por um turno^";
+              ^novamente         repetir o ultimo comando\
+              ^feche <objeto>    fechar recipiente ou porta\
+              ^solte <objeto>    largar um objeto\
+              ^entre <objeto>    entrar em um objeto\
+              ^examine <objeto>  examinar algo de perto\
+              ^pegue <objeto>    pegar um objeto\
+              ^de x para y       oferecer algo a alguem\
+              ^va <direcao>      viajar pela bussola\
+              ^entre             entrar, se nao houver ambiguidade\
+              ^olhe              descrever os arredores\
+              ^consulte x em y   procurar algo em um livro\
+              ^abra <objeto>     abrir recipiente ou porta\
+              ^saia              sair, se nao houver ambiguidade\
+              ^ponha x em y      colocar algo em um recipiente\
+              ^pegue <objeto>    pegar um objeto\
+              ^destranque x com y abrir com uma chave\
+              ^espere            nao fazer nada por um turno^";
 
         font on;
-         print "^É claro que há muitos outros.^";
+          print "^E claro que ha muitos outros.^";
      3:
-         print "O jogo conhece várias abreviações úteis:^\
-             ^    g para again\
-             ^    i para inventory\
-             ^    l para look\
-             ^    n para north (e assim por diante)\
-             ^    o para oops\
-             ^    q para quit\
-             ^    x para examine\
-             ^    z para wait (abreviação de ~zzz~).^";
+          print "O jogo conhece varias abreviacoes uteis:^\
+              ^    g para novamente\
+              ^    i para inventario\
+              ^    l para olhar\
+              ^    n para norte (e assim por diante)\
+              ^    o para ops\
+              ^    q para sair\
+              ^    x para examinar\
+              ^    z para esperar (abreviacao de ~zzz~).^";
      4:
         style bold; print "CHRISTMINSTER"; style roman;
 
@@ -468,17 +468,16 @@ Array InstructionsChoices table [;
 
          style bold; print "^Créditos^"; style roman;
 
-         print "^Esta história jamais poderia ter sido escrita sem a \
-	    assistance of Graham Nelson, who wrote ~Inform~, the \
-	    adventure game compiler, whose game ~Curses~ rekindled my \
-	    enthusiasm for interactive fiction, who sent me 163 bugs \
-	    and suggestions during play-testing, and who patiently \
-	    answered each of my many queries.^";
+          print "^Esta historia jamais poderia ter sido escrita sem a \
+ 	    ajuda de Graham Nelson, que escreveu ~Inform~, o compilador \
+ 	    de aventuras cujo jogo ~Curses~ reacendeu meu entusiasmo pela \
+ 	    ficcao interativa, enviou 163 erros e sugestoes durante os \
+ 	    testes e respondeu pacientemente a minhas muitas perguntas.^";
 
          print "^Agradecimentos especiais a: Tavia Chalcraft, Robert Dickau e \
 	    Michael Kinyon.^";
 
-        print "^Many, many bugs found by: Jouni Alkio, Torbj|rn \
+         print "^Muitos erros foram encontrados por: Jouni Alkio, Torbj|rn \
 	    Anderson, Douglas Atkinson, Richard Barnett, Andrew \
 	    Benham, Simon Brind, Richard Brooksby, Erskin Cherry, \
 	    Andrew Clover, Robert A DeLisle, Jason Dyer, Kenneth Fair, \
@@ -493,11 +492,11 @@ Array InstructionsChoices table [;
 	    Salter, Marshall Sanderford, Mike Scott, P D S Shrimpton, \
 	    Dylan Thurston, Richard Tucker, Mikko Vuorinen, Mark \
 	    Wainwright, Jacob Solomon Weinstein, Kies Wiebering, \
-	    Brendon Wyber and Jeff Zahn.^";
+ 	    Brendon Wyber e Jeff Zahn.^";
 
-        print "^At the time of writing (November 1996), the author may \
-	    be contacted by electronic mail at the address \
-	    ~gdr11@@64cl.cam.ac.uk~.^";
+         print "^Na epoca da redacao (novembro de 1996), o autor podia ser \
+ 	    contatado por correio eletronico no endereco \
+ 	    ~gdr11@@64cl.cam.ac.uk~.^";
 
          style bold; print "^Notas de lançamento^"; style roman;
 
@@ -513,7 +512,7 @@ Array InstructionsChoices table [;
          style bold; print "Direitos autorais^"; style roman;
 
          print "^Este arquivo da história (chamado aqui de ~Christminster~) \
-            is copyright (c) Gareth Rees, August 1995 - November 1996.^";
+              tem direitos autorais (c) Gareth Rees, agosto de 1995 a novembro de 1996.^";
 
          style bold; print "^Licença^"; style roman;
 
@@ -524,17 +523,17 @@ Array InstructionsChoices table [;
              ~Christminster~. Cada licenciado é tratado como ~você~.^";
 
          print "^2. Você pode copiar e distribuir cópias literais de \
-            ~Christminster~ in any medium.^";
+             ~Christminster~ em qualquer meio.^";
 
          print "^3. Você pode cobrar uma taxa pelo ato de transferir uma \
              cópia.^";
 
          print "^4. Você não pode copiar, modificar ou distribuir \
-            ~Christminster~ except as expressly provided under this \
-            licence.^";
+             ~Christminster~, exceto conforme permitido expressamente por esta \
+             licenca.^";
 
          print "^5. Você não é obrigado a aceitar esta licença. Contudo, \
-            nothing else grants you permission to distribute \
+             nada mais lhe concede permissao para distribuir \
              ~Christminster~. Essa ação é proibida por lei se você não \
              aceitar esta licença. Portanto, ao distribuir \
              ~Christminster~, você indica que aceita esta licença \
@@ -548,40 +547,38 @@ Array InstructionsChoices table [;
              sem me pagar um centavo (mas leia primeiro a licença).^";
 
          print "^Se você escreveu uma aventura que seja shareware ou \
-            commercial, and if you enjoyed ~Christminster~ sufficiently \
-            that you think you would have paid for it if it weren't free \
-            of charge, then why not express your appreciation by sending \
-            me a registered copy of your own game?^";
+             comercial, e se voce gostou bastante de ~Christminster~ a ponto \
+             de achar que teria pago por ele se nao fosse gratuito, por que nao \
+             demonstrar seu apreco enviando-me uma copia registrada do seu jogo?^";
      7:
          print "Há um arquivo de ficção interativa e aventuras \
-            games at the German National Research Centre for Computer \
-             Ciência, mantido por Volker Blasius. Você pode obter arquivos \
+             jogos no Centro Nacional Alemao de Pesquisa em Informatica, \
+              mantido por Volker Blasius. Voce pode obter arquivos \
              do arquivo por FTP anônimo no endereço \
-            ~ftp.gmd.de~, in the directory ~/if-archive~.^";
+             ~ftp.gmd.de~, no diretorio ~/if-archive~.^";
 
          print "^O arquivo contém muitas aventuras gratuitas e shareware, \
-            games, a number of adventure game compilers, and lots of \
-            miscellaneous material relating to the genre.^";
+             jogos, varios compiladores de aventuras e muito material \
+             diverso relacionado ao genero.^";
 
          print "^~Christminster~ foi compilado usando ~Inform~, o compilador \
-            Nelson's compiler for adventure games. ~Inform~ takes a \
-            C-like source (the source for ~Christminster~, excepting the \
-            libraries that come with the compiler, is about 13,000 lines, \
-            or 440k) and outputs a ~story file~ that can be played on any \
-            of the public domain Infocom interpreters.^";
+             compilador de aventuras de Nelson. ~Inform~ recebe um codigo \
+             semelhante a C (a fonte de ~Christminster~, sem as bibliotecas, \
+             tem cerca de 13.000 linhas, ou 440k) e produz um ~arquivo de \
+             historia~ que pode ser jogado em qualquer interpretador Infocom \
+             de dominio publico.^";
 
          print "^~Inform~ pode ser obtido por FTP anônimo no arquivo de \
-            interactive fiction archive, in the directory \
+             arquivo de ficcao interativa, no diretorio \
             ~/if-archive/infocom/compilers/inform~^";
      8:
          print "^Se você estiver completamente sem saída e não conseguir avançar, \
-            then type ~help please~, which gives access to the hints \
-            system. There are explicit hints for the first two puzzles in \
-            the game, to get you started, and vague but helpful nudges in \
-            the right direction for the remainder of the game.^";
+             digite ~ajuda por favor~, que da acesso ao sistema de dicas. Ha \
+             dicas explicitas para os dois primeiros quebra-cabecas e pistas \
+             vagas, mas uteis, para o restante do jogo.^";
 
          print "^Se ainda não conseguir avançar, peça ajuda no grupo de notícias \
-            the Usenet newsgroup rec.games.int-fiction.^";
+             no grupo de noticias Usenet rec.games.int-fiction.^";
      default:
         new_line;
         i = (PuzzleArray-->(menu_item-9));
@@ -611,20 +608,21 @@ Array InstructionsChoices table [;
              frase imperativa, e o jogo tenta entender e executar seu comando. \
              Por exemplo, você pode digitar^";
 
-        print "^    > open the gate^";
+         print "^    > open the gate^";
+         print "^    (comando em inglês; em português, você pode usar ~abra o portão~)^";
 
          print "^e o jogo pode responder^";
 
-        print "^    Unfortunately, the gate is locked.\
-            ^    >^";
+         print "^    Infelizmente, o portao esta trancado.\
+             ^    >^";
 
          print "^Sem se deixar vencer, você tenta outra coisa:^";
 
-        print "^    > knock at gate\
-            ^    ~Come in!~ shouts a voice from inside.\
-            ^    The gate opens.\
-            ^    > go in\
-            ^    You enter the college ...^";
+         print "^    > bata no portao\
+             ^    ~Entre!~ grita uma voz la de dentro.\
+             ^    O portao se abre.\
+             ^    > entre\
+             ^    Voce entra na faculdade ...^";
 
          print "^e o jogo continua. Mas nem todos os quebra-cabeças serão tão \
              fáceis!^";
@@ -635,253 +633,225 @@ Array InstructionsChoices table [;
              óbvias não funcionarem, provavelmente você não pode fazer o que \
              queria e terá de resolver o problema de outra maneira.^";
      2:
-        print "The landscape of an adventure game is notionally divided \
-            into ~rooms~; often these really are rooms, but they can be \
-            larger places (such as streets or fields or woods) or smaller \
-            places (such as the northwest corner of the hall).^";
+          print "A paisagem de um jogo de aventura e dividida, em principio, \
+             em ~salas~; muitas vezes sao salas de verdade, mas tambem podem \
+             ser lugares maiores (como ruas, campos ou bosques) ou menores \
+             (como o canto noroeste do salao).^";
 
-        print "^The name of the room you are in appears at the left of \
-            the ~status line~ at the top of the screen, and you can get a \
-            description of what you can see by typing ~look~.^";
+         print "^O nome da sala em que voce esta aparece a esquerda da \
+             ~linha de status~ no alto da tela, e voce pode obter uma \
+             descricao do que ve digitando ~olhar~.^";
 
-        print "^To move from one room to another, you generally enter \
-            commands like^";
+         print "^Para passar de uma sala a outra, geralmente voce digita \
+             comandos como^";
 
-        print "^    go north^";
+         print "^    va norte^";
 
-        print "^or just ~north~ on its own (you are assumed to be blessed \
-            with an excellent sense of direction). Any of the eight \
-            compass points may be substituted for ~north~, and in some \
-            contexts the game also understands the directions ~in~, \
-            ~out~, ~up~ and ~down~.^";
+         print "^ou apenas ~norte~ (presume-se que voce tem um excelente \
+             senso de orientacao). Qualquer um dos oito pontos da bussola \
+             pode substituir ~norte~, e em alguns contextos o jogo tambem \
+             entende ~dentro~, ~fora~, ~cima~ e ~baixo~.^";
 
-        print "^When there is a particular landmark to head for, you may \
-            be able to avoid specifying a compass direction, and instead \
-            try one of these:^";
+         print "^Quando houver um marco especifico para alcancar, talvez voce \
+             possa evitar indicar uma direcao da bussola e tentar:^";
 
-        print "^    go through the big door\
-            ^    enter phone box\
-            ^    climb tree\
-            ^    cross bridge^";
+         print "^    va pela porta grande\
+             ^    entre na cabine telefonica\
+             ^    suba na arvore\
+             ^    atravesse a ponte^";
 
-        print "^Sometimes movement won't take you to a new room, but will \
-            let you enter and leave objects in the current room, for \
-            example:^";
+         print "^As vezes o movimento nao leva a uma sala nova, mas permite \
+             entrar em objetos da sala atual e sair deles, por exemplo:^";
 
-        print "^    enter car\
-            ^    sit in chair\
-            ^    stand on lawn^";
+         print "^    entre no carro\
+             ^    sente na cadeira\
+             ^    fique no gramado^";
 
-        print "^To leave these objects, you might type ~get out~ or \
-            ~stand up~ or ~exit~.^";
+         print "^Para sair desses objetos, voce pode digitar ~saia~, \
+             ~levante-se~ ou ~sair~.^";
 
-        print "^If you can get into the car and figure out how to turn \
-            the ignition on, then you may be able to drive it around; to \
-            do this, just use ~north~, ~south~, and so on. On the other \
-            hand, if you can't find the ignition keys, you might be \
-            reduced to trying^";
+         print "^Se conseguir entrar no carro e descobrir como ligar a ignicao, \
+             talvez possa dirigi-lo; para isso, use ~norte~, ~sul~ e assim \
+             por diante. Por outro lado, se nao encontrar as chaves da \
+             ignicao, talvez tenha de tentar^";
 
-        print "^    push car west^";
+         print "^    empurre o carro para oeste^";
      3:
-        print "You can try to pick something up with ~take thing~ and try \
-            to put it down with ~drop thing~. The command ~take \
-            inventory~ (or ~inventory~, or ~i~ for short) gives you a \
-            list of objects that you are carrying.^";
+         print "Voce pode pegar algo com ~pegue objeto~ e largar com ~solte \
+             objeto~. O comando ~pegue inventario~ (ou ~inventario~, ou \
+             ~i~ abreviado) lista os objetos que voce carrega.^";
 
-        print "^To look at an object more closely, ~examine~ it (~x~ for \
-            short).^";
+         print "^Para observar melhor um objeto, ~examine~-o (~x~ abreviado).^";
 
-        print "^Objects may be manipulated in many ways: put into (or on \
-            top of) other objects, pulled, pushed, turned, eaten, and so \
-            on. Here are some examples:^";
+         print "^Objetos podem ser manipulados de muitas maneiras: colocados \
+             dentro de outros ou sobre eles, puxados, empurrados, virados, \
+             comidos e assim por diante. Eis alguns exemplos:^";
 
-        print "^    take the white rabbit\
-            ^    put rabbit in the hat\
-            ^    take rabbit out of the hat\
-            ^    look in the hat\
-            ^    unlock brass door with copper key\
-            ^    open door\
-            ^    offer shopkeeper the silver coin\
-            ^    give gold coin to merchant\
-            ^    turn the dial\
-            ^    turn on the lamp\
-            ^    light candle with match\
-            ^    empty sack into chest\
-            ^    put picture on mantelpiece\
-            ^    look under the wooden desk^";
+         print "^    pegue o coelho branco\
+             ^    ponha o coelho no chapeu\
+             ^    tire o coelho do chapeu\
+             ^    olhe no chapeu\
+             ^    destranque a porta de latao com a chave de cobre\
+             ^    abra a porta\
+             ^    ofereca a moeda de prata ao lojista\
+             ^    de a moeda de ouro ao comerciante\
+             ^    vire o disco\
+             ^    acenda o lampiao\
+             ^    acenda a vela com o fosforo\
+             ^    esvazie a bolsa no bau\
+             ^    ponha o quadro sobre a lareira\
+             ^    olhe sob a escrivaninha de madeira^";
 
-        print "^Some commands can act upon more than one object. ~take \
-            all~ will attempt to pick up all the loose items in the room; \
-            ~drop all~ will drop everything you're carrying (except for \
-            any clothing you're wearing). If you found a packing case \
-            with a number of things in it, you could type commands like:^";
+         print "^Alguns comandos podem agir sobre mais de um objeto. ~pegue \
+             tudo~ tentara pegar todos os itens soltos na sala; ~solte tudo~ \
+             largara tudo que voce carrega, exceto a roupa que veste. Se \
+             encontrasse um bau com varias coisas, poderia digitar:^";
 
-        print "^    get teddy bear, rabbit and piglet\
-            ^    remove everything but the brass key from the packing case\
-            ^    get all the coins except gold, silver and bronze^";
+         print "^    pegue o urso, o coelho e o leitão\
+             ^    remova tudo menos a chave de latao do bau\
+             ^    pegue todas as moedas exceto as de ouro, prata e bronze^";
 
-        print "^If you are not explicit enough, the game will try to \
-            deduce what you meant, and if it succeeds it will tell you \
-            what it deduced. For example, in reply to ~get teddy bear, \
-            rabbit and piglet~, the game might say^";
+         print "^Se voce nao for explicita o bastante, o jogo tentara deduzir \
+             o que quis dizer e, se conseguir, contara o que deduziu. Por \
+             exemplo, em resposta a ~pegue o urso, o coelho e o leitão~, \
+             o jogo pode dizer^";
 
-        print "^    (from the packing case)^";
+         print "^    (da caixa de madeira)^";
 
-        print "^so that you know what has been assumed on your behalf. If \
-            there had been two rabbits you might have meant, it would \
-            reply with^";
+         print "^assim voce sabe o que foi presumido em seu nome. Se houvesse \
+             dois coelhos possiveis, ele responderia^";
 
-        print "^    Which do you mean, the white rabbit or the Welsh \
-            rabbit?^";
+         print "^    Voce quer dizer o coelho branco ou o coelho gales?^";
 
-        print "^You may tell it which (or reply ~either~ or ~both~ or \
-            ~all~), or else give up and do something else instead. The \
-            game can gradually accumulate information about a command, \
-            for example:^";
+         print "^Voce pode indicar qual (ou responder ~qualquer~, ~ambos~ ou \
+             ~todos~), ou desistir e fazer outra coisa. O jogo pode acumular \
+             informacoes gradualmente sobre um comando, por exemplo:^";
 
-        print "^    > unlock door\
-            ^    Which door do you mean, the big door or the small door?\
-            ^    > big\
-            ^    What do you want to unlock the big door with?\
-            ^    > the brass key\
-            ^    Which brass key do you mean, the brass doorkey or the \
-            Brass City key?\
-            ^    > either\
-            ^    (the brass doorkey)\
-            ^    That doesn't seem to fit the lock.^";
+         print "^    > destranque a porta\
+             ^    Qual porta, a grande ou a pequena?\
+             ^    > grande\
+             ^    Com que voce quer destrancar a porta grande?\
+             ^    > a chave de latao\
+             ^    Qual chave de latao, a da porta ou a da Cidade do Latao?\
+             ^    > qualquer\
+             ^    (a chave da porta)\
+             ^    Essa chave nao parece servir na fechadura.^";
 
-        print "^If you don't mind which object you use, you can always \
-            say something like^";
+         print "^Se nao importa qual objeto usar, voce pode dizer algo como^";
 
-        print "^    put a coin in the slot^";
+         print "^    ponha uma moeda na abertura^";
 
-        print "^and the game will make a sensible choice and tell you \
-            what it was.^";
+         print "^e o jogo fara uma escolha sensata e contara qual foi.^";
 
-        print "^Sometimes the game deduces that you wish to do something \
-            that you didn't explicitly say you wanted to. In such \
-            circumstances, it will tell you what it assumed on your \
-            behalf. For example:^";
+         print "^As vezes o jogo deduz que voce quer fazer algo que nao disse \
+             explicitamente. Nesses casos, ele contara o que presumiu. Por exemplo:^";
 
-        print "^    > give banana to gorilla\
-            ^    (first taking the banana)\
-            ^    The gorilla devours the banana, but it still won't let \
-            you pass.^";
+         print "^    > de a banana ao gorila\
+             ^    (pegando primeiro a banana)\
+             ^    O gorila devora a banana, mas ainda nao deixa voce passar.^";
 
-        print "^The object ~it~ refers to the last thing manipulated, and \
-            ~him~ or ~her~ to the last person of the appropriate sex to \
-            be mentioned.^";
+         print "^O objeto ~isso~ se refere a ultima coisa manipulada, e ~ele~ \
+             ou ~ela~, a ultima pessoa do sexo correspondente mencionada.^";
 
-        print "^Sometimes an object will be mentioned in the description \
-            of a room purely for atmospheric value and will play no \
-            other part in the game. If you try to refer to such an \
-            object, the game is liable to respond^";
+         print "^As vezes um objeto e mencionado na descricao de uma sala apenas \
+             por ambientacao e nao tem outra funcao no jogo. Se tentar se \
+             referir a ele, o jogo provavelmente respondera^";
 
-        print "^    You don't need to refer to that.^";
+         print "^    Voce nao precisa se referir a isso.^";
 
-        print "^Your best course of action is to leave these non-existent \
-            objects alone.^";
+         print "^O melhor e deixar esses objetos inexistentes em paz.^";
      4:
-        print "To say a single word, or a few words, to someone, you can \
-            use commands like^";
+         print "Para dizer uma palavra ou algumas palavras a alguem, use \
+             comandos como^";
 
-        print "^    answer yes\
-            ^    say boo to goose\
-            ^    ask chemist about nitrogen\
-            ^    ask Einstein about the theory of relativity\
-            ^    ask the police constable the time^";
+         print "^    responda sim\
+             ^    diga bu ao ganso\
+             ^    pergunte ao quimico sobre nitrogenio\
+             ^    pergunte a Einstein sobre a teoria da relatividade\
+             ^    pergunte as horas ao policial^";
 
-        print "^and the characters in ~Christminster~ tend to be quite \
-            talkative when you approach them like this.^^To order someone \
-            about, you can use commands like^";
+         print "^e os personagens de ~Christminster~ tendem a ser bastante \
+             falantes quando abordados assim.^^Para dar ordens a alguem, \
+             use comandos como^";
 
-        print "^    police constable, give me your helmet\
-            ^    jailor, unlock the cell door\
-            ^    young man, go west\
-            ^    Sherlock, follow me^";
+         print "^    policial, de-me seu capacete\
+             ^    carcereiro, destranque a porta da cela\
+             ^    rapaz, va para oeste\
+             ^    Sherlock, siga-me^";
 
-        print "^though, of course, they are not guaranteed to obey you!^";
+         print "^embora, naturalmente, nao haja garantia de que obedecam!^";
      5:
-        print "The command ~read book~ will provide a quick summary of \
-            the contents of a book, but to get more information from \
-            certain texts you may have to look things up.^^To look up a \
-            single-word subject, you can type^";
+         print "O comando ~leia livro~ fornece um resumo rapido do conteudo \
+             de um livro, mas para obter mais informacoes de certos textos \
+             talvez seja preciso consultar assuntos.^^Para consultar um \
+             assunto de uma palavra, digite^";
 
-        print "^    look up Julius^";
+         print "^    consulte Julius^";
 
-        print "^(where there is only one book you could have meant), or^";
+         print "^(quando houver apenas um livro possivel), ou^";
 
-        print "^    look up Claudius in the Twelve Caesars\
-            ^    consult Suetonius about Augustus^";
+         print "^    consulte Claudius em Os Doze Césares\
+             ^    consulte Suetonius sobre Augustus^";
 
-        print "^Where you have a more precise reference to hand, you can \
-            try commands like^";
+         print "^Quando tiver uma referencia mais precisa, tente comandos como^";
 
-        print "^    read page 256 of the Decline and Fall\
-            ^    look up page 7 in Pliny\
-            ^    look up Genesis 14 in Bible^";
+         print "^    leia a pagina 256 de Declínio e Queda\
+             ^    consulte a pagina 7 em Plinio\
+             ^    consulte Genesis 14 na Biblia^";
      6:
-        print "To save the current state of your game into a file, type \
-            ~save~; to go back to a saved game, type ~restore~. These \
-            commands will ask you for the name of the file, so there is \
-            no reason why you shouldn't have as many saved games as you \
-            have room for on your computer.^";
+         print "Para salvar o estado atual do jogo em um arquivo, digite \
+             ~salvar~; para voltar a um jogo salvo, digite ~restaurar~. \
+             Esses comandos pedirao o nome do arquivo, portanto voce pode \
+             ter quantos jogos salvos couberem em seu computador.^";
 
-        print "^To start ~Christminster~ again from the beginning, type \
-            ~restart~, and to stop playing, type ~quit~.^";
+         print "^Para recomecar ~Christminster~ desde o inicio, digite \
+             ~reiniciar~; para parar de jogar, digite ~sair~.^";
 
-        print "^If you want to save a transcript of your game for later \
-            perusal, use the command ~script on~ to start transcription \
-            (the game will prompt you for a file name) and ~script off~ \
-            to stop.^";
+         print "^Para salvar uma transcricao do jogo e le-la depois, use \
+             ~transcricao ligada~ para iniciar (o jogo pedira um nome de \
+             arquivo) e ~transcricao desligada~ para parar.^";
 
-        print "^The command ~score~ will give you your score, and \
-            ~fullscore~ or ~full~ will give a more detailed description \
-            of how you scored those points. When your score changes, you \
-            are notified of the fact by messages like^";
+         print "^O comando ~pontos~ mostra sua pontuacao, e ~pontuacao~ ou \
+             ~completa~ da uma descricao mais detalhada de como voce obteve \
+             esses pontos. Quando sua pontuacao muda, voce recebe mensagens \
+             como^";
 
-        print "^    [Your score has just gone up by one point]^";
+         print "^    [Sua pontuacao acaba de aumentar um ponto]^";
 
-        print "^The command ~notify off~ turns these messages off, and \
-            ~notify on~ turns them back on again.^";
+         print "^O comando ~notifica desligada~ desliga essas mensagens, e \
+             ~notifica ligada~ torna a liga-las.^";
 
-        print "^Usually the game will give you a long description of a \
-            location when you first visit it and short descriptions \
-            thereafter (unless you explicitly request a long one with \
-            ~look~). If you get bored of the long descriptions, you can \
-            turn them off with ~short~ or ~superbrief~. If you're \
-            forgetful and always want long descriptions, type ~long~ or \
-            ~verbose~. To restore the usual state of affairs, type \
-            ~normal~ or ~brief~.^";
+         print "^Normalmente o jogo fornece uma descricao longa do local na \
+             primeira visita e descricoes curtas depois (a menos que voce \
+             peca uma longa com ~olhar~). Se se cansar das descricoes longas, \
+             desligue-as com ~curto~. Se quiser sempre descricoes longas, \
+             digite ~longo~ ou ~verboso~. Para voltar ao normal, digite \
+             ~normal~ ou ~breve~.^";
 
-        print "^~Christminster~ displays quotations in boxes from time to \
-            time; if you don't like this feature, you can turn it off \
-            using ~quotes off~ and back on again with ~quotes on~.^";
+         print "^~Christminster~ exibe citacoes em caixas de tempos em tempos; \
+             se nao gostar, desligue-as com ~citacoes desligadas~ e ligue-as \
+             novamente com ~citacoes ligadas~.^";
 
-        print "^If you regret your last command, then you can type ~undo~ \
-            to go back to the state before you typed it (you can even \
-            type ~undo~ at the ~Would you like to RESTART, RESTORE or \
-            QUIT?~ prompt after you have died). However, the ~undo~ \
-            command doesn't work on all interpreters, and you can only \
-            undo one command.^";
+         print "^Se se arrepender do ultimo comando, digite ~desfazer~ para \
+             voltar ao estado anterior (ate mesmo no prompt ~RECOMECAR, \
+             RESTAURAR ou SAIR?~ depois de morrer). Contudo, ~desfazer~ nao \
+             funciona em todos os interpretadores e so desfaz um comando.^";
 
-        print "^The commands described above don't cause things to happen \
-            in the game and don't take up any game time; nor do any \
-            commands you type which the game fails to understand.^";
+         print "^Os comandos acima nao causam eventos no jogo nem consomem \
+             tempo; o mesmo vale para comandos que o jogo nao entende.^";
 
-        print "^Some simple typing mistakes can be correct with ~oops~ \
-            followed by the word you had intended to type, for example:^";
+         print "^Alguns erros simples de digitacao podem ser corrigidos com \
+             ~ops~ seguido da palavra pretendida, por exemplo:^";
 
-        print "^    take the swrod from the stone\
-            ^    oops sword^";
+         print "^    pegue a espada da pedra\
+             ^    ops espada^";
 
-        print "^You can repeat the last command you typed with ~again~, \
-            you can do nothing for a game turn by typing ~wait~, and you \
-            can string several commands into a single input by separating \
-            them with ~then~ (or commas, or full stops), for example:^";
+         print "^Voce pode repetir o ultimo comando com ~novamente~, nao fazer \
+             nada por um turno com ~espere~, e encadear varios comandos em uma \
+             entrada separando-os com ~entao~ (ou virgulas ou pontos), por exemplo:^";
 
-        print "^    take coin. south. again. wait. put coin in box\
-            ^    unwrap chocolate then eat it^";
+         print "^    pegue a moeda. sul. novamente. espere. ponha a moeda na caixa\
+             ^    desembrulhe o chocolate entao coma-o^";
     }
 ];
 
@@ -923,14 +893,14 @@ Array AmusingChoices table [;
          chão, escondê-la na bolsa (e talvez deixar a bolsa cair), \
          ou entregá-la ao policial.";
      2:
-         "O policial é claramente um ornitólogo. O artista de rua consegue \
-         distraí-lo num momento crucial apontando para um pássaro imaginário. \
-         Tente também ~show the feather to the constable~ e \
-         ~constable, arrest the busker~.";
+          "O policial é claramente um ornitólogo. O artista de rua consegue \
+          distraí-lo num momento crucial apontando para um pássaro imaginário. \
+          Tente também ~mostre a pena ao policial~ e \
+          ~policial, prenda o artista de rua~.";
      3:
-         "Três. Christabel chora se Jarboe a atingir (tente ~attack Jarboe~); \
+          "Três. Christabel chora se Jarboe a atingir (tente ~ataque Jarboe~); \
          Edward chora se pensar que seu papagaio morreu (tente \
-         ~show feather to Edward~); ou Christabel pode atacar a si mesma \
+          ~mostre a pena a Edward~); ou Christabel pode atacar a si mesma \
          com o alfinete.";
      4:
          "Oito. Christabel pode ser presa pelo policial (por atacá-lo ou ao \
@@ -941,62 +911,53 @@ Array AmusingChoices table [;
          pode morrer queimada no incêndio; pode salvar o irmão mas não \
          conseguir reanimá-lo; ou pode vencer!";
      5:
-         "Encontrar o livrinho no escritório de Bungay; obter a Bíblia \
-	and the books by Raymond Lully, Eugenius Philalethes and \
-	Dmitri Zinovic; hiding Malcolm's lab book from Doctor Jarboe; \
-	attending Evensong; climbing the Wistaria; and finding both \
-	hidden exits from the library.";
+          "Encontrar o livrinho no escritorio de Bungay; obter a Biblia e \
+          os livros de Raymond Lully, Eugenius Philalethes e Dmitri Zinovic; \
+          esconder o livro de laboratorio de Malcolm do Doutor Jarboe; \
+          assistir a Evensong; subir na Wistaria; e encontrar as duas saidas \
+          escondidas da biblioteca.";
      6:
         print_ret "Professor Sir Joseph Arkwright, John de Biblioll, \
             William Canynges, Edward Farber, Jude Fawley, Henry Garton, \
             Sir William Hawksmoor, Thomas Heydon, Edmund Lilly, Robert \
             Mayow, Tobias Meldrew, Simon Noble, Eugenius Philalethes, \
             Bernard Starkey, Francis Tausend, Elias Tymme, Thomas Vaughan \
-            and ", (PrintOMN) 0, ".";
+             e ", (PrintOMN) 0, ".";
      7:
          "Comandos secretos de depuração? Que comandos secretos de depuração?";
      8:
-        print "~Christminster~ is the counterpart to Oxford in Thomas \
-	    Hardy's ~Wessex~ novels, and Biblioll College is the \
-	    college to which Jude Fawley fails to gain acceptance in \
-	    ~Jude the Obscure~ (though he later became a stonemason \
-	    and in the game you can see his initials on the gargoyle). \
-	    The name ~Biblioll~ puns on the real Oxford college \
-	    Balliol and on the scholars' love of books and of \
-	    alcohol.^";
+         print "~Christminster~ e a contraparte de Oxford nos romances de Thomas \
+ 	    Hardy sobre ~Wessex~, e o Biblioll College e a faculdade que Jude \
+ 	    Fawley nao consegue frequentar em ~Jude, o Obscuro~ (embora depois \
+ 	    se torne pedreiro e, no jogo, suas iniciais possam ser vistas na \
+ 	    gargula). O nome ~Biblioll~ faz um trocadilho com a faculdade real \
+ 	    de Oxford, Balliol, e com o amor dos estudiosos por livros e alcool.^";
 
-        print "^Some of the story ideas were originally inspired by the \
-            short story ~The Ragthorn~ by Garry Kilworth and Robert \
-            Holdstock, and other elements are influenced by ~Foucault's \
-            Pendulum~ by Umberto Eco.^";
+         print "^Algumas ideias da historia foram inspiradas pelo conto \
+             ~The Ragthorn~, de Garry Kilworth e Robert Holdstock, e outros \
+             elementos receberam influencia de ~O Pendulo de Foucault~, de \
+             Umberto Eco.^";
 
-        print "^The plan of the college is based on parts of Christ's \
-	    College, Cambridge, where I studied for my bachelor's \
-	    degree, and the history is mostly based on that of Balliol \
-	    College, Oxford, the story of the founder being that of \
-	    John de Balliol. The game is set at some unidentifiable \
-	    point in the postwar era, after the introduction of \
-	    telephones, but long before Biblioll College admitted \
-	    women (in Cambridge, colleges started the transition to \
-	    co-education in about 1980, and the last men-only college \
-	    surrendered, under pressure to increase its academic \
-	    standards, ten years later).^";
+         print "^A planta da faculdade se baseia em partes do Christ's \
+ 	    College, Cambridge, onde estudei, e a historia se baseia sobretudo \
+ 	    na do Balliol College, Oxford, sendo a historia do fundador a de \
+ 	    John de Balliol. O jogo se passa em algum ponto indefinido do \
+ 	    pos-guerra, depois da introducao dos telefones, mas muito antes de \
+ 	    o Biblioll College admitir mulheres.^";
 
-        print "^The Egyptian history is rather romanticised, but \
-            Akhenaten was a real pharaoh, and the Osiris ritual is real \
-            too (apart from the spurious mentions of honey). The alchemy \
-            has foundations in truth; Raymond Lully, Thomas Vaughan and \
-            Eugenius Philalethes were real alchemists, who did write some \
-            of the things I attributed to them. The names of ingredients \
-            are genuine, though the things they code for are invented, as \
-            are the recipe and the nature of the elixir.^";
+         print "^A historia egipcia e bastante romantizada, mas \
+             Akhenaten foi um farao real, e o ritual de Osiris tambem e real \
+             (exceto pelas mencoes inventadas ao mel). A alquimia tem bases \
+             verdadeiras; Raymond Lully, Thomas Vaughan e Eugenius Philalethes \
+             foram alquimistas reais. Os nomes dos ingredientes sao genuinos, \
+             embora aquilo que representam seja inventado, assim como a \
+             receita e a natureza do elixir.^";
 
-        print "^If you're interested in following up this part of the \
-            story, I recommend ~The Alchemists~ by Ronald Pearsall; and \
-            to demonstrate that believers in alchemy still exist, try \
-            ~Alchemists and Gold~ by Jacques Sadoul.^^Oh, and the food \
-            served at commemoration feasts is usually better than \
-            depicted here.^";
+         print "^Se tiver interesse em seguir esta parte da historia, recomendo \
+             ~The Alchemists~, de Ronald Pearsall; e, para demonstrar que \
+             ainda existem crentes na alquimia, tente ~Alchemists and Gold~, \
+             de Jacques Sadoul.^^Ah, e a comida servida nos banquetes \
+             comemorativos costuma ser melhor que a mostrada aqui.^";
     }
 ];
 
@@ -1005,7 +966,8 @@ Array AmusingChoices table [;
     return 1;
 ];
 
-Verb meta "help"
-    *                                   -> Help
-    * "please"                          -> HelpPlease
-    * HelpWord                          -> HelpThing;
+Verb meta "ajuda" "help"
+     *                                   -> Help
+     * "por" "favor"                    -> HelpPlease
+     * "please"                          -> HelpPlease
+     * HelpWord                          -> HelpThing;
